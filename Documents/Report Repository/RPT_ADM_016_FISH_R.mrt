@@ -1,0 +1,2319 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>User ID=artauser;Integrated Security=False;Data Source=.;Initial Catalog=iScsc;Password=artasport_anardb;Persist Security Info=True</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <iQuery Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>iQuery</Alias>
+        <Columns isList="true" count="31">
+          <value>RQID,System.Int64</value>
+          <value>PERS_RQST_DATE,System.String</value>
+          <value>USER_NAME,System.String</value>
+          <value>CLUB_DESC,System.String</value>
+          <value>CLUB_TELL_PHON,System.String</value>
+          <value>CLUB_CELL_PHON,System.String</value>
+          <value>CLUB_POST_ADRS,System.String</value>
+          <value>CLUB_ZIP_CODE,System.String</value>
+          <value>FILE_NO,System.Int64</value>
+          <value>FNGR_PRNT_DNRM,System.String</value>
+          <value>SERV_NO_DNRM,System.String</value>
+          <value>SEX_DESC,System.String</value>
+          <value>FRST_NAME_DNRM,System.String</value>
+          <value>LAST_NAME_DNRM,System.String</value>
+          <value>NATL_CODE_DNRM,System.String</value>
+          <value>CELL_PHON_DNRM,System.String</value>
+          <value>TELL_PHON_DNRM,System.String</value>
+          <value>POST_ADRS_DNRM,System.String</value>
+          <value>PERS_BRTH_DATE,System.String</value>
+          <value>AGE,System.Int32</value>
+          <value>PYDT_LIST,System.String</value>
+          <value>PYDT_DSCT_LIST,System.String</value>
+          <value>PYMT_LIST,System.String</value>
+          <value>SUM_EXPN_PRIC,System.Int64</value>
+          <value>SUM_RCPT_EXPN_PRIC,System.Int64</value>
+          <value>SUM_PYMT_DSCN_DNRM,System.Int64</value>
+          <value>DEBT_AMNT,System.Int64</value>
+          <value>SUM_EXPN_PRIC_DESC,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>AMNT_UNIT_TYPE_DESC,System.String</value>
+          <value>SUNT_DESC,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>iQuery</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>SELECT Request.RQID, 
+	dbo.GET_MTOS_U(Request.RQST_DATE) AS PERS_RQST_DATE,
+	u.USER_NAME AS CRET_BY,
+	c.CLUB_DESC, 
+	c.TELL_PHON AS CLUB_TELL_PHON, 
+	c.CELL_PHON AS CLUB_CELL_PHON, 
+	c.POST_ADRS AS CLUB_POST_ADRS,
+	c.ZIP_CODE AS CLUB_ZIP_CODE,
+	f.FILE_NO,
+	f.FNGR_PRNT_DNRM,
+	f.SERV_NO_DNRM,
+	s.DOMN_DESC AS SEX_DESC,
+	f.FRST_NAME_DNRM,
+	f.LAST_NAME_DNRM,
+	f.NATL_CODE_DNRM, 
+	f.CELL_PHON_DNRM,
+	f.TELL_PHON_DNRM,
+	f.POST_ADRS_DNRM,
+	dbo.GET_MTOS_U(f.BRTH_DATE_DNRM) AS PERS_BRTH_DATE,
+	DATEDIFF(YEAR, f.BRTH_DATE_DNRM, GETDATE()) + 1 AS AGE,
+(SELECT 
+	(SELECT (pd.PYDT_DESC + ' ( ' + dbo.GET_NTOF_U(pd.EXPN_PRIC) + N' - ' + CAST(pd.QNTY AS VARCHAR(10)) + ' )' + ', ')       
+	         FROM dbo.Payment_Detail pd
+           WHERE pd.Pymt_Rqst_Rqid = rr.Rqst_Rqid
+             FOR XML PATH(''), TYPE)
+         .value('text()[1]', 'NVARCHAR(MAX)')) AS PYDT_LIST,
+(SELECT 
+	(SELECT (e.EXPN_DESC + ' ( ' + dbo.GET_NTOF_U(pd.AMNT) + N' - ' + dp.DOMN_DESC + ' )' + ', ')       
+	FROM dbo.Payment_Discount pd LEFT OUTER JOIN dbo.Expense e ON (pd.EXPN_CODE = e.CODE), 
+	         dbo.[D$PYDS] dp
+           WHERE pd.Pymt_Rqst_Rqid = rr.Rqst_Rqid
+             AND pd.EXPN_CODE = e.CODE
+             AND pd.AMNT_TYPE = dp.VALU
+             FOR XML PATH(''), TYPE)
+         .value('text()[1]', 'NVARCHAR(MAX)')) AS PYDT_DSCT_LIST,
+(SELECT 
+	(SELECT (dbo.GET_NTOF_U(pm.AMNT) + ' ( ' + dr.DOMN_DESC + ' )' + ', ')       
+	FROM dbo.Payment_Method pm, dbo.[D$RCMT] dr
+           WHERE pm.Pymt_Rqst_Rqid = p.RQST_RQID
+             AND pm.RCPT_MTOD = dr.VALU
+             FOR XML PATH(''), TYPE)
+         .value('text()[1]', 'NVARCHAR(MAX)')) AS PYMT_LIST,
+         dbo.GET_NTOS_U(p.SUM_EXPN_PRIC) AS SUM_EXPN_PRIC_DESC,
+         p.SUM_EXPN_PRIC,
+         p.SUM_RCPT_EXPN_PRIC,
+         p.SUM_PYMT_DSCN_DNRM,
+         (p.SUM_EXPN_PRIC - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) AS DEBT_AMNT,
+         a.DOMN_DESC AS AMNT_UNIT_TYPE_DESC,
+         su.SUNT_DESC
+  FROM dbo.Request , dbo.Request_Row rr, dbo.Fighter f,
+       dbo.Payment p, dbo.V#Users u, dbo.Club c, dbo.[D$ATYP] a, dbo.[D$SXDC] s,
+       dbo.Sub_Unit su
+ WHERE Request.RQID = rr.RQST_RQID
+   AND rr.FIGH_FILE_NO = f.FILE_NO
+   AND rr.RQST_RQID = p.RQST_RQID
+   AND Request.CRET_BY = u.USER_DB
+   AND p.AMNT_UNIT_TYPE_DNRM = a.VALU
+   AND f.SEX_TYPE_DNRM = s.VALU
+   AND f.CLUB_CODE_DNRM = c.CODE
+   AND Request.RQTP_CODE = '016'
+   AND f.Orgn_Code_Dnrm = su.Orgn_Code_Dnrm
+   AND {WhereClause}</SqlCommand>
+      </iQuery>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>All;Black;3;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="3">
+        <DataiQuery Ref="5" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,4,200,133.95</ClientRectangle>
+          <Components isList="true" count="45">
+            <Text1 Ref="6" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,4,56,6.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>شماره درخواست : {iQuery.RQID}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text1>
+            <Text2 Ref="7" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,10,56,6.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11</Font>
+              <Guid>9ba2055b51cb47ce80060775af7cbbc2</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>تاریخ درخواست : {iQuery.PERS_RQST_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text2>
+            <Text3 Ref="8" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,16,56,6.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11</Font>
+              <Guid>0b1be490f14d40d592c2dd0cf38999b2</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>کاربر ثبت کننده : {iQuery.CRET_BY}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text3>
+            <Text5 Ref="9" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>60,4,96,18.1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11,Bold</Font>
+              <Guid>431ff796f84b4f02855fb3429785ff44</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.CLUB_DESC}
+شماره تماس {iQuery.CLUB_CELL_PHON} - {iQuery.CLUB_TELL_PHON}
+{iQuery.CLUB_POST_ADRS} - کد پستی {iQuery.CLUB_ZIP_CODE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text5>
+            <Text6 Ref="10" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>166,40,22,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,14</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.SEX_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text10 Ref="11" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>114,40,50,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,14,Bold</Font>
+              <Guid>386394452b29460f870c6c4a6015dc3e</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.FRST_NAME_DNRM} {iQuery.LAST_NAME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text9 Ref="12" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>136,28,52,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>42bf55a5505b4a4d95368596a824d40b</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>شماره پرونده : {iQuery.FILE_NO}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text13 Ref="13" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>76,40,36,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>d9252f93f8f24dcda30a18d637eb0ed2</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>متولد تاریخ : {iQuery.PERS_BRTH_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text14 Ref="14" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>122,28,12,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>568c7564b6664100bfb5dcf8d82dfea9</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>کد ملی</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text15 Ref="15" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>172,48,16,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>5cec1a568bad4cc2a4a179919a6f9f68</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>تلفن همراه</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text16 Ref="16" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>96,48,16,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>dd8e544f51944e68b20d9f8d1fc26cdb</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>تلفن ثابت</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <Text17 Ref="17" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>46,40,10,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>76df62c24666453dbb59a6270d647281</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>آدرس</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text17>
+            <Text18 Ref="18" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>4,70,192,22</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>c97e7975a280431191e04ba6e175950d</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.PYDT_LIST}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text18>
+            <Text19 Ref="19" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>102,104,88,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,15,Bold</Font>
+              <Guid>b93faf904c2742da8e0ac48cf8d2dc7b</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>هزینه : {Format("{0:N0}", iQuery.SUM_EXPN_PRIC )} {iQuery.AMNT_UNIT_TYPE_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
+            <Text20 Ref="20" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>10,104,90,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,13,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>مبلغ به حروف : {iQuery.SUM_EXPN_PRIC_DESC}  {iQuery.AMNT_UNIT_TYPE_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+            <Text21 Ref="21" type="Text" isKey="true">
+              <Border>Top, Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>102,112,88,20</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>مبلغ تخفیف : {Format("{0:N0}",iQuery.SUM_PYMT_DSCN_DNRM)} {iQuery.AMNT_UNIT_TYPE_DESC}
+مبلغ پرداختی : {Format("{0:N0}",iQuery.SUM_RCPT_EXPN_PRIC)} {iQuery.AMNT_UNIT_TYPE_DESC}
+مبلغ مانده : {Format("{0:N0}", iQuery.DEBT_AMNT)} {iQuery.AMNT_UNIT_TYPE_DESC}
+</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text21>
+            <Text24 Ref="22" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>120,28,2,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>93361a4022344392bada8ffdac94587e</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text24>
+            <Text25 Ref="23" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>96,28,24,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>f1c8f2a6be8a4d9aae119d82c149389e</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.NATL_CODE_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text25>
+            <Text26 Ref="24" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>170,48,2,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>3bfe8d8bdbe842f794f5162e7306a577</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text26>
+            <Text27 Ref="25" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>94,48,2,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>6d41e9f0000546c4a544161d801a4e97</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text27>
+            <Text28 Ref="26" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>114,48,56,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>60a89f596c364953b7423c69067ea443</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.CELL_PHON_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text28>
+            <Text29 Ref="27" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>66,48,28,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>efb36594801244c58c2686d4dc84418d</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.TELL_PHON_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text29>
+            <Text30 Ref="28" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>6,40,38,22</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>5a5a4e91addb4c218b136745648d6356</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text30</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{iQuery.POST_ADRS_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text30>
+            <Text31 Ref="29" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>44,40,2,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>8daeac9614c2479f988142ad442052eb</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text31</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text31>
+            <Image1 Ref="30" type="Image" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>156,0,40,26</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Enabled>False</Enabled>
+              <File>\\localhost\Report Repository\Logo\Logo.jpeg</File>
+              <Guid>e00e40c64f4942a58df8e2e4ba406db5</Guid>
+              <Name>Image1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Stretch>True</Stretch>
+            </Image1>
+            <Text22 Ref="31" type="Text" isKey="true">
+              <Border>None;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>58,40,16,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>58a8cf07b0d44e7781b77b03edd32597</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>سن : {iQuery.AGE}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+            <Text4 Ref="32" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>20,92,158,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>1053aa612d2b4e46a551ef767489dc91</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.PYDT_DSCT_LIST}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text4>
+            <Text7 Ref="33" type="Text" isKey="true">
+              <Border>Top, Right;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>4,118,98,14</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,11,Bold</Font>
+              <Guid>7100a63b28b84305ba5a5c6fdd7c070b</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.PYMT_LIST}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text7>
+            <Text8 Ref="34" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>4,64,192,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>fd668d7f702e4d15ba26843eb47a2832</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>شرح خدمات</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text8>
+            <Text11 Ref="35" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>90,56,22,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>ff335926382f464fbb6ef939a4a59284</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>شماره اشتراک</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text32 Ref="36" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>88,56,2,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>21dd7bf49f4440c5ba075b9dcfa2bc60</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text32</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text32>
+            <Text33 Ref="37" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>66,56,22,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>8a8325fb005b44db824ea4650492e975</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text33</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.SERV_NO_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text33>
+            <Text34 Ref="38" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>180,92,16,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>ca00b13a270b4e4381820ae59c991393</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text34</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>توضیحات</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text34>
+            <Text35 Ref="39" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>178,92,2,8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>ff9c3a7f6f2545e7a9a0213542567448</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text35</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text35>
+            <Text36 Ref="40" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>158,56,30,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>cdaf5a9bbd3b42b5b38a9edb99d6d89a</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text36</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>شرکت طرف قرارداد</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+            </Text36>
+            <Text37 Ref="41" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>156,56,2,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>28375a99072c4e1587bc88f6b664c3ed</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text37</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>:</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text37>
+            <Text38 Ref="42" type="Text" isKey="true">
+              <Brush>White</Brush>
+              <ClientRectangle>114,56,40,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>8b96ad4343ee480c971bc04a670de863</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text38</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>{iQuery.SUNT_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text38>
+            <Text39 Ref="43" type="Text" isKey="true">
+              <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>4,112,98,6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,12,Bold</Font>
+              <Guid>121c23f758284968ae46e2ec376a5f30</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text39</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>پرداختی صورتحساب</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text39>
+            <StartPointPrimitive1 Ref="44" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>4,26,0,0</ClientRectangle>
+              <Name>StartPointPrimitive1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ReferenceToGuid>2c7ae8f0edba440fa6c8ae2c01dea953</ReferenceToGuid>
+            </StartPointPrimitive1>
+            <EndPointPrimitive1 Ref="45" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>196,101.9,0,0</ClientRectangle>
+              <Name>EndPointPrimitive1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ReferenceToGuid>2c7ae8f0edba440fa6c8ae2c01dea953</ReferenceToGuid>
+            </EndPointPrimitive1>
+            <StartPointPrimitive2 Ref="46" type="Stimulsoft.Report.Components.StiStartPointPrimitive" isKey="true">
+              <ClientRectangle>4,102,0,0</ClientRectangle>
+              <Name>StartPointPrimitive2</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ReferenceToGuid>9f4dc1d0c08549c39b801d320d1b3e7e</ReferenceToGuid>
+            </StartPointPrimitive2>
+            <EndPointPrimitive2 Ref="47" type="Stimulsoft.Report.Components.StiEndPointPrimitive" isKey="true">
+              <ClientRectangle>196,132,0,0</ClientRectangle>
+              <Name>EndPointPrimitive2</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <ReferenceToGuid>9f4dc1d0c08549c39b801d320d1b3e7e</ReferenceToGuid>
+            </EndPointPrimitive2>
+            <HorizontalLinePrimitive1 Ref="48" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>4,38,192,0.254</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="49" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Name>HorizontalLinePrimitive1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <StartCap Ref="50" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive1>
+            <HorizontalLinePrimitive2 Ref="51" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>4,92,192,0.254</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="52" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Guid>7e3d73ded0e94f1e8eeea61041beb7db</Guid>
+              <Name>HorizontalLinePrimitive2</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <StartCap Ref="53" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive2>
+            <HorizontalLinePrimitive4 Ref="54" type="HorizontalLinePrimitive" isKey="true">
+              <ClientRectangle>4,112,192,0.254</ClientRectangle>
+              <Color>Black</Color>
+              <EndCap Ref="55" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </EndCap>
+              <Guid>1fe8b0766fc0435b9ea7ed6d2e80c2b5</Guid>
+              <Name>HorizontalLinePrimitive4</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <StartCap Ref="56" type="Cap" isKey="true">
+                <Color>Black</Color>
+              </StartCap>
+            </HorizontalLinePrimitive4>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>iQuery</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataiQuery</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Sort isList="true" count="0" />
+        </DataiQuery>
+        <RoundedRectanglePrimitive1 Ref="57" type="Stimulsoft.Report.Components.StiRoundedRectanglePrimitive" isKey="true">
+          <ClientRectangle>4,30,192,75.9</ClientRectangle>
+          <Color>Black</Color>
+          <Guid>2c7ae8f0edba440fa6c8ae2c01dea953</Guid>
+          <Name>RoundedRectanglePrimitive1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Round>0.1</Round>
+          <Size>2</Size>
+        </RoundedRectanglePrimitive1>
+        <RoundedRectanglePrimitive2 Ref="58" type="Stimulsoft.Report.Components.StiRoundedRectanglePrimitive" isKey="true">
+          <ClientRectangle>4,106,192,30</ClientRectangle>
+          <Color>Black</Color>
+          <Guid>9f4dc1d0c08549c39b801d320d1b3e7e</Guid>
+          <Name>RoundedRectanglePrimitive2</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Round>0.1</Round>
+          <Size>2</Size>
+        </RoundedRectanglePrimitive2>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>605ba8eb118540d1b83669cfdc5faf7a</Guid>
+      <Margins>5,5,5,5</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>148.08</PageHeight>
+      <PageWidth>210</PageWidth>
+      <PaperSize>A5</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="59" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="60" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>11/30/2022 4:52:45 PM</ReportChanged>
+  <ReportCreated>1/2/2016 4:35:07 PM</ReportCreated>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_ADM_016_FISH_R.mrt</ReportFile>
+  <ReportGuid>d0010ee173a9455b9b08fc1a4eba73c1</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Millimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+        public Stimulsoft.Report.Components.StiPage Page1;
+        public Stimulsoft.Report.Components.StiDataBand DataiQuery;
+        public Stimulsoft.Report.Components.StiText Text1;
+        public Stimulsoft.Report.Components.StiText Text2;
+        public Stimulsoft.Report.Components.StiText Text3;
+        public Stimulsoft.Report.Components.StiText Text5;
+        public Stimulsoft.Report.Components.StiText Text6;
+        public Stimulsoft.Report.BarCodes.StiBarCode BarCode1;
+        public Stimulsoft.Report.Components.StiText Text10;
+        public Stimulsoft.Report.Components.StiText Text9;
+        public Stimulsoft.Report.Components.StiText Text11;
+        public Stimulsoft.Report.Components.StiText Text13;
+        public Stimulsoft.Report.Components.StiText Text14;
+        public Stimulsoft.Report.Components.StiText Text15;
+        public Stimulsoft.Report.Components.StiText Text16;
+        public Stimulsoft.Report.Components.StiText Text17;
+        public Stimulsoft.Report.Components.StiText Text18;
+        public Stimulsoft.Report.Components.StiText Text19;
+        public Stimulsoft.Report.Components.StiText Text20;
+        public Stimulsoft.Report.Components.StiText Text21;
+        public Stimulsoft.Report.Components.StiText Text23;
+        public Stimulsoft.Report.Components.StiText Text24;
+        public Stimulsoft.Report.Components.StiText Text25;
+        public Stimulsoft.Report.Components.StiText Text26;
+        public Stimulsoft.Report.Components.StiText Text27;
+        public Stimulsoft.Report.Components.StiText Text28;
+        public Stimulsoft.Report.Components.StiText Text29;
+        public Stimulsoft.Report.Components.StiText Text30;
+        public Stimulsoft.Report.Components.StiText Text31;
+        public Stimulsoft.Report.BarCodes.StiBarCode BarCode2;
+        public Stimulsoft.Report.Components.StiText Text32;
+        public Stimulsoft.Report.Components.StiImage Image1;
+        public Stimulsoft.Report.Components.StiText Text22;
+        public Stimulsoft.Report.Components.StiText Text4;
+        public Stimulsoft.Report.Components.StiStartPointPrimitive StartPointPrimitive1;
+        public Stimulsoft.Report.Components.StiEndPointPrimitive EndPointPrimitive1;
+        public Stimulsoft.Report.Components.StiStartPointPrimitive StartPointPrimitive2;
+        public Stimulsoft.Report.Components.StiEndPointPrimitive EndPointPrimitive2;
+        public Stimulsoft.Report.Components.StiStartPointPrimitive StartPointPrimitive3;
+        public Stimulsoft.Report.Components.StiEndPointPrimitive EndPointPrimitive3;
+        public Stimulsoft.Report.Components.StiHorizontalLinePrimitive HorizontalLinePrimitive1;
+        public Stimulsoft.Report.Components.StiHorizontalLinePrimitive HorizontalLinePrimitive2;
+        public Stimulsoft.Report.Components.StiHorizontalLinePrimitive HorizontalLinePrimitive3;
+        public Stimulsoft.Report.Components.StiRoundedRectanglePrimitive RoundedRectanglePrimitive1;
+        public Stimulsoft.Report.Components.StiRoundedRectanglePrimitive RoundedRectanglePrimitive2;
+        public Stimulsoft.Report.Components.StiVerticalLinePrimitive VerticalLinePrimitive1;
+        public Stimulsoft.Report.Components.StiWatermark Page1_Watermark;
+        public Stimulsoft.Report.Print.StiPrinterSettings Report_PrinterSettings;
+        public iQueryDataSource iQuery;
+        
+        public void Text1__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "شماره درخواست : " + ToString(sender, iQuery.RQID, true);
+        }
+        
+        public void Text2__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "تاریخ درخواست : " + ToString(sender, iQuery.PERS_RQST_DATE, true);
+        }
+        
+        public void Text3__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "کاربر ثبت کننده : " + ToString(sender, iQuery.CRET_BY, true);
+        }
+        
+        public void Text5__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, iQuery.CLUB_DESC, true) + "\r\nشماره تماس " + ToString(sender, iQuery.CLUB_CELL_PHON, true) + " - " + ToString(sender, iQuery.CLUB_TELL_PHON, true) + "\r\n" + ToString(sender, iQuery.CLUB_POST_ADRS, true) + " - کد پستی " + ToString(sender, iQuery.CLUB_ZIP_CODE, true);
+        }
+        
+        public void Text6__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, iQuery.SEX_DESC, true);
+        }
+        
+        public void BarCode1__GetBarCode(object sender, Stimulsoft.Report.Events.StiValueEventArgs e)
+        {
+            e.Value = ToString(iQuery.RQID);
+        }
+        
+        public void Text10__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "نام : " + ToString(sender, iQuery.FRST_NAME_DNRM, true);
+        }
+        
+        public void Text9__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "شماره پرونده : " + ToString(sender, iQuery.FILE_NO, true);
+        }
+        
+        public void Text11__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "نام خانوادگی : " + ToString(sender, iQuery.LAST_NAME_DNRM, true);
+        }
+        
+        public void Text13__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "تاریخ تولد : " + ToString(sender, iQuery.PERS_BRTH_DATE, true);
+        }
+        
+        public void Text14__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "کد ملی";
+        }
+        
+        public void Text15__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "تلفن همراه";
+        }
+        
+        public void Text16__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "تلفن ثابت";
+        }
+        
+        public void Text17__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "آدرس";
+        }
+        
+        public void Text18__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "شرح خدمات : " + ToString(sender, iQuery.PYDT_LIST, true);
+        }
+        
+        public void Text19__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "هزینه : " + ToString(sender, Format("{0:N0}", iQuery.SUM_EXPN_PRIC ), true) + " " + ToString(sender, iQuery.AMNT_UNIT_TYPE_DESC, true);
+        }
+        
+        public void Text20__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "مبلغ به حروف : " + ToString(sender, iQuery.SUM_EXPN_PRIC_DESC, true) + "  " + ToString(sender, iQuery.AMNT_UNIT_TYPE_DESC, true);
+        }
+        
+		public void Text21__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+		{
+			e.Value = "مبلغ تخفیف : " + ToString(sender, Format("{0:N0}",iQuery.SUM_PYMT_DSCN_DNRM), true) + " " + ToString(sender, iQuery.AMNT_UNIT_TYPE_DESC, true) + "\r\nمبلغ پرداختی : " + ToString(sender, Format("{0:N0}",iQuery.SUM_RCPT_EXPN_PRIC), true) + " " + ToString(sender, iQuery.AMNT_UNIT_TYPE_DESC, true) + "\r\nمبلغ مانده : " + ToString(sender, Format("{0:N0}", {iQuery.Debt_Amnt}), true) + " " + ToString(sender, iQuery.AMNT_UNIT_TYPE_DESC, true) + "\r\n";
+			}
+        
+        public void Text23__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "بارکد درخواست";
+        }
+        
+        public void Text24__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ":";
+        }
+        
+        public void Text25__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, iQuery.NATL_CODE_DNRM, true);
+        }
+        
+        public void Text26__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ":";
+        }
+        
+        public void Text27__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ":";
+        }
+        
+        public void Text28__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, iQuery.CELL_PHON_DNRM, true);
+        }
+        
+        public void Text29__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, iQuery.TELL_PHON_DNRM, true);
+        }
+        
+        public void Text30__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ToString(sender, iQuery.POST_ADRS_DNRM, true);
+        }
+        
+        public void Text31__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = ":";
+        }
+        
+        public void BarCode2__GetBarCode(object sender, Stimulsoft.Report.Events.StiValueEventArgs e)
+        {
+            e.Value = ToString(iQuery.FILE_NO);
+        }
+        
+        public void Text32__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "بارکد مشتری";
+        }
+        
+        public void Text22__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "سن : " + ToString(sender, iQuery.AGE, true);
+        }
+        
+        public void Text4__GetValue(object sender, Stimulsoft.Report.Events.StiGetValueEventArgs e)
+        {
+            e.Value = "توضیحات : " + ToString(sender, iQuery.PYDT_DSCT_LIST, true);
+        }
+        
+        private void InitializeComponent()
+        {
+            this.iQuery = new iQueryDataSource();
+            this.NeedsCompiling = false;
+            this.EngineVersion = Stimulsoft.Report.Engine.StiEngineVersion.EngineV2;
+            this.ReferencedAssemblies = new System.String[] {
+                    "System.Dll",
+                    "System.Drawing.Dll",
+                    "System.Windows.Forms.Dll",
+                    "System.Data.Dll",
+                    "System.Xml.Dll",
+                    "Stimulsoft.Controls.Dll",
+                    "Stimulsoft.Base.Dll",
+                    "Stimulsoft.Report.Dll"};
+            this.ReportAlias = "Report";
+            // 
+            // ReportChanged
+            // 
+            this.ReportChanged = new DateTime(2022, 11, 30, 15, 17, 49, 145);
+            // 
+            // ReportCreated
+            // 
+            this.ReportCreated = new DateTime(2016, 1, 2, 16, 35, 7, 0);
+            this.ReportFile = "D:\\Project\\MyProject\\Documents\\Report Repository\\RPT_ADM_016_FISH_R.mrt";
+            this.ReportGuid = "a98475d75b4049cbb6498484eab66271";
+            this.ReportName = "Report";
+            this.ReportUnit = Stimulsoft.Report.StiReportUnitType.Millimeters;
+            this.ReportVersion = "2012.2.1304";
+            this.ScriptLanguage = Stimulsoft.Report.StiReportLanguageType.CSharp;
+            // 
+            // Page1
+            // 
+            this.Page1 = new Stimulsoft.Report.Components.StiPage();
+            this.Page1.Guid = "605ba8eb118540d1b83669cfdc5faf7a";
+            this.Page1.Name = "Page1";
+            this.Page1.Orientation = Stimulsoft.Report.Components.StiPageOrientation.Landscape;
+            this.Page1.PageHeight = 148.08;
+            this.Page1.PageWidth = 210;
+            this.Page1.PaperSize = System.Drawing.Printing.PaperKind.A5;
+            this.Page1.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.All, System.Drawing.Color.Black, 3, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Page1.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            // 
+            // DataiQuery
+            // 
+            this.DataiQuery = new Stimulsoft.Report.Components.StiDataBand();
+            this.DataiQuery.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(0, 4, 200, 133.95);
+            this.DataiQuery.DataSourceName = "iQuery";
+            this.DataiQuery.Name = "DataiQuery";
+            this.DataiQuery.Sort = new System.String[0];
+            this.DataiQuery.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.DataiQuery.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.DataiQuery.BusinessObjectGuid = null;
+            // 
+            // Text1
+            // 
+            this.Text1 = new Stimulsoft.Report.Components.StiText();
+            this.Text1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(4, 4, 56, 6.1);
+            this.Text1.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text1.Name = "Text1";
+            this.Text1.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text1__GetValue);
+            this.Text1.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text1.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text1.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text1.Font = new System.Drawing.Font("B Nazanin", 11F);
+            this.Text1.Guid = null;
+            this.Text1.Indicator = null;
+            this.Text1.Interaction = null;
+            this.Text1.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text1.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text1.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text2
+            // 
+            this.Text2 = new Stimulsoft.Report.Components.StiText();
+            this.Text2.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(4, 10, 56, 6.1);
+            this.Text2.Guid = "9ba2055b51cb47ce80060775af7cbbc2";
+            this.Text2.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text2.Name = "Text2";
+            this.Text2.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text2__GetValue);
+            this.Text2.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text2.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text2.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text2.Font = new System.Drawing.Font("B Nazanin", 11F);
+            this.Text2.Indicator = null;
+            this.Text2.Interaction = null;
+            this.Text2.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text2.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text2.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text3
+            // 
+            this.Text3 = new Stimulsoft.Report.Components.StiText();
+            this.Text3.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(4, 16, 56, 6.1);
+            this.Text3.Guid = "0b1be490f14d40d592c2dd0cf38999b2";
+            this.Text3.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text3.Name = "Text3";
+            this.Text3.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text3__GetValue);
+            this.Text3.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text3.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text3.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text3.Font = new System.Drawing.Font("B Nazanin", 11F);
+            this.Text3.Indicator = null;
+            this.Text3.Interaction = null;
+            this.Text3.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text3.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text3.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text5
+            // 
+            this.Text5 = new Stimulsoft.Report.Components.StiText();
+            this.Text5.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(60, 4, 96, 18.1);
+            this.Text5.Guid = "431ff796f84b4f02855fb3429785ff44";
+            this.Text5.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text5.Name = "Text5";
+            this.Text5.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text5__GetValue);
+            this.Text5.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text5.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text5.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Text5.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
+            this.Text5.Indicator = null;
+            this.Text5.Interaction = null;
+            this.Text5.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text5.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text5.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text6
+            // 
+            this.Text6 = new Stimulsoft.Report.Components.StiText();
+            this.Text6.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(18, 40, 170, 6);
+            this.Text6.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text6.Name = "Text6";
+            this.Text6.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text6__GetValue);
+            this.Text6.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text6.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text6.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text6.Font = new System.Drawing.Font("B Nazanin", 14F, System.Drawing.FontStyle.Bold);
+            this.Text6.Guid = null;
+            this.Text6.Indicator = null;
+            this.Text6.Interaction = null;
+            this.Text6.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text6.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text6.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // BarCode1
+            // 
+            this.BarCode1 = new Stimulsoft.Report.BarCodes.StiBarCode();
+            this.BarCode1.Angle = Stimulsoft.Report.Components.StiAngle.Angle90;
+            this.BarCode1.AutoScale = true;
+            this.BarCode1.BackColor = System.Drawing.Color.White;
+            this.BarCode1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(6, 30, 10, 42);
+            this.BarCode1.GetBarCode += new Stimulsoft.Report.Events.StiValueEventHandler(this.BarCode1__GetBarCode);
+            this.BarCode1.ForeColor = System.Drawing.Color.Black;
+            this.BarCode1.Name = "BarCode1";
+            this.BarCode1.ShowLabelText = false;
+            this.BarCode1.BarCodeType = new Stimulsoft.Report.BarCodes.StiCode128AutoBarCodeType(13F, 1F);
+            this.BarCode1.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.BarCode1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            this.BarCode1.Guid = null;
+            this.BarCode1.Interaction = null;
+            // 
+            // Text10
+            // 
+            this.Text10 = new Stimulsoft.Report.Components.StiText();
+            this.Text10.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(158, 48, 30, 6);
+            this.Text10.Guid = "386394452b29460f870c6c4a6015dc3e";
+            this.Text10.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text10.Name = "Text10";
+            this.Text10.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text10__GetValue);
+            this.Text10.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text10.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text10.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text10.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text10.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text10.Indicator = null;
+            this.Text10.Interaction = null;
+            this.Text10.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text10.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text10.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text9
+            // 
+            this.Text9 = new Stimulsoft.Report.Components.StiText();
+            this.Text9.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(130, 28, 58, 8);
+            this.Text9.Guid = "42bf55a5505b4a4d95368596a824d40b";
+            this.Text9.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text9.Name = "Text9";
+            this.Text9.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text9__GetValue);
+            this.Text9.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text9.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text9.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text9.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text9.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text9.Indicator = null;
+            this.Text9.Interaction = null;
+            this.Text9.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text9.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text9.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text11
+            // 
+            this.Text11 = new Stimulsoft.Report.Components.StiText();
+            this.Text11.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(118, 48, 38, 6);
+            this.Text11.Guid = "c8c7f637948d4bef86f311a492bad1bf";
+            this.Text11.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text11.Name = "Text11";
+            this.Text11.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text11__GetValue);
+            this.Text11.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text11.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text11.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text11.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text11.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text11.Indicator = null;
+            this.Text11.Interaction = null;
+            this.Text11.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text11.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text11.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text13
+            // 
+            this.Text13 = new Stimulsoft.Report.Components.StiText();
+            this.Text13.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(42, 48, 34, 6);
+            this.Text13.Guid = "d9252f93f8f24dcda30a18d637eb0ed2";
+            this.Text13.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text13.Name = "Text13";
+            this.Text13.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text13__GetValue);
+            this.Text13.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text13.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text13.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text13.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text13.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text13.Indicator = null;
+            this.Text13.Interaction = null;
+            this.Text13.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text13.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text13.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text14
+            // 
+            this.Text14 = new Stimulsoft.Report.Components.StiText();
+            this.Text14.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(104, 48, 12, 6);
+            this.Text14.Guid = "568c7564b6664100bfb5dcf8d82dfea9";
+            this.Text14.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text14.Name = "Text14";
+            this.Text14.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text14__GetValue);
+            this.Text14.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text14.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text14.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text14.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text14.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text14.Indicator = null;
+            this.Text14.Interaction = null;
+            this.Text14.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text14.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text14.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text15
+            // 
+            this.Text15 = new Stimulsoft.Report.Components.StiText();
+            this.Text15.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(172, 56, 16, 6);
+            this.Text15.Guid = "5cec1a568bad4cc2a4a179919a6f9f68";
+            this.Text15.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text15.Name = "Text15";
+            this.Text15.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text15__GetValue);
+            this.Text15.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text15.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text15.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text15.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text15.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text15.Indicator = null;
+            this.Text15.Interaction = null;
+            this.Text15.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text15.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text15.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text16
+            // 
+            this.Text16 = new Stimulsoft.Report.Components.StiText();
+            this.Text16.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(126, 56, 16, 6);
+            this.Text16.Guid = "dd8e544f51944e68b20d9f8d1fc26cdb";
+            this.Text16.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text16.Name = "Text16";
+            this.Text16.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text16__GetValue);
+            this.Text16.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text16.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text16.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text16.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text16.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text16.Indicator = null;
+            this.Text16.Interaction = null;
+            this.Text16.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text16.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text16.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text17
+            // 
+            this.Text17 = new Stimulsoft.Report.Components.StiText();
+            this.Text17.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(178, 64, 10, 6);
+            this.Text17.Guid = "76df62c24666453dbb59a6270d647281";
+            this.Text17.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text17.Name = "Text17";
+            this.Text17.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text17__GetValue);
+            this.Text17.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text17.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text17.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text17.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text17.Indicator = null;
+            this.Text17.Interaction = null;
+            this.Text17.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text17.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text17.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text18
+            // 
+            this.Text18 = new Stimulsoft.Report.Components.StiText();
+            this.Text18.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(20, 74, 174, 18);
+            this.Text18.Guid = "c97e7975a280431191e04ba6e175950d";
+            this.Text18.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text18.Name = "Text18";
+            this.Text18.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text18__GetValue);
+            this.Text18.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text18.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text18.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text18.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text18.Indicator = null;
+            this.Text18.Interaction = null;
+            this.Text18.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text18.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text18.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text19
+            // 
+            this.Text19 = new Stimulsoft.Report.Components.StiText();
+            this.Text19.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(102, 104, 88, 6);
+            this.Text19.Guid = "b93faf904c2742da8e0ac48cf8d2dc7b";
+            this.Text19.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text19.Name = "Text19";
+            this.Text19.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text19__GetValue);
+            this.Text19.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text19.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text19.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text19.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text19.Font = new System.Drawing.Font("B Nazanin", 15F, System.Drawing.FontStyle.Bold);
+            this.Text19.Indicator = null;
+            this.Text19.Interaction = null;
+            this.Text19.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text19.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text19.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text20
+            // 
+            this.Text20 = new Stimulsoft.Report.Components.StiText();
+            this.Text20.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(10, 104, 90, 6);
+            this.Text20.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text20.Name = "Text20";
+            this.Text20.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text20__GetValue);
+            this.Text20.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text20.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text20.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text20.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text20.Font = new System.Drawing.Font("B Nazanin", 13F, System.Drawing.FontStyle.Bold);
+            this.Text20.Guid = null;
+            this.Text20.Indicator = null;
+            this.Text20.Interaction = null;
+            this.Text20.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text20.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text20.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text21
+            // 
+            this.Text21 = new Stimulsoft.Report.Components.StiText();
+            this.Text21.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(10, 112, 180, 18);
+            this.Text21.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text21.Name = "Text21";
+            this.Text21.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text21__GetValue);
+            this.Text21.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text21.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.Top, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text21.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text21.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
+            this.Text21.Guid = null;
+            this.Text21.Indicator = null;
+            this.Text21.Interaction = null;
+            this.Text21.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text21.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text21.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text23
+            // 
+            this.Text23 = new Stimulsoft.Report.Components.StiText();
+            this.Text23.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(4, 74, 14, 26);
+            this.Text23.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text23.Name = "Text23";
+            this.Text23.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text23__GetValue);
+            this.Text23.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text23.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text23.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.Top, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text23.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text23.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
+            this.Text23.Guid = null;
+            this.Text23.Indicator = null;
+            this.Text23.Interaction = null;
+            this.Text23.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text23.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text23.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 90F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text24
+            // 
+            this.Text24 = new Stimulsoft.Report.Components.StiText();
+            this.Text24.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(102, 48, 2, 6);
+            this.Text24.Guid = "93361a4022344392bada8ffdac94587e";
+            this.Text24.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text24.Name = "Text24";
+            this.Text24.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text24__GetValue);
+            this.Text24.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text24.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text24.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text24.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text24.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text24.Indicator = null;
+            this.Text24.Interaction = null;
+            this.Text24.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text24.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text24.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text25
+            // 
+            this.Text25 = new Stimulsoft.Report.Components.StiText();
+            this.Text25.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(78, 48, 24, 6);
+            this.Text25.Guid = "f1c8f2a6be8a4d9aae119d82c149389e";
+            this.Text25.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text25.Name = "Text25";
+            this.Text25.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text25__GetValue);
+            this.Text25.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text25.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text25.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text25.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text25.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text25.Indicator = null;
+            this.Text25.Interaction = null;
+            this.Text25.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text25.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text25.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text26
+            // 
+            this.Text26 = new Stimulsoft.Report.Components.StiText();
+            this.Text26.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(170, 56, 2, 6);
+            this.Text26.Guid = "3bfe8d8bdbe842f794f5162e7306a577";
+            this.Text26.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text26.Name = "Text26";
+            this.Text26.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text26__GetValue);
+            this.Text26.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text26.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text26.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text26.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text26.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text26.Indicator = null;
+            this.Text26.Interaction = null;
+            this.Text26.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text26.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text26.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text27
+            // 
+            this.Text27 = new Stimulsoft.Report.Components.StiText();
+            this.Text27.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(124, 56, 2, 6);
+            this.Text27.Guid = "6d41e9f0000546c4a544161d801a4e97";
+            this.Text27.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text27.Name = "Text27";
+            this.Text27.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text27__GetValue);
+            this.Text27.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text27.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text27.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text27.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text27.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text27.Indicator = null;
+            this.Text27.Interaction = null;
+            this.Text27.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text27.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text27.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text28
+            // 
+            this.Text28 = new Stimulsoft.Report.Components.StiText();
+            this.Text28.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(144, 56, 26, 6);
+            this.Text28.Guid = "60a89f596c364953b7423c69067ea443";
+            this.Text28.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text28.Name = "Text28";
+            this.Text28.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text28__GetValue);
+            this.Text28.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text28.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text28.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text28.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text28.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text28.Indicator = null;
+            this.Text28.Interaction = null;
+            this.Text28.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text28.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text28.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text29
+            // 
+            this.Text29 = new Stimulsoft.Report.Components.StiText();
+            this.Text29.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(96, 56, 28, 6);
+            this.Text29.Guid = "efb36594801244c58c2686d4dc84418d";
+            this.Text29.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text29.Name = "Text29";
+            this.Text29.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text29__GetValue);
+            this.Text29.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text29.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text29.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text29.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text29.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text29.Indicator = null;
+            this.Text29.Interaction = null;
+            this.Text29.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text29.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text29.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text30
+            // 
+            this.Text30 = new Stimulsoft.Report.Components.StiText();
+            this.Text30.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(20, 64, 154, 6);
+            this.Text30.Guid = "5a5a4e91addb4c218b136745648d6356";
+            this.Text30.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text30.Name = "Text30";
+            this.Text30.ShrinkFontToFit = true;
+            this.Text30.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text30__GetValue);
+            this.Text30.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text30.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text30.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text30.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text30.Indicator = null;
+            this.Text30.Interaction = null;
+            this.Text30.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text30.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text30.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, true, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text31
+            // 
+            this.Text31 = new Stimulsoft.Report.Components.StiText();
+            this.Text31.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(176, 64, 2, 6);
+            this.Text31.Guid = "8daeac9614c2479f988142ad442052eb";
+            this.Text31.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text31.Name = "Text31";
+            this.Text31.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text31__GetValue);
+            this.Text31.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text31.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text31.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text31.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text31.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text31.Indicator = null;
+            this.Text31.Interaction = null;
+            this.Text31.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text31.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text31.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // BarCode2
+            // 
+            this.BarCode2 = new Stimulsoft.Report.BarCodes.StiBarCode();
+            this.BarCode2.AutoScale = true;
+            this.BarCode2.BackColor = System.Drawing.Color.White;
+            this.BarCode2.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(80, 28, 48, 8);
+            this.BarCode2.GetBarCode += new Stimulsoft.Report.Events.StiValueEventHandler(this.BarCode2__GetBarCode);
+            this.BarCode2.ForeColor = System.Drawing.Color.Black;
+            this.BarCode2.Guid = "3fa886fdad404be7b3b5fa29434520d4";
+            this.BarCode2.Name = "BarCode2";
+            this.BarCode2.ShowLabelText = false;
+            this.BarCode2.BarCodeType = new Stimulsoft.Report.BarCodes.StiCode128AutoBarCodeType(13F, 1F);
+            this.BarCode2.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.BarCode2.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            this.BarCode2.Interaction = null;
+            // 
+            // Text32
+            // 
+            this.Text32 = new Stimulsoft.Report.Components.StiText();
+            this.Text32.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(18, 26, 20, 12);
+            this.Text32.Guid = "95926bc4a0244464954e7861e300e230";
+            this.Text32.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Center;
+            this.Text32.Name = "Text32";
+            this.Text32.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text32__GetValue);
+            this.Text32.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text32.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text32.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.Right, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text32.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text32.Font = new System.Drawing.Font("B Nazanin", 11F, System.Drawing.FontStyle.Bold);
+            this.Text32.Indicator = null;
+            this.Text32.Interaction = null;
+            this.Text32.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text32.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text32.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Image1
+            // 
+            this.Image1 = new Stimulsoft.Report.Components.StiImage();
+            this.Image1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(156, 0, 40, 26);
+            this.Image1.Enabled = false;
+            this.Image1.File = "\\\\localhost\\Report Repository\\Logo\\Logo.jpeg";
+            this.Image1.Guid = "e00e40c64f4942a58df8e2e4ba406db5";
+            this.Image1.Name = "Image1";
+            this.Image1.Stretch = true;
+            this.Image1.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Image1.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Transparent);
+            this.Image1.Image = null;
+            this.Image1.Interaction = null;
+            // 
+            // Text22
+            // 
+            this.Text22 = new Stimulsoft.Report.Components.StiText();
+            this.Text22.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(20, 48, 22, 6);
+            this.Text22.Guid = "58a8cf07b0d44e7781b77b03edd32597";
+            this.Text22.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text22.Name = "Text22";
+            this.Text22.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text22__GetValue);
+            this.Text22.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text22.VertAlignment = Stimulsoft.Base.Drawing.StiVertAlignment.Center;
+            this.Text22.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text22.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text22.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text22.Indicator = null;
+            this.Text22.Interaction = null;
+            this.Text22.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text22.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text22.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // Text4
+            // 
+            this.Text4 = new Stimulsoft.Report.Components.StiText();
+            this.Text4.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(20, 92, 174, 8);
+            this.Text4.Guid = "1053aa612d2b4e46a551ef767489dc91";
+            this.Text4.HorAlignment = Stimulsoft.Base.Drawing.StiTextHorAlignment.Right;
+            this.Text4.Name = "Text4";
+            this.Text4.GetValue += new Stimulsoft.Report.Events.StiGetValueEventHandler(this.Text4__GetValue);
+            this.Text4.Type = Stimulsoft.Report.Components.StiSystemTextType.Expression;
+            this.Text4.Border = new Stimulsoft.Base.Drawing.StiBorder(Stimulsoft.Base.Drawing.StiBorderSides.None, System.Drawing.Color.Black, 1, Stimulsoft.Base.Drawing.StiPenStyle.Solid, false, 4, new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black), false);
+            this.Text4.Brush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.White);
+            this.Text4.Font = new System.Drawing.Font("B Nazanin", 12F, System.Drawing.FontStyle.Bold);
+            this.Text4.Indicator = null;
+            this.Text4.Interaction = null;
+            this.Text4.Margins = new Stimulsoft.Report.Components.StiMargins(0, 0, 0, 0);
+            this.Text4.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.Black);
+            this.Text4.TextOptions = new Stimulsoft.Base.Drawing.StiTextOptions(false, false, false, 0F, System.Drawing.Text.HotkeyPrefix.None, System.Drawing.StringTrimming.None);
+            // 
+            // StartPointPrimitive1
+            // 
+            this.StartPointPrimitive1 = new Stimulsoft.Report.Components.StiStartPointPrimitive();
+            this.StartPointPrimitive1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(4, 26, 0, 0);
+            this.StartPointPrimitive1.Name = "StartPointPrimitive1";
+            this.StartPointPrimitive1.ReferenceToGuid = "2c7ae8f0edba440fa6c8ae2c01dea953";
+            this.StartPointPrimitive1.Guid = null;
+            this.StartPointPrimitive1.Interaction = null;
+            // 
+            // EndPointPrimitive1
+            // 
+            this.EndPointPrimitive1 = new Stimulsoft.Report.Components.StiEndPointPrimitive();
+            this.EndPointPrimitive1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(196, 101.9, 0, 0);
+            this.EndPointPrimitive1.Name = "EndPointPrimitive1";
+            this.EndPointPrimitive1.ReferenceToGuid = "2c7ae8f0edba440fa6c8ae2c01dea953";
+            this.EndPointPrimitive1.Guid = null;
+            this.EndPointPrimitive1.Interaction = null;
+            // 
+            // StartPointPrimitive2
+            // 
+            this.StartPointPrimitive2 = new Stimulsoft.Report.Components.StiStartPointPrimitive();
+            this.StartPointPrimitive2.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(4, 102, 0, 0);
+            this.StartPointPrimitive2.Name = "StartPointPrimitive2";
+            this.StartPointPrimitive2.ReferenceToGuid = "9f4dc1d0c08549c39b801d320d1b3e7e";
+            this.StartPointPrimitive2.Guid = null;
+            this.StartPointPrimitive2.Interaction = null;
+            // 
+            // EndPointPrimitive2
+            // 
+            this.EndPointPrimitive2 = new Stimulsoft.Report.Components.StiEndPointPrimitive();
+            this.EndPointPrimitive2.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(196, 132, 0, 0);
+            this.EndPointPrimitive2.Name = "EndPointPrimitive2";
+            this.EndPointPrimitive2.ReferenceToGuid = "9f4dc1d0c08549c39b801d320d1b3e7e";
+            this.EndPointPrimitive2.Guid = null;
+            this.EndPointPrimitive2.Interaction = null;
+            // 
+            // StartPointPrimitive3
+            // 
+            this.StartPointPrimitive3 = new Stimulsoft.Report.Components.StiStartPointPrimitive();
+            this.StartPointPrimitive3.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(18, 26, 0, 0);
+            this.StartPointPrimitive3.Name = "StartPointPrimitive3";
+            this.StartPointPrimitive3.ReferenceToGuid = "f1673adf6a9047ef850010e66b72e6f5";
+            this.StartPointPrimitive3.Guid = null;
+            this.StartPointPrimitive3.Interaction = null;
+            // 
+            // EndPointPrimitive3
+            // 
+            this.EndPointPrimitive3 = new Stimulsoft.Report.Components.StiEndPointPrimitive();
+            this.EndPointPrimitive3.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(18, 102, 0, 0);
+            this.EndPointPrimitive3.Name = "EndPointPrimitive3";
+            this.EndPointPrimitive3.ReferenceToGuid = "f1673adf6a9047ef850010e66b72e6f5";
+            this.EndPointPrimitive3.Guid = null;
+            this.EndPointPrimitive3.Interaction = null;
+            // 
+            // HorizontalLinePrimitive1
+            // 
+            this.HorizontalLinePrimitive1 = new Stimulsoft.Report.Components.StiHorizontalLinePrimitive();
+            this.HorizontalLinePrimitive1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(18, 38, 178, 0.254);
+            this.HorizontalLinePrimitive1.Color = System.Drawing.Color.Black;
+            this.HorizontalLinePrimitive1.Name = "HorizontalLinePrimitive1";
+            this.HorizontalLinePrimitive1.EndCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            this.HorizontalLinePrimitive1.Guid = null;
+            this.HorizontalLinePrimitive1.Interaction = null;
+            this.HorizontalLinePrimitive1.StartCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            // 
+            // HorizontalLinePrimitive2
+            // 
+            this.HorizontalLinePrimitive2 = new Stimulsoft.Report.Components.StiHorizontalLinePrimitive();
+            this.HorizontalLinePrimitive2.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(18, 92, 178, 0.254);
+            this.HorizontalLinePrimitive2.Color = System.Drawing.Color.Black;
+            this.HorizontalLinePrimitive2.Guid = "7e3d73ded0e94f1e8eeea61041beb7db";
+            this.HorizontalLinePrimitive2.Name = "HorizontalLinePrimitive2";
+            this.HorizontalLinePrimitive2.EndCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            this.HorizontalLinePrimitive2.Interaction = null;
+            this.HorizontalLinePrimitive2.StartCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            // 
+            // HorizontalLinePrimitive3
+            // 
+            this.HorizontalLinePrimitive3 = new Stimulsoft.Report.Components.StiHorizontalLinePrimitive();
+            this.HorizontalLinePrimitive3.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(18, 74, 178, 0.254);
+            this.HorizontalLinePrimitive3.Color = System.Drawing.Color.Black;
+            this.HorizontalLinePrimitive3.Guid = "75db9880e88d4fdcac84c5a0078eef50";
+            this.HorizontalLinePrimitive3.Name = "HorizontalLinePrimitive3";
+            this.HorizontalLinePrimitive3.EndCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            this.HorizontalLinePrimitive3.Interaction = null;
+            this.HorizontalLinePrimitive3.StartCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            this.DataiQuery.Guid = null;
+            this.DataiQuery.Interaction = null;
+            this.DataiQuery.MasterComponent = null;
+            // 
+            // RoundedRectanglePrimitive1
+            // 
+            this.RoundedRectanglePrimitive1 = new Stimulsoft.Report.Components.StiRoundedRectanglePrimitive();
+            this.RoundedRectanglePrimitive1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(4, 30, 192, 75.9);
+            this.RoundedRectanglePrimitive1.Color = System.Drawing.Color.Black;
+            this.RoundedRectanglePrimitive1.Guid = "2c7ae8f0edba440fa6c8ae2c01dea953";
+            this.RoundedRectanglePrimitive1.Name = "RoundedRectanglePrimitive1";
+            this.RoundedRectanglePrimitive1.Round = 0.1F;
+            this.RoundedRectanglePrimitive1.Size = 2F;
+            this.RoundedRectanglePrimitive1.Interaction = null;
+            // 
+            // RoundedRectanglePrimitive2
+            // 
+            this.RoundedRectanglePrimitive2 = new Stimulsoft.Report.Components.StiRoundedRectanglePrimitive();
+            this.RoundedRectanglePrimitive2.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(4, 106, 192, 30);
+            this.RoundedRectanglePrimitive2.Color = System.Drawing.Color.Black;
+            this.RoundedRectanglePrimitive2.Guid = "9f4dc1d0c08549c39b801d320d1b3e7e";
+            this.RoundedRectanglePrimitive2.Name = "RoundedRectanglePrimitive2";
+            this.RoundedRectanglePrimitive2.Round = 0.1F;
+            this.RoundedRectanglePrimitive2.Size = 2F;
+            this.RoundedRectanglePrimitive2.Interaction = null;
+            // 
+            // VerticalLinePrimitive1
+            // 
+            this.VerticalLinePrimitive1 = new Stimulsoft.Report.Components.StiVerticalLinePrimitive();
+            this.VerticalLinePrimitive1.ClientRectangle = new Stimulsoft.Base.Drawing.RectangleD(18, 30, 0.254, 76);
+            this.VerticalLinePrimitive1.Color = System.Drawing.Color.Black;
+            this.VerticalLinePrimitive1.Guid = "f1673adf6a9047ef850010e66b72e6f5";
+            this.VerticalLinePrimitive1.Name = "VerticalLinePrimitive1";
+            this.VerticalLinePrimitive1.EndCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            this.VerticalLinePrimitive1.Interaction = null;
+            this.VerticalLinePrimitive1.StartCap = new Stimulsoft.Base.Drawing.StiCap(10, Stimulsoft.Base.Drawing.StiCapStyle.None, 10, true, System.Drawing.Color.Black);
+            this.Page1.ExcelSheetValue = null;
+            this.Page1.Interaction = null;
+            this.Page1.Margins = new Stimulsoft.Report.Components.StiMargins(5, 5, 5, 5);
+            this.Page1_Watermark = new Stimulsoft.Report.Components.StiWatermark();
+            this.Page1_Watermark.Font = new System.Drawing.Font("Arial", 100F);
+            this.Page1_Watermark.Image = null;
+            this.Page1_Watermark.TextBrush = new Stimulsoft.Base.Drawing.StiSolidBrush(System.Drawing.Color.FromArgb(50, 0, 0, 0));
+            this.Report_PrinterSettings = new Stimulsoft.Report.Print.StiPrinterSettings();
+            this.PrinterSettings = this.Report_PrinterSettings;
+            this.Page1.Report = this;
+            this.Page1.Watermark = this.Page1_Watermark;
+            this.DataiQuery.Page = this.Page1;
+            this.DataiQuery.Parent = this.Page1;
+            this.Text1.Page = this.Page1;
+            this.Text1.Parent = this.DataiQuery;
+            this.Text2.Page = this.Page1;
+            this.Text2.Parent = this.DataiQuery;
+            this.Text3.Page = this.Page1;
+            this.Text3.Parent = this.DataiQuery;
+            this.Text5.Page = this.Page1;
+            this.Text5.Parent = this.DataiQuery;
+            this.Text6.Page = this.Page1;
+            this.Text6.Parent = this.DataiQuery;
+            this.BarCode1.Page = this.Page1;
+            this.BarCode1.Parent = this.DataiQuery;
+            this.Text10.Page = this.Page1;
+            this.Text10.Parent = this.DataiQuery;
+            this.Text9.Page = this.Page1;
+            this.Text9.Parent = this.DataiQuery;
+            this.Text11.Page = this.Page1;
+            this.Text11.Parent = this.DataiQuery;
+            this.Text13.Page = this.Page1;
+            this.Text13.Parent = this.DataiQuery;
+            this.Text14.Page = this.Page1;
+            this.Text14.Parent = this.DataiQuery;
+            this.Text15.Page = this.Page1;
+            this.Text15.Parent = this.DataiQuery;
+            this.Text16.Page = this.Page1;
+            this.Text16.Parent = this.DataiQuery;
+            this.Text17.Page = this.Page1;
+            this.Text17.Parent = this.DataiQuery;
+            this.Text18.Page = this.Page1;
+            this.Text18.Parent = this.DataiQuery;
+            this.Text19.Page = this.Page1;
+            this.Text19.Parent = this.DataiQuery;
+            this.Text20.Page = this.Page1;
+            this.Text20.Parent = this.DataiQuery;
+            this.Text21.Page = this.Page1;
+            this.Text21.Parent = this.DataiQuery;
+            this.Text23.Page = this.Page1;
+            this.Text23.Parent = this.DataiQuery;
+            this.Text24.Page = this.Page1;
+            this.Text24.Parent = this.DataiQuery;
+            this.Text25.Page = this.Page1;
+            this.Text25.Parent = this.DataiQuery;
+            this.Text26.Page = this.Page1;
+            this.Text26.Parent = this.DataiQuery;
+            this.Text27.Page = this.Page1;
+            this.Text27.Parent = this.DataiQuery;
+            this.Text28.Page = this.Page1;
+            this.Text28.Parent = this.DataiQuery;
+            this.Text29.Page = this.Page1;
+            this.Text29.Parent = this.DataiQuery;
+            this.Text30.Page = this.Page1;
+            this.Text30.Parent = this.DataiQuery;
+            this.Text31.Page = this.Page1;
+            this.Text31.Parent = this.DataiQuery;
+            this.BarCode2.Page = this.Page1;
+            this.BarCode2.Parent = this.DataiQuery;
+            this.Text32.Page = this.Page1;
+            this.Text32.Parent = this.DataiQuery;
+            this.Image1.Page = this.Page1;
+            this.Image1.Parent = this.DataiQuery;
+            this.Text22.Page = this.Page1;
+            this.Text22.Parent = this.DataiQuery;
+            this.Text4.Page = this.Page1;
+            this.Text4.Parent = this.DataiQuery;
+            this.StartPointPrimitive1.Page = this.Page1;
+            this.StartPointPrimitive1.Parent = this.DataiQuery;
+            this.EndPointPrimitive1.Page = this.Page1;
+            this.EndPointPrimitive1.Parent = this.DataiQuery;
+            this.StartPointPrimitive2.Page = this.Page1;
+            this.StartPointPrimitive2.Parent = this.DataiQuery;
+            this.EndPointPrimitive2.Page = this.Page1;
+            this.EndPointPrimitive2.Parent = this.DataiQuery;
+            this.StartPointPrimitive3.Page = this.Page1;
+            this.StartPointPrimitive3.Parent = this.DataiQuery;
+            this.EndPointPrimitive3.Page = this.Page1;
+            this.EndPointPrimitive3.Parent = this.DataiQuery;
+            this.HorizontalLinePrimitive1.Page = this.Page1;
+            this.HorizontalLinePrimitive1.Parent = this.DataiQuery;
+            this.HorizontalLinePrimitive2.Page = this.Page1;
+            this.HorizontalLinePrimitive2.Parent = this.DataiQuery;
+            this.HorizontalLinePrimitive3.Page = this.Page1;
+            this.HorizontalLinePrimitive3.Parent = this.DataiQuery;
+            this.RoundedRectanglePrimitive1.Page = this.Page1;
+            this.RoundedRectanglePrimitive1.Parent = this.Page1;
+            this.RoundedRectanglePrimitive2.Page = this.Page1;
+            this.RoundedRectanglePrimitive2.Parent = this.Page1;
+            this.VerticalLinePrimitive1.Page = this.Page1;
+            this.VerticalLinePrimitive1.Parent = this.Page1;
+            // 
+            // Add to DataiQuery.Components
+            // 
+            this.DataiQuery.Components.Clear();
+            this.DataiQuery.Components.AddRange(new Stimulsoft.Report.Components.StiComponent[] {
+                        this.Text1,
+                        this.Text2,
+                        this.Text3,
+                        this.Text5,
+                        this.Text6,
+                        this.BarCode1,
+                        this.Text10,
+                        this.Text9,
+                        this.Text11,
+                        this.Text13,
+                        this.Text14,
+                        this.Text15,
+                        this.Text16,
+                        this.Text17,
+                        this.Text18,
+                        this.Text19,
+                        this.Text20,
+                        this.Text21,
+                        this.Text23,
+                        this.Text24,
+                        this.Text25,
+                        this.Text26,
+                        this.Text27,
+                        this.Text28,
+                        this.Text29,
+                        this.Text30,
+                        this.Text31,
+                        this.BarCode2,
+                        this.Text32,
+                        this.Image1,
+                        this.Text22,
+                        this.Text4,
+                        this.StartPointPrimitive1,
+                        this.EndPointPrimitive1,
+                        this.StartPointPrimitive2,
+                        this.EndPointPrimitive2,
+                        this.StartPointPrimitive3,
+                        this.EndPointPrimitive3,
+                        this.HorizontalLinePrimitive1,
+                        this.HorizontalLinePrimitive2,
+                        this.HorizontalLinePrimitive3});
+            // 
+            // Add to Page1.Components
+            // 
+            this.Page1.Components.Clear();
+            this.Page1.Components.AddRange(new Stimulsoft.Report.Components.StiComponent[] {
+                        this.DataiQuery,
+                        this.RoundedRectanglePrimitive1,
+                        this.RoundedRectanglePrimitive2,
+                        this.VerticalLinePrimitive1});
+            // 
+            // Add to Pages
+            // 
+            this.Pages.Clear();
+            this.Pages.AddRange(new Stimulsoft.Report.Components.StiPage[] {
+                        this.Page1});
+            this.iQuery.Columns.AddRange(new Stimulsoft.Report.Dictionary.StiDataColumn[] {
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("RQID", "RQID", "RQID", typeof(long)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("PERS_RQST_DATE", "PERS_RQST_DATE", "PERS_RQST_DATE", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("USER_NAME", "USER_NAME", "USER_NAME", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("CLUB_DESC", "CLUB_DESC", "CLUB_DESC", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("CLUB_TELL_PHON", "CLUB_TELL_PHON", "CLUB_TELL_PHON", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("CLUB_CELL_PHON", "CLUB_CELL_PHON", "CLUB_CELL_PHON", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("CLUB_POST_ADRS", "CLUB_POST_ADRS", "CLUB_POST_ADRS", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("CLUB_ZIP_CODE", "CLUB_ZIP_CODE", "CLUB_ZIP_CODE", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("FILE_NO", "FILE_NO", "FILE_NO", typeof(long)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("FNGR_PRNT_DNRM", "FNGR_PRNT_DNRM", "FNGR_PRNT_DNRM", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("SERV_NO_DNRM", "SERV_NO_DNRM", "SERV_NO_DNRM", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("SEX_DESC", "SEX_DESC", "SEX_DESC", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("FRST_NAME_DNRM", "FRST_NAME_DNRM", "FRST_NAME_DNRM", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("LAST_NAME_DNRM", "LAST_NAME_DNRM", "LAST_NAME_DNRM", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("NATL_CODE_DNRM", "NATL_CODE_DNRM", "NATL_CODE_DNRM", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("CELL_PHON_DNRM", "CELL_PHON_DNRM", "CELL_PHON_DNRM", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("TELL_PHON_DNRM", "TELL_PHON_DNRM", "TELL_PHON_DNRM", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("POST_ADRS_DNRM", "POST_ADRS_DNRM", "POST_ADRS_DNRM", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("PERS_BRTH_DATE", "PERS_BRTH_DATE", "PERS_BRTH_DATE", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("AGE", "AGE", "AGE", typeof(int)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("PYDT_LIST", "PYDT_LIST", "PYDT_LIST", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("PYDT_DSCT_LIST", "PYDT_DSCT_LIST", "PYDT_DSCT_LIST", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("PYMT_LIST", "PYMT_LIST", "PYMT_LIST", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("SUM_EXPN_PRIC", "SUM_EXPN_PRIC", "SUM_EXPN_PRIC", typeof(long)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("SUM_RCPT_EXPN_PRIC", "SUM_RCPT_EXPN_PRIC", "SUM_RCPT_EXPN_PRIC", typeof(long)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("SUM_PYMT_DSCN_DNRM", "SUM_PYMT_DSCN_DNRM", "SUM_PYMT_DSCN_DNRM", typeof(long)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("DEBT_AMNT", "DEBT_AMNT", "DEBT_AMNT", typeof(long)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("SUM_EXPN_PRIC_DESC", "SUM_EXPN_PRIC_DESC", "SUM_EXPN_PRIC_DESC", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("CRET_BY", "CRET_BY", "CRET_BY", typeof(string)),
+                        new Stimulsoft.Report.Dictionary.StiDataColumn("AMNT_UNIT_TYPE_DESC", "AMNT_UNIT_TYPE_DESC", "AMNT_UNIT_TYPE_DESC", typeof(string))});
+            this.DataSources.Add(this.iQuery);
+            this.Dictionary.Databases.Add(new Stimulsoft.Report.Dictionary.StiSqlDatabase("iScsc", "iScsc", "User ID=hadaeghi;Integrated Security=True;Data Source=.;Initial Catalog=iScsc;Persist Security Info=False", false));
+            this.iQuery.Connecting += new System.EventHandler(this.GetiQuery_SqlCommand);
+        }
+        
+        public void GetiQuery_SqlCommand(object sender, System.EventArgs e)
+        {
+            this.iQuery.SqlCommand = "SELECT Request.RQID, \r\n\tdbo.GET_MTOS_U(Request.RQST_DATE) AS PERS_RQST_DATE,\r\n\tu.USER_NAME AS CRET_BY,\r\n\tc.CLUB_DESC, \r\n\tc.TELL_PHON AS CLUB_TELL_PHON, \r\n\tc.CELL_PHON AS CLUB_CELL_PHON, \r\n\tc.POST_ADRS AS CLUB_POST_ADRS,\r\n\tc.ZIP_CODE AS CLUB_ZIP_CODE,\r\n\tf.FILE_NO,\r\n\tf.FNGR_PRNT_DNRM,\r\n\tf.SERV_NO_DNRM,\r\n\ts.DOMN_DESC AS SEX_DESC,\r\n\tf.FRST_NAME_DNRM,\r\n\tf.LAST_NAME_DNRM,\r\n\tf.NATL_CODE_DNRM, \r\n\tf.CELL_PHON_DNRM,\r\n\tf.TELL_PHON_DNRM,\r\n\tf.POST_ADRS_DNRM,\r\n\tdbo.GET_MTOS_U(f.BRTH_DATE_DNRM) AS PERS_BRTH_DATE,\r\n\tDATEDIFF(YEAR, f.BRTH_DATE_DNRM, GETDATE()) + 1 AS AGE,\r\n(SELECT \r\n\t(SELECT (pd.PYDT_DESC + \' ( \' + dbo.GET_NTOF_U(pd.EXPN_PRIC) + N\' - \' + CAST(pd.QNTY AS VARCHAR(10)) + \' )\' + \', \')       \r\n\t         FROM dbo.Payment_Detail pd\r\n           WHERE pd.Pymt_Rqst_Rqid = rr.Rqst_Rqid\r\n             FOR XML PATH(\'\'), TYPE)\r\n         .value(\'text()[1]\', \'NVARCHAR(MAX)\')) AS PYDT_LIST,\r\n(SELECT \r\n\t(SELECT (e.EXPN_DESC + \' ( \' + dbo.GET_NTOF_U(pd.AMNT) + N\' - \' + dp.DOMN_DESC + \' )\' + \', \')       \r\n\tFROM dbo.Payment_Discoun" +
+"t pd LEFT OUTER JOIN dbo.Expense e ON (pd.EXPN_CODE = e.CODE), \r\n\t         dbo.[D$PYDS] dp\r\n           WHERE pd.Pymt_Rqst_Rqid = rr.Rqst_Rqid\r\n             AND pd.EXPN_CODE = e.CODE\r\n             AND pd.AMNT_TYPE = dp.VALU\r\n             FOR XML PATH(\'\'), TYPE)\r\n         .value(\'text()[1]\', \'NVARCHAR(MAX)\')) AS PYDT_DSCT_LIST,\r\n(SELECT \r\n\t(SELECT (dbo.GET_NTOF_U(pm.AMNT) + \' ( \' + dr.DOMN_DESC + \' )\' + \', \')       \r\n\tFROM dbo.Payment_Method pm, dbo.[D$RCMT] dr\r\n           WHERE pm.Pymt_Rqst_Rqid = p.RQST_RQID\r\n             AND pm.RCPT_MTOD = dr.VALU\r\n             FOR XML PATH(\'\'), TYPE)\r\n         .value(\'text()[1]\', \'NVARCHAR(MAX)\')) AS PYMT_LIST,\r\n         dbo.GET_NTOS_U(p.SUM_EXPN_PRIC) AS SUM_EXPN_PRIC_DESC,\r\n         p.SUM_EXPN_PRIC,\r\n         p.SUM_RCPT_EXPN_PRIC,\r\n         p.SUM_PYMT_DSCN_DNRM,\r\n         (p.SUM_EXPN_PRIC - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) AS DEBT_AMNT,\r\n         a.DOMN_DESC AS AMNT_UNIT_TYPE_DESC\r\n  FROM dbo.Request , dbo.Request_Row rr, dbo.Fighter f,\r\n       dbo.Payment p" +
+", dbo.V#Users u, dbo.Club c, dbo.[D$ATYP] a, dbo.[D$SXDC] s\r\n WHERE Request.RQID = rr.RQST_RQID\r\n   AND rr.FIGH_FILE_NO = f.FILE_NO\r\n   AND rr.RQST_RQID = p.RQST_RQID\r\n   AND Request.CRET_BY = u.USER_DB\r\n   AND p.AMNT_UNIT_TYPE_DNRM = a.VALU\r\n   AND f.SEX_TYPE_DNRM = s.VALU\r\n   AND f.CLUB_CODE_DNRM = c.CODE\r\n   AND Request.RQTP_CODE = \'016\'\r\n   AND Request.Rqid = 14012972634362;";
+        }
+        
+        #region DataSource iQuery
+        public class iQueryDataSource : Stimulsoft.Report.Dictionary.StiSqlSource
+        {
+            
+            public iQueryDataSource() : 
+                    base("iScsc", "iQuery", "iQuery", "", true, false, 30)
+            {
+            }
+            
+            public virtual long RQID
+            {
+                get
+                {
+                    return ((long)(StiReport.ChangeType(this["RQID"], typeof(long), true)));
+                }
+            }
+            
+            public virtual string PERS_RQST_DATE
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["PERS_RQST_DATE"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string USER_NAME
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["USER_NAME"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string CLUB_DESC
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["CLUB_DESC"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string CLUB_TELL_PHON
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["CLUB_TELL_PHON"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string CLUB_CELL_PHON
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["CLUB_CELL_PHON"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string CLUB_POST_ADRS
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["CLUB_POST_ADRS"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string CLUB_ZIP_CODE
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["CLUB_ZIP_CODE"], typeof(string), true)));
+                }
+            }
+            
+            public virtual long FILE_NO
+            {
+                get
+                {
+                    return ((long)(StiReport.ChangeType(this["FILE_NO"], typeof(long), true)));
+                }
+            }
+            
+            public virtual string FNGR_PRNT_DNRM
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["FNGR_PRNT_DNRM"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string SERV_NO_DNRM
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["SERV_NO_DNRM"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string SEX_DESC
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["SEX_DESC"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string FRST_NAME_DNRM
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["FRST_NAME_DNRM"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string LAST_NAME_DNRM
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["LAST_NAME_DNRM"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string NATL_CODE_DNRM
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["NATL_CODE_DNRM"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string CELL_PHON_DNRM
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["CELL_PHON_DNRM"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string TELL_PHON_DNRM
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["TELL_PHON_DNRM"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string POST_ADRS_DNRM
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["POST_ADRS_DNRM"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string PERS_BRTH_DATE
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["PERS_BRTH_DATE"], typeof(string), true)));
+                }
+            }
+            
+            public virtual int AGE
+            {
+                get
+                {
+                    return ((int)(StiReport.ChangeType(this["AGE"], typeof(int), true)));
+                }
+            }
+            
+            public virtual string PYDT_LIST
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["PYDT_LIST"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string PYDT_DSCT_LIST
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["PYDT_DSCT_LIST"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string PYMT_LIST
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["PYMT_LIST"], typeof(string), true)));
+                }
+            }
+            
+            public virtual long SUM_EXPN_PRIC
+            {
+                get
+                {
+                    return ((long)(StiReport.ChangeType(this["SUM_EXPN_PRIC"], typeof(long), true)));
+                }
+            }
+            
+            public virtual long SUM_RCPT_EXPN_PRIC
+            {
+                get
+                {
+                    return ((long)(StiReport.ChangeType(this["SUM_RCPT_EXPN_PRIC"], typeof(long), true)));
+                }
+            }
+            
+            public virtual long SUM_PYMT_DSCN_DNRM
+            {
+                get
+                {
+                    return ((long)(StiReport.ChangeType(this["SUM_PYMT_DSCN_DNRM"], typeof(long), true)));
+                }
+            }
+            
+            public virtual long DEBT_AMNT
+            {
+                get
+                {
+                    return ((long)(StiReport.ChangeType(this["DEBT_AMNT"], typeof(long), true)));
+                }
+            }
+            
+            public virtual string SUM_EXPN_PRIC_DESC
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["SUM_EXPN_PRIC_DESC"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string CRET_BY
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["CRET_BY"], typeof(string), true)));
+                }
+            }
+            
+            public virtual string AMNT_UNIT_TYPE_DESC
+            {
+                get
+                {
+                    return ((string)(StiReport.ChangeType(this["AMNT_UNIT_TYPE_DESC"], typeof(string), true)));
+                }
+            }
+        }
+        #endregion DataSource iQuery
+        #endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

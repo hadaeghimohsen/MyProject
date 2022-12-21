@@ -2271,14 +2271,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<V_Transaction_Fee> V_Transaction_Fees
-		{
-			get
-			{
-				return this.GetTable<V_Transaction_Fee>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Report_Action_Parameter> Report_Action_Parameters
 		{
 			get
@@ -2356,6 +2348,14 @@ namespace System.Scsc.Data
 			get
 			{
 				return this.GetTable<Payment_Expense>();
+			}
+		}
+		
+		public System.Data.Linq.Table<V_Transaction_Fee> V_Transaction_Fees
+		{
+			get
+			{
+				return this.GetTable<V_Transaction_Fee>();
 			}
 		}
 		
@@ -84447,195 +84447,6 @@ namespace System.Scsc.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V#Transaction_Fee")]
-	public partial class V_Transaction_Fee
-	{
-		
-		private long _TFID;
-		
-		private string _TXFE_TYPE;
-		
-		private string _CALC_TYPE;
-		
-		private System.Nullable<float> _TXFE_PRCT;
-		
-		private System.Nullable<long> _FROM_AMNT;
-		
-		private System.Nullable<long> _TO_AMNT;
-		
-		private System.Nullable<long> _TXFE_AMNT;
-		
-		private string _AMNT_TYPE;
-		
-		private string _STAT;
-		
-		private string _TXFE_DESC;
-		
-		public V_Transaction_Fee()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TFID", DbType="BigInt NOT NULL")]
-		public long TFID
-		{
-			get
-			{
-				return this._TFID;
-			}
-			set
-			{
-				if ((this._TFID != value))
-				{
-					this._TFID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TXFE_TYPE", DbType="VarChar(3)")]
-		public string TXFE_TYPE
-		{
-			get
-			{
-				return this._TXFE_TYPE;
-			}
-			set
-			{
-				if ((this._TXFE_TYPE != value))
-				{
-					this._TXFE_TYPE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CALC_TYPE", DbType="VarChar(3)")]
-		public string CALC_TYPE
-		{
-			get
-			{
-				return this._CALC_TYPE;
-			}
-			set
-			{
-				if ((this._CALC_TYPE != value))
-				{
-					this._CALC_TYPE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TXFE_PRCT", DbType="Real")]
-		public System.Nullable<float> TXFE_PRCT
-		{
-			get
-			{
-				return this._TXFE_PRCT;
-			}
-			set
-			{
-				if ((this._TXFE_PRCT != value))
-				{
-					this._TXFE_PRCT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FROM_AMNT", DbType="BigInt")]
-		public System.Nullable<long> FROM_AMNT
-		{
-			get
-			{
-				return this._FROM_AMNT;
-			}
-			set
-			{
-				if ((this._FROM_AMNT != value))
-				{
-					this._FROM_AMNT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TO_AMNT", DbType="BigInt")]
-		public System.Nullable<long> TO_AMNT
-		{
-			get
-			{
-				return this._TO_AMNT;
-			}
-			set
-			{
-				if ((this._TO_AMNT != value))
-				{
-					this._TO_AMNT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TXFE_AMNT", DbType="BigInt")]
-		public System.Nullable<long> TXFE_AMNT
-		{
-			get
-			{
-				return this._TXFE_AMNT;
-			}
-			set
-			{
-				if ((this._TXFE_AMNT != value))
-				{
-					this._TXFE_AMNT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_TYPE", DbType="VarChar(3)")]
-		public string AMNT_TYPE
-		{
-			get
-			{
-				return this._AMNT_TYPE;
-			}
-			set
-			{
-				if ((this._AMNT_TYPE != value))
-				{
-					this._AMNT_TYPE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)")]
-		public string STAT
-		{
-			get
-			{
-				return this._STAT;
-			}
-			set
-			{
-				if ((this._STAT != value))
-				{
-					this._STAT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TXFE_DESC", DbType="NVarChar(500)")]
-		public string TXFE_DESC
-		{
-			get
-			{
-				return this._TXFE_DESC;
-			}
-			set
-			{
-				if ((this._TXFE_DESC != value))
-				{
-					this._TXFE_DESC = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Report_Action_Parameter")]
 	public partial class Report_Action_Parameter : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -94228,6 +94039,195 @@ namespace System.Scsc.Data
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V#Transaction_Fee")]
+	public partial class V_Transaction_Fee
+	{
+		
+		private long _TFID;
+		
+		private string _TXFE_TYPE;
+		
+		private string _CALC_TYPE;
+		
+		private System.Nullable<float> _TXFE_PRCT;
+		
+		private System.Nullable<long> _FROM_AMNT;
+		
+		private System.Nullable<long> _TO_AMNT;
+		
+		private System.Nullable<long> _TXFE_AMNT;
+		
+		private string _AMNT_TYPE;
+		
+		private string _STAT;
+		
+		private string _TXFE_DESC;
+		
+		public V_Transaction_Fee()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TFID", DbType="BigInt NOT NULL")]
+		public long TFID
+		{
+			get
+			{
+				return this._TFID;
+			}
+			set
+			{
+				if ((this._TFID != value))
+				{
+					this._TFID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TXFE_TYPE", DbType="VarChar(3)")]
+		public string TXFE_TYPE
+		{
+			get
+			{
+				return this._TXFE_TYPE;
+			}
+			set
+			{
+				if ((this._TXFE_TYPE != value))
+				{
+					this._TXFE_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CALC_TYPE", DbType="VarChar(3)")]
+		public string CALC_TYPE
+		{
+			get
+			{
+				return this._CALC_TYPE;
+			}
+			set
+			{
+				if ((this._CALC_TYPE != value))
+				{
+					this._CALC_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TXFE_PRCT", DbType="Real")]
+		public System.Nullable<float> TXFE_PRCT
+		{
+			get
+			{
+				return this._TXFE_PRCT;
+			}
+			set
+			{
+				if ((this._TXFE_PRCT != value))
+				{
+					this._TXFE_PRCT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FROM_AMNT", DbType="BigInt")]
+		public System.Nullable<long> FROM_AMNT
+		{
+			get
+			{
+				return this._FROM_AMNT;
+			}
+			set
+			{
+				if ((this._FROM_AMNT != value))
+				{
+					this._FROM_AMNT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TO_AMNT", DbType="BigInt")]
+		public System.Nullable<long> TO_AMNT
+		{
+			get
+			{
+				return this._TO_AMNT;
+			}
+			set
+			{
+				if ((this._TO_AMNT != value))
+				{
+					this._TO_AMNT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TXFE_AMNT", DbType="BigInt")]
+		public System.Nullable<long> TXFE_AMNT
+		{
+			get
+			{
+				return this._TXFE_AMNT;
+			}
+			set
+			{
+				if ((this._TXFE_AMNT != value))
+				{
+					this._TXFE_AMNT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AMNT_TYPE", DbType="VarChar(3)")]
+		public string AMNT_TYPE
+		{
+			get
+			{
+				return this._AMNT_TYPE;
+			}
+			set
+			{
+				if ((this._AMNT_TYPE != value))
+				{
+					this._AMNT_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)")]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this._STAT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TXFE_DESC", DbType="NVarChar(500)")]
+		public string TXFE_DESC
+		{
+			get
+			{
+				return this._TXFE_DESC;
+			}
+			set
+			{
+				if ((this._TXFE_DESC != value))
+				{
+					this._TXFE_DESC = value;
+				}
 			}
 		}
 	}

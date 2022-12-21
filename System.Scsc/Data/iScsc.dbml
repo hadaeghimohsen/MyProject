@@ -4621,20 +4621,6 @@
       <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.V#Transaction_Fee" Member="V_Transaction_Fees">
-    <Type Name="V_Transaction_Fee">
-      <Column Name="TFID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="TXFE_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CALC_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="TXFE_PRCT" Type="System.Single" DbType="Real" CanBeNull="true" />
-      <Column Name="FROM_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="TO_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="TXFE_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="AMNT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="TXFE_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Report_Action_Parameter" Member="Report_Action_Parameters">
     <Type Name="Report_Action_Parameter">
       <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -5107,6 +5093,20 @@
       <Association Name="Payment_Detail_Payment_Expense" Member="Payment_Detail" ThisKey="PYDT_CODE" OtherKey="CODE" Type="Payment_Detail" IsForeignKey="true" />
       <Association Name="Request_Row_Payment_Expense" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
       <Association Name="Request_Type_Payment_Expense" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V#Transaction_Fee" Member="V_Transaction_Fees">
+    <Type Name="V_Transaction_Fee">
+      <Column Name="TFID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TXFE_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CALC_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="TXFE_PRCT" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="FROM_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TO_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TXFE_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="AMNT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="TXFE_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">

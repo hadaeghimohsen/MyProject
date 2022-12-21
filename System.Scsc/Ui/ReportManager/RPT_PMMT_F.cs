@@ -203,8 +203,8 @@ namespace System.Scsc.Ui.ReportManager
                VSmsBs7.DataSource =
                   iScsc.V_Sms_Message_Boxes
                   .Where(s => 
-                     s.ACTN_DATE >= FromDate7_Date.Value.Value.Date && 
-                     s.ACTN_DATE <= ToDate7_Date.Value.Value.Date &&
+                     s.ACTN_DATE.Value.Date >= FromDate7_Date.Value.Value.Date && 
+                     s.ACTN_DATE.Value.Date <= ToDate7_Date.Value.Value.Date &&
                      (SmsSend003_Rb.Checked ? true : 
                         (SmsSend001_Rb.Checked ? s.MESG_ID != null : s.MESG_ID == null)
                      )

@@ -799,7 +799,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if (Txid013_Txt.Text == "" || Txid013_Txt.Text.Length < 4) { Txid013_Txt.Focus(); return; }
             if (Pwd013_Txt.Text != PasswordHash + SaltKey + VIKey) { Pwd013_Txt.Focus(); return; }
-
+            
             XElement _result = null;
 
             iRoboTech.SAVE_PYMT_P(
@@ -812,6 +812,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                ),
                ref _result
             );
+
+            Pwd013_Txt.Text = Txid013_Txt.Text = "";
             requery = true;
          }
          catch (Exception exc)

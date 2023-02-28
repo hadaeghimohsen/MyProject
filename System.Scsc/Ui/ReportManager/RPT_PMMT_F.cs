@@ -310,6 +310,11 @@ namespace System.Scsc.Ui.ReportManager
          FromDate11_Date.CommitChanges(); ToDate11_Date.CommitChanges();
          FromDate12_Date.CommitChanges(); ToDate12_Date.CommitChanges();
 
+         // 1401/11/20 * بررسی اینکه آیا گزینه ها درست وار دشده یا خیر
+         if (Figh_Lov2.EditValue == null || Figh_Lov2.EditValue.ToString() == "") { Figh_Lov2.EditValue = null; }
+         if (Cbmt_Lov2.EditValue == null || Cbmt_Lov2.EditValue.ToString() == "") { Cbmt_Lov2.EditValue = null; }
+         if (Sunt_Lov2.EditValue == null || Sunt_Lov2.EditValue.ToString() == "") { Sunt_Lov2.EditValue = null; }
+
          // مرگ بر دیکتاتور
          // 1401/08/26 * زن_زندگی_آزادی
          Save_Default_Report_Action_Parameter();
@@ -964,7 +969,7 @@ namespace System.Scsc.Ui.ReportManager
       {
          try
          {
-            if (e.NewValue == null || e.NewValue.ToString() == "") return;
+            if (e.NewValue == null || e.NewValue.ToString() == "") {  cochfileno = null; return; }
             cochfileno = (long?)e.NewValue;
          }
          catch { cochfileno = null; }

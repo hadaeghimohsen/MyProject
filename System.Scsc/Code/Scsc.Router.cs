@@ -525,6 +525,9 @@ namespace System.Scsc.Code
             case 165:
                Adv_Base_F(job);
                break;
+            case 166:
+               Show_Mbsc_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -1031,6 +1034,9 @@ namespace System.Scsc.Code
                break;
             case "SHOW_GLRL_F":
                //_Show_Glrl_F.SendRequest(job);
+               break;
+            case "SHOW_MBSC_F":
+               _Show_Mbsc_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

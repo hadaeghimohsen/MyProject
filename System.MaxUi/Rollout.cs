@@ -44,21 +44,21 @@ namespace System.MaxUi
       private System.ComponentModel.Container components = null;
       private int V_RoundCorners = 2;
       private string V_RolloutTitle = "The Rollout name";
-      private System.Drawing.Color V_TitleBorderColor = Color.Gray;
-      private System.Drawing.Color V_RolloutBorderColor = Color.Gray;
+      private System.Drawing.Color V_TitleBorderColor = Color.Black;
+      private System.Drawing.Color V_RolloutBorderColor = Color.FromArgb(110, 110, 110);
       private float V_BorderThickness = 1;
       private bool V_ShadowControl = false;
-      private System.Drawing.Color V_BackgroundColor = SystemColors.Control;
+      private System.Drawing.Color V_BackgroundColor = Color.FromArgb(197,197,197);
       private System.Drawing.Color V_BackgroundGradientColor = SystemColors.Control;
       private GroupBoxGradientMode V_BackgroundGradientMode = GroupBoxGradientMode.None;
       private System.Drawing.Color V_ShadowColor = Color.DarkGray;
       private int V_ShadowThickness = 3;
       private System.Drawing.Image V_GroupImage = null;
-      private System.Drawing.Color V_CustomRolloutColor = Color.White;
-      private bool V_PaintRollout = false;
+      private System.Drawing.Color V_CustomRolloutColor = Color.FromArgb(180,180,180);
+      private bool V_PaintRollout = true;
       private System.Drawing.Color V_BackColor = Color.Transparent;
       private bool V_RolloutStatus = true;
-      private BorderStyle V_RolloutFrameType = BorderStyle.Fixed3D;
+      private BorderStyle V_RolloutFrameType = BorderStyle.None;
       private int v_MaxHeight;
 
       private bool mouseOver;
@@ -292,8 +292,9 @@ namespace System.MaxUi
          this.Resize += new EventHandler(Rollout_Resize);
          this.DockPadding.All = 20;
          this.Name = "Rollout";
-         this.Size = new System.Drawing.Size(368, 288);
+         this.Size = new System.Drawing.Size(298, 223);
          this.Padding = new Windows.Forms.Padding(4,30,3,3);
+         this.ForeColor = Color.Black;
          v_MaxHeight = Height;
       }
       #endregion

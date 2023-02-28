@@ -85,6 +85,7 @@
          this.StopRobot_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.StrtBot_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+         this.Actn4Mesg_Cbx = new System.Windows.Forms.CheckBox();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov)).BeginInit();
@@ -247,6 +248,7 @@
          this.splitContainerControl5.Panel1.Controls.Add(this.countryGridControl);
          this.splitContainerControl5.Panel1.Text = "Panel1";
          this.splitContainerControl5.Panel2.Controls.Add(this.gridControl1);
+         this.splitContainerControl5.Panel2.Controls.Add(this.Actn4Mesg_Cbx);
          this.splitContainerControl5.Panel2.Controls.Add(this.StopRobot_Butn);
          this.splitContainerControl5.Panel2.Controls.Add(this.StrtBot_Butn);
          this.splitContainerControl5.Panel2.Text = "Panel2";
@@ -497,7 +499,7 @@
             this.Actv_Lov2,
             this.Buld_Lov,
             this.persianRepositoryItemDateEdit6});
-         this.gridControl1.Size = new System.Drawing.Size(251, 118);
+         this.gridControl1.Size = new System.Drawing.Size(251, 100);
          this.gridControl1.TabIndex = 2;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -665,6 +667,19 @@
          this.panelControl5.Size = new System.Drawing.Size(738, 53);
          this.panelControl5.TabIndex = 13;
          // 
+         // Actn4Mesg_Cbx
+         // 
+         this.Actn4Mesg_Cbx.AutoSize = true;
+         this.Actn4Mesg_Cbx.Checked = true;
+         this.Actn4Mesg_Cbx.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.Actn4Mesg_Cbx.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.Actn4Mesg_Cbx.Location = new System.Drawing.Point(0, 100);
+         this.Actn4Mesg_Cbx.Name = "Actn4Mesg_Cbx";
+         this.Actn4Mesg_Cbx.Size = new System.Drawing.Size(251, 18);
+         this.Actn4Mesg_Cbx.TabIndex = 4;
+         this.Actn4Mesg_Cbx.Text = "پردازش پیامهای دریافتی از سرور";
+         this.Actn4Mesg_Cbx.UseVisualStyleBackColor = true;
+         // 
          // labelControl15
          // 
          this.labelControl15.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -786,5 +801,6 @@
       private Windows.Forms.ToolStripSeparator toolStripMenuItem1;
       private Windows.Forms.ToolStripMenuItem RunNoRun_Tsmi;
       private DevExpress.XtraGrid.Columns.GridColumn colRUN_STAT;
+      public Windows.Forms.CheckBox Actn4Mesg_Cbx;
    }
 }

@@ -1183,9 +1183,9 @@ namespace System.Scsc.Ui.BaseDefinition
                if (cbmt == null) return;
 
                if (cbmt.CODE == 0)
-                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE);
+                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE, cbmt.DURT_ATTN_SOND_PATH);
                else
-                  iScsc.UPD_CBMT_P(cbmt.CODE, cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.MTOD_STAT, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE);
+                  iScsc.UPD_CBMT_P(cbmt.CODE, cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.MTOD_STAT, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE, cbmt.DURT_ATTN_SOND_PATH);
                requery = true;
             }
             else if (Tb_Master.SelectedTab == tp_005)
@@ -2689,7 +2689,10 @@ namespace System.Scsc.Ui.BaseDefinition
                      new XAttribute("atn4evntactntype", Stng.ATN4_EVNT_ACTN_TYPE ?? "001"),
 
                      new XAttribute("attngustnumbtype", Stng.ATTN_GUST_NUMB_TYPE ?? "002"),
-                     new XAttribute("attndelytime", Stng.ATTN_DELY_TIME ?? 0)
+                     new XAttribute("attndelytime", Stng.ATTN_DELY_TIME ?? 0),
+
+                     new XAttribute("snd7path", Stng.SND7_PATH ?? ""),
+                     new XAttribute("snd9path", Stng.SND9_PATH ?? "")
 
                   )
                )
@@ -4005,7 +4008,7 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                if (!CbmtBs1.List.OfType<Data.Club_Method>().Any(t => t.MTOD_CODE == cbmt.MTOD_CODE && t.DAY_TYPE == cbmt.DAY_TYPE && t.STRT_TIME == i && t.END_TIME == i.Add(new TimeSpan(0, priod, 0))))
                {
-                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, i, i.Add(new TimeSpan(0, priod, 0)), cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE);
+                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, i, i.Add(new TimeSpan(0, priod, 0)), cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE, cbmt.DURT_ATTN_SOND_PATH);
                }
 
                i = i.Add(new TimeSpan(0, priod, 0));
@@ -5030,6 +5033,136 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void DurtAttnSondPath_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (DurtAttnSp_Ofd.ShowDialog() != DialogResult.OK) return;
+
+            if (DurtAttnSp_Ofd.FileName == "") return;
+
+            DurtAttnSp_Txt.Text = DurtAttnSp_Ofd.FileName;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveDASP_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (_cbmt == null) return;
+
+            //if (string.IsNullOrEmpty(DurtAttnSp_Txt.Text))
+            //{
+            //   DurtAttnSp_Txt.Focus();
+            //   DurtAttnSondPath_Butn_Click(null, null);
+            //}
+
+            if(ModifierKeys == Keys.Control)
+               iScsc.ExecuteCommand(string.Format("UPDATE Club_Method SET Durt_Attn_Sond_Path = N'{0}' WHERE Mtod_Code = {1};", DurtAttnSp_Txt.Text, _cbmt.MTOD_CODE));
+            else
+               iScsc.ExecuteCommand(string.Format("UPDATE Club_Method SET Durt_Attn_Sond_Path = N'{0}' WHERE Code = {1};", DurtAttnSp_Txt.Text, _cbmt.CODE));
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+      private void PlayDASP_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cbmt = CbmtBs2.Current as Data.Club_Method;
+            if (_cbmt == null) return;
+
+            wplayer.URL = _cbmt.DURT_ATTN_SOND_PATH;
+            wplayer.controls.play();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PlayDebtSond_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _stng = StngBs1.Current as Data.Setting;
+            if (_stng == null) return;
+
+            wplayer.URL = _stng.SND9_PATH;
+            //wplayer.controls.play();
+            switch(PlayDebtSond_Butn.Tag.ToString())
+            {
+               case "stop":
+                  PlayDebtSond_Butn.Tag = "play";
+                  new Threading.Thread(PlaySound).Start();
+                  break;
+               case "play":
+                  PlayDebtSond_Butn.Tag = "stop";
+                  new Threading.Thread(StopSound).Start();
+                  break;
+            }
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PlayHbDaySond_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _stng = StngBs1.Current as Data.Setting;
+            if (_stng == null) return;
+
+            wplayer.URL = _stng.SND7_PATH;
+            //wplayer.controls.play();
+
+            switch (PlayHbDaySond_Butn.Tag.ToString())
+            {
+               case "stop":
+                  PlayHbDaySond_Butn.Tag = "play";
+                  new Threading.Thread(PlaySound).Start();
+                  break;
+               case "play":
+                  PlayHbDaySond_Butn.Tag = "stop";
+                  new Threading.Thread(StopSound).Start();
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      void PlaySound()
+      {
+         wplayer.controls.play();
+      }
+
+      void StopSound()
+      {
+         wplayer.controls.stop();
       }
    }
 }

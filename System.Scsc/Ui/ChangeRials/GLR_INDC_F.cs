@@ -105,7 +105,7 @@ namespace System.Scsc.Ui.ChangeRials
             Glrd_gv.PostEditor();
 
             var rqst = RqstBs1.Current as Data.Request;
-            var glrl = GlrlBs1.Current as Data.Gain_Loss_Rial;
+            var glrl = GlrlBs1.Current as Data.Gain_Loss_Rial;            
 
             iScsc.GLR_TRQT_P(
                new XElement("Process",
@@ -119,8 +119,8 @@ namespace System.Scsc.Ui.ChangeRials
                      new XElement("Gain_Loss_Rials",
                         new XAttribute("glid", glrl == null ? 0 : glrl.GLID),
                         new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
-                        new XAttribute("amnt", Amnt_Txt.EditValue ?? ""),
-                        new XAttribute("prct", Prct_Txt.EditValue ?? ""),
+                        new XAttribute("amnt", Amnt_Txt.EditValue ?? "0"),
+                        new XAttribute("prct", Prct_Txt.EditValue ?? "0"),
                         new XAttribute("paiddate", PaidDate_DateTime.Value == null ? "" : PaidDate_DateTime.Value.Value.ToString("yyyy-MM-dd HH:mm:ss")),                        
                         new XAttribute("dpststat", IncDpst_Rb.Checked ? "002" : "001"),
                         new XAttribute("resndesc", ResnDesc_Txt.EditValue ?? ""),
@@ -265,6 +265,9 @@ namespace System.Scsc.Ui.ChangeRials
                   followups = "";
                   rqstRqid = 0;
                }
+
+               /* Loop For Print After Pay */
+               RqstBnPrintAfterPay_Click(null, null);
             }
          }
          catch (Exception ex)
@@ -417,7 +420,7 @@ namespace System.Scsc.Ui.ChangeRials
               new Job(SendType.External, "Localhost",
                  new List<Job>
                   {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "PrntAftrPay"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "PrintAfterFinish"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }

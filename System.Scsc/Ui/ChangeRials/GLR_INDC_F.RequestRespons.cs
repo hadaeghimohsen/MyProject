@@ -447,6 +447,8 @@ namespace System.Scsc.Ui.ChangeRials
                   RqstBs1.AddNew();
 
                FIGH_FILE_NOLookUpEdit.EditValue = fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
+               Amnt_Txt.EditValue = 0;
+               Prct_Txt.EditValue = 0;
                Btn_RqstRqt1_Click(null, null);
 
                // 1399/12/10 * followups

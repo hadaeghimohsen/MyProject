@@ -178,6 +178,7 @@ namespace System.Scsc.Code
       internal Ui.ChangeMethodCategory.ShowChanges.SHOW_CTRQ_F _Show_Ctrq_F { get; set; }
       internal Ui.EnablingDisabling.ShowChanges.SHOW_DERQ_F _Show_Derq_F { get; set; }
       internal Ui.Admission.ShowChanges.SHOW_UCRQ_F _Show_Ucrq_F { get; set; }
+      internal Ui.Admission.ShowChanges.SHOW_MBSC_F _Show_Mbsc_F { get; set; }
       //internal Ui.OtherIncome.ShowChanges.SHOW_OMRQ_F _Show_Omrq_F { get; set; }
       //internal Ui.OtherExpense.ShowChanges.SHOW_EMRQ_F _Show_Emrq_F { get; set; }
       //internal Ui.Financial.ShowChanges.SHOW_RFDT_F _Show_Rfdt_F { get; set; }

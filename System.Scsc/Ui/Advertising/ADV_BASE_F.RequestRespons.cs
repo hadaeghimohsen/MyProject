@@ -282,6 +282,7 @@ namespace System.Scsc.Ui.Advertising
          RCalBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call");
          RSurBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call_Survey");
          CochBs.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && Convert.ToInt32(c.ACTV_TAG_DNRM) >= 101);
+         DPsdtBs.DataSource = iScsc.D_PSDTs;
          job.Status = StatusType.Successful;
       }
 

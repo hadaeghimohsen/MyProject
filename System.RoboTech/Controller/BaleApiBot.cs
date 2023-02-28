@@ -202,14 +202,14 @@ namespace System.RoboTech.Controller
                               if (!string.IsNullOrEmpty(robo.UP_LOAD_FILE_PATH))
                               {
                                  // Check Exists Directory
-                                 if (!Directory.Exists(string.Format(@"{0}\R{1}\Products\{2}\Images", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode)))
+                                 if (!Directory.Exists(string.Format(@"{0}\R{1}\Products\{2}\Images", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode.Replace(':', '_'))))
                                  {
                                     // Create Directory
-                                    var cretImagDir = Directory.CreateDirectory(string.Format(@"{0}\R{1}\Products\{2}\Images", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode));
+                                    var cretImagDir = Directory.CreateDirectory(string.Format(@"{0}\R{1}\Products\{2}\Images", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode.Replace(':', '_')));
                                  }
 
-                                 int fileCounts = Directory.GetFiles(string.Format(@"{0}\R{1}\Products\{2}\Images", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode)).Length + 1;
-                                 fileTrgtPath = string.Format(@"{0}\R{1}\Products\{2}\Images\{2}_{3}{4}", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode, fileCounts, Path.GetExtension(file));
+                                 int fileCounts = Directory.GetFiles(string.Format(@"{0}\R{1}\Products\{2}\Images", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode.Replace(':', '_'))).Length + 1;
+                                 fileTrgtPath = string.Format(@"{0}\R{1}\Products\{2}\Images\{2}_{3}{4}", robo.UP_LOAD_FILE_PATH, rbid, prodTarfCode.Replace(':', '_'), fileCounts, Path.GetExtension(file));
                                  System.IO.File.Copy(file, fileTrgtPath);
                               }
 
@@ -762,6 +762,8 @@ namespace System.RoboTech.Controller
       {
          try
          {
+            if (!_Strt_Robo_F.Actn4Mesg_Cbx.Checked) return;
+
             var callBackQuery = e.CallbackQuery;
             string data = callBackQuery.Data;
             #region HoldHistory
@@ -1496,6 +1498,8 @@ namespace System.RoboTech.Controller
 
       private async Task Robot_Interact(MessageEventArgs e)
       {
+         if (!_Strt_Robo_F.Actn4Mesg_Cbx.Checked) return;
+
          ChatInfo chat = null;
          try
          {            

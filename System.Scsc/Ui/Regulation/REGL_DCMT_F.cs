@@ -705,7 +705,14 @@ namespace System.Scsc.Ui.Regulation
       {
          try
          {
+            var _exco = ExcoBs.Current as Data.Expense_Cost;
+            if (_exco == null) return;
 
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.Expense_Costs.DeleteOnSubmit(_exco);
+            iScsc.SubmitChanges();
+            requery = true;
          }
          catch (Exception exc)
          {

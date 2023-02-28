@@ -41,12 +41,12 @@ namespace System.MaxUi
       #region Variables
 
       private System.ComponentModel.Container components = null;
-      private int V_RoundCorners = 2;
-      private string V_GroupTitle = "The Grouper";
-      private System.Drawing.Color V_BorderColor = Color.Gray;
+      private int V_RoundCorners = 1;
+      private string V_GroupTitle = "groupbox name";
+      private System.Drawing.Color V_BorderColor = Color.FromArgb(110,110,110);
       private float V_BorderThickness = 1;
       private bool V_ShadowControl = false;
-      private System.Drawing.Color V_BackgroundColor = SystemColors.Control;
+      private System.Drawing.Color V_BackgroundColor = Color.FromArgb(197,197,197);
       private System.Drawing.Color V_BackgroundGradientColor = SystemColors.Control;
       private GroupBoxGradientMode V_BackgroundGradientMode = GroupBoxGradientMode.None;
       private System.Drawing.Color V_ShadowColor = Color.DarkGray;
@@ -55,7 +55,7 @@ namespace System.MaxUi
       private System.Drawing.Color V_CustomGroupBoxColor = Color.White;
       private bool V_PaintGroupBox = false;
       private System.Drawing.Color V_BackColor = Color.Transparent;
-
+      private bool V_ShowBorderTitle = false;
       #endregion
 
       #region Properties
@@ -139,6 +139,10 @@ namespace System.MaxUi
       [Category("Appearance"), Description("This feature will add a group title to the control.")]
       public string GroupTitle { get { return V_GroupTitle; } set { V_GroupTitle = value; this.Refresh(); } }
 
+      /// <summary>This feature will add a group title to the control.</summary>
+      [Category("Appearance"), Description("This feature will add a group title to the control.")]
+      public bool ShowBorderTitle { get { return V_ShowBorderTitle; } set { V_ShowBorderTitle = value; this.Refresh(); } }
+
       /// <summary>This feature will allow you to change the color of the control's border.</summary>
       [Category("Appearance"), Description("This feature will allow you to change the color of the control's border.")]
       public System.Drawing.Color BorderColor { get { return V_BorderColor; } set { V_BorderColor = value; this.Refresh(); } }
@@ -214,8 +218,9 @@ namespace System.MaxUi
          this.Resize += new EventHandler(GroupBox_Resize);
          this.DockPadding.All = 20;
          this.Name = "GroupBox";
-         this.Size = new System.Drawing.Size(368, 288);
+         this.Size = new System.Drawing.Size(285, 129);
          this.Padding = new Windows.Forms.Padding(6, 30, 6, 6);
+         this.ForeColor = Color.Black;
       }
 
 
@@ -254,7 +259,7 @@ namespace System.MaxUi
          int ArcWidth = this.RoundCorners;
          int ArcHeight = this.RoundCorners;
          int ArcX1 = 20;
-         int ArcX2 = (StringSize2.Width + 34) - (ArcWidth + 1);
+         int ArcX2 = (StringSize2.Width + 30) - (ArcWidth + 1);
          int ArcY1 = 0;
          int ArcY2 = 24 - (ArcHeight + 1);
          System.Drawing.Drawing2D.GraphicsPath path = new System.Drawing.Drawing2D.GraphicsPath();
@@ -309,10 +314,10 @@ namespace System.MaxUi
                path.AddArc(ArcX1, ArcY2, ArcWidth, ArcHeight, 90, GroupBoxConstants.SweepAngle); //Bottom Left
                break;
             case RightToLeft.Yes:
-               path.AddArc(ClientRectangle.Width - (StringSize2.Width + ArcX1 + 15), ArcY1, ArcWidth, ArcHeight, 180, GroupBoxConstants.SweepAngle); // Top Left
+               path.AddArc(ClientRectangle.Width - (StringSize2.Width + ArcX1 + 8), ArcY1, ArcWidth, ArcHeight, 180, GroupBoxConstants.SweepAngle); // Top Left
                path.AddArc(ClientRectangle.Width - (20), ArcY1, ArcWidth, ArcHeight, 270, GroupBoxConstants.SweepAngle); //Top Right
                path.AddArc(ClientRectangle.Width - (20), ArcY2, ArcWidth, ArcHeight, 360, GroupBoxConstants.SweepAngle); //Bottom Right
-               path.AddArc(ClientRectangle.Width - (StringSize2.Width + ArcX1 + 15), ArcY2, ArcWidth, ArcHeight, 90, GroupBoxConstants.SweepAngle); //Bottom Left
+               path.AddArc(ClientRectangle.Width - (StringSize2.Width + ArcX1 + 8), ArcY2, ArcWidth, ArcHeight, 90, GroupBoxConstants.SweepAngle); //Bottom Left
                break;
             default:
                break;
@@ -347,19 +352,20 @@ namespace System.MaxUi
          //-----------------------------------
 
          //Paint Borded-----------------------
-         g.DrawPath(BorderPen, path);
+         if(ShowBorderTitle)
+            g.DrawPath(BorderPen, path);
          //-----------------------------------
 
          //Paint Text-------------------------
-         int CustomStringWidth = (this.GroupImage != null) ? 44 : 28;
+         int CustomStringWidth = (this.GroupImage != null) ? 44 : /*28*/ 25;
          switch (RightToLeft)
          {
             case RightToLeft.Inherit:
             case RightToLeft.No:
-               g.DrawString(this.GroupTitle, this.Font, TextColorBrush, CustomStringWidth, 5);
+               g.DrawString(this.GroupTitle, this.Font, TextColorBrush, CustomStringWidth, 4);
                break;
             case RightToLeft.Yes:
-               g.DrawString(this.GroupTitle, this.Font, TextColorBrush, ClientRectangle.Width - (StringSize2.Width + CustomStringWidth - 3), 5);
+               g.DrawString(this.GroupTitle, this.Font, TextColorBrush, ClientRectangle.Width - (StringSize2.Width + CustomStringWidth - 3), 4);
                break;
             default:
                break;

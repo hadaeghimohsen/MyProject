@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -72,8 +73,8 @@
          this.Back_Butn = new C1.Win.C1Input.C1Button();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
          this.panel3 = new System.Windows.Forms.Panel();
-         this.RoboBs = new System.Windows.Forms.BindingSource();
-         this.OrgnBs = new System.Windows.Forms.BindingSource();
+         this.RoboBs = new System.Windows.Forms.BindingSource(this.components);
+         this.OrgnBs = new System.Windows.Forms.BindingSource(this.components);
          this.countryGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -113,7 +114,7 @@
          this.Followers_Tp = new DevExpress.XtraTab.XtraTabPage();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.IflrBs = new System.Windows.Forms.BindingSource();
+         this.IflrBs = new System.Windows.Forms.BindingSource(this.components);
          this.IflrGv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -151,7 +152,7 @@
          this.rollout7 = new System.MaxUi.Rollout();
          this.grouper9 = new System.MaxUi.Grouper();
          this.gridLookUpEdit1 = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.SrbtBs = new System.Windows.Forms.BindingSource();
+         this.SrbtBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn70 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn71 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -212,7 +213,7 @@
          this.button3 = new System.MaxUi.Button();
          this.FollowersSelectOption_Fb = new System.MaxUi.FlyoutButton();
          this.FlwrPlacHldr_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.TmpiBs = new System.Windows.Forms.BindingSource();
+         this.TmpiBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn107 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn108 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -236,7 +237,7 @@
          this.grouper16 = new System.MaxUi.Grouper();
          this.label50 = new System.Windows.Forms.Label();
          this.memoEdit3 = new DevExpress.XtraEditors.MemoEdit();
-         this.IdfrBs = new System.Windows.Forms.BindingSource();
+         this.IdfrBs = new System.Windows.Forms.BindingSource(this.components);
          this.label51 = new System.Windows.Forms.Label();
          this.textEdit30 = new DevExpress.XtraEditors.TimeEdit();
          this.grouper14 = new System.MaxUi.Grouper();
@@ -252,7 +253,7 @@
          this.colINST_PKID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMESG_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DelmtBs = new System.Windows.Forms.BindingSource();
+         this.DelmtBs = new System.Windows.Forms.BindingSource(this.components);
          this.colMESG_TEXT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colLINK = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFILE_PATH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -261,7 +262,7 @@
          this.colCITY_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSEND_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DsdtpBs = new System.Windows.Forms.BindingSource();
+         this.DsdtpBs = new System.Windows.Forms.BindingSource(this.components);
          this.colCRET_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -270,7 +271,7 @@
          this.Following_Tp = new DevExpress.XtraTab.XtraTabPage();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-         this.IflnBs = new System.Windows.Forms.BindingSource();
+         this.IflnBs = new System.Windows.Forms.BindingSource(this.components);
          this.IflnGv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -391,7 +392,7 @@
          this.grouper20 = new System.MaxUi.Grouper();
          this.label59 = new System.Windows.Forms.Label();
          this.memoEdit5 = new DevExpress.XtraEditors.MemoEdit();
-         this.IdfnBs = new System.Windows.Forms.BindingSource();
+         this.IdfnBs = new System.Windows.Forms.BindingSource(this.components);
          this.label60 = new System.Windows.Forms.Label();
          this.timeEdit3 = new DevExpress.XtraEditors.TimeEdit();
          this.grouper21 = new System.MaxUi.Grouper();
@@ -431,18 +432,18 @@
          this.label53 = new System.Windows.Forms.Label();
          this.label34 = new System.Windows.Forms.Label();
          this.timeEdit2 = new DevExpress.XtraEditors.SpinEdit();
-         this.InstBs = new System.Windows.Forms.BindingSource();
+         this.InstBs = new System.Windows.Forms.BindingSource(this.components);
          this.spinEdit2 = new DevExpress.XtraEditors.SpinEdit();
          this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
          this.gridLookUpEdit4 = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.HostBs = new System.Windows.Forms.BindingSource();
+         this.HostBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView10 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colIP_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCPU_SRNO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCOMP_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridLookUpEdit3 = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.TmplBs = new System.Windows.Forms.BindingSource();
+         this.TmplBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colROBO_RBID3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTMID1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -499,7 +500,7 @@
          this.textEdit15 = new DevExpress.XtraEditors.TextEdit();
          this.label1 = new System.Windows.Forms.Label();
          this.textEdit4 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DsxtpBs = new System.Windows.Forms.BindingSource();
+         this.DsxtpBs = new System.Windows.Forms.BindingSource(this.components);
          this.textEdit8 = new DevExpress.XtraEditors.MemoEdit();
          this.DelPage_Butn = new System.MaxUi.Button();
          this.SaveInfoPage_Butn = new System.MaxUi.Button();
@@ -569,7 +570,7 @@
          this.textEdit34 = new DevExpress.XtraEditors.TextEdit();
          this.label49 = new System.Windows.Forms.Label();
          this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DtmtpBs = new System.Windows.Forms.BindingSource();
+         this.DtmtpBs = new System.Windows.Forms.BindingSource(this.components);
          this.MesgText_Txt = new DevExpress.XtraEditors.MemoEdit();
          this.SlctTmpl_Butn = new System.MaxUi.Button();
          this.DelTmpl_Butn = new System.MaxUi.Button();
@@ -590,8 +591,8 @@
          this.colMDFY_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRobot2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.SbflBs = new System.Windows.Forms.BindingSource();
-         this.SbfrBs = new System.Windows.Forms.BindingSource();
+         this.SbflBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SbfrBs = new System.Windows.Forms.BindingSource(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
@@ -1554,6 +1555,7 @@
          this.grouper5.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper5.ShadowControl = true;
          this.grouper5.ShadowThickness = 2;
+         this.grouper5.ShowBorderTitle = false;
          this.grouper5.Size = new System.Drawing.Size(224, 71);
          this.grouper5.TabIndex = 6;
          // 
@@ -1612,6 +1614,7 @@
          this.grouper6.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper6.ShadowControl = true;
          this.grouper6.ShadowThickness = 2;
+         this.grouper6.ShowBorderTitle = false;
          this.grouper6.Size = new System.Drawing.Size(224, 328);
          this.grouper6.TabIndex = 0;
          // 
@@ -1883,6 +1886,7 @@
          this.grouper9.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper9.ShadowControl = true;
          this.grouper9.ShadowThickness = 2;
+         this.grouper9.ShowBorderTitle = false;
          this.grouper9.Size = new System.Drawing.Size(224, 148);
          this.grouper9.TabIndex = 0;
          // 
@@ -2338,6 +2342,7 @@
          this.grouper11.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper11.ShadowControl = true;
          this.grouper11.ShadowThickness = 2;
+         this.grouper11.ShowBorderTitle = false;
          this.grouper11.Size = new System.Drawing.Size(224, 99);
          this.grouper11.TabIndex = 6;
          // 
@@ -2405,6 +2410,7 @@
          this.grouper10.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper10.ShadowControl = true;
          this.grouper10.ShadowThickness = 2;
+         this.grouper10.ShowBorderTitle = false;
          this.grouper10.Size = new System.Drawing.Size(224, 462);
          this.grouper10.TabIndex = 0;
          // 
@@ -2800,6 +2806,7 @@
          this.grouper16.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper16.ShadowControl = true;
          this.grouper16.ShadowThickness = 2;
+         this.grouper16.ShowBorderTitle = false;
          this.grouper16.Size = new System.Drawing.Size(224, 333);
          this.grouper16.TabIndex = 7;
          // 
@@ -2896,6 +2903,7 @@
          this.grouper14.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper14.ShadowControl = true;
          this.grouper14.ShadowThickness = 2;
+         this.grouper14.ShowBorderTitle = false;
          this.grouper14.Size = new System.Drawing.Size(224, 99);
          this.grouper14.TabIndex = 6;
          // 
@@ -2948,6 +2956,7 @@
          this.grouper15.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper15.ShadowControl = true;
          this.grouper15.ShadowThickness = 2;
+         this.grouper15.ShowBorderTitle = false;
          this.grouper15.Size = new System.Drawing.Size(224, 246);
          this.grouper15.TabIndex = 0;
          // 
@@ -3389,6 +3398,7 @@
          this.grouper8.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper8.ShadowControl = true;
          this.grouper8.ShadowThickness = 2;
+         this.grouper8.ShowBorderTitle = false;
          this.grouper8.Size = new System.Drawing.Size(224, 71);
          this.grouper8.TabIndex = 6;
          // 
@@ -3447,6 +3457,7 @@
          this.grouper3.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper3.ShadowControl = true;
          this.grouper3.ShadowThickness = 2;
+         this.grouper3.ShowBorderTitle = false;
          this.grouper3.Size = new System.Drawing.Size(224, 328);
          this.grouper3.TabIndex = 0;
          // 
@@ -3718,6 +3729,7 @@
          this.grouper4.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper4.ShadowControl = true;
          this.grouper4.ShadowThickness = 2;
+         this.grouper4.ShowBorderTitle = false;
          this.grouper4.Size = new System.Drawing.Size(224, 148);
          this.grouper4.TabIndex = 0;
          // 
@@ -4169,6 +4181,7 @@
          this.grouper18.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper18.ShadowControl = true;
          this.grouper18.ShadowThickness = 2;
+         this.grouper18.ShowBorderTitle = false;
          this.grouper18.Size = new System.Drawing.Size(224, 99);
          this.grouper18.TabIndex = 6;
          // 
@@ -4236,6 +4249,7 @@
          this.grouper19.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper19.ShadowControl = true;
          this.grouper19.ShadowThickness = 2;
+         this.grouper19.ShowBorderTitle = false;
          this.grouper19.Size = new System.Drawing.Size(224, 462);
          this.grouper19.TabIndex = 0;
          // 
@@ -4627,6 +4641,7 @@
          this.grouper20.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper20.ShadowControl = true;
          this.grouper20.ShadowThickness = 2;
+         this.grouper20.ShowBorderTitle = false;
          this.grouper20.Size = new System.Drawing.Size(224, 333);
          this.grouper20.TabIndex = 7;
          // 
@@ -4723,6 +4738,7 @@
          this.grouper21.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper21.ShadowControl = true;
          this.grouper21.ShadowThickness = 2;
+         this.grouper21.ShowBorderTitle = false;
          this.grouper21.Size = new System.Drawing.Size(224, 99);
          this.grouper21.TabIndex = 6;
          // 
@@ -4775,6 +4791,7 @@
          this.grouper22.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper22.ShadowControl = true;
          this.grouper22.ShadowThickness = 2;
+         this.grouper22.ShowBorderTitle = false;
          this.grouper22.Size = new System.Drawing.Size(224, 246);
          this.grouper22.TabIndex = 0;
          // 
@@ -5113,6 +5130,7 @@
          this.grouper17.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper17.ShadowControl = true;
          this.grouper17.ShadowThickness = 2;
+         this.grouper17.ShowBorderTitle = false;
          this.grouper17.Size = new System.Drawing.Size(224, 232);
          this.grouper17.TabIndex = 6;
          // 
@@ -5533,6 +5551,7 @@
          this.grouper7.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper7.ShadowControl = true;
          this.grouper7.ShadowThickness = 2;
+         this.grouper7.ShowBorderTitle = false;
          this.grouper7.Size = new System.Drawing.Size(224, 233);
          this.grouper7.TabIndex = 5;
          // 
@@ -5733,6 +5752,7 @@
          this.grouper2.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper2.ShadowControl = true;
          this.grouper2.ShadowThickness = 2;
+         this.grouper2.ShowBorderTitle = false;
          this.grouper2.Size = new System.Drawing.Size(224, 532);
          this.grouper2.TabIndex = 0;
          // 
@@ -6265,6 +6285,7 @@
          this.grouper1.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper1.ShadowControl = true;
          this.grouper1.ShadowThickness = 2;
+         this.grouper1.ShowBorderTitle = false;
          this.grouper1.Size = new System.Drawing.Size(224, 128);
          this.grouper1.TabIndex = 3;
          // 
@@ -6578,6 +6599,7 @@
          this.grouper13.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper13.ShadowControl = true;
          this.grouper13.ShadowThickness = 2;
+         this.grouper13.ShowBorderTitle = false;
          this.grouper13.Size = new System.Drawing.Size(224, 514);
          this.grouper13.TabIndex = 8;
          // 
@@ -7037,6 +7059,7 @@
          this.grouper12.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper12.ShadowControl = true;
          this.grouper12.ShadowThickness = 2;
+         this.grouper12.ShowBorderTitle = false;
          this.grouper12.Size = new System.Drawing.Size(224, 190);
          this.grouper12.TabIndex = 0;
          // 

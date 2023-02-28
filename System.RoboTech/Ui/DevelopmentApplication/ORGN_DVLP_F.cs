@@ -1462,6 +1462,48 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             }
          }
          #endregion
+         #region Yesterday
+         try
+         {
+            var robo = RoboBs.Current as Data.Robot;
+            var menu = RmnusBs.Current as Data.Menu_Ussd;
+
+            var AddCartMenu = new Data.Menu_Ussd()
+            {
+               ROBO_RBID = robo.RBID,
+               MNUS_MUID = menu == null ? null : (long?)menu.MUID,
+               ORDR = menu == null ? (short)0 : (short)menu.Menu_Ussds.Count,
+               USSD_CODE = menu == null ? "*0#" : string.Format("{0}*{1}#", menu.USSD_CODE.Substring(0, menu.USSD_CODE.Length - 1), menu.Menu_Ussds.Count),
+               ROOT_MENU = "001",
+               MENU_TEXT = "دیروز",
+               MNUS_DESC = "دیروز",
+               CMND_FIRE = "001",
+               STAT = "002",
+               CMND_PLAC = "001",
+               STEP_BACK = "002",
+               STEP_BACK_USSD_CODE = menu.USSD_CODE, //.Substring(0, menu.USSD_CODE.LastIndexOf('*')) + "#",
+               CLMN = 1,
+               CMND_TYPE = "008"
+            };
+
+            iRoboTech.Menu_Ussds.InsertOnSubmit(AddCartMenu);
+
+            RmnusBs.EndEdit();
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception ex)
+         {
+            MessageBox.Show(ex.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+         #endregion
          #region Week
          try
          {

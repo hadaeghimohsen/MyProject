@@ -377,6 +377,15 @@
     <Compile Include="Ui\Admission\NEW_FNGR_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\Admission\ShowChanges\SHOW_MBSC_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Admission\ShowChanges\SHOW_MBSC_F.Designer.cs">
+      <DependentUpon>SHOW_MBSC_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Admission\ShowChanges\SHOW_MBSC_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\Admission\ShowChanges\SHOW_UCRQ_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1133,6 +1142,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_ACTN.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ACTV.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_AEAT.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_AIN.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_AMTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ANTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_APST.datasource" />
@@ -1194,6 +1204,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_PMTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PRST.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PSAT.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_PSDT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PTYP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PYCO.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PYDS.datasource" />
@@ -1418,6 +1429,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Admission\NEW_FNGR_F.resx">
       <DependentUpon>NEW_FNGR_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Admission\ShowChanges\SHOW_MBSC_F.resx">
+      <DependentUpon>SHOW_MBSC_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Admission\ShowChanges\SHOW_UCRQ_F.resx">
       <DependentUpon>SHOW_UCRQ_F.cs</DependentUpon>
@@ -1649,14 +1663,173 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\System.Resource\Icons\ICONS_1045.png">
+    <Content Include="..\System.Resource\Resources\GIF_0001.gif">
+      <Link>Resources\GIF_0001.gif</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\ICONS_1045.png">
       <Link>Resources\ICONS_1045.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_0001.png">
+      <Link>Resources\IMAGE_0001.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1001.png">
+      <Link>Resources\IMAGE_1001.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1002.png">
+      <Link>Resources\IMAGE_1002.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1003.png">
+      <Link>Resources\IMAGE_1003.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1004.png">
+      <Link>Resources\IMAGE_1004.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1005.png">
+      <Link>Resources\IMAGE_1005.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1006.png">
+      <Link>Resources\IMAGE_1006.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1007.png">
       <Link>Resources\IMAGE_1007.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1008.jpg">
+      <Link>Resources\IMAGE_1008.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1009.png">
+      <Link>Resources\IMAGE_1009.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1010.png">
+      <Link>Resources\IMAGE_1010.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1011.png">
+      <Link>Resources\IMAGE_1011.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1013.png">
+      <Link>Resources\IMAGE_1013.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1014.png">
+      <Link>Resources\IMAGE_1014.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1015.png">
+      <Link>Resources\IMAGE_1015.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1016.png">
+      <Link>Resources\IMAGE_1016.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1017.png">
+      <Link>Resources\IMAGE_1017.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1018.png">
+      <Link>Resources\IMAGE_1018.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1019.png">
+      <Link>Resources\IMAGE_1019.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1020.png">
+      <Link>Resources\IMAGE_1020.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1021.png">
+      <Link>Resources\IMAGE_1021.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1022.png">
+      <Link>Resources\IMAGE_1022.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1023.png">
+      <Link>Resources\IMAGE_1023.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1024.png">
+      <Link>Resources\IMAGE_1024.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1025.png">
+      <Link>Resources\IMAGE_1025.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1026.png">
+      <Link>Resources\IMAGE_1026.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1027.png">
+      <Link>Resources\IMAGE_1027.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1028.png">
+      <Link>Resources\IMAGE_1028.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1029.png">
+      <Link>Resources\IMAGE_1029.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1030.png">
+      <Link>Resources\IMAGE_1030.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1031.png">
+      <Link>Resources\IMAGE_1031.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1032.png">
+      <Link>Resources\IMAGE_1032.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1033.png">
+      <Link>Resources\IMAGE_1033.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1034.png">
+      <Link>Resources\IMAGE_1034.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1035.png">
+      <Link>Resources\IMAGE_1035.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1036.png">
+      <Link>Resources\IMAGE_1036.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1037.png">
+      <Link>Resources\IMAGE_1037.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1038.jpg">
+      <Link>Resources\IMAGE_1038.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1039.jpg">
+      <Link>Resources\IMAGE_1039.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1040.png">
+      <Link>Resources\IMAGE_1040.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1041.jpg">
+      <Link>Resources\IMAGE_1041.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1042.jpg">
+      <Link>Resources\IMAGE_1042.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1043.jpg">
+      <Link>Resources\IMAGE_1043.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1044.jpg">
+      <Link>Resources\IMAGE_1044.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1045.jpg">
+      <Link>Resources\IMAGE_1045.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1046.jpg">
+      <Link>Resources\IMAGE_1046.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1047.jpg">
+      <Link>Resources\IMAGE_1047.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1048.png">
+      <Link>Resources\IMAGE_1048.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1049.jpg">
+      <Link>Resources\IMAGE_1049.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1050.jpg">
+      <Link>Resources\IMAGE_1050.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1051.jpg">
+      <Link>Resources\IMAGE_1051.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1052.jpg">
+      <Link>Resources\IMAGE_1052.jpg</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1053.jpg">
       <Link>Resources\IMAGE_1053.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1053.png">
+      <Link>Resources\IMAGE_1053.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1054.png">
       <Link>Resources\IMAGE_1054.png</Link>
@@ -1747,6 +1920,15 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1083.png">
       <Link>Resources\IMAGE_1083.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1084.jpg">
+      <Link>Resources\IMAGE_1084.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1084.png">
+      <Link>Resources\IMAGE_1084.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1085.png">
+      <Link>Resources\IMAGE_1085.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1086.png">
       <Link>Resources\IMAGE_1086.png</Link>
@@ -1840,6 +2022,15 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1116.png">
       <Link>Resources\IMAGE_1116.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1117.png">
+      <Link>Resources\IMAGE_1117.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1118.png">
+      <Link>Resources\IMAGE_1118.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1119.png">
+      <Link>Resources\IMAGE_1119.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1120.png">
       <Link>Resources\IMAGE_1120.png</Link>
@@ -1946,8 +2137,17 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1154.png">
       <Link>Resources\IMAGE_1154.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1155.png">
+      <Link>Resources\IMAGE_1155.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1156.png">
+      <Link>Resources\IMAGE_1156.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1157.png">
       <Link>Resources\IMAGE_1157.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1158.png">
+      <Link>Resources\IMAGE_1158.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1159.png">
       <Link>Resources\IMAGE_1159.png</Link>
@@ -1987,6 +2187,30 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1171.png">
       <Link>Resources\IMAGE_1171.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1172.png">
+      <Link>Resources\IMAGE_1172.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1173.png">
+      <Link>Resources\IMAGE_1173.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1174.png">
+      <Link>Resources\IMAGE_1174.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1175.png">
+      <Link>Resources\IMAGE_1175.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1176.png">
+      <Link>Resources\IMAGE_1176.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1177.png">
+      <Link>Resources\IMAGE_1177.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1178.png">
+      <Link>Resources\IMAGE_1178.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1179.png">
+      <Link>Resources\IMAGE_1179.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1180.png">
       <Link>Resources\IMAGE_1180.png</Link>
@@ -2108,11 +2332,23 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1219.png">
       <Link>Resources\IMAGE_1219.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1220.png">
+      <Link>Resources\IMAGE_1220.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1221.png">
+      <Link>Resources\IMAGE_1221.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1222.png">
       <Link>Resources\IMAGE_1222.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1223.png">
       <Link>Resources\IMAGE_1223.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1224.png">
+      <Link>Resources\IMAGE_1224.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1225.png">
+      <Link>Resources\IMAGE_1225.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1226.png">
       <Link>Resources\IMAGE_1226.png</Link>
@@ -2165,6 +2401,27 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1242.jpg">
       <Link>Resources\IMAGE_1242.jpg</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1243.png">
+      <Link>Resources\IMAGE_1243.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1244.png">
+      <Link>Resources\IMAGE_1244.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1245.png">
+      <Link>Resources\IMAGE_1245.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1246.png">
+      <Link>Resources\IMAGE_1246.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1247.png">
+      <Link>Resources\IMAGE_1247.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1248.png">
+      <Link>Resources\IMAGE_1248.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1249.jpg">
+      <Link>Resources\IMAGE_1249.jpg</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1250.png">
       <Link>Resources\IMAGE_1250.png</Link>
     </Content>
@@ -2176,6 +2433,36 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1253.png">
       <Link>Resources\IMAGE_1253.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1254.png">
+      <Link>Resources\IMAGE_1254.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1255.png">
+      <Link>Resources\IMAGE_1255.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1256.png">
+      <Link>Resources\IMAGE_1256.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1257.png">
+      <Link>Resources\IMAGE_1257.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1258.png">
+      <Link>Resources\IMAGE_1258.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1259.png">
+      <Link>Resources\IMAGE_1259.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1260.png">
+      <Link>Resources\IMAGE_1260.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1261.png">
+      <Link>Resources\IMAGE_1261.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1262.png">
+      <Link>Resources\IMAGE_1262.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1263.png">
+      <Link>Resources\IMAGE_1263.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1264.png">
       <Link>Resources\IMAGE_1264.png</Link>
@@ -2909,23 +3196,302 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1507.png">
       <Link>Resources\IMAGE_1507.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1508.png">
+      <Link>Resources\IMAGE_1508.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1509.png">
+      <Link>Resources\IMAGE_1509.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1510.png">
+      <Link>Resources\IMAGE_1510.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1511.png">
+      <Link>Resources\IMAGE_1511.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1512.png">
+      <Link>Resources\IMAGE_1512.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1513.png">
+      <Link>Resources\IMAGE_1513.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1514.png">
+      <Link>Resources\IMAGE_1514.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1515.png">
+      <Link>Resources\IMAGE_1515.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1516.png">
+      <Link>Resources\IMAGE_1516.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1517.png">
+      <Link>Resources\IMAGE_1517.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1518.png">
+      <Link>Resources\IMAGE_1518.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1519.png">
+      <Link>Resources\IMAGE_1519.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1520.png">
       <Link>Resources\IMAGE_1520.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1521.png">
+      <Link>Resources\IMAGE_1521.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1522.png">
+      <Link>Resources\IMAGE_1522.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1523.png">
+      <Link>Resources\IMAGE_1523.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1524.png">
+      <Link>Resources\IMAGE_1524.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1525.png">
+      <Link>Resources\IMAGE_1525.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1526.png">
+      <Link>Resources\IMAGE_1526.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1527.png">
+      <Link>Resources\IMAGE_1527.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1528.png">
+      <Link>Resources\IMAGE_1528.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1529.png">
+      <Link>Resources\IMAGE_1529.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1530.png">
+      <Link>Resources\IMAGE_1530.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1531.png">
+      <Link>Resources\IMAGE_1531.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1532.png">
+      <Link>Resources\IMAGE_1532.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1533.png">
+      <Link>Resources\IMAGE_1533.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1534.png">
+      <Link>Resources\IMAGE_1534.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1535.png">
+      <Link>Resources\IMAGE_1535.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1536.png">
+      <Link>Resources\IMAGE_1536.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1537.png">
+      <Link>Resources\IMAGE_1537.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1538.png">
+      <Link>Resources\IMAGE_1538.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1539.png">
+      <Link>Resources\IMAGE_1539.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1540.png">
+      <Link>Resources\IMAGE_1540.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1541.png">
+      <Link>Resources\IMAGE_1541.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1542.png">
+      <Link>Resources\IMAGE_1542.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1543.png">
+      <Link>Resources\IMAGE_1543.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1544.png">
+      <Link>Resources\IMAGE_1544.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1545.png">
+      <Link>Resources\IMAGE_1545.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1546.png">
+      <Link>Resources\IMAGE_1546.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1547.png">
+      <Link>Resources\IMAGE_1547.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1548.png">
+      <Link>Resources\IMAGE_1548.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1549.png">
+      <Link>Resources\IMAGE_1549.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1550.png">
+      <Link>Resources\IMAGE_1550.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1551.png">
+      <Link>Resources\IMAGE_1551.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1552.png">
+      <Link>Resources\IMAGE_1552.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1553.png">
+      <Link>Resources\IMAGE_1553.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1554.png">
       <Link>Resources\IMAGE_1554.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1555.png">
+      <Link>Resources\IMAGE_1555.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1556.png">
+      <Link>Resources\IMAGE_1556.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1557.png">
+      <Link>Resources\IMAGE_1557.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1558.png">
+      <Link>Resources\IMAGE_1558.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1559.png">
+      <Link>Resources\IMAGE_1559.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1560.png">
+      <Link>Resources\IMAGE_1560.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1561.png">
       <Link>Resources\IMAGE_1561.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1562.png">
+      <Link>Resources\IMAGE_1562.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1563.png">
+      <Link>Resources\IMAGE_1563.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1564.png">
       <Link>Resources\IMAGE_1564.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1565.png">
+      <Link>Resources\IMAGE_1565.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1566.png">
+      <Link>Resources\IMAGE_1566.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1567.png">
+      <Link>Resources\IMAGE_1567.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1568.png">
       <Link>Resources\IMAGE_1568.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1569.png">
+      <Link>Resources\IMAGE_1569.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1570.png">
+      <Link>Resources\IMAGE_1570.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1571.png">
+      <Link>Resources\IMAGE_1571.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1572.png">
+      <Link>Resources\IMAGE_1572.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1573.png">
+      <Link>Resources\IMAGE_1573.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1574.png">
+      <Link>Resources\IMAGE_1574.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1575.png">
+      <Link>Resources\IMAGE_1575.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1576.png">
+      <Link>Resources\IMAGE_1576.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1577.png">
+      <Link>Resources\IMAGE_1577.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1578.png">
+      <Link>Resources\IMAGE_1578.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1579.png">
+      <Link>Resources\IMAGE_1579.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1580.png">
+      <Link>Resources\IMAGE_1580.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1581.png">
+      <Link>Resources\IMAGE_1581.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1582.png">
+      <Link>Resources\IMAGE_1582.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1583.png">
+      <Link>Resources\IMAGE_1583.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1584.png">
+      <Link>Resources\IMAGE_1584.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1585.png">
+      <Link>Resources\IMAGE_1585.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1586.png">
+      <Link>Resources\IMAGE_1586.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1587.png">
+      <Link>Resources\IMAGE_1587.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1588.png">
+      <Link>Resources\IMAGE_1588.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1589.png">
+      <Link>Resources\IMAGE_1589.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1590.png">
+      <Link>Resources\IMAGE_1590.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1591.png">
+      <Link>Resources\IMAGE_1591.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1592.png">
+      <Link>Resources\IMAGE_1592.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1593.png">
+      <Link>Resources\IMAGE_1593.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1594.png">
+      <Link>Resources\IMAGE_1594.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1595.png">
+      <Link>Resources\IMAGE_1595.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1596.png">
+      <Link>Resources\IMAGE_1596.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1597.png">
+      <Link>Resources\IMAGE_1597.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1598.png">
+      <Link>Resources\IMAGE_1598.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1599.png">
       <Link>Resources\IMAGE_1599.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1600.png">
+      <Link>Resources\IMAGE_1600.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1601.png">
+      <Link>Resources\IMAGE_1601.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1602.png">
+      <Link>Resources\IMAGE_1602.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1603.png">
+      <Link>Resources\IMAGE_1603.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1604.png">
+      <Link>Resources\IMAGE_1604.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1605.png">
+      <Link>Resources\IMAGE_1605.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1606.png">
+      <Link>Resources\IMAGE_1606.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1607.png">
       <Link>Resources\IMAGE_1607.png</Link>
@@ -2936,8 +3502,35 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1609.png">
       <Link>Resources\IMAGE_1609.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1610.png">
+      <Link>Resources\IMAGE_1610.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1611.png">
+      <Link>Resources\IMAGE_1611.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1612.png">
+      <Link>Resources\IMAGE_1612.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1613.png">
+      <Link>Resources\IMAGE_1613.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1614.png">
+      <Link>Resources\IMAGE_1614.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1615.png">
+      <Link>Resources\IMAGE_1615.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1616.png">
       <Link>Resources\IMAGE_1616.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1617.png">
+      <Link>Resources\IMAGE_1617.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1618.png">
+      <Link>Resources\IMAGE_1618.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1619.png">
+      <Link>Resources\IMAGE_1619.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1620.png">
       <Link>Resources\IMAGE_1620.png</Link>
@@ -2948,6 +3541,57 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1622.png">
       <Link>Resources\IMAGE_1622.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1623.png">
+      <Link>Resources\IMAGE_1623.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1624.jpg">
+      <Link>Resources\IMAGE_1624.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1625.png">
+      <Link>Resources\IMAGE_1625.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1626.png">
+      <Link>Resources\IMAGE_1626.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1627.png">
+      <Link>Resources\IMAGE_1627.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1628.png">
+      <Link>Resources\IMAGE_1628.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1629.png">
+      <Link>Resources\IMAGE_1629.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1630.png">
+      <Link>Resources\IMAGE_1630.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1631.png">
+      <Link>Resources\IMAGE_1631.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1632.png">
+      <Link>Resources\IMAGE_1632.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1633.png">
+      <Link>Resources\IMAGE_1633.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1634.png">
+      <Link>Resources\IMAGE_1634.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1635.png">
+      <Link>Resources\IMAGE_1635.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1636.png">
+      <Link>Resources\IMAGE_1636.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1637.png">
+      <Link>Resources\IMAGE_1637.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1638.png">
+      <Link>Resources\IMAGE_1638.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1639.png">
+      <Link>Resources\IMAGE_1639.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1640.png">
       <Link>Resources\IMAGE_1640.png</Link>
     </Content>
@@ -2956,6 +3600,33 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1642.png">
       <Link>Resources\IMAGE_1642.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1643.png">
+      <Link>Resources\IMAGE_1643.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1644.png">
+      <Link>Resources\IMAGE_1644.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1645.png">
+      <Link>Resources\IMAGE_1645.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1646.png">
+      <Link>Resources\IMAGE_1646.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1647.png">
+      <Link>Resources\IMAGE_1647.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1648.png">
+      <Link>Resources\IMAGE_1648.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1649.png">
+      <Link>Resources\IMAGE_1649.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1650.png">
+      <Link>Resources\IMAGE_1650.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1651.png">
+      <Link>Resources\IMAGE_1651.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1652.png">
       <Link>Resources\IMAGE_1652.png</Link>
@@ -2969,8 +3640,74 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1655.png">
       <Link>Resources\IMAGE_1655.png</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1656.jpg">
+      <Link>Resources\IMAGE_1656.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1657.png">
+      <Link>Resources\IMAGE_1657.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1658.jpg">
+      <Link>Resources\IMAGE_1658.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1659.png">
+      <Link>Resources\IMAGE_1659.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1660.png">
+      <Link>Resources\IMAGE_1660.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1661.png">
+      <Link>Resources\IMAGE_1661.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1662.jpg">
+      <Link>Resources\IMAGE_1662.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1663.jpg">
+      <Link>Resources\IMAGE_1663.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1664.jpg">
+      <Link>Resources\IMAGE_1664.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1665.jpg">
+      <Link>Resources\IMAGE_1665.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1666.png">
+      <Link>Resources\IMAGE_1666.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1667.jpg">
+      <Link>Resources\IMAGE_1667.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1668.png">
+      <Link>Resources\IMAGE_1668.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1669.png">
+      <Link>Resources\IMAGE_1669.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1670.jpg">
       <Link>Resources\IMAGE_1670.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1671.png">
+      <Link>Resources\IMAGE_1671.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1672.png">
+      <Link>Resources\IMAGE_1672.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1673.png">
+      <Link>Resources\IMAGE_1673.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1674.png">
+      <Link>Resources\IMAGE_1674.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1675.png">
+      <Link>Resources\IMAGE_1675.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1676.png">
+      <Link>Resources\IMAGE_1676.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1677.jpg">
+      <Link>Resources\IMAGE_1677.jpg</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1678.jpg">
+      <Link>Resources\IMAGE_1678.jpg</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1679.jpg">
       <Link>Resources\IMAGE_1679.jpg</Link>
@@ -2978,14 +3715,251 @@
     <Content Include="..\System.Resource\Resources\IMAGE_1680.jpg">
       <Link>Resources\IMAGE_1680.jpg</Link>
     </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1681.png">
+      <Link>Resources\IMAGE_1681.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1682.png">
+      <Link>Resources\IMAGE_1682.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1683.png">
+      <Link>Resources\IMAGE_1683.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1684.png">
+      <Link>Resources\IMAGE_1684.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1685.png">
+      <Link>Resources\IMAGE_1685.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1686.png">
+      <Link>Resources\IMAGE_1686.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1687.png">
+      <Link>Resources\IMAGE_1687.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1688.png">
+      <Link>Resources\IMAGE_1688.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1689.png">
+      <Link>Resources\IMAGE_1689.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1690.png">
+      <Link>Resources\IMAGE_1690.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1691.png">
+      <Link>Resources\IMAGE_1691.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1692.png">
+      <Link>Resources\IMAGE_1692.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1693.png">
+      <Link>Resources\IMAGE_1693.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1694.png">
+      <Link>Resources\IMAGE_1694.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1695.png">
+      <Link>Resources\IMAGE_1695.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1696.png">
+      <Link>Resources\IMAGE_1696.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1697.png">
+      <Link>Resources\IMAGE_1697.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1698.png">
+      <Link>Resources\IMAGE_1698.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1699.png">
+      <Link>Resources\IMAGE_1699.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1700.png">
+      <Link>Resources\IMAGE_1700.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1701.png">
+      <Link>Resources\IMAGE_1701.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1702.png">
+      <Link>Resources\IMAGE_1702.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1703.png">
+      <Link>Resources\IMAGE_1703.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1704.png">
+      <Link>Resources\IMAGE_1704.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1705.png">
+      <Link>Resources\IMAGE_1705.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1706.png">
+      <Link>Resources\IMAGE_1706.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1707.png">
+      <Link>Resources\IMAGE_1707.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1708.png">
+      <Link>Resources\IMAGE_1708.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1709.png">
+      <Link>Resources\IMAGE_1709.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1710.png">
+      <Link>Resources\IMAGE_1710.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1711.png">
+      <Link>Resources\IMAGE_1711.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1712.png">
+      <Link>Resources\IMAGE_1712.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1713.png">
+      <Link>Resources\IMAGE_1713.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1714.png">
+      <Link>Resources\IMAGE_1714.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1715.png">
+      <Link>Resources\IMAGE_1715.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1716.png">
+      <Link>Resources\IMAGE_1716.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1717.png">
+      <Link>Resources\IMAGE_1717.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1718.png">
+      <Link>Resources\IMAGE_1718.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1719.png">
+      <Link>Resources\IMAGE_1719.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1720.png">
+      <Link>Resources\IMAGE_1720.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1721.png">
+      <Link>Resources\IMAGE_1721.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1722.png">
+      <Link>Resources\IMAGE_1722.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1723.png">
+      <Link>Resources\IMAGE_1723.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1724.png">
+      <Link>Resources\IMAGE_1724.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1725.png">
+      <Link>Resources\IMAGE_1725.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1726.png">
+      <Link>Resources\IMAGE_1726.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1727.png">
+      <Link>Resources\IMAGE_1727.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1728.png">
+      <Link>Resources\IMAGE_1728.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1729.png">
+      <Link>Resources\IMAGE_1729.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1730.png">
+      <Link>Resources\IMAGE_1730.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1731.png">
+      <Link>Resources\IMAGE_1731.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1732.png">
+      <Link>Resources\IMAGE_1732.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1733.png">
+      <Link>Resources\IMAGE_1733.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1734.png">
+      <Link>Resources\IMAGE_1734.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1735.png">
+      <Link>Resources\IMAGE_1735.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1736.png">
+      <Link>Resources\IMAGE_1736.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1737.bmp">
+      <Link>Resources\IMAGE_1737.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1738.bmp">
+      <Link>Resources\IMAGE_1738.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1739.bmp">
+      <Link>Resources\IMAGE_1739.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1740.bmp">
+      <Link>Resources\IMAGE_1740.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1741.bmp">
+      <Link>Resources\IMAGE_1741.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1742.bmp">
+      <Link>Resources\IMAGE_1742.bmp</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1743.png">
+      <Link>Resources\IMAGE_1743.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1744.png">
+      <Link>Resources\IMAGE_1744.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1745.png">
+      <Link>Resources\IMAGE_1745.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1746.png">
+      <Link>Resources\IMAGE_1746.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1747.png">
+      <Link>Resources\IMAGE_1747.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1748.png">
+      <Link>Resources\IMAGE_1748.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1749.png">
+      <Link>Resources\IMAGE_1749.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1750.png">
+      <Link>Resources\IMAGE_1750.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1751.png">
+      <Link>Resources\IMAGE_1751.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1752.png">
+      <Link>Resources\IMAGE_1752.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1753.png">
+      <Link>Resources\IMAGE_1753.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1754.png">
+      <Link>Resources\IMAGE_1754.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1755.png">
+      <Link>Resources\IMAGE_1755.png</Link>
+    </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1756.png">
       <Link>Resources\IMAGE_1756.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1757.png">
+      <Link>Resources\IMAGE_1757.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1758.png">
+      <Link>Resources\IMAGE_1758.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1759.png">
       <Link>Resources\IMAGE_1759.png</Link>
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1760.png">
       <Link>Resources\IMAGE_1760.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1761.png">
+      <Link>Resources\IMAGE_1761.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1762.png">
+      <Link>Resources\IMAGE_1762.png</Link>
     </Content>
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

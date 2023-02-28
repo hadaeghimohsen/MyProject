@@ -108,7 +108,7 @@ namespace System.Scsc.Ui.Document
          else if (keyData == Keys.Escape)
          {
             // 1398/01/12 * if ZKTFingerPrintSensor Is Active
-            if (RcvdBs.List.OfType<Data.Receive_Document>().Any(rd => rd.Request_Document.DCMT_DSID == 13980505495708))
+            if (RcvdBs.List.OfType<Data.Receive_Document>().Any(rd => rd.Request_Document != null && rd.Request_Document.DCMT_DSID == 13980505495708))
             {
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost",

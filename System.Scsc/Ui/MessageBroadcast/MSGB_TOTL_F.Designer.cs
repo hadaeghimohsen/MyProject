@@ -1440,6 +1440,8 @@
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.label362 = new System.Windows.Forms.Label();
+         this.textEdit48 = new DevExpress.XtraEditors.TextEdit();
          this.tb_master.SuspendLayout();
          this.tp_001.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.cLUB_CODELookUpEdit.Properties)).BeginInit();
@@ -1880,6 +1882,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit243.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit244.Properties)).BeginInit();
          this.panel1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit48.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // BrthDateSmsStat_Lb
@@ -19100,6 +19103,8 @@
          // tp_036
          // 
          this.tp_036.BackColor = System.Drawing.SystemColors.Control;
+         this.tp_036.Controls.Add(this.label362);
+         this.tp_036.Controls.Add(this.textEdit48);
          this.tp_036.Controls.Add(this.label223);
          this.tp_036.Controls.Add(this.label224);
          this.tp_036.Controls.Add(this.lookUpEdit164);
@@ -21938,6 +21943,33 @@
          this.Back_Butn.ToolTip = "بازگشت";
          this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
+         // label362
+         // 
+         this.label362.Anchor = System.Windows.Forms.AnchorStyles.None;
+         this.label362.AutoSize = true;
+         this.label362.Location = new System.Drawing.Point(760, 230);
+         this.label362.Name = "label362";
+         this.label362.Size = new System.Drawing.Size(119, 14);
+         this.label362.TabIndex = 166;
+         this.label362.Text = "تعداد روز قبل از موعد :";
+         // 
+         // textEdit48
+         // 
+         this.textEdit48.Anchor = System.Windows.Forms.AnchorStyles.None;
+         this.textEdit48.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.MsgbBs36, "MIN_NUMB_DAY_RMND", true));
+         this.textEdit48.Location = new System.Drawing.Point(682, 227);
+         this.textEdit48.Name = "textEdit48";
+         this.textEdit48.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.textEdit48.Properties.Appearance.Options.UseFont = true;
+         this.textEdit48.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit48.Properties.AppearanceFocused.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.textEdit48.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit48.Properties.AppearanceFocused.Options.UseFont = true;
+         this.textEdit48.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.textEdit48.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.textEdit48.Size = new System.Drawing.Size(72, 22);
+         this.textEdit48.TabIndex = 167;
+         // 
          // MSGB_TOTL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -22444,6 +22476,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit243.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit244.Properties)).EndInit();
          this.panel1.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit48.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -23582,5 +23615,7 @@
       private Windows.Forms.BindingSource MsgbBs41;
       private Windows.Forms.BindingSource MsgbBs42;
       private Windows.Forms.TextBox Msg_Count_Char040_Txt;
+      private Windows.Forms.Label label362;
+      private DevExpress.XtraEditors.TextEdit textEdit48;
    }
 }

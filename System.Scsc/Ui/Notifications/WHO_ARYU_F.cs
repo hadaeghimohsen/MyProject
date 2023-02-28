@@ -13,6 +13,7 @@ using System.IO;
 using System.MaxUi;
 using System.Globalization;
 using DevExpress.XtraEditors;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.Notifications
 {
@@ -22,19 +23,20 @@ namespace System.Scsc.Ui.Notifications
       {
          InitializeComponent();
 
-         System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
-         gp.AddEllipse(0, 0, Pb_FighImg.Width , Pb_FighImg.Height );
-         System.Drawing.Region rg = new System.Drawing.Region(gp);
-         Pb_FighImg.Region = rg;
+         //System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+         //gp.AddEllipse(0, 0, Pb_FighImg.Width , Pb_FighImg.Height );
+         //System.Drawing.Region rg = new System.Drawing.Region(gp);
+         //Pb_FighImg.Region = rg;
       }
 
       private bool requery = false;
+      private string hBDay = "", durtAttn = "", debtAlrm = "";
 
       private void Pb_FighImg_Paint(object sender, PaintEventArgs e)
       {
-         e.Graphics.DrawEllipse(
-             new Pen(Color.White, 2f),
-             0, 0, Pb_FighImg.Size.Width, Pb_FighImg.Size.Height);
+         //e.Graphics.DrawEllipse(
+         //    new Pen(Color.White, 2f),
+         //    0, 0, Pb_FighImg.Size.Width, Pb_FighImg.Size.Height);
       }
 
       private void Execute_Query(bool runAllQuery)
@@ -101,19 +103,19 @@ namespace System.Scsc.Ui.Notifications
                      iScsc.Attendances.OrderByDescending(a => a.EXIT_TIME);
             }
          }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         catch (Exception exc) { MessageBox.Show(exc.Message); MessageBox.Show("Execute_Query Error"); }
       }
 
       int attnvist = 0;
       private void AttnBs1_CurrentChanged(object sender, EventArgs e)
       {
-         var attn = AttnBs1.Current as Data.Attendance;
-         if (attn == null) return;
+         var _attn = AttnBs1.Current as Data.Attendance;
+         if (_attn == null) return;
 
          if (attnvist > 0) return;
          attnvist++;
 
-         if (attn.EXIT_TIME != null)
+         if (_attn.EXIT_TIME != null)
          {
             //Lbl_AccessControl.Text = "خروج از باشگاه";
             //Lbl_AccessControl.ForeColor = Color.White;
@@ -128,10 +130,10 @@ namespace System.Scsc.Ui.Notifications
             DresNumb_Butn.Enabled = true;
 
             // 1396/10/18 * آیا گزینه نمایش چاپ حضوری انجام شود یا خیر
-            if (attn.Fighter1.FGPB_TYPE_DNRM == "001" && iScsc.Settings.FirstOrDefault(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).ATTN_PRNT_STAT == "002")
+            if (_attn.Fighter1.FGPB_TYPE_DNRM == "001" && iScsc.Settings.FirstOrDefault(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).ATTN_PRNT_STAT == "002")
             {
                // 1397/01/28 * برای آن دسته از ورود هایی که هنوز چاپ نشده اند
-               if(attn.PRNT_STAT != "002")
+               if(_attn.PRNT_STAT != "002")
                   PrintDefault_Butn_Click(null, null);
             }
          }
@@ -146,13 +148,13 @@ namespace System.Scsc.Ui.Notifications
                         Input = 
                            new XElement("Request",
                               new XAttribute("type", "gatecontrol"),
-                              new XAttribute("gateactn", attn.EXIT_TIME == null ? "open" : "close"),
-                              new XAttribute("mtodcode", attn.MTOD_CODE_DNRM ?? 0), // 1400/01/12 * برای اینکه بخواهیم به گیت مورد نظر همان ورزش درخواست دهیم
-                              new XAttribute("enddate", attn.MBSP_END_DATE_DNRM),
-                              new XAttribute("numbattnmont", attn.NUMB_OF_ATTN_MONT),
-                              new XAttribute("sumattnmont",attn.SUM_ATTN_MONT_DNRM ?? 0),
-                              new XAttribute("debt", attn.DEBT_DNRM),
-                              new XAttribute("fngrprnt", attn.FNGR_PRNT_DNRM)
+                              new XAttribute("gateactn", _attn.EXIT_TIME == null ? "open" : "close"),
+                              new XAttribute("mtodcode", _attn.MTOD_CODE_DNRM ?? 0), // 1400/01/12 * برای اینکه بخواهیم به گیت مورد نظر همان ورزش درخواست دهیم
+                              new XAttribute("enddate", _attn.MBSP_END_DATE_DNRM),
+                              new XAttribute("numbattnmont", _attn.NUMB_OF_ATTN_MONT),
+                              new XAttribute("sumattnmont",_attn.SUM_ATTN_MONT_DNRM ?? 0),
+                              new XAttribute("debt", _attn.DEBT_DNRM),
+                              new XAttribute("fngrprnt", _attn.FNGR_PRNT_DNRM)
                            )
                      }
                   }
@@ -161,80 +163,163 @@ namespace System.Scsc.Ui.Notifications
 
          // 1395/12/11 * چک کردن وضعیت بدهی مشتری
          //if(attn.Fighter1.DEBT_DNRM > 0)
-         if (attn.DEBT_DNRM > 0)
+         if (_attn.Fighter1.DEBT_DNRM > 0)
          {
-            Lbl_DebtStatDesc.Text = "بدهکار";
-            Lbl_DebtStatDesc.ForeColor = Color.Salmon;
+            DebtAmnt_Pn.Visible = true;
+            DebtAmnt_Lb.Text = _attn.Fighter1.DEBT_DNRM.Value.ToString("n0");
+
+            if(_attn.EXIT_TIME == null)
+            {
+               PlayDebtAlrm_Lb_Click(null, null);
+               PlayDebtAlrm_Lb.Tag = "stop";
+            }
          }
          //else if (attn.Fighter1.DEBT_DNRM == 0)
-         else if (attn.DEBT_DNRM == 0)
-         {
-            Lbl_DebtStatDesc.Text = "تسویه";
-            Lbl_DebtStatDesc.ForeColor = Color.Black;
-         }
          else
          {
-            Lbl_DebtStatDesc.Text = "بستانکار";
-            Lbl_DebtStatDesc.ForeColor = Color.GreenYellow;
+            DebtAmnt_Pn.Visible = false;
          }
 
-         if (attn.IMAG_RCDC_RCID_DNRM != null)
+         if (_attn.Fighter1.DPST_AMNT_DNRM > 0)
          {
-            try
+            DpstAmnt_Pn.Visible = true;
+            DpstAmnt_Lb.Text = _attn.Fighter1.DPST_AMNT_DNRM.Value.ToString("n0");
+         }
+         //else if (attn.Fighter1.DEBT_DNRM == 0)
+         else
+         {
+            DpstAmnt_Pn.Visible = false;
+         }
+
+         AttnDate_Date.Value = _attn.ATTN_DATE;
+         AttnDate_Lb.Text = AttnDate_Date.GetText("yyyy/MM/dd");
+         Mtod_Lb.Text = string.Format("{0} - {1}", _attn.Method.MTOD_DESC, _attn.Category_Belt.CTGY_DESC);
+         if (_attn.NUMB_OF_ATTN_MONT == 0) NumbAttnMont_Lb.Visible = false;
+         else NumbAttnMont_Lb.Visible = true;
+
+         if (ServProFile_Rb.Tag == null || ServProFile_Rb.Tag.ToString().ToInt64() != _attn.FIGH_FILE_NO)
+         {
+            if (_attn.IMAG_RCDC_RCID_DNRM != null)
             {
-               Pb_FighImg.Image = null;
-               MemoryStream mStream = new MemoryStream();
-               byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", attn.FIGH_FILE_NO))).ToArray();
-               mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-               Bitmap bm = new Bitmap(mStream, false);
-               mStream.Dispose();
+               try
+               {
+                  ServProFile_Rb.ImageProfile = null;
+                  MemoryStream mStream = new MemoryStream();
+                  byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _attn.FIGH_FILE_NO))).ToArray();
+                  mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                  Bitmap bm = new Bitmap(mStream, false);
+                  mStream.Dispose();
 
-               if (InvokeRequired)
-                  Invoke(new Action(() => Pb_FighImg.Image = bm));
-               else
-                  Pb_FighImg.Image = bm;
+                  if (InvokeRequired)
+                     Invoke(new Action(() => ServProFile_Rb.ImageProfile = bm));
+                  else
+                     ServProFile_Rb.ImageProfile = bm;
+
+                  ServProFile_Rb.Tag = _attn.FIGH_FILE_NO;
+               }
+               catch { }
             }
-            catch { }
+            else
+            {
+               ServProFile_Rb.ImageProfile = null;
+               ServProFile_Rb.Tag = null;
+            }
          }
-         else
+
+         /////////////// Show Coach Profile
+         if (CochProFile_Rb.Tag == null || CochProFile_Rb.Tag.ToString().ToInt64() != _attn.COCH_FILE_NO)
          {
-            Pb_FighImg.Image = null;
+            if (_attn.Fighter.IMAG_RCDC_RCID_DNRM != null)
+            {
+               try
+               {
+                  CochProFile_Rb.ImageProfile = null;
+                  MemoryStream mStream = new MemoryStream();
+                  byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _attn.COCH_FILE_NO))).ToArray();
+                  mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                  Bitmap bm = new Bitmap(mStream, false);
+                  mStream.Dispose();
+
+                  if (InvokeRequired)
+                     Invoke(new Action(() => CochProFile_Rb.ImageProfile = bm));
+                  else
+                     CochProFile_Rb.ImageProfile = bm;
+
+                  CochProFile_Rb.Tag = _attn.COCH_FILE_NO;
+               }
+               catch { }
+            }
+            else
+            {
+               CochProFile_Rb.ImageProfile = null;
+               CochProFile_Rb.Tag = null;
+            }
          }
 
          PersianCalendar pc = new PersianCalendar();
-         StrtDate_Txt.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)attn.MBSP_STRT_DATE_DNRM), pc.GetMonth((DateTime)attn.MBSP_STRT_DATE_DNRM), pc.GetDayOfMonth((DateTime)attn.MBSP_STRT_DATE_DNRM));
-         EndDate_Txt.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)attn.MBSP_END_DATE_DNRM), pc.GetMonth((DateTime)attn.MBSP_END_DATE_DNRM), pc.GetDayOfMonth((DateTime)attn.MBSP_END_DATE_DNRM));
-         BrthDate_Txt.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)attn.BRTH_DATE_DNRM), pc.GetMonth((DateTime)attn.BRTH_DATE_DNRM), pc.GetDayOfMonth((DateTime)attn.BRTH_DATE_DNRM));
+         StrtDate_Lb.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)_attn.MBSP_STRT_DATE_DNRM), pc.GetMonth((DateTime)_attn.MBSP_STRT_DATE_DNRM), pc.GetDayOfMonth((DateTime)_attn.MBSP_STRT_DATE_DNRM));
+         EndDate_Lb.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)_attn.MBSP_END_DATE_DNRM), pc.GetMonth((DateTime)_attn.MBSP_END_DATE_DNRM), pc.GetDayOfMonth((DateTime)_attn.MBSP_END_DATE_DNRM));
+         BrthDate_Lb.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)_attn.BRTH_DATE_DNRM), pc.GetMonth((DateTime)_attn.BRTH_DATE_DNRM), pc.GetDayOfMonth((DateTime)_attn.BRTH_DATE_DNRM));
 
-         if (attn.Fighter1.INSR_DATE_DNRM != null)
+         if (_attn.Fighter1.INSR_DATE_DNRM != null)
          {
-            InsrDate_Txt.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)attn.Fighter1.INSR_DATE_DNRM), pc.GetMonth((DateTime)attn.Fighter1.INSR_DATE_DNRM), pc.GetDayOfMonth((DateTime)attn.Fighter1.INSR_DATE_DNRM));
-            InsrRmnd_Txt.Text = (attn.Fighter1.INSR_DATE_DNRM.Value.Date - DateTime.Now.Date).Days.ToString();
+            InsrDate_Lb.Text = string.Format("{0}/{1}/{2}", pc.GetYear((DateTime)_attn.Fighter1.INSR_DATE_DNRM), pc.GetMonth((DateTime)_attn.Fighter1.INSR_DATE_DNRM), pc.GetDayOfMonth((DateTime)_attn.Fighter1.INSR_DATE_DNRM));
+            InsrRmnd_Lb.Text = (_attn.Fighter1.INSR_DATE_DNRM.Value.Date - DateTime.Now.Date).Days.ToString();
          }
          else
          {
-            InsrDate_Txt.Text = "بیمه ندارد";
-            InsrRmnd_Txt.Text = "";
+            InsrDate_Lb.Text = "بیمه ندارد";
+            InsrRmnd_Lb.Text = "";
          }
 
 
-         if (iScsc.GET_MTOS_U((DateTime?)attn.ATTN_DATE.Date).Substring(5) == BrthDate_Txt.Text.Substring(5))
-            HappyBirthDate_Lab.Visible = true;
+         if (iScsc.GET_MTOS_U((DateTime?)_attn.ATTN_DATE.Date).Substring(5) == BrthDate_Lb.Text.Substring(5) && BrthDate_Lb.Text.Substring(0, 4) != pc.GetYear(DateTime.Now).ToString())
+         {
+            PlayHappyBirthDate_Butn.Visible = true;
+            if (_attn.EXIT_TIME == null && !iScsc.Log_Operations.Any(l => l.FIGH_FILE_NO == _attn.FIGH_FILE_NO && l.LOG_TYPE == "010" && l.CRET_DATE.Value.Date == DateTime.Now.Date))
+            {
+               iScsc.INS_LGOP_P(
+                  new XElement("Log",
+                      new XAttribute("fileno", _attn.FIGH_FILE_NO),
+                      new XAttribute("type", "010"), 
+                      new XAttribute("text", string.Format("پخش آهنگ تبریک تولد برای " + "{0}", _attn.NAME_DNRM))
+                  )
+               );
+               PlayHappyBirthDate_Butn.Tag = "stop";
+               PlayHappyBirthDate_Butn_Click(null, null);
+            }
+         }
          else
-            HappyBirthDate_Lab.Visible = false;
+            PlayHappyBirthDate_Butn.Visible = false;
 
-         if(attn.EXIT_TIME == null)
-            AttnType_Lab.ImageKey = "IMAGE_1106.png";
-         else
-            AttnType_Lab.ImageKey = "IMAGE_1058.png";
+         // 1401/11/25 * برای اجرای مدت زمان کلاس
+         if(_attn.Club_Method.DURT_ATTN_SOND_PATH != "")
+         {
+            durtAttn = _attn.Club_Method.DURT_ATTN_SOND_PATH;
+            if(_attn.EXIT_TIME == null)
+            {
+               PlayDurtAttn_Butn.Tag = "stop";
+               PlayDurtAttn_Butn_Click(null, null);
+            }
+         }
 
-         if (Pb_FighImg.Image == null && attn.Fighter1.SEX_TYPE_DNRM == "002")
-            Pb_FighImg.Image = System.Scsc.Properties.Resources.IMAGE_1148;
-         else if(Pb_FighImg.Image == null)
-            Pb_FighImg.Image = System.Scsc.Properties.Resources.IMAGE_1149;
+         //if(attn.EXIT_TIME == null)
+         //   AttnType_Lab.ImageKey = "IMAGE_1106.png";
+         //else
+         //   AttnType_Lab.ImageKey = "IMAGE_1058.png";
+
+         if (ServProFile_Rb.ImageProfile == null && _attn.Fighter1.SEX_TYPE_DNRM == "002")
+            ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1148;
+         else if(ServProFile_Rb.ImageProfile == null)
+            ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1149;
+
+         if (CochProFile_Rb.ImageProfile == null && _attn.Fighter.SEX_TYPE_DNRM == "002")
+            CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1507;
+         else if (CochProFile_Rb.ImageProfile == null)
+            CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1076;
 
          //if (attn.Fighter1.FGPB_TYPE_DNRM == "002" || attn.Fighter1.FGPB_TYPE_DNRM == "003")
-         if (attn.FGPB_TYPE_DNRM == "002" || attn.FGPB_TYPE_DNRM == "003")
+         if (_attn.FGPB_TYPE_DNRM == "002" || _attn.FGPB_TYPE_DNRM == "003")
          {
             //***FighterType_Lab.ImageKey = "IMAGE_1126.png";
             //Figh00156.Visible = false;
@@ -242,16 +327,16 @@ namespace System.Scsc.Ui.Notifications
             //PrivSesn_Pn.Visible = false;
             //PrivateSession_Lab.Visible = false;
             //PrivateSession_Lab.Image = null;
-            if (attn.FGPB_TYPE_DNRM == "002")
+            if (_attn.FGPB_TYPE_DNRM == "002")
             {
                //panel1.Visible = false;
                return;
             }
-            Ctgy_Lb.Visible = false;
+            //Ctgy_Lb.Visible = false;
          }
          else
          {
-            Ctgy_Lb.Visible = true;
+            //Ctgy_Lb.Visible = true;
          }
          //***else if (attn.Fighter1.FGPB_TYPE_DNRM == "008")
          //***   FighterType_Lab.ImageKey = "IMAGE_1087.png";
@@ -262,30 +347,7 @@ namespace System.Scsc.Ui.Notifications
          //Sesn_Pn.Visible = false;
          
          //if(attn.Fighter1.MBCO_RWNO_DNRM != null && (attn.Fighter1.FGPB_TYPE_DNRM != "002"))
-         if (attn.MBCO_RWNO_DNRM != null && (attn.FGPB_TYPE_DNRM != "003"))
-         {
-            var mbco = iScsc.Member_Ships.First(m => m.FIGH_FILE_NO == attn.FIGH_FILE_NO && m.RWNO == attn.Fighter1.MBCO_RWNO_DNRM && m.RECT_CODE == "004");
-            if (mbco.END_DATE.Value.Date >= DateTime.Now.Date)
-            {
-               //PrivateSession_Lab.Visible = true;
-               //PrivateSession_Lab.Image = System.Scsc.Properties.Resources.IMAGE_1007;
-               //PrivSesn_Pn.Visible = true;
-               //StrtPrivSesn_Date.Value = mbco.STRT_DATE;
-               //EndPrivSesn_Date.Value = mbco.END_DATE;
-            }
-            else
-            {
-               //PrivSesn_Pn.Visible = false;
-               //PrivateSession_Lab.Visible = false;
-               //PrivateSession_Lab.Image = null;
-            }
-         }
-         else
-         {
-            //PrivSesn_Pn.Visible = false;
-            //PrivateSession_Lab.Visible = false;
-            //PrivateSession_Lab.Image = null;
-         }
+         
 
          /*MbspBs1.DataSource = 
             iScsc.Member_Ships
@@ -308,13 +370,13 @@ namespace System.Scsc.Ui.Notifications
 
          MbspStat_Rb.NormalColorA = Color.GreenYellow;
          MbspStat_Rb.NormalColorB = Color.GreenYellow;
-         if (attn.MBSP_END_DATE_DNRM.Value.AddDays(-1).Date >= DateTime.Now.Date &&
-            attn.MBSP_END_DATE_DNRM.Value.AddDays(-3).Date <= DateTime.Now.Date)
+         if (_attn.MBSP_END_DATE_DNRM.Value.AddDays(-1).Date >= DateTime.Now.Date &&
+            _attn.MBSP_END_DATE_DNRM.Value.AddDays(-3).Date <= DateTime.Now.Date)
          {
             MbspStat_Rb.NormalColorA = Color.Yellow;
             MbspStat_Rb.NormalColorB = Color.Yellow;
          }
-         else if (attn.MBSP_END_DATE_DNRM.Value.Date == DateTime.Now.Date)
+         else if (_attn.MBSP_END_DATE_DNRM.Value.Date == DateTime.Now.Date)
          {
             MbspStat_Rb.NormalColorA = Color.Red;
             MbspStat_Rb.NormalColorB = Color.Red;
@@ -335,61 +397,34 @@ namespace System.Scsc.Ui.Notifications
          //   var diff = DateTime.Now.Subtract(attn.ENTR_TIME.Value);
          //   TotlAttnTime_Lbl.Text = string.Format("{0}:{1}",  diff.Hour, diff.Minute);
          //}
-         if (attn.COCH_FILE_NO != null)
-            CochName_Lb.Text = attn.Fighter.NAME_DNRM;
+         if (_attn.COCH_FILE_NO != null)
+            CochName_Lb.Text = _attn.Fighter.NAME_DNRM;
          else
             CochName_Lb.Text = "";
-         if(attn.CBMT_CODE_DNRM != null)
+         
+         //if(attn.CBMT_CODE_DNRM != null)
+         //{
+         //   var cmbt = iScsc.Club_Methods.FirstOrDefault(cm => cm.CODE == attn.CBMT_CODE_DNRM);
+         //   StrtTime_Lb.Text = cmbt.STRT_TIME.ToString().Substring(0, 5);
+         //   EndTime_Lb.Text = cmbt.END_TIME.ToString().Substring(0, 5);            
+         //}
+         //else
+         //{
+         //   StrtTime_Lb.Text = "";
+         //   EndTime_Lb.Text = "";
+         //}
+
+         StrtTime_Lb.Text = _attn.ENTR_TIME.ToString().Substring(0, 5);
+         if (_attn.EXIT_TIME != null)
          {
-            var cmbt = iScsc.Club_Methods.FirstOrDefault(cm => cm.CODE == attn.CBMT_CODE_DNRM);
-            StrtTime_Txt.Text = cmbt.STRT_TIME.ToString().Substring(0, 5);
-            EndTime_Txt.Text = cmbt.END_TIME.ToString().Substring(0, 5);
-
-            CbmtwkdyBs1.DataSource = iScsc.Club_Method_Weekdays.Where(cm => cm.CBMT_CODE == attn.CBMT_CODE_DNRM).ToList();
-
-            foreach (var wkdy in CbmtwkdyBs1.List.OfType<Data.Club_Method_Weekday>())
-            {
-               var rslt = panel1.Controls.OfType<SimpleButton>().FirstOrDefault(sb => sb.Tag.ToString() == wkdy.WEEK_DAY);
-               rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
-            }
-
-            Controls.OfType<Label>().Where(l => l.Name.StartsWith("QWkdy")).ToList().ForEach(l => l.Visible = false);
-
-            switch (attn.ATTN_DATE.DayOfWeek)
-            {
-               case DayOfWeek.Saturday:
-                  QWkdy007_Lb.Visible = true;
-                  break;
-               case DayOfWeek.Sunday:
-                  QWkdy001_Lb.Visible = true;
-                  break;
-               case DayOfWeek.Monday:
-                  QWkdy002_Lb.Visible = true;
-                  break;
-               case DayOfWeek.Tuesday:
-                  QWkdy003_Lb.Visible = true;
-                  break;
-               case DayOfWeek.Wednesday:
-                  QWkdy004_Lb.Visible = true;
-                  break;
-               case DayOfWeek.Thursday:
-                  QWkdy005_Lb.Visible = true;
-                  break;
-               case DayOfWeek.Friday:
-                  QWkdy006_Lb.Visible = true;
-                  break;
-               default:
-                  break;
-            }
+            EndTime_Lb.Text = _attn.EXIT_TIME.ToString().Substring(0, 5);
+            EndTime_Lb.Visible = true;
          }
          else
-         {
-            StrtTime_Txt.Text = "";
-            EndTime_Txt.Text = "";
-         }
+            EndTime_Lb.Visible = false;
 
          // 1400/01/08 * نمایش دکمه یاد آوری
-         var notes = attn.Fighter1.Notes.Where(n => n.VIST_STAT == "001");
+         var notes = _attn.Fighter1.Notes.Where(n => n.VIST_STAT == "001");
          if(notes != null && notes.Count() > 0)
          {
             Note_Lb.Visible = true;
@@ -406,16 +441,19 @@ namespace System.Scsc.Ui.Notifications
 
          DRES_NUMB_Txt.Focus();
 
-         RemindAttn_Txt.EditValue = Math.Abs( (int)(attn.NUMB_OF_ATTN_MONT - attn.SUM_ATTN_MONT_DNRM ?? 0) );
-         DayRmnd_Txt.Text = (attn.MBSP_END_DATE_DNRM.Value.Date - DateTime.Now.Date).Days.ToString();
+         RemindAttn_Lb.Text = Math.Abs( (int)(_attn.NUMB_OF_ATTN_MONT - _attn.SUM_ATTN_MONT_DNRM ?? 0) ).ToString();
+         TotlNumbAttn_Lb.Text = _attn.SUM_ATTN_MONT_DNRM.ToString();
+         DayRmnd_Lb.Text = (_attn.MBSP_END_DATE_DNRM.Value.Date - DateTime.Now.Date).Days.ToString();
 
          // 1400/09/17 * مشخص شدن آیتم های درآمدی اعتباری
-         var pydts = iScsc.Payment_Details.Where(pd => pd.EXPR_DATE != null && pd.Request_Row.FIGH_FILE_NO == attn.FIGH_FILE_NO && pd.Request_Row.Request.RQST_STAT == "002");
+         var pydts = iScsc.Payment_Details.Where(pd => pd.EXPR_DATE != null && pd.Request_Row.FIGH_FILE_NO == _attn.FIGH_FILE_NO && pd.Request_Row.Request.RQST_STAT == "002");
          PivBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date >= DateTime.Now && pd.EXPR_DATE.Value.Date != pd.CRET_DATE.Value.Date);
          PinvBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date < DateTime.Now && pd.EXPR_DATE.Value.Date != pd.CRET_DATE.Value.Date);
 
          // 1401/07/23 * روز سرگونی حکومت کثیف آخوندی
-         PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.MBSP_FIGH_FILE_NO == attn.FIGH_FILE_NO && pd.MBSP_RECT_CODE == "004" && pd.MBSP_RWNO == attn.MBSP_RWNO_DNRM);
+         PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.MBSP_FIGH_FILE_NO == _attn.FIGH_FILE_NO && pd.MBSP_RECT_CODE == "004" && pd.MBSP_RWNO == _attn.MBSP_RWNO_DNRM);
+
+         DoBkg_Tr.Enabled = true;
       }
 
       private void RqstBnExit1_Click(object sender, EventArgs e)
@@ -512,12 +550,12 @@ namespace System.Scsc.Ui.Notifications
 
             iScsc.SubmitChanges();
 
-            Lbl_Dresser.BackColor = Color.YellowGreen;
+            //Lbl_Dresser.BackColor = Color.YellowGreen;
             requery = true;
          }
          catch (Exception exc)
          {
-            Lbl_Dresser.BackColor = Color.Tomato;
+            //Lbl_Dresser.BackColor = Color.Tomato;
             //MsgBox.Show(exc.Message, "خطای ثبت کمد شماره کمد", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             MessageBox.Show(this, exc.Message, "خطای ثبت کمد شماره کمد", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
@@ -637,7 +675,7 @@ namespace System.Scsc.Ui.Notifications
 
             formcaller = fc;
          }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         catch (Exception exc) { MessageBox.Show(exc.Message); MessageBox.Show("Print Default Error"); }
       }
 
       private void Print_Butn_Click(object sender, EventArgs e)
@@ -667,7 +705,7 @@ namespace System.Scsc.Ui.Notifications
             
             formcaller = fc;
          }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         catch (Exception exc) { MessageBox.Show(exc.Message); MessageBox.Show("Print Error"); }
       }
 
       private void PrintSetting_Butn_Click(object sender, EventArgs e)
@@ -721,6 +759,7 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+            MessageBox.Show("DebtDnrm Error");
          }
       }
 
@@ -741,6 +780,7 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+            MessageBox.Show("Move Last Item Error");
          }
          finally
          {
@@ -766,6 +806,7 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+            MessageBox.Show("Move Next Item Error");
          }
          finally
          {
@@ -791,6 +832,7 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+            MessageBox.Show("Move Perv Item Error");
          }
          finally
          {
@@ -837,6 +879,7 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+            MessageBox.Show("Ownr Cbmt Code Error");
          }
          finally
          {
@@ -845,5 +888,192 @@ namespace System.Scsc.Ui.Notifications
          }
       }
 
+      WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+      private void PlayHappyBirthDate_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _attn = AttnBs1.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            if(hBDay == "")
+            {
+               hBDay = iScsc.Settings.FirstOrDefault(s => s.CLUB_CODE == _attn.CLUB_CODE).SND7_PATH;               
+            }
+
+            if (hBDay == null || hBDay.Trim() == "") return;
+
+            wplayer.URL = hBDay;
+            switch (PlayHappyBirthDate_Butn.Tag.ToString())
+            {
+               case "stop":
+                  PlayHappyBirthDate_Butn.Tag = "play";
+                  new Threading.Thread(PlaySound).Start();
+                  break;
+               case "play":
+                  PlayHappyBirthDate_Butn.Tag = "stop";
+                  new Threading.Thread(StopSound).Start();
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            MessageBox.Show("Play Happy Day Error");
+         }
+      }
+
+      void PlaySound()
+      {
+         if (InvokeRequired)
+            Invoke(new Action(() => wplayer.controls.play()));
+         else
+            wplayer.controls.play();         
+      }
+
+      void StopSound()
+      {
+         if (InvokeRequired)
+            Invoke(new Action(() => wplayer.controls.stop()));
+         else
+            wplayer.controls.stop();
+      }
+
+      private void PlayDurtAttn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (durtAttn == null || durtAttn.Trim() == "") return;
+
+            wplayer.URL = durtAttn;
+            switch (PlayDurtAttn_Butn.Tag.ToString())
+            {
+               case "stop":
+                  PlayDurtAttn_Butn.Tag = "play";
+                  new Threading.Thread(PlaySound).Start();
+                  break;
+               case "play":
+                  PlayDurtAttn_Butn.Tag = "stop";
+                  new Threading.Thread(StopSound).Start();
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            MessageBox.Show("Play Durt Attn Error");
+         }
+      }
+
+      private void PlayDebtAlrm_Lb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _attn = AttnBs1.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            if (debtAlrm == "")
+            {
+               debtAlrm = iScsc.Settings.FirstOrDefault(s => s.CLUB_CODE == _attn.CLUB_CODE).SND9_PATH;
+            }
+
+            if (debtAlrm == null || debtAlrm.Trim() == "") return;
+
+            wplayer.URL = debtAlrm;
+            switch (PlayDebtAlrm_Lb.Tag.ToString())
+            {
+               case "stop":
+                  PlayDebtAlrm_Lb.Tag = "play";
+                  new Threading.Thread(PlaySound).Start();
+                  break;
+               case "play":
+                  PlayDebtAlrm_Lb.Tag = "stop";
+                  new Threading.Thread(StopSound).Start();
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            MessageBox.Show("Play Debt Alrm Error");
+         }
+      }
+
+      private void DoBkg_Tr_Tick(object sender, EventArgs e)
+      {
+         try
+         {
+            // First Calculate Current Attendance 
+            var _attn = AttnBs1.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            int h = (int)(DateTime.Now.TimeOfDay.TotalHours - _attn.ENTR_TIME.Value.TotalHours);
+            int m = Math.Abs((int)(DateTime.Now.TimeOfDay.TotalHours - _attn.ENTR_TIME.Value.TotalHours) * 60 - (int)(DateTime.Now.TimeOfDay.TotalMinutes - _attn.ENTR_TIME.Value.TotalMinutes));
+
+            if(_attn.EXIT_TIME != null)
+            {
+               h = (int)(_attn.EXIT_TIME.Value.TotalHours - _attn.ENTR_TIME.Value.TotalHours);
+               m = Math.Abs((int)(_attn.EXIT_TIME.Value.TotalHours - _attn.ENTR_TIME.Value.TotalHours) * 60 - (int)(_attn.EXIT_TIME.Value.TotalMinutes - _attn.ENTR_TIME.Value.TotalMinutes));
+            }
+
+            if (m >= 60)
+            {
+               h += m / 60;
+               m = m % 60;
+            }
+
+            TotlCrntAttn_Lb.Text = string.Format("{0} : {1}", h, m);
+
+            // Load All Attendance Cycle
+            AllCyclAttnBs1.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == _attn.FIGH_FILE_NO && a.MBSP_RWNO_DNRM == _attn.MBSP_RWNO_DNRM && a.ATTN_STAT == "002" && a.EXIT_TIME != null /*&& a.CODE != _attn.CODE*/);
+            var attns = AllCyclAttnBs1.List.OfType<Data.Attendance>();
+
+            TotlCyclAttn_Lb.Visible = false;
+
+            if(attns.Count() >= 1)
+            {
+               h = attns.Sum(a => (int)(a.EXIT_TIME.Value.TotalHours - a.ENTR_TIME.Value.TotalHours));
+               m = Math.Abs(attns.Sum(a => (int)(a.EXIT_TIME.Value.TotalHours - a.ENTR_TIME.Value.TotalHours) * 60 - (int)(a.EXIT_TIME.Value.TotalMinutes - a.ENTR_TIME.Value.TotalMinutes)));
+
+               if(m >= 60)
+               {
+                  h += m / 60;
+                  m = m % 60;
+               }
+            
+               TotlCyclAttn_Lb.Text = string.Format("{0} : {1}\n\r{2} : {3}\n\r{4} : {5}", "جلسات", attns.Count(), "ساعت", h, "دقیقه", m);
+               TotlCyclAttn_Lb.Visible = true;
+               Infos_Ro.RolloutStatus = true;
+            }
+
+            // Check IF Service Have Shop Order
+            Shop_Rbtn.Visible = 
+               iScsc
+               .Request_Rows
+               .Any(rr => 
+                  rr.FIGH_FILE_NO == _attn.FIGH_FILE_NO && 
+                  rr.RQTP_CODE == "016" && 
+                  rr.Request.RQST_STAT == "002" && 
+                  rr.Request.SAVE_DATE.Value.Date == _attn.ATTN_DATE.Date
+               );
+
+            // Check IF Service Have SMS
+            Sms_Rbtn.Visible = 
+               iScsc
+               .V_Sms_Message_Boxes
+               .Any(s =>
+                  s.PHON_NUMB == _attn.CELL_PHON_DNRM
+               );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            MessageBox.Show("Do Bkg Error");
+         }
+         finally
+         {
+            DoBkg_Tr.Enabled = false;
+         }
+      }
    }
 }

@@ -157,6 +157,7 @@ namespace System.MaxUi
       private bool flyoutIsOpen;
       private Timer flyoutTimer;
       private FlyoutForm flyoutForm;
+      private ToolTip toolTip;
 
       public FlyoutButton()
       {
@@ -164,6 +165,11 @@ namespace System.MaxUi
          flyoutTimer = new Timer();
          flyoutTimer.Interval = flyoutTime;
          flyoutTimer.Tick += new EventHandler(flyoutTimer_Tick);
+         toolTip = new ToolTip();
+         this.SuspendLayout();
+         this.toolTip.AutoPopDelay = 5000;
+         this.toolTip.InitialDelay = 100;
+         this.toolTip.ReshowDelay = 100;
 
          SetStyle(ControlStyles.OptimizedDoubleBuffer | ControlStyles.UserPaint | ControlStyles.AllPaintingInWmPaint, true);
          if (DesignMode) return;
@@ -197,7 +203,16 @@ namespace System.MaxUi
          flyoutIsOpen = true;
          flyoutForm = new FlyoutForm(this);
          flyoutForm.FormClosed += new FormClosedEventHandler(flyoutForm_FormClosed);
-         flyoutForm.ShowFlyout(PointToScreen(new Point(0, Height + 1)));
+         
+         // 1401/10/03
+         var _scrn = Screen.FromControl(this).Bounds;
+         var _crntPontScrn = PointToScreen(new Point(0, Height + 1));
+
+         if(_crntPontScrn.Y + (Height * images.Images.Count) <= _scrn.Height)
+            flyoutForm.ShowFlyout(PointToScreen(new Point(0, Height + 1)));
+         else
+            flyoutForm.ShowFlyout(PointToScreen(new Point(0, -(images.Images.Count * Height + 1) )));
+
          OnFlyoutOpened(EventArgs.Empty);
          Invalidate();
       }
@@ -265,8 +280,22 @@ namespace System.MaxUi
             e.Graphics.FillRectangle(MaxConnection.Instance.CheckedBrush, r);
          }
 
+         //frame
+         if (!FrameOnMouseOverOnly || mouseOver || showChecked)
+         {
+            MaxConnection.Instance.DrawFrame(e.Graphics, ClientRectangle, ShowChecked);
+         }
+
+         if (images == null) return;
+
          // 1401/10/15
-         Rectangle _imageRectangle = new Rectangle((Width - images.ImageSize.Width) / 2, (Height - images.ImageSize.Height) / 2, images.ImageSize.Width, images.ImageSize.Height);
+         Rectangle _imageRectangle =
+             new Rectangle(
+                 (Width - (images != null ? images.ImageSize.Width : 0)) / 2,
+                 (Height - (images != null ? images.ImageSize.Height : 0)) / 2,
+                 images.ImageSize.Width,
+                 images.ImageSize.Height
+             );
 
          if (images != null && selectedIndex >= 0 && selectedIndex < images.Images.Count)
          {
@@ -285,11 +314,8 @@ namespace System.MaxUi
                e.Graphics.DrawImage(images.Images[selectedIndex], /*ClientRectangle*/ _imageRectangle);
             }
          }
-         //frame
-         if (!FrameOnMouseOverOnly || mouseOver || showChecked)
-         {
-            MaxConnection.Instance.DrawFrame(e.Graphics, ClientRectangle, ShowChecked);
-         }
+
+
 
          if (images != null && images.Images.Count > 1)
          {
@@ -357,6 +383,21 @@ namespace System.MaxUi
       {
          base.OnMouseEnter(e);
          mouseOver = true;
+
+         if (images != null || images.Images.Count != 0)
+         {            
+            string tip = GetTooltip(selectedIndex);
+            if (String.IsNullOrEmpty(tip))
+            {
+               toolTip.Hide(this);
+            }
+            else
+            {
+               toolTip.Show(tip, this, Width / 2, -Height / 2);
+            }
+            Invalidate();
+         }
+
          Invalidate();
       }
 
@@ -416,6 +457,7 @@ namespace System.MaxUi
       {
          base.OnMouseLeave(e);
          mouseOver = false;
+         toolTip.Hide(this);
          Invalidate();
       }
 
@@ -428,6 +470,7 @@ namespace System.MaxUi
             if (flyoutForm != null)
             {
                flyoutForm.Dispose();
+               toolTip.Dispose();
             }
          }
       }

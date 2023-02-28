@@ -29,24 +29,25 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADV_BASE_F));
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ADV_BASE_F));
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DActvBs = new System.Windows.Forms.BindingSource(this.components);
@@ -314,6 +315,13 @@
          this.SendDsct4Cell_Butn = new System.Windows.Forms.ToolStripButton();
          this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
          this.Param_Ro = new System.MaxUi.Rollout();
+         this.groupBox12 = new System.Windows.Forms.GroupBox();
+         this.ToEndCyclDate_Dt = new Atf.UI.DateTimeSelector();
+         this.ToStrtCyclDate_Dt = new Atf.UI.DateTimeSelector();
+         this.FromEndCyclDate_Dt = new Atf.UI.DateTimeSelector();
+         this.FromStrtCyclDate_Dt = new Atf.UI.DateTimeSelector();
+         this.EndCyclDate_Cbx = new System.Windows.Forms.CheckBox();
+         this.StrtCyclDate_Cbx = new System.Windows.Forms.CheckBox();
          this.groupBox11 = new System.Windows.Forms.GroupBox();
          this.RSurFltr_Cbx = new System.Windows.Forms.CheckBox();
          this.FromSurvey_Dt = new Atf.UI.DateTimeSelector();
@@ -416,97 +424,11 @@
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBase_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemCheckEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-         this.groupBox3 = new System.Windows.Forms.GroupBox();
-         this.CtgyFltr_Cbx = new System.Windows.Forms.CheckBox();
-         this.Ctgy_Gc = new DevExpress.XtraGrid.GridControl();
-         this.Ctgy_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.colMTOD_CODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCTGY_DESC1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCTGY_STAT1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCODE10 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
-         this.groupBox5 = new System.Windows.Forms.GroupBox();
-         this.FromInv_Dt = new Atf.UI.DateTimeSelector();
-         this.FromInv_Cbx = new System.Windows.Forms.CheckBox();
-         this.NumbInvNDir_Cbx = new System.Windows.Forms.CheckBox();
-         this.NumbInvNDir_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.NumbInvDir_Cbx = new System.Windows.Forms.CheckBox();
-         this.NumbInvDir_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.groupBox7 = new System.Windows.Forms.GroupBox();
-         this.FromPymt_Dt = new Atf.UI.DateTimeSelector();
-         this.FromPymt_Cbx = new System.Windows.Forms.CheckBox();
-         this.SumPymt_Cbx = new System.Windows.Forms.CheckBox();
-         this.SumPymt_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.NumbPymt_Cbx = new System.Windows.Forms.CheckBox();
-         this.NumbPymt_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.groupBox6 = new System.Windows.Forms.GroupBox();
-         this.FromDpst_Dt = new Atf.UI.DateTimeSelector();
-         this.FromDpst_Cbx = new System.Windows.Forms.CheckBox();
-         this.SumDpst_Cbx = new System.Windows.Forms.CheckBox();
-         this.SumDpst_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.NumbDpst_Cbx = new System.Windows.Forms.CheckBox();
-         this.NumbDpst_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.groupBox4 = new System.Windows.Forms.GroupBox();
-         this.ToNumbLastDay_Cbx = new System.Windows.Forms.CheckBox();
-         this.FromNumbLastDay_Cbx = new System.Windows.Forms.CheckBox();
-         this.ToNumbLastDay_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.FromNumbLastDay_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.groupBox1 = new System.Windows.Forms.GroupBox();
-         this.Women_Cbx = new System.Windows.Forms.CheckBox();
-         this.Men_Cbx = new System.Windows.Forms.CheckBox();
-         this.groupBox2 = new System.Windows.Forms.GroupBox();
-         this.ToAge_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.FromAge_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.ToBd_Dt = new Atf.UI.DateTimeSelector();
-         this.FromBd_Dt = new Atf.UI.DateTimeSelector();
-         this.ToBd_Cbx = new System.Windows.Forms.CheckBox();
-         this.FromBd_Cbx = new System.Windows.Forms.CheckBox();
-         this.Conf_Ro = new System.MaxUi.Rollout();
-         this.SendSms_Cbx = new System.Windows.Forms.CheckBox();
-         this.SendApp_Cbx = new System.Windows.Forms.CheckBox();
-         this.label2 = new System.Windows.Forms.Label();
-         this.TempDsct_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.TempBs = new System.Windows.Forms.BindingSource(this.components);
-         this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.colTMID = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTEMP_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTEMP_SECT = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTEMP_SUBJ = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTEMP_TEXT = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colSHER_TEAM = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colTEMP_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colUSER_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_BY10 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colCRET_DATE10 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_BY9 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMDFY_DATE10 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.AdvpBn1 = new System.Windows.Forms.BindingNavigator(this.components);
-         this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-         this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
-         this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-         this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-         this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
-         this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-         this.AddAdvp_Butn = new System.Windows.Forms.ToolStripButton();
-         this.DelAdvp_Butn = new System.Windows.Forms.ToolStripButton();
-         this.SaveAdvp_Butn = new System.Windows.Forms.ToolStripButton();
-         this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-         this.SrchAdvp_Butn = new System.Windows.Forms.ToolStripButton();
-         this.SlctFile_Ofd = new System.Windows.Forms.OpenFileDialog();
-         this.groupBox12 = new System.Windows.Forms.GroupBox();
-         this.StrtCyclDate_Cbx = new System.Windows.Forms.CheckBox();
-         this.FromStrtCyclDate_Dt = new Atf.UI.DateTimeSelector();
-         this.ToStrtCyclDate_Dt = new Atf.UI.DateTimeSelector();
-         this.EndCyclDate_Cbx = new System.Windows.Forms.CheckBox();
-         this.FromEndCyclDate_Dt = new Atf.UI.DateTimeSelector();
-         this.ToEndCyclDate_Dt = new Atf.UI.DateTimeSelector();
          this.groupBox13 = new System.Windows.Forms.GroupBox();
          this.CochFltr_Cbx = new System.Windows.Forms.CheckBox();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.Coch_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.repositoryItemCheckEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
          this.CochBs = new System.Windows.Forms.BindingSource(this.components);
+         this.Coch_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -593,6 +515,88 @@
          this.colRegion = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_Unit = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemCheckEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+         this.groupBox3 = new System.Windows.Forms.GroupBox();
+         this.CtgyFltr_Cbx = new System.Windows.Forms.CheckBox();
+         this.Ctgy_Gc = new DevExpress.XtraGrid.GridControl();
+         this.Ctgy_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colMTOD_CODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCTGY_DESC1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCTGY_STAT1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCODE10 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemCheckEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit();
+         this.groupBox5 = new System.Windows.Forms.GroupBox();
+         this.FromInv_Dt = new Atf.UI.DateTimeSelector();
+         this.FromInv_Cbx = new System.Windows.Forms.CheckBox();
+         this.NumbInvNDir_Cbx = new System.Windows.Forms.CheckBox();
+         this.NumbInvNDir_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.NumbInvDir_Cbx = new System.Windows.Forms.CheckBox();
+         this.NumbInvDir_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.groupBox7 = new System.Windows.Forms.GroupBox();
+         this.FromPymt_Dt = new Atf.UI.DateTimeSelector();
+         this.FromPymt_Cbx = new System.Windows.Forms.CheckBox();
+         this.SumPymt_Cbx = new System.Windows.Forms.CheckBox();
+         this.SumPymt_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.NumbPymt_Cbx = new System.Windows.Forms.CheckBox();
+         this.NumbPymt_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.groupBox6 = new System.Windows.Forms.GroupBox();
+         this.FromDpst_Dt = new Atf.UI.DateTimeSelector();
+         this.FromDpst_Cbx = new System.Windows.Forms.CheckBox();
+         this.SumDpst_Cbx = new System.Windows.Forms.CheckBox();
+         this.SumDpst_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.NumbDpst_Cbx = new System.Windows.Forms.CheckBox();
+         this.NumbDpst_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.groupBox4 = new System.Windows.Forms.GroupBox();
+         this.ToNumbLastDay_Cbx = new System.Windows.Forms.CheckBox();
+         this.FromNumbLastDay_Cbx = new System.Windows.Forms.CheckBox();
+         this.ToNumbLastDay_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.FromNumbLastDay_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.groupBox1 = new System.Windows.Forms.GroupBox();
+         this.Women_Cbx = new System.Windows.Forms.CheckBox();
+         this.Men_Cbx = new System.Windows.Forms.CheckBox();
+         this.groupBox2 = new System.Windows.Forms.GroupBox();
+         this.ToAge_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.FromAge_Txt = new DevExpress.XtraEditors.TextEdit();
+         this.ToBd_Dt = new Atf.UI.DateTimeSelector();
+         this.FromBd_Dt = new Atf.UI.DateTimeSelector();
+         this.ToBd_Cbx = new System.Windows.Forms.CheckBox();
+         this.FromBd_Cbx = new System.Windows.Forms.CheckBox();
+         this.Conf_Ro = new System.MaxUi.Rollout();
+         this.SendSms_Cbx = new System.Windows.Forms.CheckBox();
+         this.SendApp_Cbx = new System.Windows.Forms.CheckBox();
+         this.label2 = new System.Windows.Forms.Label();
+         this.TempDsct_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
+         this.TempBs = new System.Windows.Forms.BindingSource(this.components);
+         this.gridLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colTMID = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTEMP_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTEMP_SECT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTEMP_SUBJ = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTEMP_TEXT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSHER_TEAM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTEMP_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colUSER_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_BY10 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_DATE10 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_BY9 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_DATE10 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.AdvpBn1 = new System.Windows.Forms.BindingNavigator(this.components);
+         this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+         this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+         this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+         this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+         this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+         this.AddAdvp_Butn = new System.Windows.Forms.ToolStripButton();
+         this.DelAdvp_Butn = new System.Windows.Forms.ToolStripButton();
+         this.SaveAdvp_Butn = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+         this.SrchAdvp_Butn = new System.Windows.Forms.ToolStripButton();
+         this.SlctFile_Ofd = new System.Windows.Forms.OpenFileDialog();
+         this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.DPsdtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.repositoryItemLookUpEdit7 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
@@ -651,6 +655,7 @@
          this.AdvcBn.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
          this.Param_Ro.SuspendLayout();
+         this.groupBox12.SuspendLayout();
          this.groupBox11.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.RSur_Gc)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RSurBs)).BeginInit();
@@ -671,6 +676,11 @@
          ((System.ComponentModel.ISupportInitialize)(this.SuntBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Sunt_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).BeginInit();
+         this.groupBox13.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CochBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Coch_Gv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit6)).BeginInit();
          this.groupBox3.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Ctgy_Gc)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ctgy_Gv)).BeginInit();
@@ -697,12 +707,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AdvpBn1)).BeginInit();
          this.AdvpBn1.SuspendLayout();
-         this.groupBox12.SuspendLayout();
-         this.groupBox13.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Coch_Gv)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit6)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CochBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DPsdtBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit7)).BeginInit();
          this.SuspendLayout();
          // 
          // colSTAT
@@ -718,7 +724,7 @@
          // 
          this.repositoryItemLookUpEdit3.AutoHeight = false;
          this.repositoryItemLookUpEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
          this.repositoryItemLookUpEdit3.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "وضعیت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -739,7 +745,7 @@
          this.colEXPR_DATE.FieldName = "EXPR_DATE";
          this.colEXPR_DATE.Name = "colEXPR_DATE";
          this.colEXPR_DATE.Visible = true;
-         this.colEXPR_DATE.VisibleIndex = 7;
+         this.colEXPR_DATE.VisibleIndex = 8;
          // 
          // persianRepositoryItemDateEdit1
          // 
@@ -1380,6 +1386,7 @@
          this.grouper1.Controls.Add(this.Aodt_Gc);
          this.grouper1.CustomGroupBoxColor = System.Drawing.Color.LightGray;
          this.grouper1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.grouper1.ForeColor = System.Drawing.Color.Black;
          this.grouper1.GroupImage = null;
          this.grouper1.GroupTitle = "لیست تخفیفات";
          this.grouper1.Location = new System.Drawing.Point(0, 0);
@@ -1390,6 +1397,7 @@
          this.grouper1.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper1.ShadowControl = false;
          this.grouper1.ShadowThickness = 3;
+         this.grouper1.ShowBorderTitle = true;
          this.grouper1.Size = new System.Drawing.Size(705, 282);
          this.grouper1.TabIndex = 0;
          // 
@@ -1409,7 +1417,8 @@
             this.repositoryItemLookUpEdit1,
             this.repositoryItemLookUpEdit2,
             this.repositoryItemLookUpEdit3,
-            this.Rqtp_Lov});
+            this.Rqtp_Lov,
+            this.repositoryItemLookUpEdit7});
          this.Aodt_Gc.Size = new System.Drawing.Size(693, 246);
          this.Aodt_Gc.TabIndex = 1;
          this.Aodt_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -1449,31 +1458,32 @@
             this.colMDFY_BY,
             this.colMDFY_DATE,
             this.colSTAT,
-            this.colTEMP_TMID});
-         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         styleFormatCondition1.Appearance.Options.UseBackColor = true;
-         styleFormatCondition1.ApplyToRow = true;
-         styleFormatCondition1.Column = this.colSTAT;
-         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition1.Value1 = "001";
-         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition2.Appearance.Options.UseBackColor = true;
-         styleFormatCondition2.ApplyToRow = true;
-         styleFormatCondition2.Column = this.colSTAT;
-         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition2.Value1 = "002";
-         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition3.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colTEMP_TMID,
+            this.gridColumn1});
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          styleFormatCondition3.Appearance.Options.UseBackColor = true;
-         styleFormatCondition3.Appearance.Options.UseFont = true;
          styleFormatCondition3.ApplyToRow = true;
-         styleFormatCondition3.Column = this.colEXPR_DATE;
-         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-         styleFormatCondition3.Expression = "[EXPR_DATE] < Today()";
+         styleFormatCondition3.Column = this.colSTAT;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition3.Value1 = "001";
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition4.Appearance.Options.UseBackColor = true;
+         styleFormatCondition4.ApplyToRow = true;
+         styleFormatCondition4.Column = this.colSTAT;
+         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition4.Value1 = "002";
+         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition5.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         styleFormatCondition5.Appearance.Options.UseBackColor = true;
+         styleFormatCondition5.Appearance.Options.UseFont = true;
+         styleFormatCondition5.ApplyToRow = true;
+         styleFormatCondition5.Column = this.colEXPR_DATE;
+         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition5.Expression = "[EXPR_DATE] < Today()";
          this.advp_gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2,
-            styleFormatCondition3});
+            styleFormatCondition3,
+            styleFormatCondition4,
+            styleFormatCondition5});
          this.advp_gv.GridControl = this.Aodt_Gc;
          this.advp_gv.Name = "advp_gv";
          this.advp_gv.OptionsSelection.EnableAppearanceFocusedCell = false;
@@ -1492,7 +1502,7 @@
          this.colADVP_NAME.FieldName = "ADVP_NAME";
          this.colADVP_NAME.Name = "colADVP_NAME";
          this.colADVP_NAME.Visible = true;
-         this.colADVP_NAME.VisibleIndex = 9;
+         this.colADVP_NAME.VisibleIndex = 10;
          // 
          // colRECD_TYPE
          // 
@@ -1501,13 +1511,13 @@
          this.colRECD_TYPE.FieldName = "RECD_TYPE";
          this.colRECD_TYPE.Name = "colRECD_TYPE";
          this.colRECD_TYPE.Visible = true;
-         this.colRECD_TYPE.VisibleIndex = 8;
+         this.colRECD_TYPE.VisibleIndex = 9;
          // 
          // repositoryItemLookUpEdit1
          // 
          this.repositoryItemLookUpEdit1.AutoHeight = false;
          this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, "", null, null, true)});
          this.repositoryItemLookUpEdit1.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع رکورد تخفیف", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -1527,7 +1537,7 @@
          this.colDISC_CODE.FieldName = "DISC_CODE";
          this.colDISC_CODE.Name = "colDISC_CODE";
          this.colDISC_CODE.Visible = true;
-         this.colDISC_CODE.VisibleIndex = 4;
+         this.colDISC_CODE.VisibleIndex = 5;
          // 
          // colDSCT_TYPE
          // 
@@ -1536,13 +1546,13 @@
          this.colDSCT_TYPE.FieldName = "DSCT_TYPE";
          this.colDSCT_TYPE.Name = "colDSCT_TYPE";
          this.colDSCT_TYPE.Visible = true;
-         this.colDSCT_TYPE.VisibleIndex = 6;
+         this.colDSCT_TYPE.VisibleIndex = 7;
          // 
          // repositoryItemLookUpEdit2
          // 
          this.repositoryItemLookUpEdit2.AutoHeight = false;
          this.repositoryItemLookUpEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject26, "", null, null, true)});
          this.repositoryItemLookUpEdit2.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع تخفیف", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -1566,7 +1576,7 @@
          this.colDSCT_AMNT.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.colDSCT_AMNT.Name = "colDSCT_AMNT";
          this.colDSCT_AMNT.Visible = true;
-         this.colDSCT_AMNT.VisibleIndex = 5;
+         this.colDSCT_AMNT.VisibleIndex = 6;
          // 
          // colRQTP_CODE
          // 
@@ -1575,14 +1585,14 @@
          this.colRQTP_CODE.FieldName = "RQTP_CODE";
          this.colRQTP_CODE.Name = "colRQTP_CODE";
          this.colRQTP_CODE.Visible = true;
-         this.colRQTP_CODE.VisibleIndex = 2;
+         this.colRQTP_CODE.VisibleIndex = 3;
          // 
          // Rqtp_Lov
          // 
          this.Rqtp_Lov.AutoHeight = false;
          this.Rqtp_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject27, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject28, "", null, null, true)});
          this.Rqtp_Lov.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "CODE", 51, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SUB_SYS", "SUB_SYS", 53, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
@@ -1617,7 +1627,7 @@
          this.colCTGY_CODE.FieldName = "CTGY_CODE";
          this.colCTGY_CODE.Name = "colCTGY_CODE";
          this.colCTGY_CODE.Visible = true;
-         this.colCTGY_CODE.VisibleIndex = 3;
+         this.colCTGY_CODE.VisibleIndex = 4;
          // 
          // Ctgy_Lov
          // 
@@ -1625,8 +1635,8 @@
          this.Ctgy_Lov.AppearanceDropDown.Options.UseFont = true;
          this.Ctgy_Lov.AutoHeight = false;
          this.Ctgy_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Delete, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject30, "", null, null, true)});
          this.Ctgy_Lov.DataSource = this.CtgyBs;
          this.Ctgy_Lov.DisplayMember = "CTGY_DESC";
          this.Ctgy_Lov.Name = "Ctgy_Lov";
@@ -1835,7 +1845,7 @@
          this.colTEMP_TMID.OptionsColumn.AllowEdit = false;
          this.colTEMP_TMID.OptionsColumn.ReadOnly = true;
          this.colTEMP_TMID.Visible = true;
-         this.colTEMP_TMID.VisibleIndex = 1;
+         this.colTEMP_TMID.VisibleIndex = 2;
          // 
          // tabControl1
          // 
@@ -1970,7 +1980,7 @@
          // 
          this.repositoryItemLookUpEdit4.AutoHeight = false;
          this.repositoryItemLookUpEdit4.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
          this.repositoryItemLookUpEdit4.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع رکورد تخفیف", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -2207,8 +2217,8 @@
          this.SendDsct4Serv_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1206;
          this.SendDsct4Serv_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.SendDsct4Serv_Butn.Name = "SendDsct4Serv_Butn";
-         this.SendDsct4Serv_Butn.Size = new System.Drawing.Size(177, 22);
-         this.SendDsct4Serv_Butn.Text = "ثبت کارت تخفیف برای مشتریان";
+         this.SendDsct4Serv_Butn.Size = new System.Drawing.Size(85, 22);
+         this.SendDsct4Serv_Butn.Text = "ثبت عملیات";
          this.SendDsct4Serv_Butn.Click += new System.EventHandler(this.SendDsct4Serv_Butn_Click);
          // 
          // toolStripSeparator11
@@ -2469,6 +2479,7 @@
          this.grouper3.Controls.Add(this.gridControl2);
          this.grouper3.CustomGroupBoxColor = System.Drawing.Color.Silver;
          this.grouper3.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.grouper3.ForeColor = System.Drawing.Color.Black;
          this.grouper3.GroupImage = null;
          this.grouper3.GroupTitle = "شماره هایی که پیام تبلیغاتی برایشان ارسال شده";
          this.grouper3.Location = new System.Drawing.Point(0, 0);
@@ -2479,6 +2490,7 @@
          this.grouper3.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper3.ShadowControl = false;
          this.grouper3.ShadowThickness = 3;
+         this.grouper3.ShowBorderTitle = false;
          this.grouper3.Size = new System.Drawing.Size(328, 296);
          this.grouper3.TabIndex = 1;
          // 
@@ -2529,14 +2541,14 @@
             this.colMDFY_DATE9,
             this.colAdvertising_Parameter1,
             this.colFighter1});
-         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition4.Appearance.Options.UseBackColor = true;
-         styleFormatCondition4.ApplyToRow = true;
-         styleFormatCondition4.Column = this.colRECD_STAT1;
-         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition4.Value1 = "003";
+         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition6.Appearance.Options.UseBackColor = true;
+         styleFormatCondition6.ApplyToRow = true;
+         styleFormatCondition6.Column = this.colRECD_STAT1;
+         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition6.Value1 = "003";
          this.Advc3_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition4});
+            styleFormatCondition6});
          this.Advc3_Gv.GridControl = this.gridControl2;
          this.Advc3_Gv.Name = "Advc3_Gv";
          this.Advc3_Gv.OptionsBehavior.Editable = false;
@@ -2616,7 +2628,7 @@
          // 
          this.repositoryItemLookUpEdit6.AutoHeight = false;
          this.repositoryItemLookUpEdit6.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, "", null, null, true)});
          this.repositoryItemLookUpEdit6.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع رکورد تخفیف", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -2636,6 +2648,7 @@
          this.grouper2.Controls.Add(this.gridControl1);
          this.grouper2.CustomGroupBoxColor = System.Drawing.Color.Gainsboro;
          this.grouper2.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.grouper2.ForeColor = System.Drawing.Color.Black;
          this.grouper2.GroupImage = null;
          this.grouper2.GroupTitle = "شماره های آماده ارسال پیام تبلیغات";
          this.grouper2.Location = new System.Drawing.Point(0, 0);
@@ -2646,6 +2659,7 @@
          this.grouper2.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper2.ShadowControl = false;
          this.grouper2.ShadowThickness = 3;
+         this.grouper2.ShowBorderTitle = false;
          this.grouper2.Size = new System.Drawing.Size(358, 296);
          this.grouper2.TabIndex = 0;
          // 
@@ -2691,14 +2705,14 @@
             this.colMDFY_DATE8,
             this.colAdvertising_Parameter,
             this.colFighter});
-         styleFormatCondition5.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-         styleFormatCondition5.Appearance.Options.UseBackColor = true;
-         styleFormatCondition5.ApplyToRow = true;
-         styleFormatCondition5.Column = this.colRECD_STAT;
-         styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition5.Value1 = "002";
+         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+         styleFormatCondition1.Appearance.Options.UseBackColor = true;
+         styleFormatCondition1.ApplyToRow = true;
+         styleFormatCondition1.Column = this.colRECD_STAT;
+         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition1.Value1 = "002";
          this.Advc2_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition5});
+            styleFormatCondition1});
          this.Advc2_Gv.GridControl = this.gridControl1;
          this.Advc2_Gv.Name = "Advc2_Gv";
          this.Advc2_Gv.OptionsBehavior.Editable = false;
@@ -2775,7 +2789,7 @@
          // 
          this.repositoryItemLookUpEdit5.AutoHeight = false;
          this.repositoryItemLookUpEdit5.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject31, "", null, null, true)});
          this.repositoryItemLookUpEdit5.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع رکورد تخفیف", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -2917,6 +2931,7 @@
          this.Param_Ro.Controls.Add(this.groupBox1);
          this.Param_Ro.Controls.Add(this.groupBox2);
          this.Param_Ro.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.Param_Ro.ForeColor = System.Drawing.Color.Black;
          this.Param_Ro.FrameOnMouseOverOnly = false;
          this.Param_Ro.GroupImage = null;
          this.Param_Ro.Location = new System.Drawing.Point(3, 3);
@@ -2936,6 +2951,89 @@
          this.Param_Ro.Size = new System.Drawing.Size(237, 1808);
          this.Param_Ro.TabIndex = 24;
          this.Param_Ro.TitleBorderColor = System.Drawing.Color.Gray;
+         // 
+         // groupBox12
+         // 
+         this.groupBox12.Controls.Add(this.ToEndCyclDate_Dt);
+         this.groupBox12.Controls.Add(this.ToStrtCyclDate_Dt);
+         this.groupBox12.Controls.Add(this.FromEndCyclDate_Dt);
+         this.groupBox12.Controls.Add(this.FromStrtCyclDate_Dt);
+         this.groupBox12.Controls.Add(this.EndCyclDate_Cbx);
+         this.groupBox12.Controls.Add(this.StrtCyclDate_Cbx);
+         this.groupBox12.Location = new System.Drawing.Point(7, 417);
+         this.groupBox12.Name = "groupBox12";
+         this.groupBox12.Size = new System.Drawing.Size(224, 140);
+         this.groupBox12.TabIndex = 6;
+         this.groupBox12.TabStop = false;
+         this.groupBox12.Text = "اطلاعات دوره";
+         // 
+         // ToEndCyclDate_Dt
+         // 
+         this.ToEndCyclDate_Dt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ToEndCyclDate_Dt.CustomFormat = "dd/MM/yyyy";
+         this.ToEndCyclDate_Dt.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.ToEndCyclDate_Dt.Location = new System.Drawing.Point(26, 108);
+         this.ToEndCyclDate_Dt.Name = "ToEndCyclDate_Dt";
+         this.ToEndCyclDate_Dt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.ToEndCyclDate_Dt.Size = new System.Drawing.Size(100, 23);
+         this.ToEndCyclDate_Dt.TabIndex = 5;
+         this.ToEndCyclDate_Dt.UsePersianFormat = true;
+         // 
+         // ToStrtCyclDate_Dt
+         // 
+         this.ToStrtCyclDate_Dt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ToStrtCyclDate_Dt.CustomFormat = "dd/MM/yyyy";
+         this.ToStrtCyclDate_Dt.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.ToStrtCyclDate_Dt.Location = new System.Drawing.Point(26, 50);
+         this.ToStrtCyclDate_Dt.Name = "ToStrtCyclDate_Dt";
+         this.ToStrtCyclDate_Dt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.ToStrtCyclDate_Dt.Size = new System.Drawing.Size(100, 23);
+         this.ToStrtCyclDate_Dt.TabIndex = 2;
+         this.ToStrtCyclDate_Dt.UsePersianFormat = true;
+         // 
+         // FromEndCyclDate_Dt
+         // 
+         this.FromEndCyclDate_Dt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FromEndCyclDate_Dt.CustomFormat = "dd/MM/yyyy";
+         this.FromEndCyclDate_Dt.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.FromEndCyclDate_Dt.Location = new System.Drawing.Point(26, 79);
+         this.FromEndCyclDate_Dt.Name = "FromEndCyclDate_Dt";
+         this.FromEndCyclDate_Dt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.FromEndCyclDate_Dt.Size = new System.Drawing.Size(100, 23);
+         this.FromEndCyclDate_Dt.TabIndex = 4;
+         this.FromEndCyclDate_Dt.UsePersianFormat = true;
+         // 
+         // FromStrtCyclDate_Dt
+         // 
+         this.FromStrtCyclDate_Dt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FromStrtCyclDate_Dt.CustomFormat = "dd/MM/yyyy";
+         this.FromStrtCyclDate_Dt.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.FromStrtCyclDate_Dt.Location = new System.Drawing.Point(26, 21);
+         this.FromStrtCyclDate_Dt.Name = "FromStrtCyclDate_Dt";
+         this.FromStrtCyclDate_Dt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.FromStrtCyclDate_Dt.Size = new System.Drawing.Size(100, 23);
+         this.FromStrtCyclDate_Dt.TabIndex = 1;
+         this.FromStrtCyclDate_Dt.UsePersianFormat = true;
+         // 
+         // EndCyclDate_Cbx
+         // 
+         this.EndCyclDate_Cbx.AutoSize = true;
+         this.EndCyclDate_Cbx.Location = new System.Drawing.Point(141, 95);
+         this.EndCyclDate_Cbx.Name = "EndCyclDate_Cbx";
+         this.EndCyclDate_Cbx.Size = new System.Drawing.Size(73, 18);
+         this.EndCyclDate_Cbx.TabIndex = 3;
+         this.EndCyclDate_Cbx.Text = "پایان دوره";
+         this.EndCyclDate_Cbx.UseVisualStyleBackColor = true;
+         // 
+         // StrtCyclDate_Cbx
+         // 
+         this.StrtCyclDate_Cbx.AutoSize = true;
+         this.StrtCyclDate_Cbx.Location = new System.Drawing.Point(134, 39);
+         this.StrtCyclDate_Cbx.Name = "StrtCyclDate_Cbx";
+         this.StrtCyclDate_Cbx.Size = new System.Drawing.Size(80, 18);
+         this.StrtCyclDate_Cbx.TabIndex = 0;
+         this.StrtCyclDate_Cbx.Text = "شروع دوره";
+         this.StrtCyclDate_Cbx.UseVisualStyleBackColor = true;
          // 
          // groupBox11
          // 
@@ -3725,6 +3823,596 @@
          this.repositoryItemCheckEdit2.Name = "repositoryItemCheckEdit2";
          this.repositoryItemCheckEdit2.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
          // 
+         // groupBox13
+         // 
+         this.groupBox13.Controls.Add(this.CochFltr_Cbx);
+         this.groupBox13.Controls.Add(this.gridControl3);
+         this.groupBox13.Location = new System.Drawing.Point(7, 563);
+         this.groupBox13.Name = "groupBox13";
+         this.groupBox13.Size = new System.Drawing.Size(224, 174);
+         this.groupBox13.TabIndex = 1;
+         this.groupBox13.TabStop = false;
+         // 
+         // CochFltr_Cbx
+         // 
+         this.CochFltr_Cbx.AutoSize = true;
+         this.CochFltr_Cbx.BackColor = System.Drawing.SystemColors.Control;
+         this.CochFltr_Cbx.Location = new System.Drawing.Point(144, -2);
+         this.CochFltr_Cbx.Name = "CochFltr_Cbx";
+         this.CochFltr_Cbx.Size = new System.Drawing.Size(74, 18);
+         this.CochFltr_Cbx.TabIndex = 0;
+         this.CochFltr_Cbx.Text = "سرپرست";
+         this.CochFltr_Cbx.UseVisualStyleBackColor = false;
+         // 
+         // gridControl3
+         // 
+         this.gridControl3.AllowDrop = true;
+         this.gridControl3.DataSource = this.CochBs;
+         this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControl3.Location = new System.Drawing.Point(3, 18);
+         this.gridControl3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.gridControl3.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl3.MainView = this.Coch_Gv;
+         this.gridControl3.Name = "gridControl3";
+         this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemCheckEdit6});
+         this.gridControl3.Size = new System.Drawing.Size(218, 153);
+         this.gridControl3.TabIndex = 2;
+         this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.Coch_Gv});
+         // 
+         // CochBs
+         // 
+         this.CochBs.DataSource = typeof(System.Scsc.Data.Fighter);
+         // 
+         // Coch_Gv
+         // 
+         this.Coch_Gv.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Coch_Gv.Appearance.FooterPanel.Options.UseFont = true;
+         this.Coch_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Coch_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Coch_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Coch_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Coch_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Coch_Gv.Appearance.Row.Options.UseFont = true;
+         this.Coch_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Coch_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Coch_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colREGN_PRVN_CNTY_CODE,
+            this.colREGN_PRVN_CODE,
+            this.colREGN_CODE,
+            this.colFILE_NO1,
+            this.colTARF_CODE_DNRM,
+            this.colMOST_DEBT_CLNG_DNRM,
+            this.colDEBT_DNRM1,
+            this.colBUFE_DEBT_DNTM,
+            this.colDPST_AMNT_DNRM,
+            this.colFGPB_RWNO_DNRM,
+            this.colMBSP_RWNO_DNRM,
+            this.colMBCO_RWNO_DNRM,
+            this.colMBFZ_RWNO_DNRM,
+            this.colMBSM_RWNO_DNRM,
+            this.colCAMP_RWNO_DNRM,
+            this.colTEST_RWNO_DNRM,
+            this.colCLCL_RWNO_DNRM,
+            this.colHERT_RWNO_DNRM,
+            this.colPSFN_RWNO_DNRM,
+            this.colEXAM_RWNO_DNRM,
+            this.colBDFT_RWNO_DNRM,
+            this.colMBSP_STRT_DATE,
+            this.colMBSP_END_DATE,
+            this.colCONF_STAT,
+            this.colCONF_DATE1,
+            this.colFIGH_STAT,
+            this.colRQST_RQID,
+            this.colNAME_DNRM1,
+            this.colFRST_NAME_DNRM,
+            this.colLAST_NAME_DNRM,
+            this.colFATH_NAME_DNRM,
+            this.colPOST_ADRS_DNRM,
+            this.colSEX_TYPE_DNRM1,
+            this.colBRTH_DATE_DNRM1,
+            this.colCELL_PHON_DNRM1,
+            this.colTELL_PHON_DNRM1,
+            this.colFGPB_TYPE_DNRM,
+            this.colINSR_NUMB_DNRM,
+            this.colINSR_DATE_DNRM,
+            this.colTEST_DATE_DNRM,
+            this.colCAMP_DATE_DNRM,
+            this.colCTGY_CODE_DNRM,
+            this.colMTOD_CODE_DNRM,
+            this.colCLUB_CODE_DNRM,
+            this.colCOCH_FILE_NO_DNRM,
+            this.colCOCH_CRTF_YEAR_DNRM,
+            this.colCBMT_CODE_DNRM,
+            this.colDAY_TYPE_DNRM,
+            this.colATTN_TIME_DNRM,
+            this.colACTV_TAG_DNRM,
+            this.colBLOD_GROP_DNRM,
+            this.colREF_CODE_DNRM,
+            this.colIMAG_RCDC_RCID_DNRM,
+            this.colIMAG_RWNO_DNRM,
+            this.colCARD_NUMB_DNRM,
+            this.colFNGR_PRNT_DNRM3,
+            this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM,
+            this.colSUNT_BUNT_DEPT_CODE_DNRM,
+            this.colSUNT_BUNT_CODE_DNRM,
+            this.colSUNT_CODE_DNRM,
+            this.colCORD_X_DNRM,
+            this.colCORD_Y_DNRM,
+            this.colSERV_NO_DNRM,
+            this.colNATL_CODE_DNRM1,
+            this.colGLOB_CODE_DNRM,
+            this.colCHAT_ID_DNRM1,
+            this.colMOM_CELL_PHON_DNRM,
+            this.colMOM_TELL_PHON_DNRM,
+            this.colMOM_CHAT_ID_DNRM,
+            this.colDAD_CELL_PHON_DNRM,
+            this.colDAD_TELL_PHON_DNRM,
+            this.colDAD_CHAT_ID_DNRM,
+            this.colDPST_ACNT_SLRY_BANK_DNRM,
+            this.colDPST_ACNT_SLRY_DNRM,
+            this.colRTNG_NUMB_DNRM1,
+            this.colCRET_BY11,
+            this.colCRET_DATE11,
+            this.colMDFY_BY11,
+            this.colMDFY_DATE11,
+            this.colClub,
+            this.colCategory_Belt,
+            this.colFighter13,
+            this.colMethod1,
+            this.colRegion,
+            this.colRequest,
+            this.colSub_Unit});
+         this.Coch_Gv.GridControl = this.gridControl3;
+         this.Coch_Gv.Name = "Coch_Gv";
+         this.Coch_Gv.OptionsBehavior.Editable = false;
+         this.Coch_Gv.OptionsBehavior.ReadOnly = true;
+         this.Coch_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Coch_Gv.OptionsSelection.MultiSelect = true;
+         this.Coch_Gv.OptionsView.ShowDetailButtons = false;
+         this.Coch_Gv.OptionsView.ShowGroupPanel = false;
+         // 
+         // colREGN_PRVN_CNTY_CODE
+         // 
+         this.colREGN_PRVN_CNTY_CODE.FieldName = "REGN_PRVN_CNTY_CODE";
+         this.colREGN_PRVN_CNTY_CODE.Name = "colREGN_PRVN_CNTY_CODE";
+         // 
+         // colREGN_PRVN_CODE
+         // 
+         this.colREGN_PRVN_CODE.FieldName = "REGN_PRVN_CODE";
+         this.colREGN_PRVN_CODE.Name = "colREGN_PRVN_CODE";
+         // 
+         // colREGN_CODE
+         // 
+         this.colREGN_CODE.FieldName = "REGN_CODE";
+         this.colREGN_CODE.Name = "colREGN_CODE";
+         // 
+         // colFILE_NO1
+         // 
+         this.colFILE_NO1.FieldName = "FILE_NO";
+         this.colFILE_NO1.Name = "colFILE_NO1";
+         // 
+         // colTARF_CODE_DNRM
+         // 
+         this.colTARF_CODE_DNRM.FieldName = "TARF_CODE_DNRM";
+         this.colTARF_CODE_DNRM.Name = "colTARF_CODE_DNRM";
+         // 
+         // colMOST_DEBT_CLNG_DNRM
+         // 
+         this.colMOST_DEBT_CLNG_DNRM.FieldName = "MOST_DEBT_CLNG_DNRM";
+         this.colMOST_DEBT_CLNG_DNRM.Name = "colMOST_DEBT_CLNG_DNRM";
+         // 
+         // colDEBT_DNRM1
+         // 
+         this.colDEBT_DNRM1.FieldName = "DEBT_DNRM";
+         this.colDEBT_DNRM1.Name = "colDEBT_DNRM1";
+         // 
+         // colBUFE_DEBT_DNTM
+         // 
+         this.colBUFE_DEBT_DNTM.FieldName = "BUFE_DEBT_DNTM";
+         this.colBUFE_DEBT_DNTM.Name = "colBUFE_DEBT_DNTM";
+         // 
+         // colDPST_AMNT_DNRM
+         // 
+         this.colDPST_AMNT_DNRM.FieldName = "DPST_AMNT_DNRM";
+         this.colDPST_AMNT_DNRM.Name = "colDPST_AMNT_DNRM";
+         // 
+         // colFGPB_RWNO_DNRM
+         // 
+         this.colFGPB_RWNO_DNRM.FieldName = "FGPB_RWNO_DNRM";
+         this.colFGPB_RWNO_DNRM.Name = "colFGPB_RWNO_DNRM";
+         // 
+         // colMBSP_RWNO_DNRM
+         // 
+         this.colMBSP_RWNO_DNRM.FieldName = "MBSP_RWNO_DNRM";
+         this.colMBSP_RWNO_DNRM.Name = "colMBSP_RWNO_DNRM";
+         // 
+         // colMBCO_RWNO_DNRM
+         // 
+         this.colMBCO_RWNO_DNRM.FieldName = "MBCO_RWNO_DNRM";
+         this.colMBCO_RWNO_DNRM.Name = "colMBCO_RWNO_DNRM";
+         // 
+         // colMBFZ_RWNO_DNRM
+         // 
+         this.colMBFZ_RWNO_DNRM.FieldName = "MBFZ_RWNO_DNRM";
+         this.colMBFZ_RWNO_DNRM.Name = "colMBFZ_RWNO_DNRM";
+         // 
+         // colMBSM_RWNO_DNRM
+         // 
+         this.colMBSM_RWNO_DNRM.FieldName = "MBSM_RWNO_DNRM";
+         this.colMBSM_RWNO_DNRM.Name = "colMBSM_RWNO_DNRM";
+         // 
+         // colCAMP_RWNO_DNRM
+         // 
+         this.colCAMP_RWNO_DNRM.FieldName = "CAMP_RWNO_DNRM";
+         this.colCAMP_RWNO_DNRM.Name = "colCAMP_RWNO_DNRM";
+         // 
+         // colTEST_RWNO_DNRM
+         // 
+         this.colTEST_RWNO_DNRM.FieldName = "TEST_RWNO_DNRM";
+         this.colTEST_RWNO_DNRM.Name = "colTEST_RWNO_DNRM";
+         // 
+         // colCLCL_RWNO_DNRM
+         // 
+         this.colCLCL_RWNO_DNRM.FieldName = "CLCL_RWNO_DNRM";
+         this.colCLCL_RWNO_DNRM.Name = "colCLCL_RWNO_DNRM";
+         // 
+         // colHERT_RWNO_DNRM
+         // 
+         this.colHERT_RWNO_DNRM.FieldName = "HERT_RWNO_DNRM";
+         this.colHERT_RWNO_DNRM.Name = "colHERT_RWNO_DNRM";
+         // 
+         // colPSFN_RWNO_DNRM
+         // 
+         this.colPSFN_RWNO_DNRM.FieldName = "PSFN_RWNO_DNRM";
+         this.colPSFN_RWNO_DNRM.Name = "colPSFN_RWNO_DNRM";
+         // 
+         // colEXAM_RWNO_DNRM
+         // 
+         this.colEXAM_RWNO_DNRM.FieldName = "EXAM_RWNO_DNRM";
+         this.colEXAM_RWNO_DNRM.Name = "colEXAM_RWNO_DNRM";
+         // 
+         // colBDFT_RWNO_DNRM
+         // 
+         this.colBDFT_RWNO_DNRM.FieldName = "BDFT_RWNO_DNRM";
+         this.colBDFT_RWNO_DNRM.Name = "colBDFT_RWNO_DNRM";
+         // 
+         // colMBSP_STRT_DATE
+         // 
+         this.colMBSP_STRT_DATE.FieldName = "MBSP_STRT_DATE";
+         this.colMBSP_STRT_DATE.Name = "colMBSP_STRT_DATE";
+         // 
+         // colMBSP_END_DATE
+         // 
+         this.colMBSP_END_DATE.FieldName = "MBSP_END_DATE";
+         this.colMBSP_END_DATE.Name = "colMBSP_END_DATE";
+         // 
+         // colCONF_STAT
+         // 
+         this.colCONF_STAT.FieldName = "CONF_STAT";
+         this.colCONF_STAT.Name = "colCONF_STAT";
+         // 
+         // colCONF_DATE1
+         // 
+         this.colCONF_DATE1.FieldName = "CONF_DATE";
+         this.colCONF_DATE1.Name = "colCONF_DATE1";
+         // 
+         // colFIGH_STAT
+         // 
+         this.colFIGH_STAT.FieldName = "FIGH_STAT";
+         this.colFIGH_STAT.Name = "colFIGH_STAT";
+         // 
+         // colRQST_RQID
+         // 
+         this.colRQST_RQID.FieldName = "RQST_RQID";
+         this.colRQST_RQID.Name = "colRQST_RQID";
+         // 
+         // colNAME_DNRM1
+         // 
+         this.colNAME_DNRM1.Caption = "نام سرپرست";
+         this.colNAME_DNRM1.FieldName = "NAME_DNRM";
+         this.colNAME_DNRM1.Name = "colNAME_DNRM1";
+         this.colNAME_DNRM1.Visible = true;
+         this.colNAME_DNRM1.VisibleIndex = 0;
+         // 
+         // colFRST_NAME_DNRM
+         // 
+         this.colFRST_NAME_DNRM.FieldName = "FRST_NAME_DNRM";
+         this.colFRST_NAME_DNRM.Name = "colFRST_NAME_DNRM";
+         // 
+         // colLAST_NAME_DNRM
+         // 
+         this.colLAST_NAME_DNRM.FieldName = "LAST_NAME_DNRM";
+         this.colLAST_NAME_DNRM.Name = "colLAST_NAME_DNRM";
+         // 
+         // colFATH_NAME_DNRM
+         // 
+         this.colFATH_NAME_DNRM.FieldName = "FATH_NAME_DNRM";
+         this.colFATH_NAME_DNRM.Name = "colFATH_NAME_DNRM";
+         // 
+         // colPOST_ADRS_DNRM
+         // 
+         this.colPOST_ADRS_DNRM.FieldName = "POST_ADRS_DNRM";
+         this.colPOST_ADRS_DNRM.Name = "colPOST_ADRS_DNRM";
+         // 
+         // colSEX_TYPE_DNRM1
+         // 
+         this.colSEX_TYPE_DNRM1.FieldName = "SEX_TYPE_DNRM";
+         this.colSEX_TYPE_DNRM1.Name = "colSEX_TYPE_DNRM1";
+         // 
+         // colBRTH_DATE_DNRM1
+         // 
+         this.colBRTH_DATE_DNRM1.FieldName = "BRTH_DATE_DNRM";
+         this.colBRTH_DATE_DNRM1.Name = "colBRTH_DATE_DNRM1";
+         // 
+         // colCELL_PHON_DNRM1
+         // 
+         this.colCELL_PHON_DNRM1.FieldName = "CELL_PHON_DNRM";
+         this.colCELL_PHON_DNRM1.Name = "colCELL_PHON_DNRM1";
+         // 
+         // colTELL_PHON_DNRM1
+         // 
+         this.colTELL_PHON_DNRM1.FieldName = "TELL_PHON_DNRM";
+         this.colTELL_PHON_DNRM1.Name = "colTELL_PHON_DNRM1";
+         // 
+         // colFGPB_TYPE_DNRM
+         // 
+         this.colFGPB_TYPE_DNRM.FieldName = "FGPB_TYPE_DNRM";
+         this.colFGPB_TYPE_DNRM.Name = "colFGPB_TYPE_DNRM";
+         // 
+         // colINSR_NUMB_DNRM
+         // 
+         this.colINSR_NUMB_DNRM.FieldName = "INSR_NUMB_DNRM";
+         this.colINSR_NUMB_DNRM.Name = "colINSR_NUMB_DNRM";
+         // 
+         // colINSR_DATE_DNRM
+         // 
+         this.colINSR_DATE_DNRM.FieldName = "INSR_DATE_DNRM";
+         this.colINSR_DATE_DNRM.Name = "colINSR_DATE_DNRM";
+         // 
+         // colTEST_DATE_DNRM
+         // 
+         this.colTEST_DATE_DNRM.FieldName = "TEST_DATE_DNRM";
+         this.colTEST_DATE_DNRM.Name = "colTEST_DATE_DNRM";
+         // 
+         // colCAMP_DATE_DNRM
+         // 
+         this.colCAMP_DATE_DNRM.FieldName = "CAMP_DATE_DNRM";
+         this.colCAMP_DATE_DNRM.Name = "colCAMP_DATE_DNRM";
+         // 
+         // colCTGY_CODE_DNRM
+         // 
+         this.colCTGY_CODE_DNRM.FieldName = "CTGY_CODE_DNRM";
+         this.colCTGY_CODE_DNRM.Name = "colCTGY_CODE_DNRM";
+         // 
+         // colMTOD_CODE_DNRM
+         // 
+         this.colMTOD_CODE_DNRM.FieldName = "MTOD_CODE_DNRM";
+         this.colMTOD_CODE_DNRM.Name = "colMTOD_CODE_DNRM";
+         // 
+         // colCLUB_CODE_DNRM
+         // 
+         this.colCLUB_CODE_DNRM.FieldName = "CLUB_CODE_DNRM";
+         this.colCLUB_CODE_DNRM.Name = "colCLUB_CODE_DNRM";
+         // 
+         // colCOCH_FILE_NO_DNRM
+         // 
+         this.colCOCH_FILE_NO_DNRM.FieldName = "COCH_FILE_NO_DNRM";
+         this.colCOCH_FILE_NO_DNRM.Name = "colCOCH_FILE_NO_DNRM";
+         // 
+         // colCOCH_CRTF_YEAR_DNRM
+         // 
+         this.colCOCH_CRTF_YEAR_DNRM.FieldName = "COCH_CRTF_YEAR_DNRM";
+         this.colCOCH_CRTF_YEAR_DNRM.Name = "colCOCH_CRTF_YEAR_DNRM";
+         // 
+         // colCBMT_CODE_DNRM
+         // 
+         this.colCBMT_CODE_DNRM.FieldName = "CBMT_CODE_DNRM";
+         this.colCBMT_CODE_DNRM.Name = "colCBMT_CODE_DNRM";
+         // 
+         // colDAY_TYPE_DNRM
+         // 
+         this.colDAY_TYPE_DNRM.FieldName = "DAY_TYPE_DNRM";
+         this.colDAY_TYPE_DNRM.Name = "colDAY_TYPE_DNRM";
+         // 
+         // colATTN_TIME_DNRM
+         // 
+         this.colATTN_TIME_DNRM.FieldName = "ATTN_TIME_DNRM";
+         this.colATTN_TIME_DNRM.Name = "colATTN_TIME_DNRM";
+         // 
+         // colACTV_TAG_DNRM
+         // 
+         this.colACTV_TAG_DNRM.FieldName = "ACTV_TAG_DNRM";
+         this.colACTV_TAG_DNRM.Name = "colACTV_TAG_DNRM";
+         // 
+         // colBLOD_GROP_DNRM
+         // 
+         this.colBLOD_GROP_DNRM.FieldName = "BLOD_GROP_DNRM";
+         this.colBLOD_GROP_DNRM.Name = "colBLOD_GROP_DNRM";
+         // 
+         // colREF_CODE_DNRM
+         // 
+         this.colREF_CODE_DNRM.FieldName = "REF_CODE_DNRM";
+         this.colREF_CODE_DNRM.Name = "colREF_CODE_DNRM";
+         // 
+         // colIMAG_RCDC_RCID_DNRM
+         // 
+         this.colIMAG_RCDC_RCID_DNRM.FieldName = "IMAG_RCDC_RCID_DNRM";
+         this.colIMAG_RCDC_RCID_DNRM.Name = "colIMAG_RCDC_RCID_DNRM";
+         // 
+         // colIMAG_RWNO_DNRM
+         // 
+         this.colIMAG_RWNO_DNRM.FieldName = "IMAG_RWNO_DNRM";
+         this.colIMAG_RWNO_DNRM.Name = "colIMAG_RWNO_DNRM";
+         // 
+         // colCARD_NUMB_DNRM
+         // 
+         this.colCARD_NUMB_DNRM.FieldName = "CARD_NUMB_DNRM";
+         this.colCARD_NUMB_DNRM.Name = "colCARD_NUMB_DNRM";
+         // 
+         // colFNGR_PRNT_DNRM3
+         // 
+         this.colFNGR_PRNT_DNRM3.FieldName = "FNGR_PRNT_DNRM";
+         this.colFNGR_PRNT_DNRM3.Name = "colFNGR_PRNT_DNRM3";
+         // 
+         // colSUNT_BUNT_DEPT_ORGN_CODE_DNRM
+         // 
+         this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM.FieldName = "SUNT_BUNT_DEPT_ORGN_CODE_DNRM";
+         this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM.Name = "colSUNT_BUNT_DEPT_ORGN_CODE_DNRM";
+         // 
+         // colSUNT_BUNT_DEPT_CODE_DNRM
+         // 
+         this.colSUNT_BUNT_DEPT_CODE_DNRM.FieldName = "SUNT_BUNT_DEPT_CODE_DNRM";
+         this.colSUNT_BUNT_DEPT_CODE_DNRM.Name = "colSUNT_BUNT_DEPT_CODE_DNRM";
+         // 
+         // colSUNT_BUNT_CODE_DNRM
+         // 
+         this.colSUNT_BUNT_CODE_DNRM.FieldName = "SUNT_BUNT_CODE_DNRM";
+         this.colSUNT_BUNT_CODE_DNRM.Name = "colSUNT_BUNT_CODE_DNRM";
+         // 
+         // colSUNT_CODE_DNRM
+         // 
+         this.colSUNT_CODE_DNRM.FieldName = "SUNT_CODE_DNRM";
+         this.colSUNT_CODE_DNRM.Name = "colSUNT_CODE_DNRM";
+         // 
+         // colCORD_X_DNRM
+         // 
+         this.colCORD_X_DNRM.FieldName = "CORD_X_DNRM";
+         this.colCORD_X_DNRM.Name = "colCORD_X_DNRM";
+         // 
+         // colCORD_Y_DNRM
+         // 
+         this.colCORD_Y_DNRM.FieldName = "CORD_Y_DNRM";
+         this.colCORD_Y_DNRM.Name = "colCORD_Y_DNRM";
+         // 
+         // colSERV_NO_DNRM
+         // 
+         this.colSERV_NO_DNRM.FieldName = "SERV_NO_DNRM";
+         this.colSERV_NO_DNRM.Name = "colSERV_NO_DNRM";
+         // 
+         // colNATL_CODE_DNRM1
+         // 
+         this.colNATL_CODE_DNRM1.FieldName = "NATL_CODE_DNRM";
+         this.colNATL_CODE_DNRM1.Name = "colNATL_CODE_DNRM1";
+         // 
+         // colGLOB_CODE_DNRM
+         // 
+         this.colGLOB_CODE_DNRM.FieldName = "GLOB_CODE_DNRM";
+         this.colGLOB_CODE_DNRM.Name = "colGLOB_CODE_DNRM";
+         // 
+         // colCHAT_ID_DNRM1
+         // 
+         this.colCHAT_ID_DNRM1.FieldName = "CHAT_ID_DNRM";
+         this.colCHAT_ID_DNRM1.Name = "colCHAT_ID_DNRM1";
+         // 
+         // colMOM_CELL_PHON_DNRM
+         // 
+         this.colMOM_CELL_PHON_DNRM.FieldName = "MOM_CELL_PHON_DNRM";
+         this.colMOM_CELL_PHON_DNRM.Name = "colMOM_CELL_PHON_DNRM";
+         // 
+         // colMOM_TELL_PHON_DNRM
+         // 
+         this.colMOM_TELL_PHON_DNRM.FieldName = "MOM_TELL_PHON_DNRM";
+         this.colMOM_TELL_PHON_DNRM.Name = "colMOM_TELL_PHON_DNRM";
+         // 
+         // colMOM_CHAT_ID_DNRM
+         // 
+         this.colMOM_CHAT_ID_DNRM.FieldName = "MOM_CHAT_ID_DNRM";
+         this.colMOM_CHAT_ID_DNRM.Name = "colMOM_CHAT_ID_DNRM";
+         // 
+         // colDAD_CELL_PHON_DNRM
+         // 
+         this.colDAD_CELL_PHON_DNRM.FieldName = "DAD_CELL_PHON_DNRM";
+         this.colDAD_CELL_PHON_DNRM.Name = "colDAD_CELL_PHON_DNRM";
+         // 
+         // colDAD_TELL_PHON_DNRM
+         // 
+         this.colDAD_TELL_PHON_DNRM.FieldName = "DAD_TELL_PHON_DNRM";
+         this.colDAD_TELL_PHON_DNRM.Name = "colDAD_TELL_PHON_DNRM";
+         // 
+         // colDAD_CHAT_ID_DNRM
+         // 
+         this.colDAD_CHAT_ID_DNRM.FieldName = "DAD_CHAT_ID_DNRM";
+         this.colDAD_CHAT_ID_DNRM.Name = "colDAD_CHAT_ID_DNRM";
+         // 
+         // colDPST_ACNT_SLRY_BANK_DNRM
+         // 
+         this.colDPST_ACNT_SLRY_BANK_DNRM.FieldName = "DPST_ACNT_SLRY_BANK_DNRM";
+         this.colDPST_ACNT_SLRY_BANK_DNRM.Name = "colDPST_ACNT_SLRY_BANK_DNRM";
+         // 
+         // colDPST_ACNT_SLRY_DNRM
+         // 
+         this.colDPST_ACNT_SLRY_DNRM.FieldName = "DPST_ACNT_SLRY_DNRM";
+         this.colDPST_ACNT_SLRY_DNRM.Name = "colDPST_ACNT_SLRY_DNRM";
+         // 
+         // colRTNG_NUMB_DNRM1
+         // 
+         this.colRTNG_NUMB_DNRM1.FieldName = "RTNG_NUMB_DNRM";
+         this.colRTNG_NUMB_DNRM1.Name = "colRTNG_NUMB_DNRM1";
+         // 
+         // colCRET_BY11
+         // 
+         this.colCRET_BY11.FieldName = "CRET_BY";
+         this.colCRET_BY11.Name = "colCRET_BY11";
+         // 
+         // colCRET_DATE11
+         // 
+         this.colCRET_DATE11.FieldName = "CRET_DATE";
+         this.colCRET_DATE11.Name = "colCRET_DATE11";
+         // 
+         // colMDFY_BY11
+         // 
+         this.colMDFY_BY11.FieldName = "MDFY_BY";
+         this.colMDFY_BY11.Name = "colMDFY_BY11";
+         // 
+         // colMDFY_DATE11
+         // 
+         this.colMDFY_DATE11.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE11.Name = "colMDFY_DATE11";
+         // 
+         // colClub
+         // 
+         this.colClub.FieldName = "Club";
+         this.colClub.Name = "colClub";
+         // 
+         // colCategory_Belt
+         // 
+         this.colCategory_Belt.FieldName = "Category_Belt";
+         this.colCategory_Belt.Name = "colCategory_Belt";
+         // 
+         // colFighter13
+         // 
+         this.colFighter13.FieldName = "Fighter1";
+         this.colFighter13.Name = "colFighter13";
+         // 
+         // colMethod1
+         // 
+         this.colMethod1.FieldName = "Method";
+         this.colMethod1.Name = "colMethod1";
+         // 
+         // colRegion
+         // 
+         this.colRegion.FieldName = "Region";
+         this.colRegion.Name = "colRegion";
+         // 
+         // colRequest
+         // 
+         this.colRequest.FieldName = "Request";
+         this.colRequest.Name = "colRequest";
+         // 
+         // colSub_Unit
+         // 
+         this.colSub_Unit.FieldName = "Sub_Unit";
+         this.colSub_Unit.Name = "colSub_Unit";
+         // 
+         // repositoryItemCheckEdit6
+         // 
+         this.repositoryItemCheckEdit6.AutoHeight = false;
+         this.repositoryItemCheckEdit6.Caption = "Check";
+         this.repositoryItemCheckEdit6.Name = "repositoryItemCheckEdit6";
+         this.repositoryItemCheckEdit6.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
+         // 
          // groupBox3
          // 
          this.groupBox3.Controls.Add(this.CtgyFltr_Cbx);
@@ -4326,6 +5014,7 @@
          this.Conf_Ro.Controls.Add(this.label2);
          this.Conf_Ro.Controls.Add(this.TempDsct_Lov);
          this.Conf_Ro.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.Conf_Ro.ForeColor = System.Drawing.Color.Black;
          this.Conf_Ro.FrameOnMouseOverOnly = false;
          this.Conf_Ro.GroupImage = null;
          this.Conf_Ro.Location = new System.Drawing.Point(3, 1817);
@@ -4391,8 +5080,8 @@
          this.TempDsct_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.TempDsct_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.TempDsct_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "اعمال قالب متن پیام بر روی ردیف تخفیفات", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject32, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.OK, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, "اعمال قالب متن پیام بر روی ردیف تخفیفات", null, null, true)});
          this.TempDsct_Lov.Properties.DataSource = this.TempBs;
          this.TempDsct_Lov.Properties.DisplayMember = "TEMP_NAME";
          this.TempDsct_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -4628,678 +5317,32 @@
          // 
          this.SlctFile_Ofd.Filter = "\"Text|*.txt|All|*.*\"";
          // 
-         // groupBox12
-         // 
-         this.groupBox12.Controls.Add(this.ToEndCyclDate_Dt);
-         this.groupBox12.Controls.Add(this.ToStrtCyclDate_Dt);
-         this.groupBox12.Controls.Add(this.FromEndCyclDate_Dt);
-         this.groupBox12.Controls.Add(this.FromStrtCyclDate_Dt);
-         this.groupBox12.Controls.Add(this.EndCyclDate_Cbx);
-         this.groupBox12.Controls.Add(this.StrtCyclDate_Cbx);
-         this.groupBox12.Location = new System.Drawing.Point(7, 417);
-         this.groupBox12.Name = "groupBox12";
-         this.groupBox12.Size = new System.Drawing.Size(224, 140);
-         this.groupBox12.TabIndex = 6;
-         this.groupBox12.TabStop = false;
-         this.groupBox12.Text = "اطلاعات دوره";
-         // 
-         // StrtCyclDate_Cbx
-         // 
-         this.StrtCyclDate_Cbx.AutoSize = true;
-         this.StrtCyclDate_Cbx.Location = new System.Drawing.Point(134, 39);
-         this.StrtCyclDate_Cbx.Name = "StrtCyclDate_Cbx";
-         this.StrtCyclDate_Cbx.Size = new System.Drawing.Size(80, 18);
-         this.StrtCyclDate_Cbx.TabIndex = 0;
-         this.StrtCyclDate_Cbx.Text = "شروع دوره";
-         this.StrtCyclDate_Cbx.UseVisualStyleBackColor = true;
-         // 
-         // FromStrtCyclDate_Dt
-         // 
-         this.FromStrtCyclDate_Dt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.FromStrtCyclDate_Dt.CustomFormat = "dd/MM/yyyy";
-         this.FromStrtCyclDate_Dt.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.FromStrtCyclDate_Dt.Location = new System.Drawing.Point(26, 21);
-         this.FromStrtCyclDate_Dt.Name = "FromStrtCyclDate_Dt";
-         this.FromStrtCyclDate_Dt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.FromStrtCyclDate_Dt.Size = new System.Drawing.Size(100, 23);
-         this.FromStrtCyclDate_Dt.TabIndex = 1;
-         this.FromStrtCyclDate_Dt.UsePersianFormat = true;
-         // 
-         // ToStrtCyclDate_Dt
-         // 
-         this.ToStrtCyclDate_Dt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ToStrtCyclDate_Dt.CustomFormat = "dd/MM/yyyy";
-         this.ToStrtCyclDate_Dt.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.ToStrtCyclDate_Dt.Location = new System.Drawing.Point(26, 50);
-         this.ToStrtCyclDate_Dt.Name = "ToStrtCyclDate_Dt";
-         this.ToStrtCyclDate_Dt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.ToStrtCyclDate_Dt.Size = new System.Drawing.Size(100, 23);
-         this.ToStrtCyclDate_Dt.TabIndex = 2;
-         this.ToStrtCyclDate_Dt.UsePersianFormat = true;
-         // 
-         // EndCyclDate_Cbx
-         // 
-         this.EndCyclDate_Cbx.AutoSize = true;
-         this.EndCyclDate_Cbx.Location = new System.Drawing.Point(141, 95);
-         this.EndCyclDate_Cbx.Name = "EndCyclDate_Cbx";
-         this.EndCyclDate_Cbx.Size = new System.Drawing.Size(73, 18);
-         this.EndCyclDate_Cbx.TabIndex = 3;
-         this.EndCyclDate_Cbx.Text = "پایان دوره";
-         this.EndCyclDate_Cbx.UseVisualStyleBackColor = true;
-         // 
-         // FromEndCyclDate_Dt
-         // 
-         this.FromEndCyclDate_Dt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.FromEndCyclDate_Dt.CustomFormat = "dd/MM/yyyy";
-         this.FromEndCyclDate_Dt.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.FromEndCyclDate_Dt.Location = new System.Drawing.Point(26, 79);
-         this.FromEndCyclDate_Dt.Name = "FromEndCyclDate_Dt";
-         this.FromEndCyclDate_Dt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.FromEndCyclDate_Dt.Size = new System.Drawing.Size(100, 23);
-         this.FromEndCyclDate_Dt.TabIndex = 4;
-         this.FromEndCyclDate_Dt.UsePersianFormat = true;
-         // 
-         // ToEndCyclDate_Dt
-         // 
-         this.ToEndCyclDate_Dt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ToEndCyclDate_Dt.CustomFormat = "dd/MM/yyyy";
-         this.ToEndCyclDate_Dt.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.ToEndCyclDate_Dt.Location = new System.Drawing.Point(26, 108);
-         this.ToEndCyclDate_Dt.Name = "ToEndCyclDate_Dt";
-         this.ToEndCyclDate_Dt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.ToEndCyclDate_Dt.Size = new System.Drawing.Size(100, 23);
-         this.ToEndCyclDate_Dt.TabIndex = 5;
-         this.ToEndCyclDate_Dt.UsePersianFormat = true;
-         // 
-         // groupBox13
-         // 
-         this.groupBox13.Controls.Add(this.CochFltr_Cbx);
-         this.groupBox13.Controls.Add(this.gridControl3);
-         this.groupBox13.Location = new System.Drawing.Point(7, 563);
-         this.groupBox13.Name = "groupBox13";
-         this.groupBox13.Size = new System.Drawing.Size(224, 174);
-         this.groupBox13.TabIndex = 1;
-         this.groupBox13.TabStop = false;
-         // 
-         // CochFltr_Cbx
-         // 
-         this.CochFltr_Cbx.AutoSize = true;
-         this.CochFltr_Cbx.BackColor = System.Drawing.SystemColors.Control;
-         this.CochFltr_Cbx.Location = new System.Drawing.Point(144, -2);
-         this.CochFltr_Cbx.Name = "CochFltr_Cbx";
-         this.CochFltr_Cbx.Size = new System.Drawing.Size(74, 18);
-         this.CochFltr_Cbx.TabIndex = 0;
-         this.CochFltr_Cbx.Text = "سرپرست";
-         this.CochFltr_Cbx.UseVisualStyleBackColor = false;
-         // 
-         // gridControl3
-         // 
-         this.gridControl3.AllowDrop = true;
-         this.gridControl3.DataSource = this.CochBs;
-         this.gridControl3.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.gridControl3.Location = new System.Drawing.Point(3, 18);
-         this.gridControl3.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.gridControl3.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.gridControl3.MainView = this.Coch_Gv;
-         this.gridControl3.Name = "gridControl3";
-         this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemCheckEdit6});
-         this.gridControl3.Size = new System.Drawing.Size(218, 153);
-         this.gridControl3.TabIndex = 2;
-         this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.Coch_Gv});
-         // 
-         // Coch_Gv
-         // 
-         this.Coch_Gv.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.Coch_Gv.Appearance.FooterPanel.Options.UseFont = true;
-         this.Coch_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.Coch_Gv.Appearance.HeaderPanel.Options.UseFont = true;
-         this.Coch_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.Coch_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Coch_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.Coch_Gv.Appearance.Row.Options.UseFont = true;
-         this.Coch_Gv.Appearance.Row.Options.UseTextOptions = true;
-         this.Coch_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Coch_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.colREGN_PRVN_CNTY_CODE,
-            this.colREGN_PRVN_CODE,
-            this.colREGN_CODE,
-            this.colFILE_NO1,
-            this.colTARF_CODE_DNRM,
-            this.colMOST_DEBT_CLNG_DNRM,
-            this.colDEBT_DNRM1,
-            this.colBUFE_DEBT_DNTM,
-            this.colDPST_AMNT_DNRM,
-            this.colFGPB_RWNO_DNRM,
-            this.colMBSP_RWNO_DNRM,
-            this.colMBCO_RWNO_DNRM,
-            this.colMBFZ_RWNO_DNRM,
-            this.colMBSM_RWNO_DNRM,
-            this.colCAMP_RWNO_DNRM,
-            this.colTEST_RWNO_DNRM,
-            this.colCLCL_RWNO_DNRM,
-            this.colHERT_RWNO_DNRM,
-            this.colPSFN_RWNO_DNRM,
-            this.colEXAM_RWNO_DNRM,
-            this.colBDFT_RWNO_DNRM,
-            this.colMBSP_STRT_DATE,
-            this.colMBSP_END_DATE,
-            this.colCONF_STAT,
-            this.colCONF_DATE1,
-            this.colFIGH_STAT,
-            this.colRQST_RQID,
-            this.colNAME_DNRM1,
-            this.colFRST_NAME_DNRM,
-            this.colLAST_NAME_DNRM,
-            this.colFATH_NAME_DNRM,
-            this.colPOST_ADRS_DNRM,
-            this.colSEX_TYPE_DNRM1,
-            this.colBRTH_DATE_DNRM1,
-            this.colCELL_PHON_DNRM1,
-            this.colTELL_PHON_DNRM1,
-            this.colFGPB_TYPE_DNRM,
-            this.colINSR_NUMB_DNRM,
-            this.colINSR_DATE_DNRM,
-            this.colTEST_DATE_DNRM,
-            this.colCAMP_DATE_DNRM,
-            this.colCTGY_CODE_DNRM,
-            this.colMTOD_CODE_DNRM,
-            this.colCLUB_CODE_DNRM,
-            this.colCOCH_FILE_NO_DNRM,
-            this.colCOCH_CRTF_YEAR_DNRM,
-            this.colCBMT_CODE_DNRM,
-            this.colDAY_TYPE_DNRM,
-            this.colATTN_TIME_DNRM,
-            this.colACTV_TAG_DNRM,
-            this.colBLOD_GROP_DNRM,
-            this.colREF_CODE_DNRM,
-            this.colIMAG_RCDC_RCID_DNRM,
-            this.colIMAG_RWNO_DNRM,
-            this.colCARD_NUMB_DNRM,
-            this.colFNGR_PRNT_DNRM3,
-            this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM,
-            this.colSUNT_BUNT_DEPT_CODE_DNRM,
-            this.colSUNT_BUNT_CODE_DNRM,
-            this.colSUNT_CODE_DNRM,
-            this.colCORD_X_DNRM,
-            this.colCORD_Y_DNRM,
-            this.colSERV_NO_DNRM,
-            this.colNATL_CODE_DNRM1,
-            this.colGLOB_CODE_DNRM,
-            this.colCHAT_ID_DNRM1,
-            this.colMOM_CELL_PHON_DNRM,
-            this.colMOM_TELL_PHON_DNRM,
-            this.colMOM_CHAT_ID_DNRM,
-            this.colDAD_CELL_PHON_DNRM,
-            this.colDAD_TELL_PHON_DNRM,
-            this.colDAD_CHAT_ID_DNRM,
-            this.colDPST_ACNT_SLRY_BANK_DNRM,
-            this.colDPST_ACNT_SLRY_DNRM,
-            this.colRTNG_NUMB_DNRM1,
-            this.colCRET_BY11,
-            this.colCRET_DATE11,
-            this.colMDFY_BY11,
-            this.colMDFY_DATE11,
-            this.colClub,
-            this.colCategory_Belt,
-            this.colFighter13,
-            this.colMethod1,
-            this.colRegion,
-            this.colRequest,
-            this.colSub_Unit});
-         this.Coch_Gv.GridControl = this.gridControl3;
-         this.Coch_Gv.Name = "Coch_Gv";
-         this.Coch_Gv.OptionsBehavior.Editable = false;
-         this.Coch_Gv.OptionsBehavior.ReadOnly = true;
-         this.Coch_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.Coch_Gv.OptionsSelection.MultiSelect = true;
-         this.Coch_Gv.OptionsView.ShowDetailButtons = false;
-         this.Coch_Gv.OptionsView.ShowGroupPanel = false;
-         // 
-         // repositoryItemCheckEdit6
-         // 
-         this.repositoryItemCheckEdit6.AutoHeight = false;
-         this.repositoryItemCheckEdit6.Caption = "Check";
-         this.repositoryItemCheckEdit6.Name = "repositoryItemCheckEdit6";
-         this.repositoryItemCheckEdit6.NullStyle = DevExpress.XtraEditors.Controls.StyleIndeterminate.Unchecked;
-         // 
-         // CochBs
-         // 
-         this.CochBs.DataSource = typeof(System.Scsc.Data.Fighter);
-         // 
-         // colREGN_PRVN_CNTY_CODE
-         // 
-         this.colREGN_PRVN_CNTY_CODE.FieldName = "REGN_PRVN_CNTY_CODE";
-         this.colREGN_PRVN_CNTY_CODE.Name = "colREGN_PRVN_CNTY_CODE";
-         // 
-         // colREGN_PRVN_CODE
-         // 
-         this.colREGN_PRVN_CODE.FieldName = "REGN_PRVN_CODE";
-         this.colREGN_PRVN_CODE.Name = "colREGN_PRVN_CODE";
-         // 
-         // colREGN_CODE
-         // 
-         this.colREGN_CODE.FieldName = "REGN_CODE";
-         this.colREGN_CODE.Name = "colREGN_CODE";
-         // 
-         // colFILE_NO1
-         // 
-         this.colFILE_NO1.FieldName = "FILE_NO";
-         this.colFILE_NO1.Name = "colFILE_NO1";
-         // 
-         // colTARF_CODE_DNRM
-         // 
-         this.colTARF_CODE_DNRM.FieldName = "TARF_CODE_DNRM";
-         this.colTARF_CODE_DNRM.Name = "colTARF_CODE_DNRM";
-         // 
-         // colMOST_DEBT_CLNG_DNRM
-         // 
-         this.colMOST_DEBT_CLNG_DNRM.FieldName = "MOST_DEBT_CLNG_DNRM";
-         this.colMOST_DEBT_CLNG_DNRM.Name = "colMOST_DEBT_CLNG_DNRM";
-         // 
-         // colDEBT_DNRM1
-         // 
-         this.colDEBT_DNRM1.FieldName = "DEBT_DNRM";
-         this.colDEBT_DNRM1.Name = "colDEBT_DNRM1";
-         // 
-         // colBUFE_DEBT_DNTM
-         // 
-         this.colBUFE_DEBT_DNTM.FieldName = "BUFE_DEBT_DNTM";
-         this.colBUFE_DEBT_DNTM.Name = "colBUFE_DEBT_DNTM";
-         // 
-         // colDPST_AMNT_DNRM
-         // 
-         this.colDPST_AMNT_DNRM.FieldName = "DPST_AMNT_DNRM";
-         this.colDPST_AMNT_DNRM.Name = "colDPST_AMNT_DNRM";
-         // 
-         // colFGPB_RWNO_DNRM
-         // 
-         this.colFGPB_RWNO_DNRM.FieldName = "FGPB_RWNO_DNRM";
-         this.colFGPB_RWNO_DNRM.Name = "colFGPB_RWNO_DNRM";
-         // 
-         // colMBSP_RWNO_DNRM
-         // 
-         this.colMBSP_RWNO_DNRM.FieldName = "MBSP_RWNO_DNRM";
-         this.colMBSP_RWNO_DNRM.Name = "colMBSP_RWNO_DNRM";
-         // 
-         // colMBCO_RWNO_DNRM
-         // 
-         this.colMBCO_RWNO_DNRM.FieldName = "MBCO_RWNO_DNRM";
-         this.colMBCO_RWNO_DNRM.Name = "colMBCO_RWNO_DNRM";
-         // 
-         // colMBFZ_RWNO_DNRM
-         // 
-         this.colMBFZ_RWNO_DNRM.FieldName = "MBFZ_RWNO_DNRM";
-         this.colMBFZ_RWNO_DNRM.Name = "colMBFZ_RWNO_DNRM";
-         // 
-         // colMBSM_RWNO_DNRM
-         // 
-         this.colMBSM_RWNO_DNRM.FieldName = "MBSM_RWNO_DNRM";
-         this.colMBSM_RWNO_DNRM.Name = "colMBSM_RWNO_DNRM";
-         // 
-         // colCAMP_RWNO_DNRM
-         // 
-         this.colCAMP_RWNO_DNRM.FieldName = "CAMP_RWNO_DNRM";
-         this.colCAMP_RWNO_DNRM.Name = "colCAMP_RWNO_DNRM";
-         // 
-         // colTEST_RWNO_DNRM
-         // 
-         this.colTEST_RWNO_DNRM.FieldName = "TEST_RWNO_DNRM";
-         this.colTEST_RWNO_DNRM.Name = "colTEST_RWNO_DNRM";
-         // 
-         // colCLCL_RWNO_DNRM
-         // 
-         this.colCLCL_RWNO_DNRM.FieldName = "CLCL_RWNO_DNRM";
-         this.colCLCL_RWNO_DNRM.Name = "colCLCL_RWNO_DNRM";
-         // 
-         // colHERT_RWNO_DNRM
-         // 
-         this.colHERT_RWNO_DNRM.FieldName = "HERT_RWNO_DNRM";
-         this.colHERT_RWNO_DNRM.Name = "colHERT_RWNO_DNRM";
-         // 
-         // colPSFN_RWNO_DNRM
-         // 
-         this.colPSFN_RWNO_DNRM.FieldName = "PSFN_RWNO_DNRM";
-         this.colPSFN_RWNO_DNRM.Name = "colPSFN_RWNO_DNRM";
-         // 
-         // colEXAM_RWNO_DNRM
-         // 
-         this.colEXAM_RWNO_DNRM.FieldName = "EXAM_RWNO_DNRM";
-         this.colEXAM_RWNO_DNRM.Name = "colEXAM_RWNO_DNRM";
-         // 
-         // colBDFT_RWNO_DNRM
-         // 
-         this.colBDFT_RWNO_DNRM.FieldName = "BDFT_RWNO_DNRM";
-         this.colBDFT_RWNO_DNRM.Name = "colBDFT_RWNO_DNRM";
-         // 
-         // colMBSP_STRT_DATE
-         // 
-         this.colMBSP_STRT_DATE.FieldName = "MBSP_STRT_DATE";
-         this.colMBSP_STRT_DATE.Name = "colMBSP_STRT_DATE";
-         // 
-         // colMBSP_END_DATE
-         // 
-         this.colMBSP_END_DATE.FieldName = "MBSP_END_DATE";
-         this.colMBSP_END_DATE.Name = "colMBSP_END_DATE";
-         // 
-         // colCONF_STAT
-         // 
-         this.colCONF_STAT.FieldName = "CONF_STAT";
-         this.colCONF_STAT.Name = "colCONF_STAT";
-         // 
-         // colCONF_DATE1
-         // 
-         this.colCONF_DATE1.FieldName = "CONF_DATE";
-         this.colCONF_DATE1.Name = "colCONF_DATE1";
-         // 
-         // colFIGH_STAT
-         // 
-         this.colFIGH_STAT.FieldName = "FIGH_STAT";
-         this.colFIGH_STAT.Name = "colFIGH_STAT";
-         // 
-         // colRQST_RQID
-         // 
-         this.colRQST_RQID.FieldName = "RQST_RQID";
-         this.colRQST_RQID.Name = "colRQST_RQID";
-         // 
-         // colNAME_DNRM1
-         // 
-         this.colNAME_DNRM1.Caption = "نام سرپرست";
-         this.colNAME_DNRM1.FieldName = "NAME_DNRM";
-         this.colNAME_DNRM1.Name = "colNAME_DNRM1";
-         this.colNAME_DNRM1.Visible = true;
-         this.colNAME_DNRM1.VisibleIndex = 0;
-         // 
-         // colFRST_NAME_DNRM
-         // 
-         this.colFRST_NAME_DNRM.FieldName = "FRST_NAME_DNRM";
-         this.colFRST_NAME_DNRM.Name = "colFRST_NAME_DNRM";
-         // 
-         // colLAST_NAME_DNRM
-         // 
-         this.colLAST_NAME_DNRM.FieldName = "LAST_NAME_DNRM";
-         this.colLAST_NAME_DNRM.Name = "colLAST_NAME_DNRM";
-         // 
-         // colFATH_NAME_DNRM
-         // 
-         this.colFATH_NAME_DNRM.FieldName = "FATH_NAME_DNRM";
-         this.colFATH_NAME_DNRM.Name = "colFATH_NAME_DNRM";
-         // 
-         // colPOST_ADRS_DNRM
-         // 
-         this.colPOST_ADRS_DNRM.FieldName = "POST_ADRS_DNRM";
-         this.colPOST_ADRS_DNRM.Name = "colPOST_ADRS_DNRM";
-         // 
-         // colSEX_TYPE_DNRM1
-         // 
-         this.colSEX_TYPE_DNRM1.FieldName = "SEX_TYPE_DNRM";
-         this.colSEX_TYPE_DNRM1.Name = "colSEX_TYPE_DNRM1";
-         // 
-         // colBRTH_DATE_DNRM1
-         // 
-         this.colBRTH_DATE_DNRM1.FieldName = "BRTH_DATE_DNRM";
-         this.colBRTH_DATE_DNRM1.Name = "colBRTH_DATE_DNRM1";
-         // 
-         // colCELL_PHON_DNRM1
-         // 
-         this.colCELL_PHON_DNRM1.FieldName = "CELL_PHON_DNRM";
-         this.colCELL_PHON_DNRM1.Name = "colCELL_PHON_DNRM1";
-         // 
-         // colTELL_PHON_DNRM1
-         // 
-         this.colTELL_PHON_DNRM1.FieldName = "TELL_PHON_DNRM";
-         this.colTELL_PHON_DNRM1.Name = "colTELL_PHON_DNRM1";
-         // 
-         // colFGPB_TYPE_DNRM
-         // 
-         this.colFGPB_TYPE_DNRM.FieldName = "FGPB_TYPE_DNRM";
-         this.colFGPB_TYPE_DNRM.Name = "colFGPB_TYPE_DNRM";
-         // 
-         // colINSR_NUMB_DNRM
-         // 
-         this.colINSR_NUMB_DNRM.FieldName = "INSR_NUMB_DNRM";
-         this.colINSR_NUMB_DNRM.Name = "colINSR_NUMB_DNRM";
-         // 
-         // colINSR_DATE_DNRM
-         // 
-         this.colINSR_DATE_DNRM.FieldName = "INSR_DATE_DNRM";
-         this.colINSR_DATE_DNRM.Name = "colINSR_DATE_DNRM";
-         // 
-         // colTEST_DATE_DNRM
-         // 
-         this.colTEST_DATE_DNRM.FieldName = "TEST_DATE_DNRM";
-         this.colTEST_DATE_DNRM.Name = "colTEST_DATE_DNRM";
-         // 
-         // colCAMP_DATE_DNRM
-         // 
-         this.colCAMP_DATE_DNRM.FieldName = "CAMP_DATE_DNRM";
-         this.colCAMP_DATE_DNRM.Name = "colCAMP_DATE_DNRM";
-         // 
-         // colCTGY_CODE_DNRM
-         // 
-         this.colCTGY_CODE_DNRM.FieldName = "CTGY_CODE_DNRM";
-         this.colCTGY_CODE_DNRM.Name = "colCTGY_CODE_DNRM";
-         // 
-         // colMTOD_CODE_DNRM
-         // 
-         this.colMTOD_CODE_DNRM.FieldName = "MTOD_CODE_DNRM";
-         this.colMTOD_CODE_DNRM.Name = "colMTOD_CODE_DNRM";
-         // 
-         // colCLUB_CODE_DNRM
-         // 
-         this.colCLUB_CODE_DNRM.FieldName = "CLUB_CODE_DNRM";
-         this.colCLUB_CODE_DNRM.Name = "colCLUB_CODE_DNRM";
-         // 
-         // colCOCH_FILE_NO_DNRM
-         // 
-         this.colCOCH_FILE_NO_DNRM.FieldName = "COCH_FILE_NO_DNRM";
-         this.colCOCH_FILE_NO_DNRM.Name = "colCOCH_FILE_NO_DNRM";
-         // 
-         // colCOCH_CRTF_YEAR_DNRM
-         // 
-         this.colCOCH_CRTF_YEAR_DNRM.FieldName = "COCH_CRTF_YEAR_DNRM";
-         this.colCOCH_CRTF_YEAR_DNRM.Name = "colCOCH_CRTF_YEAR_DNRM";
-         // 
-         // colCBMT_CODE_DNRM
-         // 
-         this.colCBMT_CODE_DNRM.FieldName = "CBMT_CODE_DNRM";
-         this.colCBMT_CODE_DNRM.Name = "colCBMT_CODE_DNRM";
-         // 
-         // colDAY_TYPE_DNRM
-         // 
-         this.colDAY_TYPE_DNRM.FieldName = "DAY_TYPE_DNRM";
-         this.colDAY_TYPE_DNRM.Name = "colDAY_TYPE_DNRM";
-         // 
-         // colATTN_TIME_DNRM
-         // 
-         this.colATTN_TIME_DNRM.FieldName = "ATTN_TIME_DNRM";
-         this.colATTN_TIME_DNRM.Name = "colATTN_TIME_DNRM";
-         // 
-         // colACTV_TAG_DNRM
-         // 
-         this.colACTV_TAG_DNRM.FieldName = "ACTV_TAG_DNRM";
-         this.colACTV_TAG_DNRM.Name = "colACTV_TAG_DNRM";
-         // 
-         // colBLOD_GROP_DNRM
-         // 
-         this.colBLOD_GROP_DNRM.FieldName = "BLOD_GROP_DNRM";
-         this.colBLOD_GROP_DNRM.Name = "colBLOD_GROP_DNRM";
-         // 
-         // colREF_CODE_DNRM
-         // 
-         this.colREF_CODE_DNRM.FieldName = "REF_CODE_DNRM";
-         this.colREF_CODE_DNRM.Name = "colREF_CODE_DNRM";
-         // 
-         // colIMAG_RCDC_RCID_DNRM
-         // 
-         this.colIMAG_RCDC_RCID_DNRM.FieldName = "IMAG_RCDC_RCID_DNRM";
-         this.colIMAG_RCDC_RCID_DNRM.Name = "colIMAG_RCDC_RCID_DNRM";
-         // 
-         // colIMAG_RWNO_DNRM
-         // 
-         this.colIMAG_RWNO_DNRM.FieldName = "IMAG_RWNO_DNRM";
-         this.colIMAG_RWNO_DNRM.Name = "colIMAG_RWNO_DNRM";
-         // 
-         // colCARD_NUMB_DNRM
-         // 
-         this.colCARD_NUMB_DNRM.FieldName = "CARD_NUMB_DNRM";
-         this.colCARD_NUMB_DNRM.Name = "colCARD_NUMB_DNRM";
-         // 
-         // colFNGR_PRNT_DNRM3
-         // 
-         this.colFNGR_PRNT_DNRM3.FieldName = "FNGR_PRNT_DNRM";
-         this.colFNGR_PRNT_DNRM3.Name = "colFNGR_PRNT_DNRM3";
-         // 
-         // colSUNT_BUNT_DEPT_ORGN_CODE_DNRM
-         // 
-         this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM.FieldName = "SUNT_BUNT_DEPT_ORGN_CODE_DNRM";
-         this.colSUNT_BUNT_DEPT_ORGN_CODE_DNRM.Name = "colSUNT_BUNT_DEPT_ORGN_CODE_DNRM";
-         // 
-         // colSUNT_BUNT_DEPT_CODE_DNRM
-         // 
-         this.colSUNT_BUNT_DEPT_CODE_DNRM.FieldName = "SUNT_BUNT_DEPT_CODE_DNRM";
-         this.colSUNT_BUNT_DEPT_CODE_DNRM.Name = "colSUNT_BUNT_DEPT_CODE_DNRM";
-         // 
-         // colSUNT_BUNT_CODE_DNRM
-         // 
-         this.colSUNT_BUNT_CODE_DNRM.FieldName = "SUNT_BUNT_CODE_DNRM";
-         this.colSUNT_BUNT_CODE_DNRM.Name = "colSUNT_BUNT_CODE_DNRM";
-         // 
-         // colSUNT_CODE_DNRM
-         // 
-         this.colSUNT_CODE_DNRM.FieldName = "SUNT_CODE_DNRM";
-         this.colSUNT_CODE_DNRM.Name = "colSUNT_CODE_DNRM";
-         // 
-         // colCORD_X_DNRM
-         // 
-         this.colCORD_X_DNRM.FieldName = "CORD_X_DNRM";
-         this.colCORD_X_DNRM.Name = "colCORD_X_DNRM";
-         // 
-         // colCORD_Y_DNRM
-         // 
-         this.colCORD_Y_DNRM.FieldName = "CORD_Y_DNRM";
-         this.colCORD_Y_DNRM.Name = "colCORD_Y_DNRM";
-         // 
-         // colSERV_NO_DNRM
-         // 
-         this.colSERV_NO_DNRM.FieldName = "SERV_NO_DNRM";
-         this.colSERV_NO_DNRM.Name = "colSERV_NO_DNRM";
-         // 
-         // colNATL_CODE_DNRM1
-         // 
-         this.colNATL_CODE_DNRM1.FieldName = "NATL_CODE_DNRM";
-         this.colNATL_CODE_DNRM1.Name = "colNATL_CODE_DNRM1";
-         // 
-         // colGLOB_CODE_DNRM
-         // 
-         this.colGLOB_CODE_DNRM.FieldName = "GLOB_CODE_DNRM";
-         this.colGLOB_CODE_DNRM.Name = "colGLOB_CODE_DNRM";
-         // 
-         // colCHAT_ID_DNRM1
-         // 
-         this.colCHAT_ID_DNRM1.FieldName = "CHAT_ID_DNRM";
-         this.colCHAT_ID_DNRM1.Name = "colCHAT_ID_DNRM1";
-         // 
-         // colMOM_CELL_PHON_DNRM
-         // 
-         this.colMOM_CELL_PHON_DNRM.FieldName = "MOM_CELL_PHON_DNRM";
-         this.colMOM_CELL_PHON_DNRM.Name = "colMOM_CELL_PHON_DNRM";
-         // 
-         // colMOM_TELL_PHON_DNRM
-         // 
-         this.colMOM_TELL_PHON_DNRM.FieldName = "MOM_TELL_PHON_DNRM";
-         this.colMOM_TELL_PHON_DNRM.Name = "colMOM_TELL_PHON_DNRM";
-         // 
-         // colMOM_CHAT_ID_DNRM
-         // 
-         this.colMOM_CHAT_ID_DNRM.FieldName = "MOM_CHAT_ID_DNRM";
-         this.colMOM_CHAT_ID_DNRM.Name = "colMOM_CHAT_ID_DNRM";
-         // 
-         // colDAD_CELL_PHON_DNRM
-         // 
-         this.colDAD_CELL_PHON_DNRM.FieldName = "DAD_CELL_PHON_DNRM";
-         this.colDAD_CELL_PHON_DNRM.Name = "colDAD_CELL_PHON_DNRM";
-         // 
-         // colDAD_TELL_PHON_DNRM
-         // 
-         this.colDAD_TELL_PHON_DNRM.FieldName = "DAD_TELL_PHON_DNRM";
-         this.colDAD_TELL_PHON_DNRM.Name = "colDAD_TELL_PHON_DNRM";
-         // 
-         // colDAD_CHAT_ID_DNRM
-         // 
-         this.colDAD_CHAT_ID_DNRM.FieldName = "DAD_CHAT_ID_DNRM";
-         this.colDAD_CHAT_ID_DNRM.Name = "colDAD_CHAT_ID_DNRM";
-         // 
-         // colDPST_ACNT_SLRY_BANK_DNRM
-         // 
-         this.colDPST_ACNT_SLRY_BANK_DNRM.FieldName = "DPST_ACNT_SLRY_BANK_DNRM";
-         this.colDPST_ACNT_SLRY_BANK_DNRM.Name = "colDPST_ACNT_SLRY_BANK_DNRM";
-         // 
-         // colDPST_ACNT_SLRY_DNRM
-         // 
-         this.colDPST_ACNT_SLRY_DNRM.FieldName = "DPST_ACNT_SLRY_DNRM";
-         this.colDPST_ACNT_SLRY_DNRM.Name = "colDPST_ACNT_SLRY_DNRM";
-         // 
-         // colRTNG_NUMB_DNRM1
-         // 
-         this.colRTNG_NUMB_DNRM1.FieldName = "RTNG_NUMB_DNRM";
-         this.colRTNG_NUMB_DNRM1.Name = "colRTNG_NUMB_DNRM1";
-         // 
-         // colCRET_BY11
-         // 
-         this.colCRET_BY11.FieldName = "CRET_BY";
-         this.colCRET_BY11.Name = "colCRET_BY11";
-         // 
-         // colCRET_DATE11
-         // 
-         this.colCRET_DATE11.FieldName = "CRET_DATE";
-         this.colCRET_DATE11.Name = "colCRET_DATE11";
-         // 
-         // colMDFY_BY11
-         // 
-         this.colMDFY_BY11.FieldName = "MDFY_BY";
-         this.colMDFY_BY11.Name = "colMDFY_BY11";
-         // 
-         // colMDFY_DATE11
-         // 
-         this.colMDFY_DATE11.FieldName = "MDFY_DATE";
-         this.colMDFY_DATE11.Name = "colMDFY_DATE11";
-         // 
-         // colClub
-         // 
-         this.colClub.FieldName = "Club";
-         this.colClub.Name = "colClub";
-         // 
-         // colCategory_Belt
-         // 
-         this.colCategory_Belt.FieldName = "Category_Belt";
-         this.colCategory_Belt.Name = "colCategory_Belt";
-         // 
-         // colFighter13
-         // 
-         this.colFighter13.FieldName = "Fighter1";
-         this.colFighter13.Name = "colFighter13";
-         // 
-         // colMethod1
-         // 
-         this.colMethod1.FieldName = "Method";
-         this.colMethod1.Name = "colMethod1";
-         // 
-         // colRegion
-         // 
-         this.colRegion.FieldName = "Region";
-         this.colRegion.Name = "colRegion";
-         // 
-         // colRequest
-         // 
-         this.colRequest.FieldName = "Request";
-         this.colRequest.Name = "colRequest";
-         // 
-         // colSub_Unit
-         // 
-         this.colSub_Unit.FieldName = "Sub_Unit";
-         this.colSub_Unit.Name = "colSub_Unit";
+         // gridColumn1
+         // 
+         this.gridColumn1.Caption = "پارامتر ارسال";
+         this.gridColumn1.ColumnEdit = this.repositoryItemLookUpEdit7;
+         this.gridColumn1.FieldName = "PARM_SEND_TYPE";
+         this.gridColumn1.Name = "gridColumn1";
+         this.gridColumn1.Visible = true;
+         this.gridColumn1.VisibleIndex = 1;
+         // 
+         // DPsdtBs
+         // 
+         this.DPsdtBs.DataSource = typeof(System.Scsc.Data.D_PSDT);
+         // 
+         // repositoryItemLookUpEdit7
+         // 
+         this.repositoryItemLookUpEdit7.AutoHeight = false;
+         this.repositoryItemLookUpEdit7.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject20, "", null, null, true)});
+         this.repositoryItemLookUpEdit7.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "پارامتر نوع ارسال", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.repositoryItemLookUpEdit7.DataSource = this.DPsdtBs;
+         this.repositoryItemLookUpEdit7.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit7.Name = "repositoryItemLookUpEdit7";
+         this.repositoryItemLookUpEdit7.NullText = "";
+         this.repositoryItemLookUpEdit7.ValueMember = "VALU";
          // 
          // ADV_BASE_F
          // 
@@ -5375,6 +5418,8 @@
          this.AdvcBn.PerformLayout();
          this.flowLayoutPanel1.ResumeLayout(false);
          this.Param_Ro.ResumeLayout(false);
+         this.groupBox12.ResumeLayout(false);
+         this.groupBox12.PerformLayout();
          this.groupBox11.ResumeLayout(false);
          this.groupBox11.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.RSur_Gc)).EndInit();
@@ -5399,6 +5444,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.SuntBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Sunt_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit2)).EndInit();
+         this.groupBox13.ResumeLayout(false);
+         this.groupBox13.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CochBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Coch_Gv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit6)).EndInit();
          this.groupBox3.ResumeLayout(false);
          this.groupBox3.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Ctgy_Gc)).EndInit();
@@ -5434,14 +5485,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.AdvpBn1)).EndInit();
          this.AdvpBn1.ResumeLayout(false);
          this.AdvpBn1.PerformLayout();
-         this.groupBox12.ResumeLayout(false);
-         this.groupBox12.PerformLayout();
-         this.groupBox13.ResumeLayout(false);
-         this.groupBox13.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Coch_Gv)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemCheckEdit6)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CochBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DPsdtBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit7)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -5994,5 +6039,8 @@
       private DevExpress.XtraGrid.Columns.GridColumn colRequest;
       private DevExpress.XtraGrid.Columns.GridColumn colSub_Unit;
       private DevExpress.XtraEditors.Repository.RepositoryItemCheckEdit repositoryItemCheckEdit6;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
+      private Windows.Forms.BindingSource DPsdtBs;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit7;
    }
 }

@@ -15,6 +15,7 @@ using DevExpress.XtraGrid.Controls;
 using System.IO;
 using System.Scsc.ExtCode;
 using System.Threading;
+using System.Globalization;
 
 namespace System.Scsc.Ui.OtherIncome
 {
@@ -26,6 +27,7 @@ namespace System.Scsc.Ui.OtherIncome
       }
 
       private bool requery = default(bool);
+      private string hBDay = "";
 
       private void Execute_Query()
       {
@@ -50,13 +52,14 @@ namespace System.Scsc.Ui.OtherIncome
                      rqst.SECT_NAME == GetType().Name.Substring(0, 3) + "_001_F"
                );
 
-            ExpnBs1.DataSource =
-            iScsc.Expenses.Where(ex =>
-               ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-               ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
-               ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-               ex.EXPN_STAT == "002" /* هزینه های فعال */
-            );
+            if (!LinkCochPydt_Cbx.Checked)
+               ExpnBs1.DataSource =
+                  iScsc.Expenses.Where(ex =>
+                     ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+                     ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+                     ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
+                     ex.EXPN_STAT == "002" /* هزینه های فعال */
+                  );
 
             DocsBs1.DataSource = iScsc.Modual_Reports.Where(m => m.MDUL_NAME == GetType().Name && m.STAT == "002");
 
@@ -172,6 +175,35 @@ namespace System.Scsc.Ui.OtherIncome
                //*Gb_ExpenseItem.Visible = false;
                //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
                RqstBnDelete1.Enabled = false;
+            }
+
+            if(Rqst.RQID > 0)
+            {
+               var _rqro = RqroBs1.Current as Data.Request_Row;
+               if (_rqro == null) return;
+
+               PersianCalendar pc = new PersianCalendar();
+               string _crntDate = string.Format("{0}/{1}", pc.GetMonth(DateTime.Now), pc.GetDayOfMonth(DateTime.Now));
+               string _brthDate = string.Format("{0}/{1}", pc.GetMonth(_rqro.Fighter.BRTH_DATE_DNRM.Value.Date), pc.GetDayOfMonth(_rqro.Fighter.BRTH_DATE_DNRM.Value.Date));
+
+               if (_crntDate == _brthDate && _rqro.Fighter.BRTH_DATE_DNRM.Value.Date.Year != DateTime.Now.Date.Year)
+               {
+                  PlayHappyBirthDate_Butn.Visible = true;
+                  if (!iScsc.Log_Operations.Any(l => l.FIGH_FILE_NO == _rqro.FIGH_FILE_NO && l.LOG_TYPE == "010" && l.CRET_DATE.Value.Date == DateTime.Now.Date))
+                  {
+                     iScsc.INS_LGOP_P(
+                        new XElement("Log",
+                            new XAttribute("fileno", _rqro.FIGH_FILE_NO),
+                            new XAttribute("type", "010"),
+                            new XAttribute("text", string.Format("پخش آهنگ تبریک تولد برای " + "{0}", _rqro.Fighter.NAME_DNRM))
+                        )
+                     );
+                     PlayHappyBirthDate_Butn.Tag = "stop";
+                     PlayHappyBirthDate_Butn_Click(null, null);
+                  }
+               }
+               else
+                  PlayHappyBirthDate_Butn.Visible = false;
             }
          }
          catch
@@ -1153,8 +1185,34 @@ namespace System.Scsc.Ui.OtherIncome
                ExpnBs1.List.OfType<Data.Expense>().Where(ex => ex.CODE == expn.CODE).ToList().ForEach(ex => { pydt.QNTY += 1; });
             }
 
-            PydtsBs1.EndEdit();
-            iScsc.SubmitChanges();
+            // 1401/11/11 * اگر هزینه ای که انتخاب میکنیم صاحب هزینه تک داشته باشد سریعا صاحب هزینه را انتخاب میکنیم
+            //if(AutoSlctCbmt_Cbx.Checked)
+            if(LinkCochPydt_Cbx.Checked)
+            {
+               var _coch = CochBs1.Current as Data.Fighter;
+               if (_coch != null)
+               {
+                  var _pydt = PydtsBs1.List.OfType<Data.Payment_Detail>().Where(p => p.EXPN_CODE == expn.CODE).First();
+                  var _cbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.MTOD_CODE == expn.MTOD_CODE && cm.MTOD_STAT == "002" && cm.COCH_FILE_NO == _coch.FILE_NO);
+                  if (_pydt.CODE == 0)
+                  {
+                     _pydt.CBMT_CODE_DNRM = _cbmt.CODE;
+                     _pydt.FIGH_FILE_NO = _coch.FILE_NO;//CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.MTOD_CODE == expn.MTOD_CODE).COCH_FILE_NO;
+                        
+                     PydtsBs1.EndEdit();
+                     iScsc.SubmitChanges();
+                  }
+                  else
+                  {
+                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET Cbmt_Code_Dnrm = {0}, Figh_File_No = {1}, Qnty = {2} WHERE Code = {3};", _cbmt.CODE, _coch.FILE_NO, _pydt.QNTY, _pydt.CODE));
+                  }
+               }
+            }
+            else
+            {
+               PydtsBs1.EndEdit();
+               iScsc.SubmitChanges();
+            }
 
             requery = true;
          }
@@ -1622,7 +1680,7 @@ namespace System.Scsc.Ui.OtherIncome
                   );
 
             requery = true;
-            CBMT_CODE_GridLookUpEdit.EditValue = pydt.CBMT_CODE_DNRM;
+            CbmtCode_GLov.EditValue = pydt.CBMT_CODE_DNRM;
             MbspRwnoPydt_Lov.EditValue = pydt.MBSP_RWNO;
             ExtsCode_Lov.EditValue = pydt.EXTS_CODE;
             requery = false;
@@ -3757,6 +3815,267 @@ namespace System.Scsc.Ui.OtherIncome
       private void AllMbsp_Cbx_CheckedChanged(object sender, EventArgs e)
       {
          RqstBs1_CurrentChanged(null, null);
+      }
+
+      //WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+      private void PlayHappyBirthDate_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqro = RqroBs1.Current as Data.Request_Row;
+            if (_rqro == null) return;
+
+            if (hBDay == "")
+            {
+               hBDay = iScsc.Settings.FirstOrDefault(s => s.CLUB_CODE == _rqro.Fighter.CLUB_CODE_DNRM).SND7_PATH;
+            }
+
+            wplayer.URL = hBDay;
+            switch (PlayHappyBirthDate_Butn.Tag.ToString())
+            {
+               case "stop":
+                  PlayHappyBirthDate_Butn.Tag = "play";
+                  new Threading.Thread(PlaySound).Start();
+                  break;
+               case "play":
+                  PlayHappyBirthDate_Butn.Tag = "stop";
+                  new Threading.Thread(StopSound).Start();
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      void PlaySound()
+      {
+         if (InvokeRequired)
+            Invoke(new Action(() => wplayer.controls.play()));
+         else
+            wplayer.controls.play();
+      }
+
+      void StopSound()
+      {
+         if (InvokeRequired)
+            Invoke(new Action(() => wplayer.controls.stop()));
+         else
+            wplayer.controls.stop();
+      }
+
+      private void CochBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _coch = CochBs1.Current as Data.Fighter;
+            if (_coch == null) return;
+
+            //if (!LinkCochPydt_Pbt.PickChecked) return;
+
+            if (/*LinkCochPydt_Cbx.Checked &&*/ (CochProFile_Rb.Tag == null || CochProFile_Rb.Tag.ToString().ToInt64() != _coch.FILE_NO))
+            {
+               if (_coch.IMAG_RCDC_RCID_DNRM != null)
+               {
+                  try
+                  {
+                     CochProFile_Rb.ImageProfile = null;
+                     MemoryStream mStream = new MemoryStream();
+                     byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _coch.FILE_NO))).ToArray();
+                     mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                     Bitmap bm = new Bitmap(mStream, false);
+                     mStream.Dispose();
+
+                     if (InvokeRequired)
+                        Invoke(new Action(() => CochProFile_Rb.ImageProfile = bm));
+                     else
+                        CochProFile_Rb.ImageProfile = bm;
+
+                     CochProFile_Rb.Tag = _coch.FILE_NO;
+                  }
+                  catch { }
+               }
+               else
+               {
+                  CochProFile_Rb.ImageProfile = null;
+                  CochProFile_Rb.Tag = null;
+               }
+            }
+
+            if (CochProFile_Rb.ImageProfile == null && _coch.SEX_TYPE_DNRM == "002")
+               CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1507;
+            else if (CochProFile_Rb.ImageProfile == null)
+               CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1076;
+
+            ExpnBs1.DataSource =
+               iScsc.Expenses.Where(ex =>
+                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+                  ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+                  ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
+                  ex.EXPN_STAT == "002" /* هزینه های فعال */ &&
+                  iScsc.Club_Methods.Any(cm => cm.MTOD_STAT == "002" && cm.MTOD_CODE == ex.MTOD_CODE && (!LinkCochPydt_Cbx.Checked || (cm.COCH_FILE_NO == _coch.FILE_NO)))
+               );
+
+            Grop_FLP.Controls.Clear();
+            var allItems = new Button();
+
+            allItems.Text = "همه موارد";
+            allItems.Tag = 0;
+
+            allItems.Click += GropButn_Click;
+            Grop_FLP.Controls.Add(allItems);
+
+            ExpnBs1.List.OfType<Data.Expense>().OrderBy(ex => ex.GROP_CODE).GroupBy(ex => ex.Group_Expense1).ToList().ForEach(
+               g =>
+               {
+                  var b = new Button() { AutoSize = true };
+                  if (g.Key != null)
+                  {
+                     b.Text = g.Key.GROP_DESC;
+                     b.Tag = g.Key.CODE;
+                  }
+                  else
+                     b.Text = "سایر موارد";
+                  b.Click += GropButn_Click;
+                  Grop_FLP.Controls.Add(b);
+               }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void LinkCochPydt_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         CochBs1_CurrentChanged(null, null);
+      }
+
+      private void FindRqst_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            FromRqstDate_Dt.CommitChanges();
+            ToRqstDate_Dt.CommitChanges();
+
+            DateTime? _fromrqstdate = null, _torqstdate = null;
+            if (FromRqstDate_Cbx.Checked && !FromRqstDate_Dt.Value.HasValue) { FromRqstDate_Dt.Focus(); return; }
+            if (FromRqstDate_Cbx.Checked && FromRqstDate_Dt.Value.HasValue) { _fromrqstdate = FromRqstDate_Dt.Value.Value.Date; }
+            if (ToRqstDate_Cbx.Checked && !ToRqstDate_Dt.Value.HasValue) { ToRqstDate_Dt.Focus(); return; }
+            if (ToRqstDate_Cbx.Checked && ToRqstDate_Dt.Value.HasValue) { _torqstdate = ToRqstDate_Dt.Value.Value.Date; }
+
+            long? _fighfileno = null, _cochfileno = null, _expncode = null;
+            string _cellphon = null, _fngrprnt = null;
+            if (RqstBs1.Current != null)
+            {
+               _fighfileno = (RqroBs1.Current as Data.Request_Row).FIGH_FILE_NO;
+            }
+            if (CochBs1.Current != null)
+            {
+               _cochfileno = (CochBs1.Current as Data.Fighter).FILE_NO;
+            }
+            if (ExpnBs1.Current != null)
+            {
+               _expncode = (ExpnBs1.Current as Data.Expense).CODE;
+            }
+            if(WhoCellPhon_Cbx.Checked)
+            {
+               if (OldCellPhon_Txt.EditValue == null || OldCellPhon_Txt.EditValue.ToString() == "") { OldCellPhon_Txt.Focus(); return; }
+               else {_cellphon = OldCellPhon_Txt.Text;}
+            }
+            if (WhoFngrPrnt_Cbx.Checked)
+            {
+               if (OldFngrPrnt_Txt.EditValue == null || OldFngrPrnt_Txt.EditValue.ToString() == "") { OldFngrPrnt_Txt.Focus(); return; }
+               else { _fngrprnt = OldFngrPrnt_Txt.Text; }
+            }
+
+            string _rcptmtod = null, _pydstype = null;
+            if (HasPmmt_Cbx.Checked && (OldPmmt_Lov.EditValue == null || OldPmmt_Lov.EditValue.ToString() == "")) { OldPmmt_Lov.Focus(); return; }
+            if(HasPmmt_Cbx.Checked) { _rcptmtod = OldPmmt_Lov.EditValue.ToString(); }
+            if (HasPyds_Cbx.Checked && (OldPyds_Lov.EditValue == null || OldPyds_Lov.EditValue.ToString() == "")) { OldPyds_Lov.Focus(); return; }
+            if(HasPyds_Cbx.Checked) { _pydstype = OldPyds_Lov.EditValue.ToString(); }
+
+            if (RqstHist_Rlt.RolloutStatus)
+            {
+               OldRqstBs1.DataSource =
+                  iScsc.Requests
+                  .Where(r =>
+                     r.RQTP_CODE == "016" &&
+                     r.RQST_STAT == "002" &&
+                     (!FromRqstDate_Cbx.Checked || _fromrqstdate == null || r.RQST_DATE.Value.Date >= (_fromrqstdate ?? r.RQST_DATE.Value.Date)) &&
+                     (!ToRqstDate_Cbx.Checked || _torqstdate == null || r.RQST_DATE.Value.Date <= (_torqstdate ?? r.RQST_DATE.Value.Date)) &&
+                     (!CrntServ_Cbx.Checked || _fighfileno == null || r.Request_Rows.Any(rr => rr.FIGH_FILE_NO == (_fighfileno ?? rr.FIGH_FILE_NO))) &&
+                     (!CrntCoch_Cbx.Checked || _cochfileno == null || r.Payments.Any(p => p.Payment_Details.Any(pd => pd.FIGH_FILE_NO == (_cochfileno ?? pd.FIGH_FILE_NO)))) &&
+                     (!CrntExpn_Cbx.Checked || _expncode == null || r.Payments.Any(p => p.Payment_Details.Any(pd => pd.EXPN_CODE == (_expncode ?? pd.EXPN_CODE)))) &&
+                     (!HasDebt_Cbx.Checked || r.Payments.Any(p => p.SUM_EXPN_PRIC - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM) > 0)) &&
+                     (!HasPmmt_Cbx.Checked || r.Payments.Any(p => p.Payment_Methods.Any(pm => pm.RCPT_MTOD == _rcptmtod))) &&
+                     (!HasPyds_Cbx.Checked || r.Payments.Any(p => p.Payment_Discounts.Any(ps => ps.AMNT_TYPE == _pydstype))) &&
+                     (!WhoCellPhon_Cbx.Checked || _cellphon == null || r.Request_Rows.Any(rr => rr.Fighter.CELL_PHON_DNRM.Contains(_cellphon))) &&
+                     (!WhoFngrPrnt_Cbx.Checked || _fngrprnt == null || r.Request_Rows.Any(rr => rr.Fighter.FNGR_PRNT_DNRM.Contains(_fngrprnt)))
+                  );
+            }
+
+            if(RqstExpir_Rlt.RolloutStatus)
+            {
+               OldPydtsBs2.DataSource =
+                  iScsc.Payment_Details
+                  .Where(pd => 
+                     pd.Request_Row.Request.RQTP_CODE == "016" &&
+                     pd.Request_Row.Request.RQST_STAT == "002" &&
+                     //(!FromRqstDate_Cbx.Checked || _fromrqstdate == null || pd.Request_Row.Request.RQST_DATE.Value.Date >= (_fromrqstdate ?? pd.Request_Row.Request.RQST_DATE.Value.Date)) &&
+                     //(!ToRqstDate_Cbx.Checked || _torqstdate == null || pd.Request_Row.Request.RQST_DATE.Value.Date <= (_torqstdate ?? pd.Request_Row.Request.RQST_DATE.Value.Date)) &&
+                     (!FromRqstDate_Cbx.Checked || _fromrqstdate == null || pd.EXPR_DATE.Value.Date >= (_fromrqstdate ?? pd.EXPR_DATE.Value.Date)) &&
+                     (!ToRqstDate_Cbx.Checked || _torqstdate == null || pd.EXPR_DATE.Value.Date <= (_torqstdate ?? pd.EXPR_DATE.Value.Date)) &&
+                     (!CrntServ_Cbx.Checked || _fighfileno == null || pd.Request_Row.FIGH_FILE_NO == (_fighfileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
+                     (!CrntCoch_Cbx.Checked || _cochfileno == null || pd.FIGH_FILE_NO == (_cochfileno ?? pd.FIGH_FILE_NO)) &&
+                     (!CrntExpn_Cbx.Checked || _expncode == null || pd.EXPN_CODE == (_expncode ?? pd.EXPN_CODE)) &&
+                     (!HasDebt_Cbx.Checked || pd.Payment.SUM_EXPN_PRIC - (pd.Payment.SUM_RCPT_EXPN_PRIC + pd.Payment.SUM_PYMT_DSCN_DNRM) > 0) &&
+                     (!HasPmmt_Cbx.Checked || pd.Payment.Payment_Methods.Any(pm => pm.RCPT_MTOD == _rcptmtod)) &&
+                     (!HasPyds_Cbx.Checked || pd.Payment.Payment_Discounts.Any(ps => ps.AMNT_TYPE == _pydstype)) &&
+                     (!WhoCellPhon_Cbx.Checked || _cellphon == null || pd.Request_Row.Fighter.CELL_PHON_DNRM.Contains(_cellphon)) &&
+                     (!WhoFngrPrnt_Cbx.Checked || _fngrprnt == null || pd.Request_Row.Fighter.FNGR_PRNT_DNRM.Contains(_fngrprnt)) &&
+                     (!ShowRmndNext_Cbx.Checked || pd.EXPR_DATE.Value.Date >= DateTime.Now.Date)
+                  );
+
+               OldPydts2_Gv.ExpandAllGroups();
+            }
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AllRqst4CrntServ_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Param1_Rlt.Controls.OfType<CheckBox>().ToList().ForEach(c => c.Checked = false);
+            CrntServ_Cbx.Checked = true;
+
+            RqstHist_Rlt.RolloutStatus = true;
+            FindRqst_Btn_Click(null, null);
+            Rqst_Tc.SelectedTab = tp_002;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ShowRmndNext_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            FindRqst_Btn_Click(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

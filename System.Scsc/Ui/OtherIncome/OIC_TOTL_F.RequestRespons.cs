@@ -135,6 +135,14 @@ namespace System.Scsc.Ui.OtherIncome
             }
             formCaller = "";
 
+            switch (PlayHappyBirthDate_Butn.Tag.ToString())
+            {
+               case "play":
+                  PlayHappyBirthDate_Butn.Tag = "stop";
+                  new Threading.Thread(StopSound).Start();
+                  break;
+            }
+
             //job.Next =
             //   new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */);
          }

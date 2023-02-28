@@ -11,9 +11,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace System.Scsc.Ui.Admission
+namespace System.Scsc.Ui.Admission.ShowChanges
 {
-   partial class MBSP_CHNG_F : ISendRequest
+   partial class SHOW_MBSC_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iScscDataContext iScsc;
@@ -150,7 +150,7 @@ namespace System.Scsc.Ui.Admission
                      //CrntConsAttnMot_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "endtime_clm":
-                     EndTime_Clm.Caption = control.LABL_TEXT;
+                     //EndTime_Clm.Caption = control.LABL_TEXT;
                      //EndTime_Clm.Text = control.LABL_TEXT; // ToolTip
                      //EndTime_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -270,47 +270,47 @@ namespace System.Scsc.Ui.Admission
                      //NewCbmtCode_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "rqstmbsp_butn":
-                     RqstMbsp_Butn.Text = control.LABL_TEXT;
+                     //RqstMbsp_Butn.Text = control.LABL_TEXT;
                      //RqstMbsp_Butn.Text = control.LABL_TEXT; // ToolTip
                      //RqstMbsp_Butn.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "savembsp_butn":
-                     SaveMbsp_Butn.Text = control.LABL_TEXT;
+                     //SaveMbsp_Butn.Text = control.LABL_TEXT;
                      //SaveMbsp_Butn.Text = control.LABL_TEXT; // ToolTip
                      //SaveMbsp_Butn.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "back_butn":
-                     Back_Butn.Text = control.LABL_TEXT;
+                     //Back_Butn.Text = control.LABL_TEXT;
                      //Back_Butn.Text = control.LABL_TEXT; // ToolTip
                      //Back_Butn.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "clubcode_clm":
-                     ClubCode_Clm.Caption = control.LABL_TEXT;
+                     //ClubCode_Clm.Caption = control.LABL_TEXT;
                      //ClubCode_Clm.Text = control.LABL_TEXT; // ToolTip
                      //ClubCode_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "mtodcode_clm":
-                     MtodCode_Clm.Caption = control.LABL_TEXT;
+                     //MtodCode_Clm.Caption = control.LABL_TEXT;
                      //MtodCode_Clm.Text = control.LABL_TEXT; // ToolTip
                      //MtodCode_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "cochfileno_clm":
-                     CochFileNo_Clm.Caption = control.LABL_TEXT;
+                     //CochFileNo_Clm.Caption = control.LABL_TEXT;
                      //CochFileNo_Clm.Text = control.LABL_TEXT; // ToolTip
                      //CochFileNo_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "daytype_clm":
-                     DayType_Clm.Caption = control.LABL_TEXT;
+                     //DayType_Clm.Caption = control.LABL_TEXT;
                      //DayType_Clm.Text = control.LABL_TEXT; // ToolTip
                      //DayType_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "strttime_clm":
-                     StrtTime_Clm.Caption = control.LABL_TEXT;
+                     //StrtTime_Clm.Caption = control.LABL_TEXT;
                      //StrtTime_Clm.Text = control.LABL_TEXT; // ToolTip
                      //StrtTime_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "timedesc_clm":
-                     TimeDesc_Clm.Caption = control.LABL_TEXT;
+                     //TimeDesc_Clm.Caption = control.LABL_TEXT;
                      //TimeDesc_Clm.Text = control.LABL_TEXT; // ToolTip
                      //TimeDesc_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -458,48 +458,31 @@ namespace System.Scsc.Ui.Admission
       private void Actn_CalF_P(Job job)
       {
          var xinput = job.Input as XElement;
-         if(xinput != null)
+         if (xinput != null)
          {
-            // 1397/12/15 * اضافه کردن گزینه جدید برای انتخاب از طریق برنامه گروه
-            if (xinput != null && (xinput.Attribute("type") != null && xinput.Attribute("type").Value == "admcbmt"))
-            {
-               if (xinput.Attribute("cbmtcode") != null)
-                  CBMT_CODE_GridLookUpEdit.EditValue = Convert.ToInt64(xinput.Attribute("cbmtcode").Value);
-               else
-                  CBMT_CODE_GridLookUpEdit.EditValue = null;
+            rqid = Convert.ToInt64(xinput.Attribute("rqid").Value);
+            fileno = Convert.ToInt64(xinput.Element("Request_Row").Attribute("fighfileno").Value);
+            Execute_Query();
 
-               if (xinput.Attribute("ctgycode") != null)
-                  CtgyCode_LookupEdit001.EditValue = Convert.ToInt64(xinput.Attribute("ctgycode").Value);
+            try
+            {
+               UserProFile_Rb.ImageProfile = null;
+               MemoryStream mStream = new MemoryStream();
+               byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
+               mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+               Bitmap bm = new Bitmap(mStream, false);
+               mStream.Dispose();
+
+               //Pb_FighImg.Visible = true;
+
+               if (InvokeRequired)
+                  Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
                else
-                  CtgyCode_LookupEdit001.EditValue = null;
+                  UserProFile_Rb.ImageProfile = bm;
             }
-            else
-            {
-               fileno = Convert.ToInt64(xinput.Attribute("fileno").Value);
-               mbsprwno = Convert.ToInt16(xinput.Attribute("mbsprwno").Value);
-
-               Execute_Query();
-
-               try
-               {
-                  UserProFile_Rb.ImageProfile = null;
-                  MemoryStream mStream = new MemoryStream();
-                  byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
-                  mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-                  Bitmap bm = new Bitmap(mStream, false);
-                  mStream.Dispose();
-
-                  //Pb_FighImg.Visible = true;
-
-                  if (InvokeRequired)
-                     Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
-                  else
-                     UserProFile_Rb.ImageProfile = bm;
-               }
-               catch
-               { //Pb_FighImg.Visible = false;
-                  UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
-               }
+            catch
+            { //Pb_FighImg.Visible = false;
+               UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
             }
          }
          

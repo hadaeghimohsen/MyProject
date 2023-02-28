@@ -79,6 +79,18 @@ namespace System.Scsc.Ui.Admission
                mbspnew.ATTN_DAY_TYPE = mbspold.ATTN_DAY_TYPE;
             }*/
 
+            // 1401/11/22
+            if((Resn_Lov.EditValue == null || Resn_Lov.EditValue.ToString() == ""))
+            {
+               Resn_Lov.Focus();
+               return;
+            }
+            if(string.IsNullOrEmpty(ResnDesc_Txt.Text))
+            {
+               ResnDesc_Txt.Focus();
+               return;
+            }
+
             StrtDate_DateTime002.CommitChanges();
             EndDate_DateTime002.CommitChanges();
 
@@ -105,7 +117,9 @@ namespace System.Scsc.Ui.Admission
                            new XAttribute("numbofattnmont", NumbAttnMont_TextEdit002.Text ?? "0"),
                            new XAttribute("sumnumbattnmont", SumNumbAttnMont_TextEdit002.Text ?? "0"),
                            new XAttribute("strttime", StrtTimeN_Txt.Text),
-                           new XAttribute("endtime", EndTimeN_Txt.Text)
+                           new XAttribute("endtime", EndTimeN_Txt.Text),
+                           new XAttribute("resnapbscode", Resn_Lov.EditValue),
+                           new XAttribute("resndesc", ResnDesc_Txt.Text)
                         )
                      )
                   )
@@ -389,6 +403,40 @@ namespace System.Scsc.Ui.Admission
          catch (Exception)
          {
             MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
+         }
+      }
+
+      private void Resn_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if (e.Button.Index == 1)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                        new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                        {
+                           Input = 
+                              new XElement("App_Base",
+                                 new XAttribute("tablename", "Member_Ship_Reason"),
+                                 new XAttribute("formcaller", GetType().Name)
+                              )
+                        }
+                     }
+                  )
+               );
+            }
+            else if (e.Button.Index == 2)
+            {
+               ApbsBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Member_Ship_Reason");
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

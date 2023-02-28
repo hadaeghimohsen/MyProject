@@ -28,7 +28,7 @@ namespace System.Scsc.Ui.Document
 
          //FILE_NAME_TextBox.Text = DG_SelectImage.FileName;
          Image img = Image.FromFile(DG_SelectImage.FileName);
-         
+
          switch (CB_ImageSize.SelectedIndex)
          {
             case 0:
@@ -78,7 +78,7 @@ namespace System.Scsc.Ui.Document
 
       private void CB_Alignment_SelectedIndexChanged(object sender, EventArgs e)
       {
-         PE_ImageShow.Properties.PictureAlignment = (ContentAlignment)(CB_Alignment.SelectedIndex + 1);         
+         PE_ImageShow.Properties.PictureAlignment = (ContentAlignment)(CB_Alignment.SelectedIndex + 1);
       }
 
       private void UD_Interpolation_ValueChanged(object sender, EventArgs e)
@@ -93,7 +93,7 @@ namespace System.Scsc.Ui.Document
 
       private void TC_Dcmt_SelectedIndexChanged(object sender, EventArgs e)
       {
-         if(TC_Dcmt.SelectedIndex == 1)
+         if (TC_Dcmt.SelectedIndex == 1)
          {
             try
             {
@@ -106,7 +106,8 @@ namespace System.Scsc.Ui.Document
             }
             catch { PE_ImageShow.Image = null; }
          }
-         if (RcvdBs.List.OfType<Data.Receive_Document>().Any(rd => rd.Request_Document.DCMT_DSID == 13980505495708))
+
+         if (RcvdBs.List.OfType<Data.Receive_Document>().Any(rd => rd.Request_Document != null && rd.Request_Document.DCMT_DSID == 13980505495708))
          {
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost",
@@ -123,7 +124,7 @@ namespace System.Scsc.Ui.Document
                )
             );
          }
-         else if(TC_Dcmt.SelectedTab == tp_004)
+         else if (TC_Dcmt.SelectedTab == tp_004)
          {
             MessageBox.Show(this, "در این قسمت مدرک اثر انگشت تعریف نشده");
          }
@@ -174,17 +175,17 @@ namespace System.Scsc.Ui.Document
 
             iScsc.DCT_SAVE_P(
                new XElement("Prcess",
-                  RcvdBs.List.OfType<Data.Receive_Document>()                  
+                  RcvdBs.List.OfType<Data.Receive_Document>()
                   .ToList()
-                  .Select(rc => 
-                     new XElement("Receive_Document", 
+                  .Select(rc =>
+                     new XElement("Receive_Document",
                         new XAttribute("rcid", rc.RCID),
                         new XAttribute("delvdate", rc.DELV_DATE.Value.Date),
                         new XAttribute("rcdcstat", rc.RCDC_STAT),
                         new XAttribute("permstat", rc.PERM_STAT),
                         new XAttribute("strtdate", rc.STRT_DATE.Value.Date),
                         new XAttribute("enddate", rc.END_DATE.Value.Date),
-                        new XAttribute("rcdcdesc", rc.RCDC_DESC ?? "")                        
+                        new XAttribute("rcdcdesc", rc.RCDC_DESC ?? "")
                      )
                   )
                )
@@ -216,13 +217,13 @@ namespace System.Scsc.Ui.Document
                );
             requery = true;
          }
-         catch(Exception Ex)
+         catch (Exception Ex)
          {
             MessageBox.Show(Ex.Message);
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
                int recdoc = RcvdBs.Position;
@@ -309,7 +310,8 @@ namespace System.Scsc.Ui.Document
                }
             }
             #endregion
-         }catch(Exception ex)
+         }
+         catch (Exception ex)
          {
             MessageBox.Show(ex.Message);
          }
@@ -319,11 +321,11 @@ namespace System.Scsc.Ui.Document
       {
          if (pb_source.Image != null)
          {
-            if(Npb_FaceZone.PickChecked)
+            if (Npb_FaceZone.PickChecked)
             {
                pb_destination.Image = (Bitmap)Pb_FaceZone.Image.Clone();
             }
-            else if(Npb_Face3x4Zone.PickChecked)
+            else if (Npb_Face3x4Zone.PickChecked)
             {
                pb_destination.Image = (Bitmap)Pb_Face3x4Zone.Image.Clone();
             }
@@ -332,7 +334,7 @@ namespace System.Scsc.Ui.Document
 
       private void mb_back_Click(object sender, EventArgs e)
       {
-         _DefaultGateway.Gateway(new Job(SendType.External, "Localhost", GetType().Name, 00 /* Execute ProcessCmdKey Un_Paint */, SendType.SelfToUserInterface) { Input = Keys.Escape});
+         _DefaultGateway.Gateway(new Job(SendType.External, "Localhost", GetType().Name, 00 /* Execute ProcessCmdKey Un_Paint */, SendType.SelfToUserInterface) { Input = Keys.Escape });
       }
 
       private void Btn_AcceptPicture_Click(object sender, EventArgs e)
@@ -352,7 +354,7 @@ namespace System.Scsc.Ui.Document
 
          //var CrntRcdc = (RcvdBs.Current as Data.Receive_Document);
          var CrntRcdc = RcvdBs.List.OfType<Data.Receive_Document>().FirstOrDefault(i => i.Request_Document.DCMT_DSID == 13930903120048833);
-         if (CrntRcdc == null) { MessageBox.Show("رکورد عکس 3*4 تعریف نشده"); return; }         
+         if (CrntRcdc == null) { MessageBox.Show("رکورد عکس 3*4 تعریف نشده"); return; }
 
          CrntRcdc.Image_Documents.Single().IMAG = Convert.ToBase64String(bytes);
          CrntRcdc.Image_Documents.Single().FILE_NAME = FILE_NAME_TextBox.Text;

@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.MaxUi;
 using System.Xml.Linq;
+using System.Scsc.ExtCode;
+using System.IO;
 
 namespace System.Scsc.Ui.Notifications
 {
@@ -220,6 +222,87 @@ namespace System.Scsc.Ui.Notifications
       private void ClearCbmt_Butn_Click(object sender, EventArgs e)
       {
          CBMT_CODE_GridLookUpEdit.EditValue = null;
+      }
+
+      private void AttnBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _attn = AttnBs1.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            if(ServProFile_Rb.Tag == null || ServProFile_Rb.Tag.ToString().ToInt64() != _attn.FIGH_FILE_NO)
+            {
+               if (_attn.IMAG_RCDC_RCID_DNRM != null)
+               {
+                  try
+                  {
+                     ServProFile_Rb.ImageProfile = null;
+                     MemoryStream mStream = new MemoryStream();
+                     byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _attn.FIGH_FILE_NO))).ToArray();
+                     mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                     Bitmap bm = new Bitmap(mStream, false);
+                     mStream.Dispose();
+
+                     if (InvokeRequired)
+                        Invoke(new Action(() => ServProFile_Rb.ImageProfile = bm));
+                     else
+                        ServProFile_Rb.ImageProfile = bm;
+
+                     ServProFile_Rb.Tag = _attn.FIGH_FILE_NO;
+                  }
+                  catch { }
+               }
+               else
+               {
+                  ServProFile_Rb.ImageProfile = null;
+                  ServProFile_Rb.Tag = null;
+               }
+            }
+
+            if(CochProFile_Rb.Tag == null || CochProFile_Rb.Tag.ToString().ToInt64() != _attn.COCH_FILE_NO)
+            {
+               if (_attn.Fighter.IMAG_RCDC_RCID_DNRM != null)
+               {
+                  try
+                  {
+                     CochProFile_Rb.ImageProfile = null;
+                     MemoryStream mStream = new MemoryStream();
+                     byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _attn.COCH_FILE_NO))).ToArray();
+                     mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                     Bitmap bm = new Bitmap(mStream, false);
+                     mStream.Dispose();
+
+                     if (InvokeRequired)
+                        Invoke(new Action(() => CochProFile_Rb.ImageProfile = bm));
+                     else
+                        CochProFile_Rb.ImageProfile = bm;
+
+                     CochProFile_Rb.Tag = _attn.COCH_FILE_NO;
+                  }
+                  catch { }
+               }
+               else
+               {
+                  CochProFile_Rb.ImageProfile = null;
+                  CochProFile_Rb.Tag = null;
+               }
+            }
+
+            if (ServProFile_Rb.ImageProfile == null && _attn.Fighter1.SEX_TYPE_DNRM == "002")
+               ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1148;
+            else if (ServProFile_Rb.ImageProfile == null)
+               ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1149;
+
+            if (CochProFile_Rb.ImageProfile == null && _attn.Fighter.SEX_TYPE_DNRM == "002")
+               CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1507;
+            else if (CochProFile_Rb.ImageProfile == null)
+               CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1076;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

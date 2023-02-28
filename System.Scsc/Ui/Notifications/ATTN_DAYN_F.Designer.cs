@@ -85,12 +85,18 @@
          this.colRTNG_NUMB = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDebtDnrm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-         this.AttnParm_Gb = new System.Windows.Forms.GroupBox();
-         this.ClearCbmt_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.ServProFile_Rb = new System.MaxUi.RoundedButton();
+         this.CochProFile_Rb = new System.MaxUi.RoundedButton();
          this.Cbmt_Pkb = new System.MaxUi.NewPickBtn();
+         this.ClearCbmt_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.PrintSetting_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.Mtod_Pkb = new System.MaxUi.NewPickBtn();
-         this.Coch_Pkb = new System.MaxUi.NewPickBtn();
+         this.Print_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ToAttnDate_Date = new Atf.UI.DateTimeSelector();
+         this.Coch_Pkb = new System.MaxUi.NewPickBtn();
+         this.PrintDefault_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.Btn_AutoExitAttn = new DevExpress.XtraEditors.SimpleButton();
          this.FromAttnDate_Date = new Atf.UI.DateTimeSelector();
          this.CBMT_CODE_GridLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
          this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -114,12 +120,6 @@
          this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTIME_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCBMT_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.PrintSetting_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-         this.Print_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.PrintDefault_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.AtenDesc_Lb = new DevExpress.XtraEditors.LabelControl();
-         this.Btn_AutoExitAttn = new DevExpress.XtraEditors.SimpleButton();
          this.Reload_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
@@ -137,7 +137,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DActnBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
-         this.AttnParm_Gb.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CBMT_CODE_GridLookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).BeginInit();
@@ -180,7 +179,7 @@
          this.CbmtCode_Lb.AutoSize = true;
          this.CbmtCode_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CbmtCode_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         this.CbmtCode_Lb.Location = new System.Drawing.Point(343, 60);
+         this.CbmtCode_Lb.Location = new System.Drawing.Point(615, 74);
          this.CbmtCode_Lb.Name = "CbmtCode_Lb";
          this.CbmtCode_Lb.Size = new System.Drawing.Size(69, 14);
          this.CbmtCode_Lb.TabIndex = 38;
@@ -192,7 +191,7 @@
          this.FromDate_Lb.AutoSize = true;
          this.FromDate_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.FromDate_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         this.FromDate_Lb.Location = new System.Drawing.Point(341, 30);
+         this.FromDate_Lb.Location = new System.Drawing.Point(613, 13);
          this.FromDate_Lb.Name = "FromDate_Lb";
          this.FromDate_Lb.Size = new System.Drawing.Size(48, 14);
          this.FromDate_Lb.TabIndex = 38;
@@ -204,7 +203,7 @@
          this.ToDate_Lb.AutoSize = true;
          this.ToDate_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.ToDate_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         this.ToDate_Lb.Location = new System.Drawing.Point(166, 30);
+         this.ToDate_Lb.Location = new System.Drawing.Point(613, 46);
          this.ToDate_Lb.Name = "ToDate_Lb";
          this.ToDate_Lb.Size = new System.Drawing.Size(48, 14);
          this.ToDate_Lb.TabIndex = 38;
@@ -212,23 +211,24 @@
          // 
          // Back_Butn
          // 
-         this.Back_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Back_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Back_Butn.Appearance.Options.UseBackColor = true;
+         this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1061;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(688, 2);
+         this.Back_Butn.Location = new System.Drawing.Point(690, 0);
          this.Back_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Back_Butn.Name = "Back_Butn";
-         this.Back_Butn.Size = new System.Drawing.Size(56, 51);
+         this.Back_Butn.Size = new System.Drawing.Size(56, 99);
          this.Back_Butn.TabIndex = 0;
          this.Back_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
          // AttnBs1
          // 
          this.AttnBs1.DataSource = typeof(System.Scsc.Data.Attendance);
+         this.AttnBs1.CurrentChanged += new System.EventHandler(this.AttnBs1_CurrentChanged);
          // 
          // attendanceGridControl
          // 
@@ -334,7 +334,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
          this.FileNo_Clm.Visible = true;
          this.FileNo_Clm.VisibleIndex = 10;
-         this.FileNo_Clm.Width = 115;
+         this.FileNo_Clm.Width = 131;
          // 
          // colATTN_DATE
          // 
@@ -366,7 +366,7 @@
          this.CochFileNo_Clm.OptionsColumn.ReadOnly = true;
          this.CochFileNo_Clm.Visible = true;
          this.CochFileNo_Clm.VisibleIndex = 6;
-         this.CochFileNo_Clm.Width = 52;
+         this.CochFileNo_Clm.Width = 54;
          // 
          // repositoryItemLookUpEdit1
          // 
@@ -415,13 +415,13 @@
          // 
          this.DersNum_Clm.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          this.DersNum_Clm.AppearanceCell.Options.UseBackColor = true;
-         this.DersNum_Clm.Caption = "شماره کمد";
+         this.DersNum_Clm.Caption = "کمد";
          this.DersNum_Clm.FieldName = "DERS_NUMB";
          this.DersNum_Clm.Name = "DersNum_Clm";
          this.DersNum_Clm.OptionsColumn.FixedWidth = true;
          this.DersNum_Clm.Visible = true;
          this.DersNum_Clm.VisibleIndex = 1;
-         this.DersNum_Clm.Width = 67;
+         this.DersNum_Clm.Width = 30;
          // 
          // colCRET_BY
          // 
@@ -493,7 +493,7 @@
          this.MtodCode_Clm.OptionsColumn.ReadOnly = true;
          this.MtodCode_Clm.Visible = true;
          this.MtodCode_Clm.VisibleIndex = 5;
-         this.MtodCode_Clm.Width = 52;
+         this.MtodCode_Clm.Width = 54;
          // 
          // repositoryItemLookUpEdit2
          // 
@@ -520,7 +520,7 @@
          this.CtgyCode_Clm.OptionsColumn.ReadOnly = true;
          this.CtgyCode_Clm.Visible = true;
          this.CtgyCode_Clm.VisibleIndex = 4;
-         this.CtgyCode_Clm.Width = 52;
+         this.CtgyCode_Clm.Width = 54;
          // 
          // repositoryItemLookUpEdit3
          // 
@@ -547,7 +547,7 @@
          this.colATTN_SYS_TYPE.OptionsColumn.ReadOnly = true;
          this.colATTN_SYS_TYPE.Visible = true;
          this.colATTN_SYS_TYPE.VisibleIndex = 3;
-         this.colATTN_SYS_TYPE.Width = 52;
+         this.colATTN_SYS_TYPE.Width = 54;
          // 
          // repositoryItemLookUpEdit5
          // 
@@ -573,7 +573,7 @@
          this.colRTNG_NUMB.Name = "colRTNG_NUMB";
          this.colRTNG_NUMB.Visible = true;
          this.colRTNG_NUMB.VisibleIndex = 2;
-         this.colRTNG_NUMB.Width = 29;
+         this.colRTNG_NUMB.Width = 40;
          // 
          // colDebtDnrm
          // 
@@ -588,7 +588,7 @@
          this.colDebtDnrm.OptionsColumn.ReadOnly = true;
          this.colDebtDnrm.Visible = true;
          this.colDebtDnrm.VisibleIndex = 9;
-         this.colDebtDnrm.Width = 64;
+         this.colDebtDnrm.Width = 66;
          // 
          // splitContainerControl1
          // 
@@ -599,13 +599,23 @@
          this.splitContainerControl1.IsSplitterFixed = true;
          this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
          this.splitContainerControl1.Name = "splitContainerControl1";
-         this.splitContainerControl1.Panel1.Controls.Add(this.AttnParm_Gb);
-         this.splitContainerControl1.Panel1.Controls.Add(this.Back_Butn);
+         this.splitContainerControl1.Panel1.Controls.Add(this.ServProFile_Rb);
+         this.splitContainerControl1.Panel1.Controls.Add(this.CochProFile_Rb);
+         this.splitContainerControl1.Panel1.Controls.Add(this.Cbmt_Pkb);
+         this.splitContainerControl1.Panel1.Controls.Add(this.ClearCbmt_Butn);
          this.splitContainerControl1.Panel1.Controls.Add(this.PrintSetting_Butn);
+         this.splitContainerControl1.Panel1.Controls.Add(this.Mtod_Pkb);
+         this.splitContainerControl1.Panel1.Controls.Add(this.Back_Butn);
          this.splitContainerControl1.Panel1.Controls.Add(this.Print_Butn);
+         this.splitContainerControl1.Panel1.Controls.Add(this.ToAttnDate_Date);
+         this.splitContainerControl1.Panel1.Controls.Add(this.Coch_Pkb);
+         this.splitContainerControl1.Panel1.Controls.Add(this.ToDate_Lb);
          this.splitContainerControl1.Panel1.Controls.Add(this.PrintDefault_Butn);
-         this.splitContainerControl1.Panel1.Controls.Add(this.AtenDesc_Lb);
          this.splitContainerControl1.Panel1.Controls.Add(this.Btn_AutoExitAttn);
+         this.splitContainerControl1.Panel1.Controls.Add(this.FromAttnDate_Date);
+         this.splitContainerControl1.Panel1.Controls.Add(this.CbmtCode_Lb);
+         this.splitContainerControl1.Panel1.Controls.Add(this.FromDate_Lb);
+         this.splitContainerControl1.Panel1.Controls.Add(this.CBMT_CODE_GridLookUpEdit);
          this.splitContainerControl1.Panel1.Controls.Add(this.Reload_Butn);
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.attendanceGridControl);
@@ -615,44 +625,55 @@
          this.splitContainerControl1.TabIndex = 3;
          this.splitContainerControl1.Text = "splitContainerControl1";
          // 
-         // AttnParm_Gb
+         // ServProFile_Rb
          // 
-         this.AttnParm_Gb.Controls.Add(this.ClearCbmt_Butn);
-         this.AttnParm_Gb.Controls.Add(this.Cbmt_Pkb);
-         this.AttnParm_Gb.Controls.Add(this.Mtod_Pkb);
-         this.AttnParm_Gb.Controls.Add(this.Coch_Pkb);
-         this.AttnParm_Gb.Controls.Add(this.ToAttnDate_Date);
-         this.AttnParm_Gb.Controls.Add(this.ToDate_Lb);
-         this.AttnParm_Gb.Controls.Add(this.FromAttnDate_Date);
-         this.AttnParm_Gb.Controls.Add(this.FromDate_Lb);
-         this.AttnParm_Gb.Controls.Add(this.CbmtCode_Lb);
-         this.AttnParm_Gb.Controls.Add(this.CBMT_CODE_GridLookUpEdit);
-         this.AttnParm_Gb.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.AttnParm_Gb.Location = new System.Drawing.Point(59, 3);
-         this.AttnParm_Gb.Name = "AttnParm_Gb";
-         this.AttnParm_Gb.Size = new System.Drawing.Size(440, 90);
-         this.AttnParm_Gb.TabIndex = 4;
-         this.AttnParm_Gb.TabStop = false;
-         this.AttnParm_Gb.Text = "پارامتر های حضور و غیاب";
+         this.ServProFile_Rb.Active = true;
+         this.ServProFile_Rb.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.ServProFile_Rb.Caption = "";
+         this.ServProFile_Rb.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.ServProFile_Rb.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.ServProFile_Rb.HoverBorderColor = System.Drawing.Color.Gold;
+         this.ServProFile_Rb.HoverColorA = System.Drawing.Color.LightGray;
+         this.ServProFile_Rb.HoverColorB = System.Drawing.Color.LightGray;
+         this.ServProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+         this.ServProFile_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+         this.ServProFile_Rb.ImageVisiable = true;
+         this.ServProFile_Rb.Location = new System.Drawing.Point(3, 3);
+         this.ServProFile_Rb.Name = "ServProFile_Rb";
+         this.ServProFile_Rb.NormalBorderColor = System.Drawing.Color.Black;
+         this.ServProFile_Rb.NormalColorA = System.Drawing.Color.White;
+         this.ServProFile_Rb.NormalColorB = System.Drawing.Color.White;
+         this.ServProFile_Rb.Size = new System.Drawing.Size(90, 90);
+         this.ServProFile_Rb.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.ServProFile_Rb.TabIndex = 98;
+         this.ServProFile_Rb.Tooltip = null;
          // 
-         // ClearCbmt_Butn
+         // CochProFile_Rb
          // 
-         this.ClearCbmt_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ClearCbmt_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.ClearCbmt_Butn.Appearance.Options.UseBackColor = true;
-         this.ClearCbmt_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ClearCbmt_Butn.Image")));
-         this.ClearCbmt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ClearCbmt_Butn.Location = new System.Drawing.Point(195, 56);
-         this.ClearCbmt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.ClearCbmt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.ClearCbmt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.ClearCbmt_Butn.Name = "ClearCbmt_Butn";
-         this.ClearCbmt_Butn.Size = new System.Drawing.Size(24, 20);
-         this.ClearCbmt_Butn.TabIndex = 41;
-         this.ClearCbmt_Butn.Click += new System.EventHandler(this.ClearCbmt_Butn_Click);
+         this.CochProFile_Rb.Active = true;
+         this.CochProFile_Rb.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.CochProFile_Rb.Caption = "";
+         this.CochProFile_Rb.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.CochProFile_Rb.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.CochProFile_Rb.HoverBorderColor = System.Drawing.Color.Gold;
+         this.CochProFile_Rb.HoverColorA = System.Drawing.Color.LightGray;
+         this.CochProFile_Rb.HoverColorB = System.Drawing.Color.LightGray;
+         this.CochProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+         this.CochProFile_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+         this.CochProFile_Rb.ImageVisiable = true;
+         this.CochProFile_Rb.Location = new System.Drawing.Point(99, 3);
+         this.CochProFile_Rb.Name = "CochProFile_Rb";
+         this.CochProFile_Rb.NormalBorderColor = System.Drawing.Color.Black;
+         this.CochProFile_Rb.NormalColorA = System.Drawing.Color.White;
+         this.CochProFile_Rb.NormalColorB = System.Drawing.Color.White;
+         this.CochProFile_Rb.Size = new System.Drawing.Size(60, 60);
+         this.CochProFile_Rb.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.CochProFile_Rb.TabIndex = 98;
+         this.CochProFile_Rb.Tooltip = null;
          // 
          // Cbmt_Pkb
          // 
+         this.Cbmt_Pkb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Cbmt_Pkb.BackColor = System.Drawing.Color.Transparent;
          this.Cbmt_Pkb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.Cbmt_Pkb.Disabled = false;
@@ -663,7 +684,7 @@
          this.Cbmt_Pkb.ImageIndexPickDown = 2;
          this.Cbmt_Pkb.ImageIndexPickUp = 2;
          this.Cbmt_Pkb.ImageList = null;
-         this.Cbmt_Pkb.Location = new System.Drawing.Point(60, 55);
+         this.Cbmt_Pkb.Location = new System.Drawing.Point(359, 69);
          this.Cbmt_Pkb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Cbmt_Pkb.Name = "Cbmt_Pkb";
          this.Cbmt_Pkb.Next = null;
@@ -678,8 +699,54 @@
          this.Cbmt_Pkb.TabIndex = 5;
          this.Cbmt_Pkb.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
          // 
+         // ClearCbmt_Butn
+         // 
+         this.ClearCbmt_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ClearCbmt_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.ClearCbmt_Butn.Appearance.Options.UseBackColor = true;
+         this.ClearCbmt_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ClearCbmt_Butn.Image")));
+         this.ClearCbmt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.ClearCbmt_Butn.Location = new System.Drawing.Point(467, 70);
+         this.ClearCbmt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.ClearCbmt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.ClearCbmt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.ClearCbmt_Butn.Name = "ClearCbmt_Butn";
+         this.ClearCbmt_Butn.Size = new System.Drawing.Size(24, 20);
+         this.ClearCbmt_Butn.TabIndex = 41;
+         this.ClearCbmt_Butn.Click += new System.EventHandler(this.ClearCbmt_Butn_Click);
+         // 
+         // PrintSetting_Butn
+         // 
+         this.PrintSetting_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PrintSetting_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.PrintSetting_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.PrintSetting_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.PrintSetting_Butn.Appearance.Options.UseBackColor = true;
+         this.PrintSetting_Butn.Appearance.Options.UseFont = true;
+         this.PrintSetting_Butn.Appearance.Options.UseForeColor = true;
+         this.PrintSetting_Butn.ImageIndex = 2;
+         this.PrintSetting_Butn.ImageList = this.imageList1;
+         this.PrintSetting_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.PrintSetting_Butn.Location = new System.Drawing.Point(252, 6);
+         this.PrintSetting_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.PrintSetting_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.PrintSetting_Butn.Name = "PrintSetting_Butn";
+         this.PrintSetting_Butn.Size = new System.Drawing.Size(45, 60);
+         this.PrintSetting_Butn.TabIndex = 3;
+         this.PrintSetting_Butn.ToolTip = "انتخاب گزارش";
+         this.PrintSetting_Butn.Click += new System.EventHandler(this.PrintSetting_Butn_Click);
+         // 
+         // imageList1
+         // 
+         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+         this.imageList1.Images.SetKeyName(0, "IMAGE_1059.png");
+         this.imageList1.Images.SetKeyName(1, "IMAGE_1090.png");
+         this.imageList1.Images.SetKeyName(2, "IMAGE_1091.png");
+         // 
          // Mtod_Pkb
          // 
+         this.Mtod_Pkb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Mtod_Pkb.BackColor = System.Drawing.Color.Transparent;
          this.Mtod_Pkb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.Mtod_Pkb.Disabled = false;
@@ -690,7 +757,7 @@
          this.Mtod_Pkb.ImageIndexPickDown = 1;
          this.Mtod_Pkb.ImageIndexPickUp = 1;
          this.Mtod_Pkb.ImageList = null;
-         this.Mtod_Pkb.Location = new System.Drawing.Point(96, 55);
+         this.Mtod_Pkb.Location = new System.Drawing.Point(395, 69);
          this.Mtod_Pkb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Mtod_Pkb.Name = "Mtod_Pkb";
          this.Mtod_Pkb.Next = null;
@@ -705,8 +772,43 @@
          this.Mtod_Pkb.TabIndex = 4;
          this.Mtod_Pkb.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
          // 
+         // Print_Butn
+         // 
+         this.Print_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Print_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.Print_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Print_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.Print_Butn.Appearance.Options.UseBackColor = true;
+         this.Print_Butn.Appearance.Options.UseFont = true;
+         this.Print_Butn.Appearance.Options.UseForeColor = true;
+         this.Print_Butn.ImageIndex = 1;
+         this.Print_Butn.ImageList = this.imageList1;
+         this.Print_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Print_Butn.Location = new System.Drawing.Point(298, 6);
+         this.Print_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Print_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Print_Butn.Name = "Print_Butn";
+         this.Print_Butn.Size = new System.Drawing.Size(45, 60);
+         this.Print_Butn.TabIndex = 2;
+         this.Print_Butn.ToolTip = "انتخاب گزارش";
+         this.Print_Butn.Click += new System.EventHandler(this.Print_Butn_Click);
+         // 
+         // ToAttnDate_Date
+         // 
+         this.ToAttnDate_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.ToAttnDate_Date.CustomFormat = "dd/MM/yyyy";
+         this.ToAttnDate_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.ToAttnDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.ToAttnDate_Date.Location = new System.Drawing.Point(497, 39);
+         this.ToAttnDate_Date.Name = "ToAttnDate_Date";
+         this.ToAttnDate_Date.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.ToAttnDate_Date.Size = new System.Drawing.Size(112, 27);
+         this.ToAttnDate_Date.TabIndex = 1;
+         this.ToAttnDate_Date.UsePersianFormat = true;
+         // 
          // Coch_Pkb
          // 
+         this.Coch_Pkb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Coch_Pkb.BackColor = System.Drawing.Color.Transparent;
          this.Coch_Pkb.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.Coch_Pkb.Disabled = false;
@@ -717,7 +819,7 @@
          this.Coch_Pkb.ImageIndexPickDown = 0;
          this.Coch_Pkb.ImageIndexPickUp = 0;
          this.Coch_Pkb.ImageList = null;
-         this.Coch_Pkb.Location = new System.Drawing.Point(132, 55);
+         this.Coch_Pkb.Location = new System.Drawing.Point(431, 69);
          this.Coch_Pkb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Coch_Pkb.Name = "Coch_Pkb";
          this.Coch_Pkb.Next = null;
@@ -732,18 +834,39 @@
          this.Coch_Pkb.TabIndex = 3;
          this.Coch_Pkb.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
          // 
-         // ToAttnDate_Date
+         // PrintDefault_Butn
          // 
-         this.ToAttnDate_Date.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ToAttnDate_Date.CustomFormat = "dd/MM/yyyy";
-         this.ToAttnDate_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.ToAttnDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.ToAttnDate_Date.Location = new System.Drawing.Point(50, 23);
-         this.ToAttnDate_Date.Name = "ToAttnDate_Date";
-         this.ToAttnDate_Date.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.ToAttnDate_Date.Size = new System.Drawing.Size(112, 27);
-         this.ToAttnDate_Date.TabIndex = 1;
-         this.ToAttnDate_Date.UsePersianFormat = true;
+         this.PrintDefault_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.PrintDefault_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.PrintDefault_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.PrintDefault_Butn.Appearance.Options.UseBackColor = true;
+         this.PrintDefault_Butn.Appearance.Options.UseFont = true;
+         this.PrintDefault_Butn.ImageIndex = 0;
+         this.PrintDefault_Butn.ImageList = this.imageList1;
+         this.PrintDefault_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.PrintDefault_Butn.Location = new System.Drawing.Point(344, 6);
+         this.PrintDefault_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.PrintDefault_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.PrintDefault_Butn.Name = "PrintDefault_Butn";
+         this.PrintDefault_Butn.Size = new System.Drawing.Size(45, 60);
+         this.PrintDefault_Butn.TabIndex = 1;
+         this.PrintDefault_Butn.ToolTip = "انتخاب گزارش پیش فرض";
+         this.PrintDefault_Butn.Click += new System.EventHandler(this.PrintDefault_Butn_Click);
+         // 
+         // Btn_AutoExitAttn
+         // 
+         this.Btn_AutoExitAttn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.Btn_AutoExitAttn.Appearance.Options.UseBackColor = true;
+         this.Btn_AutoExitAttn.Image = global::System.Scsc.Properties.Resources.IMAGE_1171;
+         this.Btn_AutoExitAttn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Btn_AutoExitAttn.Location = new System.Drawing.Point(395, 6);
+         this.Btn_AutoExitAttn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.Btn_AutoExitAttn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Btn_AutoExitAttn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Btn_AutoExitAttn.Name = "Btn_AutoExitAttn";
+         this.Btn_AutoExitAttn.Size = new System.Drawing.Size(45, 60);
+         this.Btn_AutoExitAttn.TabIndex = 6;
+         this.Btn_AutoExitAttn.Click += new System.EventHandler(this.Btn_AutoExitAttn_Click);
          // 
          // FromAttnDate_Date
          // 
@@ -751,7 +874,7 @@
          this.FromAttnDate_Date.CustomFormat = "dd/MM/yyyy";
          this.FromAttnDate_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.FromAttnDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.FromAttnDate_Date.Location = new System.Drawing.Point(225, 23);
+         this.FromAttnDate_Date.Location = new System.Drawing.Point(497, 6);
          this.FromAttnDate_Date.Name = "FromAttnDate_Date";
          this.FromAttnDate_Date.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.FromAttnDate_Date.Size = new System.Drawing.Size(112, 27);
@@ -761,7 +884,7 @@
          // CBMT_CODE_GridLookUpEdit
          // 
          this.CBMT_CODE_GridLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CBMT_CODE_GridLookUpEdit.Location = new System.Drawing.Point(225, 56);
+         this.CBMT_CODE_GridLookUpEdit.Location = new System.Drawing.Point(497, 70);
          this.CBMT_CODE_GridLookUpEdit.Name = "CBMT_CODE_GridLookUpEdit";
          this.CBMT_CODE_GridLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CBMT_CODE_GridLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -963,119 +1086,18 @@
          this.colCBMT_DESC.Visible = true;
          this.colCBMT_DESC.VisibleIndex = 7;
          // 
-         // PrintSetting_Butn
-         // 
-         this.PrintSetting_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.PrintSetting_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.PrintSetting_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.PrintSetting_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.PrintSetting_Butn.Appearance.Options.UseBackColor = true;
-         this.PrintSetting_Butn.Appearance.Options.UseFont = true;
-         this.PrintSetting_Butn.Appearance.Options.UseForeColor = true;
-         this.PrintSetting_Butn.ImageIndex = 2;
-         this.PrintSetting_Butn.ImageList = this.imageList1;
-         this.PrintSetting_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintSetting_Butn.Location = new System.Drawing.Point(617, 59);
-         this.PrintSetting_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.PrintSetting_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.PrintSetting_Butn.Name = "PrintSetting_Butn";
-         this.PrintSetting_Butn.Size = new System.Drawing.Size(34, 34);
-         this.PrintSetting_Butn.TabIndex = 3;
-         this.PrintSetting_Butn.ToolTip = "انتخاب گزارش";
-         this.PrintSetting_Butn.Click += new System.EventHandler(this.PrintSetting_Butn_Click);
-         // 
-         // imageList1
-         // 
-         this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-         this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-         this.imageList1.Images.SetKeyName(0, "IMAGE_1059.png");
-         this.imageList1.Images.SetKeyName(1, "IMAGE_1090.png");
-         this.imageList1.Images.SetKeyName(2, "IMAGE_1091.png");
-         // 
-         // Print_Butn
-         // 
-         this.Print_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.Print_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.Print_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Print_Butn.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.Print_Butn.Appearance.Options.UseBackColor = true;
-         this.Print_Butn.Appearance.Options.UseFont = true;
-         this.Print_Butn.Appearance.Options.UseForeColor = true;
-         this.Print_Butn.ImageIndex = 1;
-         this.Print_Butn.ImageList = this.imageList1;
-         this.Print_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Print_Butn.Location = new System.Drawing.Point(663, 59);
-         this.Print_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Print_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Print_Butn.Name = "Print_Butn";
-         this.Print_Butn.Size = new System.Drawing.Size(34, 34);
-         this.Print_Butn.TabIndex = 2;
-         this.Print_Butn.ToolTip = "انتخاب گزارش";
-         this.Print_Butn.Click += new System.EventHandler(this.Print_Butn_Click);
-         // 
-         // PrintDefault_Butn
-         // 
-         this.PrintDefault_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.PrintDefault_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.PrintDefault_Butn.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.PrintDefault_Butn.Appearance.Options.UseBackColor = true;
-         this.PrintDefault_Butn.Appearance.Options.UseFont = true;
-         this.PrintDefault_Butn.ImageIndex = 0;
-         this.PrintDefault_Butn.ImageList = this.imageList1;
-         this.PrintDefault_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintDefault_Butn.Location = new System.Drawing.Point(709, 59);
-         this.PrintDefault_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.PrintDefault_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.PrintDefault_Butn.Name = "PrintDefault_Butn";
-         this.PrintDefault_Butn.Size = new System.Drawing.Size(34, 34);
-         this.PrintDefault_Butn.TabIndex = 1;
-         this.PrintDefault_Butn.ToolTip = "انتخاب گزارش پیش فرض";
-         this.PrintDefault_Butn.Click += new System.EventHandler(this.PrintDefault_Butn_Click);
-         // 
-         // AtenDesc_Lb
-         // 
-         this.AtenDesc_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.AtenDesc_Lb.Appearance.Font = new System.Drawing.Font("IRANSans", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.AtenDesc_Lb.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.AtenDesc_Lb.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.AtenDesc_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.AtenDesc_Lb.Location = new System.Drawing.Point(505, 3);
-         this.AtenDesc_Lb.Name = "AtenDesc_Lb";
-         this.AtenDesc_Lb.Size = new System.Drawing.Size(177, 50);
-         this.AtenDesc_Lb.TabIndex = 1;
-         this.AtenDesc_Lb.Text = "لیست حضوری اعضا";
-         // 
-         // Btn_AutoExitAttn
-         // 
-         this.Btn_AutoExitAttn.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.Btn_AutoExitAttn.Appearance.Options.UseBackColor = true;
-         this.Btn_AutoExitAttn.Image = global::System.Scsc.Properties.Resources.IMAGE_1171;
-         this.Btn_AutoExitAttn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Btn_AutoExitAttn.Location = new System.Drawing.Point(8, 53);
-         this.Btn_AutoExitAttn.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.Btn_AutoExitAttn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Btn_AutoExitAttn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Btn_AutoExitAttn.Name = "Btn_AutoExitAttn";
-         this.Btn_AutoExitAttn.Size = new System.Drawing.Size(45, 40);
-         this.Btn_AutoExitAttn.TabIndex = 6;
-         this.Btn_AutoExitAttn.Click += new System.EventHandler(this.Btn_AutoExitAttn_Click);
-         // 
          // Reload_Butn
          // 
          this.Reload_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Reload_Butn.Appearance.Options.UseBackColor = true;
          this.Reload_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Reload_Butn.Image")));
          this.Reload_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Reload_Butn.Location = new System.Drawing.Point(8, 7);
+         this.Reload_Butn.Location = new System.Drawing.Point(446, 6);
          this.Reload_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Reload_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Reload_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Reload_Butn.Name = "Reload_Butn";
-         this.Reload_Butn.Size = new System.Drawing.Size(45, 40);
+         this.Reload_Butn.Size = new System.Drawing.Size(45, 60);
          this.Reload_Butn.TabIndex = 5;
          this.Reload_Butn.Click += new System.EventHandler(this.Reload_Butn_Click);
          // 
@@ -1109,8 +1131,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DActnBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
          this.splitContainerControl1.ResumeLayout(false);
-         this.AttnParm_Gb.ResumeLayout(false);
-         this.AttnParm_Gb.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CBMT_CODE_GridLookUpEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).EndInit();
@@ -1150,7 +1170,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colFighter1;
       private DevExpress.XtraGrid.Columns.GridColumn colMember_Ship;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
-      private DevExpress.XtraEditors.LabelControl AtenDesc_Lb;
       private DevExpress.XtraEditors.SimpleButton Reload_Butn;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn1;
       private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit Actn_Butn;
@@ -1188,7 +1207,6 @@
       private Windows.Forms.BindingSource CochBs;
       private Windows.Forms.BindingSource MtodBs;
       private Windows.Forms.BindingSource CtgyBs;
-      private Windows.Forms.GroupBox AttnParm_Gb;
       private Atf.UI.DateTimeSelector ToAttnDate_Date;
       private MaxUi.NewPickBtn Cbmt_Pkb;
       private MaxUi.NewPickBtn Mtod_Pkb;
@@ -1206,5 +1224,7 @@
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit5;
       private DevExpress.XtraGrid.Columns.GridColumn colRTNG_NUMB;
       private DevExpress.XtraGrid.Columns.GridColumn colDebtDnrm;
+      private MaxUi.RoundedButton ServProFile_Rb;
+      private MaxUi.RoundedButton CochProFile_Rb;
    }
 }

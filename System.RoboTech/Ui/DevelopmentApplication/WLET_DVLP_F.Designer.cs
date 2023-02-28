@@ -5339,6 +5339,7 @@
          this.grouper2.Controls.Add(this.label28);
          this.grouper2.Controls.Add(this.label26);
          this.grouper2.CustomGroupBoxColor = System.Drawing.Color.Silver;
+         this.grouper2.ForeColor = System.Drawing.Color.Black;
          this.grouper2.GroupImage = null;
          this.grouper2.GroupTitle = "کیف پول ";
          this.grouper2.Location = new System.Drawing.Point(464, 3);
@@ -5349,6 +5350,7 @@
          this.grouper2.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper2.ShadowControl = true;
          this.grouper2.ShadowThickness = 2;
+         this.grouper2.ShowBorderTitle = false;
          this.grouper2.Size = new System.Drawing.Size(667, 135);
          this.grouper2.TabIndex = 0;
          // 
@@ -5580,6 +5582,7 @@
          this.grouper1.Controls.Add(this.label20);
          this.grouper1.Controls.Add(this.RwrdAmntDesc_Txt);
          this.grouper1.CustomGroupBoxColor = System.Drawing.Color.Silver;
+         this.grouper1.ForeColor = System.Drawing.Color.Black;
          this.grouper1.GroupImage = null;
          this.grouper1.GroupTitle = "اطلاعات پاداش";
          this.grouper1.Location = new System.Drawing.Point(464, 144);
@@ -5590,6 +5593,7 @@
          this.grouper1.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper1.ShadowControl = true;
          this.grouper1.ShadowThickness = 2;
+         this.grouper1.ShowBorderTitle = false;
          this.grouper1.Size = new System.Drawing.Size(667, 135);
          this.grouper1.TabIndex = 0;
          // 
@@ -10506,6 +10510,7 @@
          this.grouper4.Controls.Add(this.label48);
          this.grouper4.Controls.Add(this.RwrdAmntDesc1_Txt);
          this.grouper4.CustomGroupBoxColor = System.Drawing.Color.Silver;
+         this.grouper4.ForeColor = System.Drawing.Color.Black;
          this.grouper4.GroupImage = null;
          this.grouper4.GroupTitle = "اطلاعات محاسبه سود سهامدار";
          this.grouper4.Location = new System.Drawing.Point(464, 3);
@@ -10516,6 +10521,7 @@
          this.grouper4.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper4.ShadowControl = true;
          this.grouper4.ShadowThickness = 2;
+         this.grouper4.ShowBorderTitle = false;
          this.grouper4.Size = new System.Drawing.Size(667, 97);
          this.grouper4.TabIndex = 0;
          // 
@@ -11390,6 +11396,7 @@
          this.rollout1.BorderThickness = 1F;
          this.rollout1.Controls.Add(this.countryGridControl);
          this.rollout1.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.rollout1.ForeColor = System.Drawing.Color.Black;
          this.rollout1.FrameOnMouseOverOnly = false;
          this.rollout1.GroupImage = null;
          this.rollout1.Location = new System.Drawing.Point(20, 3);
@@ -11418,6 +11425,7 @@
          this.rollout2.BorderThickness = 1F;
          this.rollout2.Controls.Add(this.gridControl1);
          this.rollout2.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.rollout2.ForeColor = System.Drawing.Color.Black;
          this.rollout2.FrameOnMouseOverOnly = false;
          this.rollout2.GroupImage = null;
          this.rollout2.Location = new System.Drawing.Point(20, 31);
@@ -11448,6 +11456,7 @@
          this.rollout3.Controls.Add(this.groupBox3);
          this.rollout3.Controls.Add(this.groupBox2);
          this.rollout3.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.rollout3.ForeColor = System.Drawing.Color.Black;
          this.rollout3.FrameOnMouseOverOnly = false;
          this.rollout3.GroupImage = null;
          this.rollout3.Location = new System.Drawing.Point(20, 231);

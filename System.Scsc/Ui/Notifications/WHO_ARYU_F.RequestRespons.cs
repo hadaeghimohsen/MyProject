@@ -99,6 +99,30 @@ namespace System.Scsc.Ui.Notifications
                   break;
             }
 
+            switch (PlayHappyBirthDate_Butn.Tag.ToString())
+            {
+               case "play":
+                  PlayHappyBirthDate_Butn.Tag = "stop";
+                  new Threading.Thread(StopSound).Start();
+                  break;
+            }
+
+            switch (PlayDurtAttn_Butn.Tag.ToString())
+            {
+               case "play":
+                  PlayHappyBirthDate_Butn.Tag = "stop";
+                  new Threading.Thread(StopSound).Start();
+                  break;
+            }
+
+            switch (PlayDebtAlrm_Lb.Tag.ToString())
+            {
+               case "play":
+                  PlayDebtAlrm_Lb.Tag = "stop";
+                  new Threading.Thread(StopSound).Start();
+                  break;
+            }
+
             //job.Next =
             //   new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
@@ -295,7 +319,7 @@ namespace System.Scsc.Ui.Notifications
          {
             var xinput = job.Input as XElement;
 
-            Lbl_Dresser.BackColor = SystemColors.Control;
+            //Lbl_Dresser.BackColor = SystemColors.Control;
             fileno = xinput.Attribute("fileno").Value;
             AttnDate_Date.Value = Convert.ToDateTime(xinput.Attribute("attndate").Value);
             // 1396/07/16 * اضافه شدن 

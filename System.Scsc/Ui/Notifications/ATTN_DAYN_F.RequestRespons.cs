@@ -136,12 +136,12 @@ namespace System.Scsc.Ui.Notifications
                      //CochFileNo_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "atendesc_lb":
-                     AtenDesc_Lb.Text = control.LABL_TEXT;
+                     //AtenDesc_Lb.Text = control.LABL_TEXT;
                      //AtenDesc_Lb.Text = control.LABL_TEXT; // ToolTip
                      //AtenDesc_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "attnparm_gb":
-                     AttnParm_Gb.Text = control.LABL_TEXT;
+                     //AttnParm_Gb.Text = control.LABL_TEXT;
                      //AttnParm_Gb.Text = control.LABL_TEXT; // ToolTip
                      //AttnParm_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;

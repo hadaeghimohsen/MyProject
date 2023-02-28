@@ -176,6 +176,11 @@ namespace System.Scsc.Ui.Common
             RouterMethod = 118;
             RouterGateway = "SHOW_GLRL_F";
          }
+         else if(rqst.RQTP_CODE == "034")
+         {
+            RouterMethod = 166;
+            RouterGateway = "SHOW_MBSC_F";
+         }
          else
             return;
 

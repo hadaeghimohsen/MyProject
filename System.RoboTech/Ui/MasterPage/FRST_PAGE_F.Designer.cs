@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -57,6 +58,16 @@
          this.ribbonApplicationMenu1 = new C1.Win.C1Ribbon.RibbonApplicationMenu();
          this.ribbonBottomToolBar1 = new C1.Win.C1Ribbon.RibbonBottomToolBar();
          this.ribbonConfigToolBar1 = new C1.Win.C1Ribbon.RibbonConfigToolBar();
+         this.ribbonContextualTabGroup1 = new C1.Win.C1Ribbon.RibbonContextualTabGroup();
+         this.ribbonTab6 = new C1.Win.C1Ribbon.RibbonTab();
+         this.ribbonGroup13 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.MangInsp_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup12 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.MngrBsnsOwnr_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup14 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.MngrShop_Butn = new C1.Win.C1Ribbon.RibbonButton();
+         this.ribbonGroup15 = new C1.Win.C1Ribbon.RibbonGroup();
+         this.MngrRqst036_Butn = new C1.Win.C1Ribbon.RibbonButton();
          this.ribbonQat1 = new C1.Win.C1Ribbon.RibbonQat();
          this.ribbonTab1 = new C1.Win.C1Ribbon.RibbonTab();
          this.ribbonGroup1 = new C1.Win.C1Ribbon.RibbonGroup();
@@ -119,7 +130,7 @@
          this.OrdrShip_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_logout = new DevExpress.XtraEditors.SimpleButton();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer();
+         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).BeginInit();
          this.Pnl_Desktop.SuspendLayout();
@@ -131,10 +142,11 @@
          this.c1Ribbon1.ApplicationMenuHolder = this.ribbonApplicationMenu1;
          this.c1Ribbon1.BottomToolBarHolder = this.ribbonBottomToolBar1;
          this.c1Ribbon1.ConfigToolBarHolder = this.ribbonConfigToolBar1;
+         this.c1Ribbon1.ContextualTabGroups.Add(this.ribbonContextualTabGroup1);
          this.c1Ribbon1.Location = new System.Drawing.Point(0, 0);
          this.c1Ribbon1.Name = "c1Ribbon1";
          this.c1Ribbon1.QatHolder = this.ribbonQat1;
-         this.c1Ribbon1.Size = new System.Drawing.Size(1424, 143);
+         this.c1Ribbon1.Size = new System.Drawing.Size(1121, 143);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab1);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab2);
          this.c1Ribbon1.Tabs.Add(this.ribbonTab3);
@@ -153,6 +165,73 @@
          // ribbonConfigToolBar1
          // 
          this.ribbonConfigToolBar1.Name = "ribbonConfigToolBar1";
+         // 
+         // ribbonContextualTabGroup1
+         // 
+         this.ribbonContextualTabGroup1.Name = "ribbonContextualTabGroup1";
+         this.ribbonContextualTabGroup1.Tabs.Add(this.ribbonTab6);
+         this.ribbonContextualTabGroup1.Text = "سیستم جامع بازرسی";
+         // 
+         // ribbonTab6
+         // 
+         this.ribbonTab6.Groups.Add(this.ribbonGroup13);
+         this.ribbonTab6.Groups.Add(this.ribbonGroup12);
+         this.ribbonTab6.Groups.Add(this.ribbonGroup14);
+         this.ribbonTab6.Groups.Add(this.ribbonGroup15);
+         this.ribbonTab6.Name = "ribbonTab6";
+         this.ribbonTab6.Text = "سیستم بازرسی";
+         // 
+         // ribbonGroup13
+         // 
+         this.ribbonGroup13.Items.Add(this.MangInsp_Butn);
+         this.ribbonGroup13.Name = "ribbonGroup13";
+         this.ribbonGroup13.Text = "بازرسان";
+         // 
+         // MangInsp_Butn
+         // 
+         this.MangInsp_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("MangInsp_Butn.LargeImage")));
+         this.MangInsp_Butn.Name = "MangInsp_Butn";
+         this.MangInsp_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MangInsp_Butn.SmallImage")));
+         this.MangInsp_Butn.Text = "بازرسان";
+         // 
+         // ribbonGroup12
+         // 
+         this.ribbonGroup12.Items.Add(this.MngrBsnsOwnr_Butn);
+         this.ribbonGroup12.Name = "ribbonGroup12";
+         this.ribbonGroup12.Text = "مغازه داران";
+         // 
+         // MngrBsnsOwnr_Butn
+         // 
+         this.MngrBsnsOwnr_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("MngrBsnsOwnr_Butn.LargeImage")));
+         this.MngrBsnsOwnr_Butn.Name = "MngrBsnsOwnr_Butn";
+         this.MngrBsnsOwnr_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MngrBsnsOwnr_Butn.SmallImage")));
+         this.MngrBsnsOwnr_Butn.Text = "صاحبان کسب و کار";
+         // 
+         // ribbonGroup14
+         // 
+         this.ribbonGroup14.Items.Add(this.MngrShop_Butn);
+         this.ribbonGroup14.Name = "ribbonGroup14";
+         this.ribbonGroup14.Text = "مغازه ها";
+         // 
+         // MngrShop_Butn
+         // 
+         this.MngrShop_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("MngrShop_Butn.LargeImage")));
+         this.MngrShop_Butn.Name = "MngrShop_Butn";
+         this.MngrShop_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MngrShop_Butn.SmallImage")));
+         this.MngrShop_Butn.Text = "مغازه ها";
+         // 
+         // ribbonGroup15
+         // 
+         this.ribbonGroup15.Items.Add(this.MngrRqst036_Butn);
+         this.ribbonGroup15.Name = "ribbonGroup15";
+         this.ribbonGroup15.Text = "درخواستهای بازرسی";
+         // 
+         // MngrRqst036_Butn
+         // 
+         this.MngrRqst036_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("MngrRqst036_Butn.LargeImage")));
+         this.MngrRqst036_Butn.Name = "MngrRqst036_Butn";
+         this.MngrRqst036_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MngrRqst036_Butn.SmallImage")));
+         this.MngrRqst036_Butn.Text = "درخواست بازرسی";
          // 
          // ribbonQat1
          // 
@@ -529,7 +608,7 @@
          this.Pnl_Desktop.Panel2.Controls.Add(this.AdjustDateTime_Butn);
          this.Pnl_Desktop.Panel2.Controls.Add(this.sb_logout);
          this.Pnl_Desktop.Panel2.Text = "Panel2";
-         this.Pnl_Desktop.Size = new System.Drawing.Size(1424, 510);
+         this.Pnl_Desktop.Size = new System.Drawing.Size(1121, 510);
          this.Pnl_Desktop.SplitterPosition = 42;
          this.Pnl_Desktop.TabIndex = 1;
          this.Pnl_Desktop.Text = "splitContainerControl1";
@@ -759,7 +838,7 @@
          this.NotfOrdrOnlineAdmission_Butn.ImageProfile = null;
          this.NotfOrdrOnlineAdmission_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.NotfOrdrOnlineAdmission_Butn.ImageVisiable = false;
-         this.NotfOrdrOnlineAdmission_Butn.Location = new System.Drawing.Point(1220, 0);
+         this.NotfOrdrOnlineAdmission_Butn.Location = new System.Drawing.Point(917, 0);
          this.NotfOrdrOnlineAdmission_Butn.Name = "NotfOrdrOnlineAdmission_Butn";
          this.NotfOrdrOnlineAdmission_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
          this.NotfOrdrOnlineAdmission_Butn.NormalColorA = System.Drawing.Color.DeepSkyBlue;
@@ -780,7 +859,7 @@
          this.OrderOnlineAdmission_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.OrderOnlineAdmission_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1684;
          this.OrderOnlineAdmission_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrderOnlineAdmission_Butn.Location = new System.Drawing.Point(1220, 0);
+         this.OrderOnlineAdmission_Butn.Location = new System.Drawing.Point(917, 0);
          this.OrderOnlineAdmission_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.OrderOnlineAdmission_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OrderOnlineAdmission_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -815,7 +894,7 @@
          this.NotfOrdrShip_Butn.ImageProfile = null;
          this.NotfOrdrShip_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.NotfOrdrShip_Butn.ImageVisiable = false;
-         this.NotfOrdrShip_Butn.Location = new System.Drawing.Point(1324, 0);
+         this.NotfOrdrShip_Butn.Location = new System.Drawing.Point(1021, 0);
          this.NotfOrdrShip_Butn.Name = "NotfOrdrShip_Butn";
          this.NotfOrdrShip_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
          this.NotfOrdrShip_Butn.NormalColorA = System.Drawing.Color.Chartreuse;
@@ -842,7 +921,7 @@
          this.NotfOrdrReceipt_Butn.ImageProfile = null;
          this.NotfOrdrReceipt_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.NotfOrdrReceipt_Butn.ImageVisiable = false;
-         this.NotfOrdrReceipt_Butn.Location = new System.Drawing.Point(1271, 0);
+         this.NotfOrdrReceipt_Butn.Location = new System.Drawing.Point(968, 0);
          this.NotfOrdrReceipt_Butn.Name = "NotfOrdrReceipt_Butn";
          this.NotfOrdrReceipt_Butn.NormalBorderColor = System.Drawing.Color.DimGray;
          this.NotfOrdrReceipt_Butn.NormalColorA = System.Drawing.Color.Red;
@@ -864,7 +943,7 @@
          this.OrdrReceipt_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.OrdrReceipt_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1682;
          this.OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrdrReceipt_Butn.Location = new System.Drawing.Point(1272, 0);
+         this.OrdrReceipt_Butn.Location = new System.Drawing.Point(969, 0);
          this.OrdrReceipt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.OrdrReceipt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OrdrReceipt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -902,7 +981,7 @@
          this.OrdrShip_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.OrdrShip_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1686;
          this.OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.OrdrShip_Butn.Location = new System.Drawing.Point(1324, 0);
+         this.OrdrShip_Butn.Location = new System.Drawing.Point(1021, 0);
          this.OrdrShip_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.OrdrShip_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.OrdrShip_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -959,7 +1038,7 @@
          this.sb_logout.Dock = System.Windows.Forms.DockStyle.Right;
          this.sb_logout.Image = global::System.RoboTech.Properties.Resources.IMAGE_1226;
          this.sb_logout.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.sb_logout.Location = new System.Drawing.Point(1376, 0);
+         this.sb_logout.Location = new System.Drawing.Point(1073, 0);
          this.sb_logout.LookAndFeel.SkinName = "Office 2010 Silver";
          this.sb_logout.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.sb_logout.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -999,7 +1078,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "FRST_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1424, 653);
+         this.Size = new System.Drawing.Size(1121, 653);
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).EndInit();
          this.Pnl_Desktop.ResumeLayout(false);
@@ -1078,5 +1157,15 @@
       private C1.Win.C1Ribbon.RibbonButton CashCntr_Butn;
       private C1.Win.C1Ribbon.RibbonButton InvcOprt_Butn;
       private C1.Win.C1Ribbon.RibbonButton BaseDefAcnt_Butn;
+      private C1.Win.C1Ribbon.RibbonContextualTabGroup ribbonContextualTabGroup1;
+      private C1.Win.C1Ribbon.RibbonTab ribbonTab6;
+      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup13;
+      private C1.Win.C1Ribbon.RibbonButton MangInsp_Butn;
+      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup12;
+      private C1.Win.C1Ribbon.RibbonButton MngrBsnsOwnr_Butn;
+      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup14;
+      private C1.Win.C1Ribbon.RibbonButton MngrShop_Butn;
+      private C1.Win.C1Ribbon.RibbonGroup ribbonGroup15;
+      private C1.Win.C1Ribbon.RibbonButton MngrRqst036_Butn;
    }
 }

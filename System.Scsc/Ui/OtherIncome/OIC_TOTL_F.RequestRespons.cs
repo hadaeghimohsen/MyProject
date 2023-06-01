@@ -163,7 +163,13 @@ namespace System.Scsc.Ui.OtherIncome
          }
          else if (keyData == Keys.F2)
          {
-            Create_Record();
+            //Create_Record();
+            Rqst_Tc.SelectedTab = tp_001;
+         }
+         else if (keyData == Keys.F9)
+         {
+            //Create_Record();
+            Rqst_Tc.SelectedTab = tp_002;
          }
          else if (keyData == Keys.F8)
          {
@@ -190,6 +196,7 @@ namespace System.Scsc.Ui.OtherIncome
             else if (tabControl1.SelectedTab == tabPage2)
                LL_MoreInfo2_LinkClicked(null, null);
              */
+            GotoCustTell_Butn_Click(null, null);
          }
          else if (keyData == Keys.F10)
          {
@@ -458,7 +465,10 @@ namespace System.Scsc.Ui.OtherIncome
          CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && c.ACTV_TAG_DNRM == "101" && c.CONF_STAT == "002");
          SuntBs1.DataSource = iScsc.Sub_Units;
          DPydsBs1.DataSource = iScsc.D_PYDS;
+         MtodBs1.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
          RtoaBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Payment_To_Another_Account");
+         DRqpmBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Request_Parameter");
+
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
             Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;

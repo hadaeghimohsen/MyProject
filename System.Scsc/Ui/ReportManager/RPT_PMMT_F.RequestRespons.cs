@@ -696,6 +696,8 @@ namespace System.Scsc.Ui.ReportManager
          CbmtBs.DataSource = iScsc.Club_Methods.Where(cb => cb.MTOD_STAT == "002");
          FighBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM == "003" /*&& f.FGPB_TYPE_DNRM != "007" && !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          SuntBs1.DataSource = iScsc.Sub_Units;
+         DevntBs.DataSource = iScsc.D_EVNTs;
+
          job.Status = StatusType.Successful;
       }
 
@@ -716,11 +718,11 @@ namespace System.Scsc.Ui.ReportManager
                formName = "RPT_PMT2_F";
             if(xinput.Attribute("fromdate").Value != null)
             {
-               FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate6_Date.Value = FromDate7_Date.Value = FromDate8_Date.Value = FromDate9_Date.Value = FromDate10_Date.Value = FromDate11_Date.Value = FromDate12_Date.Value = Convert.ToDateTime(xinput.Attribute("fromdate").Value);
+               FromDate1_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate6_Date.Value = FromDate7_Date.Value = FromDate8_Date.Value = FromDate9_Date.Value = FromDate10_Date.Value = FromDate11_Date.Value = FromDate12_Date.Value = FromDate13_Date.Value = Convert.ToDateTime(xinput.Attribute("fromdate").Value);
             }
             if (xinput.Attribute("todate").Value != null)
             {
-               ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate6_Date.Value = ToDate7_Date.Value = ToDate8_Date.Value = ToDate9_Date.Value = ToDate10_Date.Value = ToDate11_Date.Value = ToDate12_Date.Value = Convert.ToDateTime(xinput.Attribute("todate").Value);
+               ToDate1_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate6_Date.Value = ToDate7_Date.Value = ToDate8_Date.Value = ToDate9_Date.Value = ToDate10_Date.Value = ToDate11_Date.Value = ToDate12_Date.Value = ToDate13_Date.Value = Convert.ToDateTime(xinput.Attribute("todate").Value);
             }
             if(xinput.Attribute("useraccount").Value != null)
             {

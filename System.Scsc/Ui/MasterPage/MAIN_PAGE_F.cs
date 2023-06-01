@@ -1205,6 +1205,8 @@ namespace System.Scsc.Ui.MasterPage
                      }
                   );
             else if (devInfo.DEV_TYPE.In("009", "010"))
+            {
+               // Unlock
                server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
                   .ForEach(d =>
                   {
@@ -1216,7 +1218,24 @@ namespace System.Scsc.Ui.MasterPage
                      }
                      catch { }
                   }
-                  );            
+                  );
+
+               Thread.Sleep(100);
+
+               // Show Seven Segment
+               server.ConnectedClients.Where(d => d.ConnectAddress == iScsc.External_Device_Link_External_Devices.FirstOrDefault(ld => ld.LINK_EDEV_CODE == devInfo.CODE).External_Device.IP_ADRS).ToList()
+                  .ForEach(d =>
+                  {
+                     try
+                     {
+                        d.SendMessage(
+                           enrollNumber.PadLeft(3, '0')
+                        );
+                     }
+                     catch { }
+                  }
+                  );
+            }
 
             switch (cmndText.Substring(0, 2))
             {
@@ -2468,6 +2487,27 @@ namespace System.Scsc.Ui.MasterPage
                   #region قسمت مربوط به حضور و غیاب بلیط فروشی استخر
                   #endregion
                }
+               else if(AttnType_Lov.EditValue.ToString() == "011")
+               {
+                  if (!iScsc.Request_Duplicates.Any(rd => rd.STAT == "002" && rd.CRET_BY == Crnt_User))
+                  {
+                     _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\disconnect.wav";
+                     new Thread(AlarmShow).Start();
+                  }
+                  else
+                  {
+                     iScsc.DUP_RQST_P(
+                        new XElement("Duplicate",
+                            new XAttribute("type", "copy"),
+                            new XAttribute("fngrprnt", FngrPrnt_Txt.Text)
+                        )
+                     );
+                     _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\expert.wav";
+                     new Thread(AlarmShow).Start();
+
+                     CardNumb_Text.EditValue = null;
+                  }
+               }
                return; 
             }
 
@@ -3304,13 +3344,15 @@ namespace System.Scsc.Ui.MasterPage
       }
 
       WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+      string _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+      Color _evencolor = Color.YellowGreen, _oddcolor = Color.LimeGreen;
       private void AlarmShow()
       {
          if (InvokeRequired)
          {
             try
             {
-               wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+               wplayer.URL = _wplayer_url;
                wplayer.controls.play();
             }
             catch { }
@@ -3319,15 +3361,18 @@ namespace System.Scsc.Ui.MasterPage
             for (int i = 0; i < 5; i++)
             {
                if (i % 2 == 0)
-                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = _evencolor;//Color.YellowGreen;
                else
-                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.LimeGreen;
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = _oddcolor;//Color.LimeGreen;
 
                Thread.Sleep(100);
             }
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = tempcolor;
+
+            _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+            _evencolor = Color.YellowGreen; _oddcolor = Color.LimeGreen;
          }
-      }
+      }           
 
       private void LsGate_OnDataRecived(int port, byte[] recieve)
       {
@@ -3495,6 +3540,7 @@ namespace System.Scsc.Ui.MasterPage
          var devtype = xextdev.Attribute("devtype").Value;
          var contype = xextdev.Attribute("contype").Value;
          var cmdtype = xextdev.Attribute("cmdtype").Value;
+         var cmdsend = xextdev.Attribute("cmdsend").Value;
 
          if(devtype == "001")
          {
@@ -3537,6 +3583,59 @@ namespace System.Scsc.Ui.MasterPage
                }
 
                SendCommand(ip, sendport, cmdbyte);
+            }
+         }
+         else if (devtype.In( "010", "009"))
+         {
+            if(contype == "002")
+            {
+               // Lan Cable
+               var ip = xextdev.Attribute("ip").Value;
+               var sendport = Convert.ToInt32(xextdev.Attribute("sendport").Value);
+
+               var _dev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_TYPE == devtype && d.DEV_CON == contype && d.IP_ADRS == ip);
+
+               if(_dev.DEV_COMP_TYPE == "002")
+               {
+                  switch (cmdtype)
+                  {
+                     case "test":
+                     case "all":
+                        // Test 
+                        SendCommandDevExpn("000", _dev.DEV_NAME, "");
+                        break;                     
+                     default:
+                        // Open
+                        SendCommandDevExpn(cmdsend, _dev.DEV_NAME, cmdtype);
+                        break;
+                  }
+               }
+               else if (_dev.DEV_COMP_TYPE == "003")
+               {
+
+                  byte[] cmdbyte = null;
+                  switch (cmdtype)
+                  {
+                     case "test":
+                        cmdbyte = new byte[] { 0xFA, 0xCA, 0x01, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
+                        break;
+                     case "all":
+                        cmdbyte = new byte[] { 0xFA, 0xCA, 0x03, 0x88, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
+                        break;
+                     default:
+                        var dresNumb = cmdtype.ToInt32();
+                        if (dresNumb <= 255)
+                           cmdbyte = new byte[] { 0xFA, 0xCA, 0x02, Convert.ToByte(dresNumb.ToString("X2")), 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
+                        else
+                        {
+                           var _numbStr = dresNumb.ToString("X4");
+                           cmdbyte = new byte[] { 0xFA, 0xCA, 0x02, Convert.ToByte(dresNumb.ToString("X4").Substring(0, 2)), Convert.ToByte(dresNumb.ToString("X4").Substring(2)), 0x00, 0x00, 0x00, 0x00, 0xEE };
+                        }
+                        break;
+                  }
+
+                  SendCommand(ip, sendport, cmdbyte);
+               }
             }
          }
       }
@@ -4114,12 +4213,22 @@ namespace System.Scsc.Ui.MasterPage
             //var port = ports.FirstOrDefault(p => p.PortName == dresrattn.Dresser.COMM_PORT);
             //port.Write(dresrattn.Attendance.DERS_NUMB.ToString());
             var ctrldev = iScsc.Dressers.FirstOrDefault(d => d.Computer_Action.COMP_NAME == xHost.Attribute("name").Value && d.REC_STAT == "002" && d.DRES_NUMB == dresrattn.Dresser.DRES_NUMB);
-            var devsName = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "009" || d.DEV_TYPE == "010") && d.STAT == "002");
+            var _dev = iScsc.External_Devices.FirstOrDefault(d => /*d.DEV_COMP_TYPE == "002" &&*/ (/*d.DEV_TYPE == "009" ||*/ d.DEV_TYPE == "010") && d.STAT == "002");
+
+            OprtExtDev(
+               new XElement("MainPage",
+                     new XAttribute("devtype", _dev.DEV_TYPE),
+                     new XAttribute("contype", _dev.DEV_CON),
+                     new XAttribute("cmdtype", dresrattn.Dresser.DRES_NUMB),
+                     new XAttribute("ip", _dev.IP_ADRS),
+                     new XAttribute("sendport", _dev.PORT_SEND)
+               )
+            );
             // ابتدا نمایش  صفحه نمایش اتفاق بیوفتد
-            SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString().PadLeft(3, '0'), devsName.FirstOrDefault(d => d.DEV_TYPE == "009").DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
+            //SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString().PadLeft(3, '0'), devsName.FirstOrDefault(d => d.DEV_TYPE == "009").DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
 
             // مرحله بعدی ارسال پیام به دستگاه کنترلر مربوط به کمدهای قفل انلاین هست
-            SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString().PadLeft(3, '0'), devsName.FirstOrDefault(d => d.DEV_TYPE == "010" && d.IP_ADRS == ctrldev.IP_ADRS).DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
+            //SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString().PadLeft(3, '0'), devsName.FirstOrDefault(d => d.DEV_TYPE == "010" && d.IP_ADRS == ctrldev.IP_ADRS).DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
 
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
          }
@@ -4142,14 +4251,32 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
 
-      private void SendOprtDresser(string portName, string cmndName)
+      private void SendOprtDresser(string devIP, string cmndName, string cmndsend)
       {
          try
          {
-            // پیدا کردن پورت برای ارسال
-            var ports = OnlineDres_Butn.Tag as List<SerialPort>;
-            var port = ports.FirstOrDefault(p => p.PortName == portName);
-            port.Write(cmndName);
+            // پیدا کردن دستگاه برای ارسال
+            var _dev = iScsc.External_Devices.FirstOrDefault(ed => (ed.DEV_TYPE == "010" || ed.DEV_TYPE == "009") && ed.IP_ADRS == devIP && ed.STAT == "002");
+
+            switch (_dev.DEV_COMP_TYPE)
+            {
+               case "002":
+               case "003":
+                  // Noro Company
+                  OprtExtDev(
+                     new XElement("MainPage",
+                         new XAttribute("devtype", _dev.DEV_TYPE),
+                         new XAttribute("contype", _dev.DEV_CON),
+                         new XAttribute("cmdtype", cmndName),
+                         new XAttribute("cmdsend", cmndsend),
+                         new XAttribute("ip", _dev.IP_ADRS),
+                         new XAttribute("sendport",_dev.PORT_SEND)
+                     )
+                  );
+                  break;
+               default:
+                  break;
+            }
 
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
          }
@@ -5720,6 +5847,9 @@ namespace System.Scsc.Ui.MasterPage
                      new Job(SendType.SelfToUserInterface, "ATTN_DAYN_F", 10 /* Execute Actn_CalF_F*/ )
                   })
             );
+
+            _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\tick.wav";
+            new Thread(AlarmShow).Start();
          }
       }
 
@@ -5787,6 +5917,9 @@ namespace System.Scsc.Ui.MasterPage
                   GetServer
                );
                SrvrPing_Butn.Tag = GetServer.Output.ToString();
+
+               _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\connect.wav";
+               new Thread(AlarmShow).Start();
             }
 
             Ping ping = new Ping();
@@ -5796,13 +5929,16 @@ namespace System.Scsc.Ui.MasterPage
             {
                SrvrPing_Butn.Image = Properties.Resources.IMAGE_1408;
                SrvrPing_Butn.Appearance.BackColor = Color.LightGreen;
-               SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} Network connected.", SrvrPing_Butn.Tag);
+               SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} Network connected.", SrvrPing_Butn.Tag);               
             }
             else
             {
                SrvrPing_Butn.Image = Properties.Resources.IMAGE_1418;
                SrvrPing_Butn.Appearance.BackColor = Color.Pink;
                SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} Network disconnected.", SrvrPing_Butn.Tag);
+
+               _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\disconnect.wav";
+               new Thread(AlarmShow).Start();
             }
 
             // اگر چک کردن تست ارتباط فعال باشد
@@ -5835,6 +5971,9 @@ namespace System.Scsc.Ui.MasterPage
                         );
 
                         ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " connected." + Environment.NewLine;
+
+                        _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\connect.wav";
+                        new Thread(AlarmShow).Start();
                      }
                      else
                      {
@@ -5853,6 +5992,9 @@ namespace System.Scsc.Ui.MasterPage
                         );
 
                         ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " disconnected." + Environment.NewLine;
+
+                        _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\disconnect.wav";
+                        new Thread(AlarmShow).Start();
                      }
                   }
                   else
@@ -5918,6 +6060,9 @@ namespace System.Scsc.Ui.MasterPage
                         new XAttribute("desc", "با این شماره عضویی شناسایی نشد")
                      )
                   );
+
+               _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\alert2.wav";
+               new Thread(AlarmShow).Start();
                return;
             }
             else
@@ -5992,10 +6137,16 @@ namespace System.Scsc.Ui.MasterPage
                case "001":
                   ChngAttnActn_Butn.Image = Properties.Resources.IMAGE_1608;
                   AttnType_Lov.EditValue = "003";
+
+                  _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\ok.wav";
+                  new Thread(AlarmShow).Start();
                   break;
                case "003":
                   ChngAttnActn_Butn.Image = Properties.Resources.IMAGE_1609;
                   AttnType_Lov.EditValue = "001";
+
+                  _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\request.wav";
+                  new Thread(AlarmShow).Start();
                   break;
                default:
                   break;
@@ -6235,6 +6386,12 @@ namespace System.Scsc.Ui.MasterPage
                      AttendanceSystemAlert_Butn_Click(null, null);
                   }
                   break;
+               case 2:
+                  if (OnlineDres_Butn.Text != "")
+                  {
+                     axCZKEM3_OnAttTransactionEx(OnlineDres_Butn.Text, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                  }
+                  break;
                default:
                   break;
             }
@@ -6352,6 +6509,460 @@ namespace System.Scsc.Ui.MasterPage
       private void CWlet_Pb_Click(object sender, EventArgs e)
       {
          CWlet_Tm_Tick(null, null);
+      }
+
+      private void bbi_basdifnbutn_ItemClick(object sender, EventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 144 /* Execute Bas_Dfin_F */),
+                new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 10 /* Actn_CalF_P */)
+              });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_adm1butn_ItemClick(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 123 /* Execute Adm_Figh_F */),
+                  new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_mbs1butn_ItemClick(object sender, EventArgs e)
+      {
+         /// Must Be Change ****
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
+                  new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_insrbutn_ItemClick(object sender, EventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {                  
+                  new Job(SendType.Self, 80 /* Execute Ins_Totl_F */),
+                  new Job(SendType.SelfToUserInterface, "INS_TOTL_F", 10 /* Actn_CalF_P */)
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_flstbutn_ItemClick(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>260</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 260 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+                  new Job(SendType.Self, 45 /* Execute Lsi_Fldf_F */){Input = x},
+                  new Job(SendType.SelfToUserInterface, "LSI_FLDF_F", 10 /* Actn_CalF_P */){Input = new XElement("Fighter", new XAttribute("showlist", "001"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_fdlsbutn_ItemClick(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {                  
+                  new Job(SendType.Self, 140 /* Execute Lsi_Fldf_F */){Input = x},
+                  new Job(SendType.SelfToUserInterface, "LSI_FDLF_F", 10 /* Actn_CalF_P */){Input = new XElement("Fighter", new XAttribute("showlist", "001"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_cmanbutn_ItemClick(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 130 /* Execute Adm_Brsr_F */),
+                  new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_cpaybutn_ItemClick(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 69 /* Execute Cal_Cexc_F */),
+                  new Job(SendType.SelfToUserInterface, "CAL_CEXC_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_oexpbutn_ItemClick(object sender, EventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 69 /* Execute Cal_Cexc_F */),
+                  new Job(SendType.SelfToUserInterface, "CAL_CEXC_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_002"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_exdsbutn_ItemClick(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 131 /* Execute Adm_Brsr_F */),
+                  new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_smsbbutn_ItemClick(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 116 /* Execute Msgb_Totl_F */)
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_dsctcard_ItemClick(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 165 /* Execute Adv_Base_F */),
+                  new Job(SendType.SelfToUserInterface, "ADV_BASE_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("formcaller", GetType().Name))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_incmbutn_ItemClick(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>218</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+                  #region DoWork
+                  new Job(SendType.Self, 135 /* Execute Rpt_Pmmt_F */),
+                  new Job(SendType.SelfToUserInterface, "RPT_PMMT_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"), new XAttribute("fromdate", DateTime.Now), new XAttribute("todate", DateTime.Now), new XAttribute("useraccount", "manager"), new XAttribute("formname", "RPT_PYM1_F"))}
+                  #endregion
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_bkupbutn_ItemClick(object sender, EventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                  new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "BackupRestore"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_rstrbutn_ItemClick(object sender, EventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                  new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "BackupRestore"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_embkbutn_ItemClick(object sender, EventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "cfg_stng_f"},
+                  new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 02 /* Execute Set */),                  
+                  new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 07 /* Execute Load_Data */),                  
+                  new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "EmerjncyBackup"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_oincbutn_ItemClick(object sender, EventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {                  
+                     new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                     //new Job(SendType.SelfToUserInterface, "MNG_RCAN_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Payment", new XAttribute("type", "Out"))}
+                  });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void ShowMain_Btn_Click(object sender, EventArgs e)
+      {
+         if (spc_desktopnew.SplitterPosition != 276)
+            spc_desktopnew.SplitterPosition = 276;
+         else
+            spc_desktopnew.SplitterPosition = 0;
+
+         _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\tick.wav";
+         new Thread(AlarmShow).Start();
+      }
+
+      private void tol_ibutn_ItemClick(object sender, EventArgs e)
+      {
+         try
+         {
+            var butn = sender as System.MaxUi.Button;
+            switch (butn.Tag.ToString())
+            {
+               case "calc":
+                  Process.Start("calc.exe");
+                  break;
+               case "devicemanager":
+                  Process.Start("devmgmt.msc");
+                  break;
+               case "localservices":
+                  Process.Start("services.msc");
+                  break;
+               case "sharefolder":
+                  Process.Start("explorer.exe", @"\\localhost");
+                  break;
+               case "appfolder":
+                  Process.Start("explorer.exe", Environment.CurrentDirectory);
+                  break;
+               case "ssms":
+                  Process.Start("ssms.exe");
+                  break;
+               case "mstsc":
+                  Process.Start("mstsc.exe");
+                  break;
+               case "magnifire":
+                  Process.Start("magnify.exe");
+                  break;
+               case "controlpanel":
+                  Process.Start("control.exe");
+                  break;
+               case "cmd":
+                  Process.Start("cmd.exe");
+                  break;
+               case "anydesk":
+                  Process.Start(@"C:\Program Files (x86)\AnyDesk\AnyDesk.exe");
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void bbi_AddCoch_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "", 145 /* Execute Bas_Adch_F */, SendType.Self)
+         );
+      }
+
+      private void bbi_AllCoch_Butn_Click(object sender, EventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 144 /* Execute Bas_Dfin_F */),
+                new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("showtabpage", "tp_005"))}
+              });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void Master_Tc_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            switch (Master_Tc.SelectedIndex)
+            {
+               case 1:
+                  EventX_Rb_CheckedChanged(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void EventX_Rb_CheckedChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            if(EventToday_Rb.Checked)
+            {
+               vEvntBs.DataSource = iScsc.V_Events.Where(ev => ev.EVNT_DATE.Value.Date == DateTime.Now.Date);
+            }
+            else if (EventFuture_Rb.Checked)
+            {
+               vEvntBs.DataSource = iScsc.V_Events.Where(ev => ev.EVNT_DATE.Value.Date > DateTime.Now.Date && ev.EVNT_DATE.Value.Date <= DateTime.Now.Date.AddDays((int)EventDays_Spn.Value));
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void EventDays_Spn_ValueChanged(object sender, EventArgs e)
+      {
+         EventX_Rb_CheckedChanged(null, null);
+      }
+
+      private void tol_opengatebutn_ItemClick(object sender, EventArgs e)
+      {
+         iScsc.INS_LGOP_P(
+            new XElement("Log",
+               new XAttribute("fileno", ""),
+               new XAttribute("type", "007"),
+               new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه داخل باز شد")
+            )
+         );
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  //new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                  new Job(SendType.SelfToUserInterface, GetType().Name, 10 /* Execute Actn_CalF_F */)
+                  {
+                     Input = 
+                        new XElement("MainPage",
+                           new XAttribute("type", "gatecontrol"),
+                           new XAttribute("gateactn", "open")
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void tol_closegatebutn_ItemClick(object sender, EventArgs e)
+      {
+         iScsc.INS_LGOP_P(
+            new XElement("Log",
+               new XAttribute("fileno", ""),
+               new XAttribute("type", "007"),
+               new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه بیرون باز شد")
+            )
+         );
+
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost",
+               new List<Job>
+               {
+                  //new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                  new Job(SendType.SelfToUserInterface, GetType().Name, 10 /* Execute Actn_CalF_F */)
+                  {
+                     Input = 
+                        new XElement("MainPage",
+                           new XAttribute("type", "gatecontrol"),
+                           new XAttribute("gateactn", "close")
+                        )
+                  }
+               }
+            )
+         );
+      }
+
+      private void ksk_incmbutn_ItemClick(object sender, EventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {                  
+                     new Job(SendType.Self, 157 /* Execute Ksk_Incm_F */)
+                  });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void ShowRbonMenu_Btn_Click(object sender, EventArgs e)
+      {
+         MainRbonMenu_Rbnc.Visible = !MainRbonMenu_Rbnc.Visible;
+
+         _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\tick.wav";
+         new Thread(AlarmShow).Start();
       }      
    }
 }

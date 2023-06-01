@@ -603,7 +603,7 @@ namespace System.Scsc.Ui.Admission
             DDytpBs1.DataSource = iScsc.D_DYTPs;
             DRcmtBs1.DataSource = iScsc.D_RCMTs;
             DDsatBs.DataSource = iScsc.D_DSATs;
-            DCetpBs.DataSource = iScsc.D_CETPs;
+            DCetpBs.DataSource = iScsc.D_CETPs;            
 
             PrvnBs1.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
             
@@ -615,6 +615,7 @@ namespace System.Scsc.Ui.Admission
          #endregion
 
       finishcommand:
+         DRqpmBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Request_Parameter");
          RtoaBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Payment_To_Another_Account");
          //FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          VPosBs1.DataSource = iScsc.V_Pos_Devices;

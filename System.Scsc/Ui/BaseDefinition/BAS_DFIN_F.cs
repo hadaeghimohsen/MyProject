@@ -625,7 +625,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            iScsc.CommandTimeout = 1800;
+            iScsc.CommandTimeout = int.MaxValue;
             this.Focus();
             Validate();
             CtgyBs1.EndEdit();
@@ -758,11 +758,11 @@ namespace System.Scsc.Ui.BaseDefinition
                expn.ToList().ForEach(ex =>
                {
                   var ctgy = iScsc.Category_Belts.FirstOrDefault(cb => cb.CODE == ex.CTGY_CODE);
-                  ex.PRIC = (int)ctgy.PRIC;
-                  ex.NUMB_CYCL_DAY = ctgy.NUMB_CYCL_DAY;
-                  ex.NUMB_OF_ATTN_MONT = ctgy.NUMB_OF_ATTN_MONT;
-                  ex.NUMB_MONT_OFER = ctgy.NUMB_MONT_OFER;
-                  ex.EXPN_STAT = ctgy.CTGY_STAT;
+                  ex.PRIC = (long)(ctgy.PRIC ?? 0);
+                  ex.NUMB_CYCL_DAY = ctgy.NUMB_CYCL_DAY ?? 0;
+                  ex.NUMB_OF_ATTN_MONT = ctgy.NUMB_OF_ATTN_MONT ?? 0;
+                  ex.NUMB_MONT_OFER = ctgy.NUMB_MONT_OFER ?? 0;
+                  ex.EXPN_STAT = ctgy.CTGY_STAT ?? "002";
                });
 
                iScsc.SubmitChanges();
@@ -1596,6 +1596,40 @@ namespace System.Scsc.Ui.BaseDefinition
                   mtod.MTOD_STAT = mtod.MTOD_STAT == "002" ? "001" : "002";
                   SaveMethod_Butn_Click(null, null);
                   break;
+               case 1:
+                  mtod.SHOW_STAT = mtod.SHOW_STAT == "002" ? "001" : "002";
+                  SaveMethod_Butn_Click(null, null);
+                  break;
+               case 2:
+                  long? epit = (long?)ExpnEpit_Lov.EditValue;
+                  if (epit == null || (long)(epit) == 0) { ExpnEpit_Lov.Focus(); return; }
+
+                  var expn =
+                     iScsc.Expenses.
+                     Where(ex => ex.Regulation.TYPE == "001"
+                        && ex.Regulation.REGL_STAT == "002"
+                        && ex.Expense_Type.Request_Requester.RQTP_CODE == "016"
+                        && ex.Expense_Type.Request_Requester.RQTT_CODE == "001"
+                        && ex.Expense_Type.EPIT_CODE == epit
+                        && ex.MTOD_CODE == mtod.CODE                        
+                     );
+
+                  if (expn.Count() > 0)
+                  {
+
+                     expn.ToList().ForEach(ex =>
+                     {
+                        var ctgy = iScsc.Category_Belts.FirstOrDefault(cb => cb.CODE == ex.CTGY_CODE);
+                        ex.PRIC = (long)(ctgy.PRIC ?? 0);
+                        ex.NUMB_CYCL_DAY = ctgy.NUMB_CYCL_DAY ?? 0;
+                        ex.NUMB_OF_ATTN_MONT = ctgy.NUMB_OF_ATTN_MONT ?? 0;
+                        ex.NUMB_MONT_OFER = ctgy.NUMB_MONT_OFER ?? 0;
+                        ex.EXPN_STAT = ctgy.CTGY_STAT ?? "002";
+                     });
+
+                     iScsc.SubmitChanges();
+                  }
+                  break;
                default:
                   break;
             }
@@ -1626,6 +1660,40 @@ namespace System.Scsc.Ui.BaseDefinition
                case 0:
                   ctgy.CTGY_STAT = ctgy.CTGY_STAT == "002" ? "001" : "002";
                   SaveCategory_Butn_Click(null, null);
+                  break;
+               case 1:
+                  ctgy.SHOW_STAT = ctgy.SHOW_STAT == "002" ? "001" : "002";
+                  SaveCategory_Butn_Click(null, null);
+                  break;
+               case 2:
+                  long? epit = (long?)ExpnEpit_Lov.EditValue;
+                  if (epit == null || (long)(epit) == 0) { ExpnEpit_Lov.Focus(); return; }
+
+                  var expn =
+                     iScsc.Expenses.
+                     Where(ex => ex.Regulation.TYPE == "001"
+                        && ex.Regulation.REGL_STAT == "002"
+                        && ex.Expense_Type.Request_Requester.RQTP_CODE == "016"
+                        && ex.Expense_Type.Request_Requester.RQTT_CODE == "001"
+                        && ex.Expense_Type.EPIT_CODE == epit
+                        && ex.MTOD_CODE == ctgy.MTOD_CODE
+                        && ex.CTGY_CODE == ctgy.CODE
+                     );
+
+                  if (expn.Count() > 0)
+                  {
+                     expn.ToList().ForEach(ex =>
+                     {
+                        //var ctgy = iScsc.Category_Belts.FirstOrDefault(cb => cb.CODE == ex.CTGY_CODE);
+                        ex.PRIC = (int)ctgy.PRIC;
+                        ex.NUMB_CYCL_DAY = ctgy.NUMB_CYCL_DAY;
+                        ex.NUMB_OF_ATTN_MONT = ctgy.NUMB_OF_ATTN_MONT;
+                        ex.NUMB_MONT_OFER = ctgy.NUMB_MONT_OFER;
+                        ex.EXPN_STAT = "002";
+                     });
+
+                     iScsc.SubmitChanges();
+                  }
                   break;
                default:
                   break;
@@ -2692,8 +2760,13 @@ namespace System.Scsc.Ui.BaseDefinition
                      new XAttribute("attndelytime", Stng.ATTN_DELY_TIME ?? 0),
 
                      new XAttribute("snd7path", Stng.SND7_PATH ?? ""),
-                     new XAttribute("snd9path", Stng.SND9_PATH ?? "")
+                     new XAttribute("snd9path", Stng.SND9_PATH ?? ""),
 
+                     new XAttribute("restattnnumbbyyear", Stng.REST_ATTN_NUMB_BY_YEAR ?? "002"),
+                     new XAttribute("attnnotinsrstat", Stng.ATTN_NOT_INSR_STAT ?? "002"),
+
+                     new XAttribute("showrbonmnui", Stng.SHOW_RBON_MNUI ?? "002"),
+                     new XAttribute("showslidmnui", Stng.SHOW_SLID_MNUI ?? "001")
                   )
                )
             );
@@ -3473,7 +3546,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
                if (!ReloadAttn5_Cb.Checked) return;
 
-               iScsc.CommandTimeout = 18000;
+               iScsc.CommandTimeout = int.MaxValue;
 
                var actvmbsp =
                   iScsc.VF_Coach_MemberShip(
@@ -3494,7 +3567,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
                if (!ReloadMbsp5_Cb.Checked) return;
 
-               iScsc.CommandTimeout = 18000;
+               iScsc.CommandTimeout = int.MaxValue;
 
                VCochMbsp5Bs.DataSource =
                   iScsc.VF_Coach_MemberShip(
@@ -3532,7 +3605,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
                if (!ReloadAttn6_Cb.Checked) return;
 
-               iScsc.CommandTimeout = 18000;
+               iScsc.CommandTimeout = int.MaxValue;
 
                var actvmbsp =
                   iScsc.VF_Coach_MemberShip(
@@ -3553,7 +3626,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
                if (!ReloadAttn6_Cb.Checked) return;
 
-               iScsc.CommandTimeout = 18000;
+               iScsc.CommandTimeout = int.MaxValue;
 
                VCochMbsp6Bs.DataSource =
                   iScsc.VF_Coach_MemberShip(
@@ -4495,6 +4568,9 @@ namespace System.Scsc.Ui.BaseDefinition
 
             InptNatlCode_Cb.Checked = (s.INPT_NATL_CODE_STAT ?? "001") == "002" ? true : false;
             InptCellPhon_Cb.Checked = (s.INPT_CELL_PHON_STAT ?? "001") == "002" ? true : false;
+
+            ShowRbonMnui_Pkb.PickChecked = (s.SHOW_RBON_MNUI ?? "001") == "002" ? true : false;
+            ShowSlidMnui_Pkb.PickChecked = (s.SHOW_SLID_MNUI ?? "001") == "002" ? true : false;
          }
          catch (Exception exc)
          {
@@ -4895,7 +4971,7 @@ namespace System.Scsc.Ui.BaseDefinition
                iScsc.ExecuteCommand(
                   string.Format(
                      "UPDATE dbo.Calculate_Expense_Coach " +
-                     "SET Calc_Expn_Type = '{3}', Calc_Type = '{4}', Prct_Valu = {5}, Stat = '{6}', Pymt_Stat = '{7}' " +
+                     "SET Calc_Expn_Type = '{3}', Calc_Type = '{4}', Prct_Valu = {5}, Stat = '{6}', Pymt_Stat = '{7}', Rduc_Amnt = {8}, Efct_Date_Type = '{9}', Fore_Givn_Attn_Numb = {10} " +
                      "WHERE Mtod_Code = {0} AND Rqtp_Code = {1} AND Extp_Code = {2};",
                      _cexc.MTOD_CODE,
                      _cexc.RQTP_CODE,
@@ -4904,7 +4980,10 @@ namespace System.Scsc.Ui.BaseDefinition
                      _cexc.CALC_TYPE,
                      _cexc.PRCT_VALU,
                      _cexc.STAT,
-                     _cexc.PYMT_STAT
+                     _cexc.PYMT_STAT,
+                     _cexc.RDUC_AMNT ?? 0,
+                     _cexc.EFCT_DATE_TYPE,
+                     _cexc.FORE_GIVN_ATTN_NUMB ?? 0
                   )
                );
             }
@@ -4913,14 +4992,17 @@ namespace System.Scsc.Ui.BaseDefinition
                iScsc.ExecuteCommand(
                   string.Format(
                      "UPDATE dbo.Calculate_Expense_Coach " +
-                     "SET Calc_Expn_Type = '{1}', Calc_Type = '{2}', Prct_Valu = {3}, Stat = '{4}', Pymt_Stat = '{5}' " +
+                     "SET Calc_Expn_Type = '{1}', Calc_Type = '{2}', Prct_Valu = {3}, Stat = '{4}', Pymt_Stat = '{5}', Rduc_Amnt = {6}, Efct_Date_Type = '{7}', Fore_Givn_Attn_Numb = {8} " +
                      "WHERE Coch_File_No = {0};",
                      _cexc.COCH_FILE_NO,
                      _cexc.CALC_EXPN_TYPE,
                      _cexc.CALC_TYPE,
                      _cexc.PRCT_VALU,
                      _cexc.STAT,
-                     _cexc.PYMT_STAT
+                     _cexc.PYMT_STAT,
+                     _cexc.RDUC_AMNT ?? 0,
+                     _cexc.EFCT_DATE_TYPE,
+                     _cexc.FORE_GIVN_ATTN_NUMB ?? 0
                   )
                );
             }
@@ -4929,12 +5011,15 @@ namespace System.Scsc.Ui.BaseDefinition
                iScsc.ExecuteCommand(
                   string.Format(
                      "UPDATE dbo.Calculate_Expense_Coach " +
-                     "SET Calc_Expn_Type = '{0}', Calc_Type = '{1}', Prct_Valu = {2}, Stat = '{3}', Pymt_Stat = '{4}';" ,
+                     "SET Calc_Expn_Type = '{0}', Calc_Type = '{1}', Prct_Valu = {2}, Stat = '{3}', Pymt_Stat = '{4}', Rduc_Amnt = {5}, Efct_Date_Type = '{6}', Fore_Givn_Attn_Numb = {7};",
                      _cexc.CALC_EXPN_TYPE,
                      _cexc.CALC_TYPE,
                      _cexc.PRCT_VALU,
                      _cexc.STAT,
-                     _cexc.PYMT_STAT
+                     _cexc.PYMT_STAT,
+                     _cexc.RDUC_AMNT ?? 0,
+                     _cexc.EFCT_DATE_TYPE,
+                     _cexc.FORE_GIVN_ATTN_NUMB ?? 0
                   )
                );
             }
@@ -4943,8 +5028,8 @@ namespace System.Scsc.Ui.BaseDefinition
                // برای تمام آیتم های سرگروه خوده پرسنل
                iScsc.ExecuteCommand(
                   string.Format(
-                     "UPDATE dbo.Calculate_Expense_Coach " + 
-                     "SET Calc_Expn_Type = '{4}', Calc_Type = '{5}', Prct_Valu = {6}, Stat = '{7}', Pymt_Stat = '{8}' " +  
+                     "UPDATE dbo.Calculate_Expense_Coach " +
+                     "SET Calc_Expn_Type = '{4}', Calc_Type = '{5}', Prct_Valu = {6}, Stat = '{7}', Pymt_Stat = '{8}', Rduc_Amnt = {9}, Efct_Date_Type = '{10}', Fore_Givn_Attn_Numb = {11} " +  
                      "WHERE Coch_File_No = {0} AND Mtod_Code = {1} AND Rqtp_Code = {2} AND Extp_Code = {3};",
                      _cexc.COCH_FILE_NO,
                      _cexc.MTOD_CODE,
@@ -4954,7 +5039,10 @@ namespace System.Scsc.Ui.BaseDefinition
                      _cexc.CALC_TYPE,
                      _cexc.PRCT_VALU,
                      _cexc.STAT,
-                     _cexc.PYMT_STAT
+                     _cexc.PYMT_STAT,
+                     _cexc.RDUC_AMNT ?? 0,
+                     _cexc.EFCT_DATE_TYPE,
+                     _cexc.FORE_GIVN_ATTN_NUMB ?? 0
                   )
                );
             }
@@ -5163,6 +5251,138 @@ namespace System.Scsc.Ui.BaseDefinition
       void StopSound()
       {
          wplayer.controls.stop();
+      }
+
+      private void DuplCtgy_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if(DuplCtgy_Fcb.Checked)
+            {
+               foreach (var _ctgy in CtgyBs1.List.OfType<Data.Category_Belt>())
+               {
+                  iScsc.INS_CTGY_P(_ctgy.MTOD_CODE, _ctgy.CTGY_DESC + DuplChar_Txt.Text, _ctgy.CTGY_DESC + DuplChar_Txt.Text, null, _ctgy.EPIT_TYPE, _ctgy.NUMB_OF_ATTN_MONT, _ctgy.NUMB_CYCL_DAY, _ctgy.NUMB_MONT_OFER, _ctgy.PRVT_COCH_EXPN, _ctgy.PRIC, _ctgy.DFLT_STAT, _ctgy.CTGY_STAT, _ctgy.GUST_NUMB, null, _ctgy.RWRD_ATTN_PRIC, _ctgy.SHOW_STAT);
+               }
+            }
+            else
+            {
+               var _ctgy = CtgyBs1.Current as Data.Category_Belt;
+               if (_ctgy == null) return;
+
+               iScsc.INS_CTGY_P(_ctgy.MTOD_CODE, _ctgy.CTGY_DESC + DuplChar_Txt.Text, _ctgy.CTGY_DESC + DuplChar_Txt.Text, null, _ctgy.EPIT_TYPE, _ctgy.NUMB_OF_ATTN_MONT, _ctgy.NUMB_CYCL_DAY, _ctgy.NUMB_MONT_OFER, _ctgy.PRVT_COCH_EXPN, _ctgy.PRIC, _ctgy.DFLT_STAT, _ctgy.CTGY_STAT, _ctgy.GUST_NUMB, null, _ctgy.RWRD_ATTN_PRIC, _ctgy.SHOW_STAT);
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+
+      }
+
+      private void FngrPrnt1_Lb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var figh = CochBs1.Current as Data.Fighter;
+
+            Job _InteractWithScsc =
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
+                     new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("mbsprwno", 1))}
+                  });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ShowRbonMnui_Pkb_PickCheckedChange(object sender)
+      {
+         var stng = StngBs1.Current as Data.Setting;
+         if (stng == null) return;
+
+         stng.SHOW_RBON_MNUI = ShowRbonMnui_Pkb.PickChecked ? "002" : "001";
+      }
+
+      private void ShowSlidMnui_Pkb_PickCheckedChange(object sender)
+      {
+         var stng = StngBs1.Current as Data.Setting;
+         if (stng == null) return;
+
+         stng.SHOW_SLID_MNUI = ShowSlidMnui_Pkb.PickChecked ? "002" : "001";
+      }
+
+      private void AddCEdev_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var edev = ExdvBs.Current as Data.External_Device;
+            if (edev == null) return;
+
+            if (CExdvBs.List.OfType<Data.External_Device_Link_External_Device>().Any(ele => ele.CODE == 0)) return;
+
+            var cedev = CExdvBs.AddNew() as Data.External_Device_Link_External_Device;
+            iScsc.External_Device_Link_External_Devices.InsertOnSubmit(cedev);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelCEdev_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var cedev = CExdvBs.Current as Data.External_Device_Link_External_Device;
+            if (cedev == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+            iScsc.ExecuteCommand(string.Format("DELETE dbo.External_Device_Link_External_Device WHERE Code = {0};", cedev.CODE));
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveCEdev_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            CExdvGv.PostEditor();
+            CExdvBs.EndEdit();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }
    }
 }

@@ -267,7 +267,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
                if (!ReloadAttn6_Cb.Checked) return;
 
-               iScsc.CommandTimeout = 18000;
+               iScsc.CommandTimeout = int.MaxValue;
 
                var actvmbsp =
                   iScsc.VF_Coach_MemberShip(
@@ -288,7 +288,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
                if (!ReloadAttn6_Cb.Checked) return;
 
-               iScsc.CommandTimeout = 18000;
+               iScsc.CommandTimeout = int.MaxValue;
 
                VCochMbspBs1.DataSource =
                   iScsc.VF_Coach_MemberShip(

@@ -184,8 +184,8 @@ namespace System.Scsc.Ui.Admission
                                     new XElement("Type", RQTT_CODE_LookUpEdit1.EditValue),
                                     new XElement("Post_Adrs", POST_ADRS_TextEdit.Text),
                                     new XElement("Emal_Adrs", ""),
-                                    new XElement("Insr_Numb", ""),
-                                    new XElement("Insr_Date", ""),
+                                    new XElement("Insr_Numb", (iNSR_NUMBTextEdit.Text ?? "").ToString().Trim()),
+                                    new XElement("Insr_Date", iNSR_DATEPersianDateEdit.Value == null ? "" : iNSR_DATEPersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
                                     new XElement("Educ_Deg", ""),
                                     new XElement("Cbmt_Code", CbmtCode_Lov.EditValue ?? ""),
                                     new XElement("Dise_Code", ""),
@@ -428,6 +428,18 @@ namespace System.Scsc.Ui.Admission
                            new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", FNGR_PRNT_TextEdit.Text), new XAttribute("formcaller", GetType().Name))}
                         })
                   );
+               }
+
+               // 1402/02/26 * ذخیره کردن شماره درخواست برای نمونه برداری برای کارت مشتریان دیگر
+               if (RqstDupl_Pbtn.PickChecked)
+               {
+                  iScsc.DUP_RQST_P(
+                     new XElement("Duplicate",
+                         new XAttribute("type", "SetInitRecord"),
+                         new XAttribute("rqid", Rqst.RQID)
+                     )
+                  );
+                  RqstDupl_Pbtn.PickChecked = false;
                }
             }
          }
@@ -2477,6 +2489,89 @@ namespace System.Scsc.Ui.Admission
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void FRqpm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "Request_Parameter"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DRqpm_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst == null) return;
+
+            var _drqpm = DRqpmBs.Current as Data.App_Base_Define;
+            if (_drqpm == null) return;
+
+            if (RqpmBs.List.OfType<Data.Request_Parameter>().Any(rp => rp.APBS_CODE == _drqpm.CODE)) return;
+
+            var _rqpm = RqpmBs.AddNew() as Data.Request_Parameter;
+            _rqpm.APBS_CODE = _drqpm.CODE;
+            _rqpm.RQST_RQID = _rqst.RQID;
+
+            iScsc.Request_Parameters
+               .InsertOnSubmit(_rqpm);
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Rqpm_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _rqpm = RqpmBs.Current as Data.Request_Parameter;
+            if (_rqpm == null) return;
+
+            iScsc.Request_Parameters.DeleteOnSubmit(_rqpm);
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
    }

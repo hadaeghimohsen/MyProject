@@ -76,7 +76,9 @@ namespace System.Scsc.Ui.OtherIncome
                   ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
                   ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                   ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-                  ex.EXPN_STAT == "002" /* هزینه های فعال */
+                  ex.EXPN_STAT == "002" && /* هزینه های فعال */
+                  ex.Category_Belt.SHOW_STAT == "002" &&
+                  ex.Method.SHOW_STAT == "002"
                );
 
                Expn_FLP.Controls.Clear();
@@ -114,7 +116,7 @@ namespace System.Scsc.Ui.OtherIncome
                      b.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
                      b.LookAndFeel.UseDefaultLookAndFeel = false;
                      b.Name = "GropSmpl_Butn";
-                     b.Size = new System.Drawing.Size(113, 101);
+                     b.Size = new System.Drawing.Size(150, 101);
                      b.TabIndex = 98;
                      b.Tag = exp;
                      b.Text = string.Format("{1:n0}\n\r{0}", exp.EXPN_DESC, exp.PRIC + exp.EXTR_PRCT);
@@ -283,6 +285,11 @@ namespace System.Scsc.Ui.OtherIncome
          try
          {
             Scsc.Data.Request Rqst = RqstBs1.Current as Scsc.Data.Request;
+
+            if(Rqst != null)
+            {
+               fileno = Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO.ToString();
+            }
 
             iScsc.OIC_ERQT_F(
                new XElement("Process",
@@ -1023,6 +1030,57 @@ namespace System.Scsc.Ui.OtherIncome
          catch (Exception)
          {
 
+         }
+      }
+
+      private void CnclRqst_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst == null) return;
+
+            if (_rqst != null)
+            {
+               fileno = _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO.ToString();
+            }
+
+            iScsc.ExecuteCommand(string.Format("DELETE dbo.Payment_Detail WHERE Pymt_Rqst_Rqid = {0};", _rqst.RQID));
+
+            iScsc.OIC_ERQT_F(
+               new XElement("Process",
+                  new XElement("Request",
+                     new XAttribute("rqid", _rqst == null ? 0 : _rqst.RQID),
+                     new XAttribute("rqtpcode", "016"),
+                     new XAttribute("rqttcode", "001"),
+                     new XAttribute("rqstrqid", rqstRqid),
+                     new XAttribute("mdulname", GetType().Name),
+                     new XAttribute("sctnname", GetType().Name.Substring(0, 3) + "_001_F"),
+                     new XAttribute("rqstdesc", ""),
+                     new XElement("Request_Row",
+                        new XAttribute("fileno", fileno),
+                        new XElement("Fighter_Public",
+                           new XAttribute("frstname", ""),
+                           new XAttribute("lastname", ""),
+                           new XAttribute("natlcode", ""),
+                           new XAttribute("cellphon", ""),
+                           new XAttribute("suntcode", ""),
+                           new XAttribute("servno", "")
+                        )
+                     )
+                  )
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
    }

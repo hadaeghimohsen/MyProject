@@ -102,9 +102,9 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Expense_Type_Expense_Type" Member="Expense_Types" ThisKey="CODE" OtherKey="EXTP_CODE" Type="Expense_Type" />
       <Association Name="Expense_Type_Expense_Cash" Member="Expense_Cashes" ThisKey="CODE" OtherKey="EXTP_CODE" Type="Expense_Cash" />
-      <Association Name="Expense_Type_Expense" Member="Expenses" ThisKey="CODE" OtherKey="EXTP_CODE" Type="Expense" />
       <Association Name="Expense_Type_Expense_Type_Step" Member="Expense_Type_Steps" ThisKey="CODE" OtherKey="EXTP_CODE" Type="Expense_Type_Step" />
       <Association Name="Expense_Type_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="EXTP_CODE" Type="Calculate_Expense_Coach" />
+      <Association Name="Expense_Type_Expense" Member="Expenses" ThisKey="CODE" OtherKey="EXTP_CODE" Type="Expense" />
       <Association Name="Expense_Type_Expense_Type" Member="Expense_Type1" ThisKey="EXTP_CODE" OtherKey="CODE" Type="Expense_Type" IsForeignKey="true" />
       <Association Name="Request_Requester_Expense_Type" Member="Request_Requester" ThisKey="RQRQ_CODE" OtherKey="CODE" Type="Request_Requester" IsForeignKey="true" />
       <Association Name="Expense_Item_Expense_Type" Member="Expense_Item" ThisKey="EPIT_CODE" OtherKey="CODE" Type="Expense_Item" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
@@ -240,10 +240,10 @@
       <Association Name="Region_Cando" Member="Candos" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Cando" />
       <Association Name="Region_Club" Member="Clubs" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Club" />
       <Association Name="Region_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Aggregation_Operation" />
-      <Association Name="Region_Request" Member="Requests" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Request" />
       <Association Name="Region_Fighter_Public" Member="Fighter_Publics" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Fighter_Public" />
       <Association Name="Region_Fighter" Member="Fighters" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Fighter" />
       <Association Name="Region_Misc_Expense" Member="Misc_Expenses" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Misc_Expense" />
+      <Association Name="Region_Request" Member="Requests" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Request" />
       <Association Name="Province_Region" Member="Province" ThisKey="PRVN_CNTY_CODE,PRVN_CODE" OtherKey="CNTY_CODE,CODE" Type="Province" IsForeignKey="true" />
       <Association Name="Region_Region" Member="Region1" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
     </Type>
@@ -296,8 +296,8 @@
       <Association Name="Requester_Type_Base_Calculate_Expense" Member="Base_Calculate_Expenses" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Base_Calculate_Expense" />
       <Association Name="Requester_Type_Expense_Item" Member="Expense_Items" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Expense_Item" />
       <Association Name="Requester_Type_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Aggregation_Operation" />
-      <Association Name="Requester_Type_Request" Member="Requests" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Request" />
       <Association Name="Requester_Type_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Calculate_Expense_Coach" />
+      <Association Name="Requester_Type_Request" Member="Requests" ThisKey="CODE" OtherKey="RQTT_CODE" Type="Request" />
     </Type>
     <InsertFunction FunctionId="FunctionId16">
       <Argument Parameter="code" Member="CODE" />
@@ -719,8 +719,8 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Request_Row_Test" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Method_Test" Member="Method" ThisKey="CTGY_MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Fighter_Test" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Method_Test" Member="Method" ThisKey="CTGY_MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Category_Belt_Test" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
     </Type>
   </Table>
@@ -1431,11 +1431,12 @@
       <Association Name="Request_Row_Gain_Loss_Rial" Member="Gain_Loss_Rials" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID_DNRM,RQRO_RWNO_DNRM" Type="Gain_Loss_Rial" />
       <Association Name="Request_Row_Gain_Loss_Rial1" Member="Gain_Loss_Rials1" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Gain_Loss_Rial" />
       <Association Name="Request_Row_Member_Ship" Member="Member_Ships" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Member_Ship" />
+      <Association Name="Request_Row_Request_Duplicate_Detail" Member="Request_Duplicate_Details" ThisKey="RQST_RQID,RWNO" OtherKey="RQRO_RQST_RQID,RQRO_RWNO" Type="Request_Duplicate_Detail" />
       <Association Name="Region_Request_Row" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Requester_Type_Request_Row" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Request_Type_Request_Row" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
-      <Association Name="Request_Request_Row" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Fighter_Request_Row" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Request_Request_Row" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.Finance_Document" Member="Finance_Documents">
@@ -1489,8 +1490,8 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Finance_Document_Refunds_Payment_Detail" Member="Finance_Document" ThisKey="FIDC_FDID" OtherKey="FDID" Type="Finance_Document" IsForeignKey="true" />
-      <Association Name="Expense_Refunds_Payment_Detail" Member="Expense" ThisKey="PYDT_EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
       <Association Name="Payment_Detail_Refunds_Payment_Detail" Member="Payment_Detail" ThisKey="PYDT_CODE" OtherKey="CODE" Type="Payment_Detail" IsForeignKey="true" />
+      <Association Name="Expense_Refunds_Payment_Detail" Member="Expense" ThisKey="PYDT_EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Session_Meeting" Member="Session_Meetings">
@@ -1519,11 +1520,11 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Session_Session_Meeting" Member="Session" ThisKey="SESN_SNID" OtherKey="SNID" Type="Session" IsForeignKey="true" />
-      <Association Name="Method_Session_Meeting" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
-      <Association Name="Expense_Session_Meeting" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
       <Association Name="Fighter_Session_Meeting" Member="Fighter" ThisKey="COCH_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Member_Ship_Session_Meeting" Member="Member_Ship" ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO" Type="Member_Ship" IsForeignKey="true" />
       <Association Name="Club_Method_Session_Meeting" Member="Club_Method" ThisKey="CBMT_CODE" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
+      <Association Name="Expense_Session_Meeting" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
+      <Association Name="Method_Session_Meeting" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Category_Belt_Session_Meeting" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
     </Type>
   </Table>
@@ -1551,11 +1552,11 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Session_Session_Meeting" Member="Session_Meetings" ThisKey="SNID" OtherKey="SESN_SNID" Type="Session_Meeting" />
       <Association Name="Session_Attendance" Member="Attendances" ThisKey="SNID" OtherKey="SESN_SNID_DNRM" Type="Attendance" />
-      <Association Name="Method_Session" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
-      <Association Name="Expense_Session" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
       <Association Name="Fighter_Session" Member="Fighter" ThisKey="COCH_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Member_Ship_Session" Member="Member_Ship" ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO" Type="Member_Ship" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Club_Method_Session" Member="Club_Method" ThisKey="CBMT_CODE" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
+      <Association Name="Expense_Session" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
+      <Association Name="Method_Session" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Category_Belt_Session" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
     </Type>
   </Table>
@@ -1728,10 +1729,10 @@
       <Association Name="Request_Type_Base_Calculate_Expense" Member="Base_Calculate_Expenses" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Base_Calculate_Expense" />
       <Association Name="Request_Type_Expense_Item" Member="Expense_Items" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Expense_Item" />
       <Association Name="Request_Type_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Aggregation_Operation" />
-      <Association Name="Request_Type_Request" Member="Requests" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Request" />
       <Association Name="Request_Type_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Calculate_Expense_Coach" />
       <Association Name="Request_Type_Payment_Expense" Member="Payment_Expenses" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Payment_Expense" />
       <Association Name="Request_Type_Advertising_Parameter" Member="Advertising_Parameters" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Advertising_Parameter" />
+      <Association Name="Request_Type_Request" Member="Requests" ThisKey="CODE" OtherKey="RQTP_CODE" Type="Request" />
     </Type>
     <InsertFunction FunctionId="FunctionId47">
       <Argument Parameter="code" Member="CODE" />
@@ -1785,9 +1786,9 @@
       <Association Name="Cash_Account_Detail" Member="Cash" ThisKey="PYMT_CASH_CODE" OtherKey="CODE" Type="Cash" IsForeignKey="true" />
       <Association Name="Region_Account_Detail" Member="Region" ThisKey="ACTN_REGN_PRVN_CNTY_CODE,ACTN_REGN_PRVN_CODE,ACTN_REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Club_Account_Detail" Member="Club" ThisKey="ACTN_CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
-      <Association Name="Request_Account_Detail" Member="Request" ThisKey="PYMT_RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Payment_Account_Detail" Member="Payment" ThisKey="PYMT_CASH_CODE,PYMT_RQST_RQID" OtherKey="CASH_CODE,RQST_RQID" Type="Payment" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Misc_Expense_Account_Detail" Member="Misc_Expense" ThisKey="MSEX_CODE" OtherKey="CODE" Type="Misc_Expense" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Request_Account_Detail" Member="Request" ThisKey="PYMT_RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.D$CKTP" Member="D_CKTPs">
@@ -2157,9 +2158,9 @@
       <Association Name="Club_Fighter" Member="Fighters" ThisKey="CODE" OtherKey="CLUB_CODE_DNRM" Type="Fighter" />
       <Association Name="Club_Misc_Expense" Member="Misc_Expenses" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Misc_Expense" />
       <Association Name="Club_Payment_Expense" Member="Payment_Expenses" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Payment_Expense" />
-      <Association Name="Club_Setting" Member="Settings" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Setting" />
       <Association Name="Club_Club_Method" Member="Club_Methods" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Club_Method" />
       <Association Name="Club_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Attendance" />
+      <Association Name="Club_Setting" Member="Settings" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Setting" />
       <Association Name="Club_Club" Member="Club1" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
       <Association Name="Region_Club" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
     </Type>
@@ -2285,9 +2286,9 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Method_Misc_Expense_Detail" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Fighter_Misc_Expense_Detail" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Misc_Expense_Misc_Expense_Detail" Member="Misc_Expense" ThisKey="MSEX_CODE" OtherKey="CODE" Type="Misc_Expense" IsForeignKey="true" />
+      <Association Name="Method_Misc_Expense_Detail" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Expense_Item" Member="Expense_Items">
@@ -2492,9 +2493,9 @@
       <Association Name="Regulation_Request_Requester" Member="Request_Requesters" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Request_Requester" />
       <Association Name="Regulation_Finance_Document" Member="Finance_Documents" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR_DNRM,REGL_CODE_DNRM" Type="Finance_Document" />
       <Association Name="Regulation_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Aggregation_Operation" />
-      <Association Name="Regulation_Expense" Member="Expenses" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Expense" />
       <Association Name="Regulation_Payment" Member="Payments" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR_DNRM,REGL_CODE_DNRM" Type="Payment" />
       <Association Name="Regulation_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Basic_Calculate_Discount" />
+      <Association Name="Regulation_Expense" Member="Expenses" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Expense" />
     </Type>
     <InsertFunction FunctionId="FunctionId71">
       <Argument Parameter="year" Member="YEAR" />
@@ -2700,71 +2701,6 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.Method" Member="Methods">
-    <Type Name="Method">
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MTOD_DESC" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NATL_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="EPIT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MTOD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CHCK_ATTN_ALRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SHAR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Method_Test" Member="Tests" ThisKey="CODE" OtherKey="CTGY_MTOD_CODE" Type="Test" />
-      <Association Name="Method_Session_Meeting" Member="Session_Meetings" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Session_Meeting" />
-      <Association Name="Method_Session" Member="Sessions" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Session" />
-      <Association Name="Method_Base_Calculate_Expense" Member="Base_Calculate_Expenses" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Base_Calculate_Expense" />
-      <Association Name="Method_Computer_Action" Member="Computer_Actions" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Computer_Action" />
-      <Association Name="Method_Misc_Expense_Detail" Member="Misc_Expense_Details" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Misc_Expense_Detail" />
-      <Association Name="Method_Method" Member="Methods" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Method" />
-      <Association Name="Method_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Aggregation_Operation" />
-      <Association Name="Method_External_Device_Link_Method" Member="External_Device_Link_Methods" ThisKey="CODE" OtherKey="MTOD_CODE" Type="External_Device_Link_Method" />
-      <Association Name="Method_Fighter_Discount_Card" Member="Fighter_Discount_Cards" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Fighter_Discount_Card" />
-      <Association Name="Method_Fighter_Public" Member="Fighter_Publics" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Fighter_Public" />
-      <Association Name="Method_Expense" Member="Expenses" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Expense" />
-      <Association Name="Method_Payment_Detail" Member="Payment_Details" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Payment_Detail" />
-      <Association Name="Method_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Calculate_Expense_Coach" />
-      <Association Name="Method_User_Link_Method" Member="User_Link_Methods" ThisKey="CODE" OtherKey="MTOD_CODE" Type="User_Link_Method" />
-      <Association Name="Method_Fighter" Member="Fighters" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Fighter" />
-      <Association Name="Method_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Basic_Calculate_Discount" />
-      <Association Name="Method_Payment_Expense" Member="Payment_Expenses" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Payment_Expense" />
-      <Association Name="Method_Advertising_Parameter" Member="Advertising_Parameters" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Advertising_Parameter" />
-      <Association Name="Method_Member_Ship" Member="Member_Ships" ThisKey="CODE" OtherKey="FGPB_MTOD_CODE_DNRM" Type="Member_Ship" />
-      <Association Name="Method_Club_Method" Member="Club_Methods" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Club_Method" />
-      <Association Name="Method_Category_Belt" Member="Category_Belts" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Category_Belt" />
-      <Association Name="Method_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Attendance" />
-      <Association Name="Method_Method" Member="Method1" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
-    </Type>
-    <InsertFunction FunctionId="FunctionId74">
-      <Argument Parameter="mtod_Desc" Member="MTOD_DESC" />
-      <Argument Parameter="mtod_Code" Member="MTOD_CODE" />
-      <Argument Parameter="epit_Type" Member="EPIT_TYPE" />
-      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
-      <Argument Parameter="mtod_Stat" Member="MTOD_STAT" />
-      <Argument Parameter="chck_Attn_Alrm" Member="CHCK_ATTN_ALRM" />
-      <Argument Parameter="natl_Code" Member="NATL_CODE" />
-      <Argument Parameter="shar_Stat" Member="SHAR_STAT" />
-    </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId75">
-      <Argument Parameter="code" Member="CODE" />
-      <Argument Parameter="mtod_Desc" Member="MTOD_DESC" />
-      <Argument Parameter="mtod_Code" Member="MTOD_CODE" />
-      <Argument Parameter="epit_Type" Member="EPIT_TYPE" />
-      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
-      <Argument Parameter="mtod_Stat" Member="MTOD_STAT" />
-      <Argument Parameter="chck_Attn_Alrm" Member="CHCK_ATTN_ALRM" />
-      <Argument Parameter="natl_Code" Member="NATL_CODE" />
-      <Argument Parameter="shar_Stat" Member="SHAR_STAT" />
-    </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId76">
-      <Argument Parameter="code" Member="CODE" />
-    </DeleteFunction>
-  </Table>
   <Table Name="dbo.D$GPTP" Member="D_GPTPs">
     <Type Name="D_GPTP">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
@@ -2792,31 +2728,6 @@
     <Type Name="D_PYCO">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.External_Device" Member="External_Devices">
-    <Type Name="External_Device">
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DEV_COMP_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DEV_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DEV_CON" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CYCL_READ" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DEV_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PORT_NAME" Type="System.String" DbType="VarChar(10)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PORT_SEND" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PORT_RECV" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SERV_IP_ADRS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="EXPN_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="External_Device_External_Device_Link_Method" Member="External_Device_Link_Methods" ThisKey="CODE" OtherKey="EDEV_CODE" Type="External_Device_Link_Method" />
     </Type>
   </Table>
   <Table Name="dbo.Dresser" Member="Dressers">
@@ -2881,7 +2792,6 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Aggregation_Operation_Note" Member="Notes" ThisKey="CODE" OtherKey="AGOP_CODE" Type="Note" />
       <Association Name="Aggregation_Operation_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="CODE" OtherKey="AGOP_CODE" Type="Aggregation_Operation_Detail" />
-      <Association Name="Method_Aggregation_Operation" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Regulation_Aggregation_Operation" Member="Regulation" ThisKey="REGL_YEAR,REGL_CODE" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" />
       <Association Name="Region_Aggregation_Operation" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Request_Type_Aggregation_Operation" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
@@ -2889,6 +2799,7 @@
       <Association Name="Sub_Unit_Aggregation_Operation" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Fighter_Aggregation_Operation" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Club_Method_Aggregation_Operation" Member="Club_Method" ThisKey="CBMT_CODE" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
+      <Association Name="Method_Aggregation_Operation" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Category_Belt_Aggregation_Operation" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
     </Type>
   </Table>
@@ -2963,65 +2874,8 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="External_Device_External_Device_Link_Method" Member="External_Device" ThisKey="EDEV_CODE" OtherKey="CODE" Type="External_Device" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Method_External_Device_Link_Method" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Request" Member="Requests">
-    <Type Name="Request">
-      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQTT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="RQST_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="SAVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="LETT_NO" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="LETT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="LETT_OWNR" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="SSTT_MSTT_SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="SSTT_MSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="SSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
-      <Column Name="YEAR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="CYCL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SEND_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MDUL_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="SECT_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
-      <Column Name="RQST_NUMB" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQST_DESC" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="REF_SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="REF_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="AMNT_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Request_Request_Regulation_History" Member="Request_Regulation_Histories" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Regulation_History" />
-      <Association Name="Request_Step_History_Summery" Member="Step_History_Summeries" ThisKey="RQID" OtherKey="RQST_RQID" Type="Step_History_Summery" />
-      <Association Name="Request_Committee" Member="Committees" ThisKey="RQID" OtherKey="RQST_RQID" Type="Committee" />
-      <Association Name="Request_Request_Letter" Member="Request_Letters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Letter" />
-      <Association Name="Request_Request_Row" Member="Request_Rows" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Row" />
-      <Association Name="Request_Account_Detail" Member="Account_Details" ThisKey="RQID" OtherKey="PYMT_RQST_RQID" Type="Account_Detail" />
-      <Association Name="Request_Request" Member="Requests" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request" />
-      <Association Name="Request_Statistic_Detail_Request" Member="Statistic_Detail_Requests" ThisKey="RQID" OtherKey="RQST_RQID" Type="Statistic_Detail_Request" />
-      <Association Name="Request_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="RQID" OtherKey="RQST_RQID" Type="Aggregation_Operation_Detail" />
-      <Association Name="Request_Fighter_Discount_Card" Member="Fighter_Discount_Cards" ThisKey="RQID" OtherKey="RQST_RQID" Type="Fighter_Discount_Card" />
-      <Association Name="Request_Advertising_Campaign" Member="Advertising_Campaigns" ThisKey="RQID" OtherKey="RQST_RQID" Type="Advertising_Campaign" />
-      <Association Name="Request_Payment" Member="Payments" ThisKey="RQID" OtherKey="RQST_RQID" Type="Payment" />
-      <Association Name="Request_Fighter_Coupon" Member="Fighter_Coupons" ThisKey="RQID" OtherKey="RQST_RQID" Type="Fighter_Coupon" />
-      <Association Name="Request_Report_Temporary" Member="Report_Temporaries" ThisKey="RQID" OtherKey="RQST_RQID" Type="Report_Temporary" />
-      <Association Name="Request_Request_Parameter" Member="Request_Parameters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Parameter" />
-      <Association Name="Request_Fighter" Member="Fighters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Fighter" />
-      <Association Name="Month_Base_Request" Member="Month_Base" ThisKey="CYCL" OtherKey="CYCL" Type="Month_Base" IsForeignKey="true" />
-      <Association Name="Region_Request" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
-      <Association Name="Request_Request" Member="Request1" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
-      <Association Name="Request_Type_Request" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
-      <Association Name="Requester_Type_Request" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
-      <Association Name="Sub_State_Request" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" />
+      <Association Name="External_Device_External_Device_Link_Method" Member="External_Device" ThisKey="EDEV_CODE" OtherKey="CODE" Type="External_Device" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Statistic" Member="Statistics">
@@ -3045,8 +2899,8 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Request_Statistic_Detail_Request" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Statistic_Detail_Statistic_Detail_Request" Member="Statistic_Detail" ThisKey="STSD_CODE" OtherKey="CODE" Type="Statistic_Detail" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Request_Statistic_Detail_Request" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Statistic_Detail" Member="Statistic_Details">
@@ -3232,14 +3086,14 @@
       <Association Name="Aggregation_Operation_Detail_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="AGOP_CODE,RWNO" OtherKey="AODT_AGOP_CODE,AODT_RWNO" Type="Aggregation_Operation_Detail" />
       <Association Name="Aggregation_Operation_Aggregation_Operation_Detail" Member="Aggregation_Operation" ThisKey="AGOP_CODE" OtherKey="CODE" Type="Aggregation_Operation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Aggregation_Operation_Detail_Aggregation_Operation_Detail" Member="Aggregation_Operation_Detail1" ThisKey="AODT_AGOP_CODE,AODT_RWNO" OtherKey="AGOP_CODE,RWNO" Type="Aggregation_Operation_Detail" IsForeignKey="true" />
-      <Association Name="Request_Aggregation_Operation_Detail" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="App_Base_Define_Aggregation_Operation_Detail" Member="App_Base_Define" ThisKey="GROP_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Expense_Aggregation_Operation_Detail" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
       <Association Name="Fighter_Aggregation_Operation_Detail" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Basic_Calculate_Discount_Aggregation_Operation_Detail" Member="Basic_Calculate_Discount" ThisKey="BCDS_CODE" OtherKey="CODE" Type="Basic_Calculate_Discount" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Attendance_Aggregation_Operation_Detail" Member="Attendance" ThisKey="ATTN_CODE" OtherKey="CODE" Type="Attendance" IsForeignKey="true" />
+      <Association Name="Expense_Aggregation_Operation_Detail" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
+      <Association Name="Request_Aggregation_Operation_Detail" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
-    <UpdateFunction FunctionId="FunctionId77">
+    <UpdateFunction FunctionId="FunctionId74">
       <Argument Parameter="agop_Code" Member="AGOP_CODE" />
       <Argument Parameter="rwno" Member="RWNO" />
       <Argument Parameter="aodt_Agop_Code" Member="AODT_AGOP_CODE" />
@@ -3268,7 +3122,7 @@
       <Argument Parameter="bcds_Code" Member="BCDS_CODE" />
       <Argument Parameter="grop_Apbs_Code" Member="GROP_APBS_CODE" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId78">
+    <DeleteFunction FunctionId="FunctionId75">
       <Argument Parameter="agop_Code" Member="AGOP_CODE" />
       <Argument Parameter="rwno" Member="RWNO" />
     </DeleteFunction>
@@ -3311,7 +3165,7 @@
       <Association Name="App_Base_Define_Member_Ship" Member="Member_Ships" ThisKey="CODE" OtherKey="RESN_APBS_CODE" Type="Member_Ship" />
       <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Define1" ThisKey="REF_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId79">
+    <InsertFunction FunctionId="FunctionId76">
       <Argument Parameter="titl_Desc" Member="TITL_DESC" />
       <Argument Parameter="enty_Name" Member="ENTY_NAME" />
       <Argument Parameter="ref_Code" Member="REF_CODE" />
@@ -3328,7 +3182,7 @@
       <Argument Parameter="colr" Member="COLR" />
       <Argument Parameter="stat" Member="STAT" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId80">
+    <UpdateFunction FunctionId="FunctionId77">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="titl_Desc" Member="TITL_DESC" />
       <Argument Parameter="enty_Name" Member="ENTY_NAME" />
@@ -3346,7 +3200,7 @@
       <Argument Parameter="colr" Member="COLR" />
       <Argument Parameter="stat" Member="STAT" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId81">
+    <DeleteFunction FunctionId="FunctionId78">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -3499,12 +3353,12 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Fighter_Discount_Card_Payment_Discount" Member="Payment_Discounts" ThisKey="CODE" OtherKey="FGDC_CODE" Type="Payment_Discount" />
-      <Association Name="Method_Fighter_Discount_Card" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Request_Fighter_Discount_Card" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Template_Fighter_Discount_Card" Member="Template" ThisKey="TEMP_TMID" OtherKey="TMID" Type="Template" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Fighter_Fighter_Discount_Card" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Advertising_Parameter_Fighter_Discount_Card" Member="Advertising_Parameter" ThisKey="ADVP_CODE" OtherKey="CODE" Type="Advertising_Parameter" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Method_Fighter_Discount_Card" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Category_Belt_Fighter_Discount_Card" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Request_Fighter_Discount_Card" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="SET NULL" />
     </Type>
   </Table>
   <Table Name="dbo.Advertising_Campaign" Member="Advertising_Campaigns">
@@ -3521,9 +3375,9 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Advertising_Campaign_Payment_Discount" Member="Payment_Discounts" ThisKey="CODE" OtherKey="ADVC_CODE" Type="Payment_Discount" />
-      <Association Name="Request_Advertising_Campaign" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Fighter_Advertising_Campaign" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Advertising_Parameter_Advertising_Campaign" Member="Advertising_Parameter" ThisKey="ADVP_CODE" OtherKey="CODE" Type="Advertising_Parameter" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Request_Advertising_Campaign" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="SET NULL" />
     </Type>
   </Table>
   <Table Name="dbo.Fighter_Public" Member="Fighter_Publics">
@@ -3600,13 +3454,13 @@
       <Association Name="Fighter_Public_Member_Ship" Member="Member_Ships" ThisKey="FIGH_FILE_NO,RWNO,RECT_CODE" OtherKey="FIGH_FILE_NO,FGPB_RWNO_DNRM,FGPB_RECT_CODE_DNRM" Type="Member_Ship" />
       <Association Name="Club_Fighter_Public" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Diseases_Type_Fighter_Public" Member="Diseases_Type" ThisKey="DISE_CODE" OtherKey="CODE" Type="Diseases_Type" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Method_Fighter_Public" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Region_Fighter_Public" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Request_Row_Fighter_Public" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Sub_Unit_Fighter_Public" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
       <Association Name="Fighter_Fighter_Public" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Fighter_Fighter_Public1" Member="Fighter1" ThisKey="REF_CODE" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Club_Method_Fighter_Public" Member="Club_Method" ThisKey="CBMT_CODE" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
+      <Association Name="Method_Fighter_Public" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Category_Belt_Fighter_Public" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" DeleteRule="SET NULL" />
     </Type>
   </Table>
@@ -3631,11 +3485,11 @@
       <Association Name="Advertising_Campaign_Payment_Discount" Member="Advertising_Campaign" ThisKey="ADVC_CODE" OtherKey="CODE" Type="Advertising_Campaign" IsForeignKey="true" />
       <Association Name="Fighter_Discount_Card_Payment_Discount" Member="Fighter_Discount_Card" ThisKey="FGDC_CODE" OtherKey="CODE" Type="Fighter_Discount_Card" IsForeignKey="true" />
       <Association Name="Request_Row_Payment_Discount" Member="Request_Row" ThisKey="PYMT_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
-      <Association Name="Expense_Payment_Discount" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
       <Association Name="Payment_Payment_Discount" Member="Payment" ThisKey="PYMT_CASH_CODE,PYMT_RQST_RQID" OtherKey="CASH_CODE,RQST_RQID" Type="Payment" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Fighter_Payment_Discount" Member="Fighter" ThisKey="FIGH_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
+      <Association Name="Expense_Payment_Discount" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId82">
+    <InsertFunction FunctionId="FunctionId79">
       <Argument Parameter="pymt_Cash_Code" Member="PYMT_CASH_CODE" />
       <Argument Parameter="pymt_Rqst_Rqid" Member="PYMT_RQST_RQID" />
       <Argument Parameter="rqro_Rwno" Member="RQRO_RWNO" />
@@ -3647,7 +3501,7 @@
       <Argument Parameter="advc_Code" Member="ADVC_CODE" />
       <Argument Parameter="fgdc_Code" Member="FGDC_CODE" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId83">
+    <UpdateFunction FunctionId="FunctionId80">
       <Argument Parameter="pymt_Cash_Code" Member="PYMT_CASH_CODE" />
       <Argument Parameter="pymt_Rqst_Rqid" Member="PYMT_RQST_RQID" />
       <Argument Parameter="rqro_Rwno" Member="RQRO_RWNO" />
@@ -3658,100 +3512,12 @@
       <Argument Parameter="stat" Member="STAT" />
       <Argument Parameter="pyds_Desc" Member="PYDS_DESC" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId84">
+    <DeleteFunction FunctionId="FunctionId81">
       <Argument Parameter="pymt_Cash_Code" Member="PYMT_CASH_CODE" />
       <Argument Parameter="pymt_Rqst_Rqid" Member="PYMT_RQST_RQID" />
       <Argument Parameter="rqro_Rwno" Member="RQRO_RWNO" />
       <Argument Parameter="rwno" Member="RWNO" />
     </DeleteFunction>
-  </Table>
-  <Table Name="dbo.Expense" Member="Expenses">
-    <Type Name="Expense">
-      <Column Name="REGL_YEAR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="REGL_CODE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="EXTP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CTGY_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GROP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BRND_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="EXPN_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PRIC" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="EXTR_PRCT" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="EXPN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ADD_QUTS" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="COVR_DSCT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="EXPN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BUY_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BUY_EXTR_PRCT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_OF_STOK" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_OF_SALE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_OF_REMN_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ORDR_ITEM" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="COVR_TAX" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_OF_ATTN_WEEK" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MODL_NUMB_BAR_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PRVT_COCH_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MIN_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_CYCL_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_MONT_OFER" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MIN_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RELY_CMND" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PROF_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DEDU_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Expense_Refunds_Payment_Detail" Member="Refunds_Payment_Details" ThisKey="CODE" OtherKey="PYDT_EXPN_CODE" Type="Refunds_Payment_Detail" />
-      <Association Name="Expense_Session_Meeting" Member="Session_Meetings" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Session_Meeting" />
-      <Association Name="Expense_Session" Member="Sessions" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Session" />
-      <Association Name="Expense_Buffet" Member="Buffets" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Buffet" />
-      <Association Name="Expense_Pre_Expense" Member="Pre_Expenses" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Pre_Expense" />
-      <Association Name="Expense_Pre_Expense1" Member="Pre_Expenses1" ThisKey="CODE" OtherKey="PRE_EXPN_CODE" Type="Pre_Expense" />
-      <Association Name="Expense_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Aggregation_Operation_Detail" />
-      <Association Name="Expense_Payment_Discount" Member="Payment_Discounts" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Payment_Discount" />
-      <Association Name="Expense_Expense_Cost" Member="Expense_Costs" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Expense_Cost" />
-      <Association Name="Expense_Coupon" Member="Coupons" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Coupon" />
-      <Association Name="Expense_Coupon1" Member="Coupons1" ThisKey="CODE" OtherKey="COPN_EXPN_CODE" Type="Coupon" />
-      <Association Name="Expense_Fighter_Coupon" Member="Fighter_Coupons" ThisKey="CODE" OtherKey="COPN_EXPN_CODE" Type="Fighter_Coupon" />
-      <Association Name="Expense_Payment_Detail" Member="Payment_Details" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Payment_Detail" />
-      <Association Name="Expense_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Calculate_Expense_Coach" />
-      <Association Name="Expense_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Basic_Calculate_Discount" />
-      <Association Name="Group_Expense_Expense" Member="Group_Expense" ThisKey="BRND_CODE" OtherKey="CODE" Type="Group_Expense" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Expense_Type_Expense" Member="Expense_Type" ThisKey="EXTP_CODE" OtherKey="CODE" Type="Expense_Type" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Group_Expense_Expense1" Member="Group_Expense1" ThisKey="GROP_CODE" OtherKey="CODE" Type="Group_Expense" IsForeignKey="true" />
-      <Association Name="Method_Expense" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Regulation_Expense" Member="Regulation" ThisKey="REGL_YEAR,REGL_CODE" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" DeleteRule="SET NULL" />
-      <Association Name="Category_Belt_Expense" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" DeleteRule="SET NULL" />
-    </Type>
-    <UpdateFunction FunctionId="FunctionId85">
-      <Argument Parameter="cODE" Member="CODE" />
-      <Argument Parameter="pRIC" Member="PRIC" />
-      <Argument Parameter="eXPN_STAT" Member="EXPN_STAT" />
-      <Argument Parameter="aDD_QUTS" Member="ADD_QUTS" />
-      <Argument Parameter="cOVR_DSCT" Member="COVR_DSCT" />
-      <Argument Parameter="eXPN_TYPE" Member="EXPN_TYPE" />
-      <Argument Parameter="bUY_PRIC" Member="BUY_PRIC" />
-      <Argument Parameter="bUY_EXTR_PRCT" Member="BUY_EXTR_PRCT" />
-      <Argument Parameter="nUMB_OF_STOK" Member="NUMB_OF_STOK" />
-      <Argument Parameter="nUMB_OF_SALE" Member="NUMB_OF_SALE" />
-      <Argument Parameter="cOVR_TAX" Member="COVR_TAX" />
-      <Argument Parameter="nUMB_OF_ATTN_MONT" Member="NUMB_OF_ATTN_MONT" />
-      <Argument Parameter="nUMB_OF_ATTN_WEEK" Member="NUMB_OF_ATTN_WEEK" />
-      <Argument Parameter="mODL_NUMB_BAR_CODE" Member="MODL_NUMB_BAR_CODE" />
-      <Argument Parameter="pRVT_COCH_EXPN" Member="PRVT_COCH_EXPN" />
-      <Argument Parameter="nUMB_CYCL_DAY" Member="NUMB_CYCL_DAY" />
-      <Argument Parameter="nUMB_MONT_OFER" Member="NUMB_MONT_OFER" />
-      <Argument Parameter="mIN_NUMB" Member="MIN_NUMB" />
-      <Argument Parameter="gROP_CODE" Member="GROP_CODE" />
-      <Argument Parameter="eXPN_DESC" Member="EXPN_DESC" />
-      <Argument Parameter="mIN_TIME" Member="MIN_TIME" />
-      <Argument Parameter="rELY_CMND" Member="RELY_CMND" />
-      <Argument Parameter="oRDR_ITEM" Member="ORDR_ITEM" />
-      <Argument Parameter="bRND_CODE" Member="BRND_CODE" />
-    </UpdateFunction>
   </Table>
   <Table Name="dbo.Expense_Cost" Member="Expense_Costs">
     <Type Name="Expense_Cost">
@@ -3863,9 +3629,9 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Coupon_Fighter_Coupon" Member="Fighter_Coupons" ThisKey="CODE" OtherKey="COPN_CODE" Type="Fighter_Coupon" />
       <Association Name="Template_Coupon" Member="Template" ThisKey="CRET_TEMP_TMID" OtherKey="TMID" Type="Template" IsForeignKey="true" />
+      <Association Name="Template_Coupon1" Member="Template1" ThisKey="USE_TEMP_TMID" OtherKey="TMID" Type="Template" IsForeignKey="true" />
       <Association Name="Expense_Coupon" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Expense_Coupon1" Member="Expense1" ThisKey="COPN_EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
-      <Association Name="Template_Coupon1" Member="Template1" ThisKey="USE_TEMP_TMID" OtherKey="TMID" Type="Template" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Fighter_Coupon" Member="Fighter_Coupons">
@@ -3887,11 +3653,11 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Coupon_Fighter_Coupon" Member="Coupon" ThisKey="COPN_CODE" OtherKey="CODE" Type="Coupon" IsForeignKey="true" />
       <Association Name="Template_Fighter_Coupon" Member="Template" ThisKey="CRET_TEMP_TMID" OtherKey="TMID" Type="Template" IsForeignKey="true" />
-      <Association Name="Expense_Fighter_Coupon" Member="Expense" ThisKey="COPN_EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
       <Association Name="Request_Row_Fighter_Coupon" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
-      <Association Name="Request_Fighter_Coupon" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Template_Fighter_Coupon1" Member="Template1" ThisKey="USE_TEMP_TMID" OtherKey="TMID" Type="Template" IsForeignKey="true" />
       <Association Name="Fighter_Fighter_Coupon" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
+      <Association Name="Expense_Fighter_Coupon" Member="Expense" ThisKey="COPN_EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
+      <Association Name="Request_Fighter_Coupon" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Report_Action" Member="Report_Actions">
@@ -3930,12 +3696,12 @@
       <Column Name="MBSP_DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="MBSP_PYMT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="RQST_CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Association Name="Request_Report_Temporary" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Report_Action_Parameter_Report_Temporary" Member="Report_Action_Parameter" ThisKey="RPAP_CODE" OtherKey="CODE" Type="Report_Action_Parameter" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Fighter_Report_Temporary" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Fighter_Report_Temporary1" Member="Fighter1" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Club_Method_Report_Temporary" Member="Club_Method" ThisKey="CBMT_CODE" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
       <Association Name="Category_Belt_Report_Temporary" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
+      <Association Name="Request_Report_Temporary" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Payment_Detail" Member="Payment_Details">
@@ -3988,16 +3754,16 @@
       <Association Name="Payment_Detail_Payment_Detail_Cost" Member="Payment_Detail_Costs" ThisKey="CODE" OtherKey="PYDT_CODE" Type="Payment_Detail_Cost" />
       <Association Name="Payment_Detail_Payment_Expense" Member="Payment_Expenses" ThisKey="CODE" OtherKey="PYDT_CODE" Type="Payment_Expense" />
       <Association Name="Cash_Payment_Detail" Member="Cash" ThisKey="PYMT_CASH_CODE" OtherKey="CODE" Type="Cash" IsForeignKey="true" />
-      <Association Name="Expense_Payment_Detail" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
-      <Association Name="Method_Payment_Detail" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Payment_Payment_Detail" Member="Payment" ThisKey="PYMT_CASH_CODE,PYMT_RQST_RQID" OtherKey="CASH_CODE,RQST_RQID" Type="Payment" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Request_Row_Payment_Detail" Member="Request_Row" ThisKey="PYMT_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
       <Association Name="Expense_Type_Step_Payment_Detail" Member="Expense_Type_Step" ThisKey="EXTS_CODE" OtherKey="CODE" Type="Expense_Type_Step" IsForeignKey="true" />
       <Association Name="Fighter_Payment_Detail" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Club_Method_Payment_Detail" Member="Club_Method" ThisKey="CBMT_CODE_DNRM" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
+      <Association Name="Expense_Payment_Detail" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
+      <Association Name="Method_Payment_Detail" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Category_Belt_Payment_Detail" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId86">
+    <InsertFunction FunctionId="FunctionId82">
       <Argument Parameter="pYMT_CASH_CODE" Member="PYMT_CASH_CODE" />
       <Argument Parameter="pYMT_RQST_RQID" Member="PYMT_RQST_RQID" />
       <Argument Parameter="rQRO_RWNO" Member="RQRO_RWNO" />
@@ -4020,7 +3786,7 @@
       <Argument Parameter="eXPR_DATE" Member="EXPR_DATE" />
       <Argument Parameter="cODE" Member="CODE" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId87">
+    <UpdateFunction FunctionId="FunctionId83">
       <Argument Parameter="cODE" Member="CODE" />
       <Argument Parameter="pYMT_CASH_CODE" Member="PYMT_CASH_CODE" />
       <Argument Parameter="pYMT_RQST_RQID" Member="PYMT_RQST_RQID" />
@@ -4047,7 +3813,7 @@
       <Argument Parameter="exts_Code" Member="EXTS_CODE" />
       <Argument Parameter="exts_Rsrv_Date" Member="EXTS_RSRV_DATE" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId88">
+    <DeleteFunction FunctionId="FunctionId84">
       <Argument Parameter="cODE" Member="CODE" />
       <Argument Parameter="pYMT_CASH_CODE" Member="PYMT_CASH_CODE" />
       <Argument Parameter="pYMT_RQST_RQID" Member="PYMT_RQST_RQID" />
@@ -4102,16 +3868,16 @@
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Expense_Item_Calculate_Expense_Coach" Member="Expense_Item" ThisKey="EPIT_CODE" OtherKey="CODE" Type="Expense_Item" IsForeignKey="true" />
-      <Association Name="Expense_Calculate_Expense_Coach" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
       <Association Name="Expense_Type_Calculate_Expense_Coach" Member="Expense_Type" ThisKey="EXTP_CODE" OtherKey="CODE" Type="Expense_Type" IsForeignKey="true" />
-      <Association Name="Method_Calculate_Expense_Coach" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Request_Type_Calculate_Expense_Coach" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
       <Association Name="Requester_Type_Calculate_Expense_Coach" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
       <Association Name="Fighter_Calculate_Expense_Coach" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Club_Method_Calculate_Expense_Coach" Member="Club_Method" ThisKey="CBMT_CODE" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
+      <Association Name="Expense_Calculate_Expense_Coach" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
+      <Association Name="Method_Calculate_Expense_Coach" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Category_Belt_Calculate_Expense_Coach" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId89">
+    <InsertFunction FunctionId="FunctionId85">
       <Argument Parameter="expn_Code" Member="EXPN_CODE" />
       <Argument Parameter="coch_File_No" Member="COCH_FILE_NO" />
       <Argument Parameter="epit_Code" Member="EPIT_CODE" />
@@ -4135,7 +3901,7 @@
       <Argument Parameter="tax_Prct_Valu" Member="TAX_PRCT_VALU" />
       <Argument Parameter="fore_Givn_Attn_Numb" Member="FORE_GIVN_ATTN_NUMB" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId90">
+    <UpdateFunction FunctionId="FunctionId86">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="expn_Code" Member="EXPN_CODE" />
       <Argument Parameter="coch_File_No" Member="COCH_FILE_NO" />
@@ -4160,7 +3926,7 @@
       <Argument Parameter="tax_Prct_Valu" Member="TAX_PRCT_VALU" />
       <Argument Parameter="fore_Givn_Attn_Numb" Member="FORE_GIVN_ATTN_NUMB" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId91">
+    <DeleteFunction FunctionId="FunctionId87">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -4379,11 +4145,11 @@
       <Association Name="Fighter_Attendance1" Member="Attendances1" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Attendance" />
       <Association Name="Club_Fighter" Member="Club" ThisKey="CLUB_CODE_DNRM" OtherKey="CODE" Type="Club" IsForeignKey="true" />
       <Association Name="Fighter_Fighter" Member="Fighter1" ThisKey="REF_CODE_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
-      <Association Name="Method_Fighter" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Region_Fighter" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
-      <Association Name="Request_Fighter" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
       <Association Name="Sub_Unit_Fighter" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE_DNRM,SUNT_BUNT_DEPT_CODE_DNRM,SUNT_BUNT_CODE_DNRM,SUNT_CODE_DNRM" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
+      <Association Name="Method_Fighter" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Category_Belt_Fighter" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
+      <Association Name="Request_Fighter" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.V#Admin_Wallet" Member="V_Admin_Wallets">
@@ -4436,13 +4202,13 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Basic_Calculate_Discount_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="CODE" OtherKey="BCDS_CODE" Type="Aggregation_Operation_Detail" />
       <Association Name="Expense_Item_Basic_Calculate_Discount" Member="Expense_Item" ThisKey="EPIT_CODE" OtherKey="CODE" Type="Expense_Item" IsForeignKey="true" />
-      <Association Name="Expense_Basic_Calculate_Discount" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
-      <Association Name="Method_Basic_Calculate_Discount" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Regulation_Basic_Calculate_Discount" Member="Regulation" ThisKey="REGL_YEAR,REGL_CODE" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
       <Association Name="Sub_Unit_Basic_Calculate_Discount" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
+      <Association Name="Expense_Basic_Calculate_Discount" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
+      <Association Name="Method_Basic_Calculate_Discount" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Category_Belt_Basic_Calculate_Discount" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId92">
+    <InsertFunction FunctionId="FunctionId88">
       <Argument Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Member="SUNT_BUNT_DEPT_ORGN_CODE" />
       <Argument Parameter="sUNT_BUNT_DEPT_CODE" Member="SUNT_BUNT_DEPT_CODE" />
       <Argument Parameter="sUNT_BUNT_CODE" Member="SUNT_BUNT_CODE" />
@@ -4462,7 +4228,7 @@
       <Argument Parameter="cTGY_CODE" Member="CTGY_CODE" />
       <Argument Parameter="eXPN_CODE" Member="EXPN_CODE" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId93">
+    <UpdateFunction FunctionId="FunctionId89">
       <Argument Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Member="SUNT_BUNT_DEPT_ORGN_CODE" />
       <Argument Parameter="sUNT_BUNT_DEPT_CODE" Member="SUNT_BUNT_DEPT_CODE" />
       <Argument Parameter="sUNT_BUNT_CODE" Member="SUNT_BUNT_CODE" />
@@ -4484,7 +4250,7 @@
       <Argument Parameter="cTGY_CODE" Member="CTGY_CODE" />
       <Argument Parameter="eXPN_CODE" Member="EXPN_CODE" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId94">
+    <DeleteFunction FunctionId="FunctionId90">
       <Argument Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Member="SUNT_BUNT_DEPT_ORGN_CODE" />
       <Argument Parameter="sUNT_BUNT_DEPT_CODE" Member="SUNT_BUNT_DEPT_CODE" />
       <Argument Parameter="sUNT_BUNT_CODE" Member="SUNT_BUNT_CODE" />
@@ -4533,7 +4299,7 @@
       <Association Name="Misc_Expense_Misc_Expense" Member="Misc_Expense1" ThisKey="MSEX_CODE" OtherKey="CODE" Type="Misc_Expense" IsForeignKey="true" />
       <Association Name="Region_Misc_Expense" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
     </Type>
-    <InsertFunction FunctionId="FunctionId95">
+    <InsertFunction FunctionId="FunctionId91">
       <Argument Parameter="club_Code" Member="CLUB_CODE" />
       <Argument Parameter="epit_Code" Member="EPIT_CODE" />
       <Argument Parameter="coch_File_No" Member="COCH_FILE_NO" />
@@ -4547,7 +4313,7 @@
       <Argument Parameter="expn_Desc" Member="EXPN_DESC" />
       <Argument Parameter="qnty" Member="QNTY" />
     </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId96">
+    <UpdateFunction FunctionId="FunctionId92">
       <Argument Parameter="code" Member="CODE" />
       <Argument Parameter="msex_Code" Member="MSEX_CODE" />
       <Argument Parameter="club_Code" Member="CLUB_CODE" />
@@ -4563,7 +4329,7 @@
       <Argument Parameter="expn_Desc" Member="EXPN_DESC" />
       <Argument Parameter="qnty" Member="QNTY" />
     </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId97">
+    <DeleteFunction FunctionId="FunctionId93">
       <Argument Parameter="code" Member="CODE" />
     </DeleteFunction>
   </Table>
@@ -4682,12 +4448,12 @@
       <Association Name="Club_Payment_Expense" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
       <Association Name="Fighter_Payment_Expense" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Misc_Expense_Payment_Expense" Member="Misc_Expense" ThisKey="MSEX_CODE" OtherKey="CODE" Type="Misc_Expense" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Method_Payment_Expense" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Payment_Detail_Payment_Expense" Member="Payment_Detail" ThisKey="PYDT_CODE" OtherKey="CODE" Type="Payment_Detail" IsForeignKey="true" />
       <Association Name="Request_Row_Payment_Expense" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
       <Association Name="Request_Type_Payment_Expense" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
       <Association Name="Member_Ship_Payment_Expense" Member="Member_Ship" ThisKey="MBSP_FIGH_FILE_NO,MBSP_RECT_CODE,MBSP_RWNO" OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO" Type="Member_Ship" IsForeignKey="true" />
       <Association Name="Club_Method_Payment_Expense" Member="Club_Method" ThisKey="CBMT_CODE" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
+      <Association Name="Method_Payment_Expense" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Category_Belt_Payment_Expense" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
     </Type>
   </Table>
@@ -4713,9 +4479,9 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Advertising_Parameter_Fighter_Discount_Card" Member="Fighter_Discount_Cards" ThisKey="CODE" OtherKey="ADVP_CODE" Type="Fighter_Discount_Card" />
       <Association Name="Advertising_Parameter_Advertising_Campaign" Member="Advertising_Campaigns" ThisKey="CODE" OtherKey="ADVP_CODE" Type="Advertising_Campaign" />
-      <Association Name="Method_Advertising_Parameter" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Request_Type_Advertising_Parameter" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Template_Advertising_Parameter" Member="Template" ThisKey="TEMP_TMID" OtherKey="TMID" Type="Template" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Method_Advertising_Parameter" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Category_Belt_Advertising_Parameter" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" DeleteRule="SET NULL" />
     </Type>
   </Table>
@@ -4822,11 +4588,424 @@
       <Association Name="App_Base_Define_Member_Ship" Member="App_Base_Define" ThisKey="RESN_APBS_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
       <Association Name="Fighter_Public_Member_Ship" Member="Fighter_Public" ThisKey="FIGH_FILE_NO,FGPB_RWNO_DNRM,FGPB_RECT_CODE_DNRM" OtherKey="FIGH_FILE_NO,RWNO,RECT_CODE" Type="Fighter_Public" IsForeignKey="true" />
       <Association Name="Fighter_Member_Ship" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Method_Member_Ship" Member="Method" ThisKey="FGPB_MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Request_Row_Member_Ship" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Club_Method_Member_Ship" Member="Club_Method" ThisKey="FGPB_CBMT_CODE_DNRM" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
+      <Association Name="Method_Member_Ship" Member="Method" ThisKey="FGPB_MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Category_Belt_Member_Ship" Member="Category_Belt" ThisKey="FGPB_CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
     </Type>
+  </Table>
+  <Table Name="dbo.D$AINS" Member="D_AINs">
+    <Type Name="D_AIN">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Club_Method" Member="Club_Methods">
+    <Type Name="Club_Method">
+      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COCH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DAY_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="STRT_TIME" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="END_TIME" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="MTOD_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SEX_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CBMT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CPCT_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CPCT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CBMT_TIME" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CBMT_TIME_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CLAS_TIME" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NATL_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DURT_ATTN_SOND_PATH" Type="System.String" DbType="VarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Club_Method_Session_Meeting" Member="Session_Meetings" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Session_Meeting" />
+      <Association Name="Club_Method_Session" Member="Sessions" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Session" />
+      <Association Name="Club_Method_Club_Method_Weekday" Member="Club_Method_Weekdays" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Club_Method_Weekday" />
+      <Association Name="Club_Method_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Aggregation_Operation" />
+      <Association Name="Club_Method_Fighter_Public" Member="Fighter_Publics" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Fighter_Public" />
+      <Association Name="Club_Method_Report_Temporary" Member="Report_Temporaries" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Report_Temporary" />
+      <Association Name="Club_Method_Payment_Detail" Member="Payment_Details" ThisKey="CODE" OtherKey="CBMT_CODE_DNRM" Type="Payment_Detail" />
+      <Association Name="Club_Method_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Calculate_Expense_Coach" />
+      <Association Name="Club_Method_Payment_Expense" Member="Payment_Expenses" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Payment_Expense" />
+      <Association Name="Club_Method_Member_Ship" Member="Member_Ships" ThisKey="CODE" OtherKey="FGPB_CBMT_CODE_DNRM" Type="Member_Ship" />
+      <Association Name="Club_Method_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="CBMT_CODE_DNRM" Type="Attendance" />
+      <Association Name="Club_Club_Method" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Fighter_Club_Method" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
+      <Association Name="Method_Club_Method" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId94">
+      <Argument Parameter="club_Code" Member="CLUB_CODE" />
+      <Argument Parameter="mtod_Code" Member="MTOD_CODE" />
+      <Argument Parameter="coch_File_No" Member="COCH_FILE_NO" />
+      <Argument Parameter="day_Type" Member="DAY_TYPE" />
+      <Argument Parameter="strt_Time" Member="STRT_TIME" />
+      <Argument Parameter="end_Time" Member="END_TIME" />
+      <Argument Parameter="sex_Type" Member="SEX_TYPE" />
+      <Argument Parameter="cbmt_Desc" Member="CBMT_DESC" />
+      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
+      <Argument Parameter="cpct_Numb" Member="CPCT_NUMB" />
+      <Argument Parameter="cpct_Stat" Member="CPCT_STAT" />
+      <Argument Parameter="cbmt_Time" Member="CBMT_TIME" />
+      <Argument Parameter="cbmt_Time_Stat" Member="CBMT_TIME_STAT" />
+      <Argument Parameter="clas_Time" Member="CLAS_TIME" />
+      <Argument Parameter="amnt" Member="AMNT" />
+      <Argument Parameter="natl_Code" Member="NATL_CODE" />
+      <Argument Parameter="durt_Attn_Sond_Path" Member="DURT_ATTN_SOND_PATH" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId95">
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="club_Code" Member="CLUB_CODE" />
+      <Argument Parameter="mtod_Code" Member="MTOD_CODE" />
+      <Argument Parameter="coch_File_No" Member="COCH_FILE_NO" />
+      <Argument Parameter="mtod_Stat" Member="MTOD_STAT" />
+      <Argument Parameter="day_Type" Member="DAY_TYPE" />
+      <Argument Parameter="strt_Time" Member="STRT_TIME" />
+      <Argument Parameter="end_Time" Member="END_TIME" />
+      <Argument Parameter="sex_Type" Member="SEX_TYPE" />
+      <Argument Parameter="cbmt_Desc" Member="CBMT_DESC" />
+      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
+      <Argument Parameter="cpct_Numb" Member="CPCT_NUMB" />
+      <Argument Parameter="cpct_Stat" Member="CPCT_STAT" />
+      <Argument Parameter="cbmt_Time" Member="CBMT_TIME" />
+      <Argument Parameter="cbmt_Time_Stat" Member="CBMT_TIME_STAT" />
+      <Argument Parameter="clas_Time" Member="CLAS_TIME" />
+      <Argument Parameter="amnt" Member="AMNT" />
+      <Argument Parameter="natl_Code" Member="NATL_CODE" />
+      <Argument Parameter="durt_Attn_Sond_Path" Member="DURT_ATTN_SOND_PATH" />
+    </UpdateFunction>
+  </Table>
+  <Table Name="dbo.Attendance" Member="Attendances">
+    <Type Name="Attendance">
+      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="FIGH_FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ATTN_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MBSP_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MBSP_RECT_CODE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COCH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ATTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ENTR_TIME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXIT_TIME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MUST_EXIT_TIME_DNRM" Type="System.TimeSpan" DbType="Time" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TOTL_SESN" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ATTN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DERS_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FGPB_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CBMT_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MTOD_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CTGY_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IMAG_RCDC_RCID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IMAG_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FNGR_PRNT_DNRM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BUFE_DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MBSP_STRT_DATE_DNRM" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MBSP_END_DATE_DNRM" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BRTH_DATE_DNRM" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUM_ATTN_MONT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MBCO_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SESN_SNID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ATTN_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GLOB_CODE_DNRM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRNT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRNT_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RCPT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PMEX_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ATTN_SYS_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEX_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_MESG_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RTNG_NUMB" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="OWNR_CBMT_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Attendance_Dresser_Attendance" Member="Dresser_Attendances" ThisKey="CODE" OtherKey="ATTN_CODE" Type="Dresser_Attendance" />
+      <Association Name="Attendance_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="CODE" OtherKey="ATTN_CODE" Type="Aggregation_Operation_Detail" />
+      <Association Name="Club_Method_Attendance" Member="Club_Method" ThisKey="CBMT_CODE_DNRM" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
+      <Association Name="Club_Attendance" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
+      <Association Name="Fighter_Attendance" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
+      <Association Name="Fighter_Attendance1" Member="Fighter1" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Member_Ship_Attendance" Member="Member_Ship" ThisKey="FIGH_FILE_NO,MBSP_RECT_CODE_DNRM,MBSP_RWNO_DNRM" OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO" Type="Member_Ship" IsForeignKey="true" />
+      <Association Name="Session_Attendance" Member="Session" ThisKey="SESN_SNID_DNRM" OtherKey="SNID" Type="Session" IsForeignKey="true" />
+      <Association Name="Method_Attendance" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
+      <Association Name="Category_Belt_Attendance" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Expense" Member="Expenses">
+    <Type Name="Expense">
+      <Column Name="REGL_YEAR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REGL_CODE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXTP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CTGY_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GROP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BRND_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EXPN_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRIC" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="MIN_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAX_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXTR_PRCT" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="EXPN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ADD_QUTS" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COVR_DSCT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXPN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BUY_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BUY_EXTR_PRCT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB_OF_STOK" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB_OF_SALE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB_OF_REMN_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORDR_ITEM" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COVR_TAX" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB_OF_ATTN_WEEK" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MODL_NUMB_BAR_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRVT_COCH_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MIN_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB_CYCL_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB_MONT_OFER" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MIN_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RELY_CMND" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PROF_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DEDU_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Expense_Refunds_Payment_Detail" Member="Refunds_Payment_Details" ThisKey="CODE" OtherKey="PYDT_EXPN_CODE" Type="Refunds_Payment_Detail" />
+      <Association Name="Expense_Session_Meeting" Member="Session_Meetings" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Session_Meeting" />
+      <Association Name="Expense_Session" Member="Sessions" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Session" />
+      <Association Name="Expense_Buffet" Member="Buffets" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Buffet" />
+      <Association Name="Expense_Pre_Expense" Member="Pre_Expenses" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Pre_Expense" />
+      <Association Name="Expense_Pre_Expense1" Member="Pre_Expenses1" ThisKey="CODE" OtherKey="PRE_EXPN_CODE" Type="Pre_Expense" />
+      <Association Name="Expense_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Aggregation_Operation_Detail" />
+      <Association Name="Expense_Payment_Discount" Member="Payment_Discounts" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Payment_Discount" />
+      <Association Name="Expense_Expense_Cost" Member="Expense_Costs" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Expense_Cost" />
+      <Association Name="Expense_Coupon" Member="Coupons" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Coupon" />
+      <Association Name="Expense_Coupon1" Member="Coupons1" ThisKey="CODE" OtherKey="COPN_EXPN_CODE" Type="Coupon" />
+      <Association Name="Expense_Fighter_Coupon" Member="Fighter_Coupons" ThisKey="CODE" OtherKey="COPN_EXPN_CODE" Type="Fighter_Coupon" />
+      <Association Name="Expense_Payment_Detail" Member="Payment_Details" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Payment_Detail" />
+      <Association Name="Expense_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Calculate_Expense_Coach" />
+      <Association Name="Expense_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Basic_Calculate_Discount" />
+      <Association Name="Group_Expense_Expense" Member="Group_Expense" ThisKey="BRND_CODE" OtherKey="CODE" Type="Group_Expense" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Expense_Type_Expense" Member="Expense_Type" ThisKey="EXTP_CODE" OtherKey="CODE" Type="Expense_Type" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Group_Expense_Expense1" Member="Group_Expense1" ThisKey="GROP_CODE" OtherKey="CODE" Type="Group_Expense" IsForeignKey="true" />
+      <Association Name="Regulation_Expense" Member="Regulation" ThisKey="REGL_YEAR,REGL_CODE" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Method_Expense" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Category_Belt_Expense" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+    <UpdateFunction FunctionId="FunctionId96">
+      <Argument Parameter="cODE" Member="CODE" />
+      <Argument Parameter="pRIC" Member="PRIC" />
+      <Argument Parameter="eXPN_STAT" Member="EXPN_STAT" />
+      <Argument Parameter="aDD_QUTS" Member="ADD_QUTS" />
+      <Argument Parameter="cOVR_DSCT" Member="COVR_DSCT" />
+      <Argument Parameter="eXPN_TYPE" Member="EXPN_TYPE" />
+      <Argument Parameter="bUY_PRIC" Member="BUY_PRIC" />
+      <Argument Parameter="bUY_EXTR_PRCT" Member="BUY_EXTR_PRCT" />
+      <Argument Parameter="nUMB_OF_STOK" Member="NUMB_OF_STOK" />
+      <Argument Parameter="nUMB_OF_SALE" Member="NUMB_OF_SALE" />
+      <Argument Parameter="cOVR_TAX" Member="COVR_TAX" />
+      <Argument Parameter="nUMB_OF_ATTN_MONT" Member="NUMB_OF_ATTN_MONT" />
+      <Argument Parameter="nUMB_OF_ATTN_WEEK" Member="NUMB_OF_ATTN_WEEK" />
+      <Argument Parameter="mODL_NUMB_BAR_CODE" Member="MODL_NUMB_BAR_CODE" />
+      <Argument Parameter="pRVT_COCH_EXPN" Member="PRVT_COCH_EXPN" />
+      <Argument Parameter="nUMB_CYCL_DAY" Member="NUMB_CYCL_DAY" />
+      <Argument Parameter="nUMB_MONT_OFER" Member="NUMB_MONT_OFER" />
+      <Argument Parameter="mIN_NUMB" Member="MIN_NUMB" />
+      <Argument Parameter="gROP_CODE" Member="GROP_CODE" />
+      <Argument Parameter="eXPN_DESC" Member="EXPN_DESC" />
+      <Argument Parameter="mIN_TIME" Member="MIN_TIME" />
+      <Argument Parameter="rELY_CMND" Member="RELY_CMND" />
+      <Argument Parameter="oRDR_ITEM" Member="ORDR_ITEM" />
+      <Argument Parameter="bRND_CODE" Member="BRND_CODE" />
+      <Argument Parameter="min_Pric" Member="MIN_PRIC" />
+      <Argument Parameter="max_Pric" Member="MAX_PRIC" />
+    </UpdateFunction>
+  </Table>
+  <Table Name="dbo.V#Events" Member="V_Events">
+    <Type Name="V_Event">
+      <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="SEX_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="EVNT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EVNT_TYPE" Type="System.String" DbType="NVarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="EVNT_DESC" Type="System.String" DbType="NVarChar(508)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.D$EVNT" Member="D_EVNTs">
+    <Type Name="D_EVNT">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Method" Member="Methods">
+    <Type Name="Method">
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MTOD_DESC" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NATL_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EPIT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MTOD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CHCK_ATTN_ALRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHAR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Method_Test" Member="Tests" ThisKey="CODE" OtherKey="CTGY_MTOD_CODE" Type="Test" />
+      <Association Name="Method_Session_Meeting" Member="Session_Meetings" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Session_Meeting" />
+      <Association Name="Method_Session" Member="Sessions" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Session" />
+      <Association Name="Method_Base_Calculate_Expense" Member="Base_Calculate_Expenses" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Base_Calculate_Expense" />
+      <Association Name="Method_Computer_Action" Member="Computer_Actions" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Computer_Action" />
+      <Association Name="Method_Misc_Expense_Detail" Member="Misc_Expense_Details" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Misc_Expense_Detail" />
+      <Association Name="Method_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Aggregation_Operation" />
+      <Association Name="Method_External_Device_Link_Method" Member="External_Device_Link_Methods" ThisKey="CODE" OtherKey="MTOD_CODE" Type="External_Device_Link_Method" />
+      <Association Name="Method_Fighter_Discount_Card" Member="Fighter_Discount_Cards" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Fighter_Discount_Card" />
+      <Association Name="Method_Fighter_Public" Member="Fighter_Publics" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Fighter_Public" />
+      <Association Name="Method_Payment_Detail" Member="Payment_Details" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Payment_Detail" />
+      <Association Name="Method_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Calculate_Expense_Coach" />
+      <Association Name="Method_User_Link_Method" Member="User_Link_Methods" ThisKey="CODE" OtherKey="MTOD_CODE" Type="User_Link_Method" />
+      <Association Name="Method_Fighter" Member="Fighters" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Fighter" />
+      <Association Name="Method_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Basic_Calculate_Discount" />
+      <Association Name="Method_Payment_Expense" Member="Payment_Expenses" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Payment_Expense" />
+      <Association Name="Method_Advertising_Parameter" Member="Advertising_Parameters" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Advertising_Parameter" />
+      <Association Name="Method_Member_Ship" Member="Member_Ships" ThisKey="CODE" OtherKey="FGPB_MTOD_CODE_DNRM" Type="Member_Ship" />
+      <Association Name="Method_Club_Method" Member="Club_Methods" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Club_Method" />
+      <Association Name="Method_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Attendance" />
+      <Association Name="Method_Expense" Member="Expenses" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Expense" />
+      <Association Name="Method_Method" Member="Methods" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Method" />
+      <Association Name="Method_Category_Belt" Member="Category_Belts" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Category_Belt" />
+      <Association Name="Method_Method" Member="Method1" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId97">
+      <Argument Parameter="mtod_Desc" Member="MTOD_DESC" />
+      <Argument Parameter="mtod_Code" Member="MTOD_CODE" />
+      <Argument Parameter="epit_Type" Member="EPIT_TYPE" />
+      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
+      <Argument Parameter="mtod_Stat" Member="MTOD_STAT" />
+      <Argument Parameter="chck_Attn_Alrm" Member="CHCK_ATTN_ALRM" />
+      <Argument Parameter="natl_Code" Member="NATL_CODE" />
+      <Argument Parameter="shar_Stat" Member="SHAR_STAT" />
+      <Argument Parameter="show_Stat" Member="SHOW_STAT" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId98">
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="mtod_Desc" Member="MTOD_DESC" />
+      <Argument Parameter="mtod_Code" Member="MTOD_CODE" />
+      <Argument Parameter="epit_Type" Member="EPIT_TYPE" />
+      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
+      <Argument Parameter="mtod_Stat" Member="MTOD_STAT" />
+      <Argument Parameter="chck_Attn_Alrm" Member="CHCK_ATTN_ALRM" />
+      <Argument Parameter="natl_Code" Member="NATL_CODE" />
+      <Argument Parameter="shar_Stat" Member="SHAR_STAT" />
+      <Argument Parameter="show_Stat" Member="SHOW_STAT" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId99">
+      <Argument Parameter="code" Member="CODE" />
+    </DeleteFunction>
+  </Table>
+  <Table Name="dbo.Category_Belt" Member="Category_Belts">
+    <Type Name="Category_Belt">
+      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CTGY_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="ORDR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RED" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GREN" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BLUE" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NATL_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EPIT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRVT_COCH_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB_CYCL_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB_MONT_OFER" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRIC" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CTGY_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GUST_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RWRD_ATTN_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Category_Belt_Distance_Category" Member="Distance_Categories" ThisKey="CODE" OtherKey="FRST_CTGY_CODE" Type="Distance_Category" />
+      <Association Name="Category_Belt_Distance_Category1" Member="Distance_Categories1" ThisKey="CODE" OtherKey="SCND_CTGY_CODE" Type="Distance_Category" />
+      <Association Name="Category_Belt_Test" Member="Tests" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Test" />
+      <Association Name="Category_Belt_Session_Meeting" Member="Session_Meetings" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Session_Meeting" />
+      <Association Name="Category_Belt_Session" Member="Sessions" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Session" />
+      <Association Name="Category_Belt_Base_Calculate_Expense" Member="Base_Calculate_Expenses" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Base_Calculate_Expense" />
+      <Association Name="Category_Belt_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Aggregation_Operation" />
+      <Association Name="Category_Belt_Fighter_Discount_Card" Member="Fighter_Discount_Cards" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Fighter_Discount_Card" />
+      <Association Name="Category_Belt_Fighter_Public" Member="Fighter_Publics" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Fighter_Public" />
+      <Association Name="Category_Belt_Report_Temporary" Member="Report_Temporaries" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Report_Temporary" />
+      <Association Name="Category_Belt_Payment_Detail" Member="Payment_Details" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Payment_Detail" />
+      <Association Name="Category_Belt_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Calculate_Expense_Coach" />
+      <Association Name="Category_Belt_Fighter" Member="Fighters" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Fighter" />
+      <Association Name="Category_Belt_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Basic_Calculate_Discount" />
+      <Association Name="Category_Belt_Payment_Expense" Member="Payment_Expenses" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Payment_Expense" />
+      <Association Name="Category_Belt_Advertising_Parameter" Member="Advertising_Parameters" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Advertising_Parameter" />
+      <Association Name="Category_Belt_Member_Ship" Member="Member_Ships" ThisKey="CODE" OtherKey="FGPB_CTGY_CODE_DNRM" Type="Member_Ship" />
+      <Association Name="Category_Belt_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Attendance" />
+      <Association Name="Category_Belt_Expense" Member="Expenses" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Expense" />
+      <Association Name="Method_Category_Belt" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId100">
+      <Argument Parameter="mtod_Code" Member="MTOD_CODE" />
+      <Argument Parameter="name" Member="NAME" />
+      <Argument Parameter="ctgy_Desc" Member="CTGY_DESC" />
+      <Argument Parameter="ordr" Member="ORDR" />
+      <Argument Parameter="epit_Type" Member="EPIT_TYPE" />
+      <Argument Parameter="numb_Of_Attn_Mont" Member="NUMB_OF_ATTN_MONT" />
+      <Argument Parameter="numb_Cycl_Day" Member="NUMB_CYCL_DAY" />
+      <Argument Parameter="numb_Mont_Ofer" Member="NUMB_MONT_OFER" />
+      <Argument Parameter="prvt_Coch_Expn" Member="PRVT_COCH_EXPN" />
+      <Argument Parameter="pric" Member="PRIC" />
+      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
+      <Argument Parameter="ctgy_Stat" Member="CTGY_STAT" />
+      <Argument Parameter="gust_Numb" Member="GUST_NUMB" />
+      <Argument Parameter="natl_Code" Member="NATL_CODE" />
+      <Argument Parameter="rwrd_Attn_Pric" Member="RWRD_ATTN_PRIC" />
+      <Argument Parameter="show_Stat" Member="SHOW_STAT" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId101">
+      <Argument Parameter="code" Member="CODE" />
+      <Argument Parameter="name" Member="NAME" />
+      <Argument Parameter="ctgy_Desc" Member="CTGY_DESC" />
+      <Argument Parameter="ordr" Member="ORDR" />
+      <Argument Parameter="epit_Type" Member="EPIT_TYPE" />
+      <Argument Parameter="numb_Of_Attn_Mont" Member="NUMB_OF_ATTN_MONT" />
+      <Argument Parameter="numb_Cycl_Day" Member="NUMB_CYCL_DAY" />
+      <Argument Parameter="numb_Mont_Ofer" Member="NUMB_MONT_OFER" />
+      <Argument Parameter="prvt_Coch_Expn" Member="PRVT_COCH_EXPN" />
+      <Argument Parameter="pric" Member="PRIC" />
+      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
+      <Argument Parameter="ctgy_Stat" Member="CTGY_STAT" />
+      <Argument Parameter="gust_Numb" Member="GUST_NUMB" />
+      <Argument Parameter="natl_Code" Member="NATL_CODE" />
+      <Argument Parameter="rwrd_Attn_Pric" Member="RWRD_ATTN_PRIC" />
+      <Argument Parameter="show_Stat" Member="SHOW_STAT" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId102">
+      <Argument Parameter="code" Member="CODE" />
+    </DeleteFunction>
   </Table>
   <Table Name="dbo.Settings" Member="Settings">
     <Type Name="Setting">
@@ -4905,239 +5084,141 @@
       <Column Name="SND9_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="REST_ATTN_NUMB_BY_YEAR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="ATTN_NOT_INSR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_RBON_MNUI" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_SLID_MNUI" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Club_Setting" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
-  <Table Name="dbo.D$AINS" Member="D_AINs">
-    <Type Name="D_AIN">
-      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+  <Table Name="dbo.Request_Duplicate" Member="Request_Duplicates">
+    <Type Name="Request_Duplicate">
+      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_HOST_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_HOST_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Request_Duplicate_Request_Duplicate_Detail" Member="Request_Duplicate_Details" ThisKey="CODE" OtherKey="RQSD_CODE" Type="Request_Duplicate_Detail" />
+      <Association Name="Request_Request_Duplicate" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
-  <Table Name="dbo.Club_Method" Member="Club_Methods">
-    <Type Name="Club_Method">
-      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+  <Table Name="dbo.Request_Duplicate_Detail" Member="Request_Duplicate_Details">
+    <Type Name="Request_Duplicate_Detail">
+      <Column Name="RQRO_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQRO_RWNO" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQSD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_HOST_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_HOST_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Request_Row_Request_Duplicate_Detail" Member="Request_Row" ThisKey="RQRO_RQST_RQID,RQRO_RWNO" OtherKey="RQST_RQID,RWNO" Type="Request_Row" IsForeignKey="true" />
+      <Association Name="Request_Duplicate_Request_Duplicate_Detail" Member="Request_Duplicate" ThisKey="RQSD_CODE" OtherKey="CODE" Type="Request_Duplicate" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Request" Member="Requests">
+    <Type Name="Request">
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="RQTT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="RQST_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="RQST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SAVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LETT_NO" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LETT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LETT_OWNR" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SSTT_MSTT_SUB_SYS" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SSTT_MSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="SSTT_CODE" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="YEAR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CYCL" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDUL_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SECT_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQST_NUMB" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQST_DESC" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REF_SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REF_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AMNT_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INVC_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Request_Request_Regulation_History" Member="Request_Regulation_Histories" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Regulation_History" />
+      <Association Name="Request_Step_History_Summery" Member="Step_History_Summeries" ThisKey="RQID" OtherKey="RQST_RQID" Type="Step_History_Summery" />
+      <Association Name="Request_Committee" Member="Committees" ThisKey="RQID" OtherKey="RQST_RQID" Type="Committee" />
+      <Association Name="Request_Request_Letter" Member="Request_Letters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Letter" />
+      <Association Name="Request_Request_Row" Member="Request_Rows" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Row" />
+      <Association Name="Request_Account_Detail" Member="Account_Details" ThisKey="RQID" OtherKey="PYMT_RQST_RQID" Type="Account_Detail" />
+      <Association Name="Request_Statistic_Detail_Request" Member="Statistic_Detail_Requests" ThisKey="RQID" OtherKey="RQST_RQID" Type="Statistic_Detail_Request" />
+      <Association Name="Request_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="RQID" OtherKey="RQST_RQID" Type="Aggregation_Operation_Detail" />
+      <Association Name="Request_Fighter_Discount_Card" Member="Fighter_Discount_Cards" ThisKey="RQID" OtherKey="RQST_RQID" Type="Fighter_Discount_Card" />
+      <Association Name="Request_Advertising_Campaign" Member="Advertising_Campaigns" ThisKey="RQID" OtherKey="RQST_RQID" Type="Advertising_Campaign" />
+      <Association Name="Request_Payment" Member="Payments" ThisKey="RQID" OtherKey="RQST_RQID" Type="Payment" />
+      <Association Name="Request_Fighter_Coupon" Member="Fighter_Coupons" ThisKey="RQID" OtherKey="RQST_RQID" Type="Fighter_Coupon" />
+      <Association Name="Request_Report_Temporary" Member="Report_Temporaries" ThisKey="RQID" OtherKey="RQST_RQID" Type="Report_Temporary" />
+      <Association Name="Request_Request_Parameter" Member="Request_Parameters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Parameter" />
+      <Association Name="Request_Fighter" Member="Fighters" ThisKey="RQID" OtherKey="RQST_RQID" Type="Fighter" />
+      <Association Name="Request_Request_Duplicate" Member="Request_Duplicates" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request_Duplicate" />
+      <Association Name="Request_Request" Member="Requests" ThisKey="RQID" OtherKey="RQST_RQID" Type="Request" />
+      <Association Name="Month_Base_Request" Member="Month_Base" ThisKey="CYCL" OtherKey="CYCL" Type="Month_Base" IsForeignKey="true" />
+      <Association Name="Region_Request" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+      <Association Name="Request_Request" Member="Request1" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
+      <Association Name="Request_Type_Request" Member="Request_Type" ThisKey="RQTP_CODE" OtherKey="CODE" Type="Request_Type" IsForeignKey="true" />
+      <Association Name="Requester_Type_Request" Member="Requester_Type" ThisKey="RQTT_CODE" OtherKey="CODE" Type="Requester_Type" IsForeignKey="true" />
+      <Association Name="Sub_State_Request" Member="Sub_State" ThisKey="SSTT_MSTT_CODE,SSTT_MSTT_SUB_SYS,SSTT_CODE" OtherKey="MSTT_CODE,MSTT_SUB_SYS,CODE" Type="Sub_State" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.External_Device" Member="External_Devices">
+    <Type Name="External_Device">
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DEV_COMP_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DEV_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DEV_CON" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CYCL_READ" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DEV_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PORT_NAME" Type="System.String" DbType="VarChar(10)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PORT_SEND" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PORT_RECV" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SERV_IP_ADRS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="COCH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DAY_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="STRT_TIME" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="END_TIME" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="MTOD_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="SEX_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CBMT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CPCT_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CPCT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CBMT_TIME" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CBMT_TIME_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CLAS_TIME" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NATL_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DURT_ATTN_SOND_PATH" Type="System.String" DbType="VarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXPN_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Club_Method_Session_Meeting" Member="Session_Meetings" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Session_Meeting" />
-      <Association Name="Club_Method_Session" Member="Sessions" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Session" />
-      <Association Name="Club_Method_Club_Method_Weekday" Member="Club_Method_Weekdays" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Club_Method_Weekday" />
-      <Association Name="Club_Method_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Aggregation_Operation" />
-      <Association Name="Club_Method_Fighter_Public" Member="Fighter_Publics" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Fighter_Public" />
-      <Association Name="Club_Method_Report_Temporary" Member="Report_Temporaries" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Report_Temporary" />
-      <Association Name="Club_Method_Payment_Detail" Member="Payment_Details" ThisKey="CODE" OtherKey="CBMT_CODE_DNRM" Type="Payment_Detail" />
-      <Association Name="Club_Method_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Calculate_Expense_Coach" />
-      <Association Name="Club_Method_Payment_Expense" Member="Payment_Expenses" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Payment_Expense" />
-      <Association Name="Club_Method_Member_Ship" Member="Member_Ships" ThisKey="CODE" OtherKey="FGPB_CBMT_CODE_DNRM" Type="Member_Ship" />
-      <Association Name="Club_Method_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="CBMT_CODE_DNRM" Type="Attendance" />
-      <Association Name="Club_Club_Method" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Fighter_Club_Method" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
-      <Association Name="Method_Club_Method" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="External_Device_External_Device_Link_Method" Member="External_Device_Link_Methods" ThisKey="CODE" OtherKey="EDEV_CODE" Type="External_Device_Link_Method" />
+      <Association Name="External_Device_External_Device_Link_External_Device" Member="External_Device_Link_External_Devices" ThisKey="CODE" OtherKey="EDEV_CODE" Type="External_Device_Link_External_Device" />
+      <Association Name="External_Device_External_Device_Link_External_Device1" Member="External_Device_Link_External_Devices1" ThisKey="CODE" OtherKey="LINK_EDEV_CODE" Type="External_Device_Link_External_Device" />
     </Type>
-    <InsertFunction FunctionId="FunctionId98">
-      <Argument Parameter="club_Code" Member="CLUB_CODE" />
-      <Argument Parameter="mtod_Code" Member="MTOD_CODE" />
-      <Argument Parameter="coch_File_No" Member="COCH_FILE_NO" />
-      <Argument Parameter="day_Type" Member="DAY_TYPE" />
-      <Argument Parameter="strt_Time" Member="STRT_TIME" />
-      <Argument Parameter="end_Time" Member="END_TIME" />
-      <Argument Parameter="sex_Type" Member="SEX_TYPE" />
-      <Argument Parameter="cbmt_Desc" Member="CBMT_DESC" />
-      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
-      <Argument Parameter="cpct_Numb" Member="CPCT_NUMB" />
-      <Argument Parameter="cpct_Stat" Member="CPCT_STAT" />
-      <Argument Parameter="cbmt_Time" Member="CBMT_TIME" />
-      <Argument Parameter="cbmt_Time_Stat" Member="CBMT_TIME_STAT" />
-      <Argument Parameter="clas_Time" Member="CLAS_TIME" />
-      <Argument Parameter="amnt" Member="AMNT" />
-      <Argument Parameter="natl_Code" Member="NATL_CODE" />
-      <Argument Parameter="durt_Attn_Sond_Path" Member="DURT_ATTN_SOND_PATH" />
-    </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId99">
-      <Argument Parameter="code" Member="CODE" />
-      <Argument Parameter="club_Code" Member="CLUB_CODE" />
-      <Argument Parameter="mtod_Code" Member="MTOD_CODE" />
-      <Argument Parameter="coch_File_No" Member="COCH_FILE_NO" />
-      <Argument Parameter="mtod_Stat" Member="MTOD_STAT" />
-      <Argument Parameter="day_Type" Member="DAY_TYPE" />
-      <Argument Parameter="strt_Time" Member="STRT_TIME" />
-      <Argument Parameter="end_Time" Member="END_TIME" />
-      <Argument Parameter="sex_Type" Member="SEX_TYPE" />
-      <Argument Parameter="cbmt_Desc" Member="CBMT_DESC" />
-      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
-      <Argument Parameter="cpct_Numb" Member="CPCT_NUMB" />
-      <Argument Parameter="cpct_Stat" Member="CPCT_STAT" />
-      <Argument Parameter="cbmt_Time" Member="CBMT_TIME" />
-      <Argument Parameter="cbmt_Time_Stat" Member="CBMT_TIME_STAT" />
-      <Argument Parameter="clas_Time" Member="CLAS_TIME" />
-      <Argument Parameter="amnt" Member="AMNT" />
-      <Argument Parameter="natl_Code" Member="NATL_CODE" />
-      <Argument Parameter="durt_Attn_Sond_Path" Member="DURT_ATTN_SOND_PATH" />
-    </UpdateFunction>
   </Table>
-  <Table Name="dbo.Category_Belt" Member="Category_Belts">
-    <Type Name="Category_Belt">
-      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+  <Table Name="dbo.External_Device_Link_External_Device" Member="External_Device_Link_External_Devices">
+    <Type Name="External_Device_Link_External_Device">
+      <Column Name="EDEV_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LINK_EDEV_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CTGY_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="ORDR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RED" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GREN" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BLUE" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NATL_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="EPIT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PRVT_COCH_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_CYCL_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_MONT_OFER" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PRIC" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CTGY_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GUST_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RWRD_ATTN_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Category_Belt_Distance_Category" Member="Distance_Categories" ThisKey="CODE" OtherKey="FRST_CTGY_CODE" Type="Distance_Category" />
-      <Association Name="Category_Belt_Distance_Category1" Member="Distance_Categories1" ThisKey="CODE" OtherKey="SCND_CTGY_CODE" Type="Distance_Category" />
-      <Association Name="Category_Belt_Test" Member="Tests" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Test" />
-      <Association Name="Category_Belt_Session_Meeting" Member="Session_Meetings" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Session_Meeting" />
-      <Association Name="Category_Belt_Session" Member="Sessions" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Session" />
-      <Association Name="Category_Belt_Base_Calculate_Expense" Member="Base_Calculate_Expenses" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Base_Calculate_Expense" />
-      <Association Name="Category_Belt_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Aggregation_Operation" />
-      <Association Name="Category_Belt_Fighter_Discount_Card" Member="Fighter_Discount_Cards" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Fighter_Discount_Card" />
-      <Association Name="Category_Belt_Fighter_Public" Member="Fighter_Publics" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Fighter_Public" />
-      <Association Name="Category_Belt_Expense" Member="Expenses" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Expense" />
-      <Association Name="Category_Belt_Report_Temporary" Member="Report_Temporaries" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Report_Temporary" />
-      <Association Name="Category_Belt_Payment_Detail" Member="Payment_Details" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Payment_Detail" />
-      <Association Name="Category_Belt_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Calculate_Expense_Coach" />
-      <Association Name="Category_Belt_Fighter" Member="Fighters" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Fighter" />
-      <Association Name="Category_Belt_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Basic_Calculate_Discount" />
-      <Association Name="Category_Belt_Payment_Expense" Member="Payment_Expenses" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Payment_Expense" />
-      <Association Name="Category_Belt_Advertising_Parameter" Member="Advertising_Parameters" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Advertising_Parameter" />
-      <Association Name="Category_Belt_Member_Ship" Member="Member_Ships" ThisKey="CODE" OtherKey="FGPB_CTGY_CODE_DNRM" Type="Member_Ship" />
-      <Association Name="Category_Belt_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Attendance" />
-      <Association Name="Method_Category_Belt" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
-    </Type>
-    <InsertFunction FunctionId="FunctionId100">
-      <Argument Parameter="mtod_Code" Member="MTOD_CODE" />
-      <Argument Parameter="name" Member="NAME" />
-      <Argument Parameter="ctgy_Desc" Member="CTGY_DESC" />
-      <Argument Parameter="ordr" Member="ORDR" />
-      <Argument Parameter="epit_Type" Member="EPIT_TYPE" />
-      <Argument Parameter="numb_Of_Attn_Mont" Member="NUMB_OF_ATTN_MONT" />
-      <Argument Parameter="numb_Cycl_Day" Member="NUMB_CYCL_DAY" />
-      <Argument Parameter="numb_Mont_Ofer" Member="NUMB_MONT_OFER" />
-      <Argument Parameter="prvt_Coch_Expn" Member="PRVT_COCH_EXPN" />
-      <Argument Parameter="pric" Member="PRIC" />
-      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
-      <Argument Parameter="ctgy_Stat" Member="CTGY_STAT" />
-      <Argument Parameter="gust_Numb" Member="GUST_NUMB" />
-      <Argument Parameter="natl_Code" Member="NATL_CODE" />
-      <Argument Parameter="rwrd_Attn_Pric" Member="RWRD_ATTN_PRIC" />
-    </InsertFunction>
-    <UpdateFunction FunctionId="FunctionId101">
-      <Argument Parameter="code" Member="CODE" />
-      <Argument Parameter="name" Member="NAME" />
-      <Argument Parameter="ctgy_Desc" Member="CTGY_DESC" />
-      <Argument Parameter="ordr" Member="ORDR" />
-      <Argument Parameter="epit_Type" Member="EPIT_TYPE" />
-      <Argument Parameter="numb_Of_Attn_Mont" Member="NUMB_OF_ATTN_MONT" />
-      <Argument Parameter="numb_Cycl_Day" Member="NUMB_CYCL_DAY" />
-      <Argument Parameter="numb_Mont_Ofer" Member="NUMB_MONT_OFER" />
-      <Argument Parameter="prvt_Coch_Expn" Member="PRVT_COCH_EXPN" />
-      <Argument Parameter="pric" Member="PRIC" />
-      <Argument Parameter="dflt_Stat" Member="DFLT_STAT" />
-      <Argument Parameter="ctgy_Stat" Member="CTGY_STAT" />
-      <Argument Parameter="gust_Numb" Member="GUST_NUMB" />
-      <Argument Parameter="natl_Code" Member="NATL_CODE" />
-      <Argument Parameter="rwrd_Attn_Pric" Member="RWRD_ATTN_PRIC" />
-    </UpdateFunction>
-    <DeleteFunction FunctionId="FunctionId102">
-      <Argument Parameter="code" Member="CODE" />
-    </DeleteFunction>
-  </Table>
-  <Table Name="dbo.Attendance" Member="Attendances">
-    <Type Name="Attendance">
-      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="FIGH_FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="ATTN_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="MBSP_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MBSP_RECT_CODE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="COCH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ATTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ENTR_TIME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="EXIT_TIME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MUST_EXIT_TIME_DNRM" Type="System.TimeSpan" DbType="Time" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TOTL_SESN" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ATTN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DERS_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FGPB_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CBMT_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MTOD_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CTGY_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="IMAG_RCDC_RCID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="IMAG_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FNGR_PRNT_DNRM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BUFE_DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MBSP_STRT_DATE_DNRM" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MBSP_END_DATE_DNRM" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BRTH_DATE_DNRM" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="NUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SUM_ATTN_MONT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MBCO_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SESN_SNID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ATTN_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="GLOB_CODE_DNRM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PRNT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PRNT_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RCPT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PMEX_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ATTN_SYS_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SEX_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SEND_MESG_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="RTNG_NUMB" Type="System.Int16" DbType="SmallInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="OWNR_CBMT_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Attendance_Dresser_Attendance" Member="Dresser_Attendances" ThisKey="CODE" OtherKey="ATTN_CODE" Type="Dresser_Attendance" />
-      <Association Name="Attendance_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="CODE" OtherKey="ATTN_CODE" Type="Aggregation_Operation_Detail" />
-      <Association Name="Club_Method_Attendance" Member="Club_Method" ThisKey="CBMT_CODE_DNRM" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
-      <Association Name="Club_Attendance" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
-      <Association Name="Fighter_Attendance" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
-      <Association Name="Category_Belt_Attendance" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
-      <Association Name="Fighter_Attendance1" Member="Fighter1" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-      <Association Name="Member_Ship_Attendance" Member="Member_Ship" ThisKey="FIGH_FILE_NO,MBSP_RECT_CODE_DNRM,MBSP_RWNO_DNRM" OtherKey="FIGH_FILE_NO,RECT_CODE,RWNO" Type="Member_Ship" IsForeignKey="true" />
-      <Association Name="Method_Attendance" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
-      <Association Name="Session_Attendance" Member="Session" ThisKey="SESN_SNID_DNRM" OtherKey="SNID" Type="Session" IsForeignKey="true" />
+      <Association Name="External_Device_External_Device_Link_External_Device" Member="External_Device" ThisKey="EDEV_CODE" OtherKey="CODE" Type="External_Device" IsForeignKey="true" />
+      <Association Name="External_Device_External_Device_Link_External_Device1" Member="External_Device1" ThisKey="LINK_EDEV_CODE" OtherKey="CODE" Type="External_Device" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">
@@ -5320,7 +5401,7 @@
     <Parameter Name="FrstNeed" Parameter="frstNeed" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId76" Name="dbo.DEL_MTOD_P" Method="DEL_MTOD_P">
+  <Function Id="FunctionId99" Name="dbo.DEL_MTOD_P" Method="DEL_MTOD_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -5848,7 +5929,7 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId91" Name="dbo.DEL_CEXC_P" Method="DEL_CEXC_P">
+  <Function Id="FunctionId87" Name="dbo.DEL_CEXC_P" Method="DEL_CEXC_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -6434,7 +6515,7 @@
       <Column Name="" Member="Column1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId88" Name="dbo.DEL_PYDT_P" Method="DEL_PYDT_P">
+  <Function Id="FunctionId84" Name="dbo.DEL_PYDT_P" Method="DEL_PYDT_P">
     <Parameter Name="CODE" Parameter="cODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="PYMT_CASH_CODE" Parameter="pYMT_CASH_CODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="PYMT_RQST_RQID" Parameter="pYMT_RQST_RQID" Type="System.Int64" DbType="BigInt" />
@@ -6560,7 +6641,7 @@
       <Column Name="" Member="Column1" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId94" Name="dbo.DEL_BCDS_P" Method="DEL_BCDS_P">
+  <Function Id="FunctionId90" Name="dbo.DEL_BCDS_P" Method="DEL_BCDS_P">
     <Parameter Name="SUNT_BUNT_DEPT_ORGN_CODE" Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2)" />
     <Parameter Name="SUNT_BUNT_DEPT_CODE" Parameter="sUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2)" />
     <Parameter Name="SUNT_BUNT_CODE" Parameter="sUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2)" />
@@ -6718,7 +6799,7 @@
     <Parameter Name="RcptMtod" Parameter="rcptMtod" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId78" Name="dbo.DEL_AODT_P" Method="DEL_AODT_P">
+  <Function Id="FunctionId75" Name="dbo.DEL_AODT_P" Method="DEL_AODT_P">
     <Parameter Name="Agop_Code" Parameter="agop_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
@@ -6787,7 +6868,7 @@
     <Parameter Name="Min_Attn_Stat" Parameter="min_Attn_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId97" Name="dbo.DEL_MEXP_P" Method="DEL_MEXP_P">
+  <Function Id="FunctionId93" Name="dbo.DEL_MEXP_P" Method="DEL_MEXP_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -6823,7 +6904,7 @@
     <Parameter Name="Club_Desc" Parameter="club_Desc" Type="System.String" DbType="NVarChar(100)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId81" Name="dbo.DEL_APBS_P" Method="DEL_APBS_P">
+  <Function Id="FunctionId78" Name="dbo.DEL_APBS_P" Method="DEL_APBS_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
@@ -7209,29 +7290,6 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId74" Name="dbo.INS_MTOD_P" Method="INS_MTOD_P">
-    <Parameter Name="Mtod_Desc" Parameter="mtod_Desc" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Epit_Type" Parameter="epit_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Mtod_Stat" Parameter="mtod_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Chck_Attn_Alrm" Parameter="chck_Attn_Alrm" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Natl_Code" Parameter="natl_Code" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Shar_Stat" Parameter="shar_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId75" Name="dbo.UPD_MTOD_P" Method="UPD_MTOD_P">
-    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Mtod_Desc" Parameter="mtod_Desc" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="Epit_Type" Parameter="epit_Type" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Mtod_Stat" Parameter="mtod_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Chck_Attn_Alrm" Parameter="chck_Attn_Alrm" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Natl_Code" Parameter="natl_Code" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="Shar_Stat" Parameter="shar_Stat" Type="System.String" DbType="VarChar(3)" />
-    <Return Type="System.Int32" />
-  </Function>
   <Function Name="dbo.RouterdbCommand" Method="RouterdbCommand" IsComposable="true">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Parameter Name="xRet" Type="System.Xml.Linq.XElement" DbType="Xml" Direction="InOut" />
@@ -7254,7 +7312,7 @@
       <Column Name="SUNT_DESC" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId83" Name="dbo.UPD_PYDS_P" Method="UPD_PYDS_P">
+  <Function Id="FunctionId80" Name="dbo.UPD_PYDS_P" Method="UPD_PYDS_P">
     <Parameter Name="Pymt_Cash_Code" Parameter="pymt_Cash_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Pymt_Rqst_Rqid" Parameter="pymt_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rqro_Rwno" Parameter="rqro_Rwno" Type="System.Int16" DbType="SmallInt" />
@@ -7266,38 +7324,11 @@
     <Parameter Name="Pyds_Desc" Parameter="pyds_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId84" Name="dbo.DEL_PYDS_P" Method="DEL_PYDS_P">
+  <Function Id="FunctionId81" Name="dbo.DEL_PYDS_P" Method="DEL_PYDS_P">
     <Parameter Name="Pymt_Cash_Code" Parameter="pymt_Cash_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Pymt_Rqst_Rqid" Parameter="pymt_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rqro_Rwno" Parameter="rqro_Rwno" Type="System.Int16" DbType="SmallInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int16" DbType="SmallInt" />
-    <Return Type="System.Int32" />
-  </Function>
-  <Function Id="FunctionId85" Name="dbo.UPD_EXPN_P" Method="UPD_EXPN_P">
-    <Parameter Name="CODE" Parameter="cODE" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="PRIC" Parameter="pRIC" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="EXPN_STAT" Parameter="eXPN_STAT" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="ADD_QUTS" Parameter="aDD_QUTS" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="COVR_DSCT" Parameter="cOVR_DSCT" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="EXPN_TYPE" Parameter="eXPN_TYPE" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="BUY_PRIC" Parameter="bUY_PRIC" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="BUY_EXTR_PRCT" Parameter="bUY_EXTR_PRCT" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="NUMB_OF_STOK" Parameter="nUMB_OF_STOK" Type="System.Int32" DbType="Int" />
-    <Parameter Name="NUMB_OF_SALE" Parameter="nUMB_OF_SALE" Type="System.Int32" DbType="Int" />
-    <Parameter Name="COVR_TAX" Parameter="cOVR_TAX" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="NUMB_OF_ATTN_MONT" Parameter="nUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int" />
-    <Parameter Name="NUMB_OF_ATTN_WEEK" Parameter="nUMB_OF_ATTN_WEEK" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MODL_NUMB_BAR_CODE" Parameter="mODL_NUMB_BAR_CODE" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="PRVT_COCH_EXPN" Parameter="pRVT_COCH_EXPN" Type="System.String" DbType="VarChar(3)" />
-    <Parameter Name="NUMB_CYCL_DAY" Parameter="nUMB_CYCL_DAY" Type="System.Int32" DbType="Int" />
-    <Parameter Name="NUMB_MONT_OFER" Parameter="nUMB_MONT_OFER" Type="System.Int32" DbType="Int" />
-    <Parameter Name="MIN_NUMB" Parameter="mIN_NUMB" Type="System.Int32" DbType="Int" />
-    <Parameter Name="GROP_CODE" Parameter="gROP_CODE" Type="System.Int64" DbType="BigInt" />
-    <Parameter Name="EXPN_DESC" Parameter="eXPN_DESC" Type="System.String" DbType="NVarChar(250)" />
-    <Parameter Name="MIN_TIME" Parameter="mIN_TIME" Type="System.DateTime" DbType="DateTime" />
-    <Parameter Name="RELY_CMND" Parameter="rELY_CMND" Type="System.String" DbType="VarChar(50)" />
-    <Parameter Name="ORDR_ITEM" Parameter="oRDR_ITEM" Type="System.String" DbType="VarChar(100)" />
-    <Parameter Name="BRND_CODE" Parameter="bRND_CODE" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.SCVF_PBLC_P" Method="SCVF_PBLC_P">
@@ -7320,7 +7351,7 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId86" Name="dbo.INS_PYDT_P" Method="INS_PYDT_P">
+  <Function Id="FunctionId82" Name="dbo.INS_PYDT_P" Method="INS_PYDT_P">
     <Parameter Name="PYMT_CASH_CODE" Parameter="pYMT_CASH_CODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="PYMT_RQST_RQID" Parameter="pYMT_RQST_RQID" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="RQRO_RWNO" Parameter="rQRO_RWNO" Type="System.Int16" DbType="SmallInt" />
@@ -7371,7 +7402,7 @@
     <Parameter Name="Grop_Apbs_Code" Parameter="grop_Apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId77" Name="dbo.UPD_AODT_P" Method="UPD_AODT_P">
+  <Function Id="FunctionId74" Name="dbo.UPD_AODT_P" Method="UPD_AODT_P">
     <Parameter Name="Agop_Code" Parameter="agop_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rwno" Parameter="rwno" Type="System.Int32" DbType="Int" />
     <Parameter Name="Aodt_Agop_Code" Parameter="aodt_Agop_Code" Type="System.Int64" DbType="BigInt" />
@@ -7401,7 +7432,7 @@
     <Parameter Name="Grop_Apbs_Code" Parameter="grop_Apbs_Code" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId79" Name="dbo.INS_APBS_P" Method="INS_APBS_P">
+  <Function Id="FunctionId76" Name="dbo.INS_APBS_P" Method="INS_APBS_P">
     <Parameter Name="Titl_Desc" Parameter="titl_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Enty_Name" Parameter="enty_Name" Type="System.String" DbType="VarChar(250)" />
     <Parameter Name="Ref_Code" Parameter="ref_Code" Type="System.Int64" DbType="BigInt" />
@@ -7419,7 +7450,7 @@
     <Parameter Name="Stat" Parameter="stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId80" Name="dbo.UPD_APBS_P" Method="UPD_APBS_P">
+  <Function Id="FunctionId77" Name="dbo.UPD_APBS_P" Method="UPD_APBS_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Titl_Desc" Parameter="titl_Desc" Type="System.String" DbType="NVarChar(250)" />
     <Parameter Name="Enty_Name" Parameter="enty_Name" Type="System.String" DbType="VarChar(250)" />
@@ -7516,7 +7547,7 @@
       <Column Name="REF_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId82" Name="dbo.INS_PYDS_P" Method="INS_PYDS_P">
+  <Function Id="FunctionId79" Name="dbo.INS_PYDS_P" Method="INS_PYDS_P">
     <Parameter Name="Pymt_Cash_Code" Parameter="pymt_Cash_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Pymt_Rqst_Rqid" Parameter="pymt_Rqst_Rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Rqro_Rwno" Parameter="rqro_Rwno" Type="System.Int16" DbType="SmallInt" />
@@ -7572,7 +7603,7 @@
       <Column Name="DEDU_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId87" Name="dbo.UPD_PYDT_T" Method="UPD_PYDT_T">
+  <Function Id="FunctionId83" Name="dbo.UPD_PYDT_T" Method="UPD_PYDT_T">
     <Parameter Name="CODE" Parameter="cODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="PYMT_CASH_CODE" Parameter="pYMT_CASH_CODE" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="PYMT_RQST_RQID" Parameter="pYMT_RQST_RQID" Type="System.Int64" DbType="BigInt" />
@@ -7600,7 +7631,7 @@
     <Parameter Name="Exts_Rsrv_Date" Parameter="exts_Rsrv_Date" Type="System.DateTime" DbType="DateTime" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId89" Name="dbo.INS_CEXC_P" Method="INS_CEXC_P">
+  <Function Id="FunctionId85" Name="dbo.INS_CEXC_P" Method="INS_CEXC_P">
     <Parameter Name="Expn_Code" Parameter="expn_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Coch_File_No" Parameter="coch_File_No" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Epit_Code" Parameter="epit_Code" Type="System.Int64" DbType="BigInt" />
@@ -7625,7 +7656,7 @@
     <Parameter Name="Fore_Givn_Attn_Numb" Parameter="fore_Givn_Attn_Numb" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId90" Name="dbo.UPD_CEXC_P" Method="UPD_CEXC_P">
+  <Function Id="FunctionId86" Name="dbo.UPD_CEXC_P" Method="UPD_CEXC_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Expn_Code" Parameter="expn_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Coch_File_No" Parameter="coch_File_No" Type="System.Int64" DbType="BigInt" />
@@ -7758,7 +7789,7 @@
       <Column Name="RIGH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId92" Name="dbo.INS_BCDS_P" Method="INS_BCDS_P">
+  <Function Id="FunctionId88" Name="dbo.INS_BCDS_P" Method="INS_BCDS_P">
     <Parameter Name="SUNT_BUNT_DEPT_ORGN_CODE" Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2)" />
     <Parameter Name="SUNT_BUNT_DEPT_CODE" Parameter="sUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2)" />
     <Parameter Name="SUNT_BUNT_CODE" Parameter="sUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2)" />
@@ -7779,7 +7810,7 @@
     <Parameter Name="EXPN_CODE" Parameter="eXPN_CODE" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId93" Name="dbo.UPD_BCDS_P" Method="UPD_BCDS_P">
+  <Function Id="FunctionId89" Name="dbo.UPD_BCDS_P" Method="UPD_BCDS_P">
     <Parameter Name="SUNT_BUNT_DEPT_ORGN_CODE" Parameter="sUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2)" />
     <Parameter Name="SUNT_BUNT_DEPT_CODE" Parameter="sUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2)" />
     <Parameter Name="SUNT_BUNT_CODE" Parameter="sUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2)" />
@@ -7802,7 +7833,7 @@
     <Parameter Name="EXPN_CODE" Parameter="eXPN_CODE" Type="System.Int64" DbType="BigInt" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId95" Name="dbo.INS_MEXP_P" Method="INS_MEXP_P">
+  <Function Id="FunctionId91" Name="dbo.INS_MEXP_P" Method="INS_MEXP_P">
     <Parameter Name="Club_Code" Parameter="club_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Epit_Code" Parameter="epit_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Coch_File_No" Parameter="coch_File_No" Type="System.Int64" DbType="BigInt" />
@@ -7817,7 +7848,7 @@
     <Parameter Name="Qnty" Parameter="qnty" Type="System.Double" DbType="Float" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId96" Name="dbo.UPD_MEXP_P" Method="UPD_MEXP_P">
+  <Function Id="FunctionId92" Name="dbo.UPD_MEXP_P" Method="UPD_MEXP_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Msex_Code" Parameter="msex_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Club_Code" Parameter="club_Code" Type="System.Int64" DbType="BigInt" />
@@ -7856,7 +7887,7 @@
       <Column Name="TOTL_DSCT_AMNT" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
     </ElementType>
   </Function>
-  <Function Id="FunctionId98" Name="dbo.INS_CBMT_P" Method="INS_CBMT_P">
+  <Function Id="FunctionId94" Name="dbo.INS_CBMT_P" Method="INS_CBMT_P">
     <Parameter Name="Club_Code" Parameter="club_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Coch_File_No" Parameter="coch_File_No" Type="System.Int64" DbType="BigInt" />
@@ -7876,7 +7907,7 @@
     <Parameter Name="Durt_Attn_Sond_Path" Parameter="durt_Attn_Sond_Path" Type="System.String" DbType="VarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
-  <Function Id="FunctionId99" Name="dbo.UPD_CBMT_P" Method="UPD_CBMT_P">
+  <Function Id="FunctionId95" Name="dbo.UPD_CBMT_P" Method="UPD_CBMT_P">
     <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Club_Code" Parameter="club_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
@@ -7898,6 +7929,35 @@
     <Parameter Name="Durt_Attn_Sond_Path" Parameter="durt_Attn_Sond_Path" Type="System.String" DbType="VarChar(500)" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Id="FunctionId96" Name="dbo.UPD_EXPN_P" Method="UPD_EXPN_P">
+    <Parameter Name="CODE" Parameter="cODE" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="PRIC" Parameter="pRIC" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="EXPN_STAT" Parameter="eXPN_STAT" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="ADD_QUTS" Parameter="aDD_QUTS" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="COVR_DSCT" Parameter="cOVR_DSCT" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="EXPN_TYPE" Parameter="eXPN_TYPE" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="BUY_PRIC" Parameter="bUY_PRIC" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="BUY_EXTR_PRCT" Parameter="bUY_EXTR_PRCT" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="NUMB_OF_STOK" Parameter="nUMB_OF_STOK" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NUMB_OF_SALE" Parameter="nUMB_OF_SALE" Type="System.Int32" DbType="Int" />
+    <Parameter Name="COVR_TAX" Parameter="cOVR_TAX" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="NUMB_OF_ATTN_MONT" Parameter="nUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NUMB_OF_ATTN_WEEK" Parameter="nUMB_OF_ATTN_WEEK" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MODL_NUMB_BAR_CODE" Parameter="mODL_NUMB_BAR_CODE" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="PRVT_COCH_EXPN" Parameter="pRVT_COCH_EXPN" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="NUMB_CYCL_DAY" Parameter="nUMB_CYCL_DAY" Type="System.Int32" DbType="Int" />
+    <Parameter Name="NUMB_MONT_OFER" Parameter="nUMB_MONT_OFER" Type="System.Int32" DbType="Int" />
+    <Parameter Name="MIN_NUMB" Parameter="mIN_NUMB" Type="System.Int32" DbType="Int" />
+    <Parameter Name="GROP_CODE" Parameter="gROP_CODE" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="EXPN_DESC" Parameter="eXPN_DESC" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="MIN_TIME" Parameter="mIN_TIME" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="RELY_CMND" Parameter="rELY_CMND" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ORDR_ITEM" Parameter="oRDR_ITEM" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="BRND_CODE" Parameter="bRND_CODE" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Min_Pric" Parameter="min_Pric" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Max_Pric" Parameter="max_Pric" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
   <Function Id="FunctionId100" Name="dbo.INS_CTGY_P" Method="INS_CTGY_P">
     <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(250)" />
@@ -7914,6 +7974,19 @@
     <Parameter Name="Gust_Numb" Parameter="gust_Numb" Type="System.Int32" DbType="Int" />
     <Parameter Name="Natl_Code" Parameter="natl_Code" Type="System.String" DbType="VarChar(2)" />
     <Parameter Name="Rwrd_Attn_Pric" Parameter="rwrd_Attn_Pric" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Show_Stat" Parameter="show_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId97" Name="dbo.INS_MTOD_P" Method="INS_MTOD_P">
+    <Parameter Name="Mtod_Desc" Parameter="mtod_Desc" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Epit_Type" Parameter="epit_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Mtod_Stat" Parameter="mtod_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Chck_Attn_Alrm" Parameter="chck_Attn_Alrm" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Natl_Code" Parameter="natl_Code" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Shar_Stat" Parameter="shar_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Show_Stat" Parameter="show_Stat" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
   </Function>
   <Function Id="FunctionId101" Name="dbo.UPD_CTGY_P" Method="UPD_CTGY_P">
@@ -7932,6 +8005,24 @@
     <Parameter Name="Gust_Numb" Parameter="gust_Numb" Type="System.Int32" DbType="Int" />
     <Parameter Name="Natl_Code" Parameter="natl_Code" Type="System.String" DbType="VarChar(2)" />
     <Parameter Name="Rwrd_Attn_Pric" Parameter="rwrd_Attn_Pric" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Show_Stat" Parameter="show_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId98" Name="dbo.UPD_MTOD_P" Method="UPD_MTOD_P">
+    <Parameter Name="Code" Parameter="code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Mtod_Desc" Parameter="mtod_Desc" Type="System.String" DbType="NVarChar(250)" />
+    <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Epit_Type" Parameter="epit_Type" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Dflt_Stat" Parameter="dflt_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Mtod_Stat" Parameter="mtod_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Chck_Attn_Alrm" Parameter="chck_Attn_Alrm" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Natl_Code" Parameter="natl_Code" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Shar_Stat" Parameter="shar_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Parameter Name="Show_Stat" Parameter="show_Stat" Type="System.String" DbType="VarChar(3)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DUP_RQST_P" Method="DUP_RQST_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

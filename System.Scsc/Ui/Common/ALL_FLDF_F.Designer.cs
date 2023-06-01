@@ -1799,6 +1799,7 @@
          this.ExcpAttnActv_Butn = new System.Windows.Forms.ToolStripMenuItem();
          this.ExcpAttnDact_Butn = new System.Windows.Forms.ToolStripMenuItem();
          this.DFRltBs = new System.Windows.Forms.BindingSource(this.components);
+         this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit15)).BeginInit();
@@ -4514,7 +4515,6 @@
          // gridControl11
          // 
          this.gridControl11.DataSource = this.FGrpBs;
-         this.gridControl11.Dock = System.Windows.Forms.DockStyle.Fill;
          this.gridControl11.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.PydtBn1_ButtonClick);
          this.gridControl11.Location = new System.Drawing.Point(3, 50);
          this.gridControl11.LookAndFeel.SkinName = "Office 2013 Dark Gray";
@@ -4524,7 +4524,7 @@
          this.gridControl11.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.repositoryItemLookUpEdit4});
-         this.gridControl11.Size = new System.Drawing.Size(624, 309);
+         this.gridControl11.Size = new System.Drawing.Size(402, 309);
          this.gridControl11.TabIndex = 6;
          this.gridControl11.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.FGrpGv});
@@ -13503,6 +13503,7 @@
          this.grouper1.Controls.Add(this.label24);
          this.grouper1.CustomGroupBoxColor = System.Drawing.Color.White;
          this.grouper1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.grouper1.ForeColor = System.Drawing.Color.Black;
          this.grouper1.GroupImage = null;
          this.grouper1.GroupTitle = "گزارش عملکرد";
          this.grouper1.Location = new System.Drawing.Point(0, 0);
@@ -13513,6 +13514,7 @@
          this.grouper1.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper1.ShadowControl = false;
          this.grouper1.ShadowThickness = 3;
+         this.grouper1.ShowBorderTitle = false;
          this.grouper1.Size = new System.Drawing.Size(1219, 65);
          this.grouper1.TabIndex = 0;
          // 
@@ -13676,7 +13678,8 @@
             this.xtraTabPage1,
             this.xtraTabPage2,
             this.xtraTabPage3,
-            this.xtraTabPage4});
+            this.xtraTabPage4,
+            this.xtraTabPage5});
          // 
          // xtraTabPage1
          // 
@@ -15260,6 +15263,7 @@
          this.grouper4.Controls.Add(this.RCal_Lov);
          this.grouper4.CustomGroupBoxColor = System.Drawing.Color.LightGray;
          this.grouper4.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.grouper4.ForeColor = System.Drawing.Color.Black;
          this.grouper4.GroupImage = null;
          this.grouper4.GroupTitle = "جزئیات تماس تلفنی";
          this.grouper4.Location = new System.Drawing.Point(0, 0);
@@ -15270,6 +15274,7 @@
          this.grouper4.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper4.ShadowControl = false;
          this.grouper4.ShadowThickness = 3;
+         this.grouper4.ShowBorderTitle = false;
          this.grouper4.Size = new System.Drawing.Size(613, 287);
          this.grouper4.TabIndex = 3;
          // 
@@ -16708,6 +16713,7 @@
          this.grouper2.Controls.Add(this.splitContainerControl21);
          this.grouper2.CustomGroupBoxColor = System.Drawing.Color.LightGray;
          this.grouper2.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.grouper2.ForeColor = System.Drawing.Color.Black;
          this.grouper2.GroupImage = null;
          this.grouper2.GroupTitle = "اطلاعات مشتریان";
          this.grouper2.Location = new System.Drawing.Point(0, 0);
@@ -16718,6 +16724,7 @@
          this.grouper2.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper2.ShadowControl = false;
          this.grouper2.ShadowThickness = 3;
+         this.grouper2.ShowBorderTitle = false;
          this.grouper2.Size = new System.Drawing.Size(466, 613);
          this.grouper2.TabIndex = 1;
          // 
@@ -19113,6 +19120,12 @@
          // 
          this.DFRltBs.DataSource = typeof(System.Scsc.Data.App_Base_Define);
          // 
+         // xtraTabPage5
+         // 
+         this.xtraTabPage5.Name = "xtraTabPage5";
+         this.xtraTabPage5.Size = new System.Drawing.Size(1213, 585);
+         this.xtraTabPage5.Text = "ارسال ایمیل";
+         // 
          // ALL_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -21139,5 +21152,6 @@
       private Windows.Forms.TabControl tabControl3;
       private Windows.Forms.TabPage tabPage10;
       private Windows.Forms.TabPage tabPage11;
+      private DevExpress.XtraTab.XtraTabPage xtraTabPage5;
    }
 }

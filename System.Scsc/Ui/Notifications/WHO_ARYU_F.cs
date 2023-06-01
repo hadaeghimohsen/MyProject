@@ -229,7 +229,7 @@ namespace System.Scsc.Ui.Notifications
          /////////////// Show Coach Profile
          if (CochProFile_Rb.Tag == null || CochProFile_Rb.Tag.ToString().ToInt64() != _attn.COCH_FILE_NO)
          {
-            if (_attn.Fighter.IMAG_RCDC_RCID_DNRM != null)
+            if (_attn.Fighter != null && _attn.Fighter.IMAG_RCDC_RCID_DNRM != null)
             {
                try
                {
@@ -293,7 +293,7 @@ namespace System.Scsc.Ui.Notifications
             PlayHappyBirthDate_Butn.Visible = false;
 
          // 1401/11/25 * برای اجرای مدت زمان کلاس
-         if(_attn.Club_Method.DURT_ATTN_SOND_PATH != "")
+         if(_attn.Club_Method != null && _attn.Club_Method.DURT_ATTN_SOND_PATH != "")
          {
             durtAttn = _attn.Club_Method.DURT_ATTN_SOND_PATH;
             if(_attn.EXIT_TIME == null)
@@ -313,10 +313,16 @@ namespace System.Scsc.Ui.Notifications
          else if(ServProFile_Rb.ImageProfile == null)
             ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1149;
 
-         if (CochProFile_Rb.ImageProfile == null && _attn.Fighter.SEX_TYPE_DNRM == "002")
-            CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1507;
-         else if (CochProFile_Rb.ImageProfile == null)
-            CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1076;
+         if (_attn.Fighter != null)
+         {
+            CochProFile_Rb.Visible = true;
+            if (CochProFile_Rb.ImageProfile == null && _attn.Fighter.SEX_TYPE_DNRM == "002")
+               CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1507;
+            else if (CochProFile_Rb.ImageProfile == null)
+               CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1076;
+         }
+         else
+            CochProFile_Rb.Visible = false;
 
          //if (attn.Fighter1.FGPB_TYPE_DNRM == "002" || attn.Fighter1.FGPB_TYPE_DNRM == "003")
          if (_attn.FGPB_TYPE_DNRM == "002" || _attn.FGPB_TYPE_DNRM == "003")
@@ -603,6 +609,7 @@ namespace System.Scsc.Ui.Notifications
                   break;               
 	         }
             requery = true;
+            AttnDate_Date.Value = attn.ATTN_DATE;
          }
          catch (Exception exc)
          {

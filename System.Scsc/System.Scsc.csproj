@@ -1180,6 +1180,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_DYTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EDUC.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EFDT.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_EVNT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EXCT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EXPT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EXTP.datasource" />
@@ -1363,6 +1364,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.V_App_Message_Box.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Computer.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_DiscountPayment.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_Event.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_GainLoss.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Inventory.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Pos_Device.datasource" />

@@ -24,7 +24,7 @@ namespace System.Scsc.Ui.DebitsList
       private void Execute_Query()
       {
          iScsc = new Data.iScscDataContext(ConnectionString);
-         iScsc.CommandTimeout = 18000;
+         iScsc.CommandTimeout = int.MaxValue;
          vF_Last_Info_FighterResultBs1.DataSource = 
             iScsc.VF_Last_Info_Fighter(fileno, null, null,null, null, null, null, null, null, null, null, null, null, null, null).
             Where(f => 

@@ -179,6 +179,7 @@ namespace System.Scsc.Ui.Settings
             Btn_APPLY_Click(null, null);
 
             var stng = StngBs1.Current as Data.Setting;
+            iScsc.CommandTimeout = int.MaxValue;
             iScsc.TAK_BKUP_P(new XElement("Request", new XElement("Backup", new XAttribute("type", BackupType), new XAttribute("clubcode", stng.CLUB_CODE))));
             Execute_Query();
             if (BackupType != "RESTORE")

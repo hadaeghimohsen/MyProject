@@ -249,7 +249,7 @@
          this.SubmitChange_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SubmitChange_Butn.Name = "SubmitChange_Butn";
          this.SubmitChange_Butn.Size = new System.Drawing.Size(78, 59);
-         this.SubmitChange_Butn.TabIndex = 6;
+         this.SubmitChange_Butn.TabIndex = 0;
          this.SubmitChange_Butn.Text = "ذخیره";
          this.SubmitChange_Butn.ToolTip = "بازگشت";
          this.SubmitChange_Butn.Click += new System.EventHandler(this.SubmitChange_Butn_Click);
@@ -334,11 +334,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("PostAddress_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.PostAddress_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PostAddress_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.PostAddress_Text.Properties.NullValuePrompt = "آدرس محل شیفت باشگاه";
+         this.PostAddress_Text.Properties.NullValuePrompt = "آدرس محل";
          this.PostAddress_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.PostAddress_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.PostAddress_Text.Size = new System.Drawing.Size(448, 30);
-         this.PostAddress_Text.TabIndex = 1;
+         this.PostAddress_Text.TabIndex = 5;
          // 
          // Regn_Lov
          // 
@@ -384,7 +384,7 @@
          this.Regn_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.Regn_Lov.Properties.ValueMember = "CODE";
          this.Regn_Lov.Size = new System.Drawing.Size(186, 34);
-         this.Regn_Lov.TabIndex = 4;
+         this.Regn_Lov.TabIndex = 2;
          // 
          // RegnBs1
          // 
@@ -457,7 +457,7 @@
          this.CordX_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.CordX_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.CordX_Text.Size = new System.Drawing.Size(186, 30);
-         this.CordX_Text.TabIndex = 0;
+         this.CordX_Text.TabIndex = 10;
          // 
          // CordY_Text
          // 
@@ -489,7 +489,7 @@
          this.CordY_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.CordY_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.CordY_Text.Size = new System.Drawing.Size(186, 30);
-         this.CordY_Text.TabIndex = 0;
+         this.CordY_Text.TabIndex = 11;
          // 
          // Desc3_Lb
          // 
@@ -540,7 +540,7 @@
          this.TellPhon_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.TellPhon_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.TellPhon_Text.Size = new System.Drawing.Size(186, 30);
-         this.TellPhon_Text.TabIndex = 0;
+         this.TellPhon_Text.TabIndex = 6;
          // 
          // CellPhon_Text
          // 
@@ -572,7 +572,7 @@
          this.CellPhon_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.CellPhon_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.CellPhon_Text.Size = new System.Drawing.Size(186, 30);
-         this.CellPhon_Text.TabIndex = 0;
+         this.CellPhon_Text.TabIndex = 7;
          // 
          // Desc4_Lb
          // 
@@ -623,7 +623,7 @@
          this.WebSite_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.WebSite_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.WebSite_Text.Size = new System.Drawing.Size(448, 30);
-         this.WebSite_Text.TabIndex = 1;
+         this.WebSite_Text.TabIndex = 8;
          // 
          // EmailAddress_Text
          // 
@@ -655,7 +655,7 @@
          this.EmailAddress_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.EmailAddress_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.EmailAddress_Text.Size = new System.Drawing.Size(448, 30);
-         this.EmailAddress_Text.TabIndex = 1;
+         this.EmailAddress_Text.TabIndex = 9;
          // 
          // ClubDesc_Txt
          // 
@@ -726,11 +726,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ZipCode_Txt.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
          this.ZipCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ZipCode_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.ZipCode_Txt.Properties.NullValuePrompt = "کد اقتصادی";
+         this.ZipCode_Txt.Properties.NullValuePrompt = "کد پستی";
          this.ZipCode_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.ZipCode_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.ZipCode_Txt.Size = new System.Drawing.Size(186, 30);
-         this.ZipCode_Txt.TabIndex = 0;
+         this.ZipCode_Txt.TabIndex = 3;
          // 
          // EconCode_Txt
          // 
@@ -758,11 +758,11 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("EconCode_Txt.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
          this.EconCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.EconCode_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.EconCode_Txt.Properties.NullValuePrompt = "مختصات عمودی";
+         this.EconCode_Txt.Properties.NullValuePrompt = "کد اقتصادی";
          this.EconCode_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.EconCode_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.EconCode_Txt.Size = new System.Drawing.Size(186, 30);
-         this.EconCode_Txt.TabIndex = 0;
+         this.EconCode_Txt.TabIndex = 4;
          // 
          // label2
          // 

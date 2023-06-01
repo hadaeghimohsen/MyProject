@@ -144,7 +144,7 @@ namespace System.Scsc.Ui.Settings
 
       private void CashBn1_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
       {
-         iScsc.CommandTimeout = 1800;
+         iScsc.CommandTimeout = int.MaxValue;
          CashBs1.EndEdit();
          try
          {
@@ -237,7 +237,7 @@ namespace System.Scsc.Ui.Settings
 
       private void EpitBn1_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
       {
-         iScsc.CommandTimeout = 1800;
+         iScsc.CommandTimeout = int.MaxValue;
          EpitBs1.EndEdit();
          try
          {

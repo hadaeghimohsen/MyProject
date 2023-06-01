@@ -515,6 +515,15 @@
     <Compile Include="Ui\DevelopmentApplication\RBKN_DVLP_F.Designer.cs">
       <DependentUpon>RBKN_DVLP_F.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ui\Inspection\MNGR_INSP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Inspection\MNGR_INSP_F.Designer.cs">
+      <DependentUpon>MNGR_INSP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Inspection\MNGR_INSP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\MasterPage\FRST_PAGE_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -600,6 +609,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPYT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SXTP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_TIMF.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_TMTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_TXFC.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_TXFT.datasource" />
@@ -834,6 +844,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DevelopmentApplication\RBKN_DVLP_F.resx">
       <DependentUpon>RBKN_DVLP_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Inspection\MNGR_INSP_F.resx">
+      <DependentUpon>MNGR_INSP_F.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\MasterPage\FRST_PAGE_F.resx">
       <DependentUpon>FRST_PAGE_F.cs</DependentUpon>
@@ -2161,6 +2175,7 @@
       <Link>Resources\IMAGE_1755.png</Link>
     </Content>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

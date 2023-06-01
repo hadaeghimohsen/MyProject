@@ -196,8 +196,10 @@ namespace System.Scsc.Ui.MasterPage
                            }
                            else if ((licndate.Date - DateTime.Now.Date).Days.IsBetween(0, 7))
                            {
-                              Licnday_Lnk.Text = "پشتیبانی نرم افزار شما کمتر 7 روز دیگر به اتمام میرسد، در صورت عدم پرداخت مبلغ پشتیبانی دیگر قادر به استفاده از نرم افزار و ثبت اطلاعات نیستید" + Environment.NewLine +
-                                                 "فقط دقت داشته باشید که لایسنس جدید نرم افزار فقط و فقط بر اساس شماره پیگیری واریز وجه بانکی شما قابل تمدید میباشد" + Environment.NewLine + Environment.NewLine +
+                              //Licnday_Lnk.Text = "پشتیبانی نرم افزار شما کمتر 7 روز دیگر به اتمام میرسد، در صورت عدم پرداخت مبلغ پشتیبانی دیگر قادر به استفاده از نرم افزار و ثبت اطلاعات نیستید" + Environment.NewLine +
+                              //                   "فقط دقت داشته باشید که لایسنس جدید نرم افزار فقط و فقط بر اساس شماره پیگیری واریز وجه بانکی شما قابل تمدید میباشد" + Environment.NewLine + Environment.NewLine +
+                              //                   string.Format("تعداد روز باقیمانده     ---     {0} روز", (licndate.Date - DateTime.Now.Date).Days);
+                              Licnday_Lnk.Text = "پشتیبانی نرم افزار شما کمتر 7 روز دیگر به اتمام میرسد" + Environment.NewLine + Environment.NewLine +
                                                  string.Format("تعداد روز باقیمانده     ---     {0} روز", (licndate.Date - DateTime.Now.Date).Days);
                               Licnday_Lnk.LinkColor = Color.Red;
                            }
@@ -608,10 +610,13 @@ namespace System.Scsc.Ui.MasterPage
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         try { spc_desktop.Panel1.BackgroundImage = Image.FromFile(@".\Media\SubSys\Scsc\Desktop\Wallpaper\Wallpaper.jpg"); }
-         catch { }
+         // 1401/12/18 * Remove Wallpaper for Arta System
+         //try { spc_desktopnew.Panel1.BackgroundImage = Image.FromFile(@".\Media\SubSys\Scsc\Desktop\Wallpaper\Wallpaper.jpg"); }
+         //catch { }
+
          //FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          DaeatBs.DataSource = iScsc.D_AEATs;
+         DevntBs.DataSource = iScsc.D_EVNTs;
          FormHandle = this.Handle;
          job.Status = StatusType.Successful;
       }
@@ -632,18 +637,18 @@ namespace System.Scsc.Ui.MasterPage
                   c.Dock = DockStyle.Fill;
                   c.Visible = true;
                   // 1401/08/07 * پایان حکومت آخوندی ضحاک خامنه ای حروم زاده
-                  if (spc_desktop.Panel1.Controls.IndexOf(c) == -1)
-                     spc_desktop.Panel1.Controls.Add(c);
-                  spc_desktop.Panel1.Controls.SetChildIndex(c, 0);
+                  if (spc_desktopnew.Panel1.Controls.IndexOf(c) == -1)
+                     spc_desktopnew.Panel1.Controls.Add(c);
+                  spc_desktopnew.Panel1.Controls.SetChildIndex(c, 0);
                }), obj);
             else
             {
                obj.Dock = DockStyle.Fill;
                obj.Visible = true;
                // 1401/08/07 * پایان حکومت آخوندی ضحاک خامنه ای حروم زاده
-               if (spc_desktop.Panel1.Controls.IndexOf(obj) == -1)
-                  spc_desktop.Panel1.Controls.Add(obj);
-               spc_desktop.Panel1.Controls.SetChildIndex(obj, 0);
+               if (spc_desktopnew.Panel1.Controls.IndexOf(obj) == -1)
+                  spc_desktopnew.Panel1.Controls.Add(obj);
+               spc_desktopnew.Panel1.Controls.SetChildIndex(obj, 0);
             }
 
          }
@@ -662,11 +667,11 @@ namespace System.Scsc.Ui.MasterPage
             UserControl obj = (UserControl)job.Input;
             Invoke(new Action<UserControl>(c =>
                {
-                  if (spc_desktop.Panel1.Controls.IndexOf(c) >= 0)
+                  if (spc_desktopnew.Panel1.Controls.IndexOf(c) >= 0)
                   {
-                     //spc_desktop.Panel1.Controls.Remove(c);
+                     //spc_desktopnew.Panel1.Controls.Remove(c);
                      c.Visible = false;
-                     //spc_desktop.Panel1.Controls.SetChildIndex(spc_desktop.Panel1.Controls[1], 0);
+                     //spc_desktopnew.Panel1.Controls.SetChildIndex(spc_desktopnew.Panel1.Controls[1], 0);
                   }
                }
             ), obj);
@@ -678,11 +683,11 @@ namespace System.Scsc.Ui.MasterPage
             job.Status = StatusType.Successful; UserControl obj = (UserControl)job.Input;
             Invoke(new Action<UserControl>(c =>
                {
-                  spc_desktop.Panel1.Refresh();
-                  if (spc_desktop.Panel1.Controls.IndexOf(c) >= 0)
+                  spc_desktopnew.Panel1.Refresh();
+                  if (spc_desktopnew.Panel1.Controls.IndexOf(c) >= 0)
                   {
                      c.Visible = false;
-                     //spc_desktop.Panel1.Controls.Remove(c);
+                     //spc_desktopnew.Panel1.Controls.Remove(c);
                   }
                }
                ), obj);
@@ -783,10 +788,12 @@ namespace System.Scsc.Ui.MasterPage
          }
          else if (job.Input != null && (job.Input as XElement).Attribute("type").Value == "sendoprtdres")
          {
-            var portName = (job.Input as XElement).Attribute("portname").Value;
+            //var portName = (job.Input as XElement).Attribute("portname").Value;
             var cmndname = (job.Input as XElement).Attribute("cmndname").Value;
+            var devIP = (job.Input as XElement).Attribute("devip").Value;
+            var cmndsend = (job.Input as XElement).Attribute("cmndsend").Value;
 
-            SendOprtDresser(portName, cmndname);
+            SendOprtDresser(devIP, cmndname, cmndsend);
          }
          else if(job.Input != null && (job.Input as XElement).Attribute("type").Value == "extdev")
          {

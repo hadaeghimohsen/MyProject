@@ -68,7 +68,7 @@ namespace System.Scsc.Ui.Regulation
                CRET_DATE = DateTime.Now,
                MDFY_DATE = DateTime.Now
             };
-            iScsc.CommandTimeout = 18000;
+            iScsc.CommandTimeout = int.MaxValue;
             iScsc.Regulations.InsertOnSubmit(newRegulation);
 
             iScsc.SubmitChanges();

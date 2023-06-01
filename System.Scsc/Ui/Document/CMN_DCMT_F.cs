@@ -171,7 +171,7 @@ namespace System.Scsc.Ui.Document
          {
             Validate();
             RcvdBs.EndEdit();
-            iScsc.CommandTimeout = 180;
+            iScsc.CommandTimeout = int.MaxValue;
 
             iScsc.DCT_SAVE_P(
                new XElement("Prcess",

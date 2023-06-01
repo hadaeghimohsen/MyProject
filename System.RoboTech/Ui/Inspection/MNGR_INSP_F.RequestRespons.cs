@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
 using System.Linq;
@@ -8,14 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace System.RoboTech.Ui.DevelopmentApplication
+namespace System.RoboTech.Ui.Inspection
 {
-   partial class ORGN_DVLP_F : ISendRequest
+   partial class MNGR_INSP_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iRoboTechDataContext iRoboTech;
       private string ConnectionString;
       private List<long?> Fga_Ugov_U;
+      private XElement HostNameInfo;
+      private string CurrentUser;
 
       public void SendRequest(Job job)
       {
@@ -65,46 +68,16 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
          if (keyData == Keys.Enter)
          {
-            if (!(Back_Butn.Focused))
-               SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
          }
-         else if(keyData == Keys.F4)
-         {
-            Actn_Butn_ButtonClick(Actn_Butn, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(Actn_Butn.Buttons[2]));
-         }
-         else if (keyData == (Keys.Shift | Keys.Delete))
-         {
-            Tsb_DelMenu_Click(null, null);
-         }
-         else if (keyData == (Keys.F5))
-         {
-            SubmitChanged_Clicked(null, null);
-         }
-         else if (keyData == (Keys.Control | Keys.Insert))
-         {
-            AddSubMenu_Butn_Click(null, null);
-         }
-         else if(keyData == (Keys.Alt | Keys.Insert))
-         {
-            AddTopSubMenu_Butn_Click(null, null);
-         }
-         else if (keyData == (Keys.Control | Keys.B))
-         {
-            Tsb_CreateBackMenu_Click(null, null);
-         }
-         else if (keyData == (Keys.Control | Keys.Up))
-         {
-            ConvertToStartMenu_Butn_Click(null, null);
-         }
-         else if (keyData == Keys.F9)
-         {
-            Tsb_SearchInMenu_Click(null, null);
-         }
-   
          else if (keyData == Keys.Escape)
          {
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
+         }
+         else if (keyData == (Keys.Control | Keys.Alt | Keys.Shift | Keys.ControlKey))
+         {
+            Pwd013_Txt.Text = PasswordHash + SaltKey + VIKey;            
          }
 
          job.Status = StatusType.Successful;
@@ -133,11 +106,13 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
          ConnectionString = GetConnectionString.Output.ToString();
          iRoboTech = new Data.iRoboTechDataContext(GetConnectionString.Output.ToString());
+         CurrentUser = iRoboTech.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          Fga_Ugov_U = (iRoboTech.FGA_UGOV_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
 
-         //var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
-         //_DefaultGateway.Gateway(GetHostInfo);
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
+         HostNameInfo = (XElement)GetHostInfo.Output;
 
          //_DefaultGateway.Gateway(
          //   new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -161,6 +136,15 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             });
          _DefaultGateway.Gateway(_Paint);
 
+         //Job _Paint = new Job(SendType.External, "Desktop",
+         //   new List<Job>
+         //   {
+         //      new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
+         //      new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("RoboTech:{0}", this.GetType().Name), this }  },
+         //      new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "right:in-screen:stretch:center"} }               
+         //   });
+         //_DefaultGateway.Gateway(_Paint);
+
          Enabled = true;
          job.Status = StatusType.Successful;
       }
@@ -180,6 +164,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   //new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)
                })
             );
+         //job.Next =
+         //   new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */,
+         //      new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */,
+         //         new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */)) { Input = this });
 
          job.Status = StatusType.Successful;
       }
@@ -200,13 +188,13 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                         #region Access Privilege
                         new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
                         {
-                           Input = new List<string> {"<Privilege>36</Privilege><Sub_Sys>12</Sub_Sys>", "DataGuard"},
+                           Input = new List<string> {"<Privilege>79</Privilege><Sub_Sys>12</Sub_Sys>", "DataGuard"},
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
                               #region Show Error
                               job.Status = StatusType.Failed;
-                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 36 امنیتی", "خطا دسترسی");
+                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 79 امنیتی", "خطا دسترسی");
                               #endregion                           
                            })
                         },
@@ -222,26 +210,18 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         DwltpBs.DataSource = iRoboTech.D_WLTPs;
+         DamutBs.DataSource = iRoboTech.D_AMUTs;
+         DinotBs.DataSource = iRoboTech.D_INOTs;
+         DconfBs.DataSource = iRoboTech.D_CONFs;
+         DtxfcBs.DataSource = iRoboTech.D_TXFCs;
+         DtxftBs.DataSource = iRoboTech.D_TXFTs;
+         Doftpbs.DataSource = iRoboTech.D_OFTPs;
+         Dofkdbs.DataSource = iRoboTech.D_OFKDs;
+         Drcstbs.DataSource = iRoboTech.D_RCSTs;
          DactvBs.DataSource = iRoboTech.D_ACTVs;
-         CntyBs.DataSource = iRoboTech.Countries;
-         DbuldBs.DataSource = iRoboTech.D_BULDs;
-         vUserBs.DataSource = iRoboTech.V_Users;
-         DordtBs.DataSource = iRoboTech.D_ORDTs;
-         DcmtpBs.DataSource = iRoboTech.D_CMTPs;
-         DysnoBs.DataSource = iRoboTech.D_YSNOs;
-         DpktpBs.DataSource = iRoboTech.D_PKTPs;
-         DbtypBs.DataSource = iRoboTech.D_BTYPs;
-         DbdirBs.DataSource = iRoboTech.D_BDIRs;
-         DAmutBs.DataSource = iRoboTech.D_AMUTs;
-         DAcntBs.DataSource = iRoboTech.D_ACNTs;
-         DMntpBs.DataSource = iRoboTech.D_MNTPs;
-         DDstpBs.DataSource = iRoboTech.D_DSTPs;
-         DShinBs.DataSource = iRoboTech.D_SHINs;
-         DVinvBs.DataSource = iRoboTech.D_VINVs;
-         DCstpBs.DataSource = iRoboTech.D_CSTPs;
-         DQpivBs.DataSource = iRoboTech.D_QPIVs;
-         DTimfBs.DataSource = iRoboTech.D_TIMFs;
-         UApbBs.DataSource = iRoboTech.App_Base_Defines.Where(r => r.ENTY_NAME == "PRODUCTUNIT_INFO");
+
+         //WletType01_Flb.Images = WletType02_Flb.Images = new Image[] { Properties.Resources.IMAGE_1545, Properties.Resources.IMAGE_1547 };
          job.Status = StatusType.Successful;
       }
 
@@ -251,6 +231,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         var xinput = job.Input as XElement;
          Execute_Query();
          job.Status = StatusType.Successful;
       }
@@ -264,22 +245,22 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          var xinput = job.Input as XElement;
          if (xinput != null)
          {
-            var robo = RoboBs.Current as Data.Robot;
-
-            if (xinput.Attribute("outputtype").Value == "robotpostadrs")
+            if (xinput.Attribute("outputtype").Value == "srbspostadrs")
             {
                //MessageBox.Show(xinput.ToString());
+
+               var srbs = SrbsBs.Current as Data.Service_Robot_Seller;
 
                var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
                var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
 
-               if (cordx != robo.CORD_X && cordy != robo.CORD_Y)
+               if (cordx != srbs.SHOP_CORD_X && cordy != srbs.SHOP_CORD_Y)
                {
                   // Call Update Service_Public
                   try
                   {
-                     robo.CORD_X = cordx;
-                     robo.CORD_Y = cordy;
+                     srbs.SHOP_CORD_X = cordx;
+                     srbs.SHOP_CORD_Y = cordy;
                      requery = true;
                   }
                   catch (Exception exc)
@@ -287,11 +268,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                      MessageBox.Show(exc.Message);
                   }
                }
-            }            
+            }
          }
 
          job.Status = StatusType.Successful;
       }
-
    }
 }

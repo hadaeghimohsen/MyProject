@@ -67,7 +67,7 @@ namespace System.Scsc.Ui.CalculateExpense
             if (!Pde_FromDate.Value.HasValue) { Pde_FromDate.Focus(); return; }
             if (!Pde_ToDate.Value.HasValue) { Pde_ToDate.Focus(); return; }
             
-            iScsc.CommandTimeout = 18000;
+            iScsc.CommandTimeout = int.MaxValue;
 
             iScsc.CALC_EXPN_P(
                new XElement("Process",
@@ -422,6 +422,40 @@ namespace System.Scsc.Ui.CalculateExpense
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void RqstBnDefaultPrint1_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void RqstBnPrint1_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {
+                 new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
+              });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void RqstBnSettingPrint1_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                 {
+                    new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                    new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
+                 });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
    }
 }

@@ -131,9 +131,9 @@
     <Reference Include="POS_PC">
       <HintPath>..\..\..\Utility\Tools\POS\Melat\Simulator &amp; DLL\Simulator\POS_PC.dll</HintPath>
     </Reference>
-    <Reference Include="SSP1126.PcPos, Version=1.4.7.7, Culture=neutral, PublicKeyToken=0316bed5306dcd90, processorArchitecture=MSIL">
+    <Reference Include="SSP1126.PcPos.Net2, Version=1.4.9.1, Culture=neutral, PublicKeyToken=9c64f87e106a396b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\SSP1126.PcPos.dll</HintPath>
+      <HintPath>bin\Debug\SSP1126.PcPos.Net2.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

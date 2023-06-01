@@ -760,6 +760,7 @@ namespace System.Scsc.Ui.BaseDefinition
          DConfBs.DataSource = iScsc.D_CONFs;
          UserBs1.DataSource = iScsc.V_Users;
          DMsgtBs.DataSource = iScsc.D_MSGTs;
+         DEfdtBs.DataSource = iScsc.D_EFDTs;
 
          AttnComPortName_Lov.Items.Clear();
          GateComPortName_Lov.Items.Clear();
@@ -786,6 +787,7 @@ namespace System.Scsc.Ui.BaseDefinition
             switch(xinput.Attribute("showtabpage").Value)
             {
                case "tp_005":
+                  fetchagine = true;
                   SwitchButtonsTabPage(Coach_Butn);
                   break;
                case "tp_006":

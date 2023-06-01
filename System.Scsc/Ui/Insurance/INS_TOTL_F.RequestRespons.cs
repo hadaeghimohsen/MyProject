@@ -483,7 +483,7 @@ namespace System.Scsc.Ui.Insurance
                      rqstRqid = 0;
 
                   // 1401/02/04 * بررسی اینکه آیا مشتری درخواست قفل شده در این فرآیند را دارد یا خیر
-                  ShowRqst_PickButn.PickChecked = false;
+                  //ShowRqst_PickButn.PickChecked = false;
                   if (RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == fileno))) == -1)
                   {
                      FILE_NO_LookUpEdit.EditValue = fileno;
@@ -494,6 +494,7 @@ namespace System.Scsc.Ui.Insurance
                   {
                      // 1398/09/07 * پیدا کردن درخواست برای مشتری
                      RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == fileno)));
+                     RqstBs1.List.OfType<Data.Request>().Where(r => r.RQID == 0).ToList().ForEach(r => RqstBs1.Remove(r));
                   }
                }
 

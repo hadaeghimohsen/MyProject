@@ -5,14 +5,14 @@
     <Databases isList="true" count="1">
       <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
         <Alias>iScsc</Alias>
-        <ConnectionString>Integrated Security=True;Initial Catalog=iScsc001;Data Source=.</ConnectionString>
+        <ConnectionString>Initial Catalog=iScsc;Integrated Security=True;Data Source=.</ConnectionString>
         <Name>iScsc</Name>
       </iScsc>
     </Databases>
     <DataSources isList="true" count="1">
       <Payment_Method Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Payment_Method</Alias>
-        <Columns isList="true" count="35">
+        <Columns isList="true" count="40">
           <value>ACTN_DATE,System.DateTime</value>
           <value>PERS_ACTN_DATE,System.String</value>
           <value>ACTN_TIME,System.TimeSpan</value>
@@ -48,13 +48,18 @@
           <value>STRT_DATE,System.String</value>
           <value>MTOD_CONT,System.Int32</value>
           <value>CBMT_CONT,System.Int32</value>
+          <value>NATL_CODE_DNRM,System.Int64</value>
+          <value>BRTH_DATE_DNRM,System.DateTime</value>
+          <value>VALD_TYPE,System.String</value>
+          <value>PERS_BRTH_DATE,System.String</value>
+          <value>CELL_PHON_DNRM,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
         <Name>Payment_Method</Name>
         <NameInSource>iScsc</NameInSource>
         <Parameters isList="true" count="0" />
-        <SqlCommand>SELECT *
+        <SqlCommand>SELECT *, dbo.GET_MTOS_U(Brth_Date_Dnrm) AS PERS_BRTH_DATE
 	FROM VF$Payment_Method('{WhereClause}')
 WHERE Rqtp_Code = '012'</SqlCommand>
       </Payment_Method>
@@ -117,7 +122,7 @@ WHERE Rqtp_Code = '012'</SqlCommand>
         <CRET_BY_GROP Ref="8" type="GroupHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,2.4,19,1.2</ClientRectangle>
-          <Components isList="true" count="11">
+          <Components isList="true" count="12">
             <Text1 Ref="9" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
@@ -168,7 +173,7 @@ WHERE Rqtp_Code = '012'</SqlCommand>
             <Text23 Ref="12" type="Text" isKey="true">
               <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>6.4,0.6,3,0.6</ClientRectangle>
+              <ClientRectangle>6.4,0.6,2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,8,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -232,7 +237,7 @@ WHERE Rqtp_Code = '012'</SqlCommand>
             <Text8 Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>9.4,0.6,1.8,0.6</ClientRectangle>
+              <ClientRectangle>10.2,0.6,1.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,8,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -240,8 +245,9 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Name>Text8</Name>
               <Page isRef="4" />
               <Parent isRef="8" />
-              <Text>نوع هزینه</Text>
+              <Text>کد ملی</Text>
               <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text8>
             <Text14 Ref="17" type="Text" isKey="true">
@@ -281,7 +287,7 @@ WHERE Rqtp_Code = '012'</SqlCommand>
             <Text36 Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>11.2,0.6,2.4,0.6</ClientRectangle>
+              <ClientRectangle>12,0.6,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,8,Bold</Font>
               <Guid>b778650df51c410aa36ebe6d166e756b</Guid>
@@ -290,11 +296,28 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Name>Text36</Name>
               <Page isRef="4" />
               <Parent isRef="8" />
-              <Text>تاریخ شروع دوره</Text>
+              <Text>تاریخ تولد</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text36>
+            <Text20 Ref="20" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>8.4,0.6,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8,Bold</Font>
+              <Guid>b06c7647d06a42d4b45c6c1786d0b2c5</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="4" />
+              <Parent isRef="8" />
+              <Text>موبایل</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
           </Components>
           <Condition>{Payment_Method.CRET_BY}</Condition>
           <Conditions isList="true" count="0" />
@@ -302,13 +325,13 @@ WHERE Rqtp_Code = '012'</SqlCommand>
           <Page isRef="4" />
           <Parent isRef="4" />
         </CRET_BY_GROP>
-        <DataPayment_Method Ref="20" type="DataBand" isKey="true">
+        <DataPayment_Method Ref="21" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <CalcInvisible>True</CalcInvisible>
           <ClientRectangle>0,4.4,19,0.6</ClientRectangle>
-          <Components isList="true" count="9">
-            <Text15 Ref="21" type="Text" isKey="true">
+          <Components isList="true" count="10">
+            <Text15 Ref="22" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>18,0,1,0.6</ClientRectangle>
@@ -318,27 +341,27 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Method.ACTN_TIME}</Text>
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </Text15>
-            <Text22 Ref="22" type="Text" isKey="true">
+            <Text22 Ref="23" type="Text" isKey="true">
               <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>6.4,0,3,0.6</ClientRectangle>
+              <ClientRectangle>6.4,0,2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,8</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text22</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Method.AMNT}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="23" type="NumberFormat" isKey="true">
+              <TextFormat Ref="24" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -346,7 +369,7 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               </TextFormat>
               <VertAlignment>Center</VertAlignment>
             </Text22>
-            <Text24 Ref="24" type="Text" isKey="true">
+            <Text24 Ref="25" type="Text" isKey="true">
               <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>4.6,0,1.8,0.6</ClientRectangle>
@@ -356,13 +379,13 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text24</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Method.RCPT_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </Text24>
-            <Text28 Ref="25" type="Text" isKey="true">
+            <Text28 Ref="26" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>2.8,0,1.8,0.6</ClientRectangle>
@@ -372,13 +395,13 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text28</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Method.MTOD_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </Text28>
-            <Text2 Ref="26" type="Text" isKey="true">
+            <Text2 Ref="27" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,2.8,0.6</ClientRectangle>
@@ -388,29 +411,30 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Method.CTGY_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </Text2>
-            <Text7 Ref="27" type="Text" isKey="true">
+            <Text7 Ref="28" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>9.4,0,1.8,0.6</ClientRectangle>
+              <ClientRectangle>10.2,0,1.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,8</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{Payment_Method.RQTP_DESC}</Text>
+              <Text>{Payment_Method.NATL_CODE_DNRM}</Text>
               <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text7>
-            <Text33 Ref="28" type="Text" isKey="true">
+            <Text33 Ref="29" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>15.4,0,2.6,0.6</ClientRectangle>
@@ -421,14 +445,14 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text33</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Method.FIGH_NAME_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text33>
-            <Text35 Ref="29" type="Text" isKey="true">
+            <Text35 Ref="30" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>13.6,0,1.8,0.6</ClientRectangle>
@@ -439,17 +463,17 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text35</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Method.FNGR_PRNT_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text35>
-            <Text37 Ref="30" type="Text" isKey="true">
+            <Text37 Ref="31" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>11.2,0,2.4,0.6</ClientRectangle>
+              <ClientRectangle>12,0,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,8</Font>
               <Guid>640436b2d6a548a6bf86d0ce0be424d6</Guid>
@@ -457,13 +481,31 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text37</Name>
               <Page isRef="4" />
-              <Parent isRef="20" />
+              <Parent isRef="21" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{Payment_Method.STRT_DATE}</Text>
+              <Text>{Payment_Method.PERS_BRTH_DATE}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text37>
+            <Text38 Ref="32" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>8.4,0,1.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,8</Font>
+              <Guid>45e90fa67e764a5ca8c2bc11d0b4e72b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text38</Name>
+              <Page isRef="4" />
+              <Parent isRef="21" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Payment_Method.CELL_PHON_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text38>
           </Components>
           <Conditions isList="true" count="0" />
           <DataRelationName isNull="true" />
@@ -477,14 +519,14 @@ WHERE Rqtp_Code = '012'</SqlCommand>
             <value>ACTN_TIME</value>
           </Sort>
         </DataPayment_Method>
-        <GroupFooterBand2 Ref="31" type="GroupFooterBand" isKey="true">
+        <GroupFooterBand2 Ref="33" type="GroupFooterBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,5.8,19,0.6</ClientRectangle>
           <Components isList="true" count="7">
-            <Text18 Ref="32" type="Text" isKey="true">
+            <Text18 Ref="34" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
-              <ClientRectangle>0,0,2.6,0.6</ClientRectangle>
+              <ClientRectangle>0,0,2.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
               <Guid>06731ff0dbc848ffaf24f374940221fb</Guid>
@@ -492,32 +534,8 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text18</Name>
               <Page isRef="4" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <Text>{Sum(CRET_BY_GROP,Payment_Method.AMNT)}</Text>
-              <TextBrush>Black</TextBrush>
-              <TextFormat Ref="33" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <GroupSeparator>,</GroupSeparator>
-                <NegativePattern>3</NegativePattern>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text18>
-            <Text17 Ref="34" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[250:243:232]</Brush>
-              <ClientRectangle>4.4,0,3.6,0.6</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>Tahoma,9</Font>
-              <Guid>995a75dc48cc41dcbd9e593322c519ae</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text17</Name>
-              <Page isRef="4" />
-              <Parent isRef="31" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{SumIf(CRET_BY_GROP,Payment_Method.AMNT,Payment_Method.RCPT_MTOD == "003")}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="35" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -527,21 +545,21 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text17>
-            <Text16 Ref="36" type="Text" isKey="true">
+            </Text18>
+            <Text17 Ref="36" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
-              <ClientRectangle>9.8,0,3.8,0.6</ClientRectangle>
+              <ClientRectangle>4.6,0,3,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,9</Font>
-              <Guid>2fa67b610eee430f96787e25f6675b92</Guid>
+              <Guid>995a75dc48cc41dcbd9e593322c519ae</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text16</Name>
+              <Name>Text17</Name>
               <Page isRef="4" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{SumIf(CRET_BY_GROP,Payment_Method.AMNT,Payment_Method.RCPT_MTOD == "001")}</Text>
+              <Text>{SumIf(CRET_BY_GROP,Payment_Method.AMNT,Payment_Method.RCPT_MTOD == "003")}</Text>
               <TextBrush>Black</TextBrush>
               <TextFormat Ref="37" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
@@ -551,8 +569,32 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
+            </Text17>
+            <Text16 Ref="38" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[250:243:232]</Brush>
+              <ClientRectangle>9.4,0,4.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Tahoma,9</Font>
+              <Guid>2fa67b610eee430f96787e25f6675b92</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="4" />
+              <Parent isRef="33" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{SumIf(CRET_BY_GROP,Payment_Method.AMNT,Payment_Method.RCPT_MTOD == "001")}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="39" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>3</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
             </Text16>
-            <Text19 Ref="38" type="Text" isKey="true">
+            <Text19 Ref="40" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
               <ClientRectangle>15.4,0,3.6,0.6</ClientRectangle>
@@ -563,14 +605,14 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text19</Name>
               <Page isRef="4" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Method.CRET_BY}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text19>
-            <Text9 Ref="39" type="Text" isKey="true">
+            <Text9 Ref="41" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>13.6,0,1.8,0.6</ClientRectangle>
@@ -581,16 +623,16 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text9</Name>
               <Page isRef="4" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <Text>نقدی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text9>
-            <Text10 Ref="40" type="Text" isKey="true">
+            <Text10 Ref="42" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>8,0,1.8,0.6</ClientRectangle>
+              <ClientRectangle>7.6,0,1.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,8,Bold</Font>
               <Guid>790b9b76b00d43eabbd61b3d3db8612b</Guid>
@@ -598,16 +640,16 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text10</Name>
               <Page isRef="4" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <Text>غیرنقدی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text10>
-            <Text11 Ref="41" type="Text" isKey="true">
+            <Text11 Ref="43" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
-              <ClientRectangle>2.6,0,1.8,0.6</ClientRectangle>
+              <ClientRectangle>2.8,0,1.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>Tahoma,8,Bold</Font>
               <Guid>a31a8c045edb4008a834f0252376345b</Guid>
@@ -615,7 +657,7 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text11</Name>
               <Page isRef="4" />
-              <Parent isRef="31" />
+              <Parent isRef="33" />
               <Text>جمع صندوق</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -628,11 +670,11 @@ WHERE Rqtp_Code = '012'</SqlCommand>
           <Page isRef="4" />
           <Parent isRef="4" />
         </GroupFooterBand2>
-        <GroupFooterBand4 Ref="42" type="GroupFooterBand" isKey="true">
+        <GroupFooterBand4 Ref="44" type="GroupFooterBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,7.2,19,2.2</ClientRectangle>
           <Components isList="true" count="7">
-            <Text31 Ref="43" type="Text" isKey="true">
+            <Text31 Ref="45" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[120:192:212]</Brush>
               <ClientRectangle>0,0.2,19,0.6</ClientRectangle>
@@ -643,14 +685,14 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text31</Name>
               <Page isRef="4" />
-              <Parent isRef="42" />
+              <Parent isRef="44" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Method.PERS_ACTN_DATE}</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text31>
-            <Text12 Ref="44" type="Text" isKey="true">
+            <Text12 Ref="46" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
               <ClientRectangle>0,1.6,6.4,0.6</ClientRectangle>
@@ -661,10 +703,10 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text12</Name>
               <Page isRef="4" />
-              <Parent isRef="42" />
+              <Parent isRef="44" />
               <Text>{Sum(ACTN_DATE_GROP,Payment_Method.AMNT)}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="45" type="NumberFormat" isKey="true">
+              <TextFormat Ref="47" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -673,7 +715,7 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text12>
-            <Text30 Ref="46" type="Text" isKey="true">
+            <Text30 Ref="48" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>0,1,6.4,0.6</ClientRectangle>
@@ -684,13 +726,13 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text30</Name>
               <Page isRef="4" />
-              <Parent isRef="42" />
+              <Parent isRef="44" />
               <Text>جمع صندوق</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text30>
-            <Text13 Ref="47" type="Text" isKey="true">
+            <Text13 Ref="49" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
               <ClientRectangle>6.4,1.6,6.4,0.6</ClientRectangle>
@@ -701,11 +743,11 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text13</Name>
               <Page isRef="4" />
-              <Parent isRef="42" />
+              <Parent isRef="44" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{SumIf(ACTN_DATE_GROP,Payment_Method.AMNT,Payment_Method.RCPT_MTOD == "003")}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="48" type="NumberFormat" isKey="true">
+              <TextFormat Ref="50" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -714,7 +756,7 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text13>
-            <Text27 Ref="49" type="Text" isKey="true">
+            <Text27 Ref="51" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>6.4,1,6.4,0.6</ClientRectangle>
@@ -725,13 +767,13 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text27</Name>
               <Page isRef="4" />
-              <Parent isRef="42" />
+              <Parent isRef="44" />
               <Text>غیرنقدی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text27>
-            <Text32 Ref="50" type="Text" isKey="true">
+            <Text32 Ref="52" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[250:243:232]</Brush>
               <ClientRectangle>12.8,1.6,6.2,0.6</ClientRectangle>
@@ -742,11 +784,11 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text32</Name>
               <Page isRef="4" />
-              <Parent isRef="42" />
+              <Parent isRef="44" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{SumIf(ACTN_DATE_GROP,Payment_Method.AMNT,Payment_Method.RCPT_MTOD == "001")}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="51" type="NumberFormat" isKey="true">
+              <TextFormat Ref="53" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>3</NegativePattern>
@@ -755,7 +797,7 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text32>
-            <Text26 Ref="52" type="Text" isKey="true">
+            <Text26 Ref="54" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[214:224:236]</Brush>
               <ClientRectangle>12.8,1,6.2,0.6</ClientRectangle>
@@ -766,7 +808,7 @@ WHERE Rqtp_Code = '012'</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text26</Name>
               <Page isRef="4" />
-              <Parent isRef="42" />
+              <Parent isRef="44" />
               <Text>نقدی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -779,7 +821,7 @@ WHERE Rqtp_Code = '012'</SqlCommand>
           <Page isRef="4" />
           <Parent isRef="4" />
         </GroupFooterBand4>
-        <GroupHeaderBand2 Ref="53" type="GroupHeaderBand" isKey="true">
+        <GroupHeaderBand2 Ref="55" type="GroupHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,10.2,19,0.6</ClientRectangle>
           <Components isList="true" count="0" />
@@ -798,13 +840,13 @@ WHERE Rqtp_Code = '012'</SqlCommand>
       <PageHeight>29.7</PageHeight>
       <PageWidth>21</PageWidth>
       <Report isRef="0" />
-      <Watermark Ref="54" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="56" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="55" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="57" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -816,10 +858,10 @@ WHERE Rqtp_Code = '012'</SqlCommand>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/15/2019 12:45:31 PM</ReportChanged>
+  <ReportChanged>5/7/2023 11:15:45 AM</ReportChanged>
   <ReportCreated>11/17/2017 11:30:26 AM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_SPSM_009_R.mrt</ReportFile>
-  <ReportGuid>885c13b469b641f89a8e378b47039e67</ReportGuid>
+  <ReportGuid>2ee4d2e941124c2cb7e1e99ec2e42046</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

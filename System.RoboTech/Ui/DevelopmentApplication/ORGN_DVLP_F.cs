@@ -1441,7 +1441,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                STEP_BACK = "002",
                STEP_BACK_USSD_CODE = menu.USSD_CODE, //.Substring(0, menu.USSD_CODE.LastIndexOf('*')) + "#",
                CLMN = 1,
-               CMND_TYPE = "008"
+               CMND_TYPE = "008",
+               TIME_FRAM = "001"
             };
 
             iRoboTech.Menu_Ussds.InsertOnSubmit(AddCartMenu);
@@ -1483,7 +1484,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                STEP_BACK = "002",
                STEP_BACK_USSD_CODE = menu.USSD_CODE, //.Substring(0, menu.USSD_CODE.LastIndexOf('*')) + "#",
                CLMN = 1,
-               CMND_TYPE = "008"
+               CMND_TYPE = "008",
+               TIME_FRAM = "002"
             };
 
             iRoboTech.Menu_Ussds.InsertOnSubmit(AddCartMenu);
@@ -1525,7 +1527,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                STEP_BACK = "002",
                STEP_BACK_USSD_CODE = menu.USSD_CODE, //.Substring(0, menu.USSD_CODE.LastIndexOf('*')) + "#",
                CLMN = 1,
-               CMND_TYPE = "008"
+               CMND_TYPE = "008",
+               TIME_FRAM = "003"
             };
 
             iRoboTech.Menu_Ussds.InsertOnSubmit(AddCartMenu);
@@ -1567,7 +1570,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                STEP_BACK = "002",
                STEP_BACK_USSD_CODE = menu.USSD_CODE, //.Substring(0, menu.USSD_CODE.LastIndexOf('*')) + "#",
                CLMN = 1,
-               CMND_TYPE = "008"
+               CMND_TYPE = "008",
+               TIME_FRAM = "004"
             };
 
             iRoboTech.Menu_Ussds.InsertOnSubmit(AddCartMenu);
@@ -1609,7 +1613,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                STEP_BACK = "002",
                STEP_BACK_USSD_CODE = menu.USSD_CODE, //.Substring(0, menu.USSD_CODE.LastIndexOf('*')) + "#",
                CLMN = 1,
-               CMND_TYPE = "008"
+               CMND_TYPE = "008",
+               TIME_FRAM = "005"
             };
 
             iRoboTech.Menu_Ussds.InsertOnSubmit(AddCartMenu);
@@ -1644,7 +1649,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                USSD_CODE = menu == null ? "*0#" : string.Format("{0}*{1}#", menu.USSD_CODE.Substring(0, menu.USSD_CODE.Length - 1), menu.Menu_Ussds.Count),
                ROOT_MENU = "001",
                MENU_TEXT = "بازه دلخواه",
-               MNUS_DESC = "در این قسمت بازه زمانی خود را با ستاره هم از جدا کرده و دکمه ارسال را فشار دهید.  ابتدا تاریخ شروع * تاریخ پایان  نمونه :  1398/12/01*1398/12/29",
+               MNUS_DESC = "کاربر گرامی برای انتخاب بازه زمانی مورد دلخواه لطفا طبق این استاندار زیر اطلاعات خود را وارد کنید  *تاریخ شروع* *#* *تاریخ پایان*  برای مثال *1401/12/29* *#* *1401/12/01* *1401/05/31* *#* *1401/05/01*",
                CMND_FIRE = "002",
                STAT = "002",
                CMND_PLAC = "002",

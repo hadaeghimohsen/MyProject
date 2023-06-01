@@ -29,7 +29,7 @@
        private void InitializeComponent()
        {
          this.components = new System.ComponentModel.Container();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          this.Tc_Master = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
@@ -149,41 +149,44 @@
          this.label5 = new System.Windows.Forms.Label();
          this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
          this.tp_005 = new System.Windows.Forms.TabPage();
-         this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
-         this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
-         this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
-         this.label6 = new System.Windows.Forms.Label();
-         this.label7 = new System.Windows.Forms.Label();
-         this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
-         this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
-         this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
-         this.label8 = new System.Windows.Forms.Label();
-         this.simpleButton15 = new DevExpress.XtraEditors.SimpleButton();
+         this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
          this.simpleButton16 = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton17 = new DevExpress.XtraEditors.SimpleButton();
          this.panelControl7 = new DevExpress.XtraEditors.PanelControl();
          this.textEdit8 = new DevExpress.XtraEditors.TextEdit();
          this.label11 = new System.Windows.Forms.Label();
-         this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-         this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+         this.panelControl6 = new DevExpress.XtraEditors.PanelControl();
+         this.simpleButton15 = new DevExpress.XtraEditors.SimpleButton();
+         this.textEdit13 = new DevExpress.XtraEditors.TextEdit();
+         this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
+         this.label8 = new System.Windows.Forms.Label();
+         this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
+         this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
+         this.label7 = new System.Windows.Forms.Label();
+         this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
+         this.label6 = new System.Windows.Forms.Label();
+         this.simpleButton14 = new DevExpress.XtraEditors.SimpleButton();
          this.tabPage1 = new System.Windows.Forms.TabPage();
-         this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
-         this.label12 = new System.Windows.Forms.Label();
-         this.dateTimeSelector1 = new Atf.UI.DateTimeSelector();
-         this.label13 = new System.Windows.Forms.Label();
+         this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
          this.textEdit9 = new DevExpress.XtraEditors.TextEdit();
+         this.label13 = new System.Windows.Forms.Label();
+         this.textEdit12 = new DevExpress.XtraEditors.TextEdit();
+         this.dateTimeSelector1 = new Atf.UI.DateTimeSelector();
+         this.label18 = new System.Windows.Forms.Label();
+         this.label12 = new System.Windows.Forms.Label();
+         this.textEdit11 = new DevExpress.XtraEditors.TextEdit();
+         this.label16 = new System.Windows.Forms.Label();
+         this.label17 = new System.Windows.Forms.Label();
+         this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
+         this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
          this.roundedButton2 = new System.MaxUi.RoundedButton();
          this.label14 = new System.Windows.Forms.Label();
          this.label15 = new System.Windows.Forms.Label();
-         this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
-         this.label16 = new System.Windows.Forms.Label();
-         this.textEdit11 = new DevExpress.XtraEditors.TextEdit();
-         this.label17 = new System.Windows.Forms.Label();
-         this.label18 = new System.Windows.Forms.Label();
-         this.textEdit12 = new DevExpress.XtraEditors.TextEdit();
-         this.simpleButton19 = new DevExpress.XtraEditors.SimpleButton();
-         this.panelControl8 = new DevExpress.XtraEditors.PanelControl();
-         this.textEdit13 = new DevExpress.XtraEditors.TextEdit();
+         this.simpleButton18 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton20 = new DevExpress.XtraEditors.SimpleButton();
+         this.label19 = new System.Windows.Forms.Label();
+         this.roundedButton3 = new System.MaxUi.RoundedButton();
+         this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
          this.Tc_Master.SuspendLayout();
          this.tp_001.SuspendLayout();
          this.tp_002.SuspendLayout();
@@ -218,24 +221,24 @@
          ((System.ComponentModel.ISupportInitialize)(this.MtodBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Mtod_Gv)).BeginInit();
          this.tp_005.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
-         this.panelControl5.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
-         this.panelControl6.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).BeginInit();
          this.panelControl7.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).BeginInit();
+         this.panelControl6.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
+         this.panelControl5.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).BeginInit();
          this.tabPage1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit12.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).BeginInit();
          this.panelControl8.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit12.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // Tc_Master
@@ -649,6 +652,7 @@
          this.panelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+         this.panelControl2.Controls.Add(this.simpleButton20);
          this.panelControl2.Controls.Add(this.textEdit5);
          this.panelControl2.Controls.Add(this.label10);
          this.panelControl2.Location = new System.Drawing.Point(26, 168);
@@ -745,6 +749,8 @@
          this.tp_004.Controls.Add(this.simpleButton10);
          this.tp_004.Controls.Add(this.simpleButton13);
          this.tp_004.Controls.Add(this.panelControl4);
+         this.tp_004.Controls.Add(this.roundedButton3);
+         this.tp_004.Controls.Add(this.label19);
          this.tp_004.Controls.Add(this.roundedButton1);
          this.tp_004.Controls.Add(this.label5);
          this.tp_004.Controls.Add(this.simpleButton9);
@@ -1128,7 +1134,7 @@
          this.repositoryItemLookUpEdit1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.repositoryItemLookUpEdit1.AutoHeight = false;
          this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.repositoryItemLookUpEdit1.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع پرداحت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -1393,12 +1399,12 @@
          this.roundedButton1.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          this.roundedButton1.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.roundedButton1.ImageVisiable = false;
-         this.roundedButton1.Location = new System.Drawing.Point(435, 96);
+         this.roundedButton1.Location = new System.Drawing.Point(865, 96);
          this.roundedButton1.Name = "roundedButton1";
          this.roundedButton1.NormalBorderColor = System.Drawing.Color.Black;
          this.roundedButton1.NormalColorA = System.Drawing.Color.White;
          this.roundedButton1.NormalColorB = System.Drawing.Color.White;
-         this.roundedButton1.Size = new System.Drawing.Size(120, 120);
+         this.roundedButton1.Size = new System.Drawing.Size(100, 100);
          this.roundedButton1.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
          this.roundedButton1.TabIndex = 70;
          this.roundedButton1.Tooltip = null;
@@ -1407,12 +1413,12 @@
          // 
          this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.label5.Font = new System.Drawing.Font("B Roya", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label5.Location = new System.Drawing.Point(350, 219);
+         this.label5.Location = new System.Drawing.Point(678, 199);
          this.label5.Name = "label5";
-         this.label5.Size = new System.Drawing.Size(293, 43);
+         this.label5.Size = new System.Drawing.Size(287, 43);
          this.label5.TabIndex = 69;
          this.label5.Text = "محسن حدایقی";
-         this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
          // 
          // simpleButton9
          // 
@@ -1446,144 +1452,17 @@
          this.tp_005.Text = "فاکتور";
          this.tp_005.UseVisualStyleBackColor = true;
          // 
-         // simpleButton14
+         // labelControl5
          // 
-         this.simpleButton14.Appearance.Font = new System.Drawing.Font("IRAN Sans", 18F, System.Drawing.FontStyle.Bold);
-         this.simpleButton14.Appearance.Options.UseFont = true;
-         this.simpleButton14.Dock = System.Windows.Forms.DockStyle.Top;
-         this.simpleButton14.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton14.Location = new System.Drawing.Point(3, 3);
-         this.simpleButton14.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton14.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton14.Name = "simpleButton14";
-         this.simpleButton14.Size = new System.Drawing.Size(985, 87);
-         this.simpleButton14.TabIndex = 25;
-         this.simpleButton14.Text = "فاکتور";
-         // 
-         // panelControl5
-         // 
-         this.panelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.panelControl5.Controls.Add(this.textEdit6);
-         this.panelControl5.Controls.Add(this.label7);
-         this.panelControl5.Controls.Add(this.textEdit4);
-         this.panelControl5.Controls.Add(this.label6);
-         this.panelControl5.Location = new System.Drawing.Point(26, 176);
-         this.panelControl5.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.panelControl5.Name = "panelControl5";
-         this.panelControl5.Size = new System.Drawing.Size(939, 153);
-         this.panelControl5.TabIndex = 74;
-         // 
-         // textEdit4
-         // 
-         this.textEdit4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.textEdit4.EditValue = "";
-         this.textEdit4.Location = new System.Drawing.Point(528, 23);
-         this.textEdit4.Name = "textEdit4";
-         this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
-         this.textEdit4.Properties.Appearance.Options.UseFont = true;
-         this.textEdit4.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit4.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit4.Properties.Mask.EditMask = "n0";
-         this.textEdit4.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit4.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit4.Size = new System.Drawing.Size(205, 42);
-         this.textEdit4.TabIndex = 20;
-         // 
-         // label6
-         // 
-         this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label6.AutoSize = true;
-         this.label6.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold);
-         this.label6.Location = new System.Drawing.Point(742, 24);
-         this.label6.Name = "label6";
-         this.label6.Size = new System.Drawing.Size(126, 41);
-         this.label6.TabIndex = 21;
-         this.label6.Text = "مبلغ فاکتور :";
-         // 
-         // label7
-         // 
-         this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label7.AutoSize = true;
-         this.label7.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold);
-         this.label7.Location = new System.Drawing.Point(742, 89);
-         this.label7.Name = "label7";
-         this.label7.Size = new System.Drawing.Size(131, 41);
-         this.label7.TabIndex = 21;
-         this.label7.Text = "شرح فاکتور :";
-         // 
-         // textEdit6
-         // 
-         this.textEdit6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.textEdit6.EditValue = "";
-         this.textEdit6.Location = new System.Drawing.Point(43, 88);
-         this.textEdit6.Name = "textEdit6";
-         this.textEdit6.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
-         this.textEdit6.Properties.Appearance.Options.UseFont = true;
-         this.textEdit6.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit6.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit6.Properties.Mask.EditMask = "n0";
-         this.textEdit6.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit6.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit6.Size = new System.Drawing.Size(690, 42);
-         this.textEdit6.TabIndex = 20;
-         // 
-         // panelControl6
-         // 
-         this.panelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.panelControl6.Controls.Add(this.simpleButton15);
-         this.panelControl6.Controls.Add(this.textEdit13);
-         this.panelControl6.Controls.Add(this.textEdit7);
-         this.panelControl6.Controls.Add(this.label8);
-         this.panelControl6.Location = new System.Drawing.Point(26, 335);
-         this.panelControl6.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.panelControl6.Name = "panelControl6";
-         this.panelControl6.Size = new System.Drawing.Size(939, 91);
-         this.panelControl6.TabIndex = 79;
-         // 
-         // textEdit7
-         // 
-         this.textEdit7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.textEdit7.EditValue = "";
-         this.textEdit7.Location = new System.Drawing.Point(528, 26);
-         this.textEdit7.Name = "textEdit7";
-         this.textEdit7.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
-         this.textEdit7.Properties.Appearance.Options.UseFont = true;
-         this.textEdit7.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit7.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit7.Properties.Mask.EditMask = "n0";
-         this.textEdit7.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit7.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit7.Size = new System.Drawing.Size(205, 42);
-         this.textEdit7.TabIndex = 20;
-         // 
-         // label8
-         // 
-         this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label8.AutoSize = true;
-         this.label8.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold);
-         this.label8.Location = new System.Drawing.Point(742, 27);
-         this.label8.Name = "label8";
-         this.label8.Size = new System.Drawing.Size(116, 41);
-         this.label8.TabIndex = 21;
-         this.label8.Text = "کد تخفیف :";
-         // 
-         // simpleButton15
-         // 
-         this.simpleButton15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.simpleButton15.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton15.Appearance.Options.UseFont = true;
-         this.simpleButton15.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton15.Location = new System.Drawing.Point(353, 25);
-         this.simpleButton15.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton15.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton15.Name = "simpleButton15";
-         this.simpleButton15.Size = new System.Drawing.Size(169, 43);
-         this.simpleButton15.TabIndex = 71;
-         this.simpleButton15.Text = "اعتبارسنجی کد تخفیف";
+         this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl5.Appearance.Font = new System.Drawing.Font("IRANSans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl5.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
+         this.labelControl5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl5.Location = new System.Drawing.Point(537, 129);
+         this.labelControl5.Name = "labelControl5";
+         this.labelControl5.Size = new System.Drawing.Size(428, 41);
+         this.labelControl5.TabIndex = 82;
+         this.labelControl5.Text = "لطفا اطلاعات فاکتور خود را با دقت بررسی کنید";
          // 
          // simpleButton16
          // 
@@ -1654,29 +1533,160 @@
          this.label11.TabIndex = 21;
          this.label11.Text = "مبلغ قابل پرداخت :";
          // 
-         // labelControl5
+         // panelControl6
          // 
-         this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl5.Appearance.Font = new System.Drawing.Font("IRANSans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl5.Appearance.ForeColor = System.Drawing.SystemColors.Highlight;
-         this.labelControl5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl5.Location = new System.Drawing.Point(537, 129);
-         this.labelControl5.Name = "labelControl5";
-         this.labelControl5.Size = new System.Drawing.Size(428, 41);
-         this.labelControl5.TabIndex = 82;
-         this.labelControl5.Text = "لطفا اطلاعات فاکتور خود را با دقت بررسی کنید";
+         this.panelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.panelControl6.Controls.Add(this.simpleButton15);
+         this.panelControl6.Controls.Add(this.textEdit13);
+         this.panelControl6.Controls.Add(this.textEdit7);
+         this.panelControl6.Controls.Add(this.label8);
+         this.panelControl6.Location = new System.Drawing.Point(26, 335);
+         this.panelControl6.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.panelControl6.Name = "panelControl6";
+         this.panelControl6.Size = new System.Drawing.Size(939, 91);
+         this.panelControl6.TabIndex = 79;
          // 
-         // labelControl6
+         // simpleButton15
          // 
-         this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl6.Appearance.Font = new System.Drawing.Font("IRANSans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Red;
-         this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl6.Location = new System.Drawing.Point(479, 529);
-         this.labelControl6.Name = "labelControl6";
-         this.labelControl6.Size = new System.Drawing.Size(486, 41);
-         this.labelControl6.TabIndex = 82;
-         this.labelControl6.Text = "مبلغ پرداخت شده به هیچ عنوان قابل برگشت نیست";
+         this.simpleButton15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.simpleButton15.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton15.Appearance.Options.UseFont = true;
+         this.simpleButton15.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.simpleButton15.Location = new System.Drawing.Point(353, 25);
+         this.simpleButton15.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.simpleButton15.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton15.Name = "simpleButton15";
+         this.simpleButton15.Size = new System.Drawing.Size(169, 43);
+         this.simpleButton15.TabIndex = 71;
+         this.simpleButton15.Text = "اعتبارسنجی کد تخفیف";
+         // 
+         // textEdit13
+         // 
+         this.textEdit13.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.textEdit13.EditValue = "";
+         this.textEdit13.Location = new System.Drawing.Point(43, 26);
+         this.textEdit13.Name = "textEdit13";
+         this.textEdit13.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
+         this.textEdit13.Properties.Appearance.Options.UseFont = true;
+         this.textEdit13.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit13.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit13.Properties.Mask.EditMask = "n0";
+         this.textEdit13.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.textEdit13.Properties.NullValuePromptShowForEmptyValue = true;
+         this.textEdit13.Size = new System.Drawing.Size(304, 42);
+         this.textEdit13.TabIndex = 20;
+         // 
+         // textEdit7
+         // 
+         this.textEdit7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.textEdit7.EditValue = "";
+         this.textEdit7.Location = new System.Drawing.Point(528, 26);
+         this.textEdit7.Name = "textEdit7";
+         this.textEdit7.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
+         this.textEdit7.Properties.Appearance.Options.UseFont = true;
+         this.textEdit7.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit7.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit7.Properties.Mask.EditMask = "n0";
+         this.textEdit7.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.textEdit7.Properties.NullValuePromptShowForEmptyValue = true;
+         this.textEdit7.Size = new System.Drawing.Size(205, 42);
+         this.textEdit7.TabIndex = 20;
+         // 
+         // label8
+         // 
+         this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label8.AutoSize = true;
+         this.label8.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold);
+         this.label8.Location = new System.Drawing.Point(742, 27);
+         this.label8.Name = "label8";
+         this.label8.Size = new System.Drawing.Size(116, 41);
+         this.label8.TabIndex = 21;
+         this.label8.Text = "کد تخفیف :";
+         // 
+         // panelControl5
+         // 
+         this.panelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.panelControl5.Controls.Add(this.textEdit6);
+         this.panelControl5.Controls.Add(this.label7);
+         this.panelControl5.Controls.Add(this.textEdit4);
+         this.panelControl5.Controls.Add(this.label6);
+         this.panelControl5.Location = new System.Drawing.Point(26, 176);
+         this.panelControl5.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.panelControl5.Name = "panelControl5";
+         this.panelControl5.Size = new System.Drawing.Size(939, 153);
+         this.panelControl5.TabIndex = 74;
+         // 
+         // textEdit6
+         // 
+         this.textEdit6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.textEdit6.EditValue = "";
+         this.textEdit6.Location = new System.Drawing.Point(43, 88);
+         this.textEdit6.Name = "textEdit6";
+         this.textEdit6.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
+         this.textEdit6.Properties.Appearance.Options.UseFont = true;
+         this.textEdit6.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit6.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit6.Properties.Mask.EditMask = "n0";
+         this.textEdit6.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.textEdit6.Properties.NullValuePromptShowForEmptyValue = true;
+         this.textEdit6.Size = new System.Drawing.Size(690, 42);
+         this.textEdit6.TabIndex = 20;
+         // 
+         // label7
+         // 
+         this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label7.AutoSize = true;
+         this.label7.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold);
+         this.label7.Location = new System.Drawing.Point(742, 89);
+         this.label7.Name = "label7";
+         this.label7.Size = new System.Drawing.Size(131, 41);
+         this.label7.TabIndex = 21;
+         this.label7.Text = "شرح فاکتور :";
+         // 
+         // textEdit4
+         // 
+         this.textEdit4.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.textEdit4.EditValue = "";
+         this.textEdit4.Location = new System.Drawing.Point(528, 23);
+         this.textEdit4.Name = "textEdit4";
+         this.textEdit4.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
+         this.textEdit4.Properties.Appearance.Options.UseFont = true;
+         this.textEdit4.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit4.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit4.Properties.Mask.EditMask = "n0";
+         this.textEdit4.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.textEdit4.Properties.NullValuePromptShowForEmptyValue = true;
+         this.textEdit4.Size = new System.Drawing.Size(205, 42);
+         this.textEdit4.TabIndex = 20;
+         // 
+         // label6
+         // 
+         this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label6.AutoSize = true;
+         this.label6.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold);
+         this.label6.Location = new System.Drawing.Point(742, 24);
+         this.label6.Name = "label6";
+         this.label6.Size = new System.Drawing.Size(126, 41);
+         this.label6.TabIndex = 21;
+         this.label6.Text = "مبلغ فاکتور :";
+         // 
+         // simpleButton14
+         // 
+         this.simpleButton14.Appearance.Font = new System.Drawing.Font("IRAN Sans", 18F, System.Drawing.FontStyle.Bold);
+         this.simpleButton14.Appearance.Options.UseFont = true;
+         this.simpleButton14.Dock = System.Windows.Forms.DockStyle.Top;
+         this.simpleButton14.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.simpleButton14.Location = new System.Drawing.Point(3, 3);
+         this.simpleButton14.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.simpleButton14.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton14.Name = "simpleButton14";
+         this.simpleButton14.Size = new System.Drawing.Size(985, 87);
+         this.simpleButton14.TabIndex = 25;
+         this.simpleButton14.Text = "فاکتور";
          // 
          // tabPage1
          // 
@@ -1694,55 +1704,26 @@
          this.tabPage1.Text = "سند پرداخت - عملیات ثبت دوره";
          this.tabPage1.UseVisualStyleBackColor = true;
          // 
-         // simpleButton18
+         // panelControl8
          // 
-         this.simpleButton18.Appearance.Font = new System.Drawing.Font("IRAN Sans", 18F, System.Drawing.FontStyle.Bold);
-         this.simpleButton18.Appearance.Options.UseFont = true;
-         this.simpleButton18.Dock = System.Windows.Forms.DockStyle.Top;
-         this.simpleButton18.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton18.Location = new System.Drawing.Point(3, 3);
-         this.simpleButton18.LookAndFeel.SkinName = "Office 2010 Blue";
-         this.simpleButton18.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton18.Name = "simpleButton18";
-         this.simpleButton18.Size = new System.Drawing.Size(985, 87);
-         this.simpleButton18.TabIndex = 26;
-         this.simpleButton18.Text = "سند پرداخت";
-         // 
-         // label12
-         // 
-         this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label12.AutoSize = true;
-         this.label12.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label12.Location = new System.Drawing.Point(749, 18);
-         this.label12.Name = "label12";
-         this.label12.Size = new System.Drawing.Size(125, 41);
-         this.label12.TabIndex = 68;
-         this.label12.Text = "شماره سند :";
-         // 
-         // dateTimeSelector1
-         // 
-         this.dateTimeSelector1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.dateTimeSelector1.CustomFormat = "dd/MM/yyyy";
-         this.dateTimeSelector1.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
-         this.dateTimeSelector1.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.dateTimeSelector1.Location = new System.Drawing.Point(606, 65);
-         this.dateTimeSelector1.Name = "dateTimeSelector1";
-         this.dateTimeSelector1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.dateTimeSelector1.Size = new System.Drawing.Size(136, 43);
-         this.dateTimeSelector1.TabIndex = 69;
-         this.dateTimeSelector1.UsePersianFormat = true;
-         // 
-         // label13
-         // 
-         this.label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label13.AutoSize = true;
-         this.label13.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.label13.ForeColor = System.Drawing.Color.Black;
-         this.label13.Location = new System.Drawing.Point(749, 66);
-         this.label13.Name = "label13";
-         this.label13.Size = new System.Drawing.Size(115, 41);
-         this.label13.TabIndex = 70;
-         this.label13.Text = "تاریخ سند :";
+         this.panelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.panelControl8.Controls.Add(this.textEdit9);
+         this.panelControl8.Controls.Add(this.label13);
+         this.panelControl8.Controls.Add(this.textEdit12);
+         this.panelControl8.Controls.Add(this.dateTimeSelector1);
+         this.panelControl8.Controls.Add(this.label18);
+         this.panelControl8.Controls.Add(this.label12);
+         this.panelControl8.Controls.Add(this.textEdit11);
+         this.panelControl8.Controls.Add(this.label16);
+         this.panelControl8.Controls.Add(this.label17);
+         this.panelControl8.Controls.Add(this.textEdit10);
+         this.panelControl8.Location = new System.Drawing.Point(28, 276);
+         this.panelControl8.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.panelControl8.Name = "panelControl8";
+         this.panelControl8.Size = new System.Drawing.Size(939, 272);
+         this.panelControl8.TabIndex = 83;
          // 
          // textEdit9
          // 
@@ -1759,6 +1740,136 @@
          this.textEdit9.Properties.NullValuePromptShowForEmptyValue = true;
          this.textEdit9.Size = new System.Drawing.Size(205, 42);
          this.textEdit9.TabIndex = 67;
+         // 
+         // label13
+         // 
+         this.label13.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label13.AutoSize = true;
+         this.label13.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label13.ForeColor = System.Drawing.Color.Black;
+         this.label13.Location = new System.Drawing.Point(749, 66);
+         this.label13.Name = "label13";
+         this.label13.Size = new System.Drawing.Size(115, 41);
+         this.label13.TabIndex = 70;
+         this.label13.Text = "تاریخ سند :";
+         // 
+         // textEdit12
+         // 
+         this.textEdit12.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.textEdit12.EditValue = "";
+         this.textEdit12.Location = new System.Drawing.Point(537, 210);
+         this.textEdit12.Name = "textEdit12";
+         this.textEdit12.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
+         this.textEdit12.Properties.Appearance.Options.UseFont = true;
+         this.textEdit12.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit12.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit12.Properties.Mask.EditMask = "n0";
+         this.textEdit12.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.textEdit12.Properties.NullValuePromptShowForEmptyValue = true;
+         this.textEdit12.Size = new System.Drawing.Size(205, 42);
+         this.textEdit12.TabIndex = 75;
+         // 
+         // dateTimeSelector1
+         // 
+         this.dateTimeSelector1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.dateTimeSelector1.CustomFormat = "dd/MM/yyyy";
+         this.dateTimeSelector1.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
+         this.dateTimeSelector1.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.dateTimeSelector1.Location = new System.Drawing.Point(606, 65);
+         this.dateTimeSelector1.Name = "dateTimeSelector1";
+         this.dateTimeSelector1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.dateTimeSelector1.Size = new System.Drawing.Size(136, 43);
+         this.dateTimeSelector1.TabIndex = 69;
+         this.dateTimeSelector1.UsePersianFormat = true;
+         // 
+         // label18
+         // 
+         this.label18.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label18.AutoSize = true;
+         this.label18.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold);
+         this.label18.Location = new System.Drawing.Point(751, 211);
+         this.label18.Name = "label18";
+         this.label18.Size = new System.Drawing.Size(148, 41);
+         this.label18.TabIndex = 76;
+         this.label18.Text = "شماره پیگیری :";
+         // 
+         // label12
+         // 
+         this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label12.AutoSize = true;
+         this.label12.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label12.Location = new System.Drawing.Point(749, 18);
+         this.label12.Name = "label12";
+         this.label12.Size = new System.Drawing.Size(125, 41);
+         this.label12.TabIndex = 68;
+         this.label12.Text = "شماره سند :";
+         // 
+         // textEdit11
+         // 
+         this.textEdit11.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.textEdit11.EditValue = "";
+         this.textEdit11.Location = new System.Drawing.Point(537, 162);
+         this.textEdit11.Name = "textEdit11";
+         this.textEdit11.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
+         this.textEdit11.Properties.Appearance.Options.UseFont = true;
+         this.textEdit11.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit11.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit11.Properties.Mask.EditMask = "n0";
+         this.textEdit11.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.textEdit11.Properties.NullValuePromptShowForEmptyValue = true;
+         this.textEdit11.Size = new System.Drawing.Size(205, 42);
+         this.textEdit11.TabIndex = 75;
+         // 
+         // label16
+         // 
+         this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label16.AutoSize = true;
+         this.label16.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold);
+         this.label16.Location = new System.Drawing.Point(751, 115);
+         this.label16.Name = "label16";
+         this.label16.Size = new System.Drawing.Size(131, 41);
+         this.label16.TabIndex = 74;
+         this.label16.Text = "شرح فاکتور :";
+         // 
+         // label17
+         // 
+         this.label17.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label17.AutoSize = true;
+         this.label17.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold);
+         this.label17.Location = new System.Drawing.Point(751, 163);
+         this.label17.Name = "label17";
+         this.label17.Size = new System.Drawing.Size(183, 41);
+         this.label17.TabIndex = 76;
+         this.label17.Text = "مبلغ قابل پرداخت :";
+         // 
+         // textEdit10
+         // 
+         this.textEdit10.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.textEdit10.EditValue = "";
+         this.textEdit10.Location = new System.Drawing.Point(52, 114);
+         this.textEdit10.Name = "textEdit10";
+         this.textEdit10.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
+         this.textEdit10.Properties.Appearance.Options.UseFont = true;
+         this.textEdit10.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit10.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit10.Properties.Mask.EditMask = "n0";
+         this.textEdit10.Properties.Mask.UseMaskAsDisplayFormat = true;
+         this.textEdit10.Properties.NullValuePromptShowForEmptyValue = true;
+         this.textEdit10.Size = new System.Drawing.Size(690, 42);
+         this.textEdit10.TabIndex = 73;
+         // 
+         // simpleButton19
+         // 
+         this.simpleButton19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.simpleButton19.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton19.Appearance.Options.UseFont = true;
+         this.simpleButton19.Location = new System.Drawing.Point(393, 582);
+         this.simpleButton19.LookAndFeel.SkinName = "VS2010";
+         this.simpleButton19.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton19.Name = "simpleButton19";
+         this.simpleButton19.Size = new System.Drawing.Size(205, 60);
+         this.simpleButton19.TabIndex = 82;
+         this.simpleButton19.Text = "اتمام فرآیند";
          // 
          // roundedButton2
          // 
@@ -1807,136 +1918,80 @@
          this.label15.TabIndex = 68;
          this.label15.Text = "عملیات با موفقیت انجام شد";
          // 
-         // textEdit10
+         // simpleButton18
          // 
-         this.textEdit10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.textEdit10.EditValue = "";
-         this.textEdit10.Location = new System.Drawing.Point(52, 114);
-         this.textEdit10.Name = "textEdit10";
-         this.textEdit10.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
-         this.textEdit10.Properties.Appearance.Options.UseFont = true;
-         this.textEdit10.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit10.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit10.Properties.Mask.EditMask = "n0";
-         this.textEdit10.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit10.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit10.Size = new System.Drawing.Size(690, 42);
-         this.textEdit10.TabIndex = 73;
+         this.simpleButton18.Appearance.Font = new System.Drawing.Font("IRAN Sans", 18F, System.Drawing.FontStyle.Bold);
+         this.simpleButton18.Appearance.Options.UseFont = true;
+         this.simpleButton18.Dock = System.Windows.Forms.DockStyle.Top;
+         this.simpleButton18.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.simpleButton18.Location = new System.Drawing.Point(3, 3);
+         this.simpleButton18.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.simpleButton18.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton18.Name = "simpleButton18";
+         this.simpleButton18.Size = new System.Drawing.Size(985, 87);
+         this.simpleButton18.TabIndex = 26;
+         this.simpleButton18.Text = "سند پرداخت";
          // 
-         // label16
+         // simpleButton20
          // 
-         this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label16.AutoSize = true;
-         this.label16.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold);
-         this.label16.Location = new System.Drawing.Point(751, 115);
-         this.label16.Name = "label16";
-         this.label16.Size = new System.Drawing.Size(131, 41);
-         this.label16.TabIndex = 74;
-         this.label16.Text = "شرح فاکتور :";
+         this.simpleButton20.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+         this.simpleButton20.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.simpleButton20.Appearance.Options.UseFont = true;
+         this.simpleButton20.Image = global::System.Scsc.Properties.Resources.IMAGE_1060;
+         this.simpleButton20.Location = new System.Drawing.Point(305, 23);
+         this.simpleButton20.LookAndFeel.SkinName = "Office 2010 Blue";
+         this.simpleButton20.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton20.Name = "simpleButton20";
+         this.simpleButton20.Size = new System.Drawing.Size(56, 43);
+         this.simpleButton20.TabIndex = 72;
          // 
-         // textEdit11
+         // label19
          // 
-         this.textEdit11.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.textEdit11.EditValue = "";
-         this.textEdit11.Location = new System.Drawing.Point(537, 162);
-         this.textEdit11.Name = "textEdit11";
-         this.textEdit11.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
-         this.textEdit11.Properties.Appearance.Options.UseFont = true;
-         this.textEdit11.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit11.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit11.Properties.Mask.EditMask = "n0";
-         this.textEdit11.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit11.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit11.Size = new System.Drawing.Size(205, 42);
-         this.textEdit11.TabIndex = 75;
+         this.label19.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.label19.Font = new System.Drawing.Font("B Roya", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label19.Location = new System.Drawing.Point(26, 199);
+         this.label19.Name = "label19";
+         this.label19.Size = new System.Drawing.Size(301, 43);
+         this.label19.TabIndex = 69;
+         this.label19.Text = "علیرضا هوشمند";
+         this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
          // 
-         // label17
+         // roundedButton3
          // 
-         this.label17.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label17.AutoSize = true;
-         this.label17.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold);
-         this.label17.Location = new System.Drawing.Point(751, 163);
-         this.label17.Name = "label17";
-         this.label17.Size = new System.Drawing.Size(183, 41);
-         this.label17.TabIndex = 76;
-         this.label17.Text = "مبلغ قابل پرداخت :";
+         this.roundedButton3.Active = true;
+         this.roundedButton3.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.roundedButton3.ButtonStyle = System.MaxUi.RoundedButton.ButtonStyles.Ellipse;
+         this.roundedButton3.Caption = "";
+         this.roundedButton3.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
+         this.roundedButton3.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
+         this.roundedButton3.HoverBorderColor = System.Drawing.Color.Gold;
+         this.roundedButton3.HoverColorA = System.Drawing.Color.LightGray;
+         this.roundedButton3.HoverColorB = System.Drawing.Color.LightGray;
+         this.roundedButton3.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+         this.roundedButton3.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+         this.roundedButton3.ImageVisiable = false;
+         this.roundedButton3.Location = new System.Drawing.Point(26, 96);
+         this.roundedButton3.Name = "roundedButton3";
+         this.roundedButton3.NormalBorderColor = System.Drawing.Color.Black;
+         this.roundedButton3.NormalColorA = System.Drawing.Color.White;
+         this.roundedButton3.NormalColorB = System.Drawing.Color.White;
+         this.roundedButton3.Size = new System.Drawing.Size(100, 100);
+         this.roundedButton3.SmoothingQuality = System.MaxUi.RoundedButton.SmoothingQualities.AntiAlias;
+         this.roundedButton3.TabIndex = 70;
+         this.roundedButton3.Tooltip = null;
          // 
-         // label18
+         // labelControl6
          // 
-         this.label18.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.label18.AutoSize = true;
-         this.label18.Font = new System.Drawing.Font("IRAN Sans", 15.75F, System.Drawing.FontStyle.Bold);
-         this.label18.Location = new System.Drawing.Point(751, 211);
-         this.label18.Name = "label18";
-         this.label18.Size = new System.Drawing.Size(148, 41);
-         this.label18.TabIndex = 76;
-         this.label18.Text = "شماره پیگیری :";
-         // 
-         // textEdit12
-         // 
-         this.textEdit12.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.textEdit12.EditValue = "";
-         this.textEdit12.Location = new System.Drawing.Point(537, 210);
-         this.textEdit12.Name = "textEdit12";
-         this.textEdit12.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
-         this.textEdit12.Properties.Appearance.Options.UseFont = true;
-         this.textEdit12.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit12.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit12.Properties.Mask.EditMask = "n0";
-         this.textEdit12.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit12.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit12.Size = new System.Drawing.Size(205, 42);
-         this.textEdit12.TabIndex = 75;
-         // 
-         // simpleButton19
-         // 
-         this.simpleButton19.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-         this.simpleButton19.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.simpleButton19.Appearance.Options.UseFont = true;
-         this.simpleButton19.Location = new System.Drawing.Point(393, 582);
-         this.simpleButton19.LookAndFeel.SkinName = "VS2010";
-         this.simpleButton19.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton19.Name = "simpleButton19";
-         this.simpleButton19.Size = new System.Drawing.Size(205, 60);
-         this.simpleButton19.TabIndex = 82;
-         this.simpleButton19.Text = "اتمام فرآیند";
-         // 
-         // panelControl8
-         // 
-         this.panelControl8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-         this.panelControl8.Controls.Add(this.textEdit9);
-         this.panelControl8.Controls.Add(this.label13);
-         this.panelControl8.Controls.Add(this.textEdit12);
-         this.panelControl8.Controls.Add(this.dateTimeSelector1);
-         this.panelControl8.Controls.Add(this.label18);
-         this.panelControl8.Controls.Add(this.label12);
-         this.panelControl8.Controls.Add(this.textEdit11);
-         this.panelControl8.Controls.Add(this.label16);
-         this.panelControl8.Controls.Add(this.label17);
-         this.panelControl8.Controls.Add(this.textEdit10);
-         this.panelControl8.Location = new System.Drawing.Point(28, 276);
-         this.panelControl8.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.panelControl8.Name = "panelControl8";
-         this.panelControl8.Size = new System.Drawing.Size(939, 272);
-         this.panelControl8.TabIndex = 83;
-         // 
-         // textEdit13
-         // 
-         this.textEdit13.Anchor = System.Windows.Forms.AnchorStyles.Top;
-         this.textEdit13.EditValue = "";
-         this.textEdit13.Location = new System.Drawing.Point(43, 26);
-         this.textEdit13.Name = "textEdit13";
-         this.textEdit13.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 15.75F, System.Drawing.FontStyle.Bold);
-         this.textEdit13.Properties.Appearance.Options.UseFont = true;
-         this.textEdit13.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.textEdit13.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.textEdit13.Properties.Mask.EditMask = "n0";
-         this.textEdit13.Properties.Mask.UseMaskAsDisplayFormat = true;
-         this.textEdit13.Properties.NullValuePromptShowForEmptyValue = true;
-         this.textEdit13.Size = new System.Drawing.Size(304, 42);
-         this.textEdit13.TabIndex = 20;
+         this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl6.Appearance.Font = new System.Drawing.Font("IRANSans", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl6.Appearance.ForeColor = System.Drawing.Color.Green;
+         this.labelControl6.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.labelControl6.Location = new System.Drawing.Point(30, 529);
+         this.labelControl6.Name = "labelControl6";
+         this.labelControl6.Size = new System.Drawing.Size(930, 41);
+         this.labelControl6.TabIndex = 82;
+         this.labelControl6.Text = "از اینکه ما را انتخاب کردین بسیار خرسندیم و امیدواریم در کنار ما حس بهترین خدمات " +
+    "را دریافت کنید";
          // 
          // KSK_SERV_F
          // 
@@ -1989,29 +2044,29 @@
          ((System.ComponentModel.ISupportInitialize)(this.Mtod_Gv)).EndInit();
          this.tp_005.ResumeLayout(false);
          this.tp_005.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
-         this.panelControl5.ResumeLayout(false);
-         this.panelControl5.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
-         this.panelControl6.ResumeLayout(false);
-         this.panelControl6.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl7)).EndInit();
          this.panelControl7.ResumeLayout(false);
          this.panelControl7.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit8.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.panelControl6)).EndInit();
+         this.panelControl6.ResumeLayout(false);
+         this.panelControl6.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit7.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).EndInit();
+         this.panelControl5.ResumeLayout(false);
+         this.panelControl5.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit6.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit4.Properties)).EndInit();
          this.tabPage1.ResumeLayout(false);
          this.tabPage1.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit12.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl8)).EndInit();
          this.panelControl8.ResumeLayout(false);
          this.panelControl8.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.textEdit13.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit9.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit12.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
          this.ResumeLayout(false);
 
        }
@@ -2152,7 +2207,6 @@
        private DevExpress.XtraEditors.PanelControl panelControl7;
        private DevExpress.XtraEditors.TextEdit textEdit8;
        private Windows.Forms.Label label11;
-       private DevExpress.XtraEditors.LabelControl labelControl6;
        private DevExpress.XtraEditors.LabelControl labelControl5;
        private Windows.Forms.TabPage tabPage1;
        private DevExpress.XtraEditors.SimpleButton simpleButton19;
@@ -2172,6 +2226,10 @@
        private DevExpress.XtraEditors.SimpleButton simpleButton18;
        private DevExpress.XtraEditors.TextEdit textEdit13;
        private DevExpress.XtraEditors.PanelControl panelControl8;
+       private DevExpress.XtraEditors.SimpleButton simpleButton20;
+       private MaxUi.RoundedButton roundedButton3;
+       private Windows.Forms.Label label19;
+       private DevExpress.XtraEditors.LabelControl labelControl6;
 
     }
  }

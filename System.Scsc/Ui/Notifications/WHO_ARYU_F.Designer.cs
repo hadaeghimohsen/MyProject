@@ -867,13 +867,13 @@
          // NumbAttnMont_Lb
          // 
          this.NumbAttnMont_Lb.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "NUMB_OF_ATTN_MONT", true));
-         this.NumbAttnMont_Lb.Font = new System.Drawing.Font("B Koodak", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.NumbAttnMont_Lb.Font = new System.Drawing.Font("B Koodak", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.NumbAttnMont_Lb.ForeColor = System.Drawing.Color.GreenYellow;
-         this.NumbAttnMont_Lb.Location = new System.Drawing.Point(19, 144);
+         this.NumbAttnMont_Lb.Location = new System.Drawing.Point(11, 144);
          this.NumbAttnMont_Lb.Name = "NumbAttnMont_Lb";
-         this.NumbAttnMont_Lb.Size = new System.Drawing.Size(65, 63);
+         this.NumbAttnMont_Lb.Size = new System.Drawing.Size(84, 63);
          this.NumbAttnMont_Lb.TabIndex = 102;
-         this.NumbAttnMont_Lb.Text = "12";
+         this.NumbAttnMont_Lb.Text = "120";
          this.NumbAttnMont_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // StrtDate_Lb
@@ -2351,24 +2351,24 @@
          // 
          // TotlNumbAttn_Lb
          // 
-         this.TotlNumbAttn_Lb.Font = new System.Drawing.Font("B Koodak", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TotlNumbAttn_Lb.Font = new System.Drawing.Font("B Koodak", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.TotlNumbAttn_Lb.ForeColor = System.Drawing.Color.Yellow;
-         this.TotlNumbAttn_Lb.Location = new System.Drawing.Point(43, 77);
+         this.TotlNumbAttn_Lb.Location = new System.Drawing.Point(38, 77);
          this.TotlNumbAttn_Lb.Name = "TotlNumbAttn_Lb";
-         this.TotlNumbAttn_Lb.Size = new System.Drawing.Size(61, 46);
+         this.TotlNumbAttn_Lb.Size = new System.Drawing.Size(74, 46);
          this.TotlNumbAttn_Lb.TabIndex = 100;
-         this.TotlNumbAttn_Lb.Text = "5";
+         this.TotlNumbAttn_Lb.Text = "120";
          this.TotlNumbAttn_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // RemindAttn_Lb
          // 
-         this.RemindAttn_Lb.Font = new System.Drawing.Font("B Koodak", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RemindAttn_Lb.Font = new System.Drawing.Font("B Koodak", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.RemindAttn_Lb.ForeColor = System.Drawing.Color.Lime;
-         this.RemindAttn_Lb.Location = new System.Drawing.Point(43, 30);
+         this.RemindAttn_Lb.Location = new System.Drawing.Point(38, 30);
          this.RemindAttn_Lb.Name = "RemindAttn_Lb";
-         this.RemindAttn_Lb.Size = new System.Drawing.Size(61, 46);
+         this.RemindAttn_Lb.Size = new System.Drawing.Size(74, 46);
          this.RemindAttn_Lb.TabIndex = 100;
-         this.RemindAttn_Lb.Text = "7";
+         this.RemindAttn_Lb.Text = "120";
          this.RemindAttn_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
          // Shop_Rbtn

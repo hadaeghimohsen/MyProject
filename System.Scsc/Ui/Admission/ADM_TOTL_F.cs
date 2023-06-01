@@ -581,6 +581,18 @@ namespace System.Scsc.Ui.Admission
                );
             }
 
+            // 1402/02/26 * ذخیره کردن شماره درخواست برای نمونه برداری برای کارت مشتریان دیگر
+            if (RqstDupl_Pbtn.PickChecked)
+            {
+               iScsc.DUP_RQST_P(
+                  new XElement("Duplicate",
+                      new XAttribute("type", "SetInitRecord"),
+                      new XAttribute("rqid", Rqst.RQID)
+                  )
+               );
+               RqstDupl_Pbtn.PickChecked = false;
+            }
+
             requery = true;
          }
          catch (Exception ex)
@@ -2884,6 +2896,89 @@ namespace System.Scsc.Ui.Admission
          catch (SqlException se)
          {
             MessageBox.Show(se.Message);
+         }
+      }
+
+      private void FRqpm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "Request_Parameter"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DRqpm_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs3.Current as Data.Request;
+            if (_rqst == null) return;
+
+            var _drqpm = DRqpmBs.Current as Data.App_Base_Define;
+            if (_drqpm == null) return;
+
+            if (RqpmBs.List.OfType<Data.Request_Parameter>().Any(rp => rp.APBS_CODE == _drqpm.CODE)) return;
+
+            var _rqpm = RqpmBs.AddNew() as Data.Request_Parameter;
+            _rqpm.APBS_CODE = _drqpm.CODE;
+            _rqpm.RQST_RQID = _rqst.RQID;
+
+            iScsc.Request_Parameters
+               .InsertOnSubmit(_rqpm);
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Rqpm_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _rqpm = RqpmBs.Current as Data.Request_Parameter;
+            if (_rqpm == null) return;
+
+            iScsc.Request_Parameters.DeleteOnSubmit(_rqpm);
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
    }

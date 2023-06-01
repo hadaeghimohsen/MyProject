@@ -262,7 +262,7 @@ namespace System.Scsc.Ui.Notifications
 
             if(CochProFile_Rb.Tag == null || CochProFile_Rb.Tag.ToString().ToInt64() != _attn.COCH_FILE_NO)
             {
-               if (_attn.Fighter.IMAG_RCDC_RCID_DNRM != null)
+               if (_attn.Fighter != null && _attn.Fighter.IMAG_RCDC_RCID_DNRM != null)
                {
                   try
                   {
@@ -294,12 +294,18 @@ namespace System.Scsc.Ui.Notifications
             else if (ServProFile_Rb.ImageProfile == null)
                ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1149;
 
-            if (CochProFile_Rb.ImageProfile == null && _attn.Fighter.SEX_TYPE_DNRM == "002")
-               CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1507;
-            else if (CochProFile_Rb.ImageProfile == null)
-               CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1076;
+            if (_attn.Fighter != null)
+            {
+               CochProFile_Rb.Visible = true;
+               if (CochProFile_Rb.ImageProfile == null && _attn.Fighter.SEX_TYPE_DNRM == "002")
+                  CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1507;
+               else if (CochProFile_Rb.ImageProfile == null)
+                  CochProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1076;
+            }
+            else
+               CochProFile_Rb.Visible = false;
          }
-         catch (Exception exc)
+         catch(Exception exc)
          {
             MessageBox.Show(exc.Message);
          }

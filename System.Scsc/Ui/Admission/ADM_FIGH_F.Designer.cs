@@ -46,6 +46,8 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
@@ -61,7 +63,7 @@
          DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
@@ -77,16 +79,14 @@
          DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem6 = new DevExpress.Utils.ToolTipSeparatorItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem12 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject20 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject21 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject22 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject23 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject24 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject25 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject26 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject27 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -100,6 +100,8 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject35 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject36 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject37 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -108,28 +110,28 @@
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition9 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition10 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject41 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem13 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem14 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject41 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem15 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem8 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem16 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject42 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip9 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem17 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem18 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject43 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip10 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem19 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject44 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject45 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject46 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject47 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colEXPR_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit2 = new dxExample.PersianRepositoryItemDateEdit();
          this.colDFLT_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -397,6 +399,25 @@
          this.colMDFY_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTemplate = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.tabPage5 = new System.Windows.Forms.TabPage();
+         this.tabControl3 = new System.Windows.Forms.TabControl();
+         this.tabPage6 = new System.Windows.Forms.TabPage();
+         this.splitContainerControl8 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.gridControl13 = new DevExpress.XtraGrid.GridControl();
+         this.RqpmBs = new System.Windows.Forms.BindingSource(this.components);
+         this.gridView15 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.gridColumn380 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn382 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn377 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.Rqpm_Btn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.gridControl24 = new DevExpress.XtraGrid.GridControl();
+         this.DRqpmBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RqpmGv = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colTITL_DESC = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn376 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.DRqpm_Btn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.RqpmBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.FRqpm_Butn = new System.Windows.Forms.ToolStripButton();
          this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.RcmtType_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.bn_DpstPayment1 = new DevExpress.XtraEditors.SimpleButton();
@@ -542,6 +563,7 @@
          this.OthrPblc_Ckbx = new System.Windows.Forms.CheckBox();
          this.CapacityCycle_Lb = new System.Windows.Forms.Label();
          this.NatlCodeVald_Cbx = new System.Windows.Forms.CheckBox();
+         this.RqstDupl_Pbtn = new System.MaxUi.NewPickBtn();
          this.FATH_NAME_TextEdit = new DevExpress.XtraEditors.TextEdit();
          this.label1 = new System.Windows.Forms.Label();
          this.POST_ADRS_TextEdit = new DevExpress.XtraEditors.TextEdit();
@@ -569,6 +591,10 @@
          this.NATL_CODE_TextEdit = new DevExpress.XtraEditors.ButtonEdit();
          this.AdmMoreInfo_Tp = new System.Windows.Forms.TabPage();
          this.grouper1 = new System.MaxUi.Grouper();
+         this.label17 = new System.Windows.Forms.Label();
+         this.iNSR_DATEPersianDateEdit = new Atf.UI.DateTimeSelector();
+         this.label18 = new System.Windows.Forms.Label();
+         this.iNSR_NUMBTextEdit = new DevExpress.XtraEditors.ButtonEdit();
          this.label4 = new System.Windows.Forms.Label();
          this.CellPhonRefCode_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.RefDesc_Txt = new DevExpress.XtraEditors.MemoEdit();
@@ -883,6 +909,21 @@
          ((System.ComponentModel.ISupportInitialize)(this.DDsatBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit6)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs)).BeginInit();
+         this.tabPage5.SuspendLayout();
+         this.tabControl3.SuspendLayout();
+         this.tabPage6.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl8)).BeginInit();
+         this.splitContainerControl8.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl13)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqpmBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView15)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Rqpm_Btn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl24)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DRqpmBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqpmGv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DRqpm_Btn)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqpmBn)).BeginInit();
+         this.RqpmBn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Pos_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.VPosBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.payment_DetailsGridControl)).BeginInit();
@@ -932,6 +973,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.NATL_CODE_TextEdit.Properties)).BeginInit();
          this.AdmMoreInfo_Tp.SuspendLayout();
          this.grouper1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.iNSR_NUMBTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CellPhonRefCode_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RefDesc_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RefCode_Lov.Properties)).BeginInit();
@@ -1402,6 +1444,7 @@
          this.im_images.Images.SetKeyName(3, "IMAGE_1157.png");
          this.im_images.Images.SetKeyName(4, "IMAGE_1132.png");
          this.im_images.Images.SetKeyName(5, "IMAGE_1164.png");
+         this.im_images.Images.SetKeyName(6, "IMAGE_1131.png");
          // 
          // FighsBs1
          // 
@@ -2007,7 +2050,7 @@
          this.Glob_Code_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.Glob_Code_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Glob_Code_TextEdit.Size = new System.Drawing.Size(109, 22);
-         this.Glob_Code_TextEdit.TabIndex = 21;
+         this.Glob_Code_TextEdit.TabIndex = 0;
          // 
          // SERV_NO_TextEdit
          // 
@@ -2022,7 +2065,7 @@
          this.SERV_NO_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.SERV_NO_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SERV_NO_TextEdit.Size = new System.Drawing.Size(109, 22);
-         this.SERV_NO_TextEdit.TabIndex = 20;
+         this.SERV_NO_TextEdit.TabIndex = 2;
          this.SERV_NO_TextEdit.ToolTip = "برای آن دسته از شرکتهایی که مشترکین از آنها خرید میکنند و بعدا شرکت با شما تسویه " +
     "حساب میکنند. مانند شیراز تخفیف";
          // 
@@ -2218,6 +2261,7 @@
          this.PymtOprt_Tc.Controls.Add(this.PymtMtod_Tp);
          this.PymtOprt_Tc.Controls.Add(this.PymtDsct_Tp);
          this.PymtOprt_Tc.Controls.Add(this.Advc_Tp);
+         this.PymtOprt_Tc.Controls.Add(this.tabPage5);
          this.PymtOprt_Tc.ImageList = this.imageList1;
          this.PymtOprt_Tc.Location = new System.Drawing.Point(12, 272);
          this.PymtOprt_Tc.Name = "PymtOprt_Tc";
@@ -2515,6 +2559,7 @@
          this.grouper6.Controls.Add(this.label12);
          this.grouper6.CustomGroupBoxColor = System.Drawing.Color.Gainsboro;
          this.grouper6.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.grouper6.ForeColor = System.Drawing.Color.Black;
          this.grouper6.GroupImage = null;
          this.grouper6.GroupTitle = "مشخصات دریافتی";
          this.grouper6.Location = new System.Drawing.Point(3, 3);
@@ -2525,6 +2570,7 @@
          this.grouper6.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper6.ShadowControl = false;
          this.grouper6.ShadowThickness = 3;
+         this.grouper6.ShowBorderTitle = false;
          this.grouper6.Size = new System.Drawing.Size(438, 166);
          this.grouper6.TabIndex = 38;
          // 
@@ -3441,6 +3487,235 @@
          this.colTemplate.OptionsColumn.AllowEdit = false;
          this.colTemplate.OptionsColumn.ReadOnly = true;
          // 
+         // tabPage5
+         // 
+         this.tabPage5.Controls.Add(this.tabControl3);
+         this.tabPage5.ImageIndex = 5;
+         this.tabPage5.Location = new System.Drawing.Point(4, 27);
+         this.tabPage5.Name = "tabPage5";
+         this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPage5.Size = new System.Drawing.Size(464, 275);
+         this.tabPage5.TabIndex = 3;
+         this.tabPage5.Text = "بیشتر ...";
+         this.tabPage5.UseVisualStyleBackColor = true;
+         // 
+         // tabControl3
+         // 
+         this.tabControl3.Controls.Add(this.tabPage6);
+         this.tabControl3.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.tabControl3.Location = new System.Drawing.Point(3, 3);
+         this.tabControl3.Name = "tabControl3";
+         this.tabControl3.RightToLeftLayout = true;
+         this.tabControl3.SelectedIndex = 0;
+         this.tabControl3.Size = new System.Drawing.Size(458, 269);
+         this.tabControl3.TabIndex = 1;
+         // 
+         // tabPage6
+         // 
+         this.tabPage6.Controls.Add(this.splitContainerControl8);
+         this.tabPage6.Location = new System.Drawing.Point(4, 23);
+         this.tabPage6.Name = "tabPage6";
+         this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPage6.Size = new System.Drawing.Size(450, 242);
+         this.tabPage6.TabIndex = 0;
+         this.tabPage6.Text = "برچسب ها";
+         this.tabPage6.UseVisualStyleBackColor = true;
+         // 
+         // splitContainerControl8
+         // 
+         this.splitContainerControl8.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl8.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
+         this.splitContainerControl8.Location = new System.Drawing.Point(3, 3);
+         this.splitContainerControl8.Name = "splitContainerControl8";
+         this.splitContainerControl8.Panel1.Controls.Add(this.gridControl13);
+         this.splitContainerControl8.Panel1.Text = "Panel1";
+         this.splitContainerControl8.Panel2.Controls.Add(this.gridControl24);
+         this.splitContainerControl8.Panel2.Controls.Add(this.RqpmBn);
+         this.splitContainerControl8.Panel2.Text = "Panel2";
+         this.splitContainerControl8.Size = new System.Drawing.Size(444, 236);
+         this.splitContainerControl8.SplitterPosition = 152;
+         this.splitContainerControl8.TabIndex = 0;
+         this.splitContainerControl8.Text = "splitContainerControl8";
+         // 
+         // gridControl13
+         // 
+         this.gridControl13.DataSource = this.RqpmBs;
+         this.gridControl13.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControl13.Location = new System.Drawing.Point(0, 0);
+         this.gridControl13.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.gridControl13.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl13.MainView = this.gridView15;
+         this.gridControl13.Name = "gridControl13";
+         this.gridControl13.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.Rqpm_Btn});
+         this.gridControl13.Size = new System.Drawing.Size(287, 236);
+         this.gridControl13.TabIndex = 15;
+         this.gridControl13.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView15});
+         // 
+         // RqpmBs
+         // 
+         this.RqpmBs.DataMember = "Request_Parameters";
+         this.RqpmBs.DataSource = this.RqstBs1;
+         // 
+         // gridView15
+         // 
+         this.gridView15.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.gridView15.Appearance.HeaderPanel.Options.UseFont = true;
+         this.gridView15.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.gridView15.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView15.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.gridView15.Appearance.Row.Options.UseFont = true;
+         this.gridView15.Appearance.Row.Options.UseTextOptions = true;
+         this.gridView15.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView15.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn380,
+            this.gridColumn382,
+            this.gridColumn377});
+         this.gridView15.GridControl = this.gridControl13;
+         this.gridView15.Name = "gridView15";
+         this.gridView15.OptionsDetail.EnableMasterViewMode = false;
+         this.gridView15.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.gridView15.OptionsView.ShowGroupPanel = false;
+         this.gridView15.OptionsView.ShowIndicator = false;
+         // 
+         // gridColumn380
+         // 
+         this.gridColumn380.Caption = "عنوان";
+         this.gridColumn380.FieldName = "App_Base_Define.TITL_DESC";
+         this.gridColumn380.Name = "gridColumn380";
+         this.gridColumn380.OptionsColumn.AllowEdit = false;
+         this.gridColumn380.OptionsColumn.ReadOnly = true;
+         this.gridColumn380.Visible = true;
+         this.gridColumn380.VisibleIndex = 2;
+         this.gridColumn380.Width = 109;
+         // 
+         // gridColumn382
+         // 
+         this.gridColumn382.Caption = "توضیحات";
+         this.gridColumn382.FieldName = "CMNT";
+         this.gridColumn382.Name = "gridColumn382";
+         this.gridColumn382.Visible = true;
+         this.gridColumn382.VisibleIndex = 1;
+         this.gridColumn382.Width = 229;
+         // 
+         // gridColumn377
+         // 
+         this.gridColumn377.Caption = " ";
+         this.gridColumn377.ColumnEdit = this.Rqpm_Btn;
+         this.gridColumn377.Name = "gridColumn377";
+         this.gridColumn377.OptionsColumn.FixedWidth = true;
+         this.gridColumn377.Visible = true;
+         this.gridColumn377.VisibleIndex = 0;
+         this.gridColumn377.Width = 25;
+         // 
+         // Rqpm_Btn
+         // 
+         this.Rqpm_Btn.AutoHeight = false;
+         this.Rqpm_Btn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Rqpm_Btn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true)});
+         this.Rqpm_Btn.Name = "Rqpm_Btn";
+         this.Rqpm_Btn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         this.Rqpm_Btn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.Rqpm_Btn_ButtonClick);
+         // 
+         // gridControl24
+         // 
+         this.gridControl24.DataSource = this.DRqpmBs;
+         this.gridControl24.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControl24.Location = new System.Drawing.Point(0, 25);
+         this.gridControl24.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.gridControl24.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl24.MainView = this.RqpmGv;
+         this.gridControl24.Name = "gridControl24";
+         this.gridControl24.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.DRqpm_Btn});
+         this.gridControl24.Size = new System.Drawing.Size(152, 211);
+         this.gridControl24.TabIndex = 14;
+         this.gridControl24.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.RqpmGv});
+         // 
+         // DRqpmBs
+         // 
+         this.DRqpmBs.DataSource = typeof(System.Scsc.Data.App_Base_Define);
+         // 
+         // RqpmGv
+         // 
+         this.RqpmGv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.RqpmGv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.RqpmGv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.RqpmGv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.RqpmGv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.RqpmGv.Appearance.Row.Options.UseFont = true;
+         this.RqpmGv.Appearance.Row.Options.UseTextOptions = true;
+         this.RqpmGv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.RqpmGv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colTITL_DESC,
+            this.gridColumn376});
+         this.RqpmGv.GridControl = this.gridControl24;
+         this.RqpmGv.Name = "RqpmGv";
+         this.RqpmGv.OptionsDetail.EnableMasterViewMode = false;
+         this.RqpmGv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.RqpmGv.OptionsView.ShowGroupPanel = false;
+         this.RqpmGv.OptionsView.ShowIndicator = false;
+         // 
+         // colTITL_DESC
+         // 
+         this.colTITL_DESC.Caption = "عنوان";
+         this.colTITL_DESC.FieldName = "TITL_DESC";
+         this.colTITL_DESC.Name = "colTITL_DESC";
+         this.colTITL_DESC.OptionsColumn.AllowEdit = false;
+         this.colTITL_DESC.OptionsColumn.ReadOnly = true;
+         this.colTITL_DESC.Visible = true;
+         this.colTITL_DESC.VisibleIndex = 1;
+         this.colTITL_DESC.Width = 226;
+         // 
+         // gridColumn376
+         // 
+         this.gridColumn376.Caption = " ";
+         this.gridColumn376.ColumnEdit = this.DRqpm_Btn;
+         this.gridColumn376.Name = "gridColumn376";
+         this.gridColumn376.OptionsColumn.FixedWidth = true;
+         this.gridColumn376.Visible = true;
+         this.gridColumn376.VisibleIndex = 0;
+         this.gridColumn376.Width = 25;
+         // 
+         // DRqpm_Btn
+         // 
+         this.DRqpm_Btn.AutoHeight = false;
+         this.DRqpm_Btn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("DRqpm_Btn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true)});
+         this.DRqpm_Btn.Name = "DRqpm_Btn";
+         this.DRqpm_Btn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         this.DRqpm_Btn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.DRqpm_Btn_ButtonClick);
+         // 
+         // RqpmBn
+         // 
+         this.RqpmBn.AddNewItem = null;
+         this.RqpmBn.CountItem = null;
+         this.RqpmBn.DeleteItem = null;
+         this.RqpmBn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FRqpm_Butn});
+         this.RqpmBn.Location = new System.Drawing.Point(0, 0);
+         this.RqpmBn.MoveFirstItem = null;
+         this.RqpmBn.MoveLastItem = null;
+         this.RqpmBn.MoveNextItem = null;
+         this.RqpmBn.MovePreviousItem = null;
+         this.RqpmBn.Name = "RqpmBn";
+         this.RqpmBn.PositionItem = null;
+         this.RqpmBn.Size = new System.Drawing.Size(152, 25);
+         this.RqpmBn.TabIndex = 15;
+         this.RqpmBn.Text = "bindingNavigator2";
+         // 
+         // FRqpm_Butn
+         // 
+         this.FRqpm_Butn.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.FRqpm_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1086;
+         this.FRqpm_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.FRqpm_Butn.Name = "FRqpm_Butn";
+         this.FRqpm_Butn.Size = new System.Drawing.Size(23, 22);
+         this.FRqpm_Butn.Text = "تنظیمات آیتم های نتیجه تماس";
+         this.FRqpm_Butn.Click += new System.EventHandler(this.FRqpm_Butn_Click);
+         // 
          // imageList1
          // 
          this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -3675,7 +3950,7 @@
          this.Pos_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.Pos_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Pos_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "", null, null, true)});
          this.Pos_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("PSID", "PSID", 49, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("BANK_NAME", "بانک", 79, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
@@ -4001,7 +4276,7 @@
          this.LOV_RCTP.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.LOV_RCTP.AutoHeight = false;
          this.LOV_RCTP.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "", null, null, true)});
          this.LOV_RCTP.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع پرداحت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -4257,7 +4532,7 @@
          this.SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject19, "", null, null, true)});
          this.SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "کد ارگان", 51, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ORGN_DESC", "نام ارگان", 71, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
@@ -4296,7 +4571,7 @@
          this.SUNT_BUNT_CODELookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.SUNT_BUNT_CODELookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.SUNT_BUNT_CODELookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject20, "", null, null, true)});
          this.SUNT_BUNT_CODELookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DEPT_ORGN_CODE", "DEPT_ORGN_CODE", 117, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DEPT_CODE", "DEPT_CODE", 69, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -4338,7 +4613,7 @@
          this.SUNT_BUNT_DEPT_CODELookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.SUNT_BUNT_DEPT_CODELookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.SUNT_BUNT_DEPT_CODELookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject19, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, "", null, null, true)});
          this.SUNT_BUNT_DEPT_CODELookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("ORGN_CODE", "ORGN_CODE", 86, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "کد سازمان", 38, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -4506,7 +4781,7 @@
          this.CtgyCode_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.CtgyCode_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.CtgyCode_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject20, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject22, "", null, null, true)});
          this.CtgyCode_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("MTOD_CODE", "MTOD_CODE", 94, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "CODE", 41, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
@@ -4565,8 +4840,8 @@
          this.CbmtCode_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.CbmtCode_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.CbmtCode_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject21, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CbmtCode_Lov.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject22, "نمایش اطلاعات گروه بندی ها", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject23, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CbmtCode_Lov.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject24, "نمایش اطلاعات گروه بندی ها", null, null, true)});
          this.CbmtCode_Lov.Properties.DataSource = this.CbmtBs1;
          this.CbmtCode_Lov.Properties.DisplayMember = "Fighter.NAME_DNRM";
          this.CbmtCode_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -4816,7 +5091,7 @@
          this.AutoTrans_Cb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.AutoTrans_Cb.AutoSize = true;
          this.AutoTrans_Cb.Enabled = false;
-         this.AutoTrans_Cb.Location = new System.Drawing.Point(338, 183);
+         this.AutoTrans_Cb.Location = new System.Drawing.Point(548, 184);
          this.AutoTrans_Cb.Name = "AutoTrans_Cb";
          this.AutoTrans_Cb.Size = new System.Drawing.Size(15, 14);
          this.AutoTrans_Cb.TabIndex = 8;
@@ -4865,7 +5140,7 @@
          this.RQTT_CODE_LookUpEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.RQTT_CODE_LookUpEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.RQTT_CODE_LookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject23, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, "", null, null, true)});
          this.RQTT_CODE_LookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "CODE", 51, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("SUB_SYS", "SUB_SYS", 53, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
@@ -4897,7 +5172,7 @@
          this.SEX_TYPE_LookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.SEX_TYPE_LookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.SEX_TYPE_LookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject24, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject26, "", null, null, true)});
          this.SEX_TYPE_LookUpEdit.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "جنسیت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -5418,7 +5693,7 @@
          this.OthrPblc_Ckbx.Location = new System.Drawing.Point(214, 40);
          this.OthrPblc_Ckbx.Name = "OthrPblc_Ckbx";
          this.OthrPblc_Ckbx.Size = new System.Drawing.Size(107, 18);
-         this.OthrPblc_Ckbx.TabIndex = 8;
+         this.OthrPblc_Ckbx.TabIndex = 1;
          this.OthrPblc_Ckbx.Text = "اطلاعات تکمیلی";
          this.toolTip1.SetToolTip(this.OthrPblc_Ckbx, "اگر برای بخش اطلاعات فردی مشتری میخواهید که گزینه های جدیدی اضافه کنید می توانید " +
         "این گزینه رو فعال کنید.");
@@ -5452,6 +5727,34 @@
          this.NatlCodeVald_Cbx.TabIndex = 10;
          this.toolTip1.SetToolTip(this.NatlCodeVald_Cbx, "بررسی صحت اطلاعات وارد شده.");
          this.NatlCodeVald_Cbx.UseVisualStyleBackColor = true;
+         // 
+         // RqstDupl_Pbtn
+         // 
+         this.RqstDupl_Pbtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.RqstDupl_Pbtn.BackColor = System.Drawing.Color.Gainsboro;
+         this.RqstDupl_Pbtn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.RqstDupl_Pbtn.Disabled = false;
+         this.RqstDupl_Pbtn.First = null;
+         this.RqstDupl_Pbtn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RqstDupl_Pbtn.ForceSelect = false;
+         this.RqstDupl_Pbtn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.RqstDupl_Pbtn.ImageIndexPickDown = 6;
+         this.RqstDupl_Pbtn.ImageIndexPickUp = 6;
+         this.RqstDupl_Pbtn.ImageList = this.im_images;
+         this.RqstDupl_Pbtn.Location = new System.Drawing.Point(27, 88);
+         this.RqstDupl_Pbtn.Name = "RqstDupl_Pbtn";
+         this.RqstDupl_Pbtn.Next = null;
+         this.RqstDupl_Pbtn.PickChecked = false;
+         this.RqstDupl_Pbtn.PickDownFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RqstDupl_Pbtn.PickDownText = "";
+         this.RqstDupl_Pbtn.PickDownTextColor = System.Drawing.Color.Empty;
+         this.RqstDupl_Pbtn.PickUpFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.RqstDupl_Pbtn.PickUpText = "";
+         this.RqstDupl_Pbtn.PickUpTextColor = System.Drawing.Color.Empty;
+         this.RqstDupl_Pbtn.Size = new System.Drawing.Size(55, 51);
+         this.RqstDupl_Pbtn.TabIndex = 91;
+         this.RqstDupl_Pbtn.TextAligns = System.Drawing.ContentAlignment.MiddleCenter;
+         this.toolTip1.SetToolTip(this.RqstDupl_Pbtn, "نمونه برداری");
          // 
          // FATH_NAME_TextEdit
          // 
@@ -5751,6 +6054,7 @@
          this.grouper5.Controls.Add(this.label1);
          this.grouper5.Controls.Add(this.label2);
          this.grouper5.CustomGroupBoxColor = System.Drawing.Color.Gainsboro;
+         this.grouper5.ForeColor = System.Drawing.Color.Black;
          this.grouper5.GroupImage = null;
          this.grouper5.GroupTitle = "مشخصات تکمیلی مشتریان";
          this.grouper5.Location = new System.Drawing.Point(6, 432);
@@ -5761,6 +6065,7 @@
          this.grouper5.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper5.ShadowControl = false;
          this.grouper5.ShadowThickness = 3;
+         this.grouper5.ShowBorderTitle = false;
          this.grouper5.Size = new System.Drawing.Size(567, 119);
          this.grouper5.TabIndex = 2;
          // 
@@ -5785,6 +6090,7 @@
          this.grouper4.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper4.BorderColor = System.Drawing.Color.Gray;
          this.grouper4.BorderThickness = 1F;
+         this.grouper4.Controls.Add(this.RqstDupl_Pbtn);
          this.grouper4.Controls.Add(this.EndTime_Te);
          this.grouper4.Controls.Add(this.StrtTime_Te);
          this.grouper4.Controls.Add(this.CapacityCycle_Lb);
@@ -5813,6 +6119,7 @@
          this.grouper4.Controls.Add(this.CtgyCode_Lb);
          this.grouper4.Controls.Add(this.SUNT_BUNT_DEPT_CODELookUpEdit);
          this.grouper4.CustomGroupBoxColor = System.Drawing.Color.Gainsboro;
+         this.grouper4.ForeColor = System.Drawing.Color.Black;
          this.grouper4.GroupImage = null;
          this.grouper4.GroupTitle = "اطلاعات دوره";
          this.grouper4.Location = new System.Drawing.Point(6, 220);
@@ -5823,6 +6130,7 @@
          this.grouper4.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper4.ShadowControl = false;
          this.grouper4.ShadowThickness = 3;
+         this.grouper4.ShowBorderTitle = false;
          this.grouper4.Size = new System.Drawing.Size(567, 206);
          this.grouper4.TabIndex = 1;
          // 
@@ -5934,6 +6242,7 @@
          this.grouper3.Controls.Add(this.CELL_PHON_TextEdit);
          this.grouper3.Controls.Add(this.NATL_CODE_TextEdit);
          this.grouper3.CustomGroupBoxColor = System.Drawing.Color.Gainsboro;
+         this.grouper3.ForeColor = System.Drawing.Color.Black;
          this.grouper3.GroupImage = null;
          this.grouper3.GroupTitle = "فرم ثبت نام اولیه مشتریان";
          this.grouper3.Location = new System.Drawing.Point(6, 3);
@@ -5944,6 +6253,7 @@
          this.grouper3.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper3.ShadowControl = false;
          this.grouper3.ShadowThickness = 3;
+         this.grouper3.ShowBorderTitle = false;
          this.grouper3.Size = new System.Drawing.Size(567, 211);
          this.grouper3.TabIndex = 0;
          // 
@@ -5961,7 +6271,7 @@
          this.CELL_PHON_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.CELL_PHON_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.CELL_PHON_TextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CELL_PHON_TextEdit.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject25, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CELL_PHON_TextEdit.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject27, "", null, null, true)});
          this.CELL_PHON_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.CELL_PHON_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CELL_PHON_TextEdit.Properties.MaxLength = 11;
@@ -5983,7 +6293,7 @@
          this.NATL_CODE_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.NATL_CODE_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.NATL_CODE_TextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("NATL_CODE_TextEdit.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject26, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("NATL_CODE_TextEdit.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject28, "", null, null, true)});
          this.NATL_CODE_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.NATL_CODE_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.NATL_CODE_TextEdit.Properties.MaxLength = 10;
@@ -6010,6 +6320,10 @@
          this.grouper1.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper1.BorderColor = System.Drawing.Color.Gray;
          this.grouper1.BorderThickness = 1F;
+         this.grouper1.Controls.Add(this.label17);
+         this.grouper1.Controls.Add(this.iNSR_DATEPersianDateEdit);
+         this.grouper1.Controls.Add(this.label18);
+         this.grouper1.Controls.Add(this.iNSR_NUMBTextEdit);
          this.grouper1.Controls.Add(this.label4);
          this.grouper1.Controls.Add(this.CellPhonRefCode_Txt);
          this.grouper1.Controls.Add(this.GlobCode_Lb);
@@ -6021,6 +6335,7 @@
          this.grouper1.Controls.Add(this.RefCode_Lov);
          this.grouper1.CustomGroupBoxColor = System.Drawing.Color.Gainsboro;
          this.grouper1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.grouper1.ForeColor = System.Drawing.Color.Black;
          this.grouper1.GroupImage = null;
          this.grouper1.GroupTitle = "مشخصات تکمیلی مشتریان";
          this.grouper1.Location = new System.Drawing.Point(3, 3);
@@ -6031,8 +6346,63 @@
          this.grouper1.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper1.ShadowControl = false;
          this.grouper1.ShadowThickness = 3;
+         this.grouper1.ShowBorderTitle = false;
          this.grouper1.Size = new System.Drawing.Size(573, 554);
-         this.grouper1.TabIndex = 1;
+         this.grouper1.TabIndex = 0;
+         // 
+         // label17
+         // 
+         this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label17.AutoSize = true;
+         this.label17.ForeColor = System.Drawing.Color.Black;
+         this.label17.Location = new System.Drawing.Point(443, 174);
+         this.label17.Name = "label17";
+         this.label17.Size = new System.Drawing.Size(62, 14);
+         this.label17.TabIndex = 80;
+         this.label17.Text = "تاریخ بیمه :";
+         // 
+         // iNSR_DATEPersianDateEdit
+         // 
+         this.iNSR_DATEPersianDateEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.iNSR_DATEPersianDateEdit.CustomFormat = "dd/MM/yyyy";
+         this.iNSR_DATEPersianDateEdit.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.FgpbsBs1, "INSR_DATE", true));
+         this.iNSR_DATEPersianDateEdit.Format = Atf.UI.DateTimeSelectorFormat.Custom;
+         this.iNSR_DATEPersianDateEdit.Location = new System.Drawing.Point(336, 170);
+         this.iNSR_DATEPersianDateEdit.Name = "iNSR_DATEPersianDateEdit";
+         this.iNSR_DATEPersianDateEdit.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.iNSR_DATEPersianDateEdit.Size = new System.Drawing.Size(100, 23);
+         this.iNSR_DATEPersianDateEdit.TabIndex = 6;
+         this.iNSR_DATEPersianDateEdit.UsePersianFormat = true;
+         // 
+         // label18
+         // 
+         this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label18.AutoSize = true;
+         this.label18.ForeColor = System.Drawing.Color.Black;
+         this.label18.Location = new System.Drawing.Point(241, 174);
+         this.label18.Name = "label18";
+         this.label18.Size = new System.Drawing.Size(73, 14);
+         this.label18.TabIndex = 77;
+         this.label18.Text = "شماره بیمه :";
+         // 
+         // iNSR_NUMBTextEdit
+         // 
+         this.iNSR_NUMBTextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.iNSR_NUMBTextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "INSR_NUMB", true));
+         this.iNSR_NUMBTextEdit.EditValue = "";
+         this.iNSR_NUMBTextEdit.Location = new System.Drawing.Point(135, 171);
+         this.iNSR_NUMBTextEdit.Name = "iNSR_NUMBTextEdit";
+         this.iNSR_NUMBTextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.iNSR_NUMBTextEdit.Properties.Appearance.Options.UseFont = true;
+         this.iNSR_NUMBTextEdit.Properties.Appearance.Options.UseTextOptions = true;
+         this.iNSR_NUMBTextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.iNSR_NUMBTextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.iNSR_NUMBTextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.iNSR_NUMBTextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.iNSR_NUMBTextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.iNSR_NUMBTextEdit.Properties.MaxLength = 10;
+         this.iNSR_NUMBTextEdit.Size = new System.Drawing.Size(100, 22);
+         this.iNSR_NUMBTextEdit.TabIndex = 7;
          // 
          // label4
          // 
@@ -6056,11 +6426,11 @@
          this.CellPhonRefCode_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.CellPhonRefCode_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.CellPhonRefCode_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Left, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject27, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Left, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, "", null, null, true)});
          this.CellPhonRefCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.CellPhonRefCode_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CellPhonRefCode_Txt.Size = new System.Drawing.Size(110, 22);
-         this.CellPhonRefCode_Txt.TabIndex = 75;
+         this.CellPhonRefCode_Txt.TabIndex = 3;
          this.CellPhonRefCode_Txt.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CellPhonRefCode_Txt_ButtonClick);
          // 
          // RefDesc_Txt
@@ -6079,7 +6449,7 @@
          this.RefDesc_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.RefDesc_Txt.Properties.ReadOnly = true;
          this.RefDesc_Txt.Size = new System.Drawing.Size(301, 44);
-         this.RefDesc_Txt.TabIndex = 20;
+         this.RefDesc_Txt.TabIndex = 5;
          // 
          // RefCode_Lov
          // 
@@ -6094,7 +6464,7 @@
          this.RefCode_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.RefCode_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.RefCode_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject28, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject30, "", null, null, true)});
          this.RefCode_Lov.Properties.DataSource = this.RServBs;
          this.RefCode_Lov.Properties.DisplayMember = "NAME_DNRM";
          this.RefCode_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
@@ -6103,7 +6473,7 @@
          this.RefCode_Lov.Properties.ValueMember = "FILE_NO";
          this.RefCode_Lov.Properties.View = this.gridLookUpEdit1View;
          this.RefCode_Lov.Size = new System.Drawing.Size(185, 22);
-         this.RefCode_Lov.TabIndex = 20;
+         this.RefCode_Lov.TabIndex = 4;
          // 
          // RServBs
          // 
@@ -6691,6 +7061,7 @@
          this.grouper2.Controls.Add(this.textEdit16);
          this.grouper2.CustomGroupBoxColor = System.Drawing.Color.Gainsboro;
          this.grouper2.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.grouper2.ForeColor = System.Drawing.Color.Black;
          this.grouper2.GroupImage = null;
          this.grouper2.GroupTitle = "مشخصات درخواست";
          this.grouper2.Location = new System.Drawing.Point(3, 3);
@@ -6701,6 +7072,7 @@
          this.grouper2.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper2.ShadowControl = false;
          this.grouper2.ShadowThickness = 3;
+         this.grouper2.ShowBorderTitle = false;
          this.grouper2.Size = new System.Drawing.Size(573, 554);
          this.grouper2.TabIndex = 1;
          // 
@@ -6840,7 +7212,7 @@
          this.repositoryItemLookUpEdit15.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.repositoryItemLookUpEdit15.AutoHeight = false;
          this.repositoryItemLookUpEdit15.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject29, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject31, "", null, null, true)});
          this.repositoryItemLookUpEdit15.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع پرداحت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -7005,9 +7377,9 @@
          // 
          this.repositoryItemButtonEdit2.AutoHeight = false;
          this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit2.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject30, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit2.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject31, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit2.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject32, "تعویض کردن هزینه و کلاس", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit2.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject32, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit2.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit2.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject34, "تعویض کردن هزینه و کلاس", null, null, true)});
          this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
          this.repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          // 
@@ -7223,6 +7595,7 @@
          this.grouper7.Controls.Add(this.dateTimeSelector2);
          this.grouper7.Controls.Add(this.label16);
          this.grouper7.CustomGroupBoxColor = System.Drawing.Color.Gainsboro;
+         this.grouper7.ForeColor = System.Drawing.Color.Black;
          this.grouper7.GroupImage = null;
          this.grouper7.GroupTitle = "انتقال ";
          this.grouper7.Location = new System.Drawing.Point(6, 6);
@@ -7233,6 +7606,7 @@
          this.grouper7.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper7.ShadowControl = false;
          this.grouper7.ShadowThickness = 3;
+         this.grouper7.ShowBorderTitle = false;
          this.grouper7.Size = new System.Drawing.Size(539, 71);
          this.grouper7.TabIndex = 1;
          // 
@@ -7320,7 +7694,7 @@
          this.QEndTime_Tim.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.QEndTime_Tim.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.QEndTime_Tim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject33, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject35, "", null, null, true)});
          this.QEndTime_Tim.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
          this.QEndTime_Tim.Properties.DisplayFormat.FormatString = "HH:mm";
          this.QEndTime_Tim.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -7345,7 +7719,7 @@
          this.QStrtTime_Tim.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.QStrtTime_Tim.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.QStrtTime_Tim.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject34, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject36, "", null, null, true)});
          this.QStrtTime_Tim.Properties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
          this.QStrtTime_Tim.Properties.DisplayFormat.FormatString = "HH:mm";
          this.QStrtTime_Tim.Properties.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Custom;
@@ -7567,7 +7941,7 @@
          this.repositoryItemLookUpEdit7.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.repositoryItemLookUpEdit7.AutoHeight = false;
          this.repositoryItemLookUpEdit7.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject35, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, "", null, null, true)});
          this.repositoryItemLookUpEdit7.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع پرداحت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -7737,8 +8111,8 @@
          this.Rcpt2OthrAcnt2_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.Rcpt2OthrAcnt2_Lov.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
          this.Rcpt2OthrAcnt2_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject36, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Rcpt2OthrAcnt2_Lov.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject37, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject38, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Rcpt2OthrAcnt2_Lov.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject39, "", null, null, true)});
          this.Rcpt2OthrAcnt2_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "CODE", 54, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RWNO", "RWNO", 46, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -8270,7 +8644,7 @@
          // 
          this.HL_INVSFILENO.AutoHeight = false;
          this.HL_INVSFILENO.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "...", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject38, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "...", 20, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject40, "", null, null, true)});
          this.HL_INVSFILENO.Name = "HL_INVSFILENO";
          this.HL_INVSFILENO.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.HL_INVSFILENO_ButtonClick);
          // 
@@ -8354,13 +8728,13 @@
          toolTipTitleItem19.Text = "ثبت حضور و غیاب";
          superToolTip10.Items.Add(toolTipTitleItem19);
          this.colActn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject39, "خرید فروشگاهی", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject40, "", null, superToolTip7, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, "", null, superToolTip8, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject42, "", null, superToolTip9, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActn_Butn.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject43, "", null, superToolTip10, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActn_Butn.Buttons4"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject44, "حضوری های امروز", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActn_Butn.Buttons5"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, "صورتحساب های مشترک", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject41, "خرید فروشگاهی", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject42, "", null, superToolTip7, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActn_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject43, "", null, superToolTip8, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActn_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject44, "", null, superToolTip9, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActn_Butn.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject45, "", null, superToolTip10, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActn_Butn.Buttons4"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject46, "حضوری های امروز", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("colActn_Butn.Buttons5"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject47, "صورتحساب های مشترک", null, null, true)});
          this.colActn_Butn.Name = "colActn_Butn";
          this.colActn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          // 
@@ -8597,6 +8971,22 @@
          ((System.ComponentModel.ISupportInitialize)(this.DDsatBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit6)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs)).EndInit();
+         this.tabPage5.ResumeLayout(false);
+         this.tabControl3.ResumeLayout(false);
+         this.tabPage6.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl8)).EndInit();
+         this.splitContainerControl8.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl13)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqpmBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView15)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Rqpm_Btn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl24)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DRqpmBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqpmGv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DRqpm_Btn)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqpmBn)).EndInit();
+         this.RqpmBn.ResumeLayout(false);
+         this.RqpmBn.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Pos_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.VPosBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.payment_DetailsGridControl)).EndInit();
@@ -8651,6 +9041,7 @@
          this.AdmMoreInfo_Tp.ResumeLayout(false);
          this.grouper1.ResumeLayout(false);
          this.grouper1.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.iNSR_NUMBTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CellPhonRefCode_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RefDesc_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RefCode_Lov.Properties)).EndInit();
@@ -9392,5 +9783,29 @@
       private DevExpress.XtraGrid.Columns.GridColumn DpstAmnt_Clm;
       private DevExpress.XtraEditors.TimeEdit EndTime_Te;
       private DevExpress.XtraEditors.TimeEdit StrtTime_Te;
+      private Windows.Forms.TabPage tabPage5;
+      private Windows.Forms.TabControl tabControl3;
+      private Windows.Forms.TabPage tabPage6;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl8;
+      private DevExpress.XtraGrid.GridControl gridControl13;
+      private DevExpress.XtraGrid.Views.Grid.GridView gridView15;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn380;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn382;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn377;
+      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit Rqpm_Btn;
+      private DevExpress.XtraGrid.GridControl gridControl24;
+      private DevExpress.XtraGrid.Views.Grid.GridView RqpmGv;
+      private DevExpress.XtraGrid.Columns.GridColumn colTITL_DESC;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn376;
+      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit DRqpm_Btn;
+      private Windows.Forms.BindingNavigator RqpmBn;
+      private Windows.Forms.ToolStripButton FRqpm_Butn;
+      private Windows.Forms.BindingSource RqpmBs;
+      private Windows.Forms.BindingSource DRqpmBs;
+      private Windows.Forms.Label label17;
+      private Atf.UI.DateTimeSelector iNSR_DATEPersianDateEdit;
+      private Windows.Forms.Label label18;
+      private DevExpress.XtraEditors.ButtonEdit iNSR_NUMBTextEdit;
+      private MaxUi.NewPickBtn RqstDupl_Pbtn;
    }
 }

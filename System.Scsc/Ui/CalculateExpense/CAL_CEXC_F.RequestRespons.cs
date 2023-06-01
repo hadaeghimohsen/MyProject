@@ -212,6 +212,10 @@ namespace System.Scsc.Ui.CalculateExpense
       /// <param name="job"></param>
       private void Actn_CalF_F(Job job)
       {
+         var day = Pde_FromDate.GetText("dd").ToInt32();
+         if (day != 1)
+            Pde_FromDate.Value = Pde_FromDate.Value.Value.AddDays((day - 1) * -1);
+
          tb_master.TabPages.Remove(tp_001);
          tb_master.TabPages.Remove(tp_002);
          var input = job.Input as XElement;

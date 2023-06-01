@@ -79,17 +79,43 @@ namespace System.Scsc.Ui.Admission
                mbspnew.ATTN_DAY_TYPE = mbspold.ATTN_DAY_TYPE;
             }*/
 
-            // 1401/11/22
-            if((Resn_Lov.EditValue == null || Resn_Lov.EditValue.ToString() == ""))
-            {
-               Resn_Lov.Focus();
-               return;
-            }
-            if(string.IsNullOrEmpty(ResnDesc_Txt.Text))
-            {
-               ResnDesc_Txt.Focus();
-               return;
-            }
+            _DefaultGateway
+               .Gateway(
+                  new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>267</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                 {
+                                    // 1401/11/22
+                                    if ((Resn_Lov.EditValue == null || Resn_Lov.EditValue.ToString() == ""))
+                                    {
+                                       Resn_Lov.Focus();
+                                       return;
+                                    }
+                                    if (string.IsNullOrEmpty(ResnDesc_Txt.Text))
+                                    {
+                                       ResnDesc_Txt.Focus();
+                                       return;
+                                    }
+                                 }
+                              })
+                           },
+                           #endregion
+                        })
+                  })
+               );            
 
             StrtDate_DateTime002.CommitChanges();
             EndDate_DateTime002.CommitChanges();
@@ -118,7 +144,7 @@ namespace System.Scsc.Ui.Admission
                            new XAttribute("sumnumbattnmont", SumNumbAttnMont_TextEdit002.Text ?? "0"),
                            new XAttribute("strttime", StrtTimeN_Txt.Text),
                            new XAttribute("endtime", EndTimeN_Txt.Text),
-                           new XAttribute("resnapbscode", Resn_Lov.EditValue),
+                           new XAttribute("resnapbscode", Resn_Lov.EditValue ?? ""),
                            new XAttribute("resndesc", ResnDesc_Txt.Text)
                         )
                      )

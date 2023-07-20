@@ -12,7 +12,7 @@
     <DataSources isList="true" count="1">
       <VF_x0024_SystemPaymentSummery Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>VF$SystemPaymentSummery</Alias>
-        <Columns isList="true" count="38">
+        <Columns isList="true" count="48">
           <value>SAVE_DATE,System.DateTime</value>
           <value>NAME_DNRM,System.String</value>
           <value>FNGR_PRNT_DNRM,System.String</value>
@@ -51,6 +51,16 @@
           <value>END_TIME,System.TimeSpan</value>
           <value>EXPN_PRIC,System.Int32</value>
           <value>QNTY,System.Int16</value>
+          <value>NATL_CODE_DNRM,System.String</value>
+          <value>BRTH_DATE_DNRM,System.DateTime</value>
+          <value>INSR_DATE_DNRM,System.DateTime</value>
+          <value>GET_PYMT_AMNT_DESC,System.String</value>
+          <value>FRST_NAME,System.String</value>
+          <value>LAST_NAME,System.String</value>
+          <value>CELL_PHON,System.String</value>
+          <value>EXPR_DATE,System.DateTime</value>
+          <value>PERS_EXPR_DATE,System.String</value>
+          <value>EXPN_DESC2,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -252,7 +262,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')</SqlCommand>
               <Page isRef="4" />
               <Parent isRef="15" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{VF_SystemPaymentSummery.MTOD_DESC}</Text>
+              <Text>{VF_SystemPaymentSummery.EXPN_DESC2}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
@@ -352,7 +362,7 @@ FROM VF$SystemPaymentSummery('{WhereClause}')</SqlCommand>
               <VertAlignment>Center</VertAlignment>
             </Text15>
           </Components>
-          <Condition>{VF_SystemPaymentSummery.MTOD_DESC}</Condition>
+          <Condition>{VF_SystemPaymentSummery.EXPN_DESC2}</Condition>
           <Conditions isList="true" count="0" />
           <Name>GroupHeaderBand2</Name>
           <Page isRef="4" />
@@ -510,10 +520,10 @@ FROM VF$SystemPaymentSummery('{WhereClause}')</SqlCommand>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>8/16/2019 10:00:57 AM</ReportChanged>
+  <ReportChanged>7/17/2023 7:26:57 PM</ReportChanged>
   <ReportCreated>8/1/2017 3:08:42 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_SPSM_007_R.mrt</ReportFile>
-  <ReportGuid>5c6a8606d1ea4e0d9df6a79edc6c91da</ReportGuid>
+  <ReportGuid>79af4b8505d74b85a5a0d08083336ca4</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

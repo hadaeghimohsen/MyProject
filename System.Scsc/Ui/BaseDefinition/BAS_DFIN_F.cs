@@ -1625,6 +1625,7 @@ namespace System.Scsc.Ui.BaseDefinition
                         ex.NUMB_OF_ATTN_MONT = ctgy.NUMB_OF_ATTN_MONT ?? 0;
                         ex.NUMB_MONT_OFER = ctgy.NUMB_MONT_OFER ?? 0;
                         ex.EXPN_STAT = ctgy.CTGY_STAT ?? "002";
+                        ex.EXPN_DESC = mtod.MTOD_DESC + ", " + ctgy.CTGY_DESC;
                      });
 
                      iScsc.SubmitChanges();
@@ -1690,6 +1691,7 @@ namespace System.Scsc.Ui.BaseDefinition
                         ex.NUMB_OF_ATTN_MONT = ctgy.NUMB_OF_ATTN_MONT;
                         ex.NUMB_MONT_OFER = ctgy.NUMB_MONT_OFER;
                         ex.EXPN_STAT = "002";
+                        ex.EXPN_DESC = ctgy.CTGY_DESC;
                      });
 
                      iScsc.SubmitChanges();

@@ -52,6 +52,8 @@ namespace System.Scsc.Ui.OtherIncome
                      rqst.SECT_NAME == GetType().Name.Substring(0, 3) + "_001_F"
                );
 
+            var _expnIndx = ExpnBs1.Position;
+
             //if (!LinkCochPydt_Cbx.Checked)
             if (!LinkMtod_Cbx.Checked)
                ExpnBs1.DataSource =
@@ -61,6 +63,8 @@ namespace System.Scsc.Ui.OtherIncome
                      ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
                      ex.EXPN_STAT == "002" /* هزینه های فعال */
                   );
+
+            Expn_Gv.TopRowIndex = _expnIndx;
 
             DocsBs1.DataSource = iScsc.Modual_Reports.Where(m => m.MDUL_NAME == GetType().Name && m.STAT == "002");
 
@@ -1585,6 +1589,7 @@ namespace System.Scsc.Ui.OtherIncome
          try
          {
             Pydt_Gv.PostEditor();
+            Pydt2_Gv.PostEditor();
             /* Do Something for insert or update Payment Detail Price */
             var rqst = RqstBs1.Current as Data.Request;
 
@@ -1605,7 +1610,10 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
                               new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0),
                               new XAttribute("mbsprwno", pd.MBSP_RWNO ?? 0),
-                              new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd"))
+                              new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
+                              new XAttribute("totlwegh", pd.TOTL_WEGH ?? 0),
+                              new XAttribute("unitnumb", pd.UNIT_NUMB ?? 0),
+                              new XAttribute("unitapbscode", pd.UNIT_APBS_CODE ?? 0)
                            )
                         )
                      )
@@ -1652,7 +1660,10 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("fromnumb", pd.FROM_NUMB ?? 0),
                               new XAttribute("tonumb", pd.TO_NUMB ?? 0),
                               new XAttribute("extscode", pd.EXTS_CODE ?? 0),
-                              new XAttribute("extsrsrvdate", pd.EXTS_RSRV_DATE == null ? "" : pd.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd"))
+                              new XAttribute("extsrsrvdate", pd.EXTS_RSRV_DATE == null ? "" : pd.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd")),
+                              new XAttribute("totlwegh", pd.TOTL_WEGH ?? 0),
+                              new XAttribute("unitnumb", pd.UNIT_NUMB ?? 0),
+                              new XAttribute("unitapbscode", pd.UNIT_APBS_CODE ?? 0)
                            )
                         )
                      )
@@ -1690,11 +1701,13 @@ namespace System.Scsc.Ui.OtherIncome
             requery = true;
             CbmtCode_GLov.EditValue = _pydt.CBMT_CODE_DNRM;
             MbspRwnoPydt_Lov.EditValue = _pydt.MBSP_RWNO;
-            ExtsCode_Lov.EditValue = _pydt.EXTS_CODE;
+            ExtsCode_Lov.EditValue = _pydt.EXTS_CODE;            
 
             // 1401/12/09 ** نمایش عکس پروفایل پرسنل که به مشتری خدمات داده شده است
             if (_pydt.FIGH_FILE_NO != null)
             {
+               CexcBs.DataSource = iScsc.Calculate_Expense_Coaches.Where(c => c.RQTP_CODE == "016" && c.RQTT_CODE == "001" && c.COCH_FILE_NO == _pydt.FIGH_FILE_NO && c.EXPN_CODE == _pydt.EXPN_CODE && c.STAT == "002");
+
                if (CochServProFile_Rb.Tag == null || CochServProFile_Rb.Tag.ToString().ToInt64() != _pydt.FIGH_FILE_NO)
                {
                   if (_pydt.Fighter.IMAG_RCDC_RCID_DNRM != null)
@@ -1765,7 +1778,10 @@ namespace System.Scsc.Ui.OtherIncome
                         new XAttribute("mbsprwno", pydt.MBSP_RWNO ?? 0),
                         new XAttribute("exprdate", pydt.EXPR_DATE == null ? "" : pydt.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
                         new XAttribute("extscode", pydt.EXTS_CODE ?? 0),
-                        new XAttribute("extsrsrvdate", pydt.EXTS_RSRV_DATE == null ? "" : pydt.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd"))
+                        new XAttribute("extsrsrvdate", pydt.EXTS_RSRV_DATE == null ? "" : pydt.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd")),
+                        new XAttribute("totlwegh", pydt.TOTL_WEGH ?? 0),
+                        new XAttribute("unitnumb", pydt.UNIT_NUMB ?? 0),
+                        new XAttribute("unitapbscode", pydt.UNIT_APBS_CODE ?? 0)
                      )
                   )
                )
@@ -2920,7 +2936,10 @@ namespace System.Scsc.Ui.OtherIncome
                         new XAttribute("exprdate", pydt.EXPR_DATE == null ? "" : pydt.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
                         new XAttribute("mbsprwno", e.NewValue ?? 0),
                         new XAttribute("extscode", pydt.EXTS_CODE ?? 0),
-                        new XAttribute("extsrsrvdate", pydt.EXTS_RSRV_DATE == null ? "" : pydt.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd"))
+                        new XAttribute("extsrsrvdate", pydt.EXTS_RSRV_DATE == null ? "" : pydt.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd")),
+                        new XAttribute("totlwegh", pydt.TOTL_WEGH ?? 0),
+                        new XAttribute("unitnumb", pydt.UNIT_NUMB ?? 0),
+                        new XAttribute("unitapbscode", pydt.UNIT_APBS_CODE ?? 0)
                      )
                   )
                )
@@ -2950,7 +2969,7 @@ namespace System.Scsc.Ui.OtherIncome
                   pd => 
                      pd.Payment.Request.RQTP_CODE == "016" &&
                      pd.Payment.Request.RQST_STAT == "002" &&
-                     pd.EXPR_DATE.Value <= DateTime.Now &&
+                     pd.EXPR_DATE.Value <= DateTime.Now.AddMinutes(AlrtPreExit_Cbx.Checked ? Convert.ToDouble(IntervalAlrtPreExit_Txt.EditValue) : 0) &&
                      pd.TRAN_DATE == null
                );
 
@@ -2961,7 +2980,7 @@ namespace System.Scsc.Ui.OtherIncome
                if (PlaySondAlrm_Cbx.Checked)
                {
                   if (evntLogs.Count == 0)
-                     evntLogs.Add(DateTime.Now.ToString("HH:mm:ss => -----------------------------"));
+                     evntLogs.Add(DateTime.Now.ToString("HH:mm:ss => --------- بلیط فروشی آزاد ---------"));
 
                   if (evntLogs.Count == 1)
                   {
@@ -3002,8 +3021,9 @@ namespace System.Scsc.Ui.OtherIncome
                      a.ATTN_DATE.Date == DateTime.Now.Date &&
                      a.CBMT_CODE_DNRM != null &&
                      //a.ENTR_TIME.Value.Add(new TimeSpan(0, (int)(a.Club_Method.CLAS_TIME ?? 90), 0))  <= DateTime.Now.TimeOfDay &&
-                     ((DateTime)(a.ATTN_DATE + a.ENTR_TIME)).AddMinutes((double)(a.Club_Method.CLAS_TIME ?? 90)) <= DateTime.Now &&
-                     a.MUST_EXIT_TIME_DNRM == null
+                     ((DateTime)(a.ATTN_DATE + a.ENTR_TIME)).AddMinutes((double)(a.Club_Method.CLAS_TIME ?? 90)) <= DateTime.Now.AddMinutes(AlrtPreExit_Cbx.Checked ? Convert.ToDouble(IntervalAlrtPreExit_Txt.EditValue) : 0) &&
+                     a.MUST_EXIT_TIME_DNRM == null &&
+                     a.Fighter1.FGPB_TYPE_DNRM == "001"
                );
 
             if (_attns.Count() == 0) return;
@@ -3013,7 +3033,7 @@ namespace System.Scsc.Ui.OtherIncome
                if(PlaySondAlrm_Cbx.Checked)
                {
                   if(evntLogs.Count == 0)
-                     evntLogs.Add(DateTime.Now.ToString("HH:mm:ss => -----------------------------"));
+                     evntLogs.Add(DateTime.Now.ToString("HH:mm:ss => --------- مشتریان اشتراکی ---------"));
 
                   if(evntLogs.Count == 1)
                   {
@@ -4080,6 +4100,9 @@ namespace System.Scsc.Ui.OtherIncome
             if (ToRqstDate_Cbx.Checked && !ToRqstDate_Dt.Value.HasValue) { ToRqstDate_Dt.Focus(); return; }
             if (ToRqstDate_Cbx.Checked && ToRqstDate_Dt.Value.HasValue) { _torqstdate = ToRqstDate_Dt.Value.Value.Date; }
 
+            // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
+            if (!checkValidateDate(_fromrqstdate.HasValue ? _fromrqstdate.Value : DateTime.Now.AddDays(-1))) return;
+
             long? _fighfileno = null, _cochfileno = null, _expncode = null;
             string _cellphon = null, _fngrprnt = null;
             if (RqstBs1.Current != null)
@@ -4118,6 +4141,7 @@ namespace System.Scsc.Ui.OtherIncome
                   .Where(r =>
                      r.RQTP_CODE == "016" &&
                      r.RQST_STAT == "002" &&
+                     (!CrntUser_Cbx.Checked || r.CRET_BY == CurrentUser) &&
                      (!FromRqstDate_Cbx.Checked || _fromrqstdate == null || r.RQST_DATE.Value.Date >= (_fromrqstdate ?? r.RQST_DATE.Value.Date)) &&
                      (!ToRqstDate_Cbx.Checked || _torqstdate == null || r.RQST_DATE.Value.Date <= (_torqstdate ?? r.RQST_DATE.Value.Date)) &&
                      (!CrntServ_Cbx.Checked || _fighfileno == null || r.Request_Rows.Any(rr => rr.FIGH_FILE_NO == (_fighfileno ?? rr.FIGH_FILE_NO))) &&
@@ -4139,6 +4163,7 @@ namespace System.Scsc.Ui.OtherIncome
                   .Where(pd => 
                      pd.Request_Row.Request.RQTP_CODE == "016" &&
                      pd.Request_Row.Request.RQST_STAT == "002" &&
+                     (!CrntUser_Cbx.Checked || pd.CRET_BY == CurrentUser) &&
                      //(!FromRqstDate_Cbx.Checked || _fromrqstdate == null || pd.Request_Row.Request.RQST_DATE.Value.Date >= (_fromrqstdate ?? pd.Request_Row.Request.RQST_DATE.Value.Date)) &&
                      //(!ToRqstDate_Cbx.Checked || _torqstdate == null || pd.Request_Row.Request.RQST_DATE.Value.Date <= (_torqstdate ?? pd.Request_Row.Request.RQST_DATE.Value.Date)) &&
                      (!FromRqstDate_Cbx.Checked || _fromrqstdate == null || pd.EXPR_DATE.Value.Date >= (_fromrqstdate ?? pd.EXPR_DATE.Value.Date)) &&
@@ -4162,6 +4187,43 @@ namespace System.Scsc.Ui.OtherIncome
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private bool checkValidateDate(DateTime dateTime)
+      {
+         bool result = false;
+         if (dateTime.Date == DateTime.Now.Date) return true;
+
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>240</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output) {
+                                 result = true;
+                                 return;
+                              }
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 240 سطوح امینتی", "عدم دسترسی");
+                              result = false;
+                           })
+                        },
+                        #endregion
+                     })
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+
+         return result;
       }
 
       private void AllRqst4CrntServ_Butn_Click(object sender, EventArgs e)
@@ -4355,7 +4417,7 @@ namespace System.Scsc.Ui.OtherIncome
             var _expn = ExpnBs1.Current as Data.Expense;
             if (_expn == null) return;
 
-            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, _expn.GROP_CODE, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, _expn.BRND_CODE, _expn.MIN_PRIC, _expn.MAX_PRIC);
+            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, _expn.GROP_CODE, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, _expn.BRND_CODE, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE);
 
             requery = true;
          }
@@ -4576,6 +4638,157 @@ namespace System.Scsc.Ui.OtherIncome
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void Cexc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst == null) return;
+
+            var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (_pydt == null) return;
+
+            if (_pydt.FIGH_FILE_NO == null) { CbmtCode_GLov.Focus(); CbmtCode_GLov.ShowPopup(); return; }
+
+            var _cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (_cexc == null) return;
+
+            Totl1PydtAmnt_Txt.EditValue = _pydt.EXPN_PRIC * _pydt.QNTY;
+            Totl1PydsAmnt_Txt.EditValue = PydsBs1.List.OfType<Data.Payment_Discount>().Where(pd => pd.AMNT_TYPE != "005" && pd.EXPN_CODE == _pydt.EXPN_CODE).Sum(pd => pd.AMNT);
+            Totl2PydsAmnt_Txt.EditValue = PydsBs1.List.OfType<Data.Payment_Discount>().Where(pd => pd.AMNT_TYPE == "005" && pd.EXPN_CODE == _pydt.EXPN_CODE).Sum(pd => pd.AMNT);
+
+            // Calculate amount
+            if(_cexc.CALC_TYPE == "001") // %
+            {
+               Totl2RcptAmnt_Txt.EditValue = (_pydt.PROF_AMNT_DNRM * _cexc.PRCT_VALU / 100) - PydsBs1.List.OfType<Data.Payment_Discount>().Where(pd => pd.AMNT_TYPE == "005" && pd.EXPN_CODE == _pydt.EXPN_CODE).Sum(pd => pd.AMNT);
+               Totl1RcptAmnt_Txt.EditValue = (_pydt.PROF_AMNT_DNRM + _pydt.DEDU_AMNT_DNRM) - (_pydt.PROF_AMNT_DNRM * _cexc.PRCT_VALU / 100) - PydsBs1.List.OfType<Data.Payment_Discount>().Where(pd => pd.AMNT_TYPE != "005" && pd.EXPN_CODE == _pydt.EXPN_CODE).Sum(pd => pd.AMNT);
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ChckPreCexc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst == null) return;
+
+            var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (_pydt == null) return;
+
+            if (_pydt.FIGH_FILE_NO == null) { CbmtCode_GLov.Focus(); CbmtCode_GLov.ShowPopup(); return; }
+
+            if(!RtoaBs.List.OfType<Data.App_Base_Define>().Any(p => p.ENTY_NAME == "Payment_To_Another_Account" && p.TITL_DESC.StartsWith(_pydt.FIGH_FILE_NO.ToString())))
+            {
+               iScsc.ExecuteCommand(
+                  string.Format("INSERT INTO dbo.App_Base_Define (Code, Rwno, Titl_Desc, Enty_Name) VALUES(0, {0}, N'{1} - {2} - {3} - {4}', 'Payment_To_Another_Account');",
+                  (RtoaBs.List.OfType<Data.App_Base_Define>().Max(p => p.RWNO) ?? 0) + 1,
+                  _pydt.Fighter.FILE_NO,
+                  _pydt.Fighter.NAME_DNRM,
+                  _pydt.Fighter.DPST_ACNT_SLRY_BANK_DNRM ?? "بانک نامشخص",
+                  _pydt.Fighter.DPST_ACNT_SLRY_DNRM ?? "حساب بانک نامشخص"
+                  )
+               );
+
+               RtoaBs.DataSource = iScsc.App_Base_Defines.Where(p => p.ENTY_NAME == "Payment_To_Another_Account").ToList();
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SetInit1Rcpt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            RcmtType_Lov.EditValue = Totl1RcptAmnt_Lov.EditValue;
+            PymtAmnt_Txt.EditValue = Totl1RcptAmnt_Txt.EditValue;
+            Rtoa_Lov.EditValue = null;
+            SavePymt_Butn.Focus();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SetInit2Rcpt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            ChckPreCexc_Butn_Click(null, null);
+
+            var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (_pydt == null) return;
+
+            RcmtType_Lov.EditValue = Totl2RcptAmnt_Lov.EditValue;
+            PymtAmnt_Txt.EditValue = Totl2RcptAmnt_Txt.EditValue;
+            Rtoa_Lov.EditValue = RtoaBs.List.OfType<Data.App_Base_Define>().FirstOrDefault(p => p.TITL_DESC.StartsWith(_pydt.FIGH_FILE_NO.ToString())).CODE;
+            SavePymt_Butn.Focus();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      class SumPymtAcnt
+      {
+         public SumPymtAcnt(long code, long amnt)
+         {
+            Code = code;
+            Amnt = amnt;
+         }
+
+         public long Code { get; set; }
+         public long Amnt { get; set; }
+      }
+
+      List<SumPymtAcnt> _sumPymtAcnt = new List<SumPymtAcnt>();
+
+      private void CexcListSumPymt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _sumPymtAcnt.Clear();
+            Pymt_Lbx.Items.Clear();
+            foreach (var _pydt in PydtsBs1.List.OfType<Data.Payment_Detail>())
+            {
+               PydtsBs1.Position = PydtsBs1.IndexOf(_pydt);
+               Cexc_Butn_Click(null, null);
+
+               SetInit1Rcpt_Butn_Click(null, null);
+               _sumPymtAcnt.Add(
+                  new SumPymtAcnt(Convert.ToInt64((Rtoa_Lov.EditValue ?? 0)), Convert.ToInt64(PymtAmnt_Txt.EditValue))
+               );
+
+               SetInit2Rcpt_Butn_Click(null, null);
+               _sumPymtAcnt.Add(
+                  new SumPymtAcnt(Convert.ToInt64((Rtoa_Lov.EditValue ?? 0)), Convert.ToInt64(PymtAmnt_Txt.EditValue))
+               );
+            }
+
+            var _query = _sumPymtAcnt.GroupBy(g => g.Code);
+
+            foreach (var _g in _query)
+            {
+               Pymt_Lbx.Items.Add(string.Format("{0} - {1:n0}", (_g.Key == 0 ? "حساب کارفرما" : RtoaBs.List.OfType<Data.App_Base_Define>().FirstOrDefault(g => g.CODE == _g.Key).TITL_DESC), _g.Sum(gs => gs.Amnt)));
+            }
+            Pymt_Lbx.Items.Add("-----------------------------");
+            Pymt_Lbx.Items.Add(string.Format("{0} - {1:n0}", "سرجمع کل دریافتی", _query.Sum(g => g.Sum(gs => gs.Amnt))));
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

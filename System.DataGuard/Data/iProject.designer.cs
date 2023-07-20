@@ -891,19 +891,19 @@ namespace System.DataGuard.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<User> Users
-		{
-			get
-			{
-				return this.GetTable<User>();
-			}
-		}
-		
 		public System.Data.Linq.Table<V_Setting> V_Settings
 		{
 			get
 			{
 				return this.GetTable<V_Setting>();
+			}
+		}
+		
+		public System.Data.Linq.Table<User> Users
+		{
+			get
+			{
+				return this.GetTable<User>();
 			}
 		}
 		
@@ -25574,6 +25574,177 @@ namespace System.DataGuard.Data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.V#Settings")]
+	public partial class V_Setting
+	{
+		
+		private System.Nullable<System.DateTime> _LAST_DATE;
+		
+		private string _PERS_LAST_DATE;
+		
+		private System.Nullable<bool> _EXPR_TYPE;
+		
+		private System.Nullable<System.DateTime> _EXPR_VALU;
+		
+		private string _PERS_EXPR_VALU;
+		
+		private string _SESN_TYPE;
+		
+		private System.Nullable<long> _SESN_MAX;
+		
+		private System.Nullable<long> _SESN_CONT;
+		
+		private string _TINY_SERL;
+		
+		public V_Setting()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> LAST_DATE
+		{
+			get
+			{
+				return this._LAST_DATE;
+			}
+			set
+			{
+				if ((this._LAST_DATE != value))
+				{
+					this._LAST_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERS_LAST_DATE", DbType="VarChar(10)")]
+		public string PERS_LAST_DATE
+		{
+			get
+			{
+				return this._PERS_LAST_DATE;
+			}
+			set
+			{
+				if ((this._PERS_LAST_DATE != value))
+				{
+					this._PERS_LAST_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_TYPE", DbType="Bit")]
+		public System.Nullable<bool> EXPR_TYPE
+		{
+			get
+			{
+				return this._EXPR_TYPE;
+			}
+			set
+			{
+				if ((this._EXPR_TYPE != value))
+				{
+					this._EXPR_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_VALU", DbType="Date")]
+		public System.Nullable<System.DateTime> EXPR_VALU
+		{
+			get
+			{
+				return this._EXPR_VALU;
+			}
+			set
+			{
+				if ((this._EXPR_VALU != value))
+				{
+					this._EXPR_VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERS_EXPR_VALU", DbType="VarChar(10)")]
+		public string PERS_EXPR_VALU
+		{
+			get
+			{
+				return this._PERS_EXPR_VALU;
+			}
+			set
+			{
+				if ((this._PERS_EXPR_VALU != value))
+				{
+					this._PERS_EXPR_VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SESN_TYPE", DbType="VarChar(30)")]
+		public string SESN_TYPE
+		{
+			get
+			{
+				return this._SESN_TYPE;
+			}
+			set
+			{
+				if ((this._SESN_TYPE != value))
+				{
+					this._SESN_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SESN_MAX", DbType="BigInt")]
+		public System.Nullable<long> SESN_MAX
+		{
+			get
+			{
+				return this._SESN_MAX;
+			}
+			set
+			{
+				if ((this._SESN_MAX != value))
+				{
+					this._SESN_MAX = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SESN_CONT", DbType="BigInt")]
+		public System.Nullable<long> SESN_CONT
+		{
+			get
+			{
+				return this._SESN_CONT;
+			}
+			set
+			{
+				if ((this._SESN_CONT != value))
+				{
+					this._SESN_CONT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TINY_SERL", DbType="VarChar(100)")]
+		public string TINY_SERL
+		{
+			get
+			{
+				return this._TINY_SERL;
+			}
+			set
+			{
+				if ((this._TINY_SERL != value))
+				{
+					this._TINY_SERL = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.[User]")]
 	public partial class User : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -25659,6 +25830,8 @@ namespace System.DataGuard.Data
 		private string _RTL_STAT;
 		
 		private System.Nullable<int> _PIN_CODE;
+		
+		private string _CMNT;
 		
 		private string _CRET_BY;
 		
@@ -25768,6 +25941,8 @@ namespace System.DataGuard.Data
     partial void OnRTL_STATChanged();
     partial void OnPIN_CODEChanging(System.Nullable<int> value);
     partial void OnPIN_CODEChanged();
+    partial void OnCMNTChanging(string value);
+    partial void OnCMNTChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -26603,6 +26778,26 @@ namespace System.DataGuard.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(500)")]
+		public string CMNT
+		{
+			get
+			{
+				return this._CMNT;
+			}
+			set
+			{
+				if ((this._CMNT != value))
+				{
+					this.OnCMNTChanging(value);
+					this.SendPropertyChanging();
+					this._CMNT = value;
+					this.SendPropertyChanged("CMNT");
+					this.OnCMNTChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
 		public string CRET_BY
 		{
@@ -26914,177 +27109,6 @@ namespace System.DataGuard.Data
 		{
 			this.SendPropertyChanging();
 			entity.User = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="DataGuard.V#Settings")]
-	public partial class V_Setting
-	{
-		
-		private System.Nullable<System.DateTime> _LAST_DATE;
-		
-		private string _PERS_LAST_DATE;
-		
-		private System.Nullable<bool> _EXPR_TYPE;
-		
-		private System.Nullable<System.DateTime> _EXPR_VALU;
-		
-		private string _PERS_EXPR_VALU;
-		
-		private string _SESN_TYPE;
-		
-		private System.Nullable<long> _SESN_MAX;
-		
-		private System.Nullable<long> _SESN_CONT;
-		
-		private string _TINY_SERL;
-		
-		public V_Setting()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_DATE", DbType="Date")]
-		public System.Nullable<System.DateTime> LAST_DATE
-		{
-			get
-			{
-				return this._LAST_DATE;
-			}
-			set
-			{
-				if ((this._LAST_DATE != value))
-				{
-					this._LAST_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERS_LAST_DATE", DbType="VarChar(10)")]
-		public string PERS_LAST_DATE
-		{
-			get
-			{
-				return this._PERS_LAST_DATE;
-			}
-			set
-			{
-				if ((this._PERS_LAST_DATE != value))
-				{
-					this._PERS_LAST_DATE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_TYPE", DbType="Bit")]
-		public System.Nullable<bool> EXPR_TYPE
-		{
-			get
-			{
-				return this._EXPR_TYPE;
-			}
-			set
-			{
-				if ((this._EXPR_TYPE != value))
-				{
-					this._EXPR_TYPE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_VALU", DbType="Date")]
-		public System.Nullable<System.DateTime> EXPR_VALU
-		{
-			get
-			{
-				return this._EXPR_VALU;
-			}
-			set
-			{
-				if ((this._EXPR_VALU != value))
-				{
-					this._EXPR_VALU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERS_EXPR_VALU", DbType="VarChar(10)")]
-		public string PERS_EXPR_VALU
-		{
-			get
-			{
-				return this._PERS_EXPR_VALU;
-			}
-			set
-			{
-				if ((this._PERS_EXPR_VALU != value))
-				{
-					this._PERS_EXPR_VALU = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SESN_TYPE", DbType="VarChar(30)")]
-		public string SESN_TYPE
-		{
-			get
-			{
-				return this._SESN_TYPE;
-			}
-			set
-			{
-				if ((this._SESN_TYPE != value))
-				{
-					this._SESN_TYPE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SESN_MAX", DbType="BigInt")]
-		public System.Nullable<long> SESN_MAX
-		{
-			get
-			{
-				return this._SESN_MAX;
-			}
-			set
-			{
-				if ((this._SESN_MAX != value))
-				{
-					this._SESN_MAX = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SESN_CONT", DbType="BigInt")]
-		public System.Nullable<long> SESN_CONT
-		{
-			get
-			{
-				return this._SESN_CONT;
-			}
-			set
-			{
-				if ((this._SESN_CONT != value))
-				{
-					this._SESN_CONT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TINY_SERL", DbType="VarChar(100)")]
-		public string TINY_SERL
-		{
-			get
-			{
-				return this._TINY_SERL;
-			}
-			set
-			{
-				if ((this._TINY_SERL != value))
-				{
-					this._TINY_SERL = value;
-				}
-			}
 		}
 	}
 	

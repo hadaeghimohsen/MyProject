@@ -137,6 +137,11 @@ namespace System.RoboTech.Code
                Rpt_Lrfm_F(job);
                break;
             #endregion
+            #region Inspection
+            case 34:
+               Mngr_Insp_P(job);
+               break;
+            #endregion
             default:
                break;
          }
@@ -251,6 +256,11 @@ namespace System.RoboTech.Code
                break;
             case "RPT_LRFM_F":
                _Rpt_Lrfm_F.SendRequest(job);
+               break;
+            #endregion
+            #region Inspection
+            case "MNGR_INSP_F":
+               _Mngr_Insp_F.SendRequest(job);
                break;
             #endregion
             default:

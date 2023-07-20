@@ -74,11 +74,7 @@ namespace System.RoboTech.Ui.Inspection
          {
             job.Next =
                new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
-         }
-         else if (keyData == (Keys.Control | Keys.Alt | Keys.Shift | Keys.ControlKey))
-         {
-            Pwd013_Txt.Text = PasswordHash + SaltKey + VIKey;            
-         }
+         }         
 
          job.Status = StatusType.Successful;
       }
@@ -188,20 +184,20 @@ namespace System.RoboTech.Ui.Inspection
                         #region Access Privilege
                         new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
                         {
-                           Input = new List<string> {"<Privilege>79</Privilege><Sub_Sys>12</Sub_Sys>", "DataGuard"},
+                           Input = new List<string> {"<Privilege>83</Privilege><Sub_Sys>12</Sub_Sys>", "DataGuard"},
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
                               #region Show Error
                               job.Status = StatusType.Failed;
-                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 79 امنیتی", "خطا دسترسی");
+                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 83 امنیتی", "خطا دسترسی");
                               #endregion                           
                            })
                         },
                         #endregion                        
                      })                     
                   });
-            _DefaultGateway.Gateway(_InteractWithJob);
+         _DefaultGateway.Gateway(_InteractWithJob);
       }
 
       /// <summary>
@@ -210,18 +206,11 @@ namespace System.RoboTech.Ui.Inspection
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         DwltpBs.DataSource = iRoboTech.D_WLTPs;
-         DamutBs.DataSource = iRoboTech.D_AMUTs;
-         DinotBs.DataSource = iRoboTech.D_INOTs;
-         DconfBs.DataSource = iRoboTech.D_CONFs;
-         DtxfcBs.DataSource = iRoboTech.D_TXFCs;
-         DtxftBs.DataSource = iRoboTech.D_TXFTs;
-         Doftpbs.DataSource = iRoboTech.D_OFTPs;
-         Dofkdbs.DataSource = iRoboTech.D_OFKDs;
-         Drcstbs.DataSource = iRoboTech.D_RCSTs;
-         DactvBs.DataSource = iRoboTech.D_ACTVs;
 
          //WletType01_Flb.Images = WletType02_Flb.Images = new Image[] { Properties.Resources.IMAGE_1545, Properties.Resources.IMAGE_1547 };
+         DOdstBs.DataSource = iRoboTech.D_ODSTs;
+         PrvnBs.DataSource = iRoboTech.Provinces;
+         DAOdTgBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "ORDER036_INFO");
          job.Status = StatusType.Successful;
       }
 
@@ -249,18 +238,18 @@ namespace System.RoboTech.Ui.Inspection
             {
                //MessageBox.Show(xinput.ToString());
 
-               var srbs = SrbsBs.Current as Data.Service_Robot_Seller;
+               var srbs = InspBs.Current as Data.Service_Robot;
 
                var cordx = Convert.ToDouble(xinput.Attribute("cordx").Value);
                var cordy = Convert.ToDouble(xinput.Attribute("cordy").Value);
 
-               if (cordx != srbs.SHOP_CORD_X && cordy != srbs.SHOP_CORD_Y)
+               if (cordx != srbs.CORD_X && cordy != srbs.CORD_Y)
                {
                   // Call Update Service_Public
                   try
                   {
-                     srbs.SHOP_CORD_X = cordx;
-                     srbs.SHOP_CORD_Y = cordy;
+                     srbs.CORD_X = cordx;
+                     srbs.CORD_Y = cordy;
                      requery = true;
                   }
                   catch (Exception exc)

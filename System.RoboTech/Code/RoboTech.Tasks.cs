@@ -184,6 +184,14 @@ namespace System.RoboTech.Code
                _Rpt_Lrfm_F = new Ui.Action.RPT_LRFM_F { _DefaultGateway = this };
          }
          #endregion
+         #region
+         else if(value == "mngr_insp_f")
+         {
+            if (_Mngr_Insp_F == null)
+               _Mngr_Insp_F = new Ui.Inspection.MNGR_INSP_F { _DefaultGateway = this };
+         }
+         #endregion
+
          job.Status = StatusType.Successful;
       }
 
@@ -980,6 +988,31 @@ namespace System.RoboTech.Code
                   new Job(SendType.SelfToUserInterface, "INVC_OPRT_F", 02 /* Execute Set */),
                   new Job(SendType.SelfToUserInterface, "INVC_OPRT_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "INVC_OPRT_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 34
+      /// </summary>
+      /// <param name="job"></param>
+      private void Mngr_Insp_P(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "mngr_insp_f"},
+                  new Job(SendType.SelfToUserInterface, "MNGR_INSP_F", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "MNGR_INSP_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "MNGR_INSP_F", 07 /* Execute Load_Data */),
+                  new Job(SendType.SelfToUserInterface, "MNGR_INSP_F", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

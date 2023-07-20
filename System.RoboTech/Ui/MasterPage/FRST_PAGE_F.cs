@@ -976,5 +976,17 @@ namespace System.RoboTech.Ui.MasterPage
               })
          );
       }
+
+      private void MangInsp_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {
+                new Job(SendType.Self, 34 /* Execute Mngr_Insp_P */),
+                new Job(SendType.SelfToUserInterface, "MNGR_INSP_F", 10 /* Execute Actn_CalF_P */)
+              })
+         );
+      }
    }
 }

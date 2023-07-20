@@ -233,6 +233,11 @@ namespace System.Setup.Ui.LTR.Server
 
             RestoredbStatus_Lb.Appearance.Image = System.Setup.Properties.Resources.IMAGE_1609;
             RestoredbStatus_Lb.Text = "Restore db welldone!";
+
+            // 1402/04/05 * Set user & password 
+            SqlServerAuth_Rb.Checked = true;
+            Username_Txt.Text = "scott";
+            Password_Txt.Text = "abcABC123!@#";
          }
          catch (Exception exc)
          {

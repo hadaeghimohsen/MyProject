@@ -637,6 +637,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Order_Profit_Product_Divdend_Detail.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order_State.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Order_Step_History.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Order_Tag.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Organ.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Organ_Category.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Organ_Description.datasource" />
@@ -692,10 +693,13 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Public.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Replay_Message.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Inspection_Unit.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Inspection_Unit_Inspector.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Partner.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Product.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Product_Gift.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Product_Store.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Seller_Tag.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Send_Advertising.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Upload.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.Service_Robot_Visit.datasource" />

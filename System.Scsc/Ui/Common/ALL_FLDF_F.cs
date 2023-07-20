@@ -1541,6 +1541,9 @@ namespace System.Scsc.Ui.Common
             var pymt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
             if (pymt == null) return;
 
+            var pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (pydt == null) return;
+
             long? amnt = null;
             switch (PydsType_Butn.Tag.ToString())
             {

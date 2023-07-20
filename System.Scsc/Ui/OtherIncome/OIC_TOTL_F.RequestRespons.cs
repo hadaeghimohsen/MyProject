@@ -465,7 +465,10 @@ namespace System.Scsc.Ui.OtherIncome
          CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && c.ACTV_TAG_DNRM == "101" && c.CONF_STAT == "002");
          SuntBs1.DataSource = iScsc.Sub_Units;
          DPydsBs1.DataSource = iScsc.D_PYDS;
+         DEfdtBs.DataSource = iScsc.D_EFDTs;
+         DCetpBs.DataSource = iScsc.D_CETPs;
          MtodBs1.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
+         UnitBs.DataSource = iScsc.App_Base_Defines.Where(u => u.ENTY_NAME == "PRODUCTUNIT_INFO");
          RtoaBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Payment_To_Another_Account");
          DRqpmBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Request_Parameter");
 

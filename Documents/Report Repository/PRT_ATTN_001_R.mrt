@@ -12,7 +12,7 @@
     <DataSources isList="true" count="2">
       <Attendance Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Attendance</Alias>
-        <Columns isList="true" count="15">
+        <Columns isList="true" count="16">
           <value>NAME_DNRM,System.String</value>
           <value>FNGR_PRNT_DNRM,System.String</value>
           <value>DEBT_DNRM,System.Int64</value>
@@ -28,6 +28,7 @@
           <value>RMND_ATTN_MONT,System.Int32</value>
           <value>CLUB_CODE,System.Int64</value>
           <value>MUST_EXIT_TIME_DNRM,System.TimeSpan</value>
+          <value>ATTN_DESC,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -39,7 +40,7 @@
   M.MTOD_DESC, CB.CTGY_DESC, DBO.GET_MTOS_U(A.MBSP_END_DATE_DNRM) AS
   MBSP_END_DATE, CO.NAME_DNRM AS COCH_NAME_DNRM,
   a.CRET_BY, (A.NUMB_OF_ATTN_MONT - A.SUM_ATTN_MONT_DNRM) AS RMND_ATTN_MONT,
-  a.MUST_EXIT_TIME_DNRM
+  a.MUST_EXIT_TIME_DNRM, dbo.GET_STRD_U('&lt;Request type="003" code="' + CAST(a.CODE AS VARCHAR(15)) + '" /&gt;') AS ATTN_DESC
 FROM Attendance a INNER JOIN
   Method m ON a.MTOD_CODE_DNRM = m.CODE INNER JOIN
   Category_Belt cb ON a.CTGY_CODE_DNRM = cb.CODE AND m.CODE = cb.MTOD_CODE
@@ -123,8 +124,8 @@ WHERE {WhereClause}
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,0.4,6,4.8</ClientRectangle>
-          <Components isList="true" count="23">
+          <ClientRectangle>0,0.4,6,5.4</ClientRectangle>
+          <Components isList="true" count="24">
             <Text1 Ref="8" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
@@ -321,9 +322,9 @@ WHERE {WhereClause}
             <Text10 Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>0,3.8,6,1</ClientRectangle>
+              <ClientRectangle>0,4.8,6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Lotus,9,Bold</Font>
+              <Font>Tahoma,7,Regular,Point,False,178</Font>
               <Guid>2c6dd800ad2e432d832ee552def8de00</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -527,6 +528,23 @@ WHERE {WhereClause}
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text12>
+            <Text23 Ref="31" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,3.8,6,1</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <Guid>307192fa180243e2b9356b234c229e8b</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Attendance.ATTN_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+            </Text23>
           </Components>
           <Conditions isList="true" count="0" />
           <DataSourceName>Attendance</DataSourceName>
@@ -544,13 +562,13 @@ WHERE {WhereClause}
       <PageHeight>12</PageHeight>
       <PageWidth>7</PageWidth>
       <Report isRef="0" />
-      <Watermark Ref="31" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="32" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>B Titr,12,Bold,Point,False,178</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="32" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="33" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -562,10 +580,10 @@ WHERE {WhereClause}
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>2/9/2022 2:06:03 PM</ReportChanged>
+  <ReportChanged>6/3/2023 3:10:10 PM</ReportChanged>
   <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_ATTN_001_R.mrt</ReportFile>
-  <ReportGuid>474542914aeb4ba1916bfd466387f2af</ReportGuid>
+  <ReportGuid>6cc26d4580d84939bff863a559cc207a</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

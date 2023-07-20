@@ -698,6 +698,15 @@
     <Compile Include="Ui\Common\LSI_FLDF_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\Company\OPR_COMP_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Company\OPR_COMP_F.Designer.cs">
+      <DependentUpon>OPR_COMP_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Company\OPR_COMP_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\DataAnalysis\DAP_DSBR_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1129,6 +1138,9 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Club_Method.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Club_Method_Weekday.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Committee.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Company.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Company_Fighter.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Company_Tag.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Computer_Action.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Country.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Coupon.datasource" />
@@ -1244,6 +1256,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Coupon.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Discount_Card.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Grouping.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Invite_Friend.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Public.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_RelationShip.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Finance_Document.datasource" />
@@ -1362,6 +1375,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.V_Admin_Wallet.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Appd_Message_Box.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_App_Message_Box.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_Coach_Event.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Computer.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_DiscountPayment.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Event.datasource" />
@@ -1539,6 +1553,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Common\LSI_FLDF_F.resx">
       <DependentUpon>LSI_FLDF_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Company\OPR_COMP_F.resx">
+      <DependentUpon>OPR_COMP_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\DataAnalysis\DAP_DSBR_F.resx">
       <DependentUpon>DAP_DSBR_F.cs</DependentUpon>

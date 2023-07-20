@@ -299,6 +299,13 @@ namespace System.Scsc.Ui.ReportManager
                      ev.EVNT_DATE.Value.Date >= FromDate13_Date.Value.Value.Date &&
                      ev.EVNT_DATE.Value.Date <= ToDate13_Date.Value.Value.Date
                   );
+
+               vCochEvntBs.DataSource =
+                  iScsc.V_Coach_Events
+                  .Where(ev =>
+                     ev.EXPR_DATE.Value.Date >= FromDate13_Date.Value.Value.Date &&
+                     ev.EXPR_DATE.Value.Date <= ToDate13_Date.Value.Value.Date
+                  );
             }
          }
          catch { }

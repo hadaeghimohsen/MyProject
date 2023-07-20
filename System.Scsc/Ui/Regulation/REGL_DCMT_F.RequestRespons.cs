@@ -454,6 +454,7 @@ namespace System.Scsc.Ui.Regulation
          DegrBs.DataSource = iScsc.D_DEGRs;
          DEfdtBs.DataSource = iScsc.D_EFDTs;
          DcxtpBs.DataSource = iScsc.D_CXTPs;
+         UnitBs.DataSource = iScsc.App_Base_Defines.Where(u => u.ENTY_NAME == "PRODUCTUNIT_INFO");
          SubmitRqrq_Click(null, null);
 
          GV_RQRQ.ActiveFilterString = "RQTT_CODE != '002' AND RQTT_CODE != '006' AND RQTT_CODE != '008'";

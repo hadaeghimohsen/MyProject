@@ -164,6 +164,7 @@ namespace System.Scsc.Code
       internal Ui.BaseDefinition.BAS_PROD_F _Bas_Prod_F { get; set; }
       internal Ui.WarrantyService.WRN_SERV_F _Wrn_Serv_F { get; set; }
       internal Ui.Advertising.ADV_BASE_F _Adv_Base_F { get; set; }
+      internal Ui.Company.OPR_COMP_F _Opr_Comp_F { get; set;}
 
       /// Kiosk
       internal Ui.OtherIncome.KSK_INCM_F _Ksk_Incm_F { get; set; }

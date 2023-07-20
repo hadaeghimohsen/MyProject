@@ -80,6 +80,7 @@ namespace System.Scsc.Ui.BaseDefinition
                case "REGL_DCMT_F":
                case "MBSP_CHNG_F":
                case "OIC_TOTL_F":
+               case "OPR_COMP_F":
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", formCaller, 07 /* Execute LoadData */, SendType.SelfToUserInterface)
                      {

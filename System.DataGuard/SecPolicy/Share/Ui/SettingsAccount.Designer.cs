@@ -29,6 +29,7 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsAccount));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -71,6 +72,8 @@
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.UserMail_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.tp_003 = new System.Windows.Forms.TabPage();
+         this.buttonEdit3 = new DevExpress.XtraEditors.ButtonEdit();
+         this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
          this.buttonEdit2 = new DevExpress.XtraEditors.ButtonEdit();
          this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
          this.UserName_Be = new DevExpress.XtraEditors.ButtonEdit();
@@ -95,6 +98,7 @@
          this.ChangePassword_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
          this.panel1.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
@@ -105,6 +109,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Ts_DefaultUserMailServer.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ts_ContactPublicStatus.Properties)).BeginInit();
          this.tp_003.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit3.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.UserName_Be.Properties)).BeginInit();
@@ -741,6 +746,8 @@
          // tp_003
          // 
          this.tp_003.AutoScroll = true;
+         this.tp_003.Controls.Add(this.buttonEdit3);
+         this.tp_003.Controls.Add(this.labelControl31);
          this.tp_003.Controls.Add(this.buttonEdit2);
          this.tp_003.Controls.Add(this.buttonEdit1);
          this.tp_003.Controls.Add(this.UserName_Be);
@@ -751,6 +758,7 @@
          this.tp_003.Controls.Add(this.Ts_PrivacyLockScreenStat);
          this.tp_003.Controls.Add(this.labelControl11);
          this.tp_003.Controls.Add(this.labelControl12);
+         this.tp_003.Controls.Add(this.labelControl32);
          this.tp_003.Controls.Add(this.labelControl25);
          this.tp_003.Controls.Add(this.labelControl24);
          this.tp_003.Controls.Add(this.labelControl23);
@@ -773,12 +781,59 @@
          this.tp_003.Text = "روش های ورود به سیستم";
          this.tp_003.UseVisualStyleBackColor = true;
          // 
+         // buttonEdit3
+         // 
+         this.buttonEdit3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.buttonEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.UserBs, "CMNT", true));
+         this.buttonEdit3.EditValue = "";
+         this.buttonEdit3.Location = new System.Drawing.Point(294, 567);
+         this.buttonEdit3.Name = "buttonEdit3";
+         this.buttonEdit3.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.buttonEdit3.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
+         this.buttonEdit3.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.buttonEdit3.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.buttonEdit3.Properties.Appearance.Options.UseBackColor = true;
+         this.buttonEdit3.Properties.Appearance.Options.UseBorderColor = true;
+         this.buttonEdit3.Properties.Appearance.Options.UseFont = true;
+         this.buttonEdit3.Properties.Appearance.Options.UseForeColor = true;
+         this.buttonEdit3.Properties.AppearanceFocused.BackColor = System.Drawing.Color.White;
+         this.buttonEdit3.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Blue;
+         this.buttonEdit3.Properties.AppearanceFocused.Font = new System.Drawing.Font("IRANSans", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.buttonEdit3.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.buttonEdit3.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.buttonEdit3.Properties.AppearanceFocused.Options.UseFont = true;
+         this.buttonEdit3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.buttonEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit3.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+         this.buttonEdit3.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.buttonEdit3.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.buttonEdit3.Properties.NullValuePromptShowForEmptyValue = true;
+         this.buttonEdit3.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.buttonEdit3.Size = new System.Drawing.Size(435, 38);
+         this.buttonEdit3.TabIndex = 22;
+         // 
+         // labelControl31
+         // 
+         this.labelControl31.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl31.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.labelControl31.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl31.Appearance.ForeColor = System.Drawing.Color.Gray;
+         this.labelControl31.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl31.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl31.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl31.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl31.Location = new System.Drawing.Point(666, 535);
+         this.labelControl31.Name = "labelControl31";
+         this.labelControl31.Size = new System.Drawing.Size(63, 26);
+         this.labelControl31.TabIndex = 21;
+         this.labelControl31.Text = "توضیحات";
+         // 
          // buttonEdit2
          // 
          this.buttonEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.buttonEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.UserBs, "VOIP_NUMB", true));
          this.buttonEdit2.EditValue = "";
-         this.buttonEdit2.Location = new System.Drawing.Point(472, 482);
+         this.buttonEdit2.Location = new System.Drawing.Point(438, 482);
          this.buttonEdit2.Name = "buttonEdit2";
          this.buttonEdit2.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.buttonEdit2.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -803,7 +858,7 @@
          this.buttonEdit2.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.buttonEdit2.Properties.NullValuePromptShowForEmptyValue = true;
          this.buttonEdit2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.buttonEdit2.Size = new System.Drawing.Size(61, 38);
+         this.buttonEdit2.Size = new System.Drawing.Size(147, 38);
          this.buttonEdit2.TabIndex = 20;
          // 
          // buttonEdit1
@@ -811,7 +866,7 @@
          this.buttonEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.buttonEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.UserBs, "TELL_PHON", true));
          this.buttonEdit1.EditValue = "";
-         this.buttonEdit1.Location = new System.Drawing.Point(328, 482);
+         this.buttonEdit1.Location = new System.Drawing.Point(294, 482);
          this.buttonEdit1.Name = "buttonEdit1";
          this.buttonEdit1.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.buttonEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -882,9 +937,9 @@
          this.labelControl17.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
          this.labelControl17.LineColor = System.Drawing.Color.Black;
          this.labelControl17.LineVisible = true;
-         this.labelControl17.Location = new System.Drawing.Point(305, 526);
+         this.labelControl17.Location = new System.Drawing.Point(294, 614);
          this.labelControl17.Name = "labelControl17";
-         this.labelControl17.Size = new System.Drawing.Size(424, 18);
+         this.labelControl17.Size = new System.Drawing.Size(435, 18);
          this.labelControl17.TabIndex = 19;
          // 
          // Lnk_LocalSecurityPolicy
@@ -894,7 +949,7 @@
          this.Lnk_LocalSecurityPolicy.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Lnk_LocalSecurityPolicy.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
          this.Lnk_LocalSecurityPolicy.LinkColor = System.Drawing.Color.DodgerBlue;
-         this.Lnk_LocalSecurityPolicy.Location = new System.Drawing.Point(556, 624);
+         this.Lnk_LocalSecurityPolicy.Location = new System.Drawing.Point(556, 712);
          this.Lnk_LocalSecurityPolicy.Name = "Lnk_LocalSecurityPolicy";
          this.Lnk_LocalSecurityPolicy.Size = new System.Drawing.Size(181, 26);
          this.Lnk_LocalSecurityPolicy.TabIndex = 18;
@@ -910,7 +965,7 @@
          this.Lnk_LockScreen.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Lnk_LockScreen.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
          this.Lnk_LockScreen.LinkColor = System.Drawing.Color.DodgerBlue;
-         this.Lnk_LockScreen.Location = new System.Drawing.Point(620, 591);
+         this.Lnk_LockScreen.Location = new System.Drawing.Point(620, 679);
          this.Lnk_LockScreen.Name = "Lnk_LockScreen";
          this.Lnk_LockScreen.Size = new System.Drawing.Size(117, 26);
          this.Lnk_LockScreen.TabIndex = 18;
@@ -982,11 +1037,11 @@
          this.labelControl25.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl25.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl25.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl25.Location = new System.Drawing.Point(372, 450);
+         this.labelControl25.Location = new System.Drawing.Point(321, 450);
          this.labelControl25.Name = "labelControl25";
-         this.labelControl25.Size = new System.Drawing.Size(161, 26);
+         this.labelControl25.Size = new System.Drawing.Size(111, 26);
          this.labelControl25.TabIndex = 15;
-         this.labelControl25.Text = "شماره تلفن ثابت، داخلی";
+         this.labelControl25.Text = "شماره تلفن ثابت";
          // 
          // labelControl24
          // 
@@ -1078,7 +1133,7 @@
          this.labelControl16.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl16.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl16.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl16.Location = new System.Drawing.Point(591, 550);
+         this.labelControl16.Location = new System.Drawing.Point(591, 638);
          this.labelControl16.Name = "labelControl16";
          this.labelControl16.Size = new System.Drawing.Size(138, 38);
          this.labelControl16.TabIndex = 15;
@@ -1203,6 +1258,22 @@
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
          // 
+         // labelControl32
+         // 
+         this.labelControl32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl32.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.labelControl32.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl32.Appearance.ForeColor = System.Drawing.Color.Gray;
+         this.labelControl32.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl32.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl32.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl32.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl32.Location = new System.Drawing.Point(556, 450);
+         this.labelControl32.Name = "labelControl32";
+         this.labelControl32.Size = new System.Drawing.Size(30, 26);
+         this.labelControl32.TabIndex = 15;
+         this.labelControl32.Text = "Voip";
+         // 
          // SettingsAccount
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1226,6 +1297,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.Ts_ContactPublicStatus.Properties)).EndInit();
          this.tp_003.ResumeLayout(false);
          this.tp_003.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit3.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit2.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.UserName_Be.Properties)).EndInit();
@@ -1302,6 +1374,9 @@
       private DevExpress.XtraEditors.LabelControl labelControl30;
       private DevExpress.XtraEditors.LabelControl labelControl29;
       private DevExpress.XtraEditors.SimpleButton ChangeFinger_Butn;
+      private DevExpress.XtraEditors.ButtonEdit buttonEdit3;
+      private DevExpress.XtraEditors.LabelControl labelControl31;
+      private DevExpress.XtraEditors.LabelControl labelControl32;
 
    }
 }

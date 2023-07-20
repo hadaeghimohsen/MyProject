@@ -162,6 +162,12 @@ namespace System.Scsc.Ui.MasterPage
 
             if (barCodeSetting == null) return;
 
+            // 1402/04/02 * Ribbon Menu and Left Side
+            if (barCodeSetting.SHOW_RBON_MNUI == "002")
+               ShowRbonMenu_Btn_Click(null, null);
+            //if (barCodeSetting.SHOW_SLID_MNUI == "001")
+               //ShowMain_Btn_Click(null, null);
+
             if (barCodeSetting.ATTN_SYST_TYPE.NotIn("001", "004")) { Sp_Barcode.PortName = "NoPort"; return; }
 
             this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
@@ -6963,6 +6969,40 @@ namespace System.Scsc.Ui.MasterPage
 
          _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\tick.wav";
          new Thread(AlarmShow).Start();
+      }
+
+      private void bbi_clenupbutn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.ExecuteCommand(
+               "DELETE dbo.Payment_Detail WHERE CODE = 0;" + Environment.NewLine + 
+               "DELETE dbo.Payment_Method WHERE Pymt_Rqst_Rqid IN (SELECT r.Rqid FROM Request r WHERE r.Rqst_Stat = '003');"
+            );
+
+            _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\timeout.wav";
+            new Thread(AlarmShow).Start();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void bbi_oprcompbutn_Click(object sender, EventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 167 /* Execute Opr_Comp_F */),
+                new Job(SendType.SelfToUserInterface, "OPR_COMP_F", 10 /* Actn_CalF_P */)
+                {
+                   Input = new XElement("Request", "")
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }      
    }
 }

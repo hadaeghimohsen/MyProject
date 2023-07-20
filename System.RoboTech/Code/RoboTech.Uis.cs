@@ -43,6 +43,8 @@ namespace System.RoboTech.Code
       private Ui.DevelopmentApplication.CASH_CNTR_F _Cash_Cntr_F { get; set; }
       private Ui.DevelopmentApplication.TREE_BASE_F _Tree_Base_F { get; set; }
       private Ui.DevelopmentApplication.INVC_OPRT_F _Invc_Oprt_F { get; set; }
+
+      private Ui.Inspection.MNGR_INSP_F _Mngr_Insp_F { get; set; }
    }   
 }
 

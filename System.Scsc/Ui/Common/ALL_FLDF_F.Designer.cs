@@ -1371,6 +1371,7 @@
          this.textEdit12 = new DevExpress.XtraEditors.MemoEdit();
          this.textEdit13 = new DevExpress.XtraEditors.TimeEdit();
          this.RCal_Lov = new DevExpress.XtraEditors.LookUpEdit();
+         this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
          this.tp_009 = new System.Windows.Forms.TabPage();
          this.splitContainerControl20 = new DevExpress.XtraEditors.SplitContainerControl();
          this.tabControl2 = new System.Windows.Forms.TabControl();
@@ -1799,7 +1800,6 @@
          this.ExcpAttnActv_Butn = new System.Windows.Forms.ToolStripMenuItem();
          this.ExcpAttnDact_Butn = new System.Windows.Forms.ToolStripMenuItem();
          this.DFRltBs = new System.Windows.Forms.BindingSource(this.components);
-         this.xtraTabPage5 = new DevExpress.XtraTab.XtraTabPage();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit15)).BeginInit();
@@ -4515,6 +4515,7 @@
          // gridControl11
          // 
          this.gridControl11.DataSource = this.FGrpBs;
+         this.gridControl11.Dock = System.Windows.Forms.DockStyle.Fill;
          this.gridControl11.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.PydtBn1_ButtonClick);
          this.gridControl11.Location = new System.Drawing.Point(3, 50);
          this.gridControl11.LookAndFeel.SkinName = "Office 2013 Dark Gray";
@@ -4524,7 +4525,7 @@
          this.gridControl11.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit3,
             this.repositoryItemLookUpEdit4});
-         this.gridControl11.Size = new System.Drawing.Size(402, 309);
+         this.gridControl11.Size = new System.Drawing.Size(624, 309);
          this.gridControl11.TabIndex = 6;
          this.gridControl11.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.FGrpGv});
@@ -15461,6 +15462,12 @@
          this.RCal_Lov.TabIndex = 18;
          this.RCal_Lov.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.RCal_Lov_EditValueChanging);
          // 
+         // xtraTabPage5
+         // 
+         this.xtraTabPage5.Name = "xtraTabPage5";
+         this.xtraTabPage5.Size = new System.Drawing.Size(1213, 585);
+         this.xtraTabPage5.Text = "ارسال ایمیل";
+         // 
          // tp_009
          // 
          this.tp_009.Controls.Add(this.splitContainerControl20);
@@ -19119,12 +19126,6 @@
          // DFRltBs
          // 
          this.DFRltBs.DataSource = typeof(System.Scsc.Data.App_Base_Define);
-         // 
-         // xtraTabPage5
-         // 
-         this.xtraTabPage5.Name = "xtraTabPage5";
-         this.xtraTabPage5.Size = new System.Drawing.Size(1213, 585);
-         this.xtraTabPage5.Text = "ارسال ایمیل";
          // 
          // ALL_FLDF_F
          // 

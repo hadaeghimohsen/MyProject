@@ -528,6 +528,9 @@ namespace System.Scsc.Code
             case 166:
                Show_Mbsc_F(job);
                break;
+            case 167:
+               Opr_Comp_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -1005,6 +1008,9 @@ namespace System.Scsc.Code
                break;
             case "ADV_BASE_F":
                _Adv_Base_F.SendRequest(job);
+               break;
+            case "OPR_COMP_F":
+               _Opr_Comp_F.SendRequest(job);
                break;
 
             /* Show Changed */

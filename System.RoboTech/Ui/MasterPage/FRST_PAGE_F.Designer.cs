@@ -193,6 +193,7 @@
          this.MangInsp_Butn.Name = "MangInsp_Butn";
          this.MangInsp_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("MangInsp_Butn.SmallImage")));
          this.MangInsp_Butn.Text = "بازرسان";
+         this.MangInsp_Butn.Click += new System.EventHandler(this.MangInsp_Butn_Click);
          // 
          // ribbonGroup12
          // 

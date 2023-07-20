@@ -40,6 +40,13 @@ namespace System.Scsc.Ui.BaseDefinition
             ApbsBs.Position = b;
             SApbBs.Position = t;
          }
+         else if (tb_master.SelectedTab == tp_002)
+         {
+            int u = UnitBs.Position;
+            UnitBs.DataSource = iScsc.App_Base_Defines.Where(un => un.ENTY_NAME == "PRODUCTUNIT_INFO");
+            UnitBs.Position = u;
+         }
+
          requery = false;
       }
 
@@ -142,6 +149,57 @@ namespace System.Scsc.Ui.BaseDefinition
          apbs.ENTY_NAME = tableName;
 
          apbs.RWNO = SApbBs.List.Count == 1 ? 1 : SApbBs.List.OfType<Data.App_Base_Define>().Max(a => a.RWNO) + 1;
+      }
+
+      private void AddUnit_Butn_Click(object sender, EventArgs e)
+      {
+         if (UnitBs.List.OfType<Data.App_Base_Define>().Any(a => a.CODE == 0)) return;
+
+         var unit = UnitBs.AddNew() as Data.App_Base_Define;
+         iScsc.App_Base_Defines.InsertOnSubmit(unit);
+         unit.ENTY_NAME = "PRODUCTUNIT_INFO";
+      }
+
+      private void DelUnit_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var unit = UnitBs.Current as Data.App_Base_Define;
+            if (unit == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) != DialogResult.Yes) return;
+            iScsc.DEL_APBS_P(unit.CODE);
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveUnit_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            UnitBs.EndEdit();
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }
 
    }

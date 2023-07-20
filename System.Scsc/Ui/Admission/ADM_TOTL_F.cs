@@ -1852,6 +1852,9 @@ namespace System.Scsc.Ui.Admission
             var pymt = PymtsBs3.Current as Data.Payment;
             if (pymt == null) return;
 
+            var pydt = PydtsBs3.Current as Data.Payment_Detail;
+            if (pydt == null) return;
+
             long? amnt = null;
             switch (PydsType_Butn.Tag.ToString())
             {
@@ -1892,7 +1895,7 @@ namespace System.Scsc.Ui.Admission
                }
             }
 
-            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, PydsDesc_Txt.Tag == null ? null : (long?)PydsDesc_Txt.Tag);
+            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, pydt.EXPN_CODE, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, PydsDesc_Txt.Tag == null ? null : (long?)PydsDesc_Txt.Tag);
 
             PydsAmnt_Txt.EditValue = null;
             PydsDesc_Txt.EditValue = null;

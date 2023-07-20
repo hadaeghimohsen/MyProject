@@ -1218,63 +1218,6 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="DataGuard.[User]" Member="Users">
-    <Type Name="User">
-      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="TitleEn" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="STitleEn" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
-      <Column Name="USERDB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="PASSDB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="IsLock" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="AMIL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MAIL_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="EMAL_ADRS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="EMAL_PASS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="MUST_CHNG_PASS" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="FRST_LOGN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="PLCY_FORC_SAFE_ENTR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="PASS_MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="DFLT_FACT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ADD_COMP_LIST" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="DFLT_SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="WETR_ACES_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="CONT_PBLC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="USER_IMAG" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PRVC_LOCK_SCRN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="LAST_LOGN_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="VOIP_NUMB" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="SHOW_LOGN_FORM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MAIL_SRVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MAIL_SRVR_PROF" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MAIL_SRVR_ACNT" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="DFLT_USER_HELP_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="REGN_LANG" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="RTL_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="PIN_CODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="User_User_Gateway" Member="User_Gateways" ThisKey="ID" OtherKey="USER_ID" Type="User_Gateway" />
-      <Association Name="User_Action_Center" Member="Action_Centers" ThisKey="ID" OtherKey="USER_ID" Type="Action_Center" />
-      <Association Name="User_User_Privilege" Member="User_Privileges" ThisKey="ID" OtherKey="UserID" Type="User_Privilege" />
-      <Association Name="User_Role_User" Member="Role_Users" ThisKey="ID" OtherKey="UserID" Type="Role_User" />
-      <Association Name="User_Access_User_Datasource" Member="Access_User_Datasources" ThisKey="ID" OtherKey="USER_ID" Type="Access_User_Datasource" />
-      <Association Name="User_Message_Broad_Setting" Member="Message_Broad_Settings" ThisKey="ID" OtherKey="ALRM_TO_USER_ID" Type="Message_Broad_Setting" />
-      <Association Name="User_User_Finger" Member="User_Fingers" ThisKey="ID" OtherKey="USER_ID" Type="User_Finger" />
-      <Association Name="User_User_Access_Po" Member="User_Access_Pos" ThisKey="ID" OtherKey="USER_ID" Type="User_Access_Po" />
-      <Association Name="Region_User" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="DataGuard.V#Settings" Member="V_Settings">
     <Type Name="V_Setting">
       <Column Name="LAST_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
@@ -1286,6 +1229,64 @@
       <Column Name="SESN_MAX" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="SESN_CONT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
       <Column Name="TINY_SERL" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="DataGuard.[User]" Member="Users">
+    <Type Name="User">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ShortCut" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TitleFa" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="TitleEn" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="STitleEn" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="Password" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="USERDB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PASSDB" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IsLock" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="IsVisible" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" UpdateCheck="Never" />
+      <Column Name="AMIL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAIL_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EMAL_ADRS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EMAL_PASS" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MUST_CHNG_PASS" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FRST_LOGN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PLCY_FORC_SAFE_ENTR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PASS_MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_FACT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ADD_COMP_LIST" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="WETR_ACES_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CONT_PBLC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="USER_IMAG" Type="System.Data.Linq.Binary" DbType="Image" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PRVC_LOCK_SCRN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LAST_LOGN_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="VOIP_NUMB" Type="System.String" DbType="VarChar(10)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHOW_LOGN_FORM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAIL_SRVR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAIL_SRVR_PROF" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MAIL_SRVR_ACNT" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_USER_HELP_SRVR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REGN_LANG" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RTL_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PIN_CODE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CMNT" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="User_User_Gateway" Member="User_Gateways" ThisKey="ID" OtherKey="USER_ID" Type="User_Gateway" />
+      <Association Name="User_Action_Center" Member="Action_Centers" ThisKey="ID" OtherKey="USER_ID" Type="Action_Center" />
+      <Association Name="User_User_Privilege" Member="User_Privileges" ThisKey="ID" OtherKey="UserID" Type="User_Privilege" />
+      <Association Name="User_Role_User" Member="Role_Users" ThisKey="ID" OtherKey="UserID" Type="Role_User" />
+      <Association Name="User_Access_User_Datasource" Member="Access_User_Datasources" ThisKey="ID" OtherKey="USER_ID" Type="Access_User_Datasource" />
+      <Association Name="User_Message_Broad_Setting" Member="Message_Broad_Settings" ThisKey="ID" OtherKey="ALRM_TO_USER_ID" Type="Message_Broad_Setting" />
+      <Association Name="User_User_Finger" Member="User_Fingers" ThisKey="ID" OtherKey="USER_ID" Type="User_Finger" />
+      <Association Name="User_User_Access_Po" Member="User_Access_Pos" ThisKey="ID" OtherKey="USER_ID" Type="User_Access_Po" />
+      <Association Name="Region_User" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="DataGuard.SaveHostInfo" Method="SaveHostInfo">

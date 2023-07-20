@@ -1583,6 +1583,9 @@ namespace System.Scsc.Ui.Admission
             var pymt = PymtsBs1.Current as Data.Payment;
             if (pymt == null) return;
 
+            var pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (pydt == null) return;
+
             long? amnt = null;
             switch(PydsType_Butn.Tag.ToString())
             {
@@ -1623,7 +1626,7 @@ namespace System.Scsc.Ui.Admission
                }
             }
 
-            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, PydsDesc_Txt.Tag == null ? null : (long?)PydsDesc_Txt.Tag, null);
+            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, pydt.EXPN_CODE, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, PydsDesc_Txt.Tag == null ? null : (long?)PydsDesc_Txt.Tag, null);
 
             PydsAmnt_Txt.EditValue = null;
             PydsDesc_Txt.EditValue = null;
@@ -2559,7 +2562,24 @@ namespace System.Scsc.Ui.Admission
             var _rqpm = RqpmBs.Current as Data.Request_Parameter;
             if (_rqpm == null) return;
 
-            iScsc.Request_Parameters.DeleteOnSubmit(_rqpm);
+            switch (e.Button.Index)
+            {
+               case 0:
+                  iScsc.Request_Parameters.DeleteOnSubmit(_rqpm);
+                  break;
+               case 1:
+                  iScsc.ExecuteCommand(
+                     string.Format(
+                        "UPDATE dbo.Request_Parameter SET Cmnt = N'{1}' WHERE Code = 0",
+                        _rqpm.CODE,
+                        _rqpm.CMNT                        
+                     )
+                  );
+                  break;
+               default:
+                  break;
+            }
+            
 
             iScsc.SubmitChanges();
             requery = true;

@@ -249,6 +249,52 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void DupBankAcnt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rcba = RcbaBs.Current as Data.Robot_Card_Bank_Account;
+            if (_rcba == null) return;
+
+            if (_rcba.ACNT_TYPE.In("001", "003")) { MessageBox.Show("لطفا حساب خود را درست انتخاب کنید"); return; }
+
+            if (CardNumb_Txt.Text.Length != 16)
+            {
+               throw new Exception("شماره کارت بانکی به درستی وارد نشده");
+            }
+
+            if (ShbaNumb_Txt.Text.Length != 26)
+            {
+               throw new Exception("شماره شبا بانکی به درستی وارد نشده");
+            }
+
+            if (AcntOwnr_Txt.Text.Length == 0)
+            {
+               throw new Exception("اطلاعات دارنده حساب وارد نشده");
+            }
+
+            iRoboTech.ExecuteCommand(
+               string.Format(
+                  "INSERT INTO dbo.Robot_Card_Bank_Account (Robo_Rbid, Code, Card_Numb, Shba_Numb, Acnt_Type, Acnt_Ownr, Acnt_Desc, Ordr_Type, Acnt_Stat)" + Environment.NewLine +
+                  "SELECT Robo_Rbid, dbo.GNRT_NVID_U(), '{2}', '{3}', Acnt_Type, N'{4}', Acnt_Desc, Ordr_Type, '001'" + Environment.NewLine +
+                  "FROM dbo.Robot_Card_Bank_Account a" + Environment.NewLine + 
+                  "WHERE a.Acnt_Type = '002' AND a.Robo_Rbid = {0} AND a.Card_Numb = '{1}' AND" + Environment.NewLine +
+                  "NOT EXISTS (SELECT * FROM dbo.Robot_Card_Bank_Account at WHERE at.Robo_Rbid = a.Robo_Rbid AND at.Acnt_Type = a.Acnt_Type AND at.Card_Numb = '{2}');",
+                  _rcba.ROBO_RBID,
+                  _rcba.CARD_NUMB,
+                  CardNumb_Txt.EditValue,
+                  ShbaNumb_Txt.EditValue,
+                  AcntOwnr_Txt.EditValue
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }      
    }
 }

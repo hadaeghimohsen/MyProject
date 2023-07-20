@@ -234,9 +234,11 @@
          this.button14 = new System.MaxUi.Button();
          this.button13 = new System.MaxUi.Button();
          this.button2 = new System.MaxUi.Button();
+         this.bbi_oprcompbutn = new System.MaxUi.Button();
          this.button1 = new System.MaxUi.Button();
          this.bbi_BaseDef_Butn = new System.MaxUi.Button();
          this.rollout3 = new System.MaxUi.Rollout();
+         this.bbi_clenupbutn = new System.MaxUi.Button();
          this.button23 = new System.MaxUi.Button();
          this.button24 = new System.MaxUi.Button();
          this.button25 = new System.MaxUi.Button();
@@ -543,7 +545,7 @@
             this.AgrActn_RPgc,
             this.Mngr_RPgc,
             this.SystemAdmin_RPgc});
-         this.MainRbonMenu_Rbnc.Size = new System.Drawing.Size(1506, 142);
+         this.MainRbonMenu_Rbnc.Size = new System.Drawing.Size(1249, 142);
          this.MainRbonMenu_Rbnc.Visible = false;
          // 
          // bbi_epitbutn
@@ -1921,7 +1923,7 @@
          this.spc_desktop.Panel2.Controls.Add(this.ShowDesktop_Butn);
          this.spc_desktop.Panel2.Padding = new System.Windows.Forms.Padding(5);
          this.spc_desktop.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.spc_desktop.Size = new System.Drawing.Size(1506, 578);
+         this.spc_desktop.Size = new System.Drawing.Size(1249, 578);
          this.spc_desktop.SplitterDistance = 537;
          this.spc_desktop.TabIndex = 3;
          // 
@@ -1934,7 +1936,7 @@
          this.spc_desktopnew.Panel1.Text = "Panel1";
          this.spc_desktopnew.Panel2.Controls.Add(this.Master_Tc);
          this.spc_desktopnew.Panel2.Text = "Panel2";
-         this.spc_desktopnew.Size = new System.Drawing.Size(1506, 537);
+         this.spc_desktopnew.Size = new System.Drawing.Size(1249, 537);
          this.spc_desktopnew.SplitterPosition = 276;
          this.spc_desktopnew.TabIndex = 23;
          this.spc_desktopnew.Text = "splitContainerControl1";
@@ -1993,7 +1995,7 @@
          this.rollout4.ForeColor = System.Drawing.Color.Black;
          this.rollout4.FrameOnMouseOverOnly = false;
          this.rollout4.GroupImage = null;
-         this.rollout4.Location = new System.Drawing.Point(22, 3);
+         this.rollout4.Location = new System.Drawing.Point(5, 3);
          this.rollout4.MaxHeight = 272;
          this.rollout4.Name = "rollout4";
          this.rollout4.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -2076,7 +2078,7 @@
          this.rollout5.ForeColor = System.Drawing.Color.Black;
          this.rollout5.FrameOnMouseOverOnly = false;
          this.rollout5.GroupImage = null;
-         this.rollout5.Location = new System.Drawing.Point(22, 31);
+         this.rollout5.Location = new System.Drawing.Point(5, 31);
          this.rollout5.MaxHeight = 355;
          this.rollout5.Name = "rollout5";
          this.rollout5.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -2137,14 +2139,15 @@
          this.rollout2.Controls.Add(this.button14);
          this.rollout2.Controls.Add(this.button13);
          this.rollout2.Controls.Add(this.button2);
+         this.rollout2.Controls.Add(this.bbi_oprcompbutn);
          this.rollout2.Controls.Add(this.button1);
          this.rollout2.Controls.Add(this.bbi_BaseDef_Butn);
          this.rollout2.CustomRolloutColor = System.Drawing.Color.LightGray;
          this.rollout2.ForeColor = System.Drawing.Color.Black;
          this.rollout2.FrameOnMouseOverOnly = false;
          this.rollout2.GroupImage = null;
-         this.rollout2.Location = new System.Drawing.Point(22, 59);
-         this.rollout2.MaxHeight = 346;
+         this.rollout2.Location = new System.Drawing.Point(5, 59);
+         this.rollout2.MaxHeight = 377;
          this.rollout2.Name = "rollout2";
          this.rollout2.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout2.PaintRollout = true;
@@ -2157,7 +2160,7 @@
          this.rollout2.ShadowControl = false;
          this.rollout2.ShadowThickness = 3;
          this.rollout2.ShowFocusFrame = false;
-         this.rollout2.Size = new System.Drawing.Size(237, 346);
+         this.rollout2.Size = new System.Drawing.Size(237, 377);
          this.rollout2.TabIndex = 27;
          this.rollout2.TitleBorderColor = System.Drawing.Color.Gray;
          // 
@@ -2173,7 +2176,7 @@
          this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button3.FrameOnMouseOverOnly = false;
          this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.button3.Location = new System.Drawing.Point(7, 250);
+         this.button3.Location = new System.Drawing.Point(7, 281);
          this.button3.Name = "button3";
          this.button3.ShowFocusFrame = true;
          this.button3.Size = new System.Drawing.Size(110, 25);
@@ -2194,7 +2197,7 @@
          this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button8.FrameOnMouseOverOnly = false;
          this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.button8.Location = new System.Drawing.Point(7, 219);
+         this.button8.Location = new System.Drawing.Point(7, 250);
          this.button8.Name = "button8";
          this.button8.ShowFocusFrame = true;
          this.button8.Size = new System.Drawing.Size(110, 25);
@@ -2215,7 +2218,7 @@
          this.bbi_AllCoch_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.bbi_AllCoch_Butn.FrameOnMouseOverOnly = false;
          this.bbi_AllCoch_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.bbi_AllCoch_Butn.Location = new System.Drawing.Point(7, 188);
+         this.bbi_AllCoch_Butn.Location = new System.Drawing.Point(7, 219);
          this.bbi_AllCoch_Butn.Name = "bbi_AllCoch_Butn";
          this.bbi_AllCoch_Butn.ShowFocusFrame = true;
          this.bbi_AllCoch_Butn.Size = new System.Drawing.Size(110, 25);
@@ -2236,7 +2239,7 @@
          this.button11.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button11.FrameOnMouseOverOnly = false;
          this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.button11.Location = new System.Drawing.Point(7, 281);
+         this.button11.Location = new System.Drawing.Point(7, 312);
          this.button11.Name = "button11";
          this.button11.ShowFocusFrame = true;
          this.button11.Size = new System.Drawing.Size(110, 25);
@@ -2257,7 +2260,7 @@
          this.button10.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button10.FrameOnMouseOverOnly = false;
          this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.button10.Location = new System.Drawing.Point(121, 281);
+         this.button10.Location = new System.Drawing.Point(121, 312);
          this.button10.Name = "button10";
          this.button10.ShowFocusFrame = true;
          this.button10.Size = new System.Drawing.Size(110, 25);
@@ -2278,7 +2281,7 @@
          this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button12.FrameOnMouseOverOnly = false;
          this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.button12.Location = new System.Drawing.Point(7, 312);
+         this.button12.Location = new System.Drawing.Point(7, 343);
          this.button12.Name = "button12";
          this.button12.ShowFocusFrame = true;
          this.button12.Size = new System.Drawing.Size(224, 25);
@@ -2299,7 +2302,7 @@
          this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button9.FrameOnMouseOverOnly = false;
          this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.button9.Location = new System.Drawing.Point(121, 250);
+         this.button9.Location = new System.Drawing.Point(121, 281);
          this.button9.Name = "button9";
          this.button9.ShowFocusFrame = true;
          this.button9.Size = new System.Drawing.Size(110, 25);
@@ -2320,7 +2323,7 @@
          this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button7.FrameOnMouseOverOnly = false;
          this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.button7.Location = new System.Drawing.Point(121, 219);
+         this.button7.Location = new System.Drawing.Point(121, 250);
          this.button7.Name = "button7";
          this.button7.ShowFocusFrame = true;
          this.button7.Size = new System.Drawing.Size(110, 25);
@@ -2341,7 +2344,7 @@
          this.bbi_AddCoch_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.bbi_AddCoch_Butn.FrameOnMouseOverOnly = false;
          this.bbi_AddCoch_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.bbi_AddCoch_Butn.Location = new System.Drawing.Point(121, 188);
+         this.bbi_AddCoch_Butn.Location = new System.Drawing.Point(121, 219);
          this.bbi_AddCoch_Butn.Name = "bbi_AddCoch_Butn";
          this.bbi_AddCoch_Butn.ShowFocusFrame = true;
          this.bbi_AddCoch_Butn.Size = new System.Drawing.Size(110, 25);
@@ -2362,7 +2365,7 @@
          this.button15.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button15.FrameOnMouseOverOnly = false;
          this.button15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.button15.Location = new System.Drawing.Point(7, 126);
+         this.button15.Location = new System.Drawing.Point(7, 157);
          this.button15.Name = "button15";
          this.button15.ShowFocusFrame = true;
          this.button15.Size = new System.Drawing.Size(110, 25);
@@ -2384,7 +2387,7 @@
          this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button4.FrameOnMouseOverOnly = false;
          this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.button4.Location = new System.Drawing.Point(7, 95);
+         this.button4.Location = new System.Drawing.Point(7, 126);
          this.button4.Name = "button4";
          this.button4.ShowFocusFrame = true;
          this.button4.Size = new System.Drawing.Size(110, 25);
@@ -2405,7 +2408,7 @@
          this.button14.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button14.FrameOnMouseOverOnly = false;
          this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.button14.Location = new System.Drawing.Point(7, 157);
+         this.button14.Location = new System.Drawing.Point(7, 188);
          this.button14.Name = "button14";
          this.button14.ShowFocusFrame = true;
          this.button14.Size = new System.Drawing.Size(224, 25);
@@ -2426,7 +2429,7 @@
          this.button13.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button13.FrameOnMouseOverOnly = false;
          this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.button13.Location = new System.Drawing.Point(121, 126);
+         this.button13.Location = new System.Drawing.Point(121, 157);
          this.button13.Name = "button13";
          this.button13.ShowFocusFrame = true;
          this.button13.Size = new System.Drawing.Size(110, 25);
@@ -2448,7 +2451,7 @@
          this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button2.FrameOnMouseOverOnly = false;
          this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.button2.Location = new System.Drawing.Point(121, 95);
+         this.button2.Location = new System.Drawing.Point(121, 126);
          this.button2.Name = "button2";
          this.button2.ShowFocusFrame = true;
          this.button2.Size = new System.Drawing.Size(110, 25);
@@ -2456,6 +2459,28 @@
          this.button2.Text = "ثبت نام دوره";
          this.button2.UseVisualStyleBackColor = false;
          this.button2.Click += new System.EventHandler(this.bbi_adm1butn_ItemClick);
+         // 
+         // bbi_oprcompbutn
+         // 
+         this.bbi_oprcompbutn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_oprcompbutn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_oprcompbutn.FlatAppearance.BorderSize = 0;
+         this.bbi_oprcompbutn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.bbi_oprcompbutn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.bbi_oprcompbutn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_oprcompbutn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.bbi_oprcompbutn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.bbi_oprcompbutn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.bbi_oprcompbutn.FrameOnMouseOverOnly = false;
+         this.bbi_oprcompbutn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.bbi_oprcompbutn.Location = new System.Drawing.Point(7, 95);
+         this.bbi_oprcompbutn.Name = "bbi_oprcompbutn";
+         this.bbi_oprcompbutn.ShowFocusFrame = true;
+         this.bbi_oprcompbutn.Size = new System.Drawing.Size(224, 25);
+         this.bbi_oprcompbutn.TabIndex = 67;
+         this.bbi_oprcompbutn.Text = "ثبت، مدیریت شرکت / فروشگاه";
+         this.bbi_oprcompbutn.UseVisualStyleBackColor = false;
+         this.bbi_oprcompbutn.Click += new System.EventHandler(this.bbi_oprcompbutn_Click);
          // 
          // button1
          // 
@@ -2507,6 +2532,7 @@
          this.rollout3.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.rollout3.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.rollout3.BorderThickness = 1F;
+         this.rollout3.Controls.Add(this.bbi_clenupbutn);
          this.rollout3.Controls.Add(this.button23);
          this.rollout3.Controls.Add(this.button24);
          this.rollout3.Controls.Add(this.button25);
@@ -2514,8 +2540,8 @@
          this.rollout3.ForeColor = System.Drawing.Color.Black;
          this.rollout3.FrameOnMouseOverOnly = false;
          this.rollout3.GroupImage = null;
-         this.rollout3.Location = new System.Drawing.Point(22, 411);
-         this.rollout3.MaxHeight = 100;
+         this.rollout3.Location = new System.Drawing.Point(5, 442);
+         this.rollout3.MaxHeight = 128;
          this.rollout3.Name = "rollout3";
          this.rollout3.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout3.PaintRollout = true;
@@ -2531,6 +2557,27 @@
          this.rollout3.Size = new System.Drawing.Size(237, 22);
          this.rollout3.TabIndex = 28;
          this.rollout3.TitleBorderColor = System.Drawing.Color.Gray;
+         // 
+         // bbi_clenupbutn
+         // 
+         this.bbi_clenupbutn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_clenupbutn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_clenupbutn.FlatAppearance.BorderSize = 0;
+         this.bbi_clenupbutn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.bbi_clenupbutn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.bbi_clenupbutn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_clenupbutn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.bbi_clenupbutn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.bbi_clenupbutn.FrameOnMouseOverOnly = false;
+         this.bbi_clenupbutn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.bbi_clenupbutn.Location = new System.Drawing.Point(7, 95);
+         this.bbi_clenupbutn.Name = "bbi_clenupbutn";
+         this.bbi_clenupbutn.ShowFocusFrame = true;
+         this.bbi_clenupbutn.Size = new System.Drawing.Size(224, 25);
+         this.bbi_clenupbutn.TabIndex = 67;
+         this.bbi_clenupbutn.Text = "پاکسازی رکوردهای زباله...";
+         this.bbi_clenupbutn.UseVisualStyleBackColor = false;
+         this.bbi_clenupbutn.Click += new System.EventHandler(this.bbi_clenupbutn_Click);
          // 
          // button23
          // 
@@ -2617,7 +2664,7 @@
          this.rollout6.ForeColor = System.Drawing.Color.Black;
          this.rollout6.FrameOnMouseOverOnly = false;
          this.rollout6.GroupImage = null;
-         this.rollout6.Location = new System.Drawing.Point(22, 439);
+         this.rollout6.Location = new System.Drawing.Point(5, 470);
          this.rollout6.MaxHeight = 257;
          this.rollout6.Name = "rollout6";
          this.rollout6.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -2912,7 +2959,7 @@
          this.rollout7.ForeColor = System.Drawing.Color.Black;
          this.rollout7.FrameOnMouseOverOnly = false;
          this.rollout7.GroupImage = null;
-         this.rollout7.Location = new System.Drawing.Point(22, 467);
+         this.rollout7.Location = new System.Drawing.Point(5, 498);
          this.rollout7.MaxHeight = 99;
          this.rollout7.Name = "rollout7";
          this.rollout7.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -3284,7 +3331,7 @@
          this.ShowMain_Btn.Dock = System.Windows.Forms.DockStyle.Right;
          this.ShowMain_Btn.Image = ((System.Drawing.Image)(resources.GetObject("ShowMain_Btn.Image")));
          this.ShowMain_Btn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ShowMain_Btn.Location = new System.Drawing.Point(1123, 5);
+         this.ShowMain_Btn.Location = new System.Drawing.Point(866, 5);
          this.ShowMain_Btn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ShowMain_Btn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ShowMain_Btn.Name = "ShowMain_Btn";
@@ -3298,7 +3345,7 @@
          // OnlineDres_Butn
          // 
          this.OnlineDres_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.OnlineDres_Butn.Location = new System.Drawing.Point(992, 7);
+         this.OnlineDres_Butn.Location = new System.Drawing.Point(735, 7);
          this.OnlineDres_Butn.MenuManager = this.MainRbonMenu_Rbnc;
          this.OnlineDres_Butn.Name = "OnlineDres_Butn";
          this.OnlineDres_Butn.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3346,7 +3393,7 @@
          this.TlgrmBot_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.TlgrmBot_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
          this.TlgrmBot_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.TlgrmBot_Butn.Location = new System.Drawing.Point(1145, 5);
+         this.TlgrmBot_Butn.Location = new System.Drawing.Point(888, 5);
          this.TlgrmBot_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.TlgrmBot_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TlgrmBot_Butn.Name = "TlgrmBot_Butn";
@@ -3369,7 +3416,7 @@
          this.BackGrnd_Butn.ImageProfile = null;
          this.BackGrnd_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.BackGrnd_Butn.ImageVisiable = false;
-         this.BackGrnd_Butn.Location = new System.Drawing.Point(1099, 8);
+         this.BackGrnd_Butn.Location = new System.Drawing.Point(842, 8);
          this.BackGrnd_Butn.Name = "BackGrnd_Butn";
          this.BackGrnd_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.BackGrnd_Butn.NormalColorA = System.Drawing.Color.DimGray;
@@ -3415,7 +3462,7 @@
          this.AdjustDateTime_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AdjustDateTime_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AdjustDateTime_Butn.Image")));
          this.AdjustDateTime_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(1175, 5);
+         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(918, 5);
          this.AdjustDateTime_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
@@ -3523,7 +3570,7 @@
          this.More_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.More_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1189;
          this.More_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.More_Butn.Location = new System.Drawing.Point(1261, 5);
+         this.More_Butn.Location = new System.Drawing.Point(1004, 5);
          this.More_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.More_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.More_Butn.Name = "More_Butn";
@@ -3537,7 +3584,7 @@
          this.TryPing_Cbx.Checked = true;
          this.TryPing_Cbx.CheckState = System.Windows.Forms.CheckState.Checked;
          this.TryPing_Cbx.Dock = System.Windows.Forms.DockStyle.Right;
-         this.TryPing_Cbx.Location = new System.Drawing.Point(1291, 5);
+         this.TryPing_Cbx.Location = new System.Drawing.Point(1034, 5);
          this.TryPing_Cbx.Name = "TryPing_Cbx";
          this.TryPing_Cbx.Size = new System.Drawing.Size(15, 27);
          this.TryPing_Cbx.TabIndex = 22;
@@ -3553,7 +3600,7 @@
          this.SrvrPing_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.SrvrPing_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1408;
          this.SrvrPing_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.SrvrPing_Butn.Location = new System.Drawing.Point(1306, 5);
+         this.SrvrPing_Butn.Location = new System.Drawing.Point(1049, 5);
          this.SrvrPing_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SrvrPing_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SrvrPing_Butn.Name = "SrvrPing_Butn";
@@ -3570,7 +3617,7 @@
          this.GameHours_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.GameHours_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1428;
          this.GameHours_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GameHours_Butn.Location = new System.Drawing.Point(1336, 5);
+         this.GameHours_Butn.Location = new System.Drawing.Point(1079, 5);
          this.GameHours_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GameHours_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GameHours_Butn.Name = "GameHours_Butn";
@@ -3587,7 +3634,7 @@
          this.GateAttn_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.GateAttn_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
          this.GateAttn_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GateAttn_Butn.Location = new System.Drawing.Point(1366, 5);
+         this.GateAttn_Butn.Location = new System.Drawing.Point(1109, 5);
          this.GateAttn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GateAttn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GateAttn_Butn.Name = "GateAttn_Butn";
@@ -3605,7 +3652,7 @@
          this.AttendanceSystemAlert_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1227;
          this.AttendanceSystemAlert_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.AttendanceSystemAlert_Butn.Location = new System.Drawing.Point(1396, 5);
+         this.AttendanceSystemAlert_Butn.Location = new System.Drawing.Point(1139, 5);
          this.AttendanceSystemAlert_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AttendanceSystemAlert_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AttendanceSystemAlert_Butn.Name = "AttendanceSystemAlert_Butn";
@@ -3635,7 +3682,7 @@
          this.ActionCenter_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.ActionCenter_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ActionCenter_Butn.Image")));
          this.ActionCenter_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ActionCenter_Butn.Location = new System.Drawing.Point(1435, 5);
+         this.ActionCenter_Butn.Location = new System.Drawing.Point(1178, 5);
          this.ActionCenter_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ActionCenter_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ActionCenter_Butn.Name = "ActionCenter_Butn";
@@ -3653,7 +3700,7 @@
          this.ShowDesktop_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.ShowDesktop_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ShowDesktop_Butn.Image")));
          this.ShowDesktop_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ShowDesktop_Butn.Location = new System.Drawing.Point(1477, 5);
+         this.ShowDesktop_Butn.Location = new System.Drawing.Point(1220, 5);
          this.ShowDesktop_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ShowDesktop_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ShowDesktop_Butn.Name = "ShowDesktop_Butn";
@@ -3994,7 +4041,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "MAIN_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1506, 720);
+         this.Size = new System.Drawing.Size(1249, 720);
          this.statusStrip1.ResumeLayout(false);
          this.statusStrip1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.MainRbonMenu_Rbnc)).EndInit();
@@ -4321,5 +4368,7 @@
       private MaxUi.Button button36;
       private MaxUi.Button button38;
       private MaxUi.Button ShowRbonMenu_Btn;
+      private MaxUi.Button bbi_clenupbutn;
+      private MaxUi.Button bbi_oprcompbutn;
    }
 }

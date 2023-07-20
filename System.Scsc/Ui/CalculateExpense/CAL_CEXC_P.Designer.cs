@@ -39,6 +39,9 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.colRECT_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.Rect1_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.DRectBs = new System.Windows.Forms.BindingSource(this.components);
          this.tb_master = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -103,9 +106,6 @@
          this.gridColumn18 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRECT_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.Rect1_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DRectBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridColumn21 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -148,6 +148,8 @@
          this.ExecQury_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
+         ((System.ComponentModel.ISupportInitialize)(this.Rect1_Lov)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DRectBs)).BeginInit();
          this.tb_master.SuspendLayout();
          this.tp_001.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
@@ -170,8 +172,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CXTP_LOV)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCxtpBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Rect1_Lov)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DRectBs)).BeginInit();
          this.tabPage2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsxdBs)).BeginInit();
@@ -182,6 +182,32 @@
          this.groupBox1.SuspendLayout();
          this.panel1.SuspendLayout();
          this.SuspendLayout();
+         // 
+         // colRECT_CODE1
+         // 
+         this.colRECT_CODE1.Caption = "وضعیت رکورد";
+         this.colRECT_CODE1.ColumnEdit = this.Rect1_Lov;
+         this.colRECT_CODE1.FieldName = "RECT_CODE";
+         this.colRECT_CODE1.Name = "colRECT_CODE1";
+         this.colRECT_CODE1.OptionsColumn.AllowEdit = false;
+         this.colRECT_CODE1.OptionsColumn.ReadOnly = true;
+         this.colRECT_CODE1.Visible = true;
+         this.colRECT_CODE1.VisibleIndex = 23;
+         // 
+         // Rect1_Lov
+         // 
+         this.Rect1_Lov.AutoHeight = false;
+         this.Rect1_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.Rect1_Lov.DataSource = this.DRectBs;
+         this.Rect1_Lov.DisplayMember = "DOMN_DESC";
+         this.Rect1_Lov.Name = "Rect1_Lov";
+         this.Rect1_Lov.NullText = "";
+         this.Rect1_Lov.ValueMember = "VALU";
+         // 
+         // DRectBs
+         // 
+         this.DRectBs.DataSource = typeof(System.Scsc.Data.D_RECT);
          // 
          // tb_master
          // 
@@ -575,7 +601,7 @@
          this.Pyde_Gv.OptionsView.ShowGroupPanel = false;
          this.Pyde_Gv.OptionsView.ShowIndicator = false;
          this.Pyde_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colMSEX_CODE, DevExpress.Data.ColumnSortOrder.Ascending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.gridColumn11, DevExpress.Data.ColumnSortOrder.Ascending)});
          // 
          // colPYDT_CODE
          // 
@@ -997,32 +1023,6 @@
          this.gridColumn20.OptionsColumn.ReadOnly = true;
          this.gridColumn20.Visible = true;
          this.gridColumn20.VisibleIndex = 6;
-         // 
-         // colRECT_CODE1
-         // 
-         this.colRECT_CODE1.Caption = "وضعیت رکورد";
-         this.colRECT_CODE1.ColumnEdit = this.Rect1_Lov;
-         this.colRECT_CODE1.FieldName = "RECT_CODE";
-         this.colRECT_CODE1.Name = "colRECT_CODE1";
-         this.colRECT_CODE1.OptionsColumn.AllowEdit = false;
-         this.colRECT_CODE1.OptionsColumn.ReadOnly = true;
-         this.colRECT_CODE1.Visible = true;
-         this.colRECT_CODE1.VisibleIndex = 23;
-         // 
-         // Rect1_Lov
-         // 
-         this.Rect1_Lov.AutoHeight = false;
-         this.Rect1_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.Rect1_Lov.DataSource = this.DRectBs;
-         this.Rect1_Lov.DisplayMember = "DOMN_DESC";
-         this.Rect1_Lov.Name = "Rect1_Lov";
-         this.Rect1_Lov.NullText = "";
-         this.Rect1_Lov.ValueMember = "VALU";
-         // 
-         // DRectBs
-         // 
-         this.DRectBs.DataSource = typeof(System.Scsc.Data.D_RECT);
          // 
          // gridColumn21
          // 
@@ -1529,6 +1529,8 @@
          this.Name = "CAL_CEXC_P";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(1073, 603);
+         ((System.ComponentModel.ISupportInitialize)(this.Rect1_Lov)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DRectBs)).EndInit();
          this.tb_master.ResumeLayout(false);
          this.tp_001.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
@@ -1551,8 +1553,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.DCetpBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CXTP_LOV)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DCxtpBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.Rect1_Lov)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DRectBs)).EndInit();
          this.tabPage2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MsxdBs)).EndInit();

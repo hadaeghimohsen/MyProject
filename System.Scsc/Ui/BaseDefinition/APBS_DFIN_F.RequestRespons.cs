@@ -81,6 +81,7 @@ namespace System.Scsc.Ui.BaseDefinition
                case "MBSP_CHNG_F":
                case "OIC_TOTL_F":
                case "OPR_COMP_F":
+               case "DEF_PROD_F":
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", formCaller, 07 /* Execute LoadData */, SendType.SelfToUserInterface)
                      {
@@ -240,6 +241,21 @@ namespace System.Scsc.Ui.BaseDefinition
                   SApbBn.Visible = Sapb_Gc.Visible = true;
                   break;
             }
+
+            if (xinput.Attribute("gototab") != null)
+            {
+               switch (xinput.Attribute("gototab").Value)
+               {
+                  case "tp_002":
+                     tb_master.SelectedTab = tp_002;
+                     break;
+                  default:
+                     tb_master.SelectedTab = tp_001;
+                     break;
+               }
+            }
+            else
+               tb_master.SelectedTab = tp_001;
             
             Execute_Query();
          }

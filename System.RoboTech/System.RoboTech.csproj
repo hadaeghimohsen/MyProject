@@ -606,6 +606,7 @@
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SETP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SHIN.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SHIP.datasource" />
+    <None Include="Properties\DataSources\System.RoboTech.Data.D_SPRC.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPTP.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SPYT.datasource" />
     <None Include="Properties\DataSources\System.RoboTech.Data.D_SXTP.datasource" />

@@ -1287,5 +1287,119 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void GetUserInfoWithCardNumb_Butn_Click(object sender, EventArgs e)
+      {
+         string sdwEnrollNumber = string.Empty, sName = string.Empty,
+                             sPassword = string.Empty, sTmpData = string.Empty;
+         int iPrivilege = 0;
+         bool bEnabled = false;
+         string sCardnumber = "";
+
+         int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+
+         var dev = DevInfoBs.Current as DeviceInfo;
+         if (dev == null) return;
+
+         LogResult_Txt.Text = "";
+
+         iFngrSlavIsCnct = iFngrSlav.Connect_Net(dev.IP, dev.Port);
+
+         while (iFngrSlav.SSR_GetAllUserInfo(iMachineNumber, out sdwEnrollNumber,
+                           out sName, out sPassword, out iPrivilege, out bEnabled))
+         {
+            if (iFngrSlav.GetStrCardNumber(out sCardnumber))
+               LogResult_Txt.Text += string.Format("{0},{1},{2}", sdwEnrollNumber, sName, sCardnumber) + Environment.NewLine;
+            else
+               LogResult_Txt.Text += string.Format("{0},{1},", sdwEnrollNumber, sName) + Environment.NewLine;
+         }
+      }
+
+      private void ReadUserCard_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (IPDev_Ofd.ShowDialog() != System.Windows.Forms.DialogResult.OK) return;
+
+            // Read the file and display it line by line.              
+            //System.IO.StreamReader file =
+            //    new System.IO.StreamReader(IPDev_Ofd.FileName);
+            //string line;
+            //while ((line = file.ReadLine()) != null)
+            //{
+            //   SlaveDeviceIP_Txt.Text = line.Split(':')[0];
+            //   SlaveDevicePort_Txt.Text = line.Split(':')[1];
+            //   SlaveDeviceId_Txt.Text = line.Split(':')[2];
+
+            //   AddDev_Butn_Click(null, null);
+            //}
+            UserCardFilePath_Txt.Text = IPDev_Ofd.FileName;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SetUserInfoWithCardNumb_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا با انجام عملیات ارسال شماره کارت موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            System.IO.StreamReader file =
+                new System.IO.StreamReader(IPDev_Ofd.FileName);
+            string line;
+
+            foreach (var dev in DevInfoBs.List.OfType<DeviceInfo>())
+            {
+               iFngrSlavIsCnct = iFngrSlav.Connect_Net(dev.IP, dev.Port);
+               if (iFngrSlavIsCnct)
+               {
+                  dev.Status = "Connected";
+                  int idwErrorCode = 0;
+
+                  bool bEnabled = true;
+                  int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                  Cursor = Cursors.WaitCursor;
+                  iFngrSlav.EnableDevice(iMachineNumber, false);
+
+                  while ((line = file.ReadLine()) != null)
+                  {
+                     UserId_Txt.Text = line.Split(',')[0];
+                     UserName_Txt.Text = line.Split(',')[1];
+                     CardNumb_Txt.Text = line.Split(',')[2];
+
+                     iFngrSlav.SetStrCardNumber(CardNumb_Txt.Text);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+                     if (iFngrSlav.SSR_SetUserInfo(iMachineNumber, UserId_Txt.Text, UserName_Txt.Text, "", 0, bEnabled))//upload the user's information(card number included)
+                     {
+                        dev.Oprt_Stat = "002";
+                     }
+                     else
+                     {
+                        dev.Oprt_Stat = "001";
+                        iFngrSlav.GetLastError(ref idwErrorCode);
+                        MessageBox.Show("Operation failed,ErrorCode=" + idwErrorCode.ToString(), "Error");
+                     }
+                     iFngrSlav.RefreshData(iMachineNumber);//the data in the device should be refreshed
+                     iFngrSlav.EnableDevice(iMachineNumber, true);
+
+                     Thread.Sleep((int)StopValu_Nud.Value);
+                  }
+                  Cursor = Cursors.Default;
+               }
+               else
+               {
+                  dev.Status = "NotConnected!";
+                  dev.Oprt_Stat = "001";
+               }
+            }
+            //MessageBox.Show("ارسال شماره کارت به دستگاه با موفقیت انجام شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

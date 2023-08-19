@@ -40,27 +40,32 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition9 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition10 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition11 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition12 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition13 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition14 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition15 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition16 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition17 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition18 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition19 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition20 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CellPhon_Lb = new System.Windows.Forms.Label();
          this.TellPhon_Lb = new System.Windows.Forms.Label();
@@ -405,7 +410,6 @@
          this.colRequest = new DevExpress.XtraGrid.Columns.GridColumn();
          this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
          this.rollout4 = new System.MaxUi.Rollout();
-         this.FindFigh_Butn = new System.Windows.Forms.Button();
          this.NatlCode_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.CellPhon_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.cELL_PHONLabel = new System.Windows.Forms.Label();
@@ -414,9 +418,9 @@
          this.FrstName_Txt = new DevExpress.XtraEditors.TextEdit();
          this.fRST_NAMELabel = new System.Windows.Forms.Label();
          this.lAST_NAMELabel = new System.Windows.Forms.Label();
-         this.rollout1 = new System.MaxUi.Rollout();
-         this.Rshp_Butn = new System.Windows.Forms.Button();
-         this.tabPage4 = new System.Windows.Forms.TabPage();
+         this.RshpBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.Rshp_Butn = new System.Windows.Forms.ToolStripButton();
+         this.FindFigh_Butn = new System.Windows.Forms.ToolStripButton();
          this.tabPage5 = new System.Windows.Forms.TabPage();
          this.splitContainerControl8 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl9 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -465,6 +469,7 @@
          this.Tag_Butn = new System.Windows.Forms.ToolStripButton();
          this.tp_003 = new System.Windows.Forms.TabPage();
          this.splitContainerControl10 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.splitContainerControl11 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl8 = new DevExpress.XtraGrid.GridControl();
          this.FindCompBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -531,8 +536,37 @@
          this.colMDFY_DATE8 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCompany11 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRegion4 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.tabControl1 = new System.Windows.Forms.TabControl();
+         this.tabPage1 = new System.Windows.Forms.TabPage();
+         this.splitContainerControl12 = new DevExpress.XtraEditors.SplitContainerControl();
+         this.TempText_Txt = new System.Windows.Forms.RichTextBox();
+         this.bindingNavigator2 = new System.Windows.Forms.BindingNavigator(this.components);
+         this.SendNoti_Butn = new System.Windows.Forms.ToolStripButton();
+         this.ClenNotiText_Txt = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+         this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+         this.SendSMS_Cbx = new System.Windows.Forms.ToolStripMenuItem();
+         this.SendApp_Cbx = new System.Windows.Forms.ToolStripMenuItem();
          this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-         this.rollout2 = new System.MaxUi.Rollout();
+         this.rollout1 = new System.MaxUi.Rollout();
+         this.gridControl11 = new DevExpress.XtraGrid.GridControl();
+         this.TempBs = new System.Windows.Forms.BindingSource(this.components);
+         this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colTMID = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.TempActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.colTEMP_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTEMP_SECT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTEMP_SUBJ = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTEMP_TEXT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSHER_TEAM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colTEMP_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colUSER_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_BY9 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_DATE9 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_BY9 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_DATE9 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.CompFiltr_Flp = new System.Windows.Forms.FlowLayoutPanel();
+         this.CompParam_Ro = new System.MaxUi.Rollout();
          this.CompDesc_Cbx = new System.Windows.Forms.CheckBox();
          this.CompFax_Cbx = new System.Windows.Forms.CheckBox();
          this.CompSite_Cbx = new System.Windows.Forms.CheckBox();
@@ -557,7 +591,7 @@
          this.CompCellPhon_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.CompPostAdrs_Txt = new DevExpress.XtraEditors.TextEdit();
          this.CompName_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.rollout3 = new System.MaxUi.Rollout();
+         this.CompTag_Ro = new System.MaxUi.Rollout();
          this.CompTagFltr_Cbx = new System.Windows.Forms.CheckBox();
          this.gridControl9 = new DevExpress.XtraGrid.GridControl();
          this.CompTag_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -584,7 +618,7 @@
          this.gridColumn38 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn39 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn40 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.rollout5 = new System.MaxUi.Rollout();
+         this.FighParam_Ro = new System.MaxUi.Rollout();
          this.FighNatlCode_Cbx = new System.Windows.Forms.CheckBox();
          this.FighCellPhon_Cbx = new System.Windows.Forms.CheckBox();
          this.FighLastName_Cbx = new System.Windows.Forms.CheckBox();
@@ -593,7 +627,7 @@
          this.FighCellPhon_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.FighLastName_Txt = new DevExpress.XtraEditors.TextEdit();
          this.FighFrstName_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.rollout6 = new System.MaxUi.Rollout();
+         this.FighTag_Ro = new System.MaxUi.Rollout();
          this.RshpCmfgFltr_Cbx = new System.Windows.Forms.CheckBox();
          this.gridControl10 = new DevExpress.XtraGrid.GridControl();
          this.RshpCmfg_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -622,6 +656,7 @@
          this.gridColumn62 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.FindCompBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.FindComp_Butn = new System.Windows.Forms.ToolStripButton();
+         this.ClerCompFiltr_Butn = new System.Windows.Forms.ToolStripButton();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -716,7 +751,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.CellPhon_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.LastName_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FrstName_Txt.Properties)).BeginInit();
-         this.rollout1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.RshpBn)).BeginInit();
+         this.RshpBn.SuspendLayout();
          this.tabPage5.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl8)).BeginInit();
          this.splitContainerControl8.SuspendLayout();
@@ -736,12 +772,26 @@
          this.tp_003.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl10)).BeginInit();
          this.splitContainerControl10.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl11)).BeginInit();
+         this.splitContainerControl11.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl8)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FindCompBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FindCompActn_Butn)).BeginInit();
+         this.tabControl1.SuspendLayout();
+         this.tabPage1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl12)).BeginInit();
+         this.splitContainerControl12.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).BeginInit();
+         this.bindingNavigator2.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
-         this.rollout2.SuspendLayout();
+         this.rollout1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl11)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.TempBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView4)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.TempActn_Butn)).BeginInit();
+         this.CompFiltr_Flp.SuspendLayout();
+         this.CompParam_Ro.SuspendLayout();
          this.groupBox2.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CompToAmntDpst_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CompFromAmntDpst_Txt.Properties)).BeginInit();
@@ -755,16 +805,16 @@
          ((System.ComponentModel.ISupportInitialize)(this.CompCellPhon_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CompPostAdrs_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CompName_Txt.Properties)).BeginInit();
-         this.rollout3.SuspendLayout();
+         this.CompTag_Ro.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl9)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CompTag_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).BeginInit();
-         this.rollout5.SuspendLayout();
+         this.FighParam_Ro.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FighNatlCode_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighCellPhon_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighLastName_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighFrstName_Txt.Properties)).BeginInit();
-         this.rollout6.SuspendLayout();
+         this.FighTag_Ro.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl10)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RshpCmfg_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).BeginInit();
@@ -1554,7 +1604,7 @@
          this.splitContainerControl4.Panel2.Controls.Add(this.tb_master);
          this.splitContainerControl4.Panel2.Text = "Panel2";
          this.splitContainerControl4.Size = new System.Drawing.Size(903, 614);
-         this.splitContainerControl4.SplitterPosition = 299;
+         this.splitContainerControl4.SplitterPosition = 205;
          this.splitContainerControl4.TabIndex = 1;
          this.splitContainerControl4.Text = "splitContainerControl4";
          // 
@@ -1567,7 +1617,7 @@
          this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl1.MainView = this.Comp_Gv;
          this.gridControl1.Name = "gridControl1";
-         this.gridControl1.Size = new System.Drawing.Size(903, 274);
+         this.gridControl1.Size = new System.Drawing.Size(903, 180);
          this.gridControl1.TabIndex = 63;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Comp_Gv});
@@ -2147,7 +2197,7 @@
          this.tb_master.Name = "tb_master";
          this.tb_master.RightToLeftLayout = true;
          this.tb_master.SelectedIndex = 0;
-         this.tb_master.Size = new System.Drawing.Size(903, 310);
+         this.tb_master.Size = new System.Drawing.Size(903, 404);
          this.tb_master.TabIndex = 0;
          // 
          // tp_001
@@ -2157,7 +2207,7 @@
          this.tp_001.Location = new System.Drawing.Point(4, 23);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(895, 283);
+         this.tp_001.Size = new System.Drawing.Size(895, 377);
          this.tp_001.TabIndex = 0;
          this.tp_001.Text = "اطلاعات";
          this.tp_001.UseVisualStyleBackColor = true;
@@ -2531,6 +2581,7 @@
          this.CELL_PHON_TextEdit.Properties.MaxLength = 11;
          this.CELL_PHON_TextEdit.Size = new System.Drawing.Size(118, 24);
          this.CELL_PHON_TextEdit.TabIndex = 3;
+         this.CELL_PHON_TextEdit.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CompCellPhon_Txt_ButtonClick);
          // 
          // tp_002
          // 
@@ -2538,7 +2589,7 @@
          this.tp_002.Location = new System.Drawing.Point(4, 23);
          this.tp_002.Name = "tp_002";
          this.tp_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_002.Size = new System.Drawing.Size(895, 283);
+         this.tp_002.Size = new System.Drawing.Size(895, 377);
          this.tp_002.TabIndex = 1;
          this.tp_002.Text = "بیشتر";
          this.tp_002.UseVisualStyleBackColor = true;
@@ -2546,14 +2597,13 @@
          // tabControl2
          // 
          this.tabControl2.Controls.Add(this.tabPage3);
-         this.tabControl2.Controls.Add(this.tabPage4);
          this.tabControl2.Controls.Add(this.tabPage5);
          this.tabControl2.Dock = System.Windows.Forms.DockStyle.Fill;
          this.tabControl2.Location = new System.Drawing.Point(3, 3);
          this.tabControl2.Name = "tabControl2";
          this.tabControl2.RightToLeftLayout = true;
          this.tabControl2.SelectedIndex = 0;
-         this.tabControl2.Size = new System.Drawing.Size(889, 277);
+         this.tabControl2.Size = new System.Drawing.Size(889, 371);
          this.tabControl2.TabIndex = 0;
          // 
          // tabPage3
@@ -2562,7 +2612,7 @@
          this.tabPage3.Location = new System.Drawing.Point(4, 23);
          this.tabPage3.Name = "tabPage3";
          this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage3.Size = new System.Drawing.Size(881, 250);
+         this.tabPage3.Size = new System.Drawing.Size(881, 344);
          this.tabPage3.TabIndex = 0;
          this.tabPage3.Text = "مشتریان مرتبط";
          this.tabPage3.UseVisualStyleBackColor = true;
@@ -2576,8 +2626,9 @@
          this.splitContainerControl5.Panel1.Controls.Add(this.splitContainerControl6);
          this.splitContainerControl5.Panel1.Text = "Panel1";
          this.splitContainerControl5.Panel2.Controls.Add(this.flowLayoutPanel2);
+         this.splitContainerControl5.Panel2.Controls.Add(this.RshpBn);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(875, 244);
+         this.splitContainerControl5.Size = new System.Drawing.Size(875, 338);
          this.splitContainerControl5.SplitterPosition = 261;
          this.splitContainerControl5.TabIndex = 0;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -2592,7 +2643,7 @@
          this.splitContainerControl6.Panel1.Text = "Panel1";
          this.splitContainerControl6.Panel2.Controls.Add(this.vF_Last_Info_FighterResultGridControl);
          this.splitContainerControl6.Panel2.Text = "Panel2";
-         this.splitContainerControl6.Size = new System.Drawing.Size(609, 244);
+         this.splitContainerControl6.Size = new System.Drawing.Size(609, 338);
          this.splitContainerControl6.SplitterPosition = 290;
          this.splitContainerControl6.TabIndex = 1;
          this.splitContainerControl6.Text = "splitContainerControl6";
@@ -2607,7 +2658,7 @@
          this.splitContainerControl7.Panel1.Text = "Panel1";
          this.splitContainerControl7.Panel2.Controls.Add(this.PostAdrs_Txt);
          this.splitContainerControl7.Panel2.Text = "Panel2";
-         this.splitContainerControl7.Size = new System.Drawing.Size(314, 244);
+         this.splitContainerControl7.Size = new System.Drawing.Size(314, 338);
          this.splitContainerControl7.SplitterPosition = 157;
          this.splitContainerControl7.TabIndex = 88;
          this.splitContainerControl7.Text = "splitContainerControl7";
@@ -2721,7 +2772,7 @@
          this.colCODE1.OptionsColumn.FixedWidth = true;
          this.colCODE1.Visible = true;
          this.colCODE1.VisibleIndex = 3;
-         this.colCODE1.Width = 65;
+         this.colCODE1.Width = 93;
          // 
          // CmfgActn_Btn
          // 
@@ -2729,7 +2780,8 @@
          this.CmfgActn_Btn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CmfgActn_Btn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CmfgActn_Btn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CmfgActn_Btn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CmfgActn_Btn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CmfgActn_Btn.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
          this.CmfgActn_Btn.Name = "CmfgActn_Btn";
          this.CmfgActn_Btn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.CmfgActn_Btn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.CmfgActn_Btn_ButtonClick);
@@ -2748,7 +2800,7 @@
          // 
          this.Rshp_Lov.AutoHeight = false;
          this.Rshp_Lov.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
          this.Rshp_Lov.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("CODE", "CODE", 51, DevExpress.Utils.FormatType.Numeric, "", false, DevExpress.Utils.HorzAlignment.Far),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("RWNO", "RWNO", 42, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
@@ -2844,7 +2896,7 @@
          this.PostAdrs_Txt.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.PostAdrs_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.PostAdrs_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.PostAdrs_Txt.Size = new System.Drawing.Size(314, 82);
+         this.PostAdrs_Txt.Size = new System.Drawing.Size(314, 176);
          this.PostAdrs_Txt.TabIndex = 18;
          // 
          // vF_Last_Info_FighterResultGridControl
@@ -2866,9 +2918,8 @@
          this.vF_Last_Info_FighterResultGridControl.Name = "vF_Last_Info_FighterResultGridControl";
          this.vF_Last_Info_FighterResultGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.FighActn_Btn});
-         this.vF_Last_Info_FighterResultGridControl.Size = new System.Drawing.Size(290, 244);
+         this.vF_Last_Info_FighterResultGridControl.Size = new System.Drawing.Size(290, 338);
          this.vF_Last_Info_FighterResultGridControl.TabIndex = 86;
-         this.vF_Last_Info_FighterResultGridControl.UseEmbeddedNavigator = true;
          this.vF_Last_Info_FighterResultGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.PBLC});
          // 
@@ -3022,13 +3073,14 @@
          this.colFILE_NO.OptionsColumn.FixedWidth = true;
          this.colFILE_NO.Visible = true;
          this.colFILE_NO.VisibleIndex = 0;
-         this.colFILE_NO.Width = 28;
+         this.colFILE_NO.Width = 56;
          // 
          // FighActn_Btn
          // 
          this.FighActn_Btn.AutoHeight = false;
          this.FighActn_Btn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FighActn_Btn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FighActn_Btn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FighActn_Btn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
          this.FighActn_Btn.Name = "FighActn_Btn";
          this.FighActn_Btn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.FighActn_Btn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.FighActn_Btn_ButtonClick);
@@ -3153,9 +3205,11 @@
          this.colNAME_DNRM.Caption = "نام و فامیل";
          this.colNAME_DNRM.FieldName = "NAME_DNRM";
          this.colNAME_DNRM.Name = "colNAME_DNRM";
+         this.colNAME_DNRM.OptionsColumn.AllowEdit = false;
+         this.colNAME_DNRM.OptionsColumn.ReadOnly = true;
          this.colNAME_DNRM.Visible = true;
          this.colNAME_DNRM.VisibleIndex = 2;
-         this.colNAME_DNRM.Width = 131;
+         this.colNAME_DNRM.Width = 117;
          // 
          // colFRST_NAME_DNRM
          // 
@@ -3192,9 +3246,11 @@
          this.colCELL_PHON_DNRM.Caption = "شماره همراه";
          this.colCELL_PHON_DNRM.FieldName = "CELL_PHON_DNRM";
          this.colCELL_PHON_DNRM.Name = "colCELL_PHON_DNRM";
+         this.colCELL_PHON_DNRM.OptionsColumn.AllowEdit = false;
+         this.colCELL_PHON_DNRM.OptionsColumn.ReadOnly = true;
          this.colCELL_PHON_DNRM.Visible = true;
          this.colCELL_PHON_DNRM.VisibleIndex = 1;
-         this.colCELL_PHON_DNRM.Width = 127;
+         this.colCELL_PHON_DNRM.Width = 113;
          // 
          // colTELL_PHON_DNRM
          // 
@@ -3470,11 +3526,10 @@
          // 
          this.flowLayoutPanel2.AutoScroll = true;
          this.flowLayoutPanel2.Controls.Add(this.rollout4);
-         this.flowLayoutPanel2.Controls.Add(this.rollout1);
          this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
+         this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 25);
          this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-         this.flowLayoutPanel2.Size = new System.Drawing.Size(261, 244);
+         this.flowLayoutPanel2.Size = new System.Drawing.Size(261, 313);
          this.flowLayoutPanel2.TabIndex = 4;
          // 
          // rollout4
@@ -3483,7 +3538,6 @@
          this.rollout4.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.rollout4.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.rollout4.BorderThickness = 1F;
-         this.rollout4.Controls.Add(this.FindFigh_Butn);
          this.rollout4.Controls.Add(this.NatlCode_Txt);
          this.rollout4.Controls.Add(this.CellPhon_Txt);
          this.rollout4.Controls.Add(this.cELL_PHONLabel);
@@ -3496,8 +3550,8 @@
          this.rollout4.ForeColor = System.Drawing.Color.Black;
          this.rollout4.FrameOnMouseOverOnly = false;
          this.rollout4.GroupImage = null;
-         this.rollout4.Location = new System.Drawing.Point(4, 3);
-         this.rollout4.MaxHeight = 180;
+         this.rollout4.Location = new System.Drawing.Point(21, 3);
+         this.rollout4.MaxHeight = 151;
          this.rollout4.Name = "rollout4";
          this.rollout4.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout4.PaintRollout = true;
@@ -3510,20 +3564,9 @@
          this.rollout4.ShadowControl = false;
          this.rollout4.ShadowThickness = 3;
          this.rollout4.ShowFocusFrame = false;
-         this.rollout4.Size = new System.Drawing.Size(237, 180);
+         this.rollout4.Size = new System.Drawing.Size(237, 151);
          this.rollout4.TabIndex = 25;
          this.rollout4.TitleBorderColor = System.Drawing.Color.Gray;
-         // 
-         // FindFigh_Butn
-         // 
-         this.FindFigh_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.FindFigh_Butn.Location = new System.Drawing.Point(19, 147);
-         this.FindFigh_Butn.Name = "FindFigh_Butn";
-         this.FindFigh_Butn.Size = new System.Drawing.Size(111, 28);
-         this.FindFigh_Butn.TabIndex = 76;
-         this.FindFigh_Butn.Text = "جستجو ...";
-         this.FindFigh_Butn.UseVisualStyleBackColor = true;
-         this.FindFigh_Butn.Click += new System.EventHandler(this.FindFigh_Butn_Click);
          // 
          // NatlCode_Txt
          // 
@@ -3629,55 +3672,42 @@
          this.lAST_NAMELabel.TabIndex = 73;
          this.lAST_NAMELabel.Text = "نام خانوادگی :";
          // 
-         // rollout1
+         // RshpBn
          // 
-         this.rollout1.BackgroundColor = System.Drawing.SystemColors.Control;
-         this.rollout1.BackgroundGradientColor = System.Drawing.SystemColors.Control;
-         this.rollout1.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
-         this.rollout1.BorderThickness = 1F;
-         this.rollout1.Controls.Add(this.Rshp_Butn);
-         this.rollout1.CustomRolloutColor = System.Drawing.Color.LightGray;
-         this.rollout1.ForeColor = System.Drawing.Color.Black;
-         this.rollout1.FrameOnMouseOverOnly = false;
-         this.rollout1.GroupImage = null;
-         this.rollout1.Location = new System.Drawing.Point(4, 189);
-         this.rollout1.MaxHeight = 68;
-         this.rollout1.Name = "rollout1";
-         this.rollout1.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
-         this.rollout1.PaintRollout = true;
-         this.rollout1.RolloutBorderColor = System.Drawing.Color.Gray;
-         this.rollout1.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.rollout1.RolloutStatus = true;
-         this.rollout1.RolloutTitle = "دامنه اطلاعات";
-         this.rollout1.RoundCorners = 2;
-         this.rollout1.ShadowColor = System.Drawing.Color.DarkGray;
-         this.rollout1.ShadowControl = false;
-         this.rollout1.ShadowThickness = 3;
-         this.rollout1.ShowFocusFrame = false;
-         this.rollout1.Size = new System.Drawing.Size(237, 68);
-         this.rollout1.TabIndex = 26;
-         this.rollout1.TitleBorderColor = System.Drawing.Color.Gray;
+         this.RshpBn.AddNewItem = null;
+         this.RshpBn.CountItem = null;
+         this.RshpBn.DeleteItem = null;
+         this.RshpBn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.Rshp_Butn,
+            this.FindFigh_Butn});
+         this.RshpBn.Location = new System.Drawing.Point(0, 0);
+         this.RshpBn.MoveFirstItem = null;
+         this.RshpBn.MoveLastItem = null;
+         this.RshpBn.MoveNextItem = null;
+         this.RshpBn.MovePreviousItem = null;
+         this.RshpBn.Name = "RshpBn";
+         this.RshpBn.PositionItem = null;
+         this.RshpBn.Size = new System.Drawing.Size(261, 25);
+         this.RshpBn.TabIndex = 5;
+         this.RshpBn.Text = "bindingNavigator1";
          // 
          // Rshp_Butn
          // 
-         this.Rshp_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Rshp_Butn.Location = new System.Drawing.Point(7, 33);
+         this.Rshp_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1086;
+         this.Rshp_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
          this.Rshp_Butn.Name = "Rshp_Butn";
-         this.Rshp_Butn.Size = new System.Drawing.Size(224, 28);
-         this.Rshp_Butn.TabIndex = 76;
+         this.Rshp_Butn.Size = new System.Drawing.Size(123, 22);
          this.Rshp_Butn.Text = "ارتباطات و سمت ها";
-         this.Rshp_Butn.UseVisualStyleBackColor = true;
          this.Rshp_Butn.Click += new System.EventHandler(this.Rshp_Butn_Click);
          // 
-         // tabPage4
+         // FindFigh_Butn
          // 
-         this.tabPage4.Location = new System.Drawing.Point(4, 23);
-         this.tabPage4.Name = "tabPage4";
-         this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage4.Size = new System.Drawing.Size(881, 250);
-         this.tabPage4.TabIndex = 1;
-         this.tabPage4.Text = "اطلاع رسانی";
-         this.tabPage4.UseVisualStyleBackColor = true;
+         this.FindFigh_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1133;
+         this.FindFigh_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.FindFigh_Butn.Name = "FindFigh_Butn";
+         this.FindFigh_Butn.Size = new System.Drawing.Size(61, 22);
+         this.FindFigh_Butn.Text = "جستجو";
+         this.FindFigh_Butn.Click += new System.EventHandler(this.FindFigh_Butn_Click);
          // 
          // tabPage5
          // 
@@ -3685,7 +3715,7 @@
          this.tabPage5.Location = new System.Drawing.Point(4, 23);
          this.tabPage5.Name = "tabPage5";
          this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage5.Size = new System.Drawing.Size(881, 250);
+         this.tabPage5.Size = new System.Drawing.Size(881, 344);
          this.tabPage5.TabIndex = 2;
          this.tabPage5.Text = "شاخص ها...";
          this.tabPage5.UseVisualStyleBackColor = true;
@@ -3701,7 +3731,7 @@
          this.splitContainerControl8.Panel2.Controls.Add(this.gridControl3);
          this.splitContainerControl8.Panel2.Controls.Add(this.CmtgBn);
          this.splitContainerControl8.Panel2.Text = "Panel2";
-         this.splitContainerControl8.Size = new System.Drawing.Size(875, 244);
+         this.splitContainerControl8.Size = new System.Drawing.Size(875, 338);
          this.splitContainerControl8.SplitterPosition = 184;
          this.splitContainerControl8.TabIndex = 0;
          this.splitContainerControl8.Text = "splitContainerControl8";
@@ -3716,7 +3746,7 @@
          this.splitContainerControl9.Panel1.Text = "Panel1";
          this.splitContainerControl9.Panel2.Controls.Add(this.memoEdit1);
          this.splitContainerControl9.Panel2.Text = "Panel2";
-         this.splitContainerControl9.Size = new System.Drawing.Size(686, 244);
+         this.splitContainerControl9.Size = new System.Drawing.Size(686, 338);
          this.splitContainerControl9.SplitterPosition = 157;
          this.splitContainerControl9.TabIndex = 89;
          this.splitContainerControl9.Text = "splitContainerControl9";
@@ -3831,8 +3861,8 @@
          // 
          this.ActnCmtg_Butn.AutoHeight = false;
          this.ActnCmtg_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnCmtg_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnCmtg_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnCmtg_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnCmtg_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
          this.ActnCmtg_Butn.Name = "ActnCmtg_Butn";
          this.ActnCmtg_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.ActnCmtg_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActnCmtg_Butn_ButtonClick);
@@ -3888,7 +3918,7 @@
          this.memoEdit1.Properties.EditFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.memoEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.memoEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.memoEdit1.Size = new System.Drawing.Size(686, 82);
+         this.memoEdit1.Size = new System.Drawing.Size(686, 176);
          this.memoEdit1.TabIndex = 18;
          // 
          // gridControl3
@@ -3910,7 +3940,7 @@
          this.gridControl3.Name = "gridControl3";
          this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.ActnTag_Butn});
-         this.gridControl3.Size = new System.Drawing.Size(184, 219);
+         this.gridControl3.Size = new System.Drawing.Size(184, 313);
          this.gridControl3.TabIndex = 87;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -3988,7 +4018,7 @@
          // 
          this.ActnTag_Butn.AutoHeight = false;
          this.ActnTag_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnTag_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("ActnTag_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
          this.ActnTag_Butn.Name = "ActnTag_Butn";
          this.ActnTag_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.ActnTag_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.ActnTag_Butn_ButtonClick);
@@ -4003,6 +4033,8 @@
          this.colTITL_DESC.Caption = "عنوان شاخص";
          this.colTITL_DESC.FieldName = "TITL_DESC";
          this.colTITL_DESC.Name = "colTITL_DESC";
+         this.colTITL_DESC.OptionsColumn.AllowEdit = false;
+         this.colTITL_DESC.OptionsColumn.ReadOnly = true;
          this.colTITL_DESC.Visible = true;
          this.colTITL_DESC.VisibleIndex = 1;
          this.colTITL_DESC.Width = 245;
@@ -4137,7 +4169,7 @@
          this.tp_003.Location = new System.Drawing.Point(4, 23);
          this.tp_003.Name = "tp_003";
          this.tp_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_003.Size = new System.Drawing.Size(895, 283);
+         this.tp_003.Size = new System.Drawing.Size(895, 377);
          this.tp_003.TabIndex = 2;
          this.tp_003.Text = "جستجو";
          this.tp_003.UseVisualStyleBackColor = true;
@@ -4148,15 +4180,30 @@
          this.splitContainerControl10.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
          this.splitContainerControl10.Location = new System.Drawing.Point(3, 3);
          this.splitContainerControl10.Name = "splitContainerControl10";
-         this.splitContainerControl10.Panel1.Controls.Add(this.gridControl8);
+         this.splitContainerControl10.Panel1.Controls.Add(this.splitContainerControl11);
          this.splitContainerControl10.Panel1.Text = "Panel1";
-         this.splitContainerControl10.Panel2.Controls.Add(this.flowLayoutPanel1);
+         this.splitContainerControl10.Panel2.Controls.Add(this.CompFiltr_Flp);
          this.splitContainerControl10.Panel2.Controls.Add(this.FindCompBn);
          this.splitContainerControl10.Panel2.Text = "Panel2";
-         this.splitContainerControl10.Size = new System.Drawing.Size(889, 277);
+         this.splitContainerControl10.Size = new System.Drawing.Size(889, 371);
          this.splitContainerControl10.SplitterPosition = 261;
          this.splitContainerControl10.TabIndex = 1;
          this.splitContainerControl10.Text = "splitContainerControl10";
+         // 
+         // splitContainerControl11
+         // 
+         this.splitContainerControl11.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl11.Horizontal = false;
+         this.splitContainerControl11.Location = new System.Drawing.Point(0, 0);
+         this.splitContainerControl11.Name = "splitContainerControl11";
+         this.splitContainerControl11.Panel1.Controls.Add(this.gridControl8);
+         this.splitContainerControl11.Panel1.Text = "Panel1";
+         this.splitContainerControl11.Panel2.Controls.Add(this.tabControl1);
+         this.splitContainerControl11.Panel2.Text = "Panel2";
+         this.splitContainerControl11.Size = new System.Drawing.Size(623, 371);
+         this.splitContainerControl11.SplitterPosition = 116;
+         this.splitContainerControl11.TabIndex = 89;
+         this.splitContainerControl11.Text = "splitContainerControl11";
          // 
          // gridControl8
          // 
@@ -4177,7 +4224,7 @@
          this.gridControl8.Name = "gridControl8";
          this.gridControl8.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.FindCompActn_Butn});
-         this.gridControl8.Size = new System.Drawing.Size(623, 277);
+         this.gridControl8.Size = new System.Drawing.Size(623, 116);
          this.gridControl8.TabIndex = 88;
          this.gridControl8.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -4337,7 +4384,7 @@
          // 
          this.FindCompActn_Butn.AutoHeight = false;
          this.FindCompActn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FindCompActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FindCompActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
          this.FindCompActn_Butn.Name = "FindCompActn_Butn";
          this.FindCompActn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.FindCompActn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.FindCompActn_Butn_ButtonClick);
@@ -4674,62 +4721,377 @@
          this.colRegion4.FieldName = "Region";
          this.colRegion4.Name = "colRegion4";
          // 
+         // tabControl1
+         // 
+         this.tabControl1.Controls.Add(this.tabPage1);
+         this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.tabControl1.Location = new System.Drawing.Point(0, 0);
+         this.tabControl1.Name = "tabControl1";
+         this.tabControl1.RightToLeftLayout = true;
+         this.tabControl1.SelectedIndex = 0;
+         this.tabControl1.Size = new System.Drawing.Size(623, 250);
+         this.tabControl1.TabIndex = 0;
+         // 
+         // tabPage1
+         // 
+         this.tabPage1.Controls.Add(this.splitContainerControl12);
+         this.tabPage1.Location = new System.Drawing.Point(4, 23);
+         this.tabPage1.Name = "tabPage1";
+         this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPage1.Size = new System.Drawing.Size(615, 223);
+         this.tabPage1.TabIndex = 0;
+         this.tabPage1.Text = "اطلاع رسانی";
+         this.tabPage1.UseVisualStyleBackColor = true;
+         // 
+         // splitContainerControl12
+         // 
+         this.splitContainerControl12.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl12.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
+         this.splitContainerControl12.Location = new System.Drawing.Point(3, 3);
+         this.splitContainerControl12.Name = "splitContainerControl12";
+         this.splitContainerControl12.Panel1.Controls.Add(this.TempText_Txt);
+         this.splitContainerControl12.Panel1.Controls.Add(this.bindingNavigator2);
+         this.splitContainerControl12.Panel1.Text = "Panel1";
+         this.splitContainerControl12.Panel2.Controls.Add(this.flowLayoutPanel1);
+         this.splitContainerControl12.Panel2.Text = "Panel2";
+         this.splitContainerControl12.Size = new System.Drawing.Size(609, 217);
+         this.splitContainerControl12.SplitterPosition = 261;
+         this.splitContainerControl12.TabIndex = 0;
+         this.splitContainerControl12.Text = "splitContainerControl12";
+         // 
+         // TempText_Txt
+         // 
+         this.TempText_Txt.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.TempText_Txt.Font = new System.Drawing.Font("IRANSans", 9.75F);
+         this.TempText_Txt.Location = new System.Drawing.Point(0, 25);
+         this.TempText_Txt.Name = "TempText_Txt";
+         this.TempText_Txt.Size = new System.Drawing.Size(343, 192);
+         this.TempText_Txt.TabIndex = 21;
+         this.TempText_Txt.Text = "";
+         // 
+         // bindingNavigator2
+         // 
+         this.bindingNavigator2.AddNewItem = null;
+         this.bindingNavigator2.CountItem = null;
+         this.bindingNavigator2.DeleteItem = null;
+         this.bindingNavigator2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SendNoti_Butn,
+            this.ClenNotiText_Txt,
+            this.toolStripSeparator2,
+            this.toolStripDropDownButton1});
+         this.bindingNavigator2.Location = new System.Drawing.Point(0, 0);
+         this.bindingNavigator2.MoveFirstItem = null;
+         this.bindingNavigator2.MoveLastItem = null;
+         this.bindingNavigator2.MoveNextItem = null;
+         this.bindingNavigator2.MovePreviousItem = null;
+         this.bindingNavigator2.Name = "bindingNavigator2";
+         this.bindingNavigator2.PositionItem = null;
+         this.bindingNavigator2.Size = new System.Drawing.Size(343, 25);
+         this.bindingNavigator2.TabIndex = 20;
+         this.bindingNavigator2.Text = "bindingNavigator2";
+         // 
+         // SendNoti_Butn
+         // 
+         this.SendNoti_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1154;
+         this.SendNoti_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.SendNoti_Butn.Name = "SendNoti_Butn";
+         this.SendNoti_Butn.Size = new System.Drawing.Size(76, 22);
+         this.SendNoti_Butn.Text = "ارسال پیام";
+         // 
+         // ClenNotiText_Txt
+         // 
+         this.ClenNotiText_Txt.Image = global::System.Scsc.Properties.Resources.IMAGE_1197;
+         this.ClenNotiText_Txt.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.ClenNotiText_Txt.Name = "ClenNotiText_Txt";
+         this.ClenNotiText_Txt.Size = new System.Drawing.Size(72, 22);
+         this.ClenNotiText_Txt.Text = "پاک کردن";
+         this.ClenNotiText_Txt.Click += new System.EventHandler(this.ClenNotiText_Txt_Click);
+         // 
+         // toolStripSeparator2
+         // 
+         this.toolStripSeparator2.Name = "toolStripSeparator2";
+         this.toolStripSeparator2.Size = new System.Drawing.Size(6, 25);
+         // 
+         // toolStripDropDownButton1
+         // 
+         this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.toolStripDropDownButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.SendSMS_Cbx,
+            this.SendApp_Cbx});
+         this.toolStripDropDownButton1.Image = global::System.Scsc.Properties.Resources.IMAGE_1161;
+         this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+         this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 22);
+         this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+         // 
+         // SendSMS_Cbx
+         // 
+         this.SendSMS_Cbx.Checked = true;
+         this.SendSMS_Cbx.CheckOnClick = true;
+         this.SendSMS_Cbx.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.SendSMS_Cbx.Image = global::System.Scsc.Properties.Resources.IMAGE_1154;
+         this.SendSMS_Cbx.Name = "SendSMS_Cbx";
+         this.SendSMS_Cbx.Size = new System.Drawing.Size(117, 22);
+         this.SendSMS_Cbx.Text = "پیامک";
+         // 
+         // SendApp_Cbx
+         // 
+         this.SendApp_Cbx.Checked = true;
+         this.SendApp_Cbx.CheckOnClick = true;
+         this.SendApp_Cbx.CheckState = System.Windows.Forms.CheckState.Checked;
+         this.SendApp_Cbx.Image = global::System.Scsc.Properties.Resources.IMAGE_1692;
+         this.SendApp_Cbx.Name = "SendApp_Cbx";
+         this.SendApp_Cbx.Size = new System.Drawing.Size(117, 22);
+         this.SendApp_Cbx.Text = "اپلیکیشن";
+         // 
          // flowLayoutPanel1
          // 
          this.flowLayoutPanel1.AutoScroll = true;
-         this.flowLayoutPanel1.Controls.Add(this.rollout2);
-         this.flowLayoutPanel1.Controls.Add(this.rollout3);
-         this.flowLayoutPanel1.Controls.Add(this.rollout5);
-         this.flowLayoutPanel1.Controls.Add(this.rollout6);
+         this.flowLayoutPanel1.Controls.Add(this.rollout1);
          this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 25);
+         this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-         this.flowLayoutPanel1.Size = new System.Drawing.Size(261, 252);
-         this.flowLayoutPanel1.TabIndex = 4;
+         this.flowLayoutPanel1.Size = new System.Drawing.Size(261, 217);
+         this.flowLayoutPanel1.TabIndex = 7;
          // 
-         // rollout2
+         // rollout1
          // 
-         this.rollout2.BackgroundColor = System.Drawing.SystemColors.Control;
-         this.rollout2.BackgroundGradientColor = System.Drawing.SystemColors.Control;
-         this.rollout2.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
-         this.rollout2.BorderThickness = 1F;
-         this.rollout2.Controls.Add(this.CompDesc_Cbx);
-         this.rollout2.Controls.Add(this.CompFax_Cbx);
-         this.rollout2.Controls.Add(this.CompSite_Cbx);
-         this.rollout2.Controls.Add(this.CompTellPhon_Cbx);
-         this.rollout2.Controls.Add(this.CompCellPhon_Cbx);
-         this.rollout2.Controls.Add(this.CompPostAdrs_Cbx);
-         this.rollout2.Controls.Add(this.CompName_Cbx);
-         this.rollout2.Controls.Add(this.groupBox2);
-         this.rollout2.Controls.Add(this.groupBox1);
-         this.rollout2.Controls.Add(this.CompDesc_Txt);
-         this.rollout2.Controls.Add(this.CompFax_Txt);
-         this.rollout2.Controls.Add(this.CompSite_Txt);
-         this.rollout2.Controls.Add(this.CompTellPhon_Txt);
-         this.rollout2.Controls.Add(this.CompCellPhon_Txt);
-         this.rollout2.Controls.Add(this.CompPostAdrs_Txt);
-         this.rollout2.Controls.Add(this.CompName_Txt);
-         this.rollout2.CustomRolloutColor = System.Drawing.Color.LightGray;
-         this.rollout2.ForeColor = System.Drawing.Color.Black;
-         this.rollout2.FrameOnMouseOverOnly = false;
-         this.rollout2.GroupImage = null;
-         this.rollout2.Location = new System.Drawing.Point(4, 3);
-         this.rollout2.MaxHeight = 416;
-         this.rollout2.Name = "rollout2";
-         this.rollout2.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
-         this.rollout2.PaintRollout = true;
-         this.rollout2.RolloutBorderColor = System.Drawing.Color.Gray;
-         this.rollout2.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.rollout2.RolloutStatus = true;
-         this.rollout2.RolloutTitle = "پارامتر های شرکت";
-         this.rollout2.RoundCorners = 2;
-         this.rollout2.ShadowColor = System.Drawing.Color.DarkGray;
-         this.rollout2.ShadowControl = false;
-         this.rollout2.ShadowThickness = 3;
-         this.rollout2.ShowFocusFrame = false;
-         this.rollout2.Size = new System.Drawing.Size(237, 416);
-         this.rollout2.TabIndex = 25;
-         this.rollout2.TitleBorderColor = System.Drawing.Color.Gray;
+         this.rollout1.BackgroundColor = System.Drawing.SystemColors.Control;
+         this.rollout1.BackgroundGradientColor = System.Drawing.SystemColors.Control;
+         this.rollout1.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
+         this.rollout1.BorderThickness = 1F;
+         this.rollout1.Controls.Add(this.gridControl11);
+         this.rollout1.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout1.ForeColor = System.Drawing.Color.Black;
+         this.rollout1.FrameOnMouseOverOnly = false;
+         this.rollout1.GroupImage = null;
+         this.rollout1.Location = new System.Drawing.Point(4, 3);
+         this.rollout1.MaxHeight = 414;
+         this.rollout1.Name = "rollout1";
+         this.rollout1.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
+         this.rollout1.PaintRollout = true;
+         this.rollout1.RolloutBorderColor = System.Drawing.Color.Gray;
+         this.rollout1.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.rollout1.RolloutStatus = true;
+         this.rollout1.RolloutTitle = "انتخاب قالب پیامک";
+         this.rollout1.RoundCorners = 2;
+         this.rollout1.ShadowColor = System.Drawing.Color.DarkGray;
+         this.rollout1.ShadowControl = false;
+         this.rollout1.ShadowThickness = 3;
+         this.rollout1.ShowFocusFrame = false;
+         this.rollout1.Size = new System.Drawing.Size(237, 414);
+         this.rollout1.TabIndex = 25;
+         this.rollout1.TitleBorderColor = System.Drawing.Color.Gray;
+         // 
+         // gridControl11
+         // 
+         this.gridControl11.DataSource = this.TempBs;
+         this.gridControl11.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControl11.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.gridControl11.EmbeddedNavigator.Appearance.Options.UseFont = true;
+         this.gridControl11.EmbeddedNavigator.Buttons.Append.Visible = false;
+         this.gridControl11.EmbeddedNavigator.Buttons.CancelEdit.Visible = false;
+         this.gridControl11.EmbeddedNavigator.Buttons.Edit.Visible = false;
+         this.gridControl11.EmbeddedNavigator.Buttons.EndEdit.Visible = false;
+         this.gridControl11.EmbeddedNavigator.Buttons.Remove.Visible = false;
+         this.gridControl11.EmbeddedNavigator.TextStringFormat = "تعداد اعضا {0} of {1}";
+         this.gridControl11.Location = new System.Drawing.Point(4, 30);
+         this.gridControl11.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.gridControl11.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl11.MainView = this.gridView4;
+         this.gridControl11.Name = "gridControl11";
+         this.gridControl11.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.TempActn_Butn});
+         this.gridControl11.Size = new System.Drawing.Size(230, 381);
+         this.gridControl11.TabIndex = 87;
+         this.gridControl11.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView4});
+         // 
+         // TempBs
+         // 
+         this.TempBs.DataSource = typeof(System.Scsc.Data.Template);
+         // 
+         // gridView4
+         // 
+         this.gridView4.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.gridView4.Appearance.HeaderPanel.Options.UseFont = true;
+         this.gridView4.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.gridView4.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView4.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.gridView4.Appearance.Row.Options.UseFont = true;
+         this.gridView4.Appearance.Row.Options.UseTextOptions = true;
+         this.gridView4.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView4.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colTMID,
+            this.colTEMP_TYPE,
+            this.colTEMP_SECT,
+            this.colTEMP_SUBJ,
+            this.colTEMP_TEXT,
+            this.colSHER_TEAM,
+            this.colTEMP_NAME,
+            this.colUSER_NAME,
+            this.colCRET_BY9,
+            this.colCRET_DATE9,
+            this.colMDFY_BY9,
+            this.colMDFY_DATE9});
+         this.gridView4.CustomizationFormBounds = new System.Drawing.Rectangle(908, 429, 216, 176);
+         styleFormatCondition15.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         styleFormatCondition15.Appearance.Options.UseBackColor = true;
+         styleFormatCondition15.ApplyToRow = true;
+         styleFormatCondition15.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition15.Expression = "[DEBT_DNRM]  >  [DPST_AMNT_DNRM]";
+         styleFormatCondition16.ApplyToRow = true;
+         styleFormatCondition16.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition16.Expression = "[DEBT_DNRM]  ==  [DPST_AMNT_DNRM]";
+         this.gridView4.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition15,
+            styleFormatCondition16});
+         this.gridView4.GridControl = this.gridControl11;
+         this.gridView4.Name = "gridView4";
+         this.gridView4.OptionsDetail.EnableMasterViewMode = false;
+         this.gridView4.OptionsFind.FindDelay = 100;
+         this.gridView4.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.gridView4.OptionsSelection.MultiSelect = true;
+         this.gridView4.OptionsView.ShowGroupPanel = false;
+         this.gridView4.OptionsView.ShowIndicator = false;
+         // 
+         // colTMID
+         // 
+         this.colTMID.Caption = " ";
+         this.colTMID.ColumnEdit = this.TempActn_Butn;
+         this.colTMID.FieldName = "TMID";
+         this.colTMID.Name = "colTMID";
+         this.colTMID.OptionsColumn.FixedWidth = true;
+         this.colTMID.Visible = true;
+         this.colTMID.VisibleIndex = 0;
+         this.colTMID.Width = 25;
+         // 
+         // TempActn_Butn
+         // 
+         this.TempActn_Butn.AutoHeight = false;
+         this.TempActn_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("TempActn_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
+         this.TempActn_Butn.Name = "TempActn_Butn";
+         this.TempActn_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         this.TempActn_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.TempActn_Butn_ButtonClick);
+         // 
+         // colTEMP_TYPE
+         // 
+         this.colTEMP_TYPE.FieldName = "TEMP_TYPE";
+         this.colTEMP_TYPE.Name = "colTEMP_TYPE";
+         // 
+         // colTEMP_SECT
+         // 
+         this.colTEMP_SECT.FieldName = "TEMP_SECT";
+         this.colTEMP_SECT.Name = "colTEMP_SECT";
+         // 
+         // colTEMP_SUBJ
+         // 
+         this.colTEMP_SUBJ.FieldName = "TEMP_SUBJ";
+         this.colTEMP_SUBJ.Name = "colTEMP_SUBJ";
+         this.colTEMP_SUBJ.Width = 201;
+         // 
+         // colTEMP_TEXT
+         // 
+         this.colTEMP_TEXT.FieldName = "TEMP_TEXT";
+         this.colTEMP_TEXT.Name = "colTEMP_TEXT";
+         // 
+         // colSHER_TEAM
+         // 
+         this.colSHER_TEAM.FieldName = "SHER_TEAM";
+         this.colSHER_TEAM.Name = "colSHER_TEAM";
+         // 
+         // colTEMP_NAME
+         // 
+         this.colTEMP_NAME.Caption = "قالب پیام";
+         this.colTEMP_NAME.FieldName = "TEMP_NAME";
+         this.colTEMP_NAME.Name = "colTEMP_NAME";
+         this.colTEMP_NAME.OptionsColumn.AllowEdit = false;
+         this.colTEMP_NAME.OptionsColumn.ReadOnly = true;
+         this.colTEMP_NAME.Visible = true;
+         this.colTEMP_NAME.VisibleIndex = 1;
+         // 
+         // colUSER_NAME
+         // 
+         this.colUSER_NAME.FieldName = "USER_NAME";
+         this.colUSER_NAME.Name = "colUSER_NAME";
+         // 
+         // colCRET_BY9
+         // 
+         this.colCRET_BY9.FieldName = "CRET_BY";
+         this.colCRET_BY9.Name = "colCRET_BY9";
+         // 
+         // colCRET_DATE9
+         // 
+         this.colCRET_DATE9.FieldName = "CRET_DATE";
+         this.colCRET_DATE9.Name = "colCRET_DATE9";
+         // 
+         // colMDFY_BY9
+         // 
+         this.colMDFY_BY9.FieldName = "MDFY_BY";
+         this.colMDFY_BY9.Name = "colMDFY_BY9";
+         // 
+         // colMDFY_DATE9
+         // 
+         this.colMDFY_DATE9.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE9.Name = "colMDFY_DATE9";
+         // 
+         // CompFiltr_Flp
+         // 
+         this.CompFiltr_Flp.AutoScroll = true;
+         this.CompFiltr_Flp.Controls.Add(this.CompParam_Ro);
+         this.CompFiltr_Flp.Controls.Add(this.CompTag_Ro);
+         this.CompFiltr_Flp.Controls.Add(this.FighParam_Ro);
+         this.CompFiltr_Flp.Controls.Add(this.FighTag_Ro);
+         this.CompFiltr_Flp.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.CompFiltr_Flp.Location = new System.Drawing.Point(0, 25);
+         this.CompFiltr_Flp.Name = "CompFiltr_Flp";
+         this.CompFiltr_Flp.Size = new System.Drawing.Size(261, 346);
+         this.CompFiltr_Flp.TabIndex = 4;
+         // 
+         // CompParam_Ro
+         // 
+         this.CompParam_Ro.BackgroundColor = System.Drawing.SystemColors.Control;
+         this.CompParam_Ro.BackgroundGradientColor = System.Drawing.SystemColors.Control;
+         this.CompParam_Ro.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
+         this.CompParam_Ro.BorderThickness = 1F;
+         this.CompParam_Ro.Controls.Add(this.CompDesc_Cbx);
+         this.CompParam_Ro.Controls.Add(this.CompFax_Cbx);
+         this.CompParam_Ro.Controls.Add(this.CompSite_Cbx);
+         this.CompParam_Ro.Controls.Add(this.CompTellPhon_Cbx);
+         this.CompParam_Ro.Controls.Add(this.CompCellPhon_Cbx);
+         this.CompParam_Ro.Controls.Add(this.CompPostAdrs_Cbx);
+         this.CompParam_Ro.Controls.Add(this.CompName_Cbx);
+         this.CompParam_Ro.Controls.Add(this.groupBox2);
+         this.CompParam_Ro.Controls.Add(this.groupBox1);
+         this.CompParam_Ro.Controls.Add(this.CompDesc_Txt);
+         this.CompParam_Ro.Controls.Add(this.CompFax_Txt);
+         this.CompParam_Ro.Controls.Add(this.CompSite_Txt);
+         this.CompParam_Ro.Controls.Add(this.CompTellPhon_Txt);
+         this.CompParam_Ro.Controls.Add(this.CompCellPhon_Txt);
+         this.CompParam_Ro.Controls.Add(this.CompPostAdrs_Txt);
+         this.CompParam_Ro.Controls.Add(this.CompName_Txt);
+         this.CompParam_Ro.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.CompParam_Ro.ForeColor = System.Drawing.Color.Black;
+         this.CompParam_Ro.FrameOnMouseOverOnly = false;
+         this.CompParam_Ro.GroupImage = null;
+         this.CompParam_Ro.Location = new System.Drawing.Point(4, 3);
+         this.CompParam_Ro.MaxHeight = 416;
+         this.CompParam_Ro.Name = "CompParam_Ro";
+         this.CompParam_Ro.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
+         this.CompParam_Ro.PaintRollout = true;
+         this.CompParam_Ro.RolloutBorderColor = System.Drawing.Color.Gray;
+         this.CompParam_Ro.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.CompParam_Ro.RolloutStatus = true;
+         this.CompParam_Ro.RolloutTitle = "پارامتر های شرکت";
+         this.CompParam_Ro.RoundCorners = 2;
+         this.CompParam_Ro.ShadowColor = System.Drawing.Color.DarkGray;
+         this.CompParam_Ro.ShadowControl = false;
+         this.CompParam_Ro.ShadowThickness = 3;
+         this.CompParam_Ro.ShowFocusFrame = false;
+         this.CompParam_Ro.Size = new System.Drawing.Size(237, 416);
+         this.CompParam_Ro.TabIndex = 25;
+         this.CompParam_Ro.TitleBorderColor = System.Drawing.Color.Gray;
          // 
          // CompDesc_Cbx
          // 
@@ -5051,35 +5413,35 @@
          this.CompName_Txt.Size = new System.Drawing.Size(111, 22);
          this.CompName_Txt.TabIndex = 68;
          // 
-         // rollout3
+         // CompTag_Ro
          // 
-         this.rollout3.BackgroundColor = System.Drawing.SystemColors.Control;
-         this.rollout3.BackgroundGradientColor = System.Drawing.SystemColors.Control;
-         this.rollout3.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
-         this.rollout3.BorderThickness = 1F;
-         this.rollout3.Controls.Add(this.CompTagFltr_Cbx);
-         this.rollout3.Controls.Add(this.gridControl9);
-         this.rollout3.CustomRolloutColor = System.Drawing.Color.LightGray;
-         this.rollout3.ForeColor = System.Drawing.Color.Black;
-         this.rollout3.FrameOnMouseOverOnly = false;
-         this.rollout3.GroupImage = null;
-         this.rollout3.Location = new System.Drawing.Point(4, 425);
-         this.rollout3.MaxHeight = 249;
-         this.rollout3.Name = "rollout3";
-         this.rollout3.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
-         this.rollout3.PaintRollout = true;
-         this.rollout3.RolloutBorderColor = System.Drawing.Color.Gray;
-         this.rollout3.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.rollout3.RolloutStatus = false;
-         this.rollout3.RolloutTitle = "پارامتر های شاخص شرکت";
-         this.rollout3.RoundCorners = 2;
-         this.rollout3.ShadowColor = System.Drawing.Color.DarkGray;
-         this.rollout3.ShadowControl = false;
-         this.rollout3.ShadowThickness = 3;
-         this.rollout3.ShowFocusFrame = false;
-         this.rollout3.Size = new System.Drawing.Size(237, 22);
-         this.rollout3.TabIndex = 26;
-         this.rollout3.TitleBorderColor = System.Drawing.Color.Gray;
+         this.CompTag_Ro.BackgroundColor = System.Drawing.SystemColors.Control;
+         this.CompTag_Ro.BackgroundGradientColor = System.Drawing.SystemColors.Control;
+         this.CompTag_Ro.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
+         this.CompTag_Ro.BorderThickness = 1F;
+         this.CompTag_Ro.Controls.Add(this.CompTagFltr_Cbx);
+         this.CompTag_Ro.Controls.Add(this.gridControl9);
+         this.CompTag_Ro.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.CompTag_Ro.ForeColor = System.Drawing.Color.Black;
+         this.CompTag_Ro.FrameOnMouseOverOnly = false;
+         this.CompTag_Ro.GroupImage = null;
+         this.CompTag_Ro.Location = new System.Drawing.Point(4, 425);
+         this.CompTag_Ro.MaxHeight = 249;
+         this.CompTag_Ro.Name = "CompTag_Ro";
+         this.CompTag_Ro.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
+         this.CompTag_Ro.PaintRollout = true;
+         this.CompTag_Ro.RolloutBorderColor = System.Drawing.Color.Gray;
+         this.CompTag_Ro.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.CompTag_Ro.RolloutStatus = false;
+         this.CompTag_Ro.RolloutTitle = "پارامتر های شاخص شرکت";
+         this.CompTag_Ro.RoundCorners = 2;
+         this.CompTag_Ro.ShadowColor = System.Drawing.Color.DarkGray;
+         this.CompTag_Ro.ShadowControl = false;
+         this.CompTag_Ro.ShadowThickness = 3;
+         this.CompTag_Ro.ShowFocusFrame = false;
+         this.CompTag_Ro.Size = new System.Drawing.Size(237, 22);
+         this.CompTag_Ro.TabIndex = 26;
+         this.CompTag_Ro.TitleBorderColor = System.Drawing.Color.Gray;
          // 
          // CompTagFltr_Cbx
          // 
@@ -5148,17 +5510,17 @@
             this.gridColumn39,
             this.gridColumn40});
          this.CompTag_Gv.CustomizationFormBounds = new System.Drawing.Rectangle(908, 429, 216, 176);
-         styleFormatCondition15.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         styleFormatCondition15.Appearance.Options.UseBackColor = true;
-         styleFormatCondition15.ApplyToRow = true;
-         styleFormatCondition15.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-         styleFormatCondition15.Expression = "[DEBT_DNRM]  >  [DPST_AMNT_DNRM]";
-         styleFormatCondition16.ApplyToRow = true;
-         styleFormatCondition16.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-         styleFormatCondition16.Expression = "[DEBT_DNRM]  ==  [DPST_AMNT_DNRM]";
+         styleFormatCondition17.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         styleFormatCondition17.Appearance.Options.UseBackColor = true;
+         styleFormatCondition17.ApplyToRow = true;
+         styleFormatCondition17.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition17.Expression = "[DEBT_DNRM]  >  [DPST_AMNT_DNRM]";
+         styleFormatCondition18.ApplyToRow = true;
+         styleFormatCondition18.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition18.Expression = "[DEBT_DNRM]  ==  [DPST_AMNT_DNRM]";
          this.CompTag_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition15,
-            styleFormatCondition16});
+            styleFormatCondition17,
+            styleFormatCondition18});
          this.CompTag_Gv.GridControl = this.gridControl9;
          this.CompTag_Gv.Name = "CompTag_Gv";
          this.CompTag_Gv.OptionsBehavior.Editable = false;
@@ -5183,7 +5545,7 @@
          // 
          this.repositoryItemButtonEdit2.AutoHeight = false;
          this.repositoryItemButtonEdit2.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit2.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit2.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true)});
          this.repositoryItemButtonEdit2.Name = "repositoryItemButtonEdit2";
          this.repositoryItemButtonEdit2.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          // 
@@ -5296,41 +5658,41 @@
          this.gridColumn40.FieldName = "App_Base_Define1";
          this.gridColumn40.Name = "gridColumn40";
          // 
-         // rollout5
+         // FighParam_Ro
          // 
-         this.rollout5.BackgroundColor = System.Drawing.SystemColors.Control;
-         this.rollout5.BackgroundGradientColor = System.Drawing.SystemColors.Control;
-         this.rollout5.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
-         this.rollout5.BorderThickness = 1F;
-         this.rollout5.Controls.Add(this.FighNatlCode_Cbx);
-         this.rollout5.Controls.Add(this.FighCellPhon_Cbx);
-         this.rollout5.Controls.Add(this.FighLastName_Cbx);
-         this.rollout5.Controls.Add(this.FighFrstName_Cbx);
-         this.rollout5.Controls.Add(this.FighNatlCode_Txt);
-         this.rollout5.Controls.Add(this.FighCellPhon_Txt);
-         this.rollout5.Controls.Add(this.FighLastName_Txt);
-         this.rollout5.Controls.Add(this.FighFrstName_Txt);
-         this.rollout5.CustomRolloutColor = System.Drawing.Color.LightGray;
-         this.rollout5.ForeColor = System.Drawing.Color.Black;
-         this.rollout5.FrameOnMouseOverOnly = false;
-         this.rollout5.GroupImage = null;
-         this.rollout5.Location = new System.Drawing.Point(4, 453);
-         this.rollout5.MaxHeight = 149;
-         this.rollout5.Name = "rollout5";
-         this.rollout5.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
-         this.rollout5.PaintRollout = true;
-         this.rollout5.RolloutBorderColor = System.Drawing.Color.Gray;
-         this.rollout5.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.rollout5.RolloutStatus = false;
-         this.rollout5.RolloutTitle = "پارامتر های پرسنل شرکت";
-         this.rollout5.RoundCorners = 2;
-         this.rollout5.ShadowColor = System.Drawing.Color.DarkGray;
-         this.rollout5.ShadowControl = false;
-         this.rollout5.ShadowThickness = 3;
-         this.rollout5.ShowFocusFrame = false;
-         this.rollout5.Size = new System.Drawing.Size(237, 22);
-         this.rollout5.TabIndex = 27;
-         this.rollout5.TitleBorderColor = System.Drawing.Color.Gray;
+         this.FighParam_Ro.BackgroundColor = System.Drawing.SystemColors.Control;
+         this.FighParam_Ro.BackgroundGradientColor = System.Drawing.SystemColors.Control;
+         this.FighParam_Ro.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
+         this.FighParam_Ro.BorderThickness = 1F;
+         this.FighParam_Ro.Controls.Add(this.FighNatlCode_Cbx);
+         this.FighParam_Ro.Controls.Add(this.FighCellPhon_Cbx);
+         this.FighParam_Ro.Controls.Add(this.FighLastName_Cbx);
+         this.FighParam_Ro.Controls.Add(this.FighFrstName_Cbx);
+         this.FighParam_Ro.Controls.Add(this.FighNatlCode_Txt);
+         this.FighParam_Ro.Controls.Add(this.FighCellPhon_Txt);
+         this.FighParam_Ro.Controls.Add(this.FighLastName_Txt);
+         this.FighParam_Ro.Controls.Add(this.FighFrstName_Txt);
+         this.FighParam_Ro.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.FighParam_Ro.ForeColor = System.Drawing.Color.Black;
+         this.FighParam_Ro.FrameOnMouseOverOnly = false;
+         this.FighParam_Ro.GroupImage = null;
+         this.FighParam_Ro.Location = new System.Drawing.Point(4, 453);
+         this.FighParam_Ro.MaxHeight = 149;
+         this.FighParam_Ro.Name = "FighParam_Ro";
+         this.FighParam_Ro.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
+         this.FighParam_Ro.PaintRollout = true;
+         this.FighParam_Ro.RolloutBorderColor = System.Drawing.Color.Gray;
+         this.FighParam_Ro.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.FighParam_Ro.RolloutStatus = false;
+         this.FighParam_Ro.RolloutTitle = "پارامتر های پرسنل شرکت";
+         this.FighParam_Ro.RoundCorners = 2;
+         this.FighParam_Ro.ShadowColor = System.Drawing.Color.DarkGray;
+         this.FighParam_Ro.ShadowControl = false;
+         this.FighParam_Ro.ShadowThickness = 3;
+         this.FighParam_Ro.ShowFocusFrame = false;
+         this.FighParam_Ro.Size = new System.Drawing.Size(237, 22);
+         this.FighParam_Ro.TabIndex = 27;
+         this.FighParam_Ro.TitleBorderColor = System.Drawing.Color.Gray;
          // 
          // FighNatlCode_Cbx
          // 
@@ -5432,35 +5794,35 @@
          this.FighFrstName_Txt.Size = new System.Drawing.Size(111, 22);
          this.FighFrstName_Txt.TabIndex = 68;
          // 
-         // rollout6
+         // FighTag_Ro
          // 
-         this.rollout6.BackgroundColor = System.Drawing.SystemColors.Control;
-         this.rollout6.BackgroundGradientColor = System.Drawing.SystemColors.Control;
-         this.rollout6.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
-         this.rollout6.BorderThickness = 1F;
-         this.rollout6.Controls.Add(this.RshpCmfgFltr_Cbx);
-         this.rollout6.Controls.Add(this.gridControl10);
-         this.rollout6.CustomRolloutColor = System.Drawing.Color.LightGray;
-         this.rollout6.ForeColor = System.Drawing.Color.Black;
-         this.rollout6.FrameOnMouseOverOnly = false;
-         this.rollout6.GroupImage = null;
-         this.rollout6.Location = new System.Drawing.Point(4, 481);
-         this.rollout6.MaxHeight = 207;
-         this.rollout6.Name = "rollout6";
-         this.rollout6.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
-         this.rollout6.PaintRollout = true;
-         this.rollout6.RolloutBorderColor = System.Drawing.Color.Gray;
-         this.rollout6.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.rollout6.RolloutStatus = false;
-         this.rollout6.RolloutTitle = "پارامتر های سمت پرسنل";
-         this.rollout6.RoundCorners = 2;
-         this.rollout6.ShadowColor = System.Drawing.Color.DarkGray;
-         this.rollout6.ShadowControl = false;
-         this.rollout6.ShadowThickness = 3;
-         this.rollout6.ShowFocusFrame = false;
-         this.rollout6.Size = new System.Drawing.Size(237, 22);
-         this.rollout6.TabIndex = 28;
-         this.rollout6.TitleBorderColor = System.Drawing.Color.Gray;
+         this.FighTag_Ro.BackgroundColor = System.Drawing.SystemColors.Control;
+         this.FighTag_Ro.BackgroundGradientColor = System.Drawing.SystemColors.Control;
+         this.FighTag_Ro.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
+         this.FighTag_Ro.BorderThickness = 1F;
+         this.FighTag_Ro.Controls.Add(this.RshpCmfgFltr_Cbx);
+         this.FighTag_Ro.Controls.Add(this.gridControl10);
+         this.FighTag_Ro.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.FighTag_Ro.ForeColor = System.Drawing.Color.Black;
+         this.FighTag_Ro.FrameOnMouseOverOnly = false;
+         this.FighTag_Ro.GroupImage = null;
+         this.FighTag_Ro.Location = new System.Drawing.Point(4, 481);
+         this.FighTag_Ro.MaxHeight = 207;
+         this.FighTag_Ro.Name = "FighTag_Ro";
+         this.FighTag_Ro.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
+         this.FighTag_Ro.PaintRollout = true;
+         this.FighTag_Ro.RolloutBorderColor = System.Drawing.Color.Gray;
+         this.FighTag_Ro.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.FighTag_Ro.RolloutStatus = true;
+         this.FighTag_Ro.RolloutTitle = "پارامتر های سمت پرسنل";
+         this.FighTag_Ro.RoundCorners = 2;
+         this.FighTag_Ro.ShadowColor = System.Drawing.Color.DarkGray;
+         this.FighTag_Ro.ShadowControl = false;
+         this.FighTag_Ro.ShadowThickness = 3;
+         this.FighTag_Ro.ShowFocusFrame = false;
+         this.FighTag_Ro.Size = new System.Drawing.Size(237, 207);
+         this.FighTag_Ro.TabIndex = 28;
+         this.FighTag_Ro.TitleBorderColor = System.Drawing.Color.Gray;
          // 
          // RshpCmfgFltr_Cbx
          // 
@@ -5474,7 +5836,7 @@
          // 
          // gridControl10
          // 
-         this.gridControl10.DataSource = this.TagBs;
+         this.gridControl10.DataSource = this.RshpBs;
          this.gridControl10.EmbeddedNavigator.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.gridControl10.EmbeddedNavigator.Appearance.Options.UseFont = true;
          this.gridControl10.EmbeddedNavigator.Buttons.Append.Visible = false;
@@ -5529,17 +5891,17 @@
             this.gridColumn61,
             this.gridColumn62});
          this.RshpCmfg_Gv.CustomizationFormBounds = new System.Drawing.Rectangle(908, 429, 216, 176);
-         styleFormatCondition17.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         styleFormatCondition17.Appearance.Options.UseBackColor = true;
-         styleFormatCondition17.ApplyToRow = true;
-         styleFormatCondition17.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-         styleFormatCondition17.Expression = "[DEBT_DNRM]  >  [DPST_AMNT_DNRM]";
-         styleFormatCondition18.ApplyToRow = true;
-         styleFormatCondition18.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-         styleFormatCondition18.Expression = "[DEBT_DNRM]  ==  [DPST_AMNT_DNRM]";
+         styleFormatCondition19.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         styleFormatCondition19.Appearance.Options.UseBackColor = true;
+         styleFormatCondition19.ApplyToRow = true;
+         styleFormatCondition19.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition19.Expression = "[DEBT_DNRM]  >  [DPST_AMNT_DNRM]";
+         styleFormatCondition20.ApplyToRow = true;
+         styleFormatCondition20.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition20.Expression = "[DEBT_DNRM]  ==  [DPST_AMNT_DNRM]";
          this.RshpCmfg_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition17,
-            styleFormatCondition18});
+            styleFormatCondition19,
+            styleFormatCondition20});
          this.RshpCmfg_Gv.GridControl = this.gridControl10;
          this.RshpCmfg_Gv.Name = "RshpCmfg_Gv";
          this.RshpCmfg_Gv.OptionsBehavior.Editable = false;
@@ -5564,7 +5926,7 @@
          // 
          this.repositoryItemButtonEdit3.AutoHeight = false;
          this.repositoryItemButtonEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit3.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit3.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true)});
          this.repositoryItemButtonEdit3.Name = "repositoryItemButtonEdit3";
          this.repositoryItemButtonEdit3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          // 
@@ -5683,7 +6045,8 @@
          this.FindCompBn.CountItem = null;
          this.FindCompBn.DeleteItem = null;
          this.FindCompBn.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.FindComp_Butn});
+            this.FindComp_Butn,
+            this.ClerCompFiltr_Butn});
          this.FindCompBn.Location = new System.Drawing.Point(0, 0);
          this.FindCompBn.MoveFirstItem = null;
          this.FindCompBn.MoveLastItem = null;
@@ -5703,6 +6066,15 @@
          this.FindComp_Butn.Size = new System.Drawing.Size(61, 22);
          this.FindComp_Butn.Text = "جستجو";
          this.FindComp_Butn.Click += new System.EventHandler(this.FindComp_Butn_Click);
+         // 
+         // ClerCompFiltr_Butn
+         // 
+         this.ClerCompFiltr_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1197;
+         this.ClerCompFiltr_Butn.ImageTransparentColor = System.Drawing.Color.Magenta;
+         this.ClerCompFiltr_Butn.Name = "ClerCompFiltr_Butn";
+         this.ClerCompFiltr_Butn.Size = new System.Drawing.Size(108, 22);
+         this.ClerCompFiltr_Butn.Text = "پاک کردن فیلترها";
+         this.ClerCompFiltr_Butn.Click += new System.EventHandler(this.ClerCompFiltr_Butn_Click);
          // 
          // splitContainerControl2
          // 
@@ -6095,7 +6467,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.CellPhon_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.LastName_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FrstName_Txt.Properties)).EndInit();
-         this.rollout1.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.RshpBn)).EndInit();
+         this.RshpBn.ResumeLayout(false);
+         this.RshpBn.PerformLayout();
          this.tabPage5.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl8)).EndInit();
          this.splitContainerControl8.ResumeLayout(false);
@@ -6116,13 +6490,28 @@
          this.tp_003.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl10)).EndInit();
          this.splitContainerControl10.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl11)).EndInit();
+         this.splitContainerControl11.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl8)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FindCompBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FindCompActn_Butn)).EndInit();
+         this.tabControl1.ResumeLayout(false);
+         this.tabPage1.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl12)).EndInit();
+         this.splitContainerControl12.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator2)).EndInit();
+         this.bindingNavigator2.ResumeLayout(false);
+         this.bindingNavigator2.PerformLayout();
          this.flowLayoutPanel1.ResumeLayout(false);
-         this.rollout2.ResumeLayout(false);
-         this.rollout2.PerformLayout();
+         this.rollout1.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl11)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.TempBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView4)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.TempActn_Butn)).EndInit();
+         this.CompFiltr_Flp.ResumeLayout(false);
+         this.CompParam_Ro.ResumeLayout(false);
+         this.CompParam_Ro.PerformLayout();
          this.groupBox2.ResumeLayout(false);
          this.groupBox2.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CompToAmntDpst_Txt.Properties)).EndInit();
@@ -6138,19 +6527,19 @@
          ((System.ComponentModel.ISupportInitialize)(this.CompCellPhon_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CompPostAdrs_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CompName_Txt.Properties)).EndInit();
-         this.rollout3.ResumeLayout(false);
-         this.rollout3.PerformLayout();
+         this.CompTag_Ro.ResumeLayout(false);
+         this.CompTag_Ro.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl9)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CompTag_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit2)).EndInit();
-         this.rollout5.ResumeLayout(false);
-         this.rollout5.PerformLayout();
+         this.FighParam_Ro.ResumeLayout(false);
+         this.FighParam_Ro.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.FighNatlCode_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighCellPhon_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighLastName_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FighFrstName_Txt.Properties)).EndInit();
-         this.rollout6.ResumeLayout(false);
-         this.rollout6.PerformLayout();
+         this.FighTag_Ro.ResumeLayout(false);
+         this.FighTag_Ro.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl10)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RshpCmfg_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).EndInit();
@@ -6434,7 +6823,6 @@
       private Windows.Forms.TabControl tabControl2;
       private Windows.Forms.TabPage tabPage3;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl5;
-      private Windows.Forms.TabPage tabPage4;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl6;
       private DevExpress.XtraGrid.GridControl vF_Last_Info_FighterResultGridControl;
       private DevExpress.XtraGrid.Views.Grid.GridView PBLC;
@@ -6542,7 +6930,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn colMethod;
       private DevExpress.XtraGrid.Columns.GridColumn colCategory_Belt;
       private DevExpress.XtraGrid.Columns.GridColumn colRequest;
-      private Windows.Forms.Button FindFigh_Butn;
       private Windows.Forms.BindingSource CmfgBs;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl7;
       private DevExpress.XtraGrid.Columns.GridColumn colCOMP_CODE1;
@@ -6560,8 +6947,6 @@
       private DevExpress.XtraEditors.MemoEdit PostAdrs_Txt;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Rshp_Lov;
       private Windows.Forms.BindingSource RshpBs;
-      private MaxUi.Rollout rollout1;
-      private Windows.Forms.Button Rshp_Butn;
       private Windows.Forms.TabPage tabPage5;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl8;
       private Windows.Forms.BindingNavigator CmtgBn;
@@ -6613,8 +6998,8 @@
       private DevExpress.XtraGrid.GridControl gridControl8;
       private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
       private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit FindCompActn_Butn;
-      private Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-      private MaxUi.Rollout rollout2;
+      private Windows.Forms.FlowLayoutPanel CompFiltr_Flp;
+      private MaxUi.Rollout CompParam_Ro;
       private Windows.Forms.GroupBox groupBox1;
       private DevExpress.XtraEditors.ButtonEdit CompFax_Txt;
       private DevExpress.XtraEditors.ButtonEdit CompSite_Txt;
@@ -6622,7 +7007,7 @@
       private DevExpress.XtraEditors.ButtonEdit CompCellPhon_Txt;
       private DevExpress.XtraEditors.TextEdit CompPostAdrs_Txt;
       private DevExpress.XtraEditors.TextEdit CompName_Txt;
-      private MaxUi.Rollout rollout3;
+      private MaxUi.Rollout CompTag_Ro;
       private DevExpress.XtraGrid.GridControl gridControl9;
       private DevExpress.XtraGrid.Views.Grid.GridView CompTag_Gv;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn19;
@@ -6648,12 +7033,12 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn38;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn39;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn40;
-      private MaxUi.Rollout rollout5;
+      private MaxUi.Rollout FighParam_Ro;
       private DevExpress.XtraEditors.ButtonEdit FighNatlCode_Txt;
       private DevExpress.XtraEditors.ButtonEdit FighCellPhon_Txt;
       private DevExpress.XtraEditors.TextEdit FighLastName_Txt;
       private DevExpress.XtraEditors.TextEdit FighFrstName_Txt;
-      private MaxUi.Rollout rollout6;
+      private MaxUi.Rollout FighTag_Ro;
       private DevExpress.XtraGrid.GridControl gridControl10;
       private DevExpress.XtraGrid.Views.Grid.GridView RshpCmfg_Gv;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn41;
@@ -6767,5 +7152,39 @@
       private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE8;
       private DevExpress.XtraGrid.Columns.GridColumn colCompany11;
       private DevExpress.XtraGrid.Columns.GridColumn colRegion4;
+      private Windows.Forms.ToolStripButton ClerCompFiltr_Butn;
+      private Windows.Forms.BindingNavigator RshpBn;
+      private Windows.Forms.ToolStripButton Rshp_Butn;
+      private Windows.Forms.ToolStripButton FindFigh_Butn;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl11;
+      private Windows.Forms.TabControl tabControl1;
+      private Windows.Forms.TabPage tabPage1;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl12;
+      private Windows.Forms.BindingNavigator bindingNavigator2;
+      private Windows.Forms.ToolStripButton SendNoti_Butn;
+      private Windows.Forms.ToolStripButton ClenNotiText_Txt;
+      private Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+      private MaxUi.Rollout rollout1;
+      private DevExpress.XtraGrid.GridControl gridControl11;
+      private DevExpress.XtraGrid.Views.Grid.GridView gridView4;
+      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit TempActn_Butn;
+      private Windows.Forms.BindingSource TempBs;
+      private DevExpress.XtraGrid.Columns.GridColumn colTMID;
+      private DevExpress.XtraGrid.Columns.GridColumn colTEMP_TYPE;
+      private DevExpress.XtraGrid.Columns.GridColumn colTEMP_SECT;
+      private DevExpress.XtraGrid.Columns.GridColumn colTEMP_SUBJ;
+      private DevExpress.XtraGrid.Columns.GridColumn colTEMP_TEXT;
+      private DevExpress.XtraGrid.Columns.GridColumn colSHER_TEAM;
+      private DevExpress.XtraGrid.Columns.GridColumn colTEMP_NAME;
+      private DevExpress.XtraGrid.Columns.GridColumn colUSER_NAME;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY9;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE9;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY9;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE9;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator2;
+      private Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+      private Windows.Forms.ToolStripMenuItem SendSMS_Cbx;
+      private Windows.Forms.ToolStripMenuItem SendApp_Cbx;
+      private Windows.Forms.RichTextBox TempText_Txt;
    }
 }

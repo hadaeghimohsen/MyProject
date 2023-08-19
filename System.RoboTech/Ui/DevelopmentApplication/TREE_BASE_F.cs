@@ -44,6 +44,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          int robo = RoboBs.Position;
          int srbt = SrbtBs.Position;
          int sral = SralBs.Position;
+         int domn = DomainBs.Position;
 
          TrbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "TREEBASEACCOUNT_INFO");
          UnitBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "PRODUCTUNIT_INFO");
@@ -51,6 +52,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          RbssBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "STORESPEC_INFO");
          OrgnBs.DataSource = iRoboTech.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID));
          ExtrServBs.DataSource = iRoboTech.V_External_Services;
+         DomainBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == TableName);
 
          TrbsBs.Position = trbs;
          UnitBs.Position = unit;
@@ -60,6 +62,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          RoboBs.Position = robo;
          SrbtBs.Position = srbt;
          SralBs.Position = sral;
+         DomainBs.Position = domn;
          requery = false;
       }
 
@@ -648,6 +651,70 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddDomn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (DomainBs.List.OfType<Data.App_Base_Define>().Any(a => a.CODE == 0)) return;
+
+            DomainBs.AddNew();
+            var apbs = DomainBs.Current as Data.App_Base_Define;
+            apbs.ENTY_NAME = TableName;
+
+            apbs.RWNO = DomainBs.List.Count == 1 ? 1 : DomainBs.List.OfType<Data.App_Base_Define>().Max(a => a.RWNO) + 1;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelDomn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا تغییرات ذخیره گردد؟", "ثبت نتایج تغییرات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            var domn = DomainBs.Current as Data.App_Base_Define;
+
+            iRoboTech.DEL_APBS_P(domn.CODE);
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void SaveDomn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            DomainBs.EndEdit();
+
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
          }
       }
    }

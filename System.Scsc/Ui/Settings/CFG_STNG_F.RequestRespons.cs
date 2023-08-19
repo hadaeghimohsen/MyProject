@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.IO.Ports;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
@@ -420,15 +421,18 @@ namespace System.Scsc.Ui.Settings
             #region Settings
             //PrvnBs1.DataSource = iScsc.Provinces;
             
-            DActvBs1.DataSource = iScsc.D_ACTVs;
-            
-            DYsnoBs1.DataSource = iScsc.D_YSNOs;
-            
+            DActvBs1.DataSource = iScsc.D_ACTVs;            
+            DYsnoBs1.DataSource = iScsc.D_YSNOs;            
             DBcdtBs4.DataSource = iScsc.D_BCDTs;
-
-            
-
+            vUserBs.DataSource = iScsc.V_Users;
             vCompBs1.DataSource = iScsc.V_Computers;
+
+            Printers_Lst.Items.Clear();
+            foreach (string printname in PrinterSettings.InstalledPrinters)
+            {
+               Printers_Lst.Items.Add(printname);
+            }
+            Printers_Lst.SelectedIndex = 0;
             
             //Execute_Query();
             #endregion

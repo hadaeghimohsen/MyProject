@@ -16,7 +16,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private Data.iRoboTechDataContext iRoboTech;
       private string ConnectionString;
       private List<long?> Fga_Ugov_U;
-      private string FormCaller;
+      private string FormCaller, TableName;
 
       public void SendRequest(Job job)
       {
@@ -82,12 +82,18 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                      new Job(SendType.External, "Localhost",
                        new List<Job>
                        {                  
-                         //new Job(SendType.Self, 31 /* Execute Cash_Cntr_F */),
-                         new Job(SendType.SelfToUserInterface, "CASH_CNTR_F", 10 /* Execute Actn_CalF_P */)
+                         new Job(SendType.SelfToUserInterface, FormCaller, 10 /* Execute Actn_CalF_P */),
                        })
                   );
                   break;
                default:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                       new List<Job>
+                       {                  
+                         new Job(SendType.SelfToUserInterface, FormCaller, 07 /* Execute Load_Data_P */)
+                       })
+                  );
                   break;
             }
             //job.Next =
@@ -235,10 +241,15 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private void Actn_CalF_P(Job job)
       {
          var xinput = job.Input as XElement;
-         Execute_Query();
+         //Execute_Query();
 
          if (xinput != null)
          {
+            if (xinput.Attribute("tablename") != null)
+            {
+               TableName = xinput.Attribute("tablename").Value;               
+            }
+
             FormCaller = xinput.Attribute("formcaller").Value;
             switch (xinput.Attribute("gototab").Value)
             {
@@ -251,10 +262,15 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                         break;
                   }
                   break;
+               case "tp_006":
+                  Master_Tc.SelectedTab = tp_006;
+                  break;
                default:
                   break;
             }
+
          }
+         Execute_Query();
          job.Status = StatusType.Successful;
       }
    }

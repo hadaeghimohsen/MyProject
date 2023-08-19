@@ -28,10 +28,20 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var CrntFigh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", CrntFigh.FILE_NO)) }
-            );
+            if (Tb_Master.SelectedTab == mtp_001)
+            {
+               var CrntFigh = FighBs.Current as Data.Fighter;
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", CrntFigh.FILE_NO)) }
+               );
+            }
+            else
+            {
+               var CrntFigh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", CrntFigh.FILE_NO)) }
+               );
+            }
          }
          catch { }
       }
@@ -60,7 +70,7 @@ namespace System.Scsc.Ui.Common
          if (vF_Fighs.Current == null) return;
          string filenos = "";
 
-         foreach (int i in PBLC.GetSelectedRows())
+         foreach (int i in PBLC_Gv.GetSelectedRows())
          {
             vF_Fighs.Position = i;
             var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
@@ -82,7 +92,9 @@ namespace System.Scsc.Ui.Common
       private void colActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
          index = vF_Fighs.Position;
+         
          var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+
          switch (e.Button.Index)
          {
             case 0:
@@ -97,37 +109,6 @@ namespace System.Scsc.Ui.Common
                break;
             case 1:
                if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh.FILE_NO && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
-
-               // 1396/10/14 * بررسی اینکه آیا مشتری چند کلاس ثبت نام کرده است
-               //if (iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && mb.TYPE == "001" && mb.END_DATE.Value.Date >= DateTime.Now.Date && (mb.RWNO == 1 || mb.Request_Row.RQTT_CODE == "001") && (mb.NUMB_OF_ATTN_MONT > 0 && mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM)).Count() >= 2)
-               //{
-               //   _DefaultGateway.Gateway(
-               //      new Job(SendType.External, "localhost",
-               //         new List<Job>
-               //         {
-               //            new Job(SendType.Self, 152 /* Execute Chos_Mbsp_F */),
-               //            new Job(SendType.SelfToUserInterface, "CHOS_MBSP_F", 10 /* Execute Actn_CalF_F*/ )
-               //            {
-               //               Input = 
-               //               new XElement("Fighter",
-               //                  new XAttribute("fileno", figh.FILE_NO),
-               //                  new XAttribute("namednrm", figh.NAME_DNRM),
-               //                  new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM)
-               //               )
-               //            }
-               //         }
-               //      )
-               //   );
-               //}
-               //else
-               //   _DefaultGateway.Gateway(
-               //      new Job(SendType.External, "Localhost",
-               //         new List<Job>
-               //         {
-               //            new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
-               //            new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM))}
-               //         })
-               //   );
                break;
             case 2:
                if (MessageBox.Show(this, "آیا با حذف مشتری موافق هستید؟", "عملیات حذف موقت مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
@@ -223,44 +204,167 @@ namespace System.Scsc.Ui.Common
          vF_Fighs.Position = index;
       }
 
+      private void colActn1_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         index = vF_Fighs.Position;
+         var figh = FighBs.Current as Data.Fighter;
+         switch (e.Button.Index)
+         {
+            case 0:
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                       new List<Job>
+                        {                  
+                           new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", figh.FILE_NO)))}
+                        })
+               );
+               break;
+            case 1:
+               if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh.FILE_NO && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
+               break;
+            case 2:
+               if (MessageBox.Show(this, "آیا با حذف مشتری موافق هستید؟", "عملیات حذف موقت مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 01 /* Execute GetUi */){Input = "adm_ends_f"},
+                        new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 02 /* Execute Set */),
+                        new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 07 /* Execute Load_Data */),                        
+                        new Job(SendType.SelfToUserInterface, "ADM_ENDS_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"))},
+                        new Job(SendType.SelfToUserInterface, "LSI_FLDF_F", 07 /* Execute Load_Data */){Input = new XElement("LoadData", new XAttribute("requery", "1"))},
+                     })
+               );
+               break;
+            case 3:
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 70 /* Execute Adm_Chng_F */),
+                        new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "changeinfo"), new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"))}
+                     })
+               );
+               break;
+            case 4:
+               if (figh.FNGR_PRNT_DNRM == "" && !(figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "برای عضو مورد نظر هیچ کد انگشتی وارد نشده، لطفا کد عضو را از طریق تغییرات مشخصات عمومی تغییر لازم را اعمال کنید"); return; }
+               if (figh.COCH_FILE_NO_DNRM == null && !(figh.FGPB_TYPE_DNRM == "009" || figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "برای عضو شما مربی و ساعت کلاسی مشخصی وجود ندارد که مشخص کنیم در چه کلاس حضوری ثبت کنیم"); return; }
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {                        
+                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "accesscontrol"), new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM), new XAttribute("attnsystype", "001"))}
+                     })
+               );
+               break;
+            case 5:
+               if (figh.FNGR_PRNT_DNRM == "" && !(figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "برای عضو مورد نظر هیچ کد انگشتی وارد نشده، لطفا کد عضو را از طریق تغییرات مشخصات عمومی تغییر لازم را اعمال کنید"); return; }
+               if (figh.COCH_FILE_NO_DNRM == null && !(figh.FGPB_TYPE_DNRM == "009" || figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "برای عضو شما مربی و ساعت کلاسی مشخصی وجود ندارد که مشخص کنیم در چه کلاس حضوری ثبت کنیم"); return; }
+
+               /* 1395/03/15 * اگر سیستم بتواند حضوری را برای فرد ذخیره کند باید عملیات نمایش ورود فرد را آماده کنیم. */
+               var attnNotfSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_NOTF_STAT == "002").FirstOrDefault();
+               if (attnNotfSetting != null && attnNotfSetting.ATTN_NOTF_STAT == "002" && figh.FILE_NO != 0 && iScsc.Attendances.Any(a => figh.FILE_NO == a.FIGH_FILE_NO && a.ATTN_DATE.Date == DateTime.Now.Date))
+               {
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 110 /* Execute WHO_ARYU_F */),
+                           new Job(SendType.SelfToUserInterface, "WHO_ARYU_F", 10 /* Execute Actn_CalF_F*/ )
+                           {
+                              Input = 
+                              new XElement("Fighter",
+                                 new XAttribute("fileno", figh.FILE_NO),
+                                 new XAttribute("attndate", DateTime.Now)
+                              )
+                           }
+                        })
+                  );
+               }
+               break;
+            case 6:
+               try
+               {
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 46 /* Execute All_Fldf_F */){
+                              Input = 
+                                 new XElement("Fighter",
+                                    new XAttribute("fileno", figh.FILE_NO)                               
+                                 )
+                           },
+                           new Job(SendType.SelfToUserInterface, "ALL_FLDF_F", 10 /* Execute Actn_CalF_F*/ )
+                           {
+                              Input = 
+                              new XElement("Fighter",
+                                 new XAttribute("fileno", figh.FILE_NO),
+                                 new XAttribute("type", "refresh"),
+                                 new XAttribute("tabfocued", "tp_003")
+                              )
+                           }
+                        })
+                  );
+               }
+               catch { }
+               break;
+            default:
+               break;
+         }
+
+         vF_Fighs.Position = index;
+      }
+
       private void Lbls_Click(object sender, EventArgs e)
       {
          LabelControl lbl = (LabelControl)sender;
          switch (lbl.Name)
          {
             case "Green_Lbl":
-               PBLC.ActiveFilterString = "TYPE != '003' And [colRemnDay] >= 4";
+               PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] >= 4";
+               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay1] >= 4";
                break;
             case "Red_Lbl":
-               PBLC.ActiveFilterString = "TYPE != '003' And [colRemnDay] = 0";
+               PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] = 0";
+               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay1] = 0";
                break;
             case "Yellow_Lbl":
-               PBLC.ActiveFilterString = "TYPE != '003' And [colRemnDay] <= 3 And [colRemnDay] >= 1";
+               PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] <= 3 And [colRemnDay] >= 1";
+               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay1] <= 3 And [colRemnDay1] >= 1";
                break;
             case "Gray_Lbl":
-               PBLC.ActiveFilterString = "TYPE != '003' And [colRemnDay] < -7";
+               PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] < -7";
+               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay1] < -7";
                break;
             case "Gold_Lbl":
-               PBLC.ActiveFilterString = "TYPE != '003' And [colRemnDay] < 0 And [colRemnDay] >= -7";
+               PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] < 0 And [colRemnDay] >= -7";
+               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay1] < 0 And [colRemnDay1] >= -7";
                break;
             case "YellowGreen_Lbl":
-               PBLC.ActiveFilterString = "TYPE != '003'";
+               PBLC_Gv.ActiveFilterString = "TYPE != '003'";
+               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003'";
                break;
             case "DebtUp_Lbl":
-               PBLC.ActiveFilterString = "TYPE != '003' And DEBT_DNRM > 0";
+               PBLC_Gv.ActiveFilterString = "TYPE != '003' And DEBT_DNRM > 0";
+               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And DEBT_DNRM > 0";
                break;
             case "DebtDown_Lbl":
-               PBLC.ActiveFilterString = "TYPE != '003' And DPST_AMNT_DNRM > 0";
+               PBLC_Gv.ActiveFilterString = "TYPE != '003' And DPST_AMNT_DNRM > 0";
+               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And DPST_AMNT_DNRM > 0";
                break;
             case "NullProfile_Lbl":
                break;
             case "NullDcmt_Lbl":
                break;
             case "YesInsr_Lbl":
-               PBLC.ActiveFilterString = string.Format("TYPE != '003' And INSR_DATE_DNRM >= #{0}#", DateTime.Now.ToShortDateString());
+               PBLC_Gv.ActiveFilterString = string.Format("TYPE != '003' And INSR_DATE_DNRM >= #{0}#", DateTime.Now.ToShortDateString());
+               FIGH_Gv.ActiveFilterString = string.Format("FGPB_TYPE_DNRM != '003' And INSR_DATE_DNRM >= #{0}#", DateTime.Now.ToShortDateString());
                break;
             case "NoInsr_Lbl":
-               PBLC.ActiveFilterString = string.Format("TYPE != '003' And (IsNullOrEmpty(INSR_DATE_DNRM) OR INSR_DATE_DNRM < #{0}#)", DateTime.Now.ToShortDateString());
+               PBLC_Gv.ActiveFilterString = string.Format("TYPE != '003' And (IsNullOrEmpty(INSR_DATE_DNRM) OR INSR_DATE_DNRM < #{0}#)", DateTime.Now.ToShortDateString());
+               FIGH_Gv.ActiveFilterString = string.Format("FGPB_TYPE_DNRM != '003' And (IsNullOrEmpty(INSR_DATE_DNRM) OR INSR_DATE_DNRM < #{0}#)", DateTime.Now.ToShortDateString());
                break;
          }
       }
@@ -309,8 +413,32 @@ namespace System.Scsc.Ui.Common
             else
                ClubCode = (long?)ClubCode_Lov.EditValue;
 
-            vF_Fighs.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null, SuntCode).Where(f => f.CLUB_CODE == (ClubCode ?? f.CLUB_CODE)).OrderByDescending(s => s.END_DATE).Take((int)FtchRows_Nud.Value);
-            vF_Last_Info_FighterResultGridControl.Focus();
+            if(Tb_Master.SelectedTab == mtp_001)
+            {
+               FighBs.DataSource = 
+                  iScsc.Fighters.
+                  Where(f => 
+                     Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) 
+                  && f.CONF_STAT == "002"
+                  && (FrstName_Txt.Text == "" || f.FRST_NAME_DNRM.Contains(FrstName_Txt.Text))
+                  && (LastName_Txt.Text == "" || f.LAST_NAME_DNRM.Contains(LastName_Txt.Text))
+                  && (NatlCode_Txt.Text == "" || f.NATL_CODE_DNRM.Contains(NatlCode_Txt.Text))
+                  && (FngrPrnt_Txt.Text == "" || f.FNGR_PRNT_DNRM.Contains(FngrPrnt_Txt.Text))
+                  && (CellPhon_Txt.Text == "" || f.CELL_PHON_DNRM.Contains(CellPhon_Txt.Text))
+                  && (TellPhon_Txt.Text == "" || f.TELL_PHON_DNRM.Contains(TellPhon_Txt.Text))
+                  && (ServNo_Txt.Text == "" || f.SERV_NO_DNRM.Contains(ServNo_Txt.Text))
+                  && (GlobCode_Txt.Text == "" || f.GLOB_CODE_DNRM.Contains(GlobCode_Txt.Text))
+                  && (BothSex_Rb.Checked || (f.SEX_TYPE_DNRM == (Men_Rb.Checked ? "001" : "002")))
+                  && (ClubCode == null || f.CLUB_CODE_DNRM == ClubCode)
+                  && (SuntCode == null || f.SUNT_CODE_DNRM == SuntCode)
+                  ).OrderByDescending(f => f.MBSP_END_DATE)
+                  .Take((int)FtchRows_Nud.Value);
+            }
+            else if (Tb_Master.SelectedTab == mtp_002)
+            {
+               vF_Fighs.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null, SuntCode).Where(f => f.CLUB_CODE == (ClubCode ?? f.CLUB_CODE)).OrderByDescending(s => s.END_DATE).Take((int)FtchRows_Nud.Value);
+               vF_Last_Info_FighterResultGridControl.Focus();
+            }
 
             requery = false;
          }
@@ -319,8 +447,18 @@ namespace System.Scsc.Ui.Common
 
       private void vF_Last_Info_FighterResultBindingSource_CurrentChanged(object sender, EventArgs e)
       {
-         var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+         dynamic figh;
+         if (Tb_Master.SelectedTab == mtp_001)
+         {
+            figh = FighBs.Current as Data.Fighter;
+         }
+         else
+         {
+            figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+         }
          if (figh == null) return;
+
+         long fileno = figh.FILE_NO;
          try
          {
             // 1401/05/22 * Focused
@@ -329,7 +467,7 @@ namespace System.Scsc.Ui.Common
             RqstBnFignInfo_Lb.Text = figh.NAME_DNRM;
             PayDebtAmnt_Txt.Text = figh.DEBT_DNRM.ToString();
 
-            MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+            MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == fileno && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
             Mbsp_gv.TopRowIndex = 0;
 
             UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = null;
@@ -399,8 +537,8 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-            if (figh == null) return;
+            //var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //if (figh == null) return;
 
             var mbsp = MbspBs.Current as Data.Member_Ship;
             if (mbsp == null) return;
@@ -431,7 +569,7 @@ namespace System.Scsc.Ui.Common
             }
 
             iScsc = new Data.iScscDataContext(ConnectionString);
-            MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+            MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == mbsp.FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
             Mbsp_gv.TopRowIndex = 0;
          }
          catch (Exception exc)
@@ -475,11 +613,13 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-            if (figh == null) return;
+            //var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //if (figh == null) return;
 
             var mbsp = MbspBs.Current as Data.Member_Ship;
             if (mbsp == null) return;
+
+            var figh = mbsp.Fighter;
 
             switch (e.Button.Index)
             {
@@ -497,7 +637,7 @@ namespace System.Scsc.Ui.Common
                      _DefaultGateway.Gateway(_InteractWithScsc);
 
                      iScsc = new Data.iScscDataContext(ConnectionString);
-                     MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+                     MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == mbsp.FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
                      Mbsp_gv.TopRowIndex = 0;
                   }
                   catch (Exception exc)
@@ -508,7 +648,7 @@ namespace System.Scsc.Ui.Common
                case 1:
                   try
                   {
-                     if (figh.TYPE == "002" || figh.TYPE == "003" || figh.TYPE == "004") return;
+                     if (figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004") return;
 
                      var fp = mbsp.Fighter_Public;
                      iScsc.ExecuteCommand(string.Format("UPDATE Fighter SET Mtod_Code_Dnrm = {0}, Ctgy_Code_Dnrm = {1}, Cbmt_Code_Dnrm = {2} WHERE File_No = {3};", fp.MTOD_CODE, fp.CTGY_CODE, fp.CBMT_CODE, fp.FIGH_FILE_NO));
@@ -1480,7 +1620,8 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var _LastInfo = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //var _LastInfo = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            var _LastInfo = FighBs.Current as Data.Fighter;
             var _dbLastInfo = iScsc.VF_Last_Info_Fighter(_LastInfo.FILE_NO, null, null, null, null, null, null, null, null, null, null, null, null, null, null).FirstOrDefault();
 
             string _chngClmn = ""; //= "ستون هایی که شما تغییر داده اید :" + Environment.NewLine;
@@ -1510,21 +1651,21 @@ namespace System.Scsc.Ui.Common
                _savedb = true;
             }
 
-            if (_LastInfo.SUNT_CODE != null && _LastInfo.SUNT_CODE != _dbLastInfo.SUNT_CODE)
+            if (_LastInfo.SUNT_CODE_DNRM != null && _LastInfo.SUNT_CODE_DNRM != _dbLastInfo.SUNT_CODE)
             {
-               _chngClmn += string.Format("اطلاعات سازمان" + " : {0}", _LastInfo.SUNT_CODE) + Environment.NewLine;
+               _chngClmn += string.Format("اطلاعات سازمان" + " : {0}", _LastInfo.SUNT_CODE_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
-            if (_LastInfo.GLOB_CODE != null && _LastInfo.GLOB_CODE != _dbLastInfo.GLOB_CODE)
+            if (_LastInfo.GLOB_CODE_DNRM != null && _LastInfo.GLOB_CODE_DNRM != _dbLastInfo.GLOB_CODE)
             {
-               _chngClmn += string.Format("کد پرسنلی" + " : {0}", _LastInfo.GLOB_CODE) + Environment.NewLine;
+               _chngClmn += string.Format("کد پرسنلی" + " : {0}", _LastInfo.GLOB_CODE_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
-            if (_LastInfo.NATL_CODE != null && _LastInfo.NATL_CODE != _dbLastInfo.NATL_CODE)
+            if (_LastInfo.NATL_CODE_DNRM != null && _LastInfo.NATL_CODE_DNRM != _dbLastInfo.NATL_CODE)
             {
-               _chngClmn += string.Format("کد ملی" + " : {0}", _LastInfo.NATL_CODE) + Environment.NewLine;
+               _chngClmn += string.Format("کد ملی" + " : {0}", _LastInfo.NATL_CODE_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
@@ -1569,10 +1710,10 @@ namespace System.Scsc.Ui.Common
                    new XAttribute("tellphon", (_LastInfo.TELL_PHON_DNRM ?? "").ToString().Trim()),
                    new XAttribute("dadcellphon", (_LastInfo.DAD_CELL_PHON_DNRM ?? "").ToString().Trim()),
                    new XAttribute("momcellphon", (_LastInfo.MOM_CELL_PHON_DNRM ?? "").ToString().Trim()),
-                   new XAttribute("suntcode", _LastInfo.SUNT_CODE ?? ""),
-                   new XAttribute("globcode", (_LastInfo.GLOB_CODE ?? "").ToString().Trim()),
+                   new XAttribute("suntcode", _LastInfo.SUNT_CODE_DNRM ?? ""),
+                   new XAttribute("globcode", (_LastInfo.GLOB_CODE_DNRM ?? "").ToString().Trim()),
                    new XAttribute("servno", (_LastInfo.SERV_NO_DNRM ?? "").ToString().Trim()),
-                   new XAttribute("natlcode", (_LastInfo.NATL_CODE ?? "").ToString().Trim()),
+                   new XAttribute("natlcode", (_LastInfo.NATL_CODE_DNRM ?? "").ToString().Trim()),
                    new XAttribute("insrdate", _LastInfo.INSR_DATE_DNRM.HasValue ? _LastInfo.INSR_DATE_DNRM.Value.Date.ToString("yyyy-MM-dd") : ""),
                    new XAttribute("chatid", _LastInfo.CHAT_ID_DNRM ?? 0),
                    new XAttribute("dadchatid", _LastInfo.DAD_CHAT_ID_DNRM ?? 0),
@@ -1611,7 +1752,8 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var _serv = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //var _serv = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            var _serv = FighBs.Current as Data.Fighter;
             if (_serv == null) return;            
 
             switch (ServProf_Tc.SelectedTab.Name)
@@ -1743,7 +1885,8 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var _rootServ = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //var _rootServ = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            var _rootServ = FighBs.Current as Data.Fighter;
             if (_rootServ == null) return;
 
             if(RefCode_Lov.EditValue == null || RefCode_Lov.EditValue.ToString() == "")return;

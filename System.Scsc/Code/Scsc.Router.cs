@@ -531,6 +531,9 @@ namespace System.Scsc.Code
             case 167:
                Opr_Comp_F(job);
                break;
+            case 168:
+               Def_Prod_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -1011,6 +1014,9 @@ namespace System.Scsc.Code
                break;
             case "OPR_COMP_F":
                _Opr_Comp_F.SendRequest(job);
+               break;
+            case "DEF_PROD_F":
+               _Def_Prod_F.SendRequest(job);
                break;
 
             /* Show Changed */

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using System.Scsc.ExtCode;
+using System.Drawing.Printing;
 
 namespace System.Scsc.Ui.ReportManager
 {
@@ -21,6 +22,10 @@ namespace System.Scsc.Ui.ReportManager
       string ModualName, SectionName;
       string WhereClause;
       string ModualReportCode;
+      string CurrentUser;
+      XElement HostNameInfo;
+      string ComputerName;
+      PrinterSettings _printerSettings = new PrinterSettings();
 
       public void SendRequest(Job job)
       {
@@ -146,6 +151,13 @@ namespace System.Scsc.Ui.ReportManager
          ConnectionString = GetConnectionString.Output.ToString();
          iScsc = new Data.iScscDataContext(GetConnectionString.Output.ToString());
 
+         CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
+
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
+         HostNameInfo = (XElement)GetHostInfo.Output;
+         ComputerName = HostNameInfo.Attribute("name").Value;
+
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
@@ -270,10 +282,20 @@ namespace System.Scsc.Ui.ReportManager
 
                s.Compile();
                s.Render();
-               s.Print(false);
+               foreach (var _printer in crnt.Modual_Report_Direct_Prints.Where(p => p.STAT == "002" && p.USER_ID == CurrentUser && p.Computer_Action.COMP_NAME == ComputerName))
+               {
+                  if (_printer.DFLT_PRNT == "002")
+                     s.Print(false, (short)_printer.COPY_NUMB);
+                  else
+                  {
+                     _printerSettings.Copies = (short)_printer.COPY_NUMB;
+                     _printerSettings.PrinterName = _printer.PRNT_NAME;
+                     s.Print(false, _printerSettings);
+                  }
+               }                     
             }
          }
-         catch (Exception exc)
+         catch
          {
             //MessageBox.Show(exc.Message); 
             _DefaultGateway.Gateway(
@@ -385,7 +407,17 @@ namespace System.Scsc.Ui.ReportManager
 
                      s.Compile();
                      s.Render();
-                     s.Print(false);
+                     foreach (var _printer in SlctedPrint.Modual_Report_Direct_Prints.Where(p => p.STAT == "002" && p.USER_ID == CurrentUser && p.Computer_Action.COMP_NAME == ComputerName))
+                     {
+                        if(_printer.DFLT_PRNT == "002")
+                           s.Print(false, (short)_printer.COPY_NUMB);
+                        else
+                        {
+                           _printerSettings.Copies = (short)_printer.COPY_NUMB;
+                           _printerSettings.PrinterName = _printer.PRNT_NAME;
+                           s.Print(false, _printerSettings);
+                        }
+                     }                     
 
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "Localhost",
@@ -461,7 +493,17 @@ namespace System.Scsc.Ui.ReportManager
 
                      s.Compile();
                      s.Render();
-                     s.Print(false);
+                     foreach (var _printer in DfltPrint.Modual_Report_Direct_Prints.Where(p => p.STAT == "002" && p.USER_ID == CurrentUser && p.Computer_Action.COMP_NAME == ComputerName))
+                     {
+                        if (_printer.DFLT_PRNT == "002")
+                           s.Print(false, (short)_printer.COPY_NUMB);
+                        else
+                        {
+                           _printerSettings.Copies = (short)_printer.COPY_NUMB;
+                           _printerSettings.PrinterName = _printer.PRNT_NAME;
+                           s.Print(false, _printerSettings);
+                        }
+                     }
 
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "Localhost",
@@ -537,7 +579,17 @@ namespace System.Scsc.Ui.ReportManager
 
                      s.Compile();
                      s.Render();
-                     s.Print(false);
+                     foreach (var _printer in DfltPrint.Modual_Report_Direct_Prints.Where(p => p.STAT == "002" && p.USER_ID == CurrentUser && p.Computer_Action.COMP_NAME == ComputerName))
+                     {
+                        if (_printer.DFLT_PRNT == "002")
+                           s.Print(false, (short)_printer.COPY_NUMB);
+                        else
+                        {
+                           _printerSettings.Copies = (short)_printer.COPY_NUMB;
+                           _printerSettings.PrinterName = _printer.PRNT_NAME;
+                           s.Print(false, _printerSettings);
+                        }
+                     }
 
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "Localhost",
@@ -558,27 +610,12 @@ namespace System.Scsc.Ui.ReportManager
                      );
                   }
                }
-               //else
-               //{
-               //   if (iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002").Any())
-               //   {
-               //      Job _InteractWithScsc = new Job(SendType.External, "Localhost",
-               //         new List<Job>
-               //         {
-               //            new Job(SendType.Self, 85 /* Execute RPT_LRFM_F */){Input = job.Input}
-               //         });
-               //      _DefaultGateway.Gateway(_InteractWithScsc);
-               //   }
-               //   else
-               //      MessageBox.Show(this, "برای فرم جاری هیچگونه چاپ گزارش مشخص نشده، لطفا از طریق تنظیمات چاپ همین فرم برای مشخص کردن چاپ گزارش اقدام فرمایید", "مشخص نبودن چاپ فرم", MessageBoxButtons.OK, MessageBoxIcon.Information);
-               //}
                #endregion
             }
 
          }
-         catch(Exception exc)
+         catch
          {
-            //MessageBox.Show(exc.InnerException.Message);
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", GetType().Name, 11 /* Execute Do_Print */, SendType.SelfToUserInterface) { Input = job.Input }
             );

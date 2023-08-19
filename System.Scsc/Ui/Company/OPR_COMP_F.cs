@@ -122,11 +122,6 @@ namespace System.Scsc.Ui.Company
          }
       }
 
-      private void CELL_PHON_TextEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
-      {
-         Comp_Gv.FindFilterText = CELL_PHON_TextEdit.Text;
-      }
-
       private void FindFigh_Butn_Click(object sender, EventArgs e)
       {
          try
@@ -151,17 +146,33 @@ namespace System.Scsc.Ui.Company
       {
          try
          {
+            var _figh = FighBs.Current as Data.Fighter;
+            if (_figh == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 1:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _figh.FILE_NO)) }
+                  );
+                  break;
+               default:
+                  break;
+            }
+
             var _comp = CompBs.Current as Data.Company;
-            if (_comp == null) return;
+            if (_comp == null) return;            
 
             switch (e.Button.Index)
             {
                case 0:
-                  var _figh = FighBs.Current as Data.Fighter;
-                  if (_figh == null) return;
-
                   iScsc.ExecuteCommand(
                      string.Format("INSERT INTO dbo.Company_Fighter (Comp_Code, Figh_File_No, Code) VALUES ({0}, {1}, 0);", _comp.CODE, _figh.FILE_NO)
+                  );
+                  break;
+               case 1:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _figh.FILE_NO)) }
                   );
                   break;
                default:
@@ -217,6 +228,11 @@ namespace System.Scsc.Ui.Company
                            }
                         }
                      )
+                  );
+                  break;
+               case 3:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _cmfg.FIGH_FILE_NO)) }
                   );
                   break;
                default:
@@ -435,6 +451,57 @@ namespace System.Scsc.Ui.Company
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void CompCellPhon_Txt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            ClerCompFiltr_Butn_Click(null, null);
+            CompCellPhon_Cbx.Checked = true;
+            CompCellPhon_Txt.Text = CELL_PHON_TextEdit.Text;
+            FindComp_Butn_Click(null, null);
+
+            if (FindCompBs.List.Count == 0) return;
+
+            tb_master.SelectedTab = tp_003;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ClerCompFiltr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            CompFiltr_Flp.Controls.OfType<MaxUi.Rollout>().ToList().ForEach(r => r.Controls.OfType<CheckBox>().ToList().ForEach(c => c.Checked = false));
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void TempActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _temp = TempBs.Current as Data.Template;
+            if (_temp == null) return;
+
+            TempText_Txt.Text = _temp.TEMP_TEXT;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ClenNotiText_Txt_Click(object sender, EventArgs e)
+      {
+         TempText_Txt.Text = "";
       }
    }
 }

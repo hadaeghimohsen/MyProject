@@ -812,7 +812,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             // Do Some things
             iRoboTech.INS_ODST_P(
-               ordr.CODE, null, DateTime.Now, "واریزی مبلغ نقدی", amnt, "006", "001", null, ordr.DEST_CARD_NUMB_DNRM, user.CHAT_ID.ToString(), null, null, null, "002", DateTime.Now, "دریافت مبلغ نقدی توسط صندوقدار - " + user.NAME
+               ordr.CODE, null, DateTime.Now, "واریزی مبلغ نقدی", amnt, "006", "001", null, ordr.DEST_CARD_NUMB_DNRM, null, null, user.CHAT_ID.ToString(), null, null, null, "002", DateTime.Now, "دریافت مبلغ نقدی توسط صندوقدار - " + user.NAME
             );
 
             requery = true;
@@ -910,7 +910,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
                // Do Some things
                iRoboTech.INS_ODST_P(
-                  ordr.CODE, null, DateTime.Now, "واریزی مبلغ غیر PCPOS کارتخوان", amnt, "006", "003", null, ordr.DEST_CARD_NUMB_DNRM, user.CHAT_ID.ToString(), null, null, null, "002", DateTime.Now, "دریافت مبلغ غیر PCPOS کارتخوان توسط صندوقدار - " + user.NAME
+                  ordr.CODE, null, DateTime.Now, "واریزی مبلغ غیر PCPOS کارتخوان", amnt, "006", "003", null, ordr.DEST_CARD_NUMB_DNRM, null, null, user.CHAT_ID.ToString(), null, null, null, "002", DateTime.Now, "دریافت مبلغ غیر PCPOS کارتخوان توسط صندوقدار - " + user.NAME
                );
             }
             requery = true;
@@ -955,7 +955,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             // Do Some things
             iRoboTech.INS_ODST_P(
-               ordr.CODE, null, DateTime.Now, "واریزی مبلغ از کیف پول اعتباری", amnt, "006", "015", null, ordr.DEST_CARD_NUMB_DNRM, user.CHAT_ID.ToString(), null, null, null, "002", DateTime.Now, "دریافت مبلغ از کیف پول اعتباری توسط صندوقدار - " + user.NAME
+               ordr.CODE, null, DateTime.Now, "واریزی مبلغ از کیف پول اعتباری", amnt, "006", "015", null, ordr.DEST_CARD_NUMB_DNRM, null, null, user.CHAT_ID.ToString(), null, null, null, "002", DateTime.Now, "دریافت مبلغ از کیف پول اعتباری توسط صندوقدار - " + user.NAME
             );
 
             requery = true;
@@ -1000,7 +1000,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             // Do Some things
             iRoboTech.INS_ODST_P(
-               ordr.CODE, null, DateTime.Now, "واریزی مبلغ از کیف پول نقدی", amnt, "006", "014", null, ordr.DEST_CARD_NUMB_DNRM, user.CHAT_ID.ToString(), null, null, null, "002", DateTime.Now, "دریافت مبلغ از کیف پول نقدی توسط صندوقدار - " + user.NAME
+               ordr.CODE, null, DateTime.Now, "واریزی مبلغ از کیف پول نقدی", amnt, "006", "014", null, ordr.DEST_CARD_NUMB_DNRM, null, null, user.CHAT_ID.ToString(), null, null, null, "002", DateTime.Now, "دریافت مبلغ از کیف پول نقدی توسط صندوقدار - " + user.NAME
             );
 
             requery = true;

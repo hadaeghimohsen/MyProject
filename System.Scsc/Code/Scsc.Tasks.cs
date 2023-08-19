@@ -795,7 +795,12 @@ namespace System.Scsc.Code
          else if (value == "opr_comp_f")
          {
             if (_Opr_Comp_F == null)
-               _Opr_Comp_F = new Ui.Company.OPR_COMP_F { _DefaultGateway = this };
+               _Opr_Comp_F = new Ui.Company.OPR_COMP_F { _DefaultGateway = this };         
+         }
+         else if (value == "def_prod_f")
+         {
+            if (_Def_Prod_F == null)
+               _Def_Prod_F = new Ui.Warehouse.DEF_PROD_F { _DefaultGateway = this };
          }
 
          // فرم های نمایش تغییرات
@@ -4868,6 +4873,30 @@ namespace System.Scsc.Code
                   new Job(SendType.SelfToUserInterface, "OPR_COMP_F", 02 /* Execute Set */),
                   new Job(SendType.SelfToUserInterface, "OPR_COMP_F", 07 /* Execute Load_Data */){WhereIsInputData = WhereIsInputDataType.StepBack},
                   new Job(SendType.SelfToUserInterface, "OPR_COMP_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 168
+      /// </summary>
+      /// <param name="job"></param>
+      private void Def_Prod_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "def_prod_f"},
+                  new Job(SendType.SelfToUserInterface, "DEF_PROD_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "DEF_PROD_F", 07 /* Execute Load_Data */){WhereIsInputData = WhereIsInputDataType.StepBack},
+                  new Job(SendType.SelfToUserInterface, "DEF_PROD_F", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

@@ -4975,6 +4975,7 @@
          this.toolStripSplitButton1.Name = "toolStripSplitButton1";
          this.toolStripSplitButton1.Size = new System.Drawing.Size(56, 44);
          this.toolStripSplitButton1.Text = "چاپ پیش فرض";
+         this.toolStripSplitButton1.ButtonClick += new System.EventHandler(this.RqstBnDefaultPrint_Click);
          // 
          // RqstBnDefaultPrint3
          // 

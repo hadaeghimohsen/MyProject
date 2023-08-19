@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label cLUB_CODELabel;
          System.Windows.Forms.Label ePIT_CODELabel;
          System.Windows.Forms.Label cOCH_FILE_NOLabel;
@@ -79,12 +78,12 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colRECT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Rect_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DRectBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DRectBs = new System.Windows.Forms.BindingSource();
          this.tb_master = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.misc_ExpenseGridControl = new DevExpress.XtraGrid.GridControl();
-         this.MsexBs = new System.Windows.Forms.BindingSource(this.components);
+         this.MsexBs = new System.Windows.Forms.BindingSource();
          this.Msex_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -92,7 +91,7 @@
          this.colCLUB_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEPIT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Epit1_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.EpitBs3 = new System.Windows.Forms.BindingSource(this.components);
+         this.EpitBs3 = new System.Windows.Forms.BindingSource();
          this.colCOCH_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colVALD_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -120,7 +119,7 @@
          this.tabControl2 = new System.Windows.Forms.TabControl();
          this.tabPage2 = new System.Windows.Forms.TabPage();
          this.gridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.PydeBs = new System.Windows.Forms.BindingSource(this.components);
+         this.PydeBs = new System.Windows.Forms.BindingSource();
          this.Pyde_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPYDT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMSEX_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -146,10 +145,10 @@
          this.gridColumn8 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn9 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CETP_LOV = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DCetpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DCetpBs = new System.Windows.Forms.BindingSource();
          this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CXTP_LOV = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DCxtpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DCxtpBs = new System.Windows.Forms.BindingSource();
          this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn11 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn12 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -169,7 +168,7 @@
          this.tabPage3 = new System.Windows.Forms.TabPage();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.MPydtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.MPydtBs = new System.Windows.Forms.BindingSource();
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPYMT_CASH_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_RQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -218,7 +217,7 @@
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.repositoryItemTimeEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.MsedBs = new System.Windows.Forms.BindingSource(this.components);
+         this.MsedBs = new System.Windows.Forms.BindingSource();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPMTD_ACTN_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit4 = new dxExample.PersianRepositoryItemDateEdit();
@@ -231,29 +230,29 @@
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.groupBox1 = new System.Windows.Forms.GroupBox();
          this.Rqtp_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.RqtpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RqtpBs = new System.Windows.Forms.BindingSource();
          this.Degr_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.DegrBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DegrBs = new System.Windows.Forms.BindingSource();
          this.Epit_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.EpitBs = new System.Windows.Forms.BindingSource(this.components);
+         this.EpitBs = new System.Windows.Forms.BindingSource();
          this.Cetp1_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.Cxtp1_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.Ctgy_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.CtgyBs = new System.Windows.Forms.BindingSource(this.components);
+         this.CtgyBs = new System.Windows.Forms.BindingSource();
          this.Mtod_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.MtodBs = new System.Windows.Forms.BindingSource(this.components);
+         this.MtodBs = new System.Windows.Forms.BindingSource();
          this.Pde_ToDate = new Atf.UI.DateTimeSelector();
          this.DecrPrct_Te = new DevExpress.XtraEditors.TextEdit();
          this.Pde_FromDate = new Atf.UI.DateTimeSelector();
          this.Coch_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
+         this.FighBs = new System.Windows.Forms.BindingSource();
          this.Clear_Butn = new System.Windows.Forms.Button();
          this.label2 = new System.Windows.Forms.Label();
          this.label4 = new System.Windows.Forms.Label();
          this.label5 = new System.Windows.Forms.Label();
          this.label3 = new System.Windows.Forms.Label();
          this.label1 = new System.Windows.Forms.Label();
-         this.MsexBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.MsexBn = new System.Windows.Forms.BindingNavigator();
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -277,21 +276,21 @@
          this.RqstBnSettingPrint1 = new System.Windows.Forms.ToolStripButton();
          this.tp_002 = new System.Windows.Forms.TabPage();
          this.misc_ExpenseGridControl1 = new DevExpress.XtraGrid.GridControl();
-         this.MosxBs2 = new System.Windows.Forms.BindingSource(this.components);
+         this.MosxBs2 = new System.Windows.Forms.BindingSource();
          this.Mosx_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.PRVN_LOV = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.PrvnBs2 = new System.Windows.Forms.BindingSource(this.components);
+         this.PrvnBs2 = new System.Windows.Forms.BindingSource();
          this.colREGN_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.REGN_LOV = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.RegnBs2 = new System.Windows.Forms.BindingSource(this.components);
+         this.RegnBs2 = new System.Windows.Forms.BindingSource();
          this.colCLUB_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CLUB_LOV = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.ClubBs2 = new System.Windows.Forms.BindingSource(this.components);
+         this.ClubBs2 = new System.Windows.Forms.BindingSource();
          this.colEPIT_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LOV_EPIT = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.EpitBs2 = new System.Windows.Forms.BindingSource(this.components);
+         this.EpitBs2 = new System.Windows.Forms.BindingSource();
          this.colCOCH_FILE_NO1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.LOV_COCH = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -408,7 +407,7 @@
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colClub11 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRegion2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.MosxBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.MosxBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
          this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
@@ -428,6 +427,8 @@
          this.CalcExpn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.gridColumn31 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn32 = new DevExpress.XtraGrid.Columns.GridColumn();
          cLUB_CODELabel = new System.Windows.Forms.Label();
          ePIT_CODELabel = new System.Windows.Forms.Label();
          cOCH_FILE_NOLabel = new System.Windows.Forms.Label();
@@ -692,7 +693,7 @@
          this.colRECT_CODE.OptionsColumn.AllowEdit = false;
          this.colRECT_CODE.OptionsColumn.ReadOnly = true;
          this.colRECT_CODE.Visible = true;
-         this.colRECT_CODE.VisibleIndex = 28;
+         this.colRECT_CODE.VisibleIndex = 29;
          // 
          // Rect_Lov
          // 
@@ -773,13 +774,13 @@
          // 
          // Msex_Gv
          // 
-         this.Msex_Gv.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Msex_Gv.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9.75F);
          this.Msex_Gv.Appearance.FooterPanel.Options.UseFont = true;
-         this.Msex_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Msex_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9.75F);
          this.Msex_Gv.Appearance.HeaderPanel.Options.UseFont = true;
          this.Msex_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
          this.Msex_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.Msex_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Msex_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9.75F);
          this.Msex_Gv.Appearance.Row.Options.UseFont = true;
          this.Msex_Gv.Appearance.Row.Options.UseTextOptions = true;
          this.Msex_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
@@ -811,7 +812,8 @@
             this.gridColumn24,
             this.gridColumn25,
             this.gridColumn21,
-            this.gridColumn26});
+            this.gridColumn26,
+            this.gridColumn32});
          this.Msex_Gv.GridControl = this.misc_ExpenseGridControl;
          this.Msex_Gv.Name = "Msex_Gv";
          this.Msex_Gv.OptionsBehavior.AutoExpandAllGroups = true;
@@ -853,7 +855,7 @@
          this.colCLUB_CODE.OptionsColumn.AllowEdit = false;
          this.colCLUB_CODE.OptionsColumn.ReadOnly = true;
          this.colCLUB_CODE.Visible = true;
-         this.colCLUB_CODE.VisibleIndex = 10;
+         this.colCLUB_CODE.VisibleIndex = 11;
          this.colCLUB_CODE.Width = 109;
          // 
          // colEPIT_CODE
@@ -893,7 +895,7 @@
          this.colCOCH_FILE_NO.OptionsColumn.AllowEdit = false;
          this.colCOCH_FILE_NO.OptionsColumn.ReadOnly = true;
          this.colCOCH_FILE_NO.Visible = true;
-         this.colCOCH_FILE_NO.VisibleIndex = 9;
+         this.colCOCH_FILE_NO.VisibleIndex = 10;
          this.colCOCH_FILE_NO.Width = 106;
          // 
          // colCODE
@@ -921,7 +923,7 @@
          this.colEXPN_AMNT.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "EXPN_AMNT", "{0:n0}")});
          this.colEXPN_AMNT.Visible = true;
-         this.colEXPN_AMNT.VisibleIndex = 8;
+         this.colEXPN_AMNT.VisibleIndex = 9;
          this.colEXPN_AMNT.Width = 82;
          // 
          // colEXPN_DESC
@@ -1034,7 +1036,7 @@
          this.gridColumn24.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "LOCK_EXPN_AMNT_DNRM", "{0:n0}")});
          this.gridColumn24.Visible = true;
-         this.gridColumn24.VisibleIndex = 5;
+         this.gridColumn24.VisibleIndex = 6;
          // 
          // gridColumn25
          // 
@@ -1063,7 +1065,7 @@
          this.gridColumn21.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SUM_DEDU_AMNT_DNRM", "{0:n0}")});
          this.gridColumn21.Visible = true;
-         this.gridColumn21.VisibleIndex = 7;
+         this.gridColumn21.VisibleIndex = 8;
          // 
          // gridColumn26
          // 
@@ -1079,7 +1081,7 @@
          this.gridColumn26.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "SUM_NET_AMNT_DNRM", "{0:n0}")});
          this.gridColumn26.Visible = true;
-         this.gridColumn26.VisibleIndex = 6;
+         this.gridColumn26.VisibleIndex = 7;
          // 
          // tabControl2
          // 
@@ -1180,7 +1182,8 @@
             this.gridColumn27,
             this.gridColumn28,
             this.gridColumn29,
-            this.gridColumn30});
+            this.gridColumn30,
+            this.gridColumn31});
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
          styleFormatCondition1.Appearance.Options.UseBackColor = true;
          styleFormatCondition1.ApplyToRow = true;
@@ -1215,7 +1218,7 @@
          this.colPYDT_CODE.OptionsColumn.AllowEdit = false;
          this.colPYDT_CODE.OptionsColumn.ReadOnly = true;
          this.colPYDT_CODE.Visible = true;
-         this.colPYDT_CODE.VisibleIndex = 31;
+         this.colPYDT_CODE.VisibleIndex = 32;
          this.colPYDT_CODE.Width = 91;
          // 
          // colMSEX_CODE
@@ -1229,7 +1232,7 @@
          this.colMSEX_CODE.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
          this.colMSEX_CODE.Visible = true;
-         this.colMSEX_CODE.VisibleIndex = 32;
+         this.colMSEX_CODE.VisibleIndex = 33;
          this.colMSEX_CODE.Width = 108;
          // 
          // colCOCH_FILE_NO2
@@ -1247,7 +1250,7 @@
          this.colCODE3.OptionsColumn.AllowEdit = false;
          this.colCODE3.OptionsColumn.ReadOnly = true;
          this.colCODE3.Visible = true;
-         this.colCODE3.VisibleIndex = 15;
+         this.colCODE3.VisibleIndex = 16;
          // 
          // colVALD_TYPE2
          // 
@@ -1402,7 +1405,7 @@
          this.gridColumn4.Name = "gridColumn4";
          this.gridColumn4.OptionsColumn.FixedWidth = true;
          this.gridColumn4.Visible = true;
-         this.gridColumn4.VisibleIndex = 30;
+         this.gridColumn4.VisibleIndex = 31;
          this.gridColumn4.Width = 28;
          // 
          // Actn_Butn
@@ -1424,7 +1427,7 @@
          this.gridColumn5.OptionsColumn.AllowEdit = false;
          this.gridColumn5.OptionsColumn.ReadOnly = true;
          this.gridColumn5.Visible = true;
-         this.gridColumn5.VisibleIndex = 17;
+         this.gridColumn5.VisibleIndex = 20;
          this.gridColumn5.Width = 146;
          // 
          // gridColumn6
@@ -1437,7 +1440,7 @@
          this.gridColumn6.OptionsColumn.AllowEdit = false;
          this.gridColumn6.OptionsColumn.ReadOnly = true;
          this.gridColumn6.Visible = true;
-         this.gridColumn6.VisibleIndex = 16;
+         this.gridColumn6.VisibleIndex = 19;
          this.gridColumn6.Width = 81;
          // 
          // gridColumn7
@@ -1544,7 +1547,7 @@
          this.gridColumn23.OptionsColumn.AllowEdit = false;
          this.gridColumn23.OptionsColumn.ReadOnly = true;
          this.gridColumn23.Visible = true;
-         this.gridColumn23.VisibleIndex = 23;
+         this.gridColumn23.VisibleIndex = 24;
          // 
          // gridColumn11
          // 
@@ -1557,7 +1560,7 @@
          this.gridColumn11.OptionsColumn.AllowEdit = false;
          this.gridColumn11.OptionsColumn.ReadOnly = true;
          this.gridColumn11.Visible = true;
-         this.gridColumn11.VisibleIndex = 22;
+         this.gridColumn11.VisibleIndex = 18;
          // 
          // gridColumn12
          // 
@@ -1570,7 +1573,7 @@
          this.gridColumn12.OptionsColumn.AllowEdit = false;
          this.gridColumn12.OptionsColumn.ReadOnly = true;
          this.gridColumn12.Visible = true;
-         this.gridColumn12.VisibleIndex = 21;
+         this.gridColumn12.VisibleIndex = 17;
          // 
          // gridColumn13
          // 
@@ -1580,7 +1583,7 @@
          this.gridColumn13.OptionsColumn.AllowEdit = false;
          this.gridColumn13.OptionsColumn.ReadOnly = true;
          this.gridColumn13.Visible = true;
-         this.gridColumn13.VisibleIndex = 19;
+         this.gridColumn13.VisibleIndex = 22;
          // 
          // gridColumn14
          // 
@@ -1590,7 +1593,7 @@
          this.gridColumn14.OptionsColumn.AllowEdit = false;
          this.gridColumn14.OptionsColumn.ReadOnly = true;
          this.gridColumn14.Visible = true;
-         this.gridColumn14.VisibleIndex = 18;
+         this.gridColumn14.VisibleIndex = 21;
          // 
          // gridColumn15
          // 
@@ -1600,7 +1603,7 @@
          this.gridColumn15.OptionsColumn.AllowEdit = false;
          this.gridColumn15.OptionsColumn.ReadOnly = true;
          this.gridColumn15.Visible = true;
-         this.gridColumn15.VisibleIndex = 20;
+         this.gridColumn15.VisibleIndex = 23;
          // 
          // gridColumn16
          // 
@@ -1610,7 +1613,7 @@
          this.gridColumn16.OptionsColumn.AllowEdit = false;
          this.gridColumn16.OptionsColumn.ReadOnly = true;
          this.gridColumn16.Visible = true;
-         this.gridColumn16.VisibleIndex = 24;
+         this.gridColumn16.VisibleIndex = 25;
          // 
          // gridColumn17
          // 
@@ -1620,7 +1623,7 @@
          this.gridColumn17.OptionsColumn.AllowEdit = false;
          this.gridColumn17.OptionsColumn.ReadOnly = true;
          this.gridColumn17.Visible = true;
-         this.gridColumn17.VisibleIndex = 25;
+         this.gridColumn17.VisibleIndex = 26;
          // 
          // gridColumn18
          // 
@@ -1630,7 +1633,7 @@
          this.gridColumn18.OptionsColumn.AllowEdit = false;
          this.gridColumn18.OptionsColumn.ReadOnly = true;
          this.gridColumn18.Visible = true;
-         this.gridColumn18.VisibleIndex = 26;
+         this.gridColumn18.VisibleIndex = 27;
          // 
          // gridColumn19
          // 
@@ -1640,7 +1643,7 @@
          this.gridColumn19.OptionsColumn.AllowEdit = false;
          this.gridColumn19.OptionsColumn.ReadOnly = true;
          this.gridColumn19.Visible = true;
-         this.gridColumn19.VisibleIndex = 27;
+         this.gridColumn19.VisibleIndex = 28;
          // 
          // gridColumn20
          // 
@@ -1669,7 +1672,7 @@
          this.gridColumn22.OptionsColumn.AllowEdit = false;
          this.gridColumn22.OptionsColumn.ReadOnly = true;
          this.gridColumn22.Visible = true;
-         this.gridColumn22.VisibleIndex = 29;
+         this.gridColumn22.VisibleIndex = 30;
          // 
          // gridColumn27
          // 
@@ -4230,6 +4233,42 @@
          this.Back_Butn.ToolTip = "بازگشت";
          this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
+         // gridColumn31
+         // 
+         this.gridColumn31.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.gridColumn31.AppearanceCell.Options.UseBackColor = true;
+         this.gridColumn31.Caption = "سهم سازمان";
+         this.gridColumn31.DisplayFormat.FormatString = "{0:n0}";
+         this.gridColumn31.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.gridColumn31.FieldName = "REMN_EXPN_PRIC_DNRM";
+         this.gridColumn31.GroupFormat.FormatString = "{0:n0}";
+         this.gridColumn31.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.gridColumn31.Name = "gridColumn31";
+         this.gridColumn31.OptionsColumn.AllowEdit = false;
+         this.gridColumn31.OptionsColumn.ReadOnly = true;
+         this.gridColumn31.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "REMN_EXPN_PRIC_DNRM", "{0:n0}")});
+         this.gridColumn31.Visible = true;
+         this.gridColumn31.VisibleIndex = 15;
+         // 
+         // gridColumn32
+         // 
+         this.gridColumn32.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.gridColumn32.AppearanceCell.Options.UseBackColor = true;
+         this.gridColumn32.Caption = "سهم سازمان";
+         this.gridColumn32.DisplayFormat.FormatString = "{0:n0}";
+         this.gridColumn32.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.gridColumn32.FieldName = "REMN_EXPN_PRIC_DNRM";
+         this.gridColumn32.GroupFormat.FormatString = "{0:n0}";
+         this.gridColumn32.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.gridColumn32.Name = "gridColumn32";
+         this.gridColumn32.OptionsColumn.AllowEdit = false;
+         this.gridColumn32.OptionsColumn.ReadOnly = true;
+         this.gridColumn32.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "REMN_EXPN_PRIC_DNRM", "{0:n0}")});
+         this.gridColumn32.Visible = true;
+         this.gridColumn32.VisibleIndex = 5;
+         // 
          // CAL_CEXC_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4692,5 +4731,7 @@
       private Windows.Forms.ToolStripButton RqstBnDefaultPrint1;
       private Windows.Forms.ToolStripButton RqstBnPrint1;
       private Windows.Forms.ToolStripButton RqstBnSettingPrint1;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn32;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn31;
    }
 }

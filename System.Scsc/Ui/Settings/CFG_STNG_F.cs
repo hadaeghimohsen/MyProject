@@ -343,7 +343,7 @@ namespace System.Scsc.Ui.Settings
                case DevExpress.XtraEditors.NavigatorButtonType.EndEdit:
                   var crnt = MdrpBs1.Current as Data.Modual_Report;
 
-                  if (crnt.CRET_BY != null && MessageBox.Show(this, "آیا با ویرایش کردن رکورد جاری موافقید؟", "ویرایش اطلاعات", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  //if (crnt.CRET_BY != null && MessageBox.Show(this, "آیا با ویرایش کردن رکورد جاری موافقید؟", "ویرایش اطلاعات", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                   iScsc.STNG_SAVE_P(
                      new XElement("Config",
@@ -426,6 +426,210 @@ namespace System.Scsc.Ui.Settings
          //{
          //   Execute_ClubShare_Query();
          //}
+      }
+
+      private void AddMrdp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mdrp = MdrpBs1.Current as Data.Modual_Report;
+            if (_mdrp == null) return;
+
+            if (vUserBs.List.Count == 0) return;
+            if (vCompBs1.List.Count == 0) return;
+            if (Printers_Lst.Items.Count == 0) return;
+
+            if (MrdpBs.List.OfType<Data.Modual_Report_Direct_Print>().Any(m => m.CODE == 0)) return;
+
+            var _mrdp = MrdpBs.AddNew() as Data.Modual_Report_Direct_Print;
+            var _user = vUserBs.Current as Data.V_User;
+            var _comp = vCompBs1.Current as Data.V_Computer;
+            _mrdp.MDRP_CODE = _mdrp.CODE;
+            _mrdp.USER_ID = _user.USER_DB;
+            _mrdp.COMA_CODE = iScsc.Computer_Actions.FirstOrDefault(c => c.COMP_NAME == _comp.COMP_NAME_DNRM).CODE;
+            _mrdp.PRNT_NAME = Printers_Lst.SelectedItem.ToString();
+            _mrdp.STAT = "002";
+            _mrdp.DFLT_PRNT = "002";
+            _mrdp.COPY_NUMB = 1;
+
+            iScsc.Modual_Report_Direct_Prints.InsertOnSubmit(_mrdp);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelMrdp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mrdp = MrdpBs.Current as Data.Modual_Report_Direct_Print;
+            if (_mrdp == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.Modual_Report_Direct_Prints.DeleteOnSubmit(_mrdp);
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveMrdp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Mrdp_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DupUCP_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا با نمونه برداری رکورد موافق هستید؟", "نمونه برداری رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            foreach (var _printer in Printers_Lst.SelectedItems)
+	         {
+		         iScsc.STNG_SAVE_P(
+                  new XElement("Config",
+                      new XAttribute("type", "014"),
+                      new XElement("Printer",
+                          new XAttribute("name", _printer.ToString())
+                      )
+                  )
+               );
+	         }            
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DfltPUC_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا با پیش فرض کردن چاپگر موافق هستید؟", "پیش فرض کردن چاپگر", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            foreach (var _printer in Printers_Lst.SelectedItems)
+            {
+               iScsc.STNG_SAVE_P(
+                  new XElement("Config",
+                      new XAttribute("type", "015"),
+                      new XElement("Printer",
+                          new XAttribute("name", _printer.ToString())
+                      )
+                  )
+               );
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelCP_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا با حذف کردن چاپگر موافق هستید؟", "حذف کردن چاپگر", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.ExecuteCommand(
+               string.Format("DELETE dbo.Modual_Report_Direct_Print WHERE Prnt_Name = '{0}';", Printers_Lst.SelectedItem.ToString())
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ActvPrnt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.ExecuteCommand(
+               string.Format("UPDATE dbo.Modual_Report_Direct_Print SET STAT = '002' WHERE Prnt_Name = '{0}';", Printers_Lst.SelectedItem.ToString())
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DeactvPrnt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.ExecuteCommand(
+               string.Format("UPDATE dbo.Modual_Report_Direct_Print SET STAT = '001' WHERE Prnt_Name = '{0}';", Printers_Lst.SelectedItem.ToString())
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }
    }
 }

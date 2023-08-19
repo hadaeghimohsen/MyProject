@@ -358,12 +358,12 @@ namespace System.Scsc.Ui.OtherIncome
                      //Qnty_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "cbmtcode_clm":
-                     CbmtCode_Clm.Text = control.LABL_TEXT;
+                     //CbmtCode_Clm.Text = control.LABL_TEXT;
                      //CbmtCode_Clm.Text = control.LABL_TEXT; // ToolTip
                      //CbmtCode_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "pydtdesc_clm":
-                     PydtDesc_Clm.Text = control.LABL_TEXT;
+                     //PydtDesc_Clm.Text = control.LABL_TEXT;
                      //PydtDesc_Clm.Text = control.LABL_TEXT; // ToolTip
                      //PydtDesc_Clm.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -467,10 +467,12 @@ namespace System.Scsc.Ui.OtherIncome
          DPydsBs1.DataSource = iScsc.D_PYDS;
          DEfdtBs.DataSource = iScsc.D_EFDTs;
          DCetpBs.DataSource = iScsc.D_CETPs;
+         DPycoBs.DataSource = iScsc.D_PYCOs;
          MtodBs1.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
          UnitBs.DataSource = iScsc.App_Base_Defines.Where(u => u.ENTY_NAME == "PRODUCTUNIT_INFO");
          RtoaBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Payment_To_Another_Account");
          DRqpmBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Request_Parameter");
+         DAPycoBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "PaymentCost_INFO");
 
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)

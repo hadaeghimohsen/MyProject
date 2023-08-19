@@ -9,9 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace System.Scsc.Ui.Company
+namespace System.Scsc.Ui.Warehouse
 {
-   partial class OPR_COMP_F : ISendRequest
+   partial class DEF_PROD_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iScscDataContext iScsc;
@@ -232,9 +232,10 @@ namespace System.Scsc.Ui.Company
          #region Rqsw block
          try
          {
-            CntyBs.DataSource = iScsc.Countries;
             DActvBs.DataSource = iScsc.D_ACTVs;
-            TempBs.DataSource = iScsc.Templates;
+            DExptBs.DataSource = iScsc.D_EXPTs;
+            DInvcBs.DataSource = iScsc.D_INVCs;
+            DRqstBs.DataSource = iScsc.D_RQSTs;
 
             isFirstLoaded = true;
          }
@@ -244,9 +245,10 @@ namespace System.Scsc.Ui.Company
          #endregion
 
       finishcommand:
-         RshpBs.DataSource = iScsc.App_Base_Defines.Where(u => u.ENTY_NAME == "Company_Fighter_Relationship_INFO");
-         TagBs.DataSource = iScsc.App_Base_Defines.Where(u => u.ENTY_NAME == "Company_Tag_INFO");
-
+         UnitBs.DataSource = iScsc.App_Base_Defines.Where(u => u.ENTY_NAME == "PRODUCTUNIT_INFO");
+         SectBs.DataSource = iScsc.App_Base_Defines.Where(u => u.ENTY_NAME == "SECTION_INFO");
+         DWTagBs.DataSource = iScsc.App_Base_Defines.Where(u => u.ENTY_NAME == "WarehouseTag_INFO");
+         DWExpnBs.DataSource = iScsc.App_Base_Defines.Where(u => u.ENTY_NAME == "WarehouseExpense_INFO");
          job.Status = StatusType.Successful;
       }
 

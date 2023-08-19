@@ -4595,6 +4595,9 @@ namespace System.Scsc.Ui.OtherIncome
             var _drqpm = DRqpmBs.Current as Data.App_Base_Define;
             if (_drqpm == null) return;
 
+            PymtOprt_Tc.SelectedTab = More_Tp;
+            More_Tc.SelectedTab = tp_rqpm;
+
             if (RqpmBs.List.OfType<Data.Request_Parameter>().Any(rp => rp.APBS_CODE == _drqpm.CODE)) return;
 
             var _rqpm = RqpmBs.AddNew() as Data.Request_Parameter;
@@ -4789,6 +4792,145 @@ namespace System.Scsc.Ui.OtherIncome
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PycoActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (_pydt == null) return;
+
+            var _dpyco = DAPycoBs.Current as Data.App_Base_Define;
+
+            if (PycoBs.List.OfType<Data.Payment_Cost>().Any(pc => pc.CODE == 0)) return;
+
+            var _pyco = PycoBs.AddNew() as Data.Payment_Cost;
+            if (_pyco == null) return;
+
+            _pyco.PYCO_APBS_CODE = _dpyco.CODE;
+            _pyco.Payment = _pydt.Payment;
+            _pyco.COST_TYPE = "004";
+            _pyco.EFCT_TYPE = "002";
+            _pyco.AMNT = 0;
+
+            iScsc.Payment_Costs.InsertOnSubmit(_pyco);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelPyco_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _pyco = PycoBs.Current as Data.Payment_Cost;
+            if (_pyco == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.Payment_Costs.DeleteOnSubmit(_pyco);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Pyco_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "PaymentCost_INFO"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SavePyco_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Pyco_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PydtActn1_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 0:
+                  // Decriment or delete record
+                  RemoveExpn_Butn_Click(null, null);
+                  break;
+               case 1:
+                  // Submit Change and save data
+                  SaveExpn_Butn_Click(null, null);
+                  break;
+               case 2:
+                  // Incriment record
+                  AddItem_ButtonClick(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
    }

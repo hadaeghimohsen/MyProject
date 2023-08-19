@@ -77,9 +77,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var grop = VGexpBs.Current as Data.V_Group_Expense;            
 
             if(grop == null)
-               iRoboTech.DBL_INS_GEXP_P(null, "001", 0, GropDesc_Txt.Text, "002", LinkJoin_Txt.Text);
+               iRoboTech.DBL_INS_GEXP_P(null, "001", 0, GropDesc_Txt.Text, "002", LinkJoin_Txt.Text, null);
             else
-               iRoboTech.DBL_INS_GEXP_P((CretNewSuprGrop_Cbx.Checked ? null : (long?)grop.CODE), "001", 0, GropDesc_Txt.Text, "002", LinkJoin_Txt.Text);
+               iRoboTech.DBL_INS_GEXP_P((CretNewSuprGrop_Cbx.Checked ? null : (long?)grop.CODE), "001", 0, GropDesc_Txt.Text, "002", LinkJoin_Txt.Text, null);
 
             LinkJoin_Txt.Text = GropDesc_Txt.Text = "";
             requery = true;
@@ -104,7 +104,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var grop = VGexpBs.Current as Data.V_Group_Expense;
             if (grop == null) return;
 
-            iRoboTech.DBL_UPD_GEXP_P(grop.CODE, grop.GEXP_CODE, grop.GROP_TYPE, grop.ORDR, grop.GROP_DESC, grop.STAT, "");
+            iRoboTech.DBL_UPD_GEXP_P(grop.CODE, grop.GEXP_CODE, grop.GROP_TYPE, grop.ORDR, grop.GROP_DESC, grop.STAT, "", grop.GROP_ORDR);
             
             requery = true;
          }
@@ -153,7 +153,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             var brnd = VBexpBs.Current as Data.V_Group_Expense;
 
-            iRoboTech.DBL_INS_GEXP_P(null, "002", 0, BrndDesc_Txt.Text, "002", "");
+            iRoboTech.DBL_INS_GEXP_P(null, "002", 0, BrndDesc_Txt.Text, "002", "", null);
 
             BrndDesc_Txt.Text = "";
             requery = true;
@@ -178,7 +178,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var brnd = VBexpBs.Current as Data.V_Group_Expense;
             if (brnd == null) return;
 
-            iRoboTech.DBL_UPD_GEXP_P(brnd.CODE, brnd.GEXP_CODE, brnd.GROP_TYPE, brnd.ORDR, brnd.GROP_DESC, brnd.STAT, "");
+            iRoboTech.DBL_UPD_GEXP_P(brnd.CODE, brnd.GEXP_CODE, brnd.GROP_TYPE, brnd.ORDR, brnd.GROP_DESC, brnd.STAT, "", null);
 
             requery = true;
          }
@@ -1862,13 +1862,20 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             }
             else
             {
+               //rbpr.TARF_CODE =
+               //   (iRoboTech.Robot_Products
+               //       .Where(p => p.TARF_CODE != null && p.TARF_CODE.Length > 0)
+               //       .Select(p => p.TARF_CODE)
+               //       .ToList()
+               //       .Where(p => p.All(char.IsDigit))
+               //       .Max(p => Convert.ToInt64(p)) + 1).ToString();
                rbpr.TARF_CODE =
                   (iRoboTech.Robot_Products
                       .Where(p => p.TARF_CODE != null && p.TARF_CODE.Length > 0)
-                      .Select(p => p.TARF_CODE)
-                      .ToList()
-                      .Where(p => p.All(char.IsDigit))
-                      .Max(p => Convert.ToInt64(p)) + 1).ToString();
+                      //.Select(p => p.TARF_CODE)
+                      .Count() + 1).ToString();
+                      //.Where(p => p.All(char.IsDigit))
+                      //.Max(p => Convert.ToInt64(p)) + 1).ToString();
             }
          }
          catch { }
@@ -2485,6 +2492,320 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private void vUsrBs_CurrentChanged(object sender, EventArgs e)
       {
          VGexpBs_CurrentChanged(null, null);
+      }
+
+      private void DefPtyp_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 32 /* Execute Tree_Base_F */),
+                new Job(SendType.SelfToUserInterface, "TREE_BASE_F", 10 /* Execute Actn_CalF_P */){
+                   Input = 
+                     new XElement("Params",
+                         new XAttribute("formcaller", GetType().Name),
+                         new XAttribute("tablename", "PartnerType_Info"),
+                         new XAttribute("gototab", "tp_006"),
+                         new XAttribute("action", "newuser")
+                     )
+                }
+              })
+         );
+      }
+
+      private void SbmtChngSlerPrtnr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _robo = RoboBs.Current as Data.Robot;
+            if(_robo == null) return;
+
+            var _rbpr = RbprBs.Current as Data.Robot_Product;
+            if (_rbpr == null) return;
+
+            foreach (var i in Srsp_Gv.GetSelectedRows())
+            {
+               var _item = Srsp_Gv.GetRow(i) as Data.App_Base_Define;
+
+               IEnumerable<Data.Service_Robot_Seller_Partner> _selrPrtnr = null;
+
+               // گام اول مشخص کردن دامنه تغییرات کالا
+               if (CrntRbpr_Rb.Checked)
+               {
+                  _selrPrtnr = SrsprBs.List.OfType<Data.Service_Robot_Seller_Partner>().Where(a => a.TYPE_APBS_CODE == _item.CODE && (SelrPrtnrAll_Rb.Checked || a.STAT == "002"));
+               }
+               else
+               {
+                  _selrPrtnr = iRoboTech.Service_Robot_Seller_Partners.Where(a => a.TYPE_APBS_CODE == _item.CODE && (SelrPrtnrAll_Rb.Checked || a.STAT == "002"));
+               }
+
+               if (_selrPrtnr.Count() == 0) return;
+
+               // گام دوم مشخص کردن نحوه تغییرات قیمتی
+               if(UpChng_Rb.Checked)
+               {
+                  // گام سوم مشخص کردن منبغ مالی از قیمت خرید یا قیمت فروش
+                  if (BuyAmnt_Rb.Checked)
+                  {
+                     // گام بعدی نحوع افزایش مبلغ
+                     if (PrctChng_Rb.Checked)
+                     {
+                        _selrPrtnr.ToList().
+                           ForEach(sp => 
+                              sp.BUY_PRIC = 
+                                 (RbprRecd_Rb.Checked ? sp.Robot_Product.BUY_PRIC : sp.BUY_PRIC) +
+                                 ((RbprRecd_Rb.Checked ? sp.Robot_Product.BUY_PRIC : sp.BUY_PRIC) * PrctChng_Txt.Text.ToInt64()) / 100
+                           );
+                     }
+                     else if (AmntChng_Rb.Checked)
+                     {
+                        _selrPrtnr.ToList().
+                           ForEach(sp =>
+                              sp.BUY_PRIC =
+                                 (RbprRecd_Rb.Checked ? sp.Robot_Product.BUY_PRIC : sp.BUY_PRIC) +
+                                 AmntChng_Txt.EditValue.ToString().ToInt64()
+                           );
+                     }
+                  }
+                  else if (SellAmnt_Rb.Checked)
+                  {
+                     // گام بعدی نحوع افزایش مبلغ
+                     if (PrctChng_Rb.Checked)
+                     {
+                        _selrPrtnr.ToList().
+                           ForEach(sp =>
+                              sp.EXPN_PRIC =
+                                 (RbprRecd_Rb.Checked ? sp.Robot_Product.EXPN_PRIC_DNRM : sp.EXPN_PRIC) +
+                                 ((RbprRecd_Rb.Checked ? sp.Robot_Product.EXPN_PRIC_DNRM : sp.EXPN_PRIC) * PrctChng_Txt.Text.ToInt64()) / 100
+                           );
+                     }
+                     else if (AmntChng_Rb.Checked)
+                     {
+                        _selrPrtnr.ToList().
+                           ForEach(sp =>
+                              sp.EXPN_PRIC =
+                                 (RbprRecd_Rb.Checked ? sp.Robot_Product.EXPN_PRIC_DNRM : sp.EXPN_PRIC) +
+                                 AmntChng_Txt.EditValue.ToString().ToInt64()
+                           );
+                     }
+                  }
+                  else if(Buy2SellAmnt_Rb.Checked)
+                  {
+                     // گام بعدی نحوع افزایش مبلغ
+                     if (PrctChng_Rb.Checked)
+                     {
+                        _selrPrtnr.ToList().
+                           ForEach(sp =>
+                              sp.EXPN_PRIC =
+                                 (RbprRecd_Rb.Checked ? sp.Robot_Product.BUY_PRIC : sp.BUY_PRIC) +
+                                 ((RbprRecd_Rb.Checked ? sp.Robot_Product.BUY_PRIC : sp.BUY_PRIC) * PrctChng_Txt.Text.ToInt64()) / 100
+                           );
+                     }
+                     else if (AmntChng_Rb.Checked)
+                     {
+                        _selrPrtnr.ToList().
+                           ForEach(sp =>
+                              sp.EXPN_PRIC =
+                                 (RbprRecd_Rb.Checked ? sp.Robot_Product.BUY_PRIC : sp.BUY_PRIC) +
+                                 AmntChng_Txt.EditValue.ToString().ToInt64()
+                           );
+                     }
+                  }
+               }
+               else if(DownChng_Rb.Checked)
+               {
+                  // گام سوم مشخص کردن منبغ مالی از قیمت خرید یا قیمت فروش
+                  if (BuyAmnt_Rb.Checked)
+                  {
+                     // گام بعدی نحوع افزایش مبلغ
+                     if (PrctChng_Rb.Checked)
+                     {
+                        _selrPrtnr.ToList().
+                           ForEach(sp =>
+                              sp.BUY_PRIC =
+                                 (RbprRecd_Rb.Checked ? sp.Robot_Product.BUY_PRIC : sp.BUY_PRIC) -
+                                 ((RbprRecd_Rb.Checked ? sp.Robot_Product.BUY_PRIC : sp.BUY_PRIC) * PrctChng_Txt.Text.ToInt64()) / 100
+                           );
+                     }
+                     else if (AmntChng_Rb.Checked)
+                     {
+                        _selrPrtnr.ToList().
+                           ForEach(sp =>
+                              sp.BUY_PRIC =
+                                 (RbprRecd_Rb.Checked ? sp.Robot_Product.BUY_PRIC : sp.BUY_PRIC) -
+                                 AmntChng_Txt.EditValue.ToString().ToInt64()
+                           );
+                     }
+                  }
+                  else if (SellAmnt_Rb.Checked)
+                  {
+                     // گام بعدی نحوع افزایش مبلغ
+                     if (PrctChng_Rb.Checked)
+                     {
+                        _selrPrtnr.ToList().
+                           ForEach(sp =>
+                              sp.EXPN_PRIC =
+                                 (RbprRecd_Rb.Checked ? sp.Robot_Product.EXPN_PRIC_DNRM : sp.EXPN_PRIC) -
+                                 ((RbprRecd_Rb.Checked ? sp.Robot_Product.EXPN_PRIC_DNRM : sp.EXPN_PRIC) * PrctChng_Txt.Text.ToInt64()) / 100
+                           );
+                     }
+                     else if (AmntChng_Rb.Checked)
+                     {
+                        _selrPrtnr.ToList().
+                           ForEach(sp =>
+                              sp.EXPN_PRIC =
+                                 (RbprRecd_Rb.Checked ? sp.Robot_Product.EXPN_PRIC_DNRM : sp.EXPN_PRIC) -
+                                 AmntChng_Txt.EditValue.ToString().ToInt64()
+                           );
+                     }
+                  }
+                  else if (Buy2SellAmnt_Rb.Checked)
+                  {
+                     // گام بعدی نحوع افزایش مبلغ
+                     if (PrctChng_Rb.Checked)
+                     {
+                        _selrPrtnr.ToList().
+                           ForEach(sp =>
+                              sp.EXPN_PRIC =
+                                 (RbprRecd_Rb.Checked ? sp.Robot_Product.BUY_PRIC : sp.BUY_PRIC) -
+                                 ((RbprRecd_Rb.Checked ? sp.Robot_Product.BUY_PRIC : sp.BUY_PRIC) * PrctChng_Txt.Text.ToInt64()) / 100
+                           );
+                     }
+                     else if (AmntChng_Rb.Checked)
+                     {
+                        _selrPrtnr.ToList().
+                           ForEach(sp =>
+                              sp.EXPN_PRIC =
+                                 (RbprRecd_Rb.Checked ? sp.Robot_Product.BUY_PRIC : sp.BUY_PRIC) -
+                                 AmntChng_Txt.EditValue.ToString().ToInt64()
+                           );
+                     }
+                  }
+               }
+            }
+
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DupSelrProd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _selrProd = SrsprBs.Current as Data.Service_Robot_Seller_Partner;
+            if (_selrProd == null) return;
+
+            iRoboTech.ExecuteCommand(
+               string.Format(
+                  "MERGE Service_Robot_Seller_Partner T" + Environment.NewLine + 
+                  "USING (SELECT rp.TARF_CODE, rp.CODE, {1} AS CHAT_ID FROM Robot_Product rp WHERE rp.Robo_Rbid = {3}) S" + Environment.NewLine + 
+                  "ON (T.CHAT_ID = S.CHAT_ID AND T.TARF_CODE_DNRM = S.TARF_CODE)" + Environment.NewLine + 
+                  "WHEN NOT MATCHED THEN" + Environment.NewLine +
+                  "INSERT (SRBT_SERV_FILE_NO, SRBT_ROBO_RBID, RBPR_CODE,CODE, STAT, TYPE_APBS_CODE) VALUES({2}, {3}, S.CODE, dbo.GNRT_NVID_U(), '002', {4});",
+                  _selrProd.TARF_CODE_DNRM,
+                  _selrProd.CHAT_ID,
+                  _selrProd.SRBT_SERV_FILE_NO,
+                  _selrProd.SRBT_ROBO_RBID,
+                  _selrProd.TYPE_APBS_CODE
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void GropActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _grop = VGexpBs.Current as Data.V_Group_Expense;
+            if (_grop == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  // Save
+                  SaveGrop_Butn_Click(null, null);
+                  break;
+               case 1:
+                  // Del
+                  DelGrop_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DupProdColm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _prod = RbprBs.Current as Data.Robot_Product;
+            if (_prod == null) return;
+
+            var _sender = sender as C1.Win.C1Input.C1Button;
+            if (_sender == null) return;
+
+            if (MessageBox.Show(this, "آیا با تغییرات به صورت نمونه برداری برای تمام محصولات موافق هستید؟", "نمونه برداری کلی", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            switch (_sender.Tag.ToString())
+            {
+               case "SHOW_PRIC_TYPE":
+                  RbprBs.List.OfType<Data.Robot_Product>().ToList().ForEach(p => p.SHOW_PRIC_TYPE = _prod.SHOW_PRIC_TYPE);
+                  break;
+               case "NUMB_TYPE":
+                  RbprBs.List.OfType<Data.Robot_Product>().ToList().ForEach(p => p.NUMB_TYPE = _prod.NUMB_TYPE);
+                  break;
+               case "PROD_LIFE_STAT":
+                  RbprBs.List.OfType<Data.Robot_Product>().ToList().ForEach(p => p.PROD_LIFE_STAT = _prod.PROD_LIFE_STAT);
+                  break;
+               case "CRNC_CALC_STAT":
+                  RbprBs.List.OfType<Data.Robot_Product>().ToList().ForEach(p => p.CRNC_CALC_STAT = _prod.CRNC_CALC_STAT);
+                  break;
+               case "PROD_TYPE_DNRM":
+                  RbprBs.List.OfType<Data.Robot_Product>().ToList().ForEach(p => p.PROD_TYPE_DNRM = _prod.PROD_TYPE_DNRM);
+                  break;
+               case "STAT":
+                  RbprBs.List.OfType<Data.Robot_Product>().ToList().ForEach(p => p.STAT = _prod.STAT);
+                  break;
+               case "UNIT_APBS_CODE":
+                  RbprBs.List.OfType<Data.Robot_Product>().ToList().ForEach(p => p.UNIT_APBS_CODE = _prod.UNIT_APBS_CODE);
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }         
       }      
    }
 }

@@ -5859,10 +5859,80 @@ namespace System.Scsc.Ui.MasterPage
          }
       }
 
+      PersianCalendar _pc = new PersianCalendar();
       private void Tm_ShowTime_Tick(object sender, EventArgs e)
       {
          //AdjustDateTime_Butn.Text = DateTime.Now.ToString("HH:mm:ss");
          AdjustDateTime_Butn.Text = DateTime.Now.ToString("HH:mm");
+         AdjustDateTime_Lab.Text = string.Format("{0}/{1}/{2}", _pc.GetYear(DateTime.Now), _pc.GetMonth(DateTime.Now), _pc.GetDayOfMonth(DateTime.Now)) + Environment.NewLine;
+         string weekdaydesc = "";
+         switch (_pc.GetDayOfWeek(DateTime.Now))
+         {
+            case DayOfWeek.Friday:
+               weekdaydesc = "جمعه";
+               break;
+            case DayOfWeek.Saturday:
+               weekdaydesc = "شنبه";
+               break;
+            case DayOfWeek.Sunday:
+               weekdaydesc = "یکشنبه";
+               break;
+            case DayOfWeek.Monday:
+               weekdaydesc = "دوشنبه";
+               break;
+            case DayOfWeek.Tuesday:
+               weekdaydesc = "سه شنبه";
+               break;
+            case DayOfWeek.Wednesday:
+               weekdaydesc = "چهارشنبه";
+               break;
+            case DayOfWeek.Thursday:
+               weekdaydesc = "پنجشنبه";
+               break;
+         }
+         string dayofmonthdesc = _pc.GetDayOfMonth(DateTime.Now).ToString();
+         string monthdesc = "";
+         switch (_pc.GetMonth(DateTime.Now))
+         {
+            case 1:
+               monthdesc = "فروردین";
+               break;
+            case 2:
+               monthdesc = "اردیبهشت";
+               break;
+            case 3:
+               monthdesc = "خرداد";
+               break;
+            case 4:
+               monthdesc = "تیر";
+               break;
+            case 5:
+               monthdesc = "مرداد";
+               break;
+            case 6:
+               monthdesc = "شهریور";
+               break;
+            case 7:
+               monthdesc = "مهر";
+               break;
+            case 8:
+               monthdesc = "آبان";
+               break;
+            case 9:
+               monthdesc = "آذر";
+               break;
+            case 10:
+               monthdesc = "دی";
+               break;
+            case 11:
+               monthdesc = "بهمن";
+               break;
+            case 12:
+               monthdesc = "اسفند";
+               break;
+         }
+         string year = _pc.GetYear(DateTime.Now).ToString();
+         AdjustDateTime_Lab.Text += string.Format("{0}, {1} {2} {3}", weekdaydesc, dayofmonthdesc, monthdesc, year);
 
          if (_settings == null)
             _settings = iScsc.V_Settings;
@@ -6998,6 +7068,22 @@ namespace System.Scsc.Ui.MasterPage
               {                  
                 new Job(SendType.Self, 167 /* Execute Opr_Comp_F */),
                 new Job(SendType.SelfToUserInterface, "OPR_COMP_F", 10 /* Actn_CalF_P */)
+                {
+                   Input = new XElement("Request", "")
+                }
+              });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void bbi_ProdDef_Butn_Click(object sender, EventArgs e)
+      {
+         /// Must Be Change
+         Job _InteractWithScsc =
+           new Job(SendType.External, "Localhost",
+              new List<Job>
+              {                  
+                new Job(SendType.Self, 168 /* Execute Opr_Comp_F */),
+                new Job(SendType.SelfToUserInterface, "DEF_PROD_F", 10 /* Actn_CalF_P */)
                 {
                    Input = new XElement("Request", "")
                 }

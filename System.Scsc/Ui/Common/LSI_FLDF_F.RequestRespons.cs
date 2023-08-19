@@ -505,13 +505,13 @@ namespace System.Scsc.Ui.Common
          switch (x.Attribute("showlist").Value)
          {
             case "001": //  مشترییان
-               PBLC.ActiveFilterString = "TYPE != '003'";
+               PBLC_Gv.ActiveFilterString = "TYPE != '003'";
                break;
             case "003":
-               PBLC.ActiveFilterString = "TYPE = '003'";
+               PBLC_Gv.ActiveFilterString = "TYPE = '003'";
                break;
             case "004":
-               PBLC.ActiveFilterString = "TYPE = '004'";
+               PBLC_Gv.ActiveFilterString = "TYPE = '004'";
                break;
             default:
                break;

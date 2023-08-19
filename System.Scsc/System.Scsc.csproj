@@ -64,6 +64,7 @@
     </Reference>
     <Reference Include="C1.Win.C1Command.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=e808566f358766d8, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Input.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
+    <Reference Include="C1.Win.C1InputPanel.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1TileControl.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
     <Reference Include="DataEditShamsi">
       <HintPath>C:\Users\Aref\Documents\Visual Studio 2012\Projects\LINQ\LinqToiScsc\bin\Debug\DataEditShamsi.dll</HintPath>
@@ -254,6 +255,7 @@
     <Reference Include="System.Drawing">
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Drawing.Design" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Runtime.Serialization.Formatters.Soap" />
     <Reference Include="System.ServiceModel">
@@ -1087,6 +1089,15 @@
     <Compile Include="Ui\UserAction\USR_CTBL_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\Warehouse\DEF_PROD_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Warehouse\DEF_PROD_F.Designer.cs">
+      <DependentUpon>DEF_PROD_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\Warehouse\DEF_PROD_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\WarrantyService\WRN_SERV_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1200,6 +1211,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_FGTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_GPTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_IDTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_INVC.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ITTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_LNTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_LOTP.datasource" />
@@ -1277,6 +1289,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Method.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Misc_Expense.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Modual_Report.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Modual_Report_Direct_Print.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Month_Base.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Note.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Organ.datasource" />
@@ -1332,7 +1345,9 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Template_Item.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Test.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.User_Club_Fgac.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.User_Link_Fighter.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.User_Link_Method.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.User_Link_Section.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.User_Region_Fgac.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.User_Request_Requester_Fgac.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VD_SaleReceiptDiscount.datasource" />
@@ -1393,6 +1408,9 @@
     <None Include="Properties\DataSources\System.Scsc.Data.V_Transaction_Fee.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_User.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_User_Localization_Form.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Warehouse.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Warehouse_Expense.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Warehouse_Tag.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -1676,6 +1694,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\UserAction\USR_CTBL_F.resx">
       <DependentUpon>USR_CTBL_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Warehouse\DEF_PROD_F.resx">
+      <DependentUpon>DEF_PROD_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\WarrantyService\WRN_SERV_F.resx">
       <DependentUpon>WRN_SERV_F.cs</DependentUpon>

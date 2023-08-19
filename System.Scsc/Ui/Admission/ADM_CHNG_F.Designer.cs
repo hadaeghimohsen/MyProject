@@ -2356,6 +2356,7 @@
          this.RqstMBnDefaultPrint1.Name = "RqstMBnDefaultPrint1";
          this.RqstMBnDefaultPrint1.Size = new System.Drawing.Size(56, 44);
          this.RqstMBnDefaultPrint1.Text = "چاپ پیش فرض";
+         this.RqstMBnDefaultPrint1.ButtonClick += new System.EventHandler(this.RqstBnDefaultPrint_Click);
          // 
          // RqstBnDefaultPrint1
          // 

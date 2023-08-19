@@ -219,7 +219,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          DsetpBs.DataSource = iRoboTech.D_SETPs;
          DCsorBs.DataSource = iRoboTech.D_CSORs;
          DChupBs.DataSource = iRoboTech.D_CHUPs;
+         DSprcBs.DataSource = iRoboTech.D_SPRCs;
          vUsrBs.DataSource = iRoboTech.V_Users;
+         DPTypBs.DataSource = iRoboTech.App_Base_Defines.Where(d => d.ENTY_NAME == "PartnerType_Info");
 
          job.Status = StatusType.Successful;
       }

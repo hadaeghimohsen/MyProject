@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label16;
          System.Windows.Forms.Label label18;
          System.Windows.Forms.Label label20;
@@ -94,16 +95,16 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
-         this.SrbtUserBs = new System.Windows.Forms.BindingSource();
-         this.Ordr25Bs = new System.Windows.Forms.BindingSource();
+         this.SrbtUserBs = new System.Windows.Forms.BindingSource(this.components);
+         this.Ordr25Bs = new System.Windows.Forms.BindingSource(this.components);
          this.label4 = new System.Windows.Forms.Label();
          this.AmntType_Lb = new System.Windows.Forms.Label();
          this.SrbtNameFrm1_Lb = new System.Windows.Forms.Label();
-         this.SrbtOrdr25Bs = new System.Windows.Forms.BindingSource();
+         this.SrbtOrdr25Bs = new System.Windows.Forms.BindingSource(this.components);
          this.SrbtChatid_Lb = new System.Windows.Forms.Label();
          this.SrbtCellPhon_Lb = new System.Windows.Forms.Label();
          this.SrbtServAdrs_Lb = new System.Windows.Forms.Label();
-         this.RoboBs = new System.Windows.Forms.BindingSource();
+         this.RoboBs = new System.Windows.Forms.BindingSource(this.components);
          this.Master000_Tc = new System.Windows.Forms.TabControl();
          this.tp_001 = new System.Windows.Forms.TabPage();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
@@ -112,7 +113,7 @@
          this.Master002_Tc = new System.Windows.Forms.TabControl();
          this.tp_serv = new System.Windows.Forms.TabPage();
          this.Srbt_Gc = new DevExpress.XtraGrid.GridControl();
-         this.SrbtBs = new System.Windows.Forms.BindingSource();
+         this.SrbtBs = new System.Windows.Forms.BindingSource(this.components);
          this.Srbt_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn10 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colActnSrbtFrm1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -126,7 +127,7 @@
          this.AddNewUser_Butn = new C1.Win.C1Input.C1Button();
          this.tp_prod = new System.Windows.Forms.TabPage();
          this.Prod_Gc = new DevExpress.XtraGrid.GridControl();
-         this.RbprBs = new System.Windows.Forms.BindingSource();
+         this.RbprBs = new System.Windows.Forms.BindingSource(this.components);
          this.Prod_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colActnRbprFrm1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
@@ -185,8 +186,8 @@
          this.tp_000_001_002 = new System.Windows.Forms.TabPage();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.Ordt4Bs = new System.Windows.Forms.BindingSource();
-         this.Ordr4Bs = new System.Windows.Forms.BindingSource();
+         this.Ordt4Bs = new System.Windows.Forms.BindingSource(this.components);
+         this.Ordr4Bs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn136 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn137 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -196,7 +197,7 @@
          this.gridColumn141 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn142 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.OrdtActn_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-         this.Ordr025Frm1Bn = new System.Windows.Forms.BindingNavigator();
+         this.Ordr025Frm1Bn = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -225,7 +226,7 @@
          this.label11 = new System.Windows.Forms.Label();
          this.labelControl31 = new DevExpress.XtraEditors.LabelControl();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
-         this.OdstBs = new System.Windows.Forms.BindingSource();
+         this.OdstBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn13 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn14 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -241,7 +242,7 @@
          this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DRcmtBs = new System.Windows.Forms.BindingSource();
+         this.DRcmtBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridColumn24 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -272,7 +273,7 @@
          this.ServAdrs_Pn = new System.Windows.Forms.Panel();
          this.SaveAdrsFrm1_Butn = new C1.Win.C1Input.C1Button();
          this.ServAdrs_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.SrbpBs = new System.Windows.Forms.BindingSource();
+         this.SrbpBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView12 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSRBT_SERV_FILE_NO5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSRBT_ROBO_RBID5 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -318,7 +319,7 @@
          this.UsePos_Cb = new System.Windows.Forms.CheckBox();
          this.textEdit8 = new DevExpress.XtraEditors.LookUpEdit();
          this.Pos_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource();
+         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl20 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
@@ -388,18 +389,18 @@
          this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
          this.rollout10 = new System.MaxUi.Rollout();
          this.textEdit11 = new DevExpress.XtraEditors.TextEdit();
-         this.Ordr4Stp3Bs = new System.Windows.Forms.BindingSource();
+         this.Ordr4Stp3Bs = new System.Windows.Forms.BindingSource(this.components);
          this.textEdit28 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector5 = new Atf.UI.DateTimeSelector();
          this.textEdit26 = new DevExpress.XtraEditors.MemoEdit();
          this.textEdit29 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit23 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DodstBs = new System.Windows.Forms.BindingSource();
+         this.DodstBs = new System.Windows.Forms.BindingSource(this.components);
          this.textEdit35 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit25 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit24 = new DevExpress.XtraEditors.TextEdit();
          this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DshipBs = new System.Windows.Forms.BindingSource();
+         this.DshipBs = new System.Windows.Forms.BindingSource(this.components);
          this.textEdit27 = new DevExpress.XtraEditors.TextEdit();
          this.dateTimeSelector4 = new Atf.UI.DateTimeSelector();
          this.textEdit21 = new DevExpress.XtraEditors.TextEdit();
@@ -494,7 +495,7 @@
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.Ordt4Stp3Bs = new System.Windows.Forms.BindingSource();
+         this.Ordt4Stp3Bs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn48 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn49 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -506,7 +507,7 @@
          this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.tabPage2 = new System.Windows.Forms.TabPage();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-         this.Odst4Stp3Bs = new System.Windows.Forms.BindingSource();
+         this.Odst4Stp3Bs = new System.Windows.Forms.BindingSource(this.components);
          this.Odst4Stp3_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colORDR_CODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colAPBS_CODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -560,10 +561,10 @@
          this.rollout3 = new System.MaxUi.Rollout();
          this.PosAmnt3_Txt = new DevExpress.XtraEditors.TextEdit();
          this.CashAmnt3_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.imageList1 = new System.Windows.Forms.ImageList();
-         this.UIToolTip_TT = new System.Windows.Forms.ToolTip();
-         this.ComnOprt_Tm = new System.Windows.Forms.Timer();
-         this.DAmutBs = new System.Windows.Forms.BindingSource();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+         this.UIToolTip_TT = new System.Windows.Forms.ToolTip(this.components);
+         this.ComnOprt_Tm = new System.Windows.Forms.Timer(this.components);
+         this.DAmutBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -581,7 +582,7 @@
          this.colMDFY_BY1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRegion = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.vUserBs = new System.Windows.Forms.BindingSource();
+         this.vUserBs = new System.Windows.Forms.BindingSource(this.components);
          label16 = new System.Windows.Forms.Label();
          label18 = new System.Windows.Forms.Label();
          label20 = new System.Windows.Forms.Label();
@@ -878,7 +879,7 @@
          // 
          label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          label5.AutoSize = true;
-         label5.Location = new System.Drawing.Point(542, 200);
+         label5.Location = new System.Drawing.Point(542, 202);
          label5.Name = "label5";
          label5.Size = new System.Drawing.Size(22, 14);
          label5.TabIndex = 38;
@@ -888,7 +889,7 @@
          // 
          label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          label6.AutoSize = true;
-         label6.Location = new System.Drawing.Point(542, 228);
+         label6.Location = new System.Drawing.Point(542, 230);
          label6.Name = "label6";
          label6.Size = new System.Drawing.Size(23, 14);
          label6.TabIndex = 38;
@@ -2405,7 +2406,7 @@
          this.Master000_001_001_Tc.Name = "Master000_001_001_Tc";
          this.Master000_001_001_Tc.RightToLeftLayout = true;
          this.Master000_001_001_Tc.SelectedIndex = 0;
-         this.Master000_001_001_Tc.Size = new System.Drawing.Size(594, 435);
+         this.Master000_001_001_Tc.Size = new System.Drawing.Size(594, 437);
          this.Master000_001_001_Tc.TabIndex = 53;
          // 
          // tp_000_001_002
@@ -2414,7 +2415,7 @@
          this.tp_000_001_002.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_002.Name = "tp_000_001_002";
          this.tp_000_001_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_002.Size = new System.Drawing.Size(586, 408);
+         this.tp_000_001_002.Size = new System.Drawing.Size(586, 410);
          this.tp_000_001_002.TabIndex = 1;
          this.tp_000_001_002.Text = "اقلام فاکتور";
          this.tp_000_001_002.UseVisualStyleBackColor = true;
@@ -2433,7 +2434,7 @@
          this.splitContainerControl3.Panel2.Controls.Add(this.panel2);
          this.splitContainerControl3.Panel2.Controls.Add(this.panel1);
          this.splitContainerControl3.Panel2.Text = "Panel2";
-         this.splitContainerControl3.Size = new System.Drawing.Size(580, 402);
+         this.splitContainerControl3.Size = new System.Drawing.Size(580, 404);
          this.splitContainerControl3.SplitterPosition = 125;
          this.splitContainerControl3.TabIndex = 0;
          this.splitContainerControl3.Text = "splitContainerControl3";
@@ -2449,7 +2450,7 @@
          this.gridControl2.Name = "gridControl2";
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.OrdtActn_Butn});
-         this.gridControl2.Size = new System.Drawing.Size(580, 247);
+         this.gridControl2.Size = new System.Drawing.Size(580, 249);
          this.gridControl2.TabIndex = 63;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -2919,7 +2920,7 @@
          this.tp_000_001_003.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_003.Name = "tp_000_001_003";
          this.tp_000_001_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_003.Size = new System.Drawing.Size(586, 408);
+         this.tp_000_001_003.Size = new System.Drawing.Size(586, 410);
          this.tp_000_001_003.TabIndex = 2;
          this.tp_000_001_003.Text = "تخفیفات صورتحساب";
          this.tp_000_001_003.UseVisualStyleBackColor = true;
@@ -2933,7 +2934,7 @@
          this.label11.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.label11.ForeColor = System.Drawing.Color.White;
          this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.label11.Location = new System.Drawing.Point(6, 299);
+         this.label11.Location = new System.Drawing.Point(6, 301);
          this.label11.Name = "label11";
          this.label11.Size = new System.Drawing.Size(468, 103);
          this.label11.TabIndex = 81;
@@ -2947,7 +2948,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl31.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl31.LineVisible = true;
-         this.labelControl31.Location = new System.Drawing.Point(6, 283);
+         this.labelControl31.Location = new System.Drawing.Point(6, 285);
          this.labelControl31.Name = "labelControl31";
          this.labelControl31.Size = new System.Drawing.Size(574, 13);
          this.labelControl31.TabIndex = 80;
@@ -2966,7 +2967,7 @@
             this.repositoryItemButtonEdit1,
             this.persianRepositoryItemDateEdit3,
             this.repositoryItemLookUpEdit2});
-         this.gridControl6.Size = new System.Drawing.Size(574, 231);
+         this.gridControl6.Size = new System.Drawing.Size(574, 233);
          this.gridControl6.TabIndex = 79;
          this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -3336,7 +3337,7 @@
          this.roundedButton5.ImageProfile = global::System.RoboTech.Properties.Resources.IMAGE_1688;
          this.roundedButton5.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.roundedButton5.ImageVisiable = false;
-         this.roundedButton5.Location = new System.Drawing.Point(480, 302);
+         this.roundedButton5.Location = new System.Drawing.Point(480, 304);
          this.roundedButton5.Name = "roundedButton5";
          this.roundedButton5.NormalBorderColor = System.Drawing.Color.Red;
          this.roundedButton5.NormalColorA = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
@@ -3354,7 +3355,7 @@
          this.tp_000_001_004.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_004.Name = "tp_000_001_004";
          this.tp_000_001_004.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_000_001_004.Size = new System.Drawing.Size(586, 408);
+         this.tp_000_001_004.Size = new System.Drawing.Size(586, 410);
          this.tp_000_001_004.TabIndex = 3;
          this.tp_000_001_004.Text = "یادداشت صورتحساب";
          this.tp_000_001_004.UseVisualStyleBackColor = true;
@@ -3367,7 +3368,7 @@
          this.SaveNote_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SaveNote_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SaveNote_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
-         this.SaveNote_Butn.Location = new System.Drawing.Point(444, 350);
+         this.SaveNote_Butn.Location = new System.Drawing.Point(444, 352);
          this.SaveNote_Butn.Name = "SaveNote_Butn";
          this.SaveNote_Butn.Size = new System.Drawing.Size(132, 52);
          this.SaveNote_Butn.TabIndex = 49;
@@ -3394,7 +3395,7 @@
          this.memoEdit1.Properties.NullText = "یاداشت صورتحساب ...";
          this.memoEdit1.Properties.NullValuePrompt = "یاداشت صورتحساب ...";
          this.memoEdit1.Properties.NullValuePromptShowForEmptyValue = true;
-         this.memoEdit1.Size = new System.Drawing.Size(570, 298);
+         this.memoEdit1.Size = new System.Drawing.Size(570, 300);
          this.memoEdit1.TabIndex = 38;
          // 
          // label9
@@ -3424,7 +3425,7 @@
          this.tp_000_001_005.Controls.Add(this.label2);
          this.tp_000_001_005.Location = new System.Drawing.Point(4, 23);
          this.tp_000_001_005.Name = "tp_000_001_005";
-         this.tp_000_001_005.Size = new System.Drawing.Size(586, 408);
+         this.tp_000_001_005.Size = new System.Drawing.Size(586, 410);
          this.tp_000_001_005.TabIndex = 4;
          this.tp_000_001_005.Text = "ارسال سفارش";
          this.tp_000_001_005.UseVisualStyleBackColor = true;
@@ -3446,7 +3447,7 @@
          this.ServAdrs_Pn.Controls.Add(this.OrdrServAdrs_Txt);
          this.ServAdrs_Pn.Location = new System.Drawing.Point(3, 149);
          this.ServAdrs_Pn.Name = "ServAdrs_Pn";
-         this.ServAdrs_Pn.Size = new System.Drawing.Size(579, 254);
+         this.ServAdrs_Pn.Size = new System.Drawing.Size(579, 256);
          this.ServAdrs_Pn.TabIndex = 43;
          // 
          // SaveAdrsFrm1_Butn
@@ -3457,7 +3458,7 @@
          this.SaveAdrsFrm1_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SaveAdrsFrm1_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SaveAdrsFrm1_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1731;
-         this.SaveAdrsFrm1_Butn.Location = new System.Drawing.Point(35, 194);
+         this.SaveAdrsFrm1_Butn.Location = new System.Drawing.Point(35, 196);
          this.SaveAdrsFrm1_Butn.Name = "SaveAdrsFrm1_Butn";
          this.SaveAdrsFrm1_Butn.Size = new System.Drawing.Size(132, 52);
          this.SaveAdrsFrm1_Butn.TabIndex = 48;
@@ -3624,7 +3625,7 @@
          this.ShowDestGoogleMap_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ShowDestGoogleMap_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ShowDestGoogleMap_Butn.Image = global::System.RoboTech.Properties.Resources.IMAGE_1683;
-         this.ShowDestGoogleMap_Butn.Location = new System.Drawing.Point(173, 194);
+         this.ShowDestGoogleMap_Butn.Location = new System.Drawing.Point(173, 196);
          this.ShowDestGoogleMap_Butn.Name = "ShowDestGoogleMap_Butn";
          this.ShowDestGoogleMap_Butn.Size = new System.Drawing.Size(184, 52);
          this.ShowDestGoogleMap_Butn.TabIndex = 50;
@@ -3653,7 +3654,7 @@
          // OrdrCordY_Txt
          // 
          this.OrdrCordY_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrCordY_Txt.Location = new System.Drawing.Point(363, 224);
+         this.OrdrCordY_Txt.Location = new System.Drawing.Point(363, 226);
          this.OrdrCordY_Txt.Name = "OrdrCordY_Txt";
          this.OrdrCordY_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrCordY_Txt.Properties.Appearance.Options.UseFont = true;
@@ -3670,7 +3671,7 @@
          // OrdrCordX_Txt
          // 
          this.OrdrCordX_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-         this.OrdrCordX_Txt.Location = new System.Drawing.Point(363, 196);
+         this.OrdrCordX_Txt.Location = new System.Drawing.Point(363, 198);
          this.OrdrCordX_Txt.Name = "OrdrCordX_Txt";
          this.OrdrCordX_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OrdrCordX_Txt.Properties.Appearance.Options.UseFont = true;
@@ -3700,7 +3701,7 @@
          this.OrdrServAdrs_Txt.Properties.NullText = "آدرس جدید خود را وارد کنید ...";
          this.OrdrServAdrs_Txt.Properties.NullValuePrompt = "آدرس جدید خود را وارد کنید ...";
          this.OrdrServAdrs_Txt.Properties.NullValuePromptShowForEmptyValue = true;
-         this.OrdrServAdrs_Txt.Size = new System.Drawing.Size(570, 71);
+         this.OrdrServAdrs_Txt.Size = new System.Drawing.Size(570, 73);
          this.OrdrServAdrs_Txt.TabIndex = 37;
          // 
          // Ship004_Butn

@@ -1,0 +1,2296 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>User ID=artauser;Integrated Security=False;Data Source=.;Initial Catalog=iScsc;Password=artasport_anardb;Persist Security Info=True</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="13">
+      <Club Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Club</Alias>
+        <Columns isList="true" count="20">
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>CODE,System.Int64</value>
+          <value>NAME,System.String</value>
+          <value>POST_ADRS,System.String</value>
+          <value>EMAL_ADRS,System.String</value>
+          <value>WEB_SITE,System.String</value>
+          <value>CORD_X,System.Double</value>
+          <value>CORD_Y,System.Double</value>
+          <value>TELL_PHON,System.String</value>
+          <value>CELL_PHON,System.String</value>
+          <value>CLUB_CODE,System.Int64</value>
+          <value>ZIP_CODE,System.String</value>
+          <value>ECON_CODE,System.String</value>
+          <value>CLUB_DESC,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Club</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Club</SqlCommand>
+      </Club>
+      <Misc_Expense Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Misc_Expense</Alias>
+        <Columns isList="true" count="32">
+          <value>CODE,System.Int64</value>
+          <value>RWNO,System.Int64</value>
+          <value>VALD_TYPE,System.String</value>
+          <value>EXPN_AMNT,System.Int64</value>
+          <value>LOCK_EXPN_AMNT_DNRM,System.Int64</value>
+          <value>LOCK_DATE_DNRM,System.String</value>
+          <value>SUM_DEDU_AMNT_DNRM,System.Int64</value>
+          <value>SUM_NET_AMNT_DNRM,System.Int64</value>
+          <value>EXPN_DESC,System.String</value>
+          <value>CALC_EXPN_TYPE,System.String</value>
+          <value>DECR_PRCT,System.Double</value>
+          <value>DELV_STAT,System.String</value>
+          <value>DELV_DATE,System.String</value>
+          <value>DELV_BY,System.String</value>
+          <value>QNTY,System.Double</value>
+          <value>REMN_EXPN_PRIC_DNRM,System.Int64</value>
+          <value>SUM_RCPT_PYMT_DNRM,System.Double</value>
+          <value>SUM_DSCT_AMNT_DNRM,System.Double</value>
+          <value>SUM_COST_AMNT_DNRM,System.Double</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>CLUB_CODE,System.Int64</value>
+          <value>EPIT_CODE,System.Int64</value>
+          <value>COCH_FILE_NO,System.Int64</value>
+          <value>MSEX_CODE,System.Int64</value>
+          <value>DELV_NUMB,System.String</value>
+          <value>PERS_DELV_DATE,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Misc_Expense</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select *, dbo.GET_MTOS_U(DELV_DATE) AS PERS_DELV_DATE from Misc_Expense WHERE {WhereClause}</SqlCommand>
+      </Misc_Expense>
+      <V_x0023_Users Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>V#Users</Alias>
+        <Columns isList="true" count="19">
+          <value>ID,System.Int64</value>
+          <value>USER_NAME,System.String</value>
+          <value>AMIL_ADRS,System.String</value>
+          <value>MAIL_SRVR,System.String</value>
+          <value>EMAL_ADRS,System.String</value>
+          <value>EMAL_PASS,System.String</value>
+          <value>CELL_PHON,System.String</value>
+          <value>TELL_PHON,System.String</value>
+          <value>VOIP_NUMB,System.String</value>
+          <value>MAIL_SRVR_STAT,System.String</value>
+          <value>MAIL_SRVR_PROF,System.String</value>
+          <value>MAIL_SRVR_ACNT,System.String</value>
+          <value>DFLT_USER_HELP_SRVR,System.String</value>
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>CMNT,System.String</value>
+          <value>ShortCut,System.Int64</value>
+          <value>USER_DB,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>V#Users</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from V#Users</SqlCommand>
+      </V_x0023_Users>
+      <Payment_Expense Ref="6" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Payment_Expense</Alias>
+        <Columns isList="true" count="49">
+          <value>CODE,System.Int64</value>
+          <value>VALD_TYPE,System.String</value>
+          <value>EXPN_AMNT,System.Int64</value>
+          <value>EXPN_PRIC,System.Int64</value>
+          <value>PRCT_VALU,System.Double</value>
+          <value>PYDT_CODE,System.Int64</value>
+          <value>MSEX_CODE,System.Int64</value>
+          <value>COCH_FILE_NO,System.Int64</value>
+          <value>DECR_PRCT_VALU,System.Double</value>
+          <value>DECR_AMNT_DNRM,System.Int64</value>
+          <value>RCPT_PRIC,System.Int64</value>
+          <value>DSCN_PRIC,System.Int64</value>
+          <value>SELF_DSCN_PRIC,System.Int64</value>
+          <value>CALC_EXPN_PRIC,System.Int64</value>
+          <value>CONF_STAT,System.String</value>
+          <value>CONF_DESC,System.String</value>
+          <value>RQTP_CODE,System.String</value>
+          <value>MTOD_CODE,System.Int64</value>
+          <value>CTGY_CODE,System.Int64</value>
+          <value>CLUB_CODE,System.Int64</value>
+          <value>RQRO_RQST_RQID,System.Int64</value>
+          <value>RQRO_RWNO,System.Int64</value>
+          <value>CALC_EXPN_TYPE,System.String</value>
+          <value>CALC_TYPE,System.String</value>
+          <value>PYMT_STAT,System.String</value>
+          <value>MBSP_FIGH_FILE_NO,System.Int64</value>
+          <value>MBSP_RWNO,System.Int64</value>
+          <value>MBSP_RECT_CODE,System.String</value>
+          <value>FROM_DATE,System.String</value>
+          <value>TO_DATE,System.String</value>
+          <value>NUMB_HORS,System.Int64</value>
+          <value>NUMB_MINT,System.Int64</value>
+          <value>NUMB_DAYS,System.Int64</value>
+          <value>TOTL_NUMB_ATTN,System.Int64</value>
+          <value>RCPT_NUMB_ATTN,System.Int64</value>
+          <value>MIN_NUMB_ATTN,System.Int64</value>
+          <value>NUMB_PKET_ATTN,System.Int64</value>
+          <value>CBMT_CODE,System.Int64</value>
+          <value>RDUC_AMNT,System.Int64</value>
+          <value>EFCT_DATE_TYPE,System.String</value>
+          <value>RECT_CODE,System.String</value>
+          <value>RECT_DATE,System.String</value>
+          <value>PROF_AMNT,System.Int64</value>
+          <value>DEDU_AMNT,System.Int64</value>
+          <value>REMN_EXPN_PRIC_DNRM,System.Int64</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Payment_Expense</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Payment_Expense</SqlCommand>
+      </Payment_Expense>
+      <Expense Ref="7" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Expense</Alias>
+        <Columns isList="true" count="40">
+          <value>PRIC,System.Int64</value>
+          <value>CODE,System.Int64</value>
+          <value>EXTR_PRCT,System.Int64</value>
+          <value>EXPN_STAT,System.String</value>
+          <value>ADD_QUTS,System.String</value>
+          <value>COVR_DSCT,System.String</value>
+          <value>EXPN_TYPE,System.String</value>
+          <value>BUY_PRIC,System.Int64</value>
+          <value>BUY_EXTR_PRCT,System.Int64</value>
+          <value>NUMB_OF_STOK,System.Int64</value>
+          <value>NUMB_OF_SALE,System.Int64</value>
+          <value>NUMB_OF_REMN_DNRM,System.Int64</value>
+          <value>ORDR_ITEM,System.String</value>
+          <value>COVR_TAX,System.String</value>
+          <value>NUMB_OF_ATTN_MONT,System.Int64</value>
+          <value>NUMB_OF_ATTN_WEEK,System.Int64</value>
+          <value>MODL_NUMB_BAR_CODE,System.String</value>
+          <value>PRVT_COCH_EXPN,System.String</value>
+          <value>MIN_NUMB,System.Int64</value>
+          <value>NUMB_CYCL_DAY,System.Int64</value>
+          <value>NUMB_MONT_OFER,System.Int64</value>
+          <value>MIN_TIME,System.DateTime</value>
+          <value>RELY_CMND,System.String</value>
+          <value>PROF_AMNT_DNRM,System.Int64</value>
+          <value>DEDU_AMNT_DNRM,System.Int64</value>
+          <value>UNIT_APBS_CODE,System.Int64</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>EXPN_DESC,System.String</value>
+          <value>MIN_PRIC,System.Int64</value>
+          <value>MAX_PRIC,System.Int64</value>
+          <value>REGL_YEAR,System.Int64</value>
+          <value>REGL_CODE,System.Int64</value>
+          <value>EXTP_CODE,System.Int64</value>
+          <value>CTGY_CODE,System.Int64</value>
+          <value>MTOD_CODE,System.Int64</value>
+          <value>GROP_CODE,System.Int64</value>
+          <value>BRND_CODE,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Expense</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Expense</SqlCommand>
+      </Expense>
+      <Payment_Detail Ref="8" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Payment_Detail</Alias>
+        <Columns isList="true" count="46">
+          <value>CODE,System.Int64</value>
+          <value>PAY_STAT,System.String</value>
+          <value>EXPN_PRIC,System.Int64</value>
+          <value>EXPN_EXTR_PRCT,System.Int64</value>
+          <value>REMN_PRIC,System.Int64</value>
+          <value>QNTY,System.Double</value>
+          <value>DOCM_NUMB,System.Int64</value>
+          <value>ISSU_DATE,System.DateTime</value>
+          <value>RCPT_MTOD,System.String</value>
+          <value>RECV_LETT_NO,System.String</value>
+          <value>RECV_LETT_DATE,System.DateTime</value>
+          <value>PYDT_DESC,System.String</value>
+          <value>ADD_QUTS,System.String</value>
+          <value>FIGH_FILE_NO,System.Int64</value>
+          <value>PRE_EXPN_STAT,System.String</value>
+          <value>CBMT_CODE_DNRM,System.Int64</value>
+          <value>MTOD_CODE_DNRM,System.Int64</value>
+          <value>CTGY_CODE_DNRM,System.Int64</value>
+          <value>TRAN_STAT,System.String</value>
+          <value>TRAN_BY,System.String</value>
+          <value>TRAN_DATE,System.DateTime</value>
+          <value>TRAN_CBMT_CODE,System.Int64</value>
+          <value>TRAN_MTOD_CODE,System.Int64</value>
+          <value>TRAN_CTGY_CODE,System.Int64</value>
+          <value>TRAN_EXPN_CODE,System.Int64</value>
+          <value>EXPR_DATE,System.DateTime</value>
+          <value>MBSP_FIGH_FILE_NO,System.Int64</value>
+          <value>MBSP_RWNO,System.Int64</value>
+          <value>MBSP_RECT_CODE,System.String</value>
+          <value>FROM_NUMB,System.Int64</value>
+          <value>TO_NUMB,System.Int64</value>
+          <value>PROF_AMNT_DNRM,System.Int64</value>
+          <value>DEDU_AMNT_DNRM,System.Int64</value>
+          <value>EXTS_CODE,System.Int64</value>
+          <value>EXTS_RSRV_DATE,System.DateTime</value>
+          <value>TOTL_WEGH,System.Double</value>
+          <value>UNIT_NUMB,System.Double</value>
+          <value>UNIT_APBS_CODE,System.Int64</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>PYMT_CASH_CODE,System.Int64</value>
+          <value>PYMT_RQST_RQID,System.Int64</value>
+          <value>RQRO_RWNO,System.Int64</value>
+          <value>EXPN_CODE,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Payment_Detail</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Payment_Detail</SqlCommand>
+      </Payment_Detail>
+      <Fighter Ref="9" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Fighter</Alias>
+        <Columns isList="true" count="82">
+          <value>CONF_STAT,System.String</value>
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>FILE_NO,System.Int64</value>
+          <value>FIGH_STAT,System.String</value>
+          <value>RQST_RQID,System.Int64</value>
+          <value>NAME_DNRM,System.String</value>
+          <value>FRST_NAME_DNRM,System.String</value>
+          <value>LAST_NAME_DNRM,System.String</value>
+          <value>FATH_NAME_DNRM,System.String</value>
+          <value>POST_ADRS_DNRM,System.String</value>
+          <value>SEX_TYPE_DNRM,System.String</value>
+          <value>BRTH_DATE_DNRM,System.DateTime</value>
+          <value>CELL_PHON_DNRM,System.String</value>
+          <value>TELL_PHON_DNRM,System.String</value>
+          <value>FGPB_TYPE_DNRM,System.String</value>
+          <value>INSR_NUMB_DNRM,System.String</value>
+          <value>INSR_DATE_DNRM,System.DateTime</value>
+          <value>TEST_DATE_DNRM,System.DateTime</value>
+          <value>CAMP_DATE_DNRM,System.DateTime</value>
+          <value>CTGY_CODE_DNRM,System.Int64</value>
+          <value>MTOD_CODE_DNRM,System.Int64</value>
+          <value>CLUB_CODE_DNRM,System.Int64</value>
+          <value>COCH_FILE_NO_DNRM,System.Int64</value>
+          <value>COCH_CRTF_YEAR_DNRM,System.Int64</value>
+          <value>CBMT_CODE_DNRM,System.Int64</value>
+          <value>DAY_TYPE_DNRM,System.String</value>
+          <value>ATTN_TIME_DNRM,System.String</value>
+          <value>ACTV_TAG_DNRM,System.String</value>
+          <value>BLOD_GROP_DNRM,System.String</value>
+          <value>IMAG_RCDC_RCID_DNRM,System.Int64</value>
+          <value>IMAG_RWNO_DNRM,System.Int64</value>
+          <value>CARD_NUMB_DNRM,System.String</value>
+          <value>FNGR_PRNT_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_ORGN_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_CODE_DNRM,System.String</value>
+          <value>SUNT_CODE_DNRM,System.String</value>
+          <value>ORGN_CODE_DNRM,System.String</value>
+          <value>CORD_X_DNRM,System.Double</value>
+          <value>CORD_Y_DNRM,System.Double</value>
+          <value>SERV_NO_DNRM,System.String</value>
+          <value>NATL_CODE_DNRM,System.String</value>
+          <value>GLOB_CODE_DNRM,System.String</value>
+          <value>CHAT_ID_DNRM,System.Int64</value>
+          <value>MOM_CELL_PHON_DNRM,System.String</value>
+          <value>MOM_TELL_PHON_DNRM,System.String</value>
+          <value>MOM_CHAT_ID_DNRM,System.Int64</value>
+          <value>DAD_CELL_PHON_DNRM,System.String</value>
+          <value>DAD_TELL_PHON_DNRM,System.String</value>
+          <value>DAD_CHAT_ID_DNRM,System.Int64</value>
+          <value>DPST_ACNT_SLRY_BANK_DNRM,System.String</value>
+          <value>DPST_ACNT_SLRY_DNRM,System.String</value>
+          <value>RTNG_NUMB_DNRM,System.Int64</value>
+          <value>REF_CODE_DNRM,System.Int64</value>
+          <value>LEFT_FILE_NO,System.Int64</value>
+          <value>RIGH_FILE_NO,System.Int64</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>TARF_CODE_DNRM,System.String</value>
+          <value>MOST_DEBT_CLNG_DNRM,System.Int64</value>
+          <value>DEBT_DNRM,System.Int64</value>
+          <value>BUFE_DEBT_DNTM,System.Int64</value>
+          <value>DPST_AMNT_DNRM,System.Int64</value>
+          <value>FGPB_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_RWNO_DNRM,System.Int64</value>
+          <value>MBCO_RWNO_DNRM,System.Int64</value>
+          <value>MBFZ_RWNO_DNRM,System.Int64</value>
+          <value>MBSM_RWNO_DNRM,System.Int64</value>
+          <value>CAMP_RWNO_DNRM,System.Int64</value>
+          <value>TEST_RWNO_DNRM,System.Int64</value>
+          <value>CLCL_RWNO_DNRM,System.Int64</value>
+          <value>HERT_RWNO_DNRM,System.Int64</value>
+          <value>PSFN_RWNO_DNRM,System.Int64</value>
+          <value>EXAM_RWNO_DNRM,System.Int64</value>
+          <value>BDFT_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_STRT_DATE,System.String</value>
+          <value>MBSP_END_DATE,System.String</value>
+          <value>CONF_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Fighter</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Fighter</SqlCommand>
+      </Fighter>
+      <App_Base_Define Ref="10" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>App_Base_Define</Alias>
+        <Columns isList="true" count="21">
+          <value>CODE,System.Int64</value>
+          <value>RWNO,System.Int64</value>
+          <value>TITL_DESC,System.String</value>
+          <value>ENTY_NAME,System.String</value>
+          <value>REF_CODE,System.Int64</value>
+          <value>LVRG_VALU,System.Double</value>
+          <value>NUMB,System.Double</value>
+          <value>UNIT,System.Int64</value>
+          <value>PRT1_TIME,System.DateTime</value>
+          <value>PRT2_TIME,System.DateTime</value>
+          <value>PRT3_TIME,System.DateTime</value>
+          <value>PRT4_TIME,System.DateTime</value>
+          <value>PRT5_TIME,System.DateTime</value>
+          <value>PRT6_TIME,System.DateTime</value>
+          <value>SEX_TYPE,System.String</value>
+          <value>COLR,System.Int64</value>
+          <value>STAT,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>App_Base_Define</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from App_Base_Define</SqlCommand>
+      </App_Base_Define>
+      <Misc_Expense_Check Ref="11" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Misc_Expense_Check</Alias>
+        <Columns isList="true" count="15">
+          <value>CODE,System.Int64</value>
+          <value>AMNT,System.Double</value>
+          <value>CHEK_OWNR,System.String</value>
+          <value>CHEK_NO,System.String</value>
+          <value>CHEK_DATE,System.String</value>
+          <value>BANK,System.String</value>
+          <value>RCPT_DATE,System.String</value>
+          <value>CHEK_TYPE,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>MSEX_CODE,System.Int64</value>
+          <value>PERS_CHCK_DATE,System.String</value>
+          <value>PERS_RCPT_DATE,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Misc_Expense_Check</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select *, dbo.GET_MTOS_U(CHEK_DATE) AS PERS_CHCK_DATE, dbo.GET_MTOS_U(RCPT_DATE) AS PERS_RCPT_DATE from Misc_Expense_Check</SqlCommand>
+      </Misc_Expense_Check>
+      <Misc_Expense_Cost Ref="12" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Misc_Expense_Cost</Alias>
+        <Columns isList="true" count="11">
+          <value>CODE,System.Int64</value>
+          <value>AMNT,System.Double</value>
+          <value>COST_APBS_CODE,System.Int64</value>
+          <value>COST_DESC,System.String</value>
+          <value>COST_DATE,System.DateTime</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>MSEX_CODE,System.Int64</value>
+          <value>PERS_COST_DATE,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Misc_Expense_Cost</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select *, dbo.GET_MTOS_U(COST_DATE) AS PERS_COST_DATE from Misc_Expense_Cost</SqlCommand>
+      </Misc_Expense_Cost>
+      <Misc_Expense_Discount Ref="13" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Misc_Expense_Discount</Alias>
+        <Columns isList="true" count="10">
+          <value>CODE,System.Int64</value>
+          <value>AMNT,System.Double</value>
+          <value>DSCT_APBS_CODE,System.Int64</value>
+          <value>DSCT_DESC,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>MSEX_CODE,System.Int64</value>
+          <value>PERS_CRET_DATE,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Misc_Expense_Discount</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select *, dbo.GET_MTOS_U(CRET_DATE) AS PERS_CRET_DATE from Misc_Expense_Discount</SqlCommand>
+      </Misc_Expense_Discount>
+      <Misc_Expense_Method Ref="14" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Misc_Expense_Method</Alias>
+        <Columns isList="true" count="18">
+          <value>CODE,System.Int64</value>
+          <value>AMNT,System.Double</value>
+          <value>RCPT_MTOD,System.String</value>
+          <value>TERM_NO,System.String</value>
+          <value>TRAN_NO,System.String</value>
+          <value>CARD_NO,System.String</value>
+          <value>BANK,System.String</value>
+          <value>FLOW_NO,System.String</value>
+          <value>REF_NO,System.String</value>
+          <value>ACTN_DATE,System.DateTime</value>
+          <value>SHOP_NO,System.String</value>
+          <value>VALD_TYPE,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>MSEX_CODE,System.Int64</value>
+          <value>PERS_ACTN_DATE,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Misc_Expense_Method</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select *, dbo.GET_MTOS_U(ACTN_DATE) AS PERS_ACTN_DATE from Misc_Expense_Method</SqlCommand>
+      </Misc_Expense_Method>
+      <D_x0024_RCMT Ref="15" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>D$RCMT</Alias>
+        <Columns isList="true" count="2">
+          <value>VALU,System.String</value>
+          <value>DOMN_DESC,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>D$RCMT</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from D$RCMT</SqlCommand>
+      </D_x0024_RCMT>
+    </DataSources>
+    <Relations isList="true" count="14">
+      <FK_MSEX_CLUB Ref="16" type="DataRelation" isKey="true">
+        <Alias>FK_MSEX_CLUB</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>CLUB_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="4" />
+        <Dictionary isRef="1" />
+        <Name>FK_MSEX_CLUB</Name>
+        <NameInSource>FK_MSEX_CLUB</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="3" />
+      </FK_MSEX_CLUB>
+      <FK_MSEX_USER Ref="17" type="DataRelation" isKey="true">
+        <Alias>FK_MSEX_USER</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>CRET_BY</value>
+        </ChildColumns>
+        <ChildSource isRef="4" />
+        <Dictionary isRef="1" />
+        <Name>FK_MSEX_USER</Name>
+        <NameInSource>FK_MSEX_USER</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>USER_DB</value>
+        </ParentColumns>
+        <ParentSource isRef="5" />
+      </FK_MSEX_USER>
+      <FK_PYDT_EXPN Ref="18" type="DataRelation" isKey="true">
+        <Alias>FK_PYDT_EXPN</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>EXPN_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="8" />
+        <Dictionary isRef="1" />
+        <Name>FK_PYDT_EXPN</Name>
+        <NameInSource>FK_PYDT_EXPN</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="7" />
+      </FK_PYDT_EXPN>
+      <FK_MSEX_FIGH Ref="19" type="DataRelation" isKey="true">
+        <Alias>FK_MSEX_FIGH</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>COCH_FILE_NO</value>
+        </ChildColumns>
+        <ChildSource isRef="4" />
+        <Dictionary isRef="1" />
+        <Name>FK_MSEX_FIGH</Name>
+        <NameInSource>FK_MSEX_FIGH</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>FILE_NO</value>
+        </ParentColumns>
+        <ParentSource isRef="9" />
+      </FK_MSEX_FIGH>
+      <FK_PMEX_PYDT Ref="20" type="DataRelation" isKey="true">
+        <Alias>FK_PMEX_PYDT</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>PYDT_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="6" />
+        <Dictionary isRef="1" />
+        <Name>FK_PMEX_PYDT</Name>
+        <NameInSource>FK_PMEX_PYDT</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="8" />
+      </FK_PMEX_PYDT>
+      <FK_PYDT_UNIT_APBS Ref="21" type="DataRelation" isKey="true">
+        <Alias>FK_PYDT_UNIT_APBS</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>UNIT_APBS_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="8" />
+        <Dictionary isRef="1" />
+        <Name>FK_PYDT_UNIT_APBS</Name>
+        <NameInSource>FK_PYDT_UNIT_APBS</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="10" />
+      </FK_PYDT_UNIT_APBS>
+      <FK_MSEX_PMEX Ref="22" type="DataRelation" isKey="true">
+        <Alias>FK_MSEX_PMEX</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>MSEX_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="6" />
+        <Dictionary isRef="1" />
+        <Name>FK_MSEX_PMEX</Name>
+        <NameInSource>FK_MSEX_PMEX</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </FK_MSEX_PMEX>
+      <FK_MECK_MSEX Ref="23" type="DataRelation" isKey="true">
+        <Alias>FK_MECK_MSEX</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>MSEX_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="11" />
+        <Dictionary isRef="1" />
+        <Name>FK_MECK_MSEX</Name>
+        <NameInSource>FK_MECK_MSEX</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </FK_MECK_MSEX>
+      <FK_MEXC_MSEX Ref="24" type="DataRelation" isKey="true">
+        <Alias>FK_MEXC_MSEX</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>MSEX_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="12" />
+        <Dictionary isRef="1" />
+        <Name>FK_MEXC_MSEX</Name>
+        <NameInSource>FK_MEXC_MSEX</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </FK_MEXC_MSEX>
+      <FK_MEXD_MSEX Ref="25" type="DataRelation" isKey="true">
+        <Alias>FK_MEXD_MSEX</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>MSEX_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="13" />
+        <Dictionary isRef="1" />
+        <Name>FK_MEXD_MSEX</Name>
+        <NameInSource>FK_MEXD_MSEX</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </FK_MEXD_MSEX>
+      <FK_MEXM_MSEX Ref="26" type="DataRelation" isKey="true">
+        <Alias>FK_MEXM_MSEX</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>MSEX_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="14" />
+        <Dictionary isRef="1" />
+        <Name>FK_MEXM_MSEX</Name>
+        <NameInSource>FK_MEXM_MSEX</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </FK_MEXM_MSEX>
+      <FK_MEXC_COST_APBS Ref="27" type="DataRelation" isKey="true">
+        <Alias>FK_MEXC_COST_APBS</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>COST_APBS_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="12" />
+        <Dictionary isRef="1" />
+        <Name>FK_MEXC_COST_APBS</Name>
+        <NameInSource>FK_MEXC_COST_APBS</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="10" />
+      </FK_MEXC_COST_APBS>
+      <FK_MEXD_DSCT_APBS Ref="28" type="DataRelation" isKey="true">
+        <Alias>FK_MEXD_DSCT_APBS</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>DSCT_APBS_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="13" />
+        <Dictionary isRef="1" />
+        <Name>FK_MEXD_DSCT_APBS</Name>
+        <NameInSource>FK_MEXD_DSCT_APBS</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="10" />
+      </FK_MEXD_DSCT_APBS>
+      <FK_MEXM_RCMT Ref="29" type="DataRelation" isKey="true">
+        <Alias>FK_MEXM_RCMT</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>RCPT_MTOD</value>
+        </ChildColumns>
+        <ChildSource isRef="14" />
+        <Dictionary isRef="1" />
+        <Name>FK_MEXM_RCMT</Name>
+        <NameInSource>FK_MEXM_RCMT</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>VALU</value>
+        </ParentColumns>
+        <ParentSource isRef="15" />
+      </FK_MEXM_RCMT>
+    </Relations>
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="30" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="14">
+        <DataClub Ref="31" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,0.4,19,1.6</ClientRectangle>
+          <Components isList="true" count="3">
+            <DataClub_NAME Ref="32" type="Text" isKey="true">
+              <Border>Top, Right;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>9.8,0,9.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,14,Bold</Font>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_NAME</Name>
+              <Page isRef="30" />
+              <Parent isRef="31" />
+              <Text>بارفروشی و حق العملکاری</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_NAME>
+            <DataClub_POST_ADRS Ref="33" type="Text" isKey="true">
+              <Border>Left, Right, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.8,19,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataClub_POST_ADRS</Name>
+              <Page isRef="30" />
+              <Parent isRef="31" />
+              <Text>{Club.NAME} - {Club.POST_ADRS} - {Misc_Expense.FK_MSEX_USER.CMNT} - {Misc_Expense.FK_MSEX_USER.CELL_PHON}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataClub_POST_ADRS>
+            <Text4 Ref="34" type="Text" isKey="true">
+              <Border>Top, Left;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,9.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,14,Bold</Font>
+              <Guid>833f7115d08b4b998a08062d68f58a82</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="30" />
+              <Parent isRef="31" />
+              <Text>{Misc_Expense.FK_MSEX_USER.USER_NAME}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>Club</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataClub</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+          <Sort isList="true" count="0" />
+        </DataClub>
+        <HeaderMisc_Expense Ref="35" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,2.8,19,1.6</ClientRectangle>
+          <Components isList="true" count="8">
+            <HeaderMisc_Expense_FK_MSEX_FIGH_NAME_DNRM Ref="36" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>14,0,5,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_FK_MSEX_FIGH_NAME_DNRM</Name>
+              <Page isRef="30" />
+              <Parent isRef="35" />
+              <Text>بارنامه صاحب بار</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_FK_MSEX_FIGH_NAME_DNRM>
+            <HeaderMisc_Expense_PERS_DELV_DATE Ref="37" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>16.4,0.8,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_PERS_DELV_DATE</Name>
+              <Page isRef="30" />
+              <Parent isRef="35" />
+              <Text>تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_PERS_DELV_DATE>
+            <HeaderMisc_Expense_DELV_NUMB Ref="38" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>14,0.8,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_DELV_NUMB</Name>
+              <Page isRef="30" />
+              <Parent isRef="35" />
+              <Text>شماره بارنامه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_DELV_NUMB>
+            <HeaderMisc_Expense_SUM_COST_AMNT_DNRM Ref="39" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>8.4,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_SUM_COST_AMNT_DNRM</Name>
+              <Page isRef="30" />
+              <Parent isRef="35" />
+              <Text>مبلغ هزینه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_SUM_COST_AMNT_DNRM>
+            <HeaderMisc_Expense_SUM_NET_AMNT_DNRM Ref="40" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>11.2,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,9,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_SUM_NET_AMNT_DNRM</Name>
+              <Page isRef="30" />
+              <Parent isRef="35" />
+              <Text>مبلغ صافی ناخالص</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_SUM_NET_AMNT_DNRM>
+            <Text5 Ref="41" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,8.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,9,Bold</Font>
+              <Guid>08d677b7af7244f386086eff69f13049</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="30" />
+              <Parent isRef="35" />
+              <Text>مبلغ صافی خالص</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text11 Ref="42" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>8.4,0.8,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <Guid>34c42f2e3f7f48238f0392317ead03ec</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="30" />
+              <Parent isRef="35" />
+              <Text>حق العمل</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text25 Ref="43" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0.8,8.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <Guid>e205a18d0918476abaeab17e4a48da4f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="30" />
+              <Parent isRef="35" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text25>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderMisc_Expense</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+        </HeaderMisc_Expense>
+        <DataMisc_Expense Ref="44" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,5.2,19,1.6</ClientRectangle>
+          <Components isList="true" count="8">
+            <DataMisc_Expense_FK_MSEX_FIGH_NAME_DNRM Ref="45" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>14,0,5,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_FK_MSEX_FIGH_NAME_DNRM</Name>
+              <Page isRef="30" />
+              <Parent isRef="44" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Misc_Expense.FK_MSEX_FIGH.NAME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_FK_MSEX_FIGH_NAME_DNRM>
+            <DataMisc_Expense_PERS_DELV_DATE Ref="46" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>16.4,0.8,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_PERS_DELV_DATE</Name>
+              <Page isRef="30" />
+              <Parent isRef="44" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Misc_Expense.PERS_DELV_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_PERS_DELV_DATE>
+            <DataMisc_Expense_DELV_NUMB Ref="47" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>14,0.8,2.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_DELV_NUMB</Name>
+              <Page isRef="30" />
+              <Parent isRef="44" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Misc_Expense.DELV_NUMB}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_DELV_NUMB>
+            <DataMisc_Expense_SUM_COST_AMNT_DNRM Ref="48" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.4,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_SUM_COST_AMNT_DNRM</Name>
+              <Page isRef="30" />
+              <Parent isRef="44" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Misc_Expense.SUM_COST_AMNT_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="49" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_SUM_COST_AMNT_DNRM>
+            <DataMisc_Expense_SUM_NET_AMNT_DNRM Ref="50" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>11.2,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_SUM_NET_AMNT_DNRM</Name>
+              <Page isRef="30" />
+              <Parent isRef="44" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Misc_Expense.SUM_NET_AMNT_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="51" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_SUM_NET_AMNT_DNRM>
+            <Text6 Ref="52" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,8.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <Guid>caf1de450d2447b0b6a50751907f7a3a</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="30" />
+              <Parent isRef="44" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Misc_Expense.SUM_NET_AMNT_DNRM - (Misc_Expense.SUM_DSCT_AMNT_DNRM + Misc_Expense.SUM_COST_AMNT_DNRM)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="53" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text13 Ref="54" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.4,0.8,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <Guid>eba6edeaf1f64173ae54435b83c24451</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="30" />
+              <Parent isRef="44" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Misc_Expense.REMN_EXPN_PRIC_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="55" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text26 Ref="56" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0.8,8.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <Guid>7dcd2baacf1443409b7c5e9e61b2717e</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text26</Name>
+              <Page isRef="30" />
+              <Parent isRef="44" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text26>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>FK_MSEX_CLUB</DataRelationName>
+          <DataSourceName>Misc_Expense</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataMisc_Expense</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+          <Sort isList="true" count="0" />
+        </DataMisc_Expense>
+        <HeaderPayment_Expense Ref="57" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,7.6,19,0.8</ClientRectangle>
+          <Components isList="true" count="8">
+            <HeaderPayment_Expense_FK_PMEX_PYDT_PYDT_DESC Ref="58" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>12.6,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPayment_Expense_FK_PMEX_PYDT_PYDT_DESC</Name>
+              <Page isRef="30" />
+              <Parent isRef="57" />
+              <Text>محصول</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPayment_Expense_FK_PMEX_PYDT_PYDT_DESC>
+            <HeaderPayment_Expense_FK_PMEX_PYDT_QNTY Ref="59" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>11.2,0,1.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPayment_Expense_FK_PMEX_PYDT_QNTY</Name>
+              <Page isRef="30" />
+              <Parent isRef="57" />
+              <Text>وزن</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPayment_Expense_FK_PMEX_PYDT_QNTY>
+            <HeaderPayment_Expense_FK_PMEX_PYDT_EXPN_PRIC Ref="60" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>8.4,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPayment_Expense_FK_PMEX_PYDT_EXPN_PRIC</Name>
+              <Page isRef="30" />
+              <Parent isRef="57" />
+              <Text>فی فروش</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPayment_Expense_FK_PMEX_PYDT_EXPN_PRIC>
+            <HeaderPayment_Expense_FK_PMEX_PYDT_PROF_AMNT_DNRM Ref="61" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>4.4,0,4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderPayment_Expense_FK_PMEX_PYDT_PROF_AMNT_DNRM</Name>
+              <Page isRef="30" />
+              <Parent isRef="57" />
+              <Text>قیمت کل</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderPayment_Expense_FK_PMEX_PYDT_PROF_AMNT_DNRM>
+            <Text7 Ref="62" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>2.2,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>14d45cde0bb647aba70b40f18837fea0</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="30" />
+              <Parent isRef="57" />
+              <Text>واحد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text9 Ref="63" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>1.2,0,1,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>c432eafd7d9b440e9e5c076404be4c72</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="30" />
+              <Parent isRef="57" />
+              <Text>تعداد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text12 Ref="64" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,1.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>899908e6027e40559f5d94876afe90ba</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="30" />
+              <Parent isRef="57" />
+              <Text>وزن کل</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+            <Text17 Ref="65" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>18.2,0,0.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>729200e3d270426abe4f259c2faec8aa</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="30" />
+              <Parent isRef="57" />
+              <Text>ردیف</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderPayment_Expense</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+        </HeaderPayment_Expense>
+        <Grop_Payment_Expense Ref="66" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,9.2,19,0.8</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Condition>{Payment_Expense.MSEX_CODE}</Condition>
+          <Conditions isList="true" count="0" />
+          <Enabled>False</Enabled>
+          <Name>Grop_Payment_Expense</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+        </Grop_Payment_Expense>
+        <DataPayment_Expense Ref="67" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,10.8,19,0.8</ClientRectangle>
+          <Components isList="true" count="8">
+            <DataPayment_Expense_FK_PMEX_PYDT_PYDT_DESC Ref="68" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>12.6,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPayment_Expense_FK_PMEX_PYDT_PYDT_DESC</Name>
+              <Page isRef="30" />
+              <Parent isRef="67" />
+              <Text>{Payment_Expense.FK_PMEX_PYDT.PYDT_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPayment_Expense_FK_PMEX_PYDT_PYDT_DESC>
+            <DataPayment_Expense_FK_PMEX_PYDT_QNTY Ref="69" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>11.2,0,1.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPayment_Expense_FK_PMEX_PYDT_QNTY</Name>
+              <Page isRef="30" />
+              <Parent isRef="67" />
+              <Text>{Payment_Expense.FK_PMEX_PYDT.QNTY}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="70" type="NumberFormat" isKey="true">
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPayment_Expense_FK_PMEX_PYDT_QNTY>
+            <DataPayment_Expense_FK_PMEX_PYDT_EXPN_PRIC Ref="71" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.4,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPayment_Expense_FK_PMEX_PYDT_EXPN_PRIC</Name>
+              <Page isRef="30" />
+              <Parent isRef="67" />
+              <Text>{Payment_Expense.FK_PMEX_PYDT.EXPN_PRIC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="72" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPayment_Expense_FK_PMEX_PYDT_EXPN_PRIC>
+            <DataPayment_Expense_FK_PMEX_PYDT_PROF_AMNT_DNRM Ref="73" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.4,0,4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataPayment_Expense_FK_PMEX_PYDT_PROF_AMNT_DNRM</Name>
+              <Page isRef="30" />
+              <Parent isRef="67" />
+              <Text>{Payment_Expense.FK_PMEX_PYDT.PROF_AMNT_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="74" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataPayment_Expense_FK_PMEX_PYDT_PROF_AMNT_DNRM>
+            <Text8 Ref="75" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>2.2,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <Guid>9d5c980510fd4b1985a9536b7838f891</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="30" />
+              <Parent isRef="67" />
+              <Text>{Payment_Expense.FK_PMEX_PYDT.FK_PYDT_UNIT_APBS.TITL_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="76" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text10 Ref="77" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>1.2,0,1,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <Guid>5f7e377ffa8b45f79b18bd397e534c7b</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="30" />
+              <Parent isRef="67" />
+              <Text>{Payment_Expense.FK_PMEX_PYDT.UNIT_NUMB}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="78" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text14 Ref="79" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,1.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <Guid>6184d81e1f9d4ab3b0fadeb32763ab33</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="30" />
+              <Parent isRef="67" />
+              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Text>{Payment_Expense.FK_PMEX_PYDT.TOTL_WEGH}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="80" type="NumberFormat" isKey="true">
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text18 Ref="81" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>18.2,0,0.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <Guid>5606b5fdedde4e93a9174912490b1957</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="30" />
+              <Parent isRef="67" />
+              <Text>{CountRunning(Grop_Payment_Expense)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="82" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>FK_MSEX_PMEX</DataRelationName>
+          <DataSourceName>Payment_Expense</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="44" />
+          <Name>DataPayment_Expense</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+          <Sort isList="true" count="0" />
+        </DataPayment_Expense>
+        <GroupFooterBand1 Ref="83" type="GroupFooterBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,12.4,19,0.8</ClientRectangle>
+          <Components isList="true" count="6">
+            <Text1 Ref="84" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>18.2,0,0.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Nazanin,10,Bold</Font>
+              <Guid>de793f9c26354443a51380fcff3e9763</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="30" />
+              <Parent isRef="83" />
+              <Text>{Count(Grop_Payment_Expense)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text2 Ref="85" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>11.2,0,1.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <Guid>c11ca948a6394982922afc3bec7b9ef7</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="30" />
+              <Parent isRef="83" />
+              <Text>{Sum(Grop_Payment_Expense,Payment_Expense.FK_PMEX_PYDT.QNTY)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="86" type="NumberFormat" isKey="true">
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text3 Ref="87" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>4.4,0,4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <Guid>0254f306dd8a461b8cf2a393a3967d5c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="30" />
+              <Parent isRef="83" />
+              <Text>{Sum(Grop_Payment_Expense,Payment_Expense.FK_PMEX_PYDT.PROF_AMNT_DNRM)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="88" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text16 Ref="89" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.4,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <Guid>a485728f2ed840baadd3b7e05a88ac1c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="30" />
+              <Parent isRef="83" />
+              <Text>{AvgI(Grop_Payment_Expense,Payment_Expense.FK_PMEX_PYDT.EXPN_PRIC)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="90" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text16>
+            <Text23 Ref="91" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>12.6,0,5.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <Guid>ffabd6c8ff104b128fec52c14a9fe09c</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text23</Name>
+              <Page isRef="30" />
+              <Parent isRef="83" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text23>
+            <Text24 Ref="92" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,4.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <Guid>a302ceeb7f6140a8a3a71ee35a1a6ba2</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text24</Name>
+              <Page isRef="30" />
+              <Parent isRef="83" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text24>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>GroupFooterBand1</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+        </GroupFooterBand1>
+        <HeaderMisc_Expense_Cost Ref="93" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,14,19,0.8</ClientRectangle>
+          <Components isList="true" count="4">
+            <HeaderMisc_Expense_Cost_FK_MEXC_COST_APBS_TITL_DESC Ref="94" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>14.2,0,4.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_Cost_FK_MEXC_COST_APBS_TITL_DESC</Name>
+              <Page isRef="30" />
+              <Parent isRef="93" />
+              <Text>نوع هزینه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_Cost_FK_MEXC_COST_APBS_TITL_DESC>
+            <HeaderMisc_Expense_Cost_AMNT Ref="95" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>11.2,0,3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_Cost_AMNT</Name>
+              <Page isRef="30" />
+              <Parent isRef="93" />
+              <Text>مبلغ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_Cost_AMNT>
+            <HeaderMisc_Expense_Cost_COST_DESC Ref="96" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,8.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_Cost_COST_DESC</Name>
+              <Page isRef="30" />
+              <Parent isRef="93" />
+              <Text>توضیحات</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_Cost_COST_DESC>
+            <HeaderMisc_Expense_Cost_PERS_COST_DATE Ref="97" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>8.4,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_Cost_PERS_COST_DATE</Name>
+              <Page isRef="30" />
+              <Parent isRef="93" />
+              <Text>تاریخ هزینه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_Cost_PERS_COST_DATE>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderMisc_Expense_Cost</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+        </HeaderMisc_Expense_Cost>
+        <DataMisc_Expense_Cost Ref="98" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,15.6,19,0.8</ClientRectangle>
+          <Components isList="true" count="4">
+            <DataMisc_Expense_Cost_FK_MEXC_COST_APBS_TITL_DESC Ref="99" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>14.2,0,4.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_Cost_FK_MEXC_COST_APBS_TITL_DESC</Name>
+              <Page isRef="30" />
+              <Parent isRef="98" />
+              <Text>{Misc_Expense_Cost.FK_MEXC_COST_APBS.TITL_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_Cost_FK_MEXC_COST_APBS_TITL_DESC>
+            <DataMisc_Expense_Cost_AMNT Ref="100" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>11.2,0,3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_Cost_AMNT</Name>
+              <Page isRef="30" />
+              <Parent isRef="98" />
+              <Text>{Misc_Expense_Cost.AMNT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="101" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_Cost_AMNT>
+            <DataMisc_Expense_Cost_COST_DESC Ref="102" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,8.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_Cost_COST_DESC</Name>
+              <Page isRef="30" />
+              <Parent isRef="98" />
+              <Text>{Misc_Expense_Cost.COST_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_Cost_COST_DESC>
+            <DataMisc_Expense_Cost_PERS_COST_DATE Ref="103" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.4,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_Cost_PERS_COST_DATE</Name>
+              <Page isRef="30" />
+              <Parent isRef="98" />
+              <Text>{Misc_Expense_Cost.PERS_COST_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_Cost_PERS_COST_DATE>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataRelationName>FK_MEXC_MSEX</DataRelationName>
+          <DataSourceName>Misc_Expense_Cost</DataSourceName>
+          <Filters isList="true" count="0" />
+          <MasterComponent isRef="44" />
+          <Name>DataMisc_Expense_Cost</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+          <Sort isList="true" count="0" />
+        </DataMisc_Expense_Cost>
+        <HeaderMisc_Expense_Method Ref="104" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,17.2,19,0.8</ClientRectangle>
+          <Components isList="true" count="5">
+            <HeaderMisc_Expense_Method_AMNT Ref="105" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>11.2,0,3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_Method_AMNT</Name>
+              <Page isRef="30" />
+              <Parent isRef="104" />
+              <Text>مبلغ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_Method_AMNT>
+            <HeaderMisc_Expense_Method_PERS_ACTN_DATE Ref="106" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>8.4,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_Method_PERS_ACTN_DATE</Name>
+              <Page isRef="30" />
+              <Parent isRef="104" />
+              <Text>تاریخ پرداخت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_Method_PERS_ACTN_DATE>
+            <HeaderMisc_Expense_Method_FLOW_NO Ref="107" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>5.8,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_Method_FLOW_NO</Name>
+              <Page isRef="30" />
+              <Parent isRef="104" />
+              <Text>شماره پیگیری</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_Method_FLOW_NO>
+            <HeaderMisc_Expense_Method_FK_MEXM_RCMT_DOMN_DESC Ref="108" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>14.2,0,4.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_Method_FK_MEXM_RCMT_DOMN_DESC</Name>
+              <Page isRef="30" />
+              <Parent isRef="104" />
+              <Text>نحوه پرداخت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_Method_FK_MEXM_RCMT_DOMN_DESC>
+            <Text15 Ref="109" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,5.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <Guid>55aae14402004ea5830d30f0902a5a59</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="30" />
+              <Parent isRef="104" />
+              <Text>توضیحات</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderMisc_Expense_Method</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+        </HeaderMisc_Expense_Method>
+        <DataMisc_Expense_Method Ref="110" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,18.8,19,0.8</ClientRectangle>
+          <Components isList="true" count="5">
+            <DataMisc_Expense_Method_AMNT Ref="111" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>11.2,0,3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_Method_AMNT</Name>
+              <Page isRef="30" />
+              <Parent isRef="110" />
+              <Text>{Misc_Expense_Method.AMNT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="112" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_Method_AMNT>
+            <DataMisc_Expense_Method_PERS_ACTN_DATE Ref="113" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.4,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_Method_PERS_ACTN_DATE</Name>
+              <Page isRef="30" />
+              <Parent isRef="110" />
+              <Text>{Misc_Expense_Method.PERS_ACTN_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_Method_PERS_ACTN_DATE>
+            <DataMisc_Expense_Method_FLOW_NO Ref="114" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.8,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_Method_FLOW_NO</Name>
+              <Page isRef="30" />
+              <Parent isRef="110" />
+              <Text>{Misc_Expense_Method.FLOW_NO}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_Method_FLOW_NO>
+            <DataMisc_Expense_Method_FK_MEXM_RCMT_DOMN_DESC Ref="115" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>14.2,0,4.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_Method_FK_MEXM_RCMT_DOMN_DESC</Name>
+              <Page isRef="30" />
+              <Parent isRef="110" />
+              <Text>{Misc_Expense_Method.FK_MEXM_RCMT.DOMN_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_Method_FK_MEXM_RCMT_DOMN_DESC>
+            <Text22 Ref="116" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0,5.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Traffic,10,Bold</Font>
+              <Guid>077f724661ba47c1bae745c8bee346a5</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="30" />
+              <Parent isRef="110" />
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>Misc_Expense_Method</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataMisc_Expense_Method</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+          <Sort isList="true" count="0" />
+        </DataMisc_Expense_Method>
+        <HeaderMisc_Expense_Discount Ref="117" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,20.4,19,0.8</ClientRectangle>
+          <Components isList="true" count="4">
+            <HeaderMisc_Expense_Discount_AMNT Ref="118" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>11.2,0,3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_Discount_AMNT</Name>
+              <Page isRef="30" />
+              <Parent isRef="117" />
+              <Text>مبلغ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_Discount_AMNT>
+            <HeaderMisc_Expense_Discount_DSCT_DESC Ref="119" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,8.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_Discount_DSCT_DESC</Name>
+              <Page isRef="30" />
+              <Parent isRef="117" />
+              <Text>توضیحات</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_Discount_DSCT_DESC>
+            <HeaderMisc_Expense_Discount_FK_MEXD_DSCT_APBS_TITL_DESC Ref="120" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>14.2,0,4.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderMisc_Expense_Discount_FK_MEXD_DSCT_APBS_TITL_DESC</Name>
+              <Page isRef="30" />
+              <Parent isRef="117" />
+              <Text>توع تخفیف</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderMisc_Expense_Discount_FK_MEXD_DSCT_APBS_TITL_DESC>
+            <Text27 Ref="121" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>8.4,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <Guid>583ac757f4a74484ac121d0b65146822</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text27</Name>
+              <Page isRef="30" />
+              <Parent isRef="117" />
+              <Text>تاریخ تخفیف</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text27>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderMisc_Expense_Discount</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+        </HeaderMisc_Expense_Discount>
+        <DataMisc_Expense_Discount Ref="122" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,22,19,0.8</ClientRectangle>
+          <Components isList="true" count="4">
+            <DataMisc_Expense_Discount_AMNT Ref="123" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>11.2,0,3,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_Discount_AMNT</Name>
+              <Page isRef="30" />
+              <Parent isRef="122" />
+              <Text>{Misc_Expense_Discount.AMNT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="124" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_Discount_AMNT>
+            <DataMisc_Expense_Discount_DSCT_DESC Ref="125" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,8.4,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_Discount_DSCT_DESC</Name>
+              <Page isRef="30" />
+              <Parent isRef="122" />
+              <Text>{Misc_Expense_Discount.DSCT_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_Discount_DSCT_DESC>
+            <DataMisc_Expense_Discount_FK_MEXD_DSCT_APBS_TITL_DESC Ref="126" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>14.2,0,4.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataMisc_Expense_Discount_FK_MEXD_DSCT_APBS_TITL_DESC</Name>
+              <Page isRef="30" />
+              <Parent isRef="122" />
+              <Text>{Misc_Expense_Discount.FK_MEXD_DSCT_APBS.TITL_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataMisc_Expense_Discount_FK_MEXD_DSCT_APBS_TITL_DESC>
+            <Text28 Ref="127" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.4,0,2.8,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <Guid>279230b54e5b4c7db0f882e614be6ce9</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text28</Name>
+              <Page isRef="30" />
+              <Parent isRef="122" />
+              <Text>{Misc_Expense_Discount.PERS_CRET_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text28>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>Misc_Expense_Discount</DataSourceName>
+          <Filters isList="true" count="0" />
+          <KeepChildTogether>True</KeepChildTogether>
+          <KeepDetailsTogether>True</KeepDetailsTogether>
+          <Name>DataMisc_Expense_Discount</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+          <Sort isList="true" count="0" />
+        </DataMisc_Expense_Discount>
+        <FooterPayment_Expense Ref="128" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,23.6,19,0.8</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text21 Ref="129" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>8.8,0,10.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,10,Bold</Font>
+              <Guid>4f1264bfe2a44f488706d9ec4ae66234</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="30" />
+              <Parent isRef="128" />
+              <Text>این بارنامه بدون مهر و امضا فاقد اعتبار میباشد. اشتباه از طرفین قابل برگشت است</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text21>
+            <Text29 Ref="130" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>5.6,0,2.6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,10,Bold</Font>
+              <Guid>285ea7bad4884de085222d5b0aa23034</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text29</Name>
+              <Page isRef="30" />
+              <Parent isRef="128" />
+              <Text>امضا متصدی فروش</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text29>
+            <Text30 Ref="131" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0.8,0,2.2,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Titr,10,Bold</Font>
+              <Guid>881f9fe256c242efac2977a9a60ce984</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text30</Name>
+              <Page isRef="30" />
+              <Parent isRef="128" />
+              <Text>امضا گیرنده وجه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text30>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>FooterPayment_Expense</Name>
+          <Page isRef="30" />
+          <Parent isRef="30" />
+        </FooterPayment_Expense>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>2a4c55ac2ca94ec5baae383b33730dcc</Guid>
+      <Margins>1,1,1,1</Margins>
+      <Name>Page1</Name>
+      <PageHeight>29.6</PageHeight>
+      <PageWidth>21</PageWidth>
+      <PaperSize>A4</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="132" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="133" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>8/30/2023 5:53:32 PM</ReportChanged>
+  <ReportCreated>8/1/2017 3:08:42 PM</ReportCreated>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_MEXP_002_R.mrt</ReportFile>
+  <ReportGuid>4ce79a27e6424ee7870b781d36ae6e47</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

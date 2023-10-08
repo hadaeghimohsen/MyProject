@@ -41,30 +41,51 @@ namespace System.Scsc.Ui.Notifications
             if (!ToAttnDate_Date.Value.HasValue)
                ToAttnDate_Date.Value = FromAttnDate_Date.Value;
 
-            if (CBMT_CODE_GridLookUpEdit.EditValue == null || CBMT_CODE_GridLookUpEdit.EditValue.ToString() == "")
-               AttnBs1.DataSource =
-                  iScsc.Attendances
-                  .Where(a =>
-                     a.ATTN_DATE.Date >= FromAttnDate_Date.Value.Value.Date &&
-                     a.ATTN_DATE.Date <= ToAttnDate_Date.Value.Value.Date &&
-                     a.ATTN_STAT == "002" &&
-                     Fga_Uclb_U.Contains(a.CLUB_CODE)
-                  );
-            else
+            if (Tb_Master.SelectedTab == tp_001)
             {
-               var cbmtcode = (long?)CBMT_CODE_GridLookUpEdit.EditValue;
-               var cbmtobj = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.CODE == cbmtcode);
 
-               AttnBs1.DataSource =
-                  iScsc.Attendances
-                  .Where(a =>
-                     a.ATTN_DATE.Date >= FromAttnDate_Date.Value.Value.Date &&
-                     a.ATTN_DATE.Date <= ToAttnDate_Date.Value.Value.Date &&
-                     (Coch_Pkb.PickChecked == false || a.COCH_FILE_NO == cbmtobj.COCH_FILE_NO) &&
-                     (Mtod_Pkb.PickChecked == false || a.MTOD_CODE_DNRM == cbmtobj.MTOD_CODE) &&
-                     (Cbmt_Pkb.PickChecked == false || a.CBMT_CODE_DNRM == cbmtobj.CODE) &&
-                     a.ATTN_STAT == "002" &&
-                     Fga_Uclb_U.Contains(a.CLUB_CODE)
+               if (CBMT_CODE_GridLookUpEdit.EditValue == null || CBMT_CODE_GridLookUpEdit.EditValue.ToString() == "")
+                  AttnBs1.DataSource =
+                     iScsc.Attendances
+                     .Where(a =>
+                        a.ATTN_DATE.Date >= FromAttnDate_Date.Value.Value.Date &&
+                        a.ATTN_DATE.Date <= ToAttnDate_Date.Value.Value.Date &&
+                        a.ATTN_STAT == "002" &&
+                        Fga_Uclb_U.Contains(a.CLUB_CODE)
+                     );
+               else
+               {
+                  var cbmtcode = (long?)CBMT_CODE_GridLookUpEdit.EditValue;
+                  var cbmtobj = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.CODE == cbmtcode);
+
+                  AttnBs1.DataSource =
+                     iScsc.Attendances
+                     .Where(a =>
+                        a.ATTN_DATE.Date >= FromAttnDate_Date.Value.Value.Date &&
+                        a.ATTN_DATE.Date <= ToAttnDate_Date.Value.Value.Date &&
+                        (Coch_Pkb.PickChecked == false || a.COCH_FILE_NO == cbmtobj.COCH_FILE_NO) &&
+                        (Mtod_Pkb.PickChecked == false || a.MTOD_CODE_DNRM == cbmtobj.MTOD_CODE) &&
+                        (Cbmt_Pkb.PickChecked == false || a.CBMT_CODE_DNRM == cbmtobj.CODE) &&
+                        a.ATTN_STAT == "002" &&
+                        Fga_Uclb_U.Contains(a.CLUB_CODE)
+                     );
+               }
+            }
+            else if (Tb_Master.SelectedTab == tp_002)
+            {
+               VSTMbspBs.DataSource =
+                  iScsc.V_Total_Member_Ships
+                  .Where(h =>
+                     FromAttnDate_Date.Value.Value.Date >= h.STRT_DATE.Value.Date &&
+                     ToAttnDate_Date.Value.Value.Date <= h.END_DATE.Value.Date &&
+                     !iScsc.Attendances
+                     .Any(a =>
+                        a.FIGH_FILE_NO == h.FILE_NO &&
+                        a.CBMT_CODE_DNRM == h.CBMT_CODE &&
+                        a.MBSP_RWNO_DNRM == h.MBSP_RWNO &&
+                        a.COCH_FILE_NO == h.COCH_FILE_NO &&
+                        a.ATTN_STAT == "002"
+                     )
                   );
             }
          }catch(Exception exc)
@@ -306,6 +327,31 @@ namespace System.Scsc.Ui.Notifications
                CochProFile_Rb.Visible = false;
          }
          catch(Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AttnActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _HAttn = VSTMbspBs.Current as Data.V_Total_Member_Ship;
+            if (_HAttn == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  Back_Butn_Click(null, null);
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _HAttn.FILE_NO)) }
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
          }

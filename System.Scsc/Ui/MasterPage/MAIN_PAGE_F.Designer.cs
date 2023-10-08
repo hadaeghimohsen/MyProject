@@ -263,13 +263,6 @@
          this.rollout8 = new System.MaxUi.Rollout();
          this.bbi_UnitDef_Butn = new System.MaxUi.Button();
          this.bbi_ProdDef_Butn = new System.MaxUi.Button();
-         this.bbi_RetSellInvc_Butn = new System.MaxUi.Button();
-         this.bbi_RmtnInvc_Butn = new System.MaxUi.Button();
-         this.bbi_SellInvc_Butn = new System.MaxUi.Button();
-         this.bbi_RetBuyInvc_Butn = new System.MaxUi.Button();
-         this.bbi_Invc_Butn = new System.MaxUi.Button();
-         this.bbi_RecvInvc_Butn = new System.MaxUi.Button();
-         this.bbi_BuyInvc_Butn = new System.MaxUi.Button();
          this.tabPage2 = new System.Windows.Forms.TabPage();
          this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
          this.rollout1 = new System.MaxUi.Rollout();
@@ -1962,7 +1955,7 @@
          this.AdjustDateTime_Lab.Name = "AdjustDateTime_Lab";
          this.AdjustDateTime_Lab.Size = new System.Drawing.Size(343, 155);
          this.AdjustDateTime_Lab.TabIndex = 0;
-         this.AdjustDateTime_Lab.Text = "1402/05/03\r\nسه شنبه، 3 مرداد\r\n1402";
+         this.AdjustDateTime_Lab.Text = "1401/06/25\r\nشنبه، 25 شهریور\r\n1401";
          // 
          // Master_Tc
          // 
@@ -3073,19 +3066,12 @@
          this.rollout8.BorderThickness = 1F;
          this.rollout8.Controls.Add(this.bbi_UnitDef_Butn);
          this.rollout8.Controls.Add(this.bbi_ProdDef_Butn);
-         this.rollout8.Controls.Add(this.bbi_RetSellInvc_Butn);
-         this.rollout8.Controls.Add(this.bbi_RmtnInvc_Butn);
-         this.rollout8.Controls.Add(this.bbi_SellInvc_Butn);
-         this.rollout8.Controls.Add(this.bbi_RetBuyInvc_Butn);
-         this.rollout8.Controls.Add(this.bbi_Invc_Butn);
-         this.rollout8.Controls.Add(this.bbi_RecvInvc_Butn);
-         this.rollout8.Controls.Add(this.bbi_BuyInvc_Butn);
          this.rollout8.CustomRolloutColor = System.Drawing.Color.LightGray;
          this.rollout8.ForeColor = System.Drawing.Color.Black;
          this.rollout8.FrameOnMouseOverOnly = false;
          this.rollout8.GroupImage = null;
          this.rollout8.Location = new System.Drawing.Point(5, 526);
-         this.rollout8.MaxHeight = 193;
+         this.rollout8.MaxHeight = 64;
          this.rollout8.Name = "rollout8";
          this.rollout8.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout8.PaintRollout = true;
@@ -3143,146 +3129,6 @@
          this.bbi_ProdDef_Butn.UseVisualStyleBackColor = false;
          this.bbi_ProdDef_Butn.Click += new System.EventHandler(this.bbi_ProdDef_Butn_Click);
          // 
-         // bbi_RetSellInvc_Butn
-         // 
-         this.bbi_RetSellInvc_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_RetSellInvc_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_RetSellInvc_Butn.FlatAppearance.BorderSize = 0;
-         this.bbi_RetSellInvc_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_RetSellInvc_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_RetSellInvc_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_RetSellInvc_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.bbi_RetSellInvc_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.bbi_RetSellInvc_Butn.FrameOnMouseOverOnly = false;
-         this.bbi_RetSellInvc_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.bbi_RetSellInvc_Butn.Location = new System.Drawing.Point(7, 95);
-         this.bbi_RetSellInvc_Butn.Name = "bbi_RetSellInvc_Butn";
-         this.bbi_RetSellInvc_Butn.ShowFocusFrame = true;
-         this.bbi_RetSellInvc_Butn.Size = new System.Drawing.Size(110, 25);
-         this.bbi_RetSellInvc_Butn.TabIndex = 67;
-         this.bbi_RetSellInvc_Butn.Text = "برگشت از فروش";
-         this.bbi_RetSellInvc_Butn.UseVisualStyleBackColor = false;
-         // 
-         // bbi_RmtnInvc_Butn
-         // 
-         this.bbi_RmtnInvc_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_RmtnInvc_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_RmtnInvc_Butn.FlatAppearance.BorderSize = 0;
-         this.bbi_RmtnInvc_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_RmtnInvc_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_RmtnInvc_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_RmtnInvc_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.bbi_RmtnInvc_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.bbi_RmtnInvc_Butn.FrameOnMouseOverOnly = false;
-         this.bbi_RmtnInvc_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.bbi_RmtnInvc_Butn.Location = new System.Drawing.Point(7, 126);
-         this.bbi_RmtnInvc_Butn.Name = "bbi_RmtnInvc_Butn";
-         this.bbi_RmtnInvc_Butn.ShowFocusFrame = true;
-         this.bbi_RmtnInvc_Butn.Size = new System.Drawing.Size(110, 25);
-         this.bbi_RmtnInvc_Butn.TabIndex = 67;
-         this.bbi_RmtnInvc_Butn.Text = "فاکتور حواله";
-         this.bbi_RmtnInvc_Butn.UseVisualStyleBackColor = false;
-         // 
-         // bbi_SellInvc_Butn
-         // 
-         this.bbi_SellInvc_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_SellInvc_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_SellInvc_Butn.FlatAppearance.BorderSize = 0;
-         this.bbi_SellInvc_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_SellInvc_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_SellInvc_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_SellInvc_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.bbi_SellInvc_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.bbi_SellInvc_Butn.FrameOnMouseOverOnly = false;
-         this.bbi_SellInvc_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.bbi_SellInvc_Butn.Location = new System.Drawing.Point(7, 64);
-         this.bbi_SellInvc_Butn.Name = "bbi_SellInvc_Butn";
-         this.bbi_SellInvc_Butn.ShowFocusFrame = true;
-         this.bbi_SellInvc_Butn.Size = new System.Drawing.Size(110, 25);
-         this.bbi_SellInvc_Butn.TabIndex = 67;
-         this.bbi_SellInvc_Butn.Text = "فاکتور فروش";
-         this.bbi_SellInvc_Butn.UseVisualStyleBackColor = false;
-         // 
-         // bbi_RetBuyInvc_Butn
-         // 
-         this.bbi_RetBuyInvc_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_RetBuyInvc_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_RetBuyInvc_Butn.FlatAppearance.BorderSize = 0;
-         this.bbi_RetBuyInvc_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_RetBuyInvc_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_RetBuyInvc_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_RetBuyInvc_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.bbi_RetBuyInvc_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.bbi_RetBuyInvc_Butn.FrameOnMouseOverOnly = false;
-         this.bbi_RetBuyInvc_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.bbi_RetBuyInvc_Butn.Location = new System.Drawing.Point(121, 95);
-         this.bbi_RetBuyInvc_Butn.Name = "bbi_RetBuyInvc_Butn";
-         this.bbi_RetBuyInvc_Butn.ShowFocusFrame = true;
-         this.bbi_RetBuyInvc_Butn.Size = new System.Drawing.Size(110, 25);
-         this.bbi_RetBuyInvc_Butn.TabIndex = 67;
-         this.bbi_RetBuyInvc_Butn.Text = "برگشت از خرید";
-         this.bbi_RetBuyInvc_Butn.UseVisualStyleBackColor = false;
-         // 
-         // bbi_Invc_Butn
-         // 
-         this.bbi_Invc_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_Invc_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_Invc_Butn.FlatAppearance.BorderSize = 0;
-         this.bbi_Invc_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_Invc_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_Invc_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_Invc_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.bbi_Invc_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.bbi_Invc_Butn.FrameOnMouseOverOnly = false;
-         this.bbi_Invc_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.bbi_Invc_Butn.Location = new System.Drawing.Point(121, 157);
-         this.bbi_Invc_Butn.Name = "bbi_Invc_Butn";
-         this.bbi_Invc_Butn.ShowFocusFrame = true;
-         this.bbi_Invc_Butn.Size = new System.Drawing.Size(110, 25);
-         this.bbi_Invc_Butn.TabIndex = 67;
-         this.bbi_Invc_Butn.Text = "پیش فاکتور";
-         this.bbi_Invc_Butn.UseVisualStyleBackColor = false;
-         // 
-         // bbi_RecvInvc_Butn
-         // 
-         this.bbi_RecvInvc_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_RecvInvc_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_RecvInvc_Butn.FlatAppearance.BorderSize = 0;
-         this.bbi_RecvInvc_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_RecvInvc_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_RecvInvc_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_RecvInvc_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.bbi_RecvInvc_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.bbi_RecvInvc_Butn.FrameOnMouseOverOnly = false;
-         this.bbi_RecvInvc_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.bbi_RecvInvc_Butn.Location = new System.Drawing.Point(121, 126);
-         this.bbi_RecvInvc_Butn.Name = "bbi_RecvInvc_Butn";
-         this.bbi_RecvInvc_Butn.ShowFocusFrame = true;
-         this.bbi_RecvInvc_Butn.Size = new System.Drawing.Size(110, 25);
-         this.bbi_RecvInvc_Butn.TabIndex = 67;
-         this.bbi_RecvInvc_Butn.Text = "فاکتور رسید";
-         this.bbi_RecvInvc_Butn.UseVisualStyleBackColor = false;
-         // 
-         // bbi_BuyInvc_Butn
-         // 
-         this.bbi_BuyInvc_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_BuyInvc_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_BuyInvc_Butn.FlatAppearance.BorderSize = 0;
-         this.bbi_BuyInvc_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_BuyInvc_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_BuyInvc_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_BuyInvc_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.bbi_BuyInvc_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.bbi_BuyInvc_Butn.FrameOnMouseOverOnly = false;
-         this.bbi_BuyInvc_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.bbi_BuyInvc_Butn.Location = new System.Drawing.Point(121, 64);
-         this.bbi_BuyInvc_Butn.Name = "bbi_BuyInvc_Butn";
-         this.bbi_BuyInvc_Butn.ShowFocusFrame = true;
-         this.bbi_BuyInvc_Butn.Size = new System.Drawing.Size(110, 25);
-         this.bbi_BuyInvc_Butn.TabIndex = 67;
-         this.bbi_BuyInvc_Butn.Text = "فاکتور خرید";
-         this.bbi_BuyInvc_Butn.UseVisualStyleBackColor = false;
-         // 
          // tabPage2
          // 
          this.tabPage2.Controls.Add(this.flowLayoutPanel1);
@@ -3321,7 +3167,7 @@
          this.rollout1.FrameOnMouseOverOnly = false;
          this.rollout1.GroupImage = null;
          this.rollout1.Location = new System.Drawing.Point(5, 3);
-         this.rollout1.MaxHeight = 962;
+         this.rollout1.MaxHeight = 697;
          this.rollout1.Name = "rollout1";
          this.rollout1.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout1.PaintRollout = true;
@@ -3334,7 +3180,7 @@
          this.rollout1.ShadowControl = false;
          this.rollout1.ShadowThickness = 3;
          this.rollout1.ShowFocusFrame = false;
-         this.rollout1.Size = new System.Drawing.Size(237, 962);
+         this.rollout1.Size = new System.Drawing.Size(237, 697);
          this.rollout1.TabIndex = 26;
          this.rollout1.TitleBorderColor = System.Drawing.Color.Gray;
          // 
@@ -4615,12 +4461,5 @@
       private MaxUi.Rollout rollout8;
       private MaxUi.Button bbi_UnitDef_Butn;
       private MaxUi.Button bbi_ProdDef_Butn;
-      private MaxUi.Button bbi_RetSellInvc_Butn;
-      private MaxUi.Button bbi_RmtnInvc_Butn;
-      private MaxUi.Button bbi_SellInvc_Butn;
-      private MaxUi.Button bbi_RetBuyInvc_Butn;
-      private MaxUi.Button bbi_Invc_Butn;
-      private MaxUi.Button bbi_RecvInvc_Butn;
-      private MaxUi.Button bbi_BuyInvc_Butn;
    }
 }

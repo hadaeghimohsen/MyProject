@@ -52,17 +52,17 @@ namespace System.Scsc.ExtCode
       #region Convert To Intx
       public static Int16 ToInt16(this string strNum)
       {
-         return Int16.Parse(strNum);
+         return ((strNum == null || strNum == "") ? (short)0 : Int16.Parse(strNum));
       }
 
       public static Int32 ToInt32(this string strNum)
       {
-         return Int32.Parse(strNum);
+         return ((strNum == null || strNum == "") ? 0 : Int32.Parse(strNum));
       }
 
       public static Int64 ToInt64(this string strNum)
       {
-         return Int64.Parse(strNum);
+         return ((strNum == null || strNum == "") ? 0 : Int64.Parse(strNum));
       }
       #endregion
 

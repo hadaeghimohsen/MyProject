@@ -657,6 +657,7 @@
          this.imageList2 = new System.Windows.Forms.ImageList();
          this.ServInfo_Pn = new System.Windows.Forms.Panel();
          this.searchLookUpEdit2 = new DevExpress.XtraEditors.SearchLookUpEdit();
+         this.FighBs = new System.Windows.Forms.BindingSource();
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -695,7 +696,6 @@
          this.Tb_Master = new System.Windows.Forms.TabControl();
          this.mtp_001 = new System.Windows.Forms.TabPage();
          this.Figh_Gc = new DevExpress.XtraGrid.GridControl();
-         this.FighBs = new System.Windows.Forms.BindingSource();
          this.FIGH_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -788,7 +788,7 @@
          this.colCategory_Belt1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequest1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn94 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRmenDay1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colRemnDay1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit6 = new dxExample.PersianRepositoryItemDateEdit();
          this.mtp_002 = new System.Windows.Forms.TabPage();
          this.FtchRows_Nud = new System.Windows.Forms.NumericUpDown();
@@ -1065,6 +1065,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridLookUpEdit1View)).BeginInit();
          this.ServInfo_Pn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FighBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServNoDnrm01_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.GlobCodeDnrm_Txt.Properties)).BeginInit();
@@ -1081,7 +1082,6 @@
          this.Tb_Master.SuspendLayout();
          this.mtp_001.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Figh_Gc)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FighBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.FIGH_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).BeginInit();
@@ -1322,7 +1322,7 @@
          this.colDEBT_DNRM.OptionsColumn.AllowEdit = false;
          this.colDEBT_DNRM.OptionsColumn.ReadOnly = true;
          this.colDEBT_DNRM.Visible = true;
-         this.colDEBT_DNRM.VisibleIndex = 7;
+         this.colDEBT_DNRM.VisibleIndex = 5;
          this.colDEBT_DNRM.Width = 58;
          // 
          // colMBSP_END_DATE1
@@ -6089,7 +6089,7 @@
          // searchLookUpEdit2
          // 
          this.searchLookUpEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.searchLookUpEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "SUNT_CODE", true));
+         this.searchLookUpEdit2.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FighBs, "SUNT_CODE_DNRM", true));
          this.searchLookUpEdit2.Location = new System.Drawing.Point(168, 6);
          this.searchLookUpEdit2.Name = "searchLookUpEdit2";
          this.searchLookUpEdit2.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -6114,6 +6114,11 @@
          this.searchLookUpEdit2.Properties.View = this.gridView3;
          this.searchLookUpEdit2.Size = new System.Drawing.Size(100, 22);
          this.searchLookUpEdit2.TabIndex = 72;
+         // 
+         // FighBs
+         // 
+         this.FighBs.DataSource = typeof(System.Scsc.Data.Fighter);
+         this.FighBs.CurrentChanged += new System.EventHandler(this.vF_Last_Info_FighterResultBindingSource_CurrentChanged);
          // 
          // gridView3
          // 
@@ -6280,7 +6285,7 @@
          // 
          this.EndDate_DateTime001.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.EndDate_DateTime001.CustomFormat = "dd/MM/yyyy";
-         this.EndDate_DateTime001.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.vF_Fighs, "INSR_DATE_DNRM", true));
+         this.EndDate_DateTime001.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.FighBs, "INSR_DATE_DNRM", true));
          this.EndDate_DateTime001.Format = Atf.UI.DateTimeSelectorFormat.Custom;
          this.EndDate_DateTime001.Location = new System.Drawing.Point(168, 90);
          this.EndDate_DateTime001.Name = "EndDate_DateTime001";
@@ -6491,7 +6496,7 @@
          // ServNoDnrm01_Txt
          // 
          this.ServNoDnrm01_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ServNoDnrm01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "SERV_NO_DNRM", true));
+         this.ServNoDnrm01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FighBs, "SERV_NO_DNRM", true));
          this.ServNoDnrm01_Txt.EditValue = "";
          this.ServNoDnrm01_Txt.Location = new System.Drawing.Point(168, 118);
          this.ServNoDnrm01_Txt.Name = "ServNoDnrm01_Txt";
@@ -6519,7 +6524,7 @@
          // GlobCodeDnrm_Txt
          // 
          this.GlobCodeDnrm_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.GlobCodeDnrm_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "GLOB_CODE", true));
+         this.GlobCodeDnrm_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FighBs, "GLOB_CODE_DNRM", true));
          this.GlobCodeDnrm_Txt.EditValue = "";
          this.GlobCodeDnrm_Txt.Location = new System.Drawing.Point(168, 34);
          this.GlobCodeDnrm_Txt.Name = "GlobCodeDnrm_Txt";
@@ -6537,7 +6542,7 @@
          // textEdit1
          // 
          this.textEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "NATL_CODE", true));
+         this.textEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FighBs, "NATL_CODE_DNRM", true));
          this.textEdit1.EditValue = "";
          this.textEdit1.Location = new System.Drawing.Point(168, 62);
          this.textEdit1.Name = "textEdit1";
@@ -6564,7 +6569,7 @@
          // textEdit5
          // 
          this.textEdit5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textEdit5.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "TELL_PHON_DNRM", true));
+         this.textEdit5.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FighBs, "TELL_PHON_DNRM", true));
          this.textEdit5.EditValue = "";
          this.textEdit5.Location = new System.Drawing.Point(389, 34);
          this.textEdit5.Name = "textEdit5";
@@ -6581,7 +6586,7 @@
          // MomPhon01_Txt
          // 
          this.MomPhon01_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.MomPhon01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "MOM_CELL_PHON_DNRM", true));
+         this.MomPhon01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FighBs, "MOM_CELL_PHON_DNRM", true));
          this.MomPhon01_Txt.EditValue = "";
          this.MomPhon01_Txt.Location = new System.Drawing.Point(389, 90);
          this.MomPhon01_Txt.Name = "MomPhon01_Txt";
@@ -6608,7 +6613,7 @@
          // DadPhon01_Txt
          // 
          this.DadPhon01_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.DadPhon01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "DAD_CELL_PHON_DNRM", true));
+         this.DadPhon01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FighBs, "DAD_CELL_PHON_DNRM", true));
          this.DadPhon01_Txt.EditValue = "";
          this.DadPhon01_Txt.Location = new System.Drawing.Point(389, 62);
          this.DadPhon01_Txt.Name = "DadPhon01_Txt";
@@ -6635,7 +6640,7 @@
          // MomChatId01_Txt
          // 
          this.MomChatId01_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.MomChatId01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "MOM_CHAT_ID_DNRM", true));
+         this.MomChatId01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FighBs, "MOM_CHAT_ID_DNRM", true));
          this.MomChatId01_Txt.EditValue = "";
          this.MomChatId01_Txt.Location = new System.Drawing.Point(389, 146);
          this.MomChatId01_Txt.Name = "MomChatId01_Txt";
@@ -6652,7 +6657,7 @@
          // DadChatId01_Txt
          // 
          this.DadChatId01_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.DadChatId01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "DAD_CHAT_ID_DNRM", true));
+         this.DadChatId01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FighBs, "DAD_CHAT_ID_DNRM", true));
          this.DadChatId01_Txt.EditValue = "";
          this.DadChatId01_Txt.Location = new System.Drawing.Point(168, 146);
          this.DadChatId01_Txt.Name = "DadChatId01_Txt";
@@ -6669,7 +6674,7 @@
          // ChatId01_Txt
          // 
          this.ChatId01_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.ChatId01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "CHAT_ID_DNRM", true));
+         this.ChatId01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FighBs, "CHAT_ID_DNRM", true));
          this.ChatId01_Txt.EditValue = "";
          this.ChatId01_Txt.Location = new System.Drawing.Point(389, 118);
          this.ChatId01_Txt.Name = "ChatId01_Txt";
@@ -6686,7 +6691,7 @@
          // CellPhon01_Txt
          // 
          this.CellPhon01_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CellPhon01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.vF_Fighs, "CELL_PHON_DNRM", true));
+         this.CellPhon01_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FighBs, "CELL_PHON_DNRM", true));
          this.CellPhon01_Txt.EditValue = "";
          this.CellPhon01_Txt.Location = new System.Drawing.Point(389, 6);
          this.CellPhon01_Txt.Name = "CellPhon01_Txt";
@@ -6704,7 +6709,7 @@
          // 
          this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.label11.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.vF_Fighs, "NAME_DNRM", true));
+         this.label11.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.FighBs, "NAME_DNRM", true));
          this.label11.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.label11.Location = new System.Drawing.Point(585, 90);
          this.label11.Name = "label11";
@@ -6790,11 +6795,6 @@
          this.Figh_Gc.UseEmbeddedNavigator = true;
          this.Figh_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.FIGH_Gv});
-         // 
-         // FighBs
-         // 
-         this.FighBs.DataSource = typeof(System.Scsc.Data.Fighter);
-         this.FighBs.CurrentChanged += new System.EventHandler(this.vF_Last_Info_FighterResultBindingSource_CurrentChanged);
          // 
          // FIGH_Gv
          // 
@@ -6897,7 +6897,7 @@
             this.colCategory_Belt1,
             this.colRequest1,
             this.gridColumn94,
-            this.colRmenDay1});
+            this.colRemnDay1});
          this.FIGH_Gv.CustomizationFormBounds = new System.Drawing.Rectangle(908, 429, 216, 176);
          styleFormatCondition28.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          styleFormatCondition28.Appearance.Options.UseBackColor = true;
@@ -6967,7 +6967,7 @@
          this.FIGH_Gv.OptionsView.ShowGroupPanel = false;
          this.FIGH_Gv.OptionsView.ShowIndicator = false;
          this.FIGH_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
-            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRmenDay1, DevExpress.Data.ColumnSortOrder.Descending)});
+            new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colRemnDay1, DevExpress.Data.ColumnSortOrder.Descending)});
          // 
          // colREGN_PRVN_CNTY_CODE1
          // 
@@ -7049,7 +7049,7 @@
          this.colFILE_NO1.Name = "colFILE_NO1";
          this.colFILE_NO1.OptionsColumn.FixedWidth = true;
          this.colFILE_NO1.Visible = true;
-         this.colFILE_NO1.VisibleIndex = 10;
+         this.colFILE_NO1.VisibleIndex = 8;
          this.colFILE_NO1.Width = 30;
          // 
          // repositoryItemHyperLinkEdit1
@@ -7088,7 +7088,7 @@
          this.colDPST_AMNT_DNRM.OptionsColumn.AllowEdit = false;
          this.colDPST_AMNT_DNRM.OptionsColumn.ReadOnly = true;
          this.colDPST_AMNT_DNRM.Visible = true;
-         this.colDPST_AMNT_DNRM.VisibleIndex = 6;
+         this.colDPST_AMNT_DNRM.VisibleIndex = 4;
          this.colDPST_AMNT_DNRM.Width = 58;
          // 
          // colFGPB_RWNO_DNRM1
@@ -7189,7 +7189,7 @@
          this.colFRST_NAME_DNRM1.OptionsColumn.AllowEdit = false;
          this.colFRST_NAME_DNRM1.OptionsColumn.ReadOnly = true;
          this.colFRST_NAME_DNRM1.Visible = true;
-         this.colFRST_NAME_DNRM1.VisibleIndex = 8;
+         this.colFRST_NAME_DNRM1.VisibleIndex = 6;
          this.colFRST_NAME_DNRM1.Width = 58;
          // 
          // colLAST_NAME_DNRM1
@@ -7200,7 +7200,7 @@
          this.colLAST_NAME_DNRM1.OptionsColumn.AllowEdit = false;
          this.colLAST_NAME_DNRM1.OptionsColumn.ReadOnly = true;
          this.colLAST_NAME_DNRM1.Visible = true;
-         this.colLAST_NAME_DNRM1.VisibleIndex = 9;
+         this.colLAST_NAME_DNRM1.VisibleIndex = 7;
          this.colLAST_NAME_DNRM1.Width = 105;
          // 
          // colFATH_NAME_DNRM1
@@ -7226,8 +7226,6 @@
          this.colBRTH_DATE_DNRM1.Name = "colBRTH_DATE_DNRM1";
          this.colBRTH_DATE_DNRM1.OptionsColumn.AllowEdit = false;
          this.colBRTH_DATE_DNRM1.OptionsColumn.ReadOnly = true;
-         this.colBRTH_DATE_DNRM1.Visible = true;
-         this.colBRTH_DATE_DNRM1.VisibleIndex = 5;
          this.colBRTH_DATE_DNRM1.Width = 58;
          // 
          // persianRepositoryItemDateEdit4
@@ -7548,17 +7546,15 @@
          this.gridColumn94.OptionsColumn.ReadOnly = true;
          this.gridColumn94.UnboundExpression = "DateDiffYear( GetDate([BRTH_DATE_DNRM] ), Today() )";
          this.gridColumn94.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-         this.gridColumn94.Visible = true;
-         this.gridColumn94.VisibleIndex = 4;
          this.gridColumn94.Width = 32;
          // 
-         // colRmenDay1
+         // colRemnDay1
          // 
-         this.colRmenDay1.Caption = " %";
-         this.colRmenDay1.FieldName = "colRemnDay";
-         this.colRmenDay1.Name = "colRmenDay1";
-         this.colRmenDay1.UnboundExpression = "DateDiffDay(Today(), GetDate([END_DATE]))";
-         this.colRmenDay1.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+         this.colRemnDay1.Caption = "%";
+         this.colRemnDay1.FieldName = "colRemnDay";
+         this.colRemnDay1.Name = "colRemnDay1";
+         this.colRemnDay1.UnboundExpression = "DateDiffDay(Today(), GetDate([MBSP_END_DATE]))";
+         this.colRemnDay1.UnboundType = DevExpress.Data.UnboundColumnType.Object;
          // 
          // persianRepositoryItemDateEdit6
          // 
@@ -7591,7 +7587,7 @@
             0});
          this.FtchRows_Nud.Location = new System.Drawing.Point(3, 6);
          this.FtchRows_Nud.Maximum = new decimal(new int[] {
-            1000000,
+            100000000,
             0,
             0,
             0});
@@ -7605,7 +7601,7 @@
          this.FtchRows_Nud.TabIndex = 38;
          this.FtchRows_Nud.ThousandsSeparator = true;
          this.FtchRows_Nud.Value = new decimal(new int[] {
-            1000,
+            1000000,
             0,
             0,
             0});
@@ -8136,6 +8132,7 @@
          this.RqstBnBlok.Name = "RqstBnBlok";
          this.RqstBnBlok.Size = new System.Drawing.Size(241, 54);
          this.RqstBnBlok.Text = "بلوکه کردن";
+         this.RqstBnBlok.Visible = false;
          this.RqstBnBlok.Click += new System.EventHandler(this.RqstBnBlok_Click);
          // 
          // RqstBnGrnt
@@ -8145,6 +8142,7 @@
          this.RqstBnGrnt.Name = "RqstBnGrnt";
          this.RqstBnGrnt.Size = new System.Drawing.Size(241, 54);
          this.RqstBnGrnt.Text = "خدمات گارانتی";
+         this.RqstBnGrnt.Visible = false;
          this.RqstBnGrnt.Click += new System.EventHandler(this.RqstBnGrnt_Click);
          // 
          // toolStripMenuItem5
@@ -9132,6 +9130,7 @@
          this.ServInfo_Pn.ResumeLayout(false);
          this.ServInfo_Pn.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit2.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FighBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ServNoDnrm01_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.GlobCodeDnrm_Txt.Properties)).EndInit();
@@ -9148,7 +9147,6 @@
          this.Tb_Master.ResumeLayout(false);
          this.mtp_001.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.Figh_Gc)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FighBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.FIGH_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemHyperLinkEdit1)).EndInit();
@@ -9931,6 +9929,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn94;
       private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit6;
       private Windows.Forms.TabPage mtp_002;
-      private DevExpress.XtraGrid.Columns.GridColumn colRmenDay1;
+      private DevExpress.XtraGrid.Columns.GridColumn colRemnDay1;
    }
 }

@@ -344,5 +344,47 @@ namespace System.Scsc.Ui.Attendance
       {
          _dressersList.Clear();
       }
+
+      private void SetLockerGust_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _coma = ComaBs1.Current as Data.Computer_Action;
+            if (_coma == null) return;
+
+            XElement _xret = new XElement("Result");
+
+            foreach (var _locker in _coma.Dressers.Where(l => !iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == l.CMND_SEND)))
+            {
+               iScsc.RunnerdbCommand(
+                  new XElement("Router_Command",
+                      new XAttribute("crntuser", CurrentUser),
+                      new XAttribute("subsys", 5),
+                      new XAttribute("cmndcode", 100),
+                      new XAttribute("frstname", _locker.DRES_NUMB),
+                      new XAttribute("lastname", "شماره کمد"),
+                      new XAttribute("fngrprnt", _locker.CMND_SEND),
+                      new XAttribute("chatid", ""),
+                      new XAttribute("cellphon", ""),
+                      new XAttribute("natlcode", ""),
+                      new XElement("Expense",                          
+                          new XAttribute("rqtpcode", "025")
+                      )
+                  ),
+                  ref _xret
+               );
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
    }
 }

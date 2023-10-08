@@ -11,6 +11,7 @@ using DevExpress.XtraEditors.Controls;
 using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using System.Scsc.ExtCode;
+using System.IO;
 
 namespace System.Scsc.Ui.ReportManager
 {
@@ -307,6 +308,29 @@ namespace System.Scsc.Ui.ReportManager
                      ev.EXPR_DATE.Value.Date <= ToDate13_Date.Value.Value.Date
                   );
             }
+            else if(tc_master.SelectedTab == tp_014)
+            {
+               Rqst14Bs.DataSource =
+                  iScsc.Requests
+                  .Where(r => 
+                     ((!RqstFree_Cbx.Checked && r.RQTT_CODE == "001") ||
+                     (RqstFree_Cbx.Checked && r.RQTT_CODE == "004")) && 
+                     r.RQST_STAT == "002" &&
+                     r.INVC_DATE.Value.Date >= FromDate14_Date.Value.Value.Date &&
+                     r.INVC_DATE.Value.Date <= ToDate14_Date.Value.Value.Date &&
+                     (!RqstIsDebt_Cbx.Checked || r.Payments.Any(p => (p.SUM_EXPN_PRIC - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0)) &&
+                     (!RqstIsDsct_Cbx.Checked || r.Payments.Any(p => p.SUM_PYMT_DSCN_DNRM > 0)) &&
+                     (!RqstMen_Cbx.Checked || r.Request_Rows.Any(rr => rr.Fighter.SEX_TYPE_DNRM == "001")) &&
+                     (!RqstWomen_Cbx.Checked || r.Request_Rows.Any(rr => rr.Fighter.SEX_TYPE_DNRM == "002")) &&
+                     (!RqstCellPhon_Cbx.Checked || r.Request_Rows.Any(rr => rr.Fighter.CELL_PHON_DNRM.Contains(RqstCellPhon_Txt.Text))) &&
+                     (!RqstNatlCode_Cbx.Checked || r.Request_Rows.Any(rr => rr.Fighter.NATL_CODE_DNRM.Contains(RqstNatlCode_Txt.Text))) &&
+                     (!RqstFrstName_Cbx.Checked || r.Request_Rows.Any(rr => rr.Fighter.FRST_NAME_DNRM.Contains(RqstFrstName_Txt.Text))) &&
+                     (!RqstLastName_Cbx.Checked || r.Request_Rows.Any(rr => rr.Fighter.LAST_NAME_DNRM.Contains(RqstLastName_Txt.Text))) &&
+                     (!RqstOrgn_Cbx.Checked || RqstOrgnCode_Lov.EditValue == null || RqstOrgnCode_Lov.EditValue.ToString() == "" || r.Request_Rows.Any(rr => RqstOrgnCode_Lov.EditValue.ToString() == rr.Fighter.SUNT_CODE_DNRM)) &&
+                     (!RqstInvcNumb_Cbx.Checked || r.INVC_NUMB == RqstInvcNumb_Txt.Text.ToInt64()) &&
+                     (!RqstCoch_Cbx.Checked || RqstCoch_Lov.EditValue == null || RqstCoch_Lov.EditValue.ToString() == "" || r.Payments.Any(p => p.Payment_Details.Any(pd => pd.FIGH_FILE_NO == RqstCoch_Lov.EditValue.ToString().ToInt64())))
+                  );
+            }
          }
          catch { }
       }
@@ -326,6 +350,7 @@ namespace System.Scsc.Ui.ReportManager
          FromDate11_Date.CommitChanges(); ToDate11_Date.CommitChanges();
          FromDate12_Date.CommitChanges(); ToDate12_Date.CommitChanges();
          FromDate13_Date.CommitChanges(); ToDate13_Date.CommitChanges();
+         FromDate14_Date.CommitChanges(); ToDate14_Date.CommitChanges();
 
          // 1401/11/20 * بررسی اینکه آیا گزینه ها درست وار دشده یا خیر
          if (Figh_Lov2.EditValue == null || Figh_Lov2.EditValue.ToString() == "") { Figh_Lov2.EditValue = null; }
@@ -499,6 +524,17 @@ namespace System.Scsc.Ui.ReportManager
 
             FromDate12_Date.Value = FromDate10_Date.Value = FromDate11_Date.Value = FromDate9_Date.Value = FromDate7_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value = FromDate13_Date.Value;
             ToDate12_Date.Value = ToDate10_Date.Value = ToDate11_Date.Value = ToDate9_Date.Value = ToDate7_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value = ToDate13_Date.Value;
+         }
+         else if (tc_master.SelectedTab == tp_014)
+         {
+            if (!FromDate14_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate14_Date.Focus(); return; }
+            if (!ToDate14_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate14_Date.Focus(); return; }
+
+            // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
+            if (!checkValidateDate(FromDate12_Date.Value.Value.Date)) return;
+
+            FromDate12_Date.Value = FromDate10_Date.Value = FromDate11_Date.Value = FromDate9_Date.Value = FromDate7_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value = FromDate6_Date.Value = FromDate8_Date.Value = FromDate13_Date.Value = FromDate14_Date.Value;
+            ToDate12_Date.Value = ToDate10_Date.Value = ToDate11_Date.Value = ToDate9_Date.Value = ToDate7_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value = ToDate6_Date.Value = ToDate8_Date.Value = ToDate13_Date.Value = ToDate14_Date.Value;
          }
 
          Execute_Query();
@@ -1717,6 +1753,65 @@ namespace System.Scsc.Ui.ReportManager
                default:
                   break;
             }            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Rqro14Bs_CurrentChanged(object sender, EventArgs e)
+      {
+         var _rqro = Rqro14Bs.Current as Data.Request_Row;
+         if (_rqro == null) return;
+
+         try
+         {
+            ServProFile_Rb.ImageProfile = null;
+            MemoryStream mStream = new MemoryStream();
+            byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _rqro.FIGH_FILE_NO))).ToArray();
+            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+            Bitmap bm = new Bitmap(mStream, false);
+            mStream.Dispose();
+
+            if (InvokeRequired)
+               Invoke(new Action(() => ServProFile_Rb.ImageProfile = bm));
+            else
+               ServProFile_Rb.ImageProfile = bm;
+
+            ServProFile_Rb.Tag = _rqro.FIGH_FILE_NO;
+         }
+         catch {
+            if (ServProFile_Rb.ImageProfile == null && _rqro.Fighter.SEX_TYPE_DNRM == "002")
+               ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1148;
+            else if (ServProFile_Rb.ImageProfile == null)
+               ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1149;
+         }
+
+         if(_rqro.RQTP_CODE == "001")
+         {
+            Mbsp14Bs.DataSource = iScsc.Member_Ships.FirstOrDefault(ms => ms.FIGH_FILE_NO == _rqro.FIGH_FILE_NO && ms.RECT_CODE == "004" && ms.RWNO == 1);
+         }
+         else if(_rqro.RQTP_CODE == "009")
+         {
+            Mbsp14Bs.DataSource = _rqro.Member_Ships.FirstOrDefault(ms => ms.RECT_CODE == "004");
+         }
+         else
+         {
+            Mbsp14Bs.List.Clear();
+         }
+      }
+
+      private void ServProFile_Rb_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqro = Rqro14Bs.Current as Data.Request_Row;
+            if (_rqro == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _rqro.FIGH_FILE_NO)) }
+            );
          }
          catch (Exception exc)
          {

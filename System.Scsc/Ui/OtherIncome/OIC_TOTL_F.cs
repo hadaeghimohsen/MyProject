@@ -36,6 +36,7 @@ namespace System.Scsc.Ui.OtherIncome
          {
             iScsc = new Data.iScscDataContext(ConnectionString);
             int pydt = PydtsBs1.Position;
+            int pcdt = PcdtBs1.Position;
 
             var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
                .Where(rqst =>
@@ -109,6 +110,7 @@ namespace System.Scsc.Ui.OtherIncome
             
 
             PydtsBs1.Position = pydt;
+            PcdtBs1.Position = pcdt;
 
             GustBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM == "005" && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
 
@@ -163,9 +165,9 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            var Rqst = RqstBs1.Current as Data.Request;
+            var _rqst = RqstBs1.Current as Data.Request;
 
-            if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3))
+            if (_rqst.SSTT_MSTT_CODE == 2 && (_rqst.SSTT_CODE == 1 || _rqst.SSTT_CODE == 2 || _rqst.SSTT_CODE == 3))
             {
                Gb_Expense.Visible = true;
                //*Gb_ExpenseItem.Visible = true;
@@ -173,14 +175,14 @@ namespace System.Scsc.Ui.OtherIncome
                //Btn_RqstSav1.Visible = false;
                RqstBnDelete1.Enabled = true;
             }
-            else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3)) && Rqst.RQID > 0)
+            else if (!(_rqst.SSTT_MSTT_CODE == 2 && (_rqst.SSTT_CODE == 1 || _rqst.SSTT_CODE == 2 || _rqst.SSTT_CODE == 3)) && _rqst.RQID > 0)
             {
                Gb_Expense.Visible = false;
                //*Gb_ExpenseItem.Visible = true;
                //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = true;
                RqstBnDelete1.Enabled = true;
             }
-            else if (Rqst.RQID == 0)
+            else if (_rqst.RQID == 0)
             {
                Gb_Expense.Visible = false;
                //*Gb_ExpenseItem.Visible = false;
@@ -188,7 +190,7 @@ namespace System.Scsc.Ui.OtherIncome
                RqstBnDelete1.Enabled = false;
             }
 
-            if(Rqst.RQID > 0)
+            if(_rqst.RQID > 0)
             {
                var _rqro = RqroBs1.Current as Data.Request_Row;
                if (_rqro == null) return;
@@ -215,6 +217,10 @@ namespace System.Scsc.Ui.OtherIncome
                }
                else
                   PlayHappyBirthDate_Butn.Visible = false;
+
+               // 1402/06/08
+               AdatnBs.DataSource = iScsc.Dresser_Attendances.Where(a => a.FIGH_FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && a.TKBK_TIME == null);
+               HdatnBs.DataSource = iScsc.Dresser_Attendances.Where(a => a.FIGH_FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && a.CONF_STAT == "002" && a.TKBK_TIME != null);
             }
          }
          catch
@@ -287,6 +293,13 @@ namespace System.Scsc.Ui.OtherIncome
             if (Rqst == null) return;
 
             if (MessageBox.Show(this, "آیا با انصراف دادن درخواست موافق هستید؟", "هشدار", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            
+            // 1402/07/07 * Delete Locker
+            if(AdatnBs.List.Count > 0)
+               iScsc.ExecuteCommand(
+                  string.Format("DELETE dbo.Dresser_Attendance WHERE Code IN ({0});", string.Join(",", AdatnBs.List.OfType<Data.Dresser_Attendance>().Select(da => da.CODE)))
+               );
+
             iScsc.CNCL_RQST_F(
                new XElement("Process",
                   new XElement("Request",
@@ -4182,6 +4195,28 @@ namespace System.Scsc.Ui.OtherIncome
                OldPydts2_Gv.ExpandAllGroups();
             }
 
+            if(HistPydt_Rlt.RolloutStatus)
+            {
+               HistPydtBs.DataSource =
+                  iScsc.Payment_Details
+                  .Where(pd =>
+                     pd.Request_Row.Request.RQTP_CODE == "016" &&
+                     pd.Request_Row.Request.RQST_STAT == "002" &&
+                     (!CrntUser_Cbx.Checked || pd.CRET_BY == CurrentUser) &&
+                     (!FromRqstDate_Cbx.Checked || _fromrqstdate == null || pd.CRET_DATE.Value.Date >= (_fromrqstdate ?? pd.CRET_DATE.Value.Date)) &&
+                     (!ToRqstDate_Cbx.Checked || _torqstdate == null || pd.CRET_DATE.Value.Date <= (_torqstdate ?? pd.CRET_DATE.Value.Date)) &&
+                     (!CrntServ_Cbx.Checked || _fighfileno == null || pd.Request_Row.FIGH_FILE_NO == (_fighfileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
+                     (!CrntCoch_Cbx.Checked || _cochfileno == null || pd.FIGH_FILE_NO == (_cochfileno ?? pd.FIGH_FILE_NO)) &&
+                     (!CrntExpn_Cbx.Checked || _expncode == null || pd.EXPN_CODE == (_expncode ?? pd.EXPN_CODE)) &&
+                     (!HasDebt_Cbx.Checked || pd.Payment.SUM_EXPN_PRIC - (pd.Payment.SUM_RCPT_EXPN_PRIC + pd.Payment.SUM_PYMT_DSCN_DNRM) > 0) &&
+                     (!HasPmmt_Cbx.Checked || pd.Payment.Payment_Methods.Any(pm => pm.RCPT_MTOD == _rcptmtod)) &&
+                     (!HasPyds_Cbx.Checked || pd.Payment.Payment_Discounts.Any(ps => ps.AMNT_TYPE == _pydstype)) &&
+                     (!WhoCellPhon_Cbx.Checked || _cellphon == null || pd.Request_Row.Fighter.CELL_PHON_DNRM.Contains(_cellphon)) &&
+                     (!WhoFngrPrnt_Cbx.Checked || _fngrprnt == null || pd.Request_Row.Fighter.FNGR_PRNT_DNRM.Contains(_fngrprnt)) &&
+                     pd.FIGH_FILE_NO != null
+                  );
+            }
+
          }
          catch (Exception exc)
          {
@@ -4922,6 +4957,556 @@ namespace System.Scsc.Ui.OtherIncome
                default:
                   break;
             }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void FromRqstDate_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         if (!FromRqstDate_Dt.Value.HasValue) FromRqstDate_Dt.Value = DateTime.Now;
+      }
+
+      private void ToRqstDate_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         if (!ToRqstDate_Dt.Value.HasValue) ToRqstDate_Dt.Value = DateTime.Now;
+      }
+
+      private void CalcHistPydt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            decimal _calcAmnt = 0.0m, _prctValu = PrctHist_Se.Value;
+
+            foreach (var _pydt in HistPydtBs.List.OfType<Data.Payment_Detail>())
+            {
+               _calcAmnt += (decimal)((_pydt.PROF_AMNT_DNRM - _pydt.DEDU_AMNT_DNRM) * _prctValu) / 100;
+            }
+
+            HistYouCalcValu_Txt.EditValue = _calcAmnt;
+            HistTotlAmnt_Txt.EditValue = HistPydtBs.List.OfType<Data.Payment_Detail>().Sum(p => p.PROF_AMNT_DNRM - p.DEDU_AMNT_DNRM);
+            HistCalcValu_Txt.EditValue = HistPydtBs.List.OfType<Data.Payment_Detail>().Sum(p => p.PROF_AMNT_DNRM - p.DEDU_AMNT_DNRM) - _calcAmnt;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void InsCalcHistPydt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (!FromRqstDate_Dt.Value.HasValue) { FromRqstDate_Dt.Value = DateTime.Now; }
+            if (!ToRqstDate_Dt.Value.HasValue) { ToRqstDate_Dt.Value = DateTime.Now; }
+            iScsc.CALC_EXPN_P(
+               new XElement("Payment",
+                   new XAttribute("fromdate", FromRqstDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd")),
+                     new XAttribute("todate", ToRqstDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd")),
+                     new XAttribute("cochfileno", CrntCoch_Cbx.Checked ? (CochBs1.Current as Data.Fighter).FILE_NO.ToString() : ""),
+                     new XAttribute("dyncprctvalu", 100 - PrctHist_Se.Value)
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void FinlCalcHistPydt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void JoinDasr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst == null) return;
+
+            if (AdatnBs.List.OfType<Data.Dresser_Attendance>().Any(a => a.DERS_NUMB == DresNumb_Txt.Text.ToInt32() && a.FIGH_FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && a.LEND_TIME != null && a.TKBK_TIME == null)) return;
+
+            if (!iScsc.Dressers.Any(d => d.DRES_NUMB == DresNumb_Txt.Text.ToInt32())) return;
+
+            var _adatn = AdatnBs.AddNew() as Data.Dresser_Attendance;
+            _adatn.FIGH_FILE_NO = _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO;
+            _adatn.DERS_NUMB = DresNumb_Txt.Text.ToInt32();
+
+            iScsc.Dresser_Attendances.InsertOnSubmit(_adatn);
+            iScsc.SubmitChanges();
+
+            DresNumb_Txt.Text = "";
+            DresNumb_Txt.Focus();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ConfDasr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+                  "UPDATE dbo.Dresser_Attendance SET Conf_Stat = '002' WHERE FIGH_FILE_NO = {0} AND TKBK_TIME IS NULL;" + Environment.NewLine +
+                  "UPDATE dbo.Dresser_Attendance SET TKBK_TIME = GETDATE() WHERE FIGH_FILE_NO != {0} AND TKBK_TIME IS NULL;",
+                   _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelDasr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+                  "DELETE dbo.Dresser_Attendance WHERE FIGH_FILE_NO = {0} AND TKBK_TIME IS NULL AND CONF_STAT = '001';",
+                  _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DresNumb_Txt_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (e.KeyCode == Keys.Enter)
+         {
+            JoinDasr_Butn_Click(null, null);
+            e.Handled = false;
+         }
+      }
+
+      private void DresConf_Butn_Click(object sender, EventArgs e)
+      {
+         PymtOprt_Tc.SelectedTab = Dres_Tp;
+         DresNumb_Txt.Focus();
+      }
+
+      private void DartActv_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _dart = AdatnBs.Current as Data.Dresser_Attendance;
+            if (_dart == null) return;
+
+            iScsc.Dresser_Attendances.DeleteOnSubmit(_dart);
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddNewMbsp_Butn_Click(object sender, EventArgs e)
+      {
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.Self, 130 /* Execute Adm_Brsr_F */),
+                  new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"))}
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void ContRecd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "PaymentContractItem_INFO"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SetPymtContItem_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _pmct = PmctBs1.Current as Data.Payment_Contract;
+            if(_pmct == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+                  "MERGE dbo.Payment_Contract_Detail T" + Environment.NewLine +
+                  "USING (SELECT {0} AS PMCT_CODE, a.CODE AS ITEM_CODE, a.REF_CODE AS GROP_CODE FROM dbo.App_Base_Define a WHERE a.ENTY_NAME = 'PaymentContractItem_INFO' AND a.REF_CODE IS NOT NULL) S" + Environment.NewLine +
+                  "ON (T.Pmct_Code = S.Pmct_Code AND T.Grop_Item_Apbs_Code = S.Grop_Code AND T.Sub_Item_Apbs_Code = S.Item_Code)" + Environment.NewLine +
+                  "WHEN NOT MATCHED THEN INSERT (Pmct_Code, Grop_Item_Apbs_Code, Sub_Item_Apbs_Code, Code) VALUES (S.Pmct_Code, S.Grop_Code, S.Item_Code, dbo.GNRT_NVID_U());",
+                  _pmct.CODE
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PmctItemActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _item = DPmctBs.Current as Data.App_Base_Define;
+            if (_item == null) return;
+
+            var _personel = CochBs1.Current as Data.Fighter;
+            if (_personel == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  if (FlpcBs.List.OfType<Data.Fighter_Link_Payment_Contarct_Item>().Any(a => a.FIGH_FILE_NO == _personel.FILE_NO && a.PMCT_ITEM_APBS_CODE == _item.CODE)) return;
+
+                  var _flpc = FlpcBs.AddNew() as Data.Fighter_Link_Payment_Contarct_Item;
+                  _flpc.FIGH_FILE_NO = _personel.FILE_NO;
+                  _flpc.PMCT_ITEM_APBS_CODE = _item.CODE;
+
+                  iScsc.Fighter_Link_Payment_Contarct_Items.InsertOnSubmit(_flpc);
+                  iScsc.SubmitChanges();
+                  break;
+               default:
+                  break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void FlcpActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _flpc = FlpcBs.Current as Data.Fighter_Link_Payment_Contarct_Item;
+            if (_flpc == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            //iScsc.Fighter_Link_Payment_Contarct_Items.DeleteOnSubmit(_flpc);
+            //iScsc.SubmitChanges();
+            iScsc.ExecuteCommand(string.Format("DELETE dbo.Fighter_Link_Payment_Contarct_Item WHERE Code = {0};", _flpc.CODE));
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void FindObject_BTxt_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _btxt = sender as ButtonEdit;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  switch (_btxt.Tag.ToString())
+	               {
+                     case "cell":
+                        FindFighBs.DataSource =
+                           iScsc.Fighters
+                           .Where(f => 
+                              Equal_Rb.Checked ? f.CELL_PHON_DNRM == _btxt.Text :
+                              Contain_Rb.Checked ? f.CELL_PHON_DNRM.Contains(_btxt.Text) :
+                              Start_Rb.Checked ? f.CELL_PHON_DNRM.StartsWith(_btxt.Text) :
+                              f.CELL_PHON_DNRM.EndsWith(_btxt.Text)
+                           );
+                        break;
+                     case "natl":
+                        FindFighBs.DataSource =
+                           iScsc.Fighters
+                           .Where(f =>
+                              Equal_Rb.Checked ? f.NATL_CODE_DNRM == _btxt.Text :
+                              Contain_Rb.Checked ? f.NATL_CODE_DNRM.Contains(_btxt.Text) :
+                              Start_Rb.Checked ? f.NATL_CODE_DNRM.StartsWith(_btxt.Text) :
+                              f.NATL_CODE_DNRM.EndsWith(_btxt.Text)
+                           );
+                        break;
+                     case "fngr":
+                        FindFighBs.DataSource =
+                           iScsc.Fighters
+                           .Where(f =>
+                              Equal_Rb.Checked ? f.FNGR_PRNT_DNRM == _btxt.Text :
+                              Contain_Rb.Checked ? f.FNGR_PRNT_DNRM.Contains(_btxt.Text) :
+                              Start_Rb.Checked ? f.FNGR_PRNT_DNRM.StartsWith(_btxt.Text) :
+                              f.FNGR_PRNT_DNRM.EndsWith(_btxt.Text)
+                           );
+                        break;
+                     case "serv":
+                        FindFighBs.DataSource =
+                           iScsc.Fighters
+                           .Where(f =>
+                              Equal_Rb.Checked ? f.SERV_NO_DNRM == _btxt.Text :
+                              Contain_Rb.Checked ? f.SERV_NO_DNRM.Contains(_btxt.Text) :
+                              Start_Rb.Checked ? f.SERV_NO_DNRM.StartsWith(_btxt.Text) :
+                              f.SERV_NO_DNRM.EndsWith(_btxt.Text)
+                           );
+                        break;
+	               }
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CretNewRqst_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _figh = FindFighBs.Current as Data.Fighter;
+            if (_figh == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", _figh.FILE_NO)))}
+                  })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ShowProfile_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _figh = FindFighBs.Current as Data.Fighter;
+            if (_figh == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _figh.FILE_NO)) }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ClearObject_Butn_Click(object sender, EventArgs e)
+      {
+         FindCellPhon_BTxt.Text = FindNatlCode_BTxt.Text = FindNatlCode_BTxt.Text = FindServCode_BTxt.Text = "";
+      }
+
+      private void SavePmct_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _pymt = PymtsBs1.Current as Data.Payment;
+            if(_pymt == null)return;
+
+            //if (PmctBs1.List.Count != 1) return;
+
+            if (PmctBs1.Current == null)
+            {
+               var _pmct = PmctBs1.AddNew() as Data.Payment_Contract;
+               _pmct.Payment = _pymt;
+
+               iScsc.Payment_Contracts.InsertOnSubmit(_pmct);
+            }
+
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PcdtiActn_Butn_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 1:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                           new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                           {
+                              Input = 
+                                 new XElement("App_Base",
+                                    new XAttribute("tablename", "PaymentContractItemColor_INFO"),
+                                    new XAttribute("formcaller", GetType().Name)
+                                 )
+                           }
+                        }
+                     )
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PctdBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _pcdt = PcdtBs1.Current as Data.Payment_Contract_Detail;
+            if (_pcdt == null) return;
+
+            Flpc_Gv.ActiveFilterString = string.Format("PMCT_ITEM_APBS_CODE = {0}", _pcdt.SUB_ITEM_APBS_CODE);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void FlpcActn1_Butn_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _flpc = FlpcBs.Current as Data.Fighter_Link_Payment_Contarct_Item;
+            if (_flpc == null) return;
+
+            var _pcdt = PcdtBs1.Current as Data.Payment_Contract_Detail;
+            if (_pcdt == null) return;
+
+            if (_pcdt.SUB_ITEM_APBS_CODE != _flpc.PMCT_ITEM_APBS_CODE) return;
+
+            iScsc.ExecuteCommand(
+               string.Format("UPDATE dbo.Payment_Contract_Detail SET FLPC_CODE = {0} WHERE CODE = {1};", _flpc.CODE, _pcdt.CODE)
+            );
+
+            requery = true;
          }
          catch (Exception exc)
          {

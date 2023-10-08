@@ -457,5 +457,415 @@ namespace System.Scsc.Ui.CalculateExpense
                  });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
+
+      private void AddMexm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _msxc = MsexBs.Current as Data.Misc_Expense;
+            if (_msxc == null) return;
+
+            if (MexmBs.List.OfType<Data.Misc_Expense_Method>().Any(m => m.CODE == 0)) return;
+
+            var _mexm = MexmBs.AddNew() as Data.Misc_Expense_Method;
+            _mexm.MSEX_CODE = _msxc.CODE;
+            _mexm.RCPT_MTOD = "003";
+            _mexm.ACTN_DATE = DateTime.Now;
+            _mexm.AMNT = _msxc.SUM_NET_AMNT_DNRM - (_msxc.SUM_RCPT_PYMT_DNRM + _msxc.SUM_COST_AMNT_DNRM + _msxc.SUM_DSCT_AMNT_DNRM);
+
+            iScsc.Misc_Expense_Methods.InsertOnSubmit(_mexm);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelMexm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mexm = MexmBs.Current as Data.Misc_Expense_Method;
+            if (_mexm == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.Misc_Expense_Methods.DeleteOnSubmit(_mexm);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveMexm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Mexm_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddMeck_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _msxc = MsexBs.Current as Data.Misc_Expense;
+            if (_msxc == null) return;
+
+            if (MeckBs.List.OfType<Data.Misc_Expense_Check>().Any(m => m.CODE == 0)) return;
+
+            var _meck = MeckBs.AddNew() as Data.Misc_Expense_Check;
+            _meck.MSEX_CODE = _msxc.CODE;
+            _meck.CHEK_DATE = DateTime.Now;
+
+            iScsc.Misc_Expense_Checks.InsertOnSubmit(_meck);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelMeck_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _meck = MeckBs.Current as Data.Misc_Expense_Check;
+            if (_meck == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.Misc_Expense_Checks.DeleteOnSubmit(_meck);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveMeck_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Meck_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddMexd_Butn_Click(object sender, EventArgs e)
+      {
+         
+      }
+
+      private void DelMexd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mexd = MexdBs.Current as Data.Misc_Expense_Discount;
+            if (_mexd == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.Misc_Expense_Discounts.DeleteOnSubmit(_mexd);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveMexd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Mexd_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DsctDef_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "Misc_Expense_Discount_INFO"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MexdActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _msxc = MsexBs.Current as Data.Misc_Expense;
+            if (_msxc == null) return;
+
+            var _dmexd = DMexdBs.Current as Data.App_Base_Define;
+            if (_dmexd == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  var _mexd = MexdBs.AddNew() as Data.Misc_Expense_Discount;
+                  _mexd.MSEX_CODE = _msxc.CODE;
+                  _mexd.DSCT_APBS_CODE = _dmexd.CODE;
+
+                  iScsc.Misc_Expense_Discounts.InsertOnSubmit(_mexd);
+                  iScsc.SubmitChanges();
+                  break;
+               default:
+                  break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddMexc_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void DelMexc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mexc = MexcBs.Current as Data.Misc_Expense_Cost;
+            if (_mexc == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.Misc_Expense_Costs.DeleteOnSubmit(_mexc);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveMexc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Mexc_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void MexcDef_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "Misc_Expense_Cost_INFO"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MexcActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _msxc = MsexBs.Current as Data.Misc_Expense;
+            if (_msxc == null) return;
+
+            var _dmexc = DMexcBs.Current as Data.App_Base_Define;
+            if (_dmexc == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  var _mexc = MexcBs.AddNew() as Data.Misc_Expense_Cost;
+                  _mexc.MSEX_CODE = _msxc.CODE;
+                  _mexc.COST_APBS_CODE = _dmexc.CODE;
+
+                  iScsc.Misc_Expense_Costs.InsertOnSubmit(_mexc);
+                  iScsc.SubmitChanges();
+                  break;
+               default:
+                  break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PrntActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _msex = MsexBs.Current as Data.Misc_Expense;
+            if (_msex == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  // Print Settings
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                           new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"))}
+                        })
+                  );                  
+
+                  // string.Format("Misc_Expense.Code = {0}", _msex.CODE)
+                  break;
+               case 1:
+                  // Select Print
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"), string.Format("Misc_Expense.Code = {0}", _msex.CODE))}
+                        })
+                  );
+                  break;
+               case 2:
+                  // Default Print
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"), string.Format("Misc_Expense.Code = {0}", _msex.CODE))}
+                        })
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

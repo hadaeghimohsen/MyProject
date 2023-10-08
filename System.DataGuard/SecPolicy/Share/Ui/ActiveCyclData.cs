@@ -50,6 +50,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                case 1:
                   if (crnt.ID > 0 && MessageBox.Show(this, "آیا با پاک کردن اطلاعات دوره کاربر موافق هستید؟", "حذف دسترسی به دوره اطلاعات", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
                   iProject.Access_User_Datasources.DeleteOnSubmit(crnt);
+
+                  foreach (var _audsid in Auds_Gv.GetSelectedRows())
+                  {
+                     var _auds = Auds_Gv.GetRow(_audsid) as Data.Access_User_Datasource;
+                     iProject.ExecuteCommand(string.Format("DELETE Global.Access_User_Datasource WHERE Id = {0}", _auds.ID));
+                  }
                   break;
             }            
 
@@ -83,27 +89,48 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       {
          try
          {
-            var crntuser = UserBs1.Current as Data.User;
-            var crntds = DatSBs1.Current as Data.DataSource;
+            foreach (var _userid in User_Gv.GetSelectedRows())
+            {
+               var _user = User_Gv.GetRow(_userid) as Data.User;
 
-            if (crntuser == null) return;
-            if (crntds == null) return;
+               foreach (var _databaseid in Database_Gv.GetSelectedRows())
+               {
+                  var _database = Database_Gv.GetRow(_databaseid) as Data.DataSource;
 
-            //if (AudsBs1.List.OfType<Data.Access_User_Datasource>().Any(a => a.User == crntuser && a.DataSource == crntds)) return;
+                  foreach (var _computerid in Computer_Gv.GetSelectedRows())
+                  {
+                     var _computer = Computer_Gv.GetRow(_computerid) as Data.V_Computer;
 
-            AudsBs1.AddNew();
-            var crntaud = AudsBs1.Current as Data.Access_User_Datasource;
+                     if (!AudsBs1.List.OfType<Data.Access_User_Datasource>().Any(a => a.USER_ID == _user.ID && a.DSRC_ID == _database.ID && a.HOST_NAME == _computer.CPU_SRNO_DNRM))
+                     {
+                        iProject.ExecuteCommand(
+                           string.Format("INSERT INTO Global.Access_User_Datasource (USER_ID, DSRC_ID, HOST_NAME, STAT, ACES_TYPE) VALUES({0}, {1}, '{2}', '002', '001')", _user.ID, _database.ID, _computer.CPU_SRNO_DNRM)
+                        );
+                     }
+                  }
+               }
+            }
+            //var crntuser = UserBs1.Current as Data.User;
+            //var crntds = DatSBs1.Current as Data.DataSource;
 
-            crntaud.DataSource = crntds;
-            crntaud.User = crntuser;
-            crntaud.STAT = "002";
-            crntaud.ACES_TYPE = "001";
+            //if (crntuser == null) return;
+            //if (crntds == null) return;
 
-            iProject.Access_User_Datasources.InsertOnSubmit(crntaud);
+            ////**** //if (AudsBs1.List.OfType<Data.Access_User_Datasource>().Any(a => a.User == crntuser && a.DataSource == crntds)) return;
+
+            //AudsBs1.AddNew();
+            //var crntaud = AudsBs1.Current as Data.Access_User_Datasource;
+
+            //crntaud.DataSource = crntds;
+            //crntaud.User = crntuser;
+            //crntaud.STAT = "002";
+            //crntaud.ACES_TYPE = "001";
+
+            //iProject.Access_User_Datasources.InsertOnSubmit(crntaud);
             
-            AudsBs1.EndEdit();
+            //AudsBs1.EndEdit();
 
-            iProject.SubmitChanges();
+            //iProject.SubmitChanges();
 
             requery = true;
          }
@@ -118,6 +145,29 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                Execute_Query();
                requery = false;
             }
+         }
+      }
+
+      private void DelMultiRecod_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (MessageBox.Show(this, "آیا با پاک کردن اطلاعات دوره کاربر موافق هستید؟", "حذف دسترسی به دوره اطلاعات", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            foreach (var _audsid in Auds_Gv.GetSelectedRows())
+            {
+               var _auds = Auds_Gv.GetRow(_audsid) as Data.Access_User_Datasource;
+               iProject.ExecuteCommand(string.Format("DELETE Global.Access_User_Datasource WHERE Id = {0}", _auds.ID));
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
    }

@@ -82,6 +82,7 @@ namespace System.Scsc.Ui.BaseDefinition
                case "OIC_TOTL_F":
                case "OPR_COMP_F":
                case "DEF_PROD_F":
+               case "CAL_CEXC_F":
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", formCaller, 07 /* Execute LoadData */, SendType.SelfToUserInterface)
                      {

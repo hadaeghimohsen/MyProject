@@ -4261,6 +4261,7 @@
          this.RqttCode_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.RqttCode_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.RqttCode_Lov.Properties.NullText = "";
+         this.RqttCode_Lov.Properties.ReadOnly = true;
          this.RqttCode_Lov.Properties.ValueMember = "CODE";
          this.RqttCode_Lov.Size = new System.Drawing.Size(133, 22);
          this.RqttCode_Lov.TabIndex = 0;

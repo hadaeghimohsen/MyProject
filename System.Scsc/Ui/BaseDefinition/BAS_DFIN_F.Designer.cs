@@ -7851,8 +7851,8 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject20, "", null, null, true)});
          this.DupCoch_Lov.Properties.DataSource = this.CochBs1;
          this.DupCoch_Lov.Properties.DisplayMember = "NAME_DNRM";
-         this.DupCoch_Lov.Properties.NullText = "نام سرپرست";
-         this.DupCoch_Lov.Properties.NullValuePrompt = "نام سرپرست";
+         this.DupCoch_Lov.Properties.NullText = "نام سرپرست مبدا";
+         this.DupCoch_Lov.Properties.NullValuePrompt = "نام سرپرست مبدا";
          this.DupCoch_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.DupCoch_Lov.Properties.PopupFormMinSize = new System.Drawing.Size(600, 0);
          this.DupCoch_Lov.Properties.ValueMember = "FILE_NO";
@@ -12581,7 +12581,7 @@
          this.PrintSettingClubMethod_Butn.ImageIndex = 2;
          this.PrintSettingClubMethod_Butn.ImageList = this.imageList1;
          this.PrintSettingClubMethod_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintSettingClubMethod_Butn.Location = new System.Drawing.Point(156, 68);
+         this.PrintSettingClubMethod_Butn.Location = new System.Drawing.Point(389, 42);
          this.PrintSettingClubMethod_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrintSettingClubMethod_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintSettingClubMethod_Butn.Name = "PrintSettingClubMethod_Butn";
@@ -12600,7 +12600,7 @@
          this.GrantUserToClub_Butn.Appearance.Options.UseForeColor = true;
          this.GrantUserToClub_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1433;
          this.GrantUserToClub_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GrantUserToClub_Butn.Location = new System.Drawing.Point(106, 68);
+         this.GrantUserToClub_Butn.Location = new System.Drawing.Point(106, 42);
          this.GrantUserToClub_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GrantUserToClub_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GrantUserToClub_Butn.Name = "GrantUserToClub_Butn";
@@ -12620,7 +12620,7 @@
          this.UpdateClub_Butn.Appearance.Options.UseForeColor = true;
          this.UpdateClub_Butn.Image = ((System.Drawing.Image)(resources.GetObject("UpdateClub_Butn.Image")));
          this.UpdateClub_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.UpdateClub_Butn.Location = new System.Drawing.Point(60, 68);
+         this.UpdateClub_Butn.Location = new System.Drawing.Point(60, 42);
          this.UpdateClub_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.UpdateClub_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.UpdateClub_Butn.Name = "UpdateClub_Butn";
@@ -12640,7 +12640,7 @@
          this.DeleteClub_Butn.Appearance.Options.UseForeColor = true;
          this.DeleteClub_Butn.Image = ((System.Drawing.Image)(resources.GetObject("DeleteClub_Butn.Image")));
          this.DeleteClub_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.DeleteClub_Butn.Location = new System.Drawing.Point(14, 68);
+         this.DeleteClub_Butn.Location = new System.Drawing.Point(14, 42);
          this.DeleteClub_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.DeleteClub_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DeleteClub_Butn.Name = "DeleteClub_Butn";
@@ -12659,7 +12659,7 @@
          this.PrintClubMethod_Butn.ImageIndex = 1;
          this.PrintClubMethod_Butn.ImageList = this.imageList1;
          this.PrintClubMethod_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintClubMethod_Butn.Location = new System.Drawing.Point(202, 68);
+         this.PrintClubMethod_Butn.Location = new System.Drawing.Point(435, 42);
          this.PrintClubMethod_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrintClubMethod_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintClubMethod_Butn.Name = "PrintClubMethod_Butn";
@@ -12674,7 +12674,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.ClubMethod_Splt.IsSplitterFixed = true;
-         this.ClubMethod_Splt.Location = new System.Drawing.Point(14, 116);
+         this.ClubMethod_Splt.Location = new System.Drawing.Point(14, 90);
          this.ClubMethod_Splt.Name = "ClubMethod_Splt";
          this.ClubMethod_Splt.Panel1.Controls.Add(this.ClubWkdy_Spn);
          this.ClubMethod_Splt.Panel1.Text = "Panel1";
@@ -12682,7 +12682,7 @@
          this.ClubMethod_Splt.Panel2.Controls.Add(this.textEdit3);
          this.ClubMethod_Splt.Panel2.Controls.Add(this.CommandCbmt_Pnl);
          this.ClubMethod_Splt.Panel2.Text = "Panel2";
-         this.ClubMethod_Splt.Size = new System.Drawing.Size(983, 538);
+         this.ClubMethod_Splt.Size = new System.Drawing.Size(983, 564);
          this.ClubMethod_Splt.SplitterPosition = 107;
          this.ClubMethod_Splt.TabIndex = 21;
          this.ClubMethod_Splt.Text = "splitContainerControl10";
@@ -12705,7 +12705,7 @@
          this.ClubWkdy_Spn.Panel2.Controls.Add(this.Wkdy001_Butn);
          this.ClubWkdy_Spn.Panel2.Controls.Add(this.Wkdy007_Butn);
          this.ClubWkdy_Spn.Panel2.Text = "Panel2";
-         this.ClubWkdy_Spn.Size = new System.Drawing.Size(107, 538);
+         this.ClubWkdy_Spn.Size = new System.Drawing.Size(107, 564);
          this.ClubWkdy_Spn.SplitterPosition = 107;
          this.ClubWkdy_Spn.TabIndex = 12;
          this.ClubWkdy_Spn.Text = "splitContainerControl10";
@@ -13084,7 +13084,7 @@
          this.splitContainerControl10.Panel1.Text = "Panel1";
          this.splitContainerControl10.Panel2.Controls.Add(this.tb_cbmt2);
          this.splitContainerControl10.Panel2.Text = "Panel2";
-         this.splitContainerControl10.Size = new System.Drawing.Size(871, 468);
+         this.splitContainerControl10.Size = new System.Drawing.Size(871, 494);
          this.splitContainerControl10.SplitterPosition = 80;
          this.splitContainerControl10.TabIndex = 68;
          this.splitContainerControl10.Text = "splitContainerControl10";
@@ -13513,7 +13513,7 @@
          this.tb_cbmt2.Name = "tb_cbmt2";
          this.tb_cbmt2.RightToLeftLayout = true;
          this.tb_cbmt2.SelectedIndex = 0;
-         this.tb_cbmt2.Size = new System.Drawing.Size(871, 383);
+         this.tb_cbmt2.Size = new System.Drawing.Size(871, 409);
          this.tb_cbmt2.TabIndex = 63;
          this.tb_cbmt2.SelectedIndexChanged += new System.EventHandler(this.tb_cbmt2_SelectedIndexChanged);
          // 
@@ -13524,7 +13524,7 @@
          this.tp_0061.Location = new System.Drawing.Point(4, 22);
          this.tp_0061.Name = "tp_0061";
          this.tp_0061.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_0061.Size = new System.Drawing.Size(863, 357);
+         this.tp_0061.Size = new System.Drawing.Size(863, 383);
          this.tp_0061.TabIndex = 0;
          this.tp_0061.Text = "گروه خدمات";
          this.tp_0061.UseVisualStyleBackColor = true;
@@ -13546,7 +13546,7 @@
             this.repositoryItemLookUpEdit7,
             this.CbmtActn_Butn,
             this.repositoryItemTimeEdit1});
-         this.CbmtGv1.Size = new System.Drawing.Size(857, 321);
+         this.CbmtGv1.Size = new System.Drawing.Size(857, 347);
          this.CbmtGv1.TabIndex = 62;
          this.CbmtGv1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Cbmt_Gv});
@@ -14020,7 +14020,7 @@
          this.panel23.Controls.Add(this.DurtAttnSondPath_Butn);
          this.panel23.Controls.Add(this.DurtAttnSp_Txt);
          this.panel23.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.panel23.Location = new System.Drawing.Point(3, 324);
+         this.panel23.Location = new System.Drawing.Point(3, 350);
          this.panel23.Name = "panel23";
          this.panel23.Size = new System.Drawing.Size(857, 30);
          this.panel23.TabIndex = 63;
@@ -16262,7 +16262,7 @@
          this.textEdit3.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.CbmtBs2, "CBMT_DESC", true));
          this.textEdit3.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.textEdit3.EditValue = "";
-         this.textEdit3.Location = new System.Drawing.Point(0, 516);
+         this.textEdit3.Location = new System.Drawing.Point(0, 542);
          this.textEdit3.Name = "textEdit3";
          this.textEdit3.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
          this.textEdit3.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -16673,11 +16673,11 @@
          this.AddClub_Butn.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.AddClub_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1422;
          this.AddClub_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.AddClub_Butn.Location = new System.Drawing.Point(766, 74);
+         this.AddClub_Butn.Location = new System.Drawing.Point(152, 42);
          this.AddClub_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AddClub_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AddClub_Butn.Name = "AddClub_Butn";
-         this.AddClub_Butn.Size = new System.Drawing.Size(231, 36);
+         this.AddClub_Butn.Size = new System.Drawing.Size(231, 42);
          this.AddClub_Butn.TabIndex = 20;
          this.AddClub_Butn.Text = "اضافه کردن بخش جدید";
          this.AddClub_Butn.Click += new System.EventHandler(this.AddClub_Butn_Click);
@@ -16689,7 +16689,7 @@
          this.PrintDefaultClubMethod_Butn.ImageIndex = 0;
          this.PrintDefaultClubMethod_Butn.ImageList = this.imageList1;
          this.PrintDefaultClubMethod_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintDefaultClubMethod_Butn.Location = new System.Drawing.Point(248, 68);
+         this.PrintDefaultClubMethod_Butn.Location = new System.Drawing.Point(481, 42);
          this.PrintDefaultClubMethod_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrintDefaultClubMethod_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintDefaultClubMethod_Butn.Name = "PrintDefaultClubMethod_Butn";
@@ -16706,9 +16706,9 @@
          this.CbmtDesc_Lb.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
          this.CbmtDesc_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.CbmtDesc_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.CbmtDesc_Lb.Location = new System.Drawing.Point(548, 42);
+         this.CbmtDesc_Lb.Location = new System.Drawing.Point(722, 42);
          this.CbmtDesc_Lb.Name = "CbmtDesc_Lb";
-         this.CbmtDesc_Lb.Size = new System.Drawing.Size(449, 26);
+         this.CbmtDesc_Lb.Size = new System.Drawing.Size(275, 26);
          this.CbmtDesc_Lb.TabIndex = 19;
          this.CbmtDesc_Lb.Text = "مشخص نمودن بخش ها و برنامه های گروه";
          // 

@@ -1151,80 +1151,61 @@ namespace System.Scsc.Ui.MasterPage
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.YellowGreen;
             
             var devInfo = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == devName && d.STAT == "002");
-            //var Serv = iScsc.Fighters.FirstOrDefault(s => s.FNGR_PRNT_DNRM == enrollNumber);
 
-            //if (InvokeRequired)
-            //   Invoke(new Action(() => CardNumb_Text.Text = cmndText));
-            //else
-            //   CardNumb_Text.Text = cmndText;
-
-            //_DefaultGateway.Gateway(
-            //   new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
-            //   {
-            //      Input =
-            //         new List<object>
+            if (devInfo.DEV_TYPE.In( "001", "007", "008", "009", "010", "011"))
+               server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
+                  .ForEach(d =>
+                  {
+                     try
+                     {
+                        d.SendMessage(
+                           cmndText
+                        );
+                     }
+                     catch { }
+                  }
+                  );
+            //if(devInfo.DEV_TYPE == "007")
+            //   server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
+            //      .ForEach(d =>
+            //      {
+            //         try
             //         {
-            //            ToolTipIcon.Info,
-            //            "Send Message To Device: " + server.ConnectedClients.FirstOrDefault(d => d.ConnectAddress == devName).ConnectAddress + ":" + server.ConnectedClients.FirstOrDefault(d => d.ConnectAddress == devName).Port,
-            //            cmndText,
-            //            2000
+            //            d.SendMessage(
+            //               cmndText
+            //            );
             //         }
-            //   }
-            //);
-            if (devInfo.DEV_TYPE == "001")
-               server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
-                  .ForEach(d =>
-                  {
-                     try
-                     {
-                        d.SendMessage(
-                           cmndText
-                        );
-                     }
-                     catch { }
-                  }
-                  );
-            if(devInfo.DEV_TYPE == "007")
-               server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
-                  .ForEach(d =>
-                  {
-                     try
-                     {
-                        d.SendMessage(
-                           cmndText
-                        );
-                     }
-                     catch { }
-                  }
-                  );
-            else if (devInfo.DEV_TYPE == "008")
-               server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
-                  .ForEach(d =>
-                     {
-                        try
-                        {
-                           d.SendMessage(
-                              cmndText
-                           );
-                        }
-                        catch { }
-                     }
-                  );
-            else if (devInfo.DEV_TYPE.In("009", "010"))
+            //         catch { }
+            //      }
+            //      );
+            //else if (devInfo.DEV_TYPE == "008")
+            //   server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
+            //      .ForEach(d =>
+            //         {
+            //            try
+            //            {
+            //               d.SendMessage(
+            //                  cmndText
+            //               );
+            //            }
+            //            catch { }
+            //         }
+            //      );
+            if (devInfo.DEV_TYPE.In("009", "010"))
             {
                // Unlock
-               server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
-                  .ForEach(d =>
-                  {
-                     try
-                     {
-                        d.SendMessage(
-                           cmndText
-                        );
-                     }
-                     catch { }
-                  }
-                  );
+               //server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
+               //   .ForEach(d =>
+               //   {
+               //      try
+               //      {
+               //         d.SendMessage(
+               //            cmndText
+               //         );
+               //      }
+               //      catch { }
+               //   }
+               //   );
 
                Thread.Sleep(100);
 
@@ -1245,9 +1226,11 @@ namespace System.Scsc.Ui.MasterPage
 
             switch (cmndText.Substring(0, 2))
             {
+               case "in":
                case "st":
                   BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
                   break;
+               case "out":
                case "sp":
                   BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlueViolet;
                   break;
@@ -2416,11 +2399,46 @@ namespace System.Scsc.Ui.MasterPage
                   }
                   else
                   {
-                     // باز کردن فرم مربوط به پروفایل مشتری
-                     ShowInfo_Butn_Click(null, null); 
+                     // 1402/07/07 * اگر کارت ارسال شده متغلق به دستبند ها باشد فرم درآمد متفرقه باز شود
+                     if (iScsc.Dressers.Any(l => l.CMND_SEND == FngrPrnt_Txt.Text))
+                     {
+                        var _figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == FngrPrnt_Txt.Text);
+
+                        // Check not Lock
+                        if (_figh.FIGH_STAT == "001")
+                        {
+                           // Cancel Request anyway
+                           iScsc.CNCL_RQST_F(
+                              new XElement("Request",
+                                  new XAttribute("rqid", _figh.RQST_RQID)
+                              )
+                           );
+                        }
+
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "Localhost",
+                               new List<Job>
+                               {                  
+                                  new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                                  new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */)
+                                  {
+                                     Input = 
+                                       new XElement("Request", 
+                                           new XAttribute("type", "01"), 
+                                           new XElement("Request_Row", 
+                                               new XAttribute("fileno", _figh.FILE_NO)
+                                           )
+                                       )
+                                  }
+                               })
+                        );
+                     }
+                     else
+                        // باز کردن فرم مربوط به پروفایل مشتری
+                        ShowInfo_Butn_Click(null, null);
 
                      // بررسی اینکه مشتری شارژ اعتباری داری یا خیر
-                     if(Serv.DPST_AMNT_DNRM > 0)
+                     if (Serv.DPST_AMNT_DNRM > 0)
                      {
                         // اگر مشتری اعتبار دارد
                         if (dev008host != null)
@@ -2442,7 +2460,6 @@ namespace System.Scsc.Ui.MasterPage
                               ":         ", dev008host.DEV_NAME, FngrPrnt_Txt.Text);
                         }
                      }
-
                   }
                }
                else if (AttnType_Lov.EditValue.ToString() == "009" /* بلیط فروشی استخر */)
@@ -2513,6 +2530,42 @@ namespace System.Scsc.Ui.MasterPage
 
                      CardNumb_Text.EditValue = null;
                   }
+               }
+               else if (AttnType_Lov.EditValue.ToString() == "012")
+               {
+                  #region تعریف کردن دستبند کمدی
+                  // first step CardNumb_Txt is not empty
+                  if (CardNumb_Text.Text == "") { CardNumb_Text.Focus(); return; }
+
+                  // If not exists must we create in table
+                  if(!iScsc.Dressers.Any(d => d.CMND_SEND == FngrPrnt_Txt.Text && d.DRES_NUMB == CardNumb_Text.Text.ToInt32() && d.Computer_Action.COMP_NAME == xHost.Attribute("name").Value))
+                  {
+                     iScsc.ExecuteCommand(
+                        string.Format("INSERT INTO dbo.Dresser (Coma_Code, Code, Dres_Numb, Rec_Stat, Ordr, Cmnd_Send)" + Environment.NewLine +
+                        "SELECT Code, 0, {0}, '002', {0}, '{1}' FROM dbo.Computer_Action WHERE Comp_Name = '{2}'",
+                        CardNumb_Text.Text,
+                        FngrPrnt_Txt.Text,
+                        xHost.Attribute("name").Value)
+                     );
+
+                     FngrPrnt_Txt.Text = "";
+                     CardNumb_Text.Text = (CardNumb_Text.Text.ToInt32() + 1).ToString();
+
+                     _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\expert.wav";
+                     new Thread(AlarmShow).Start();
+                  }
+                  else if (iScsc.Dressers.Any(d => d.CMND_SEND != FngrPrnt_Txt.Text && d.DRES_NUMB == CardNumb_Text.Text.ToInt32() && d.Computer_Action.COMP_NAME == xHost.Attribute("name").Value))
+                  {
+                     iScsc.ExecuteCommand(
+                        string.Format("UPDATE dbo.Dresser SET Cmnd_Send = '{0}' WHERE Dres_Numb = {1} AND Coma_Code IN (Select Code From dbo.Computer_Action WHERE Comp_Name = '{2}');", FngrPrnt_Txt.Text, CardNumb_Text.Text, xHost.Attribute("name").Value)
+                     );
+
+                     FngrPrnt_Txt.Text = "";
+
+                     _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\expert.wav";
+                     new Thread(AlarmShow).Start();
+                  }
+                  #endregion
                }
                return; 
             }
@@ -3715,6 +3768,32 @@ namespace System.Scsc.Ui.MasterPage
                         axCZKEM1_OnAttTransactionEx(FngrPrnt_Txt.Text, 1, 1, 1, 2016, 05, 10, 09, 31, 50, 20);
                         return;
                      }
+                     else if (getInfoDev.DEV_TYPE == "011" /* سیستم کنترلگر ریدر با دستبند */)
+                     {
+                        #region دستگاه های کنترلگر ریدر های دستبندی
+                        // در اولین گام باید چک کنیم که این دستبند به کسی تعلق دارد یا خیر
+                        if (iScsc.Dresser_Attendances.Any(da => da.Dresser.CMND_SEND == FngrPrnt_Txt.Text && da.LEND_TIME != null && da.TKBK_TIME == null && da.CONF_STAT == "002"))
+                        {
+                           SendCommandDevExpn("in", getInfoDev.DEV_NAME, "");
+
+                           // Save History for enter or exit
+                           iScsc.ExecuteCommand(
+                              string.Format(
+                              "INSERT INTO dbo.Dresser_Attendance (Dres_Code, Figh_File_No, Code, Ders_Numb)" + Environment.NewLine +
+                              "SELECT TOP 1 Dres_Code, Figh_File_No, 0, Ders_Numb FROM dbo.Dresser_Attendance da" + Environment.NewLine +
+                              "WHERE da.Dres_Code IN (SELECT Code FROM dbo.Dresser d WHERE d.Cmnd_Send = '{0}')" + Environment.NewLine +
+                              "  AND da.Tkbk_Time IS NULL AND da.Lend_Time IS NOT NULL AND da.Conf_Stat = '002'" + Environment.NewLine +
+                              "ORDER BY da.CRET_DATE DESC",
+                              FngrPrnt_Txt.Text
+                              )
+                           );
+                        }
+                        else
+                           SendCommandDevExpn("er", getInfoDev.DEV_NAME, "");
+                        #endregion
+
+                        return;
+                     }
 
                      // اگر مشتری وجود نداشته یا اینکه مشتری اصلا سپرده نداشته باشد
                      if (Serv == null || (regl.AMNT_TYPE == "001" && Serv.DPST_AMNT_DNRM < 10000) || (regl.AMNT_TYPE == "002" && Serv.DPST_AMNT_DNRM < 1000))
@@ -3942,7 +4021,7 @@ namespace System.Scsc.Ui.MasterPage
                            );
                         }
                         #endregion
-                     }
+                     }                     
                   })
                );
             }
@@ -3981,10 +4060,10 @@ namespace System.Scsc.Ui.MasterPage
             }
             else if(getInfoDev.DEV_COMP_TYPE == "002" && getInfoDev.DEV_TYPE == "001")
             {
-               SendCommandDevExpn(
-                  "df:" + "WellCome".PadLeft(13, ' ') +
-                  "&" + "Genetic Gym".PadLeft(16, ' '), devName, ""
-               );
+               //SendCommandDevExpn(
+               //   "df:" + "WellCome".PadLeft(13, ' ') +
+               //   "&" + "Genetic Gym".PadLeft(16, ' '), devName, ""
+               //);
                AttnType_Lov.EditValue = getInfoDev.ACTN_TYPE;
                this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
             }

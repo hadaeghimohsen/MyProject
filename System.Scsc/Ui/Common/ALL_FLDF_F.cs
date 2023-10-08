@@ -1361,14 +1361,26 @@ namespace System.Scsc.Ui.Common
                   ShowCrntReglYear_Butn_Click(null, null);
                   break;
                case 3:
-                  GlrlBs.DataSource = iScsc.Gain_Loss_Rials.Where(g => g.FIGH_FILE_NO == fileno && g.CONF_STAT == "002" && g.AMNT > 0);
-                  GPymBs.DataSource = iScsc.Payment_Methods.Where(p => p.FIGH_FILE_NO_DNRM == fileno && p.RCPT_MTOD == "005");
+                  if(Deposit_Tc.SelectedTab == DTp_001)
+                  {
+                     GlrlBs.DataSource = iScsc.Gain_Loss_Rials.Where(g => g.FIGH_FILE_NO == fileno && g.CONF_STAT == "002" && g.AMNT > 0);
+                     GPymBs.DataSource = iScsc.Payment_Methods.Where(p => p.FIGH_FILE_NO_DNRM == fileno && p.RCPT_MTOD == "005");
+                  }
+                  else if(Deposit_Tc.SelectedTab == DTp_002)
+                  {
+                     MsexBs.DataSource = iScsc.Misc_Expenses.Where(m => m.VALD_TYPE == "002" && m.COCH_FILE_NO == fileno);
+                  }
                   break;
                case 4:
                   vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(fileno); ;
                   break;
                case 5:
                   vF_Request_ChangingBs.DataSource = iScsc.VF_Request_Changing(fileno).OrderBy(r => r.RQST_DATE);
+                  LOptBs.DataSource =
+                     iScsc.Log_Operations
+                     .Where(lo =>
+                        lo.FIGH_FILE_NO == fileno
+                     );
                   break;
                case 6:
                   AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
@@ -1402,14 +1414,28 @@ namespace System.Scsc.Ui.Common
       private void PrintSetting_Butn_Click(object sender, EventArgs e)
       {
          //Back_Butn_Click(null, null);
-         Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
+         if (tb_master.SelectedTab == tp_001)
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
                   {
                      new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
                      new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
-                  });
-         _DefaultGateway.Gateway(_InteractWithScsc);
+                  })
+            );
+         }
+         else if(tb_master.SelectedTab == tp_007)
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_007_F"))}
+                  })
+            );
+         }
       }
 
       private void Print_Butn_Click(object sender, EventArgs e)
@@ -1417,13 +1443,26 @@ namespace System.Scsc.Ui.Common
          try
          {
             //Back_Butn_Click(null, null);
-            Job _InteractWithScsc =
-                 new Job(SendType.External, "Localhost",
+            if (tb_master.SelectedTab == tp_001)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
                     new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("File_No = {0}", fileno))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+                    {
+                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("File_No = {0}", fileno))}
+                    })
+               );
+            }
+            else if(tb_master.SelectedTab == tp_007)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                    new List<Job>
+                    {
+                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_007_F"), string.Format("File_No = {0}", fileno))}
+                    })
+               );
+            }
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
@@ -1431,15 +1470,29 @@ namespace System.Scsc.Ui.Common
       private void PrintDefault_Butn_Click(object sender, EventArgs e)
       {
          try
-         {            
-            //Back_Butn_Click(null, null);
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("File_No = {0}", fileno))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+         {
+            if (tb_master.SelectedTab == tp_001)
+            {
+               //Back_Butn_Click(null, null);
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                    new List<Job>
+                    {
+                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("File_No = {0}", fileno))}
+                    })
+               );
+            }
+            else if (tb_master.SelectedTab == tp_007)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                    new List<Job>
+                    {
+                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_007_F"), string.Format("File_No = {0}", fileno))}
+                    })
+               );
+            }
+
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
@@ -3780,6 +3833,662 @@ namespace System.Scsc.Ui.Common
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddMexm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _msxc = MsexBs.Current as Data.Misc_Expense;
+            if (_msxc == null) return;
+
+            if (MexmBs.List.OfType<Data.Misc_Expense_Method>().Any(m => m.CODE == 0)) return;
+
+            var _mexm = MexmBs.AddNew() as Data.Misc_Expense_Method;
+            _mexm.MSEX_CODE = _msxc.CODE;
+            _mexm.RCPT_MTOD = "003";
+            _mexm.ACTN_DATE = DateTime.Now;
+            _mexm.AMNT = _msxc.SUM_NET_AMNT_DNRM - (_msxc.SUM_RCPT_PYMT_DNRM + _msxc.SUM_COST_AMNT_DNRM + _msxc.SUM_DSCT_AMNT_DNRM);
+
+            iScsc.Misc_Expense_Methods.InsertOnSubmit(_mexm);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelMexm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mexm = MexmBs.Current as Data.Misc_Expense_Method;
+            if (_mexm == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.Misc_Expense_Methods.DeleteOnSubmit(_mexm);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_007;
+               Deposit_Tc.SelectedTab = DTp_002;
+            }
+         }
+      }
+
+      private void SaveMexm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Mexm_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_007;
+               Deposit_Tc.SelectedTab = DTp_002;
+            }
+         }
+      }
+
+      private void AddMeck_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _msxc = MsexBs.Current as Data.Misc_Expense;
+            if (_msxc == null) return;
+
+            if (MeckBs.List.OfType<Data.Misc_Expense_Check>().Any(m => m.CODE == 0)) return;
+
+            var _meck = MeckBs.AddNew() as Data.Misc_Expense_Check;
+            _meck.MSEX_CODE = _msxc.CODE;
+            _meck.CHEK_DATE = DateTime.Now;
+
+            iScsc.Misc_Expense_Checks.InsertOnSubmit(_meck);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelMeck_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _meck = MeckBs.Current as Data.Misc_Expense_Check;
+            if (_meck == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.Misc_Expense_Checks.DeleteOnSubmit(_meck);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_007;
+               Deposit_Tc.SelectedTab = DTp_002;
+            }
+         }
+      }
+
+      private void SaveMeck_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Meck_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_007;
+               Deposit_Tc.SelectedTab = DTp_002;
+            }
+         }
+      }
+
+      private void AddMexd_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void DelMexd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mexd = MexdBs.Current as Data.Misc_Expense_Discount;
+            if (_mexd == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.Misc_Expense_Discounts.DeleteOnSubmit(_mexd);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_007;
+               Deposit_Tc.SelectedTab = DTp_002;
+            }
+         }
+      }
+
+      private void SaveMexd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Mexd_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_007;
+               Deposit_Tc.SelectedTab = DTp_002;
+            }
+         }
+      }
+
+      private void DsctDef_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "Misc_Expense_Discount_INFO"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MexdActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _msxc = MsexBs.Current as Data.Misc_Expense;
+            if (_msxc == null) return;
+
+            var _dmexd = DMexdBs.Current as Data.App_Base_Define;
+            if (_dmexd == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  var _mexd = MexdBs.AddNew() as Data.Misc_Expense_Discount;
+                  _mexd.MSEX_CODE = _msxc.CODE;
+                  _mexd.DSCT_APBS_CODE = _dmexd.CODE;
+
+                  iScsc.Misc_Expense_Discounts.InsertOnSubmit(_mexd);
+                  iScsc.SubmitChanges();
+                  break;
+               default:
+                  break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_007;
+               Deposit_Tc.SelectedTab = DTp_002;
+            }
+         }
+      }
+
+      private void DelMexc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mexc = MexcBs.Current as Data.Misc_Expense_Cost;
+            if (_mexc == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.Misc_Expense_Costs.DeleteOnSubmit(_mexc);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_007;
+               Deposit_Tc.SelectedTab = DTp_002;
+            }
+         }
+      }
+
+      private void SaveMexc_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Mexc_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_007;
+               Deposit_Tc.SelectedTab = DTp_002;
+            }
+         }
+      }
+
+      private void MexcDef_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "Misc_Expense_Cost_INFO"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MexcActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _msxc = MsexBs.Current as Data.Misc_Expense;
+            if (_msxc == null) return;
+
+            var _dmexc = DMexcBs.Current as Data.App_Base_Define;
+            if (_dmexc == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  var _mexc = MexcBs.AddNew() as Data.Misc_Expense_Cost;
+                  _mexc.MSEX_CODE = _msxc.CODE;
+                  _mexc.COST_APBS_CODE = _dmexc.CODE;
+
+                  iScsc.Misc_Expense_Costs.InsertOnSubmit(_mexc);
+                  iScsc.SubmitChanges();
+                  break;
+               default:
+                  break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+               tb_master.SelectedTab = tp_007;
+               Deposit_Tc.SelectedTab = DTp_002;
+            }
+         }
+      }
+
+      private void PrntActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _msex = MsexBs.Current as Data.Misc_Expense;
+            if (_msex == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  // Print Settings
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                           new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_0i7_F"))}
+                        })
+                  );
+
+                  // string.Format("Misc_Expense.Code = {0}", _msex.CODE)
+                  break;
+               case 1:
+                  // Select Print
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_0i7_F"), string.Format("Misc_Expense.Code = {0}", _msex.CODE))}
+                        })
+                  );
+                  break;
+               case 2:
+                  // Default Print
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_0i7_F"), string.Format("Misc_Expense.Code = {0}", _msex.CODE))}
+                        })
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveMsex_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void DelMsex_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void MsexActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var pyde = PydeBs.Current as Data.Payment_Expense;
+            if (pyde == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", pyde.Payment_Detail.Request_Row.FIGH_FILE_NO)) }
+            );
+         }
+         catch (Exception)
+         {
+
+         }
+      }
+
+      private void JoinDasr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (AdatnBs.List.OfType<Data.Dresser_Attendance>().Any(a => a.DERS_NUMB == DresNumb_Txt.Text.ToInt32() && a.FIGH_FILE_NO == fileno && a.LEND_TIME != null && a.TKBK_TIME == null)) return;
+
+            if (!iScsc.Dressers.Any(d => d.DRES_NUMB == DresNumb_Txt.Text.ToInt32())) return;
+
+            var _mbsp = MbspBs.Current as Data.Member_Ship;
+            if (_mbsp == null) return;
+               
+            var _adatn = AdatnBs.AddNew() as Data.Dresser_Attendance;
+            _adatn.FIGH_FILE_NO = fileno;
+            _adatn.DERS_NUMB = DresNumb_Txt.Text.ToInt32();
+            _adatn.MBSP_RWNO = _mbsp.RWNO;
+            _adatn.MBSP_RECT_CODE = _mbsp.RECT_CODE;
+
+            iScsc.Dresser_Attendances.InsertOnSubmit(_adatn);
+            iScsc.SubmitChanges();
+
+            DresNumb_Txt.Text = "";
+            DresNumb_Txt.Focus();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ConfDasr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.ExecuteCommand(
+               string.Format(
+                  "UPDATE dbo.Dresser_Attendance SET Conf_Stat = '002' WHERE FIGH_FILE_NO = {0} AND TKBK_TIME IS NULL;" + Environment.NewLine + 
+                  "UPDATE dbo.Dresser_Attendance SET TKBK_TIME = GETDATE() WHERE FIGH_FILE_NO != {0} AND TKBK_TIME IS NULL;",
+                  fileno
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelDasr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.ExecuteCommand(
+               string.Format(
+                  "DELETE dbo.Dresser_Attendance WHERE FIGH_FILE_NO = {0} AND TKBK_TIME IS NULL AND CONF_STAT = '001';",
+                  fileno
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DresNumb_Txt_KeyDown(object sender, KeyEventArgs e)
+      {
+         if (e.KeyCode == Keys.Enter)
+         {
+            JoinDasr_Butn_Click(null, null);
+         }
+      }
+
+      private void MbspActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _mbsp = MbspBs.Current as Data.Member_Ship;
+            if (_mbsp == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  // Decrement Session
+                  if (_mbsp.NUMB_OF_ATTN_MONT >= 1 && _mbsp.SUM_ATTN_MONT_DNRM < _mbsp.NUMB_OF_ATTN_MONT)
+                  {
+                     _mbsp.SUM_ATTN_MONT_DNRM++;
+                     iScsc.SubmitChanges();
+                     //iScsc.ExecuteCommand(
+                     //   string.Format("UPADTE dbo.Member_Ship SET SUM_ATTN_MONT_DNRM += 1 WHERE FIGH_FILE_NO = {0} AND RECT_CODE = '004' AND RWNO = {1}", _mbsp.FIGH_FILE_NO, _mbsp.RWNO)
+                     //);
+                     iScsc.INS_LGOP_P(
+                        new XElement("Log",
+                            new XAttribute("fileno", _mbsp.FIGH_FILE_NO),
+                            new XAttribute("type", "011"),
+                            new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + TitlForm_Lb.Text + " یک جلسه به صورت دستی کم کرد")
+                        )
+                     );
+                     requery = true;
+                  }
+                  break;
+               case 1:
+                  // increment Session
+                  if (_mbsp.NUMB_OF_ATTN_MONT >= 1 && _mbsp.SUM_ATTN_MONT_DNRM <= _mbsp.NUMB_OF_ATTN_MONT && _mbsp.SUM_ATTN_MONT_DNRM > 0)
+                  {
+                     _mbsp.SUM_ATTN_MONT_DNRM--;
+                     iScsc.SubmitChanges();
+                     //iScsc.ExecuteCommand(
+                     //   string.Format("UPADTE dbo.Member_Ship SET SUM_ATTN_MONT_DNRM -= 1 WHERE FIGH_FILE_NO = {0} AND RECT_CODE = '004' AND RWNO = {1}", _mbsp.FIGH_FILE_NO, _mbsp.RWNO)
+                     //);
+                     iScsc.INS_LGOP_P(
+                        new XElement("Log",
+                            new XAttribute("fileno", _mbsp.FIGH_FILE_NO),
+                            new XAttribute("type", "012"),
+                            new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + TitlForm_Lb.Text + " یک جلسه به صورت دستی برگشت داد")
+                        )
+                     );
+                     requery = true;
+                  }
+                  break;
+               case 2:
+                  // Edit Member_ship
+                  Mbsp_Rwno_Text_DoubleClick(null, null);
+                  break;
+               case 3:
+                  tb_1_tp_001.SelectedTab = tp_1_tp_001_006;
+                  DresNumb_Txt.Focus();
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DartActv_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _dart = AdatnBs.Current as Data.Dresser_Attendance;
+            if (_dart == null) return;
+
+            iScsc.Dresser_Attendances.DeleteOnSubmit(_dart);
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }      
    }

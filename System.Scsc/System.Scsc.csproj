@@ -1207,6 +1207,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_EXCT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EXPT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_EXTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_FACH.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_FGST.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_FGTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_GPTP.datasource" />
@@ -1269,6 +1270,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Discount_Card.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Grouping.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Invite_Friend.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Link_Payment_Contarct_Item.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Public.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_RelationShip.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Finance_Document.datasource" />
@@ -1288,6 +1290,11 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Message_Broadcast.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Method.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Misc_Expense.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Misc_Expense_Check.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Misc_Expense_Cost.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Misc_Expense_Deduction.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Misc_Expense_Discount.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Misc_Expense_Method.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Modual_Report.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Modual_Report_Direct_Print.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Month_Base.datasource" />
@@ -1295,6 +1302,8 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Organ.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Check.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Payment_Contract.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Payment_Contract_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Cost.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Payment_Detail_Commodity_Sale.datasource" />
@@ -1405,10 +1414,12 @@
     <None Include="Properties\DataSources\System.Scsc.Data.V_StatisticReceipt.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_StatisticSale.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_SubSy.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_Total_Member_Ship.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Transaction_Fee.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_User.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_User_Localization_Form.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Warehouse.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Warehouse_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Warehouse_Expense.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Warehouse_Tag.datasource" />
     <None Include="Properties\Settings.settings">

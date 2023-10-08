@@ -21,6 +21,7 @@ namespace System.Scsc.Ui.Common
       private bool isFirstLoaded = false;
       private string RegnLang = "054";
       private XElement HostNameInfo;
+      private string CurrentUser;
 
       public void SendRequest(Job job)
       {
@@ -179,6 +180,7 @@ namespace System.Scsc.Ui.Common
          );
          ConnectionString = GetConnectionString.Output.ToString();
          iScsc = new Data.iScscDataContext(GetConnectionString.Output.ToString());
+         CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -1372,6 +1374,9 @@ namespace System.Scsc.Ui.Common
                   )
                );
 
+            AdatnBs.DataSource = iScsc.Dresser_Attendances.Where(a => a.FIGH_FILE_NO == fileno && a.TKBK_TIME == null);
+            HdatnBs.DataSource = iScsc.Dresser_Attendances.Where(a => a.FIGH_FILE_NO == fileno && a.CONF_STAT == "002" && a.TKBK_TIME != null);
+
             if(isFirstLoaded) goto commandfinished;
 
             DDebtBs.DataSource = iScsc.D_DEBTs;
@@ -1387,8 +1392,12 @@ namespace System.Scsc.Ui.Common
             DYsnoBs.DataSource = iScsc.D_YSNOs;
             DMsgsBs.DataSource = iScsc.D_MSGs;
             DCetpBs.DataSource = iScsc.D_CETPs;
+            DCxtpBs.DataSource = iScsc.D_CXTPs;
+            DLotpBs.DataSource = iScsc.D_LOTPs;
             RqtpBs.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "016" || rt.CODE == "020");
-            
+            DMexdBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Misc_Expense_Discount_INFO");
+            DMexcBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Misc_Expense_Cost_INFO");
+
             VPosBs1.DataSource = iScsc.V_Pos_Devices;
             if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
                Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;

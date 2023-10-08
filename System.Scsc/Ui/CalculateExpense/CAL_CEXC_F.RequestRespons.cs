@@ -203,6 +203,10 @@ namespace System.Scsc.Ui.CalculateExpense
          EpitBs3.DataSource = iScsc.Expense_Items.Where(e => e.TYPE == "002");
          RqtpBs.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "009" || rt.CODE == "016");
          DRectBs.DataSource = iScsc.D_RECTs;
+         DRcptBs.DataSource = iScsc.D_RCMTs;
+         DCktpBs.DataSource = iScsc.D_CKTPs;
+         DMexdBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Misc_Expense_Discount_INFO");
+         DMexcBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Misc_Expense_Cost_INFO");
          job.Status = StatusType.Successful;
       }
 

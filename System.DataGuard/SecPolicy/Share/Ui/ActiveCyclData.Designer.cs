@@ -28,19 +28,19 @@
       /// </summary>
       private void InitializeComponent()
       {
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActiveCyclData));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tabControl1 = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.AddAuds_Butn = new System.Windows.Forms.Button();
          this.access_User_DatasourceGridControl = new DevExpress.XtraGrid.GridControl();
          this.AudsBs1 = new System.Windows.Forms.BindingSource();
-         this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.Auds_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colID2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colUSER_ID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDSRC_ID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -55,12 +55,15 @@
          this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colACES_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Actp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.DactpBs = new System.Windows.Forms.BindingSource();
          this.colHOST_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Host_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.vComputerBs = new System.Windows.Forms.BindingSource();
          this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+         this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.dataSourceGridControl = new DevExpress.XtraGrid.GridControl();
          this.DatSBs1 = new System.Windows.Forms.BindingSource();
-         this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.Database_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colID1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colShortCut1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDatabaseServer = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -74,9 +77,15 @@
          this.colIsDefault = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colIsActive = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colIsVisible1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridControl1 = new DevExpress.XtraGrid.GridControl();
+         this.Computer_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colIP_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCPU_SRNO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCOMP_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colNAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.userGridControl = new DevExpress.XtraGrid.GridControl();
          this.UserBs1 = new System.Windows.Forms.BindingSource();
-         this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.User_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colShortCut = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTitleFa = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -95,30 +104,33 @@
          this.colDFLT_FACT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colADD_COMP_LIST = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Btn_Back = new System.Windows.Forms.Button();
-         this.DactpBs = new System.Windows.Forms.BindingSource();
-         this.vComputerBs = new System.Windows.Forms.BindingSource();
+         this.DelMultiRecod_Butn = new System.Windows.Forms.Button();
          this.tabControl1.SuspendLayout();
          this.tabPage1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.access_User_DatasourceGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AudsBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView3)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Auds_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actp_Lov)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DactpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Host_Lov)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.vComputerBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
          this.splitContainer1.Panel1.SuspendLayout();
          this.splitContainer1.Panel2.SuspendLayout();
          this.splitContainer1.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
+         this.splitContainerControl1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.dataSourceGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DatSBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Database_Gv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Computer_Gv)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.userGridControl)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.UserBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DactpBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.vComputerBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.User_Gv)).BeginInit();
          this.SuspendLayout();
          // 
          // colSTAT
@@ -149,8 +161,8 @@
          // tabPage1
          // 
          this.tabPage1.BackColor = System.Drawing.SystemColors.Control;
-         this.tabPage1.Controls.Add(this.AddAuds_Butn);
          this.tabPage1.Controls.Add(this.access_User_DatasourceGridControl);
+         this.tabPage1.Controls.Add(this.DelMultiRecod_Butn);
          this.tabPage1.Controls.Add(this.splitContainer1);
          this.tabPage1.Location = new System.Drawing.Point(4, 23);
          this.tabPage1.Name = "tabPage1";
@@ -161,12 +173,11 @@
          // 
          // AddAuds_Butn
          // 
-         this.AddAuds_Butn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+         this.AddAuds_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AddAuds_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1203;
-         this.AddAuds_Butn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-         this.AddAuds_Butn.Location = new System.Drawing.Point(534, 198);
+         this.AddAuds_Butn.Location = new System.Drawing.Point(379, 0);
          this.AddAuds_Butn.Name = "AddAuds_Butn";
-         this.AddAuds_Butn.Size = new System.Drawing.Size(59, 54);
+         this.AddAuds_Butn.Size = new System.Drawing.Size(59, 189);
          this.AddAuds_Butn.TabIndex = 1;
          this.AddAuds_Butn.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
          this.AddAuds_Butn.UseVisualStyleBackColor = true;
@@ -175,35 +186,35 @@
          // access_User_DatasourceGridControl
          // 
          this.access_User_DatasourceGridControl.DataSource = this.AudsBs1;
-         this.access_User_DatasourceGridControl.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.access_User_DatasourceGridControl.Location = new System.Drawing.Point(3, 258);
+         this.access_User_DatasourceGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.access_User_DatasourceGridControl.Location = new System.Drawing.Point(3, 223);
          this.access_User_DatasourceGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.access_User_DatasourceGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.access_User_DatasourceGridControl.MainView = this.gridView3;
+         this.access_User_DatasourceGridControl.MainView = this.Auds_Gv;
          this.access_User_DatasourceGridControl.Name = "access_User_DatasourceGridControl";
          this.access_User_DatasourceGridControl.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Actv_Butn,
             this.persianRepositoryItemDateEdit1,
             this.Actp_Lov,
             this.Host_Lov});
-         this.access_User_DatasourceGridControl.Size = new System.Drawing.Size(1120, 267);
+         this.access_User_DatasourceGridControl.Size = new System.Drawing.Size(1120, 302);
          this.access_User_DatasourceGridControl.TabIndex = 1;
          this.access_User_DatasourceGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView3});
+            this.Auds_Gv});
          // 
          // AudsBs1
          // 
          this.AudsBs1.DataSource = typeof(System.DataGuard.Data.Access_User_Datasource);
          // 
-         // gridView3
+         // Auds_Gv
          // 
-         this.gridView3.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.gridView3.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView3.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView3.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.gridView3.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.gridView3.Appearance.Row.Options.UseFont = true;
-         this.gridView3.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.Auds_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Auds_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Auds_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Auds_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.Auds_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Auds_Gv.Appearance.Row.Options.UseFont = true;
+         this.Auds_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID2,
             this.colUSER_ID,
             this.colDSRC_ID,
@@ -217,30 +228,31 @@
             this.colEND_DATE,
             this.colACES_TYPE,
             this.colHOST_NAME});
-         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-         styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-         styleFormatCondition1.Appearance.Options.UseBackColor = true;
-         styleFormatCondition1.Appearance.Options.UseForeColor = true;
-         styleFormatCondition1.Column = this.colSTAT;
-         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition1.Value1 = "001";
-         styleFormatCondition2.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition2.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition2.Appearance.Options.UseBackColor = true;
-         styleFormatCondition2.Appearance.Options.UseForeColor = true;
-         styleFormatCondition2.Column = this.colSTAT;
-         styleFormatCondition2.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition2.Value1 = "002";
-         this.gridView3.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition1,
-            styleFormatCondition2});
-         this.gridView3.GridControl = this.access_User_DatasourceGridControl;
-         this.gridView3.Name = "gridView3";
-         this.gridView3.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView3.OptionsView.EnableAppearanceEvenRow = true;
-         this.gridView3.OptionsView.ShowDetailButtons = false;
-         this.gridView3.OptionsView.ShowGroupPanel = false;
-         this.gridView3.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+         styleFormatCondition3.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+         styleFormatCondition3.Appearance.Options.UseBackColor = true;
+         styleFormatCondition3.Appearance.Options.UseForeColor = true;
+         styleFormatCondition3.Column = this.colSTAT;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition3.Value1 = "001";
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition4.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition4.Appearance.Options.UseBackColor = true;
+         styleFormatCondition4.Appearance.Options.UseForeColor = true;
+         styleFormatCondition4.Column = this.colSTAT;
+         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition4.Value1 = "002";
+         this.Auds_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition3,
+            styleFormatCondition4});
+         this.Auds_Gv.GridControl = this.access_User_DatasourceGridControl;
+         this.Auds_Gv.Name = "Auds_Gv";
+         this.Auds_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Auds_Gv.OptionsSelection.MultiSelect = true;
+         this.Auds_Gv.OptionsView.EnableAppearanceEvenRow = true;
+         this.Auds_Gv.OptionsView.ShowDetailButtons = false;
+         this.Auds_Gv.OptionsView.ShowGroupPanel = false;
+         this.Auds_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
             new DevExpress.XtraGrid.Columns.GridColumnSortInfo(this.colUSER_NAME, DevExpress.Data.ColumnSortOrder.Ascending)});
          // 
          // colID2
@@ -297,9 +309,9 @@
          // 
          this.Actv_Butn.AutoHeight = false;
          this.Actv_Butn.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actv_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actv_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "حذف رکورد", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actv_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actv_Butn.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actv_Butn.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "حذف رکورد", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("Actv_Butn.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
          this.Actv_Butn.Name = "Actv_Butn";
          this.Actv_Butn.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          this.Actv_Butn.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.Actv_Butn_ButtonClick);
@@ -385,6 +397,10 @@
          this.Actp_Lov.NullText = "";
          this.Actp_Lov.ValueMember = "VALU";
          // 
+         // DactpBs
+         // 
+         this.DactpBs.DataSource = typeof(System.DataGuard.Data.D_ACTP);
+         // 
          // colHOST_NAME
          // 
          this.colHOST_NAME.Caption = "سیستم کاربر";
@@ -411,18 +427,20 @@
          this.Host_Lov.NullText = "";
          this.Host_Lov.ValueMember = "CPU_SRNO_DNRM";
          // 
+         // vComputerBs
+         // 
+         this.vComputerBs.DataSource = typeof(System.DataGuard.Data.V_Computer);
+         // 
          // splitContainer1
          // 
-         this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+         this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Top;
          this.splitContainer1.Location = new System.Drawing.Point(3, 3);
          this.splitContainer1.Name = "splitContainer1";
          // 
          // splitContainer1.Panel1
          // 
          this.splitContainer1.Panel1.AutoScroll = true;
-         this.splitContainer1.Panel1.Controls.Add(this.dataSourceGridControl);
+         this.splitContainer1.Panel1.Controls.Add(this.splitContainerControl1);
          this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          // 
          // splitContainer1.Panel2
@@ -430,8 +448,23 @@
          this.splitContainer1.Panel2.Controls.Add(this.userGridControl);
          this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.splitContainer1.Size = new System.Drawing.Size(1120, 189);
-         this.splitContainer1.SplitterDistance = 558;
+         this.splitContainer1.SplitterDistance = 812;
          this.splitContainer1.TabIndex = 1;
+         // 
+         // splitContainerControl1
+         // 
+         this.splitContainerControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
+         this.splitContainerControl1.Name = "splitContainerControl1";
+         this.splitContainerControl1.Panel1.Controls.Add(this.dataSourceGridControl);
+         this.splitContainerControl1.Panel1.Text = "Panel1";
+         this.splitContainerControl1.Panel2.Controls.Add(this.gridControl1);
+         this.splitContainerControl1.Panel2.Controls.Add(this.AddAuds_Butn);
+         this.splitContainerControl1.Panel2.Text = "Panel2";
+         this.splitContainerControl1.Size = new System.Drawing.Size(812, 189);
+         this.splitContainerControl1.SplitterPosition = 369;
+         this.splitContainerControl1.TabIndex = 1;
+         this.splitContainerControl1.Text = "splitContainerControl1";
          // 
          // dataSourceGridControl
          // 
@@ -440,28 +473,28 @@
          this.dataSourceGridControl.Location = new System.Drawing.Point(0, 0);
          this.dataSourceGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.dataSourceGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.dataSourceGridControl.MainView = this.gridView2;
+         this.dataSourceGridControl.MainView = this.Database_Gv;
          this.dataSourceGridControl.Name = "dataSourceGridControl";
-         this.dataSourceGridControl.Size = new System.Drawing.Size(558, 189);
+         this.dataSourceGridControl.Size = new System.Drawing.Size(369, 189);
          this.dataSourceGridControl.TabIndex = 0;
          this.dataSourceGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView2});
+            this.Database_Gv});
          // 
          // DatSBs1
          // 
          this.DatSBs1.DataSource = typeof(System.DataGuard.Data.DataSource);
          // 
-         // gridView2
+         // Database_Gv
          // 
-         this.gridView2.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.gridView2.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView2.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView2.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.gridView2.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-         this.gridView2.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.gridView2.Appearance.Row.Options.UseBackColor = true;
-         this.gridView2.Appearance.Row.Options.UseFont = true;
-         this.gridView2.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.Database_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Database_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Database_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Database_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.Database_Gv.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+         this.Database_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Database_Gv.Appearance.Row.Options.UseBackColor = true;
+         this.Database_Gv.Appearance.Row.Options.UseFont = true;
+         this.Database_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID1,
             this.colShortCut1,
             this.colDatabaseServer,
@@ -475,13 +508,14 @@
             this.colIsDefault,
             this.colIsActive,
             this.colIsVisible1});
-         this.gridView2.GridControl = this.dataSourceGridControl;
-         this.gridView2.Name = "gridView2";
-         this.gridView2.OptionsBehavior.Editable = false;
-         this.gridView2.OptionsBehavior.ReadOnly = true;
-         this.gridView2.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView2.OptionsView.ShowDetailButtons = false;
-         this.gridView2.OptionsView.ShowGroupPanel = false;
+         this.Database_Gv.GridControl = this.dataSourceGridControl;
+         this.Database_Gv.Name = "Database_Gv";
+         this.Database_Gv.OptionsBehavior.Editable = false;
+         this.Database_Gv.OptionsBehavior.ReadOnly = true;
+         this.Database_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Database_Gv.OptionsSelection.MultiSelect = true;
+         this.Database_Gv.OptionsView.ShowDetailButtons = false;
+         this.Database_Gv.OptionsView.ShowGroupPanel = false;
          // 
          // colID1
          // 
@@ -554,6 +588,76 @@
          this.colIsVisible1.FieldName = "IsVisible";
          this.colIsVisible1.Name = "colIsVisible1";
          // 
+         // gridControl1
+         // 
+         this.gridControl1.DataSource = this.vComputerBs;
+         this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControl1.Location = new System.Drawing.Point(0, 0);
+         this.gridControl1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.gridControl1.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl1.MainView = this.Computer_Gv;
+         this.gridControl1.Name = "gridControl1";
+         this.gridControl1.Size = new System.Drawing.Size(379, 189);
+         this.gridControl1.TabIndex = 1;
+         this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.Computer_Gv});
+         // 
+         // Computer_Gv
+         // 
+         this.Computer_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Computer_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Computer_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Computer_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.Computer_Gv.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.Computer_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Computer_Gv.Appearance.Row.Options.UseBackColor = true;
+         this.Computer_Gv.Appearance.Row.Options.UseFont = true;
+         this.Computer_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colIP_DNRM,
+            this.colCPU_SRNO_DNRM,
+            this.colCOMP_NAME_DNRM,
+            this.colNAME_DNRM});
+         this.Computer_Gv.GridControl = this.gridControl1;
+         this.Computer_Gv.Name = "Computer_Gv";
+         this.Computer_Gv.OptionsBehavior.Editable = false;
+         this.Computer_Gv.OptionsBehavior.ReadOnly = true;
+         this.Computer_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.Computer_Gv.OptionsSelection.MultiSelect = true;
+         this.Computer_Gv.OptionsView.ShowDetailButtons = false;
+         this.Computer_Gv.OptionsView.ShowGroupPanel = false;
+         // 
+         // colIP_DNRM
+         // 
+         this.colIP_DNRM.Caption = "IP Address";
+         this.colIP_DNRM.FieldName = "IP_DNRM";
+         this.colIP_DNRM.Name = "colIP_DNRM";
+         this.colIP_DNRM.Visible = true;
+         this.colIP_DNRM.VisibleIndex = 0;
+         // 
+         // colCPU_SRNO_DNRM
+         // 
+         this.colCPU_SRNO_DNRM.Caption = "Cpu Serial";
+         this.colCPU_SRNO_DNRM.FieldName = "CPU_SRNO_DNRM";
+         this.colCPU_SRNO_DNRM.Name = "colCPU_SRNO_DNRM";
+         this.colCPU_SRNO_DNRM.Visible = true;
+         this.colCPU_SRNO_DNRM.VisibleIndex = 1;
+         // 
+         // colCOMP_NAME_DNRM
+         // 
+         this.colCOMP_NAME_DNRM.Caption = "Computer Name";
+         this.colCOMP_NAME_DNRM.FieldName = "COMP_NAME_DNRM";
+         this.colCOMP_NAME_DNRM.Name = "colCOMP_NAME_DNRM";
+         this.colCOMP_NAME_DNRM.Visible = true;
+         this.colCOMP_NAME_DNRM.VisibleIndex = 2;
+         // 
+         // colNAME_DNRM
+         // 
+         this.colNAME_DNRM.Caption = "Computer Fullname";
+         this.colNAME_DNRM.FieldName = "NAME_DNRM";
+         this.colNAME_DNRM.Name = "colNAME_DNRM";
+         this.colNAME_DNRM.Visible = true;
+         this.colNAME_DNRM.VisibleIndex = 3;
+         // 
          // userGridControl
          // 
          this.userGridControl.DataSource = this.UserBs1;
@@ -561,28 +665,28 @@
          this.userGridControl.Location = new System.Drawing.Point(0, 0);
          this.userGridControl.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.userGridControl.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.userGridControl.MainView = this.gridView1;
+         this.userGridControl.MainView = this.User_Gv;
          this.userGridControl.Name = "userGridControl";
-         this.userGridControl.Size = new System.Drawing.Size(558, 189);
+         this.userGridControl.Size = new System.Drawing.Size(304, 189);
          this.userGridControl.TabIndex = 0;
          this.userGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView1});
+            this.User_Gv});
          // 
          // UserBs1
          // 
          this.UserBs1.DataSource = typeof(System.DataGuard.Data.User);
          // 
-         // gridView1
+         // User_Gv
          // 
-         this.gridView1.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.gridView1.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView1.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView1.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.gridView1.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.gridView1.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.gridView1.Appearance.Row.Options.UseBackColor = true;
-         this.gridView1.Appearance.Row.Options.UseFont = true;
-         this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+         this.User_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.User_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.User_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.User_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.User_Gv.Appearance.Row.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.User_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.User_Gv.Appearance.Row.Options.UseBackColor = true;
+         this.User_Gv.Appearance.Row.Options.UseFont = true;
+         this.User_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colID,
             this.colShortCut,
             this.colTitleFa,
@@ -600,13 +704,14 @@
             this.colPASS_MDFY_DATE,
             this.colDFLT_FACT,
             this.colADD_COMP_LIST});
-         this.gridView1.GridControl = this.userGridControl;
-         this.gridView1.Name = "gridView1";
-         this.gridView1.OptionsBehavior.Editable = false;
-         this.gridView1.OptionsBehavior.ReadOnly = true;
-         this.gridView1.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.gridView1.OptionsView.ShowDetailButtons = false;
-         this.gridView1.OptionsView.ShowGroupPanel = false;
+         this.User_Gv.GridControl = this.userGridControl;
+         this.User_Gv.Name = "User_Gv";
+         this.User_Gv.OptionsBehavior.Editable = false;
+         this.User_Gv.OptionsBehavior.ReadOnly = true;
+         this.User_Gv.OptionsSelection.EnableAppearanceFocusedCell = false;
+         this.User_Gv.OptionsSelection.MultiSelect = true;
+         this.User_Gv.OptionsView.ShowDetailButtons = false;
+         this.User_Gv.OptionsView.ShowGroupPanel = false;
          // 
          // colID
          // 
@@ -710,13 +815,18 @@
          this.Btn_Back.UseVisualStyleBackColor = true;
          this.Btn_Back.Click += new System.EventHandler(this.Btn_Back_Click);
          // 
-         // DactpBs
+         // DelMultiRecod_Butn
          // 
-         this.DactpBs.DataSource = typeof(System.DataGuard.Data.D_ACTP);
-         // 
-         // vComputerBs
-         // 
-         this.vComputerBs.DataSource = typeof(System.DataGuard.Data.V_Computer);
+         this.DelMultiRecod_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+         this.DelMultiRecod_Butn.Dock = System.Windows.Forms.DockStyle.Top;
+         this.DelMultiRecod_Butn.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.DelMultiRecod_Butn.Location = new System.Drawing.Point(3, 192);
+         this.DelMultiRecod_Butn.Name = "DelMultiRecod_Butn";
+         this.DelMultiRecod_Butn.Size = new System.Drawing.Size(1120, 31);
+         this.DelMultiRecod_Butn.TabIndex = 2;
+         this.DelMultiRecod_Butn.Text = "حذف رکورد های انتخاب شده";
+         this.DelMultiRecod_Butn.UseVisualStyleBackColor = false;
+         this.DelMultiRecod_Butn.Click += new System.EventHandler(this.DelMultiRecod_Butn_Click);
          // 
          // ActiveCyclData
          // 
@@ -732,24 +842,28 @@
          this.tabPage1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.access_User_DatasourceGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AudsBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView3)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Auds_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Butn)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actp_Lov)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DactpBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Host_Lov)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.vComputerBs)).EndInit();
          this.splitContainer1.Panel1.ResumeLayout(false);
          this.splitContainer1.Panel2.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
          this.splitContainer1.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
+         this.splitContainerControl1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.dataSourceGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DatSBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Database_Gv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Computer_Gv)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.userGridControl)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.UserBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DactpBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.vComputerBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.User_Gv)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -761,7 +875,7 @@
       private Windows.Forms.Button Btn_Back;
       private DevExpress.XtraGrid.GridControl userGridControl;
       private Windows.Forms.BindingSource UserBs1;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView1;
+      private DevExpress.XtraGrid.Views.Grid.GridView User_Gv;
       private DevExpress.XtraGrid.Columns.GridColumn colID;
       private DevExpress.XtraGrid.Columns.GridColumn colShortCut;
       private DevExpress.XtraGrid.Columns.GridColumn colTitleFa;
@@ -781,7 +895,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colADD_COMP_LIST;
       private DevExpress.XtraGrid.GridControl access_User_DatasourceGridControl;
       private Windows.Forms.BindingSource AudsBs1;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView3;
+      private DevExpress.XtraGrid.Views.Grid.GridView Auds_Gv;
       private DevExpress.XtraGrid.Columns.GridColumn colID2;
       private DevExpress.XtraGrid.Columns.GridColumn colUSER_ID;
       private DevExpress.XtraGrid.Columns.GridColumn colDSRC_ID;
@@ -791,7 +905,7 @@
       private Windows.Forms.SplitContainer splitContainer1;
       private DevExpress.XtraGrid.GridControl dataSourceGridControl;
       private Windows.Forms.BindingSource DatSBs1;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView2;
+      private DevExpress.XtraGrid.Views.Grid.GridView Database_Gv;
       private DevExpress.XtraGrid.Columns.GridColumn colID1;
       private DevExpress.XtraGrid.Columns.GridColumn colShortCut1;
       private DevExpress.XtraGrid.Columns.GridColumn colDatabaseServer;
@@ -819,5 +933,13 @@
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit Host_Lov;
       private Windows.Forms.BindingSource DactpBs;
       private Windows.Forms.BindingSource vComputerBs;
+      private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
+      private DevExpress.XtraGrid.GridControl gridControl1;
+      private DevExpress.XtraGrid.Views.Grid.GridView Computer_Gv;
+      private DevExpress.XtraGrid.Columns.GridColumn colIP_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colCPU_SRNO_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colCOMP_NAME_DNRM;
+      private DevExpress.XtraGrid.Columns.GridColumn colNAME_DNRM;
+      private Windows.Forms.Button DelMultiRecod_Butn;
    }
 }

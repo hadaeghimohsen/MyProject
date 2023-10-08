@@ -159,7 +159,7 @@ namespace System.Scsc.Ui.OtherIncome
          else if (keyData == Keys.Enter)
          {
             //if (!(Btn_RqstRqt1.Focused || Btn_RqstSav1.Focused || Btn_RqstDelete1.Focused || Btn_NewRecord.Focused))
-               SendKeys.Send("{TAB}");
+            SendKeys.Send("{TAB}");
          }
          else if (keyData == Keys.F2)
          {
@@ -473,6 +473,9 @@ namespace System.Scsc.Ui.OtherIncome
          RtoaBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Payment_To_Another_Account");
          DRqpmBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Request_Parameter");
          DAPycoBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "PaymentCost_INFO");
+         DPmctBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "PaymentContractItem_INFO" && a.REF_CODE != null);
+         FlpcBs.DataSource = iScsc.Fighter_Link_Payment_Contarct_Items;
+         DAPcdtiBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "PaymentContractItemColor_INFO");
 
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
@@ -534,6 +537,14 @@ namespace System.Scsc.Ui.OtherIncome
                   }
                   // 1398/09/07 * پیدا کردن درخواست برای مشتری
                   RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == Convert.ToInt64(fileno))));
+
+                  // 1401/07/07 * Set Auto Locker
+                  if(iScsc.Dressers.Any(l => l.CMND_SEND == fg.FNGR_PRNT_DNRM))
+                  {
+                     DresNumb_Txt.Text = iScsc.Dressers.FirstOrDefault(l => l.CMND_SEND == fg.FNGR_PRNT_DNRM).DRES_NUMB.ToString();
+                     JoinDasr_Butn_Click(null, null);
+                     ConfDasr_Butn_Click(null, null);
+                  }
 
                   // 1397/05/16
                   if (xinput.Attribute("formcaller") != null)

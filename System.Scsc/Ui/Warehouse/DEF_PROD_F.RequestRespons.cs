@@ -236,6 +236,7 @@ namespace System.Scsc.Ui.Warehouse
             DExptBs.DataSource = iScsc.D_EXPTs;
             DInvcBs.DataSource = iScsc.D_INVCs;
             DRqstBs.DataSource = iScsc.D_RQSTs;
+            DFachBs.DataSource = iScsc.D_FACHes;
 
             isFirstLoaded = true;
          }

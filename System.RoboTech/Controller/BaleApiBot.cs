@@ -5797,7 +5797,7 @@ namespace System.RoboTech.Controller
                         await Bot.SendTextMessageAsync(
                            (long)adv.CHAT_ID,
                            send.TEXT_MESG + "\n\r" + "\n\r" + "🤑 _سود شما از تبلیغات دریافتی_ ( *" + adv.AMNT.Value.ToString("n0") + " " + _amntTypeDesc + "* )" ?? "😊",
-                           replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                           replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                            );
                      }
                      else if (send.PAKT_TYPE == "002" || send.PAKT_TYPE == "003" || send.PAKT_TYPE == "004" || send.PAKT_TYPE == "006" || send.PAKT_TYPE == "007" || send.PAKT_TYPE == "009")
@@ -5825,21 +5825,21 @@ namespace System.RoboTech.Controller
                               (send.TEXT_MESG ?? "😊") + (adv.AMNT != 0 ? ("\n\r" + "\n\r" + "🤑 _سود شما از تبلیغات دریافتی_ ( *" + adv.AMNT.Value.ToString("n0") + " " + _amntTypeDesc + "* )") : ("")),
                               ParseMode.Default,
                               false,                              
-                              replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                              replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                               );
                         else if (send.PAKT_TYPE == "003")
                            await Bot.SendVideoAsync(
                               (long)adv.CHAT_ID,
                               photo,
                               caption: (send.TEXT_MESG ?? "😊") + (adv.AMNT != 0 ? ("\n\r" + "\n\r" + "🤑 _سود شما از تبلیغات دریافتی_ ( *" + adv.AMNT.Value.ToString("n0") + " " + _amntTypeDesc + "* )") : ("")),
-                              replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                              replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                               );
                         else if (send.PAKT_TYPE == "004")
                            await Bot.SendDocumentAsync(
                               (long)adv.CHAT_ID,
                               photo,
                               (send.TEXT_MESG ?? "😊") + (adv.AMNT != 0 ? ("\n\r" + "\n\r" + "🤑 _سود شما از تبلیغات دریافتی_ ( *" + adv.AMNT.Value.ToString("n0") + " " + _amntTypeDesc + "* )") : ("")),
-                              replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                              replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                               );
                         else if (send.PAKT_TYPE == "006")
                            await Bot.SendAudioAsync(
@@ -5850,19 +5850,19 @@ namespace System.RoboTech.Controller
                               duration: 0,
                               performer: "",
                               title: "*",                              
-                              replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                              replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                               );
                         else if (send.PAKT_TYPE == "007")
                            await Bot.SendStickerAsync(
                               (long)adv.CHAT_ID,
                               photo,                              
-                              replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                              replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                               );
                         else if (send.PAKT_TYPE == "009")
                            await Bot.SendVoiceAsync(
                               (long)adv.CHAT_ID,
                               photo,                              
-                              replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                              replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                               );
                      }
                      adv.SEND_STAT = "004";
@@ -5943,7 +5943,7 @@ namespace System.RoboTech.Controller
                      (long)send.CHAT_ID, 
                      send.MESG_TEXT ?? "😊", 
                      replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0),
-                     replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                     replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                      );
                }
                else if (send.MESG_TYPE == "002" || send.MESG_TYPE == "003" || send.MESG_TYPE == "004" || send.MESG_TYPE == "006" || send.MESG_TYPE == "007" || send.MESG_TYPE == "009")
@@ -5972,14 +5972,14 @@ namespace System.RoboTech.Controller
                         ParseMode.Default, 
                         false, 
                         (int)(send.SRMG_MESG_ID_DNRM ?? 0),
-                        replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                        replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                         );
                   else if (send.MESG_TYPE == "003")
                      await Bot.SendVideoAsync(
                         (long)send.CHAT_ID, 
                         photo, 
                         replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0),
-                        replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                        replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                         );
                   else if (send.MESG_TYPE == "004")
                      await Bot.SendDocumentAsync(
@@ -5987,7 +5987,7 @@ namespace System.RoboTech.Controller
                         photo, 
                         send.MESG_TEXT ?? "😊", 
                         replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0),
-                        replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                        replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                         );
                   else if (send.MESG_TYPE == "006")
                      await Bot.SendAudioAsync(
@@ -5999,21 +5999,21 @@ namespace System.RoboTech.Controller
                         "*", 
                         "#", 
                         replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0),
-                        replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                        replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                         );
                   else if (send.MESG_TYPE == "007")
                      await Bot.SendStickerAsync(
                         (long)send.CHAT_ID, 
                         photo, 
                         replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0),
-                        replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                        replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                         );
                   else if (send.MESG_TYPE == "009")
                      await Bot.SendVoiceAsync(
                         (long)send.CHAT_ID, 
                         photo, 
                         replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0),
-                        replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                        replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                         );
                }
                else if (send.MESG_TYPE == "005")
@@ -6023,7 +6023,7 @@ namespace System.RoboTech.Controller
                      (float)send.LAT, 
                      (float)send.LON, 
                      replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0),
-                     replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                     replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                      );
                }
                else if (send.MESG_TYPE == "008")
@@ -6033,7 +6033,7 @@ namespace System.RoboTech.Controller
                      send.CONT_CELL_PHON, 
                      send.MESG_TEXT, 
                      replyToMessageId: (int)(send.SRMG_MESG_ID_DNRM ?? 0),
-                     replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3) : null
+                     replyMarkup: send.INLN_KEYB_DNRM != null ? CreateInLineKeyboard(send.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null) : null
                      );
                }
 
@@ -6328,7 +6328,7 @@ namespace System.RoboTech.Controller
                                        new XAttribute("ordtrwno", ordt.RWNO)
                                     )),
                                     replyMarkup:
-                                    CreateInLineKeyboard(ordt.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3)
+                                    CreateInLineKeyboard(ordt.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null)
                                     );
 
                                  // 1399/05/05
@@ -6389,7 +6389,7 @@ namespace System.RoboTech.Controller
                                           new XAttribute("ordtrwno", ordt.RWNO)
                                        )),
                                     replyMarkup:
-                                    CreateInLineKeyboard(ordt.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), 3));
+                                    CreateInLineKeyboard(ordt.INLN_KEYB_DNRM.Descendants("InlineKeyboardButton").ToList(), null));
 
                                  // 1399/05/05
                                  try
@@ -6530,16 +6530,18 @@ namespace System.RoboTech.Controller
                ).ToList()
             );
       }
-      public InlineKeyboardMarkup CreateInLineKeyboard(List<XElement> list, int columns)
+      public InlineKeyboardMarkup CreateInLineKeyboard(List<XElement> list, int? columns)
       {
+         if(columns == null)
+            columns = 1;
          int rows = (int)Math.Ceiling((double)list.Count / (double)columns);
          InlineKeyboardButton[][] buttons = new InlineKeyboardButton[rows][];
 
          for (int i = 0; i < buttons.Length; i++)
          {
             buttons[i] = list
-                .Skip(i * columns)
-                .Take(columns)
+                .Skip(i * (int)columns)
+                .Take((int)columns)
                 .Select(direction => 
                    direction.Attribute("data").Value != "" ? 
                    InlineKeyboardButton.WithCallbackData(direction.Value, direction.Attribute("data").Value) :
@@ -6691,13 +6693,17 @@ namespace System.RoboTech.Controller
                   else
                      caption = "لطفا گزینه مورد نظر خود را انتخاب کنید";
 
+                  int? _clmnNumb = null;
+                  if (xelement.Attribute("clmnnumb") != null)
+                     _clmnNumb = xelement.Attribute("clmnnumb").Value.ToInt32();
+
                   try
                   {
                      await
                         Bot.SendTextMessageAsync(
                            chatId: chatid,
                            text: caption,
-                           replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), 3)
+                           replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), _clmnNumb)
                         );
                   }
                   catch { }
@@ -6758,7 +6764,7 @@ namespace System.RoboTech.Controller
                            await Bot.SendTextMessageAsync(
                                chatId: chatid,
                                text: caption,
-                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), 3)
+                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), null)
                            );
                         }
                         catch
@@ -6778,7 +6784,7 @@ namespace System.RoboTech.Controller
                                chatId: chatid,
                                photo: fileid,
                                caption: caption,
-                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), 3)
+                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), null)
                            );
                         }
                         catch
@@ -6798,7 +6804,7 @@ namespace System.RoboTech.Controller
                                chatId: chatid,
                                video: fileid,
                                caption: caption,
-                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), 3)
+                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), null)
                            );
                         }
                         catch
@@ -6818,7 +6824,7 @@ namespace System.RoboTech.Controller
                                chatId: chatid,
                                document: fileid,
                                caption: caption,
-                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), 3)
+                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), null)
                            );
                         }
                         catch
@@ -6840,7 +6846,7 @@ namespace System.RoboTech.Controller
                                chatId: chatid,
                                audio: fileid,
                                caption: caption,
-                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), 3)
+                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), null)
                            );
                         }
                         catch
@@ -6863,7 +6869,7 @@ namespace System.RoboTech.Controller
                                phoneNumber: fileid,
                                firstName: frstname,
                                lastName: lastname,
-                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), 3)
+                               replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), null)
                            );
                         }
                         catch

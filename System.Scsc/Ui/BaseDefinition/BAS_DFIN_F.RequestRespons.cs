@@ -786,6 +786,10 @@ namespace System.Scsc.Ui.BaseDefinition
 
             switch(xinput.Attribute("showtabpage").Value)
             {
+               case "tp_003":
+                  fetchagine = true;
+                  SwitchButtonsTabPage(LoginMethod_Butn);
+                  break;
                case "tp_005":
                   fetchagine = true;
                   SwitchButtonsTabPage(Coach_Butn);

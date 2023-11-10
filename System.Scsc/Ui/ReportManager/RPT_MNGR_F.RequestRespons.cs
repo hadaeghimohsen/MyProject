@@ -407,7 +407,7 @@ namespace System.Scsc.Ui.ReportManager
 
                      s.Compile();
                      s.Render();
-                     foreach (var _printer in SlctedPrint.Modual_Report_Direct_Prints.Where(p => p.STAT == "002" && p.USER_ID == CurrentUser && p.Computer_Action.COMP_NAME == ComputerName))
+                     /*foreach (var _printer in SlctedPrint.Modual_Report_Direct_Prints.Where(p => p.STAT == "002" && p.USER_ID == CurrentUser && p.Computer_Action.COMP_NAME == ComputerName))
                      {
                         if(_printer.DFLT_PRNT == "002")
                            s.Print(false, (short)_printer.COPY_NUMB);
@@ -417,7 +417,8 @@ namespace System.Scsc.Ui.ReportManager
                            _printerSettings.PrinterName = _printer.PRNT_NAME;
                            s.Print(false, _printerSettings);
                         }
-                     }                     
+                     }*/
+                     s.Print(false);
 
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "Localhost",
@@ -493,7 +494,7 @@ namespace System.Scsc.Ui.ReportManager
 
                      s.Compile();
                      s.Render();
-                     foreach (var _printer in DfltPrint.Modual_Report_Direct_Prints.Where(p => p.STAT == "002" && p.USER_ID == CurrentUser && p.Computer_Action.COMP_NAME == ComputerName))
+                     /*foreach (var _printer in DfltPrint.Modual_Report_Direct_Prints.Where(p => p.STAT == "002" && p.USER_ID == CurrentUser && p.Computer_Action.COMP_NAME == ComputerName))
                      {
                         if (_printer.DFLT_PRNT == "002")
                            s.Print(false, (short)_printer.COPY_NUMB);
@@ -503,7 +504,8 @@ namespace System.Scsc.Ui.ReportManager
                            _printerSettings.PrinterName = _printer.PRNT_NAME;
                            s.Print(false, _printerSettings);
                         }
-                     }
+                     }*/
+                     s.Print(false);
 
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "Localhost",
@@ -579,7 +581,7 @@ namespace System.Scsc.Ui.ReportManager
 
                      s.Compile();
                      s.Render();
-                     foreach (var _printer in DfltPrint.Modual_Report_Direct_Prints.Where(p => p.STAT == "002" && p.USER_ID == CurrentUser && p.Computer_Action.COMP_NAME == ComputerName))
+                     /*foreach (var _printer in DfltPrint.Modual_Report_Direct_Prints.Where(p => p.STAT == "002" && p.USER_ID == CurrentUser && p.Computer_Action.COMP_NAME == ComputerName))
                      {
                         if (_printer.DFLT_PRNT == "002")
                            s.Print(false, (short)_printer.COPY_NUMB);
@@ -589,7 +591,8 @@ namespace System.Scsc.Ui.ReportManager
                            _printerSettings.PrinterName = _printer.PRNT_NAME;
                            s.Print(false, _printerSettings);
                         }
-                     }
+                     }*/
+                     s.Print(false);
 
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "Localhost",

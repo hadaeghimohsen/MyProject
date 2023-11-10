@@ -5487,6 +5487,7 @@
          this.RqstMBnFngrPrntMenu.Name = "RqstMBnFngrPrntMenu";
          this.RqstMBnFngrPrntMenu.Size = new System.Drawing.Size(56, 44);
          this.RqstMBnFngrPrntMenu.ToolTipText = "عملیات اثر انگشت";
+         this.RqstMBnFngrPrntMenu.ButtonClick += new System.EventHandler(this.RqstBnEnrollFngrPrnt1_Click);
          // 
          // RqstBnEnrollFngrPrnt1
          // 

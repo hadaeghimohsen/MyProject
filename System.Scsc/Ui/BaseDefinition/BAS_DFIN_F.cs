@@ -519,7 +519,7 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             var crnt = MtodBs1.Current as Data.Method;
 
-            if (crnt != null && MessageBox.Show(this, "آیا با حذف سرگروه ورزشی موافق هستید؟", "حذف سرگروه ورزشی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (crnt != null && MessageBox.Show(this, "آیا با حذف سرگروه موافق هستید؟", "حذف سرگروه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.Methods.DeleteOnSubmit(crnt);
 
@@ -655,7 +655,7 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             var crnt = CtgyBs1.Current as Data.Category_Belt;
 
-            if (crnt != null && MessageBox.Show(this, "آیا با حذف زیر گروه ورزشی موافق هستید؟", "حذف زیر گروه ورزشی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (crnt != null && MessageBox.Show(this, "آیا با حذف زیر گروه موافق هستید؟", "حذف زیر گروه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.Category_Belts.DeleteOnSubmit(crnt);
 
@@ -4277,6 +4277,7 @@ namespace System.Scsc.Ui.BaseDefinition
                            new XAttribute("devtype", "006"),
                            new XAttribute("contype", "002"),
                            new XAttribute("cmdtype", "test"),
+                           new XAttribute("cmdsend", ""),
                            new XAttribute("ip", dev.IP_ADRS),
                            new XAttribute("sendport", dev.PORT_SEND)
                         )
@@ -4303,6 +4304,7 @@ namespace System.Scsc.Ui.BaseDefinition
                            new XAttribute("devtype", "006"),
                            new XAttribute("contype", "002"),
                            new XAttribute("cmdtype", "gotoonline"),
+                           new XAttribute("cmdsend", ""),
                            new XAttribute("ip", dev.IP_ADRS),
                            new XAttribute("sendport", dev.PORT_SEND)
                         )
@@ -4329,6 +4331,7 @@ namespace System.Scsc.Ui.BaseDefinition
                            new XAttribute("devtype", "006"),
                            new XAttribute("contype", "002"),
                            new XAttribute("cmdtype", "gotooffline"),
+                           new XAttribute("cmdsend", ""),
                            new XAttribute("ip", dev.IP_ADRS),
                            new XAttribute("sendport", dev.PORT_SEND)
                         )
@@ -4355,6 +4358,7 @@ namespace System.Scsc.Ui.BaseDefinition
                            new XAttribute("devtype", "006"),
                            new XAttribute("contype", "002"),
                            new XAttribute("cmdtype", "open"),
+                           new XAttribute("cmdsend", ""),
                            new XAttribute("ip", dev.IP_ADRS),
                            new XAttribute("sendport", dev.PORT_SEND)
                         )
@@ -4381,6 +4385,7 @@ namespace System.Scsc.Ui.BaseDefinition
                            new XAttribute("devtype", "006"),
                            new XAttribute("contype", "002"),
                            new XAttribute("cmdtype", "close"),
+                           new XAttribute("cmdsend", ""),
                            new XAttribute("ip", dev.IP_ADRS),
                            new XAttribute("sendport", dev.PORT_SEND)
                         )
@@ -4407,6 +4412,7 @@ namespace System.Scsc.Ui.BaseDefinition
                            new XAttribute("devtype", "006"),
                            new XAttribute("contype", "002"),
                            new XAttribute("cmdtype", "error"),
+                           new XAttribute("cmdsend", ""),
                            new XAttribute("ip", dev.IP_ADRS),
                            new XAttribute("sendport", dev.PORT_SEND)
                         )

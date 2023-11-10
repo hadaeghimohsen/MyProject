@@ -21,6 +21,17 @@ namespace System.Scsc.Ui.Regulation
       }
       private bool requery = false;
 
+      private void Execute_Query()
+      {
+         iScsc = new Data.iScscDataContext(ConnectionString);
+
+         int _grop = Grop3Bs.Position;
+
+         Grop3Bs.DataSource = GropBs2.List.OfType<Data.Group_Expense>().Where(g => g.GROP_TYPE == "001");
+
+         Grop3Bs.Position = _grop;
+      }
+
       partial void expense_ItemBindingNavigatorSaveItem_Click(object sender, EventArgs e);
 
       private void Btn_Back_Click(object sender, EventArgs e)
@@ -191,5 +202,84 @@ namespace System.Scsc.Ui.Regulation
          catch { }
       }
 
+      private void RqtpBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqtp = RqtpBs.Current as Data.Request_Type;
+            if (_rqtp == null) return;
+
+            UExpnBs.DataSource =
+               iScsc.Expenses.Where(r => r.Expense_Type.Request_Requester.RQTP_CODE == _rqtp.CODE);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddUExpn2DExpn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _grop = Grop3Bs.Current as Data.Group_Expense;
+            if (_grop == null) return;
+
+            foreach (var item in UExpn_Gv.GetSelectedRows())
+            {
+               var _expn = UExpn_Gv.GetRow(item) as Data.Expense;
+               //_expn.GROP_CODE = _grop.CODE;
+               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Expense SET Grop_Code = {0} WHERE Code = {1};", _grop.CODE, _expn.CODE));
+            }
+
+            //iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelDExpn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            foreach (var item in DExpn_Gv.GetSelectedRows())
+            {
+               var _expn = UExpn_Gv.GetRow(item) as Data.Expense;
+               //_expn.GROP_CODE = null;
+               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Expense SET Grop_Code = NULL WHERE Code = {0};", _expn.CODE));
+            }
+
+            //iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Grop3Bs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _grop = Grop3Bs.Current as Data.Group_Expense;
+            if (_grop == null) return;
+
+            DExpnBs.DataSource =
+               iScsc.Expenses.Where(r => r.GROP_CODE == _grop.CODE);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

@@ -39,6 +39,9 @@ namespace System.Scsc.Ui.Attendance
          int dres = DresBs1.Position;
          ComaBs1.DataSource = iScsc.Computer_Actions;
          DresBs1.Position = dres;
+
+         DresBlnk_Gv.ActiveFilterString = "ORDR Is Null";
+
          requery = false;
       }
 
@@ -374,6 +377,160 @@ namespace System.Scsc.Ui.Attendance
                   ref _xret
                );
             }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SendCmnd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var dres = DresBs1.Current as Data.Dresser;
+            if (dres == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("OprtDres",
+                           new XAttribute("type", "sendoprtdres"),
+                           new XAttribute("cmndname", dres.DRES_NUMB),
+                           new XAttribute("devip", dres.IP_ADRS),
+                           new XAttribute("cmndsend", dres.CMND_SEND ?? "")
+                         )
+               }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void UpdtDstnNumb_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            DresBs1.List.OfType<Data.Dresser>().ToList().ForEach(d => d.ORDR = null);
+            //DresBlnk_Gv.ActiveFilterString = "ORDR Is Null";
+            //int _indx = 0,
+            //    _len = (int)DstnNumb_Nud.Value,
+            //    _sec = (DresBs1.List.Count % _len == 0) ? DresBs1.List.Count / _len : (DresBs1.List.Count / _len) + 1,
+            //    _ii = 0;
+            
+            //for (int i = 1; i <= DresBs1.List.Count; i++)
+            //{
+            //   if (_indx >= _len) _indx = 0;
+            //   var _locker = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+            //   if (_indx == 0) { ++_ii; _locker.ORDR = _ii; }
+            //   else _locker.ORDR = (_sec + _ii) + (_len * (_indx - 1));
+            //   ++_indx;
+            //}
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ActvDactv_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
+            
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void OrdrSet_Butn_ButtonClick(object sender, ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            _dres.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null).Count() + 1;
+
+            //DresBlnk_Gv.ActiveFilterString = "ORDR Is Null";
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Ordr_Nud_ButtonClick(object sender, ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            _dres.ORDR = null;
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelDres_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _coma = ComaBs1.Current as Data.Computer_Action;
+            if (_coma == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف کمد ها موافق هستید؟", "حذف کمدها", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) != DialogResult.Yes) return;
+
+            iScsc.ExecuteCommand(string.Format("DELETE dbo.Dresser WHERE Coma_Code = {0};", _coma.CODE));
             requery = true;
          }
          catch (Exception exc)

@@ -124,14 +124,14 @@ WHERE {WhereClause}
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,0.4,6,5.4</ClientRectangle>
+          <ClientRectangle>0,0.4,6,5.6</ClientRectangle>
           <Components isList="true" count="24">
             <Text1 Ref="8" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>5,1,1,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>923af3e3acbb4d38b70bebd76269dfee</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -149,7 +149,7 @@ WHERE {WhereClause}
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>5,1.4,1,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>be23da9ab8774b6d9582d0439595333f</Guid>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -167,7 +167,7 @@ WHERE {WhereClause}
               <Brush>Transparent</Brush>
               <ClientRectangle>0,1.4,5,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>90f5e65ba07d41e084164ac129e13e29</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text14</Name>
@@ -184,7 +184,7 @@ WHERE {WhereClause}
               <Brush>Transparent</Brush>
               <ClientRectangle>2,1,3,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>846902315471416fa7eea08cc6c4ea90</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
@@ -201,7 +201,7 @@ WHERE {WhereClause}
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>5,1.8,1,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>4bb0b6f4578e4729ac99c4e6f15c11e9</Guid>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -219,7 +219,7 @@ WHERE {WhereClause}
               <Brush>Transparent</Brush>
               <ClientRectangle>0,1.8,5,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>11fa27e088874119a425fb9b7e07906a</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
@@ -236,7 +236,7 @@ WHERE {WhereClause}
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>5,2.2,1,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>5baa64b75f254c4e81d907ec2ec51807</Guid>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -254,7 +254,7 @@ WHERE {WhereClause}
               <Brush>Transparent</Brush>
               <ClientRectangle>0,2.2,5,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>b7dcda564d8c4763a22d419b35c10560</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text4</Name>
@@ -271,9 +271,9 @@ WHERE {WhereClause}
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>4,2.6,2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,7</Font>
               <Guid>dbf849991030486282250abd3871a884</Guid>
-              <HorAlignment>Right</HorAlignment>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text19</Name>
               <Page isRef="6" />
@@ -289,9 +289,9 @@ WHERE {WhereClause}
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>1.6,2.6,1.2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,7</Font>
               <Guid>f0c95016d2af4dab8545ab8c0d85693f</Guid>
-              <HorAlignment>Right</HorAlignment>
+              <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text21</Name>
               <Page isRef="6" />
@@ -307,7 +307,7 @@ WHERE {WhereClause}
               <Brush>Transparent</Brush>
               <ClientRectangle>2.8,2.6,1.2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>d6ed23e3772445e997d554b54d3d7630</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text20</Name>
@@ -322,16 +322,16 @@ WHERE {WhereClause}
             <Text10 Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>0,4.8,6,0.6</ClientRectangle>
+              <ClientRectangle>0,4.8,6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>Tahoma,7,Regular,Point,False,178</Font>
+              <Font>B Koodak,7</Font>
               <Guid>2c6dd800ad2e432d832ee552def8de00</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text10</Name>
               <Page isRef="6" />
               <Parent isRef="7" />
-              <Text>نرم افزار جامع مدیریتی ارتا
+              <Text>نرم افزار جامع مدیریتی رله سافت
 09033927103 - 09915666598</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
@@ -342,7 +342,7 @@ WHERE {WhereClause}
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>1.6,1,0.4,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>502c05c0eef74be8af351890e2571b4f</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -359,7 +359,7 @@ WHERE {WhereClause}
               <Brush>Transparent</Brush>
               <ClientRectangle>0,2.6,1.6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>2b7c0b56531f4774ba36ab88b185c76d</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text22</Name>
@@ -376,7 +376,7 @@ WHERE {WhereClause}
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>2,3,2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,7</Font>
               <Guid>cee62930328c406786979404d0b9e13f</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -393,7 +393,7 @@ WHERE {WhereClause}
               <Brush>Transparent</Brush>
               <ClientRectangle>2,3.4,2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>b2844bebca784d64a69260134858f879</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -411,7 +411,7 @@ WHERE {WhereClause}
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,3,2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,7</Font>
               <Guid>f2da4b1dcad2451cbdcaadc2bf5f6b87</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -428,7 +428,7 @@ WHERE {WhereClause}
               <Brush>Transparent</Brush>
               <ClientRectangle>0,3.4,2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>77c39aaa120b43d59bdc943e6a95fdfe</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -446,7 +446,7 @@ WHERE {WhereClause}
               <Brush>Transparent</Brush>
               <ClientRectangle>0,1,1.6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>Consolas,8,Bold</Font>
               <Guid>aaa793a291124164b2eeb393a1b28b7c</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text11</Name>
@@ -463,7 +463,7 @@ WHERE {WhereClause}
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,0,6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Lotus,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>67ac71b1705547688c96d39bd04d6e01</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -480,7 +480,7 @@ WHERE {WhereClause}
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,0.6,6,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Titr,9,Bold</Font>
+              <Font>B Koodak,9,Bold</Font>
               <Guid>6d6dde51d27c4c148e9d4397524bedeb</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -497,7 +497,7 @@ WHERE {WhereClause}
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>4,3,2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,7</Font>
               <Guid>853a72783ae64d77af500b2d3da9b098</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -515,7 +515,7 @@ WHERE {WhereClause}
               <Brush>Transparent</Brush>
               <ClientRectangle>4,3.4,2,0.4</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,8,Bold</Font>
+              <Font>B Koodak,8,Bold</Font>
               <Guid>f274633d4e194abfa44a3c9bf1c3d6d1</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -533,7 +533,7 @@ WHERE {WhereClause}
               <Brush>Transparent</Brush>
               <ClientRectangle>0,3.8,6,1</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Nazanin,10,Bold</Font>
+              <Font>B Koodak,10,Bold</Font>
               <Guid>307192fa180243e2b9356b234c229e8b</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text23</Name>
@@ -580,10 +580,10 @@ WHERE {WhereClause}
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>6/3/2023 3:10:10 PM</ReportChanged>
+  <ReportChanged>10/27/2023 11:46:38 PM</ReportChanged>
   <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_ATTN_001_R.mrt</ReportFile>
-  <ReportGuid>6cc26d4580d84939bff863a559cc207a</ReportGuid>
+  <ReportGuid>4ee86e4eeda0494d9949a4922bf3e1d4</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

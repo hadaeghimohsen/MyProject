@@ -414,22 +414,16 @@ namespace System.MessageBroadcast.Ui.MasterPage
             smsConf.GTWY_MAC_ADRS = e.NewValue.ToString();
             iProject.SubmitChanges();
          }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
-         }
+         catch { }
       }
 
       private void Save_Butn_Click(object sender, EventArgs e)
       {
          try
          {
-            iProject.SubmitChanges();            
+            iProject.SubmitChanges();
          }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
-         }
+         catch { }
       }
 
       private void Reload_Butn_Click(object sender, EventArgs e)

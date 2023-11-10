@@ -131,11 +131,7 @@ namespace System.MessageBroadcast.Code
                   break;
             }
          }
-         catch(Exception ex)
-         {
-            //System.Windows.Forms.MessageBox.Show(ex.Message);
-            System.Diagnostics.Debug.WriteLine(ex.Message);
-         }
+         catch { }
          finally
          {
             iProject = new Data.iProjectDataContext(ConnectionString);
@@ -161,12 +157,12 @@ namespace System.MessageBroadcast.Code
 
             var sms = iProject.Sms_Message_Boxes.FirstOrDefault(m => m.SUB_SYS == subsys && m.RFID == rfid);
 
-            if(sms.MESG_ID == "0")
+            if (sms.MESG_ID == "0")
             {
                job.Output =
                   new XElement("Message",
                      new XAttribute("mesgid", sms.MESG_ID),
-                     new XElement("Result", 
+                     new XElement("Result",
                         new XAttribute("code", "001"),
                         "پیامک قادر به ارسال نیست، ممکن است شماره مورد نظر در لیست سیاه قرارداده شده باشد")
                   );
@@ -181,7 +177,7 @@ namespace System.MessageBroadcast.Code
                if (SmsClient == null)
                   SmsClient = new SmsService.Sms();
             }
-            else if(smsConf.FirstOrDefault().SERV_TYPE == "002")
+            else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
             {
                // iNoti Sms Provider
                if (iNotiSmsClient == null)
@@ -215,7 +211,7 @@ namespace System.MessageBroadcast.Code
                            "اطلاعات با موفقیت به شما برگشت داده شد")
                      );
             }
-            else if(smsConf.FirstOrDefault().SERV_TYPE == "002")
+            else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
             {
                var rslt = iNotiSmsClient.DeliverSMS(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, sms.PHON_NUMB, sms.MESG_ID);
 
@@ -231,10 +227,7 @@ namespace System.MessageBroadcast.Code
 
             iProject.SubmitChanges();
          }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);            
-         }
+         catch { }
       }
 
       /// <summary>
@@ -258,7 +251,7 @@ namespace System.MessageBroadcast.Code
                if (SmsClient == null)
                   SmsClient = new SmsService.Sms();
             }
-            else if(smsConf.SERV_TYPE == "002")
+            else if (smsConf.SERV_TYPE == "002")
             {
                // iNoti Sms Provider
                if (iNotiSmsClient == null)
@@ -291,7 +284,7 @@ namespace System.MessageBroadcast.Code
                            "اطلاعات با موفقیت به شما برگشت داده شد")
                      );
             }
-            else if(smsConf.SERV_TYPE == "002")
+            else if (smsConf.SERV_TYPE == "002")
             {
                job.Output =
                      new XElement("Message",
@@ -305,10 +298,7 @@ namespace System.MessageBroadcast.Code
 
             iProject.SubmitChanges();
          }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
-         }
+         catch { }
       }
 
       /// <summary>
@@ -364,7 +354,7 @@ namespace System.MessageBroadcast.Code
                            "اطلاعات با موفقیت به شما برگشت داده شد")
                      );
             }
-            else if(smsConf.SERV_TYPE == "002")
+            else if (smsConf.SERV_TYPE == "002")
             {
                job.Output =
                      new XElement("Message",
@@ -378,10 +368,7 @@ namespace System.MessageBroadcast.Code
 
             iProject.SubmitChanges();
          }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
-         }
+         catch { }
       }
 
       /// <summary>

@@ -139,7 +139,7 @@
          this.GropExpn_Lb = new System.Windows.Forms.Label();
          this.MinTime_Lb = new System.Windows.Forms.Label();
          this.NumOfer_Lb = new System.Windows.Forms.Label();
-         this.EXTPBS = new System.Windows.Forms.BindingSource(this.components);
+         this.ExtpBs = new System.Windows.Forms.BindingSource(this.components);
          this.RqrqBs = new System.Windows.Forms.BindingSource(this.components);
          this.ReglBs = new System.Windows.Forms.BindingSource(this.components);
          this.EpitBs = new System.Windows.Forms.BindingSource(this.components);
@@ -778,7 +778,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.EXTPBS)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ExtpBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqrqBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ReglBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.EpitBs)).BeginInit();
@@ -1168,9 +1168,9 @@
          // 
          // EXTPBS
          // 
-         this.EXTPBS.DataMember = "Expense_Types";
-         this.EXTPBS.DataSource = this.RqrqBs;
-         this.EXTPBS.CurrentChanged += new System.EventHandler(this.EXTPBS_CurrentChanged);
+         this.ExtpBs.DataMember = "Expense_Types";
+         this.ExtpBs.DataSource = this.RqrqBs;
+         this.ExtpBs.CurrentChanged += new System.EventHandler(this.EXTPBS_CurrentChanged);
          // 
          // RqrqBs
          // 
@@ -1190,7 +1190,7 @@
          // ExpnBs
          // 
          this.ExpnBs.DataMember = "Expenses";
-         this.ExpnBs.DataSource = this.EXTPBS;
+         this.ExpnBs.DataSource = this.ExtpBs;
          this.ExpnBs.CurrentChanged += new System.EventHandler(this.ExpnBs_CurrentChanged);
          // 
          // CtgyBs
@@ -1226,7 +1226,7 @@
          // EXCSBS
          // 
          this.EXCSBS.DataMember = "Expense_Cashes";
-         this.EXCSBS.DataSource = this.EXTPBS;
+         this.EXCSBS.DataSource = this.ExtpBs;
          // 
          // PrvnBs
          // 
@@ -1433,7 +1433,7 @@
          // 
          // expense_TypesGridControl
          // 
-         this.expense_TypesGridControl.DataSource = this.EXTPBS;
+         this.expense_TypesGridControl.DataSource = this.ExtpBs;
          this.expense_TypesGridControl.Dock = System.Windows.Forms.DockStyle.Fill;
          this.expense_TypesGridControl.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.expense_TypesGridControl.EmbeddedNavigator.ButtonClick += new DevExpress.XtraEditors.NavigatorButtonClickEventHandler(this.expense_TypesGridControl_EmbeddedNavigator_ButtonClick);
@@ -3799,7 +3799,7 @@
          // ExtsBs
          // 
          this.ExtsBs.DataMember = "Expense_Type_Steps";
-         this.ExtsBs.DataSource = this.EXTPBS;
+         this.ExtsBs.DataSource = this.ExtpBs;
          // 
          // ExtsGv
          // 
@@ -6248,7 +6248,7 @@
          // 
          // gridControl1
          // 
-         this.gridControl1.DataSource = this.EXTPBS;
+         this.gridControl1.DataSource = this.ExtpBs;
          this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.gridControl1.Location = new System.Drawing.Point(0, 0);
@@ -7424,7 +7424,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit4)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.EXTPBS)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ExtpBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqrqBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ReglBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.EpitBs)).EndInit();
@@ -7647,7 +7647,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colRequest_Requester1;
       private Windows.Forms.BindingSource ExpnBs;
       private Windows.Forms.BindingSource CtgyBs;
-      private Windows.Forms.BindingSource EXTPBS;
+      private Windows.Forms.BindingSource ExtpBs;
       private Windows.Forms.BindingSource EXCSBS;
       private DevExpress.XtraGrid.Columns.GridColumn colRQRQ_CODE3;
       private DevExpress.XtraGrid.Columns.GridColumn colEPIT_CODE2;

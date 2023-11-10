@@ -188,10 +188,10 @@ namespace System.Scsc.Ui.Regulation
 
       partial void HL_ACTV_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
-         var CrntExtp = EXTPBS.Current as Data.Expense_Type;
+         var CrntExtp = ExtpBs.Current as Data.Expense_Type;
          if (e.Button.Index == 0)
          {
-            if (EXTPBS
+            if (ExtpBs
                .List
                .OfType<Data.Expense_Type>()
                .Any(extp => extp == CrntExtp && extp.Expenses.Any(expn => expn.EXPN_STAT == "002")))
@@ -207,7 +207,7 @@ namespace System.Scsc.Ui.Regulation
          }
          else if(e.Button.Index == 1)
          {
-            if (EXTPBS
+            if (ExtpBs
                .List
                .OfType<Data.Expense_Type>()
                .Any(extp => extp == CrntExtp && extp.Expenses.Any(expn => expn.COVR_TAX == "002")))
@@ -231,7 +231,7 @@ namespace System.Scsc.Ui.Regulation
                      new XAttribute("type", "001"),
                      new XElement("Delete",
                         new XElement("Expense_Type",
-                           new XAttribute("code", (EXTPBS.Current as Data.Expense_Type).CODE)
+                           new XAttribute("code", (ExtpBs.Current as Data.Expense_Type).CODE)
                         )
                      )
                   )

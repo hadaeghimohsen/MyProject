@@ -44,7 +44,7 @@ namespace System.Scsc.Ui.Regulation
       {
          if(Rg2 == null)
             Rg2 = iScsc.Regulations.Where(rg => rg.TYPE == "002" && rg.REGL_STAT == "002").SingleOrDefault();
-         EXCSBS.DataSource = iScsc.Expense_Cashes.Where(ec => ec.REGL_YEAR == Rg2.YEAR && ec.REGL_CODE == Rg2.CODE && ec.Expense_Type == EXTPBS.Current && Fga_Urgn_U.Split(',').Contains(ec.REGN_PRVN_CODE + ec.REGN_CODE));
+         EXCSBS.DataSource = iScsc.Expense_Cashes.Where(ec => ec.REGL_YEAR == Rg2.YEAR && ec.REGL_CODE == Rg2.CODE && ec.Expense_Type == ExtpBs.Current && Fga_Urgn_U.Split(',').Contains(ec.REGN_PRVN_CODE + ec.REGN_CODE));
       }
 
       private void Btn_Back_Click(object sender, EventArgs e)
@@ -72,7 +72,7 @@ namespace System.Scsc.Ui.Regulation
                         new XAttribute("type", "001"),
                         new XElement("Delete",
                            new XElement("Expense_Type",
-                              new XAttribute("code", (EXTPBS.Current as Data.Expense_Type).CODE)                              
+                              new XAttribute("code", (ExtpBs.Current as Data.Expense_Type).CODE)                              
                            )
                         )
                      )
@@ -83,11 +83,11 @@ namespace System.Scsc.Ui.Regulation
                   requery = true;
                   break;
                case DevExpress.XtraEditors.NavigatorButtonType.EndEdit:
-                  var crnt = EXTPBS.Current as Data.Expense_Type;
+                  var crnt = ExtpBs.Current as Data.Expense_Type;
                   iScsc.REGL_TOTL_P(
                      new XElement("Config",
                         new XAttribute("type", "001"),
-                        EXTPBS.List.OfType<Data.Expense_Type>().Where(c => c.CRET_BY == null).Select(c =>
+                        ExtpBs.List.OfType<Data.Expense_Type>().Where(c => c.CRET_BY == null).Select(c =>
                            new XElement("Insert",
                               new XElement("Expense_Type",
                                  new XAttribute("rqrqcode", (RqrqBs.Current as Data.Request_Requester).CODE),
@@ -133,7 +133,7 @@ namespace System.Scsc.Ui.Regulation
       private void Execute_Query()
       {
          var CrntRqrq = RqrqBs.Position;
-         var CrntExtp = EXTPBS.Position;
+         var CrntExtp = ExtpBs.Position;
          var CrntExpn = ExpnBs.Position;
          var CrntExcs = EXCSBS.Position;
          var crntpexp = PexpBs1.Position;
@@ -146,7 +146,7 @@ namespace System.Scsc.Ui.Regulation
          RqrqBs.Position = CrntRqrq;
          RqrqBs.MoveNext();
          RqrqBs.MovePrevious();
-         EXTPBS.Position = CrntExtp;
+         ExtpBs.Position = CrntExtp;
          ExpnBs.Position = CrntExpn;
          EXCSBS.Position = CrntExcs;
          PexpBs1.Position = crntpexp;
@@ -315,15 +315,34 @@ namespace System.Scsc.Ui.Regulation
       {
          try
          {
-            ExpnBs.MoveFirst();
-            foreach (var expn in ExpnBs.List.OfType<Data.Expense>())
+            if (ModifierKeys.HasFlag(Keys.Control))
             {
-               expn.EXPN_DESC =
-                  string.Format("{0} {1}، {2}",
-                  ExtpDesc_Cbx.Checked ? expn.Expense_Type.Expense_Item.EPIT_DESC : "",
-                  MtodDesc_Cbx.Checked ? expn.Method.MTOD_DESC : "",
-                  CtgyDesc_Cbx.Checked ? expn.Category_Belt.CTGY_DESC : ""
-               );
+               foreach (var _extp in ExtpBs.List.OfType<Data.Expense_Type>())
+               {
+                  _extp.Expenses
+                     .ToList()
+                     .ForEach(_expn => 
+                        _expn.EXPN_DESC =
+                           string.Format("{0} {1}، {2}",
+                           ExtpDesc_Cbx.Checked ? _expn.Expense_Type.Expense_Item.EPIT_DESC : "",
+                           MtodDesc_Cbx.Checked ? _expn.Method.MTOD_DESC : "",
+                           CtgyDesc_Cbx.Checked ? _expn.Category_Belt.CTGY_DESC : ""
+                        )
+                     );
+               }
+            }
+            else
+            {
+               ExpnBs.MoveFirst();
+               foreach (var expn in ExpnBs.List.OfType<Data.Expense>())
+               {
+                  expn.EXPN_DESC =
+                     string.Format("{0} {1}، {2}",
+                     ExtpDesc_Cbx.Checked ? expn.Expense_Type.Expense_Item.EPIT_DESC : "",
+                     MtodDesc_Cbx.Checked ? expn.Method.MTOD_DESC : "",
+                     CtgyDesc_Cbx.Checked ? expn.Category_Belt.CTGY_DESC : ""
+                  );
+               }
             }
          }
          catch (Exception )
@@ -357,7 +376,24 @@ namespace System.Scsc.Ui.Regulation
 
       private void AddExtp_Butn_Click(object sender, EventArgs e)
       {
-         EXTPBS.AddNew();
+         if (ModifierKeys.HasFlag(Keys.Control))
+         {
+            var _rqrq = RqrqBs.Current as Data.Request_Requester;
+            iScsc.ExecuteCommand(
+               string.Format(
+                  "MERGE dbo.Expense_Type T" + Environment.NewLine +
+                  "USING (SELECT CODE AS EPIT_CODE, {0} AS RQRO_CODE FROM dbo.Expense_Item WHERE TYPE = '001') S" + Environment.NewLine +
+                  "ON (T.RQRQ_CODE = S.RQRO_CODE AND" + Environment.NewLine +
+                  "T.EPIT_CODE = S.EPIT_CODE)" + Environment.NewLine +
+                  "WHEN NOT MATCHED THEN" + Environment.NewLine +
+                  "INSERT (RQRQ_CODE, EPIT_CODE, CODE)" + Environment.NewLine +
+                  "VALUES (S.RQRO_CODE, S.EPIT_CODE, dbo.GNRT_NVID_U());",
+                  _rqrq.CODE
+               )
+            );
+         }
+         else
+            ExtpBs.AddNew();
       }
 
       private void DeleExtp_Butn_Click(object sender, EventArgs e)
@@ -370,7 +406,7 @@ namespace System.Scsc.Ui.Regulation
                   new XAttribute("type", "001"),
                   new XElement("Delete",
                      new XElement("Expense_Type",
-                        new XAttribute("code", (EXTPBS.Current as Data.Expense_Type).CODE)
+                        new XAttribute("code", (ExtpBs.Current as Data.Expense_Type).CODE)
                      )
                   )
                )
@@ -394,11 +430,11 @@ namespace System.Scsc.Ui.Regulation
       {
          try
          {
-            var crnt = EXTPBS.Current as Data.Expense_Type;
+            var crnt = ExtpBs.Current as Data.Expense_Type;
             iScsc.REGL_TOTL_P(
                new XElement("Config",
                   new XAttribute("type", "001"),
-                  EXTPBS.List.OfType<Data.Expense_Type>().Where(c => c.CRET_BY == null).Select(c =>
+                  ExtpBs.List.OfType<Data.Expense_Type>().Where(c => c.CRET_BY == null).Select(c =>
                      new XElement("Insert",
                         new XElement("Expense_Type",
                            new XAttribute("rqrqcode", (RqrqBs.Current as Data.Request_Requester).CODE),
@@ -792,7 +828,7 @@ namespace System.Scsc.Ui.Regulation
       {
          try
          {
-            var _extp = EXTPBS.Current as Data.Expense_Type;
+            var _extp = ExtpBs.Current as Data.Expense_Type;
             if (_extp == null) return;
 
             if (ExtsBs.List.OfType<Data.Expense_Type_Step>().Any(ets => ets.CODE == 0)) return;
@@ -952,7 +988,7 @@ namespace System.Scsc.Ui.Regulation
       {
          try
          {
-            var _extp = EXTPBS.Current as Data.Expense_Type;
+            var _extp = ExtpBs.Current as Data.Expense_Type;
             if (_extp == null) return;
 
             iScsc.DUP_EXTS_P(

@@ -1103,7 +1103,7 @@ namespace System.Scsc.Ui.Common
             Tc_Info.Left = 30;
             Tc_Info.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top;
             */
-            tb_master.SelectedTab = tp_001;
+            //tb_master.SelectedTab = tp_001;
             UserProFile_Rb.ImageVisiable = true;
 
             fileno = Convert.ToInt64((job.Input as XElement).Attributes("fileno").First().Value);
@@ -1230,6 +1230,31 @@ namespace System.Scsc.Ui.Common
 
             // 1396/10/13 * نمایش لیست دوره های ثبت نام شده
             MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == fileno && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+            // 1402/07/25 * اگر گزینه تمدید اتومات فعال باشد چک میکنیم که آیا مشتری دوره فعال دارد یا خیر
+            // اگر نداشته باشد باید مشتری را به فرم تمدید رجوع دهیم برای سرعت عمل بیشتر در زمان شارژ کارت
+            //if(AutoProt_Chk.Checked)
+            //{
+            //   if(!MbspBs.List.OfType<Data.Member_Ship>()
+            //      .Any(ms => 
+            //         ms.VALD_TYPE == "002" 
+            //         && ms.TYPE == "001" 
+            //         && DateTime.Now.Date >= ms.STRT_DATE.Value.Date
+            //         && DateTime.Now.Date <= ms.END_DATE.Value.Date
+            //         && (ms.NUMB_OF_ATTN_MONT == 0 || (ms.NUMB_OF_ATTN_MONT > ms.SUM_ATTN_MONT_DNRM))))
+            //   {
+            //      //if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
+            //      if (crntinfo.FGPB_TYPE_DNRM == "002" || crntinfo.FGPB_TYPE_DNRM == "003" || crntinfo.FGPB_TYPE_DNRM == "004") return;
+
+            //      _DefaultGateway.Gateway(
+            //         new Job(SendType.External, "Localhost",
+            //            new List<Job>
+            //            {
+            //               new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
+            //               new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", crntinfo.FNGR_PRNT_DNRM), new XAttribute("formcaller", GetType().Name))}
+            //            })
+            //      );
+            //   }
+            //}
             
             //1399/12/06 * نمایش اطلاعات یادداشت
             NoteBs.DataSource = iScsc.Notes.Where(n => n.FIGH_FILE_NO == fileno);
@@ -1377,6 +1402,15 @@ namespace System.Scsc.Ui.Common
             AdatnBs.DataSource = iScsc.Dresser_Attendances.Where(a => a.FIGH_FILE_NO == fileno && a.TKBK_TIME == null);
             HdatnBs.DataSource = iScsc.Dresser_Attendances.Where(a => a.FIGH_FILE_NO == fileno && a.CONF_STAT == "002" && a.TKBK_TIME != null);
 
+            DPmctBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "PaymentContractItem_INFO" && a.REF_CODE != null);
+            FlpcBs.DataSource = iScsc.Fighter_Link_Payment_Contarct_Items;
+            DAPcdtiBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "PaymentContractItemColor_INFO");
+            DMexdBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Misc_Expense_Discount_INFO");
+            DMexcBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Misc_Expense_Cost_INFO");
+
+            // 1401/08/08 * Reload data on tabpage control
+            tb_master_SelectedIndexChanged(null, null);
+
             if(isFirstLoaded) goto commandfinished;
 
             DDebtBs.DataSource = iScsc.D_DEBTs;
@@ -1394,9 +1428,7 @@ namespace System.Scsc.Ui.Common
             DCetpBs.DataSource = iScsc.D_CETPs;
             DCxtpBs.DataSource = iScsc.D_CXTPs;
             DLotpBs.DataSource = iScsc.D_LOTPs;
-            RqtpBs.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "016" || rt.CODE == "020");
-            DMexdBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Misc_Expense_Discount_INFO");
-            DMexcBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Misc_Expense_Cost_INFO");
+            RqtpBs.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "016" || rt.CODE == "020");            
 
             VPosBs1.DataSource = iScsc.V_Pos_Devices;
             if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)

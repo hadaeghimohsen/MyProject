@@ -104,7 +104,7 @@ namespace System.Scsc.Ui.Notifications
       {
          try
          {
-            var attn = AttnBs1.Current as Data.Attendance;
+            var _attn = AttnBs1.Current as Data.Attendance;
             switch (e.Button.Index)
             {
                case 0:
@@ -118,9 +118,9 @@ namespace System.Scsc.Ui.Notifications
                            {
                               Input = 
                               new XElement("Fighter",
-                                 new XAttribute("fileno", attn.FIGH_FILE_NO),
-                                 new XAttribute("attndate",attn.ATTN_DATE.Date),
-                                 new XAttribute("attncode", attn.CODE),
+                                 new XAttribute("fileno", _attn.FIGH_FILE_NO),
+                                 new XAttribute("attndate",_attn.ATTN_DATE.Date),
+                                 new XAttribute("attncode", _attn.CODE),
                                  new XAttribute("formcaller", GetType().Name)
                               )
                            }
@@ -128,21 +128,39 @@ namespace System.Scsc.Ui.Notifications
                   );
                   break;
                case 1:
-                  attn.MDFY_DATE = DateTime.Now;
+                  if(_attn.EXIT_TIME != null && _attn.Club.Settings.Any(a => a.DRES_AUTO == "002"))
+                  {
+                     var dres = _attn.Dresser_Attendances.FirstOrDefault().Dresser as Data.Dresser;
+                     if (dres == null) return;
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+                        {
+                           Input =
+                              new XElement("OprtDres",
+                                    new XAttribute("type", "sendoprtdres"),
+                                    new XAttribute("cmndname", dres.DRES_NUMB),
+                                    new XAttribute("devip", dres.IP_ADRS),
+                                    new XAttribute("cmndsend", dres.CMND_SEND ?? "")
+                                  )
+                        }
+                     );
+                  }
+                  _attn.MDFY_DATE = DateTime.Now;
                   iScsc.SubmitChanges();
                   requery = true;
                   break;
                case 2:
                   Back_Butn_Click(null, null);
                   _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", attn.FIGH_FILE_NO)) }
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _attn.FIGH_FILE_NO)) }
                   );
                   break;
                case 3:
-                  if (attn.EXIT_TIME == null)
+                  if (_attn.EXIT_TIME == null)
                   {
                      if (MessageBox.Show(this, "با خروج دستی مشتری موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-                     iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, null, null, "003", attn.MBSP_RWNO_DNRM, "001", "002");
+                     iScsc.INS_ATTN_P(_attn.CLUB_CODE, _attn.FIGH_FILE_NO, null, null, "003", _attn.MBSP_RWNO_DNRM, "001", "002");
                      requery = true;
                   }
                   break;

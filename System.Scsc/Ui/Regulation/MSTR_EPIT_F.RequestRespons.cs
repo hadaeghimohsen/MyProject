@@ -182,7 +182,12 @@ namespace System.Scsc.Ui.Regulation
          DittpBs1.DataSource = iScsc.D_ITTPs;
          GropBs2.DataSource = iScsc.Group_Expenses;
          DGptpBs1.DataSource = iScsc.D_GPTPs;
-         
+         string[] _rqtpCode = {"001", "009", "012", "016"};
+         RqtpBs.DataSource = iScsc.Request_Types.Where(r => _rqtpCode.Contains(r.CODE));
+
+         UExpn_Gv.ActiveFilterString = string.Format("EXPN_STAT = '002'");
+         DExpn_Gv.ActiveFilterString = string.Format("EXPN_STAT = '002'");
+
          var xinput = job.Input as XElement;
          switch(xinput.Attribute("type").Value)
          {
@@ -193,6 +198,8 @@ namespace System.Scsc.Ui.Regulation
                Master_Tb.SelectedTab = tp_002;
                break;
          }
+
+         Execute_Query();
          job.Status = StatusType.Successful;
       }
    }

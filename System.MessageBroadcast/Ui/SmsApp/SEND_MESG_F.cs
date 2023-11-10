@@ -120,10 +120,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
             iProject.Sms_Message_Boxes.InsertOnSubmit(sms);
          }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
-         }
+         catch { }
       }
 
       private void SaveSendSms_Butn_Click(object sender, EventArgs e)
@@ -134,10 +131,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
             iProject.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
-         }    
+         catch { }
          finally
          {
             if (requery)
@@ -157,12 +151,9 @@ namespace System.MessageBroadcast.Ui.SmsApp
             if (DMsgBs.List.OfType<Data.Default_Message>().Any(dm => dm.CODE == 0)) return;
             var dmsg = DMsgBs.AddNew() as Data.Default_Message;
 
-            iProject.Default_Messages.InsertOnSubmit(dmsg);            
+            iProject.Default_Messages.InsertOnSubmit(dmsg);
          }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
-         }
+         catch { }
       }
 
       private void DelDmsg_Butn_Click(object sender, EventArgs e)
@@ -180,10 +171,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -196,7 +184,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
          try
          {
             DMsgBs.EndEdit();
-            Dmsg_Gv.PostEditor();            
+            Dmsg_Gv.PostEditor();
 
             if (DMsgBs.List.OfType<Data.Default_Message>().Any(dm => dm.MESG_NAME == null || dm.SUB_SYS == null || dm.MESG_TEXT == null))
             {
@@ -207,10 +195,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -223,15 +208,15 @@ namespace System.MessageBroadcast.Ui.SmsApp
          try
          {
             var dmsgid = DMsg_Lov.EditValue;
-            if(e.Button.Index == 1)
+            if (e.Button.Index == 1)
             {
-               if(dmsgid == null) return;
+               if (dmsgid == null) return;
                var dmsg = DMsgBs.List.OfType<Data.Default_Message>().FirstOrDefault(d => d.CODE == (long)dmsgid);
 
                string source = dmsg.MESG_TEXT;
 
                // سلام @(نام مشتری) بابت ارسال
-               if(source.IndexOf("@(") >= 0)
+               if (source.IndexOf("@(") >= 0)
                {
                   string placeHolder = "";
                   do
@@ -249,10 +234,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
                }
             }
          }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
-         }
+         catch { }
       }
    }
 }

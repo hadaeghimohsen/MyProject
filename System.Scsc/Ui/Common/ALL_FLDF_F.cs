@@ -34,6 +34,8 @@ namespace System.Scsc.Ui.Common
          _DefaultGateway.Gateway(
             new Job(SendType.External, "localhost", GetType().Name, 07 /* Execute LoadData */, SendType.SelfToUserInterface) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }
          );
+
+         tb_master_SelectedIndexChanged(null, null);
          requery = false;
       }
 
@@ -1401,6 +1403,14 @@ namespace System.Scsc.Ui.Common
                   RqpmBs.Position = _rqpm;
                   RqpvBs.Position = _rqpv;
                   break;
+               case 10:
+                  int _pmct = PmctBs1.Position;
+                  PmctBs1.DataSource =
+                     iScsc.Payment_Contracts
+                     .Where(pc => pc.Payment.Request.RQST_STAT == "002" && pc.Payment.Request.Request_Rows.Any(rr => rr.FIGH_FILE_NO == fileno))
+                     .OrderByDescending(pc => pc.CRET_DATE);
+                  PmctBs1.Position = _pmct;
+                  break;
                default:
                   break;
             }
@@ -1823,6 +1833,8 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
+            RqstBnDeleteFngrPrnt1_Click(null, null);
+
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
             Job _InteractWithScsc =
@@ -4489,6 +4501,242 @@ namespace System.Scsc.Ui.Common
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void SetPymtContItem_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _pmct = PmctBs1.Current as Data.Payment_Contract;
+            if (_pmct == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+                  "MERGE dbo.Payment_Contract_Detail T" + Environment.NewLine +
+                  "USING (SELECT {0} AS PMCT_CODE, a.CODE AS ITEM_CODE, a.REF_CODE AS GROP_CODE FROM dbo.App_Base_Define a WHERE a.ENTY_NAME = 'PaymentContractItem_INFO' AND a.REF_CODE IS NOT NULL) S" + Environment.NewLine +
+                  "ON (T.Pmct_Code = S.Pmct_Code AND T.Grop_Item_Apbs_Code = S.Grop_Code AND T.Sub_Item_Apbs_Code = S.Item_Code)" + Environment.NewLine +
+                  "WHEN NOT MATCHED THEN INSERT (Pmct_Code, Grop_Item_Apbs_Code, Sub_Item_Apbs_Code, Code) VALUES (S.Pmct_Code, S.Grop_Code, S.Item_Code, dbo.GNRT_NVID_U());",
+                  _pmct.CODE
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ContRecd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                     new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                     {
+                        Input = 
+                           new XElement("App_Base",
+                              new XAttribute("tablename", "PaymentContractItem_INFO"),
+                              new XAttribute("formcaller", GetType().Name)
+                           )
+                     }
+                  }
+               )
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SavePmct_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Pcdt_Gv.PostEditor();
+            PmctBs1.EndEdit();
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void FlpcActn1_Butn_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _flpc = FlpcBs.Current as Data.Fighter_Link_Payment_Contarct_Item;
+            if (_flpc == null) return;
+
+            var _pcdt = PcdtBs1.Current as Data.Payment_Contract_Detail;
+            if (_pcdt == null) return;
+
+            if (_pcdt.SUB_ITEM_APBS_CODE != _flpc.PMCT_ITEM_APBS_CODE) return;
+
+            iScsc.ExecuteCommand(
+               string.Format("UPDATE dbo.Payment_Contract_Detail SET FLPC_CODE = {0} WHERE CODE = {1};", _flpc.CODE, _pcdt.CODE)
+            );
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PmctItemActn_Butn_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _item = DPmctBs.Current as Data.App_Base_Define;
+            if (_item == null) return;
+
+            var _personel = CochBs1.Current as Data.Fighter;
+            if (_personel == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  if (FlpcBs.List.OfType<Data.Fighter_Link_Payment_Contarct_Item>().Any(a => a.FIGH_FILE_NO == _personel.FILE_NO && a.PMCT_ITEM_APBS_CODE == _item.CODE)) return;
+
+                  var _flpc = FlpcBs.AddNew() as Data.Fighter_Link_Payment_Contarct_Item;
+                  _flpc.FIGH_FILE_NO = _personel.FILE_NO;
+                  _flpc.PMCT_ITEM_APBS_CODE = _item.CODE;
+
+                  iScsc.Fighter_Link_Payment_Contarct_Items.InsertOnSubmit(_flpc);
+                  iScsc.SubmitChanges();
+                  break;
+               default:
+                  break;
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void FlcpActn_Butn_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _flpc = FlpcBs.Current as Data.Fighter_Link_Payment_Contarct_Item;
+            if (_flpc == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            //iScsc.Fighter_Link_Payment_Contarct_Items.DeleteOnSubmit(_flpc);
+            //iScsc.SubmitChanges();
+            iScsc.ExecuteCommand(string.Format("DELETE dbo.Fighter_Link_Payment_Contarct_Item WHERE Code = {0};", _flpc.CODE));
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void FocusPymt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            tb_master.SelectedTab = tp_003;
+            var _pmct = PmctBs1.Current as Data.Payment_Contract;
+            if (_pmct == null) return;
+
+            vF_SavePaymentsBs.Position = vF_SavePaymentsBs.IndexOf(vF_SavePaymentsBs.List.OfType<Data.VF_Save_PaymentsResult>().FirstOrDefault(p => p.RQID == _pmct.Payment.RQST_RQID));
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PcdtBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _pcdt = PcdtBs1.Current as Data.Payment_Contract_Detail;
+            if (_pcdt == null) return;
+
+            Flpc_Gv.ActiveFilterString = string.Format("PMCT_ITEM_APBS_CODE = {0}", _pcdt.SUB_ITEM_APBS_CODE);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void GrntCoch_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (Chatid_Txt.Text == "") return;
+            if (iScsc.Fighters.FirstOrDefault(c => c.FILE_NO == fileno && c.FGPB_TYPE_DNRM != "003") == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format(@"MERGE iRoboTech.dbo.Service_Robot_Group T
+                              USING (
+                                 SELECT sr.SERV_FILE_NO, sr.ROBO_RBID, sr.CHAT_ID, g.GPID, 
+                                    FROM iRoboTech.dbo.Service_Robot sr, iRoboTech.dbo.[Group] g 
+                                    WHERE sr.CHAT_ID = {0}
+                                    AND g.ROBO_RBID = 391 
+                                    AND g.GPID = 121) S
+                              ON (T.SRBT_SERV_FILE_NO = S.SERV_FILE_NO AND 
+                                    T.SRBT_ROBO_RBID = S.ROBO_RBID AND
+                                    T.GROP_GPID = s.GPID)
+                              WHEN NOT MATCHED THEN 
+                                 INSERT (SRBT_SERV_FILE_NO, SRBT_ROBO_RBID, GROP_GPID, STAT)
+                                 VALUES (S.SERV_FILE_NO, s.ROBO_RBID, s.GPID, '002')
+                              WHEN MATCHED THEN
+                                 UPDATE SET
+                                    T.STAT = CASE T.STAT WHEN '002' THEN '001' ELSE '002' END;", Chatid_Txt.Text)
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }      
    }

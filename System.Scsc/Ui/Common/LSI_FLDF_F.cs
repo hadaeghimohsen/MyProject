@@ -423,6 +423,7 @@ namespace System.Scsc.Ui.Common
                      Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) 
                   && f.CONF_STAT == "002"
                   && f.FGPB_TYPE_DNRM != "003"
+                  && f.ACTV_TAG_DNRM == "101"
                   && (FrstName_Txt.Text == "" || f.FRST_NAME_DNRM.Contains(FrstName_Txt.Text))
                   && (LastName_Txt.Text == "" || f.LAST_NAME_DNRM.Contains(LastName_Txt.Text))
                   && (NatlCode_Txt.Text == "" || f.NATL_CODE_DNRM.Contains(NatlCode_Txt.Text))
@@ -433,7 +434,7 @@ namespace System.Scsc.Ui.Common
                   && (GlobCode_Txt.Text == "" || f.GLOB_CODE_DNRM.Contains(GlobCode_Txt.Text))
                   && (BothSex_Rb.Checked || (f.SEX_TYPE_DNRM == (Men_Rb.Checked ? "001" : "002")))
                   && (ClubCode == null || f.CLUB_CODE_DNRM == ClubCode)
-                  && (SuntCode == null || f.SUNT_CODE_DNRM == SuntCode)
+                  && (SuntCode == null || f.SUNT_CODE_DNRM == SuntCode)                  
                   ).OrderByDescending(f => f.MBSP_END_DATE)
                   .Take((int)FtchRows_Nud.Value);
             }

@@ -1056,7 +1056,9 @@ namespace System.Scsc.Ui.Admission
       private void RqstBnEnrollFngrPrnt1_Click(object sender, EventArgs e)
       {
          try
-         {            
+         {
+            RqstBnDeleteFngrPrnt1_Click(null, null);
+
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
             Job _InteractWithScsc =

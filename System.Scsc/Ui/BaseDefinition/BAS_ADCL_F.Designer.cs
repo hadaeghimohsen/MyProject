@@ -42,6 +42,7 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          this.CordX_Lb = new System.Windows.Forms.Label();
          this.CordY_Lb = new System.Windows.Forms.Label();
          this.TellPhon_Lb = new System.Windows.Forms.Label();
@@ -77,6 +78,9 @@
          this.EconCode_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.label2 = new System.Windows.Forms.Label();
          this.label3 = new System.Windows.Forms.Label();
+         this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
+         this.label4 = new System.Windows.Forms.Label();
+         this.label5 = new System.Windows.Forms.Label();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ClubName_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ClubBs)).BeginInit();
@@ -92,6 +96,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.ClubDesc_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.EconCode_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // CordX_Lb
@@ -202,7 +207,7 @@
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
          this.panel1.Size = new System.Drawing.Size(597, 59);
-         this.panel1.TabIndex = 1;
+         this.panel1.TabIndex = 13;
          // 
          // Title_Lbl
          // 
@@ -230,7 +235,7 @@
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Back_Butn.Name = "Back_Butn";
          this.Back_Butn.Size = new System.Drawing.Size(61, 59);
-         this.Back_Butn.TabIndex = 0;
+         this.Back_Butn.TabIndex = 1;
          this.Back_Butn.ToolTip = "بازگشت";
          this.Back_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
@@ -436,7 +441,7 @@
          this.CordX_Text.Name = "CordX_Text";
          this.CordX_Text.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.CordX_Text.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
-         this.CordX_Text.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CordX_Text.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CordX_Text.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.CordX_Text.Properties.Appearance.Options.UseBackColor = true;
          this.CordX_Text.Properties.Appearance.Options.UseBorderColor = true;
@@ -456,8 +461,8 @@
          this.CordX_Text.Properties.NullValuePrompt = "مختصات افقی";
          this.CordX_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.CordX_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.CordX_Text.Size = new System.Drawing.Size(186, 30);
-         this.CordX_Text.TabIndex = 10;
+         this.CordX_Text.Size = new System.Drawing.Size(186, 26);
+         this.CordX_Text.TabIndex = 11;
          // 
          // CordY_Text
          // 
@@ -468,7 +473,7 @@
          this.CordY_Text.Name = "CordY_Text";
          this.CordY_Text.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.CordY_Text.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
-         this.CordY_Text.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CordY_Text.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CordY_Text.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.CordY_Text.Properties.Appearance.Options.UseBackColor = true;
          this.CordY_Text.Properties.Appearance.Options.UseBorderColor = true;
@@ -488,8 +493,8 @@
          this.CordY_Text.Properties.NullValuePrompt = "مختصات عمودی";
          this.CordY_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.CordY_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.CordY_Text.Size = new System.Drawing.Size(186, 30);
-         this.CordY_Text.TabIndex = 11;
+         this.CordY_Text.Size = new System.Drawing.Size(186, 26);
+         this.CordY_Text.TabIndex = 12;
          // 
          // Desc3_Lb
          // 
@@ -515,11 +520,11 @@
          this.TellPhon_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.TellPhon_Text.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.ClubBs, "TELL_PHON", true));
          this.TellPhon_Text.EditValue = "";
-         this.TellPhon_Text.Location = new System.Drawing.Point(297, 497);
+         this.TellPhon_Text.Location = new System.Drawing.Point(308, 497);
          this.TellPhon_Text.Name = "TellPhon_Text";
          this.TellPhon_Text.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.TellPhon_Text.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
-         this.TellPhon_Text.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.TellPhon_Text.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.TellPhon_Text.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.TellPhon_Text.Properties.Appearance.Options.UseBackColor = true;
          this.TellPhon_Text.Properties.Appearance.Options.UseBorderColor = true;
@@ -539,7 +544,7 @@
          this.TellPhon_Text.Properties.NullValuePrompt = "شماره تلفن";
          this.TellPhon_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.TellPhon_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.TellPhon_Text.Size = new System.Drawing.Size(186, 30);
+         this.TellPhon_Text.Size = new System.Drawing.Size(175, 26);
          this.TellPhon_Text.TabIndex = 6;
          // 
          // CellPhon_Text
@@ -547,11 +552,11 @@
          this.CellPhon_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CellPhon_Text.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.ClubBs, "CELL_PHON", true));
          this.CellPhon_Text.EditValue = "";
-         this.CellPhon_Text.Location = new System.Drawing.Point(297, 533);
+         this.CellPhon_Text.Location = new System.Drawing.Point(308, 533);
          this.CellPhon_Text.Name = "CellPhon_Text";
          this.CellPhon_Text.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.CellPhon_Text.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
-         this.CellPhon_Text.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CellPhon_Text.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CellPhon_Text.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.CellPhon_Text.Properties.Appearance.Options.UseBackColor = true;
          this.CellPhon_Text.Properties.Appearance.Options.UseBorderColor = true;
@@ -570,8 +575,8 @@
          this.CellPhon_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CellPhon_Text.Properties.NullValuePrompt = "شماره همراه";
          this.CellPhon_Text.Properties.NullValuePromptShowForEmptyValue = true;
-         this.CellPhon_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.CellPhon_Text.Size = new System.Drawing.Size(186, 30);
+         this.CellPhon_Text.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.CellPhon_Text.Size = new System.Drawing.Size(175, 26);
          this.CellPhon_Text.TabIndex = 7;
          // 
          // Desc4_Lb
@@ -602,7 +607,7 @@
          this.WebSite_Text.Name = "WebSite_Text";
          this.WebSite_Text.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.WebSite_Text.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
-         this.WebSite_Text.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.WebSite_Text.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.WebSite_Text.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.WebSite_Text.Properties.Appearance.Options.UseBackColor = true;
          this.WebSite_Text.Properties.Appearance.Options.UseBorderColor = true;
@@ -622,8 +627,8 @@
          this.WebSite_Text.Properties.NullValuePrompt = "آدرس وب سایت";
          this.WebSite_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.WebSite_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.WebSite_Text.Size = new System.Drawing.Size(448, 30);
-         this.WebSite_Text.TabIndex = 8;
+         this.WebSite_Text.Size = new System.Drawing.Size(448, 26);
+         this.WebSite_Text.TabIndex = 9;
          // 
          // EmailAddress_Text
          // 
@@ -634,7 +639,7 @@
          this.EmailAddress_Text.Name = "EmailAddress_Text";
          this.EmailAddress_Text.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.EmailAddress_Text.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
-         this.EmailAddress_Text.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.EmailAddress_Text.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.EmailAddress_Text.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
          this.EmailAddress_Text.Properties.Appearance.Options.UseBackColor = true;
          this.EmailAddress_Text.Properties.Appearance.Options.UseBorderColor = true;
@@ -654,8 +659,8 @@
          this.EmailAddress_Text.Properties.NullValuePrompt = "آدرس ایمیل";
          this.EmailAddress_Text.Properties.NullValuePromptShowForEmptyValue = true;
          this.EmailAddress_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.EmailAddress_Text.Size = new System.Drawing.Size(448, 30);
-         this.EmailAddress_Text.TabIndex = 9;
+         this.EmailAddress_Text.Size = new System.Drawing.Size(448, 26);
+         this.EmailAddress_Text.TabIndex = 10;
          // 
          // ClubDesc_Txt
          // 
@@ -786,6 +791,61 @@
          this.label3.TabIndex = 55;
          this.label3.Text = "کد اقتصادی :";
          // 
+         // buttonEdit1
+         // 
+         this.buttonEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.buttonEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.ClubBs, "INST_PAGE", true));
+         this.buttonEdit1.EditValue = "";
+         this.buttonEdit1.Location = new System.Drawing.Point(35, 497);
+         this.buttonEdit1.Name = "buttonEdit1";
+         this.buttonEdit1.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.buttonEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
+         this.buttonEdit1.Properties.Appearance.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.buttonEdit1.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.buttonEdit1.Properties.Appearance.Options.UseBackColor = true;
+         this.buttonEdit1.Properties.Appearance.Options.UseBorderColor = true;
+         this.buttonEdit1.Properties.Appearance.Options.UseFont = true;
+         this.buttonEdit1.Properties.Appearance.Options.UseForeColor = true;
+         this.buttonEdit1.Properties.Appearance.Options.UseTextOptions = true;
+         this.buttonEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.buttonEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.White;
+         this.buttonEdit1.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Blue;
+         this.buttonEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.buttonEdit1.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.buttonEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "", null, null, true)});
+         this.buttonEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.buttonEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.buttonEdit1.Properties.NullValuePrompt = "پیح اینستا";
+         this.buttonEdit1.Properties.NullValuePromptShowForEmptyValue = true;
+         this.buttonEdit1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.buttonEdit1.Size = new System.Drawing.Size(186, 26);
+         this.buttonEdit1.TabIndex = 8;
+         // 
+         // label4
+         // 
+         this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label4.AutoSize = true;
+         this.label4.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label4.Location = new System.Drawing.Point(227, 499);
+         this.label4.Name = "label4";
+         this.label4.Size = new System.Drawing.Size(75, 24);
+         this.label4.TabIndex = 55;
+         this.label4.Text = "پیح اینستا :";
+         // 
+         // label5
+         // 
+         this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label5.AutoSize = true;
+         this.label5.Font = new System.Drawing.Font("Fixed", 9.749999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.label5.Location = new System.Drawing.Point(35, 526);
+         this.label5.Name = "label5";
+         this.label5.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.label5.Size = new System.Drawing.Size(139, 13);
+         this.label5.TabIndex = 55;
+         this.label5.Text = "www.instagram.com/....";
+         // 
          // BAS_ADCL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -798,6 +858,8 @@
          this.Controls.Add(this.WebSite_Lb);
          this.Controls.Add(this.label1);
          this.Controls.Add(this.PostAdrs_Lb);
+         this.Controls.Add(this.label5);
+         this.Controls.Add(this.label4);
          this.Controls.Add(this.CellPhon_Lb);
          this.Controls.Add(this.label3);
          this.Controls.Add(this.CordY_Lb);
@@ -811,6 +873,7 @@
          this.Controls.Add(this.WebSite_Text);
          this.Controls.Add(this.ClubDesc_Txt);
          this.Controls.Add(this.PostAddress_Text);
+         this.Controls.Add(this.buttonEdit1);
          this.Controls.Add(this.CellPhon_Text);
          this.Controls.Add(this.EconCode_Txt);
          this.Controls.Add(this.CordY_Text);
@@ -826,7 +889,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "BAS_ADCL_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(597, 769);
+         this.Size = new System.Drawing.Size(597, 810);
          this.panel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.ClubName_Text.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ClubBs)).EndInit();
@@ -842,6 +905,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.ClubDesc_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.EconCode_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -884,6 +948,9 @@
       private DevExpress.XtraEditors.ButtonEdit EconCode_Txt;
       private Windows.Forms.Label label2;
       private Windows.Forms.Label label3;
+      private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
+      private Windows.Forms.Label label4;
+      private Windows.Forms.Label label5;
 
    }
 }

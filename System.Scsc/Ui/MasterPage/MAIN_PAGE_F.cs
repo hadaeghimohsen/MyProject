@@ -42,6 +42,20 @@ namespace System.Scsc.Ui.MasterPage
       private string attnsystype = "002";
       private IEnumerable<Data.V_Setting> _settings;
       private long _doActionStep = 0;
+      private bool requery = false;
+
+      private void Execute_Query()
+      {
+         iScsc = new Data.iScscDataContext(ConnectionString);
+
+         int _compa = CompaBs.Position;
+
+         CompaBs.DataSource = iScsc.Computer_Actions;
+
+         CompaBs.Position = _compa;
+
+         requery = false;
+      }
 
       private bool CheckInternetConnection()
       {
@@ -2969,7 +2983,11 @@ namespace System.Scsc.Ui.MasterPage
          {
             if (Fp1DevIsConnected)
             {
-               axCZKEM1.SSR_DelUserTmpExt(1, enrollid, 6);
+               for (int i = 0; i < 10; i++)
+               {
+                  axCZKEM1.SSR_DelUserTmpExt(1, enrollid, i);
+               }
+               //axCZKEM1.SSR_DelUserTmpExt(1, enrollid, 6);
                axCZKEM1.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
                axCZKEM1.ClearSLog(1);
 
@@ -2977,7 +2995,11 @@ namespace System.Scsc.Ui.MasterPage
             }
             else if(Fp2DevIsConnected)
             {
-               axCZKEM2.SSR_DelUserTmpExt(1, enrollid, 6);
+               for (int i = 0; i < 10; i++)
+               {
+                  axCZKEM2.SSR_DelUserTmpExt(1, enrollid, i);
+               }
+               //axCZKEM2.SSR_DelUserTmpExt(1, enrollid, 6);
                axCZKEM2.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
                axCZKEM2.ClearSLog(1);
 
@@ -2985,7 +3007,11 @@ namespace System.Scsc.Ui.MasterPage
             }
             else if (Fp3DevIsConnected)
             {
-               axCZKEM3.SSR_DelUserTmpExt(1, enrollid, 6);
+               for (int i = 0; i < 10; i++)
+               {
+                  axCZKEM3.SSR_DelUserTmpExt(1, enrollid, i);
+               }
+               //axCZKEM3.SSR_DelUserTmpExt(1, enrollid, 6);
                axCZKEM3.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
                axCZKEM3.ClearSLog(1);
 
@@ -3479,6 +3505,7 @@ namespace System.Scsc.Ui.MasterPage
             }            
 
             var mbsp = new Data.Member_Ship();
+            var _gateMtods = gate.External_Device_Link_Methods.Where(gm => gm.STAT == "002").Select(gm => gm.MTOD_CODE);
 
             // بررسی اینکه برای پرسنل هایی که داریم نیازی به بررسی تردد نداریم
             if (iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == enrollNumber && f.FGPB_TYPE_DNRM == "003"))
@@ -3499,7 +3526,8 @@ namespace System.Scsc.Ui.MasterPage
                   iScsc.Member_Ships
                   .Where(ms =>
                      ms.Fighter.FNGR_PRNT_DNRM == enrollNumber &&
-                     ms.Fighter_Public.MTOD_CODE == gate.MTOD_CODE &&
+                     //ms.Fighter_Public.MTOD_CODE == gate.MTOD_CODE &&
+                     _gateMtods.Contains(ms.Fighter_Public.MTOD_CODE) &&
                      ms.VALD_TYPE == "002" &&
                      ms.RECT_CODE == "004" &&
                      ms.STRT_DATE <= DateTime.Now.Date &&
@@ -3512,7 +3540,7 @@ namespace System.Scsc.Ui.MasterPage
             if(mbsp == null)
             {
                // 1398/12/23 * اگرمشتری اخرین جلسه وارد شده و بخواهد که خارج شود
-               var lastinputattn = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == enrollNumber && a.MTOD_CODE_DNRM == gate.MTOD_CODE && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null);
+               var lastinputattn = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == enrollNumber && /*a.MTOD_CODE_DNRM == gate.MTOD_CODE*/_gateMtods.Contains(a.MTOD_CODE_DNRM)  && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null);
                if (lastinputattn != null && lastinputattn.Count() >= 1)
                {
                   // Send [Close] command to Gate
@@ -3599,7 +3627,9 @@ namespace System.Scsc.Ui.MasterPage
          var devtype = xextdev.Attribute("devtype").Value;
          var contype = xextdev.Attribute("contype").Value;
          var cmdtype = xextdev.Attribute("cmdtype").Value;
-         var cmdsend = xextdev.Attribute("cmdsend").Value;
+         string cmdsend = "";
+         if(xextdev.Attribute("cmdsend") != null)
+            cmdsend = xextdev.Attribute("cmdsend").Value;         
 
          if(devtype == "001")
          {
@@ -3654,6 +3684,54 @@ namespace System.Scsc.Ui.MasterPage
 
                var _dev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_TYPE == devtype && d.DEV_CON == contype && d.IP_ADRS == ip);
 
+               // 1402/08/14 * Show service profile for open dresser
+               int _rslt = 0;
+               if (int.TryParse(cmdtype, out _rslt))
+               {
+                  CrntOpenBs.DataSource = iScsc.Attendances.Where(a => a.ATTN_DATE.Date == DateTime.Now.Date && a.ATTN_STAT == "002" && a.DERS_NUMB == _rslt && a.EXIT_TIME == null).OrderByDescending(a => a.ENTR_TIME).Take(1);
+
+                  var _attn = CrntOpenBs.Current as Data.Attendance;
+                  if (_attn != null)
+                  {
+                     if (_attn.IMAG_RCDC_RCID_DNRM != null)
+                     {
+                        try
+                        {
+                           ServProFile_Rb.ImageProfile = null;
+                           ServProFile_Rb.ImageVisiable = true;
+                           MemoryStream mStream = new MemoryStream();
+                           byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _attn.FIGH_FILE_NO))).ToArray();
+                           mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                           Bitmap bm = new Bitmap(mStream, false);
+                           mStream.Dispose();
+
+                           if (InvokeRequired)
+                              Invoke(new Action(() => ServProFile_Rb.ImageProfile = bm));
+                           else
+                              ServProFile_Rb.ImageProfile = bm;
+
+                           ServProFile_Rb.Tag = _attn.FIGH_FILE_NO;
+                        }
+                        catch { }
+                     }
+                     else
+                     {
+                        ServProFile_Rb.ImageProfile = null;
+                        ServProFile_Rb.Tag = null;
+                     }
+
+                     if (ServProFile_Rb.ImageProfile == null && _attn.Fighter1.SEX_TYPE_DNRM == "002")
+                        ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1148;
+                     else if (ServProFile_Rb.ImageProfile == null)
+                        ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1149;
+                  }
+                  else
+                  {
+                     ServProFile_Rb.ImageProfile = null;
+                     ServProFile_Rb.Tag = null;
+                  }
+               }
+
                if(_dev.DEV_COMP_TYPE == "002")
                {
                   switch (cmdtype)
@@ -3684,11 +3762,11 @@ namespace System.Scsc.Ui.MasterPage
                      default:
                         var dresNumb = cmdtype.ToInt32();
                         if (dresNumb <= 255)
-                           cmdbyte = new byte[] { 0xFA, 0xCA, 0x02, Convert.ToByte(dresNumb.ToString("X2")), 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
+                           cmdbyte = new byte[] { 0xFA, 0xCA, 0x02, Convert.ToByte(dresNumb.ToString("X2"), 16), 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
                         else
                         {
                            var _numbStr = dresNumb.ToString("X4");
-                           cmdbyte = new byte[] { 0xFA, 0xCA, 0x02, Convert.ToByte(dresNumb.ToString("X4").Substring(0, 2)), Convert.ToByte(dresNumb.ToString("X4").Substring(2)), 0x00, 0x00, 0x00, 0x00, 0xEE };
+                           cmdbyte = new byte[] { 0xFA, 0xCA, 0x02, Convert.ToByte(dresNumb.ToString("X4").Substring(0, 2), 16), Convert.ToByte(dresNumb.ToString("X4").Substring(2), 16), 0x00, 0x00, 0x00, 0x00, 0xEE };
                         }
                         break;
                   }
@@ -4361,8 +4439,7 @@ namespace System.Scsc.Ui.MasterPage
                   break;
                default:
                   break;
-            }
-
+            }            
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
          }
          catch (Exception exc)
@@ -7168,6 +7245,184 @@ namespace System.Scsc.Ui.MasterPage
                 }
               });
          _DefaultGateway.Gateway(_InteractWithScsc);
+      }
+
+      private void DresBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            AttnBs.DataSource =
+               iScsc.Attendances
+               .Where(a => a.ATTN_DATE == DateTime.Now.Date && a.ATTN_STAT == "002" && a.EXIT_TIME == null && a.DERS_NUMB == _dres.DRES_NUMB).OrderByDescending(a => a.ENTR_TIME).Take(1);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ActnCrntServOpenDres_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _attn = CrntOpenBs.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            var dres = _attn.Dresser_Attendances.FirstOrDefault().Dresser as Data.Dresser;
+            if (dres == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("OprtDres",
+                           new XAttribute("type", "sendoprtdres"),
+                           new XAttribute("cmndname", dres.DRES_NUMB),
+                           new XAttribute("devip", dres.IP_ADRS),
+                           new XAttribute("cmndsend", dres.CMND_SEND ?? "")
+                         )
+               }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DresConf_Butn_Click(object sender, EventArgs e)
+      {
+         OnlineDres_Butn_ButtonClick(OnlineDres_Butn, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(OnlineDres_Butn.Properties.Buttons[0]));
+      }
+
+      private void CrntServOpenDres_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _attn = CrntOpenBs.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _attn.FIGH_FILE_NO)) }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SlctServDres_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _attn = AttnBs.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _attn.FIGH_FILE_NO)) }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ActnSlctServOpenDres_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _attn = AttnBs.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            var dres = _attn.Dresser_Attendances.FirstOrDefault().Dresser as Data.Dresser;
+            if (dres == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new XElement("OprtDres",
+                           new XAttribute("type", "sendoprtdres"),
+                           new XAttribute("cmndname", dres.DRES_NUMB),
+                           new XAttribute("devip", dres.IP_ADRS),
+                           new XAttribute("cmndsend", dres.CMND_SEND ?? "")
+                         )
+               }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DresActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            int? _ordr = null;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  DresBs.MovePrevious();
+                  var _getUp = DresBs.Current as Data.Dresser;
+                  if (_getUp == _dres) return;
+
+                  _ordr = _dres.ORDR;
+                  _dres.ORDR = _getUp.ORDR;
+                  _getUp.ORDR = _ordr;
+                  break;
+               case 1:
+                  DresBs.MoveNext();
+                  var _getDown = DresBs.Current as Data.Dresser;
+                  if (_getDown == _dres) return;
+
+                  _ordr = _dres.ORDR;
+                  _dres.ORDR = _getDown.ORDR;
+                  _getDown.ORDR = _ordr;
+                  break;
+               case 2:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+                     {
+                        Input =
+                           new XElement("OprtDres",
+                                 new XAttribute("type", "sendoprtdres"),
+                                 new XAttribute("cmndname", _dres.DRES_NUMB),
+                                 new XAttribute("devip", _dres.IP_ADRS),
+                                 new XAttribute("cmndsend", _dres.CMND_SEND ?? "")
+                               )
+                     }
+                  );
+                  break;
+               case 3:
+                  _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
+                  break;
+               default:
+                  break;
+            }
+
+            iScsc.SubmitChanges();
+            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }      
    }
 }

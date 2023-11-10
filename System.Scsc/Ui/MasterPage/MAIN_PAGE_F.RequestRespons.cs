@@ -617,6 +617,7 @@ namespace System.Scsc.Ui.MasterPage
          //FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          DaeatBs.DataSource = iScsc.D_AEATs;
          DevntBs.DataSource = iScsc.D_EVNTs;
+         CompaBs.DataSource = iScsc.Computer_Actions;
          FormHandle = this.Handle;
          job.Status = StatusType.Successful;
       }
@@ -1001,6 +1002,18 @@ namespace System.Scsc.Ui.MasterPage
 
             var figh = fighs.FirstOrDefault();
 
+            // 1402/08/13 * قفل انلاین
+            if(cmnd == "opendres-tryopen")
+            {
+               var _attn = iScsc.Attendances.FirstOrDefault(a => a.FIGH_FILE_NO == figh.FILE_NO && a.EXIT_TIME == null && a.ATTN_STAT == "002" && a.ATTN_DATE.Date == DateTime.Now.Date);
+               if(_attn != null)
+               {
+                  cmnd = "opendres";
+                  var _dres = iScsc.Dressers.FirstOrDefault(d => d.DRES_NUMB == _attn.DERS_NUMB);
+                  param = string.Format("{0},{1},{2},{3}", _dres.CODE, _dres.DRES_NUMB, _dres.IP_ADRS, _dres.CMND_SEND);
+               }
+            }
+
             bool result = false;
             switch (cmnd.ToLower())
             {
@@ -1119,6 +1132,33 @@ namespace System.Scsc.Ui.MasterPage
                      new XElement("Output",
                         new XAttribute("resultcode", 10004),
                         new XAttribute("resultdesc", "درخواست بسته شدن گیت انجام شد"),
+                        new XAttribute("mesgtype", "1"),
+                        new XAttribute("mesgdesc", "Text")
+                     );
+                  break;
+               case "opendres":                  
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           //new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                           new Job(SendType.SelfToUserInterface, GetType().Name, 10 /* Execute Actn_CalF_F */)
+                           {
+                              Input = 
+                                 new XElement("MainPage",
+                                    new XAttribute("type", "sendoprtdres"),
+                                    new XAttribute("cmndname", param.Split(',')[1]),
+                                    new XAttribute("devip", param.Split(',')[2]),
+                                    new XAttribute("cmndsend", param.Split(',')[3])
+                                 )
+                           }
+                        }
+                     )
+                  );
+                  job.Output =
+                     new XElement("Output",
+                        new XAttribute("resultcode", 10004),
+                        new XAttribute("resultdesc", string.Format("درخواست باز شدن قفل کمد شماره {0} انجام شد", param.Split(',')[1])),
                         new XAttribute("mesgtype", "1"),
                         new XAttribute("mesgdesc", "Text")
                      );

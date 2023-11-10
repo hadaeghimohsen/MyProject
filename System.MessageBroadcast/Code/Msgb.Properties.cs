@@ -73,7 +73,7 @@ namespace System.MessageBroadcast.Code
                iProject.PrepareSendCustSms(new XElement("Process", ""));
             }
          }
-         catch (Exception Ex) { MessageBox.Show(Ex.Message); }
+         catch {  }
       }
 
       void _SenderBgwk_Tick(object sender, EventArgs e)
@@ -664,9 +664,8 @@ namespace System.MessageBroadcast.Code
             return null;
             //return xoutput;
          }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
+         catch
+         {            
             return null;
          }
       }

@@ -4391,6 +4391,8 @@ namespace System.Scsc.Ui.OtherIncome
 
             if (!LinkMtod_Cbx.Checked)
             {
+               CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && c.ACTV_TAG_DNRM == "101" && c.CONF_STAT == "002");
+
                ExpnBs1.DataSource =
                   iScsc.Expenses.Where(ex =>
                      ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
@@ -4449,11 +4451,11 @@ namespace System.Scsc.Ui.OtherIncome
             ExpnBs1.EndEdit();
             Expn_Gv.PostEditor();
 
-            var _expn = ExpnBs1.Current as Data.Expense;
-            if (_expn == null) return;
+            //var _expn = ExpnBs1.Current as Data.Expense;
+            //if (_expn == null) return;
 
-            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, _expn.GROP_CODE, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, _expn.BRND_CODE, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE);
-
+            //iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, _expn.GROP_CODE, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, _expn.BRND_CODE, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE);
+            iScsc.SubmitChanges();
             requery = true;
          }
          catch (Exception exc)
@@ -4659,11 +4661,21 @@ namespace System.Scsc.Ui.OtherIncome
       private void Rqpm_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
          try
-         {
+         {            
             var _rqpm = RqpmBs.Current as Data.Request_Parameter;
             if (_rqpm == null) return;
 
-            iScsc.Request_Parameters.DeleteOnSubmit(_rqpm);
+            switch (e.Button.Index)
+            {
+               case 0:
+                  iScsc.Request_Parameters.DeleteOnSubmit(_rqpm);
+                  break;
+               case 1:
+                  Rqpm_Gv.PostEditor();
+                  break;
+               default:
+                  break;
+            }            
 
             iScsc.SubmitChanges();
             requery = true;
@@ -4944,6 +4956,14 @@ namespace System.Scsc.Ui.OtherIncome
             {
                case 0:
                   // Decriment or delete record
+                  if (ModifierKeys.HasFlag(Keys.Control))
+                  {
+                     var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+                     if (_pydt == null) return;
+
+                     _pydt.QNTY = 1;
+                  }
+                  
                   RemoveExpn_Butn_Click(null, null);
                   break;
                case 1:
@@ -5413,6 +5433,8 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
+            Pcdt_Gv.PostEditor();
+
             var _pymt = PymtsBs1.Current as Data.Payment;
             if(_pymt == null)return;
 
@@ -5505,6 +5527,7 @@ namespace System.Scsc.Ui.OtherIncome
             iScsc.ExecuteCommand(
                string.Format("UPDATE dbo.Payment_Contract_Detail SET FLPC_CODE = {0} WHERE CODE = {1};", _flpc.CODE, _pcdt.CODE)
             );
+            iScsc.SubmitChanges();
 
             requery = true;
          }
@@ -5518,5 +5541,155 @@ namespace System.Scsc.Ui.OtherIncome
                Execute_Query();
          }
       }
+
+      private void SaveRfndDate_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst == null) return;
+
+            var _pymt = PymtsBs1.Current as Data.Payment;
+            if (_pymt == null) return;
+
+            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment SET RFND_DATE = '{0}' WHERE RQST_RQID = {1};", _pymt.RFND_DATE, _pymt.RQST_RQID));
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void OrdrItem1_Txt_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            if (OrdrItem1_Txt.Text != "")
+               Expn_Gv.ActiveFilterString = string.Format("Ordr_Item = '{0}'", OrdrItem1_Txt.Text);
+            else
+               Expn_Gv.ActiveFilterString = "";
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CochCode1_Txt_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            if (CochCode1_Txt.Text != "")
+               Coch_Gv.ActiveFilterString = string.Format("Fngr_Prnt_Dnrm = '{0}'", CochCode1_Txt.Text);
+            else
+               Coch_Gv.ActiveFilterString = "";
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void GoUpExpn_Butn_Click(object sender, EventArgs e)
+      {
+         Expn_Gv.MovePrev();
+      }
+
+      private void GoDnExpn_Butn_Click(object sender, EventArgs e)
+      {
+         Expn_Gv.MoveNext();
+      }
+
+      private void AddToCart1_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _pymt = PymtsBs1.Current as Data.Payment;
+            if (_pymt == null) return;
+
+            var _expn = ExpnBs1.Current as Data.Expense;
+            if (_expn == null) return;
+
+            if (OrdrItem1_Txt.Text == "") return;
+
+            if (CochCode1_Txt.Text != "")
+            {
+               var _coch = CochBs1.List.OfType<Data.Fighter>().FirstOrDefault(c => c.FNGR_PRNT_DNRM == CochCode1_Txt.Text);
+               if (_coch != null)
+               {
+                  LinkCochPydt_Cbx.Checked = true;
+                  CochBs1.Position = CochBs1.IndexOf(_coch);
+               }
+            }
+
+            if (!PydtsBs1.List.OfType<Data.Payment_Detail>().Any(pd => pd.EXPN_CODE == _expn.CODE))
+            {
+               AddItem_ButtonClick(null, null);
+            }
+
+            PydtsBs1.List.OfType<Data.Payment_Detail>().FirstOrDefault(pd => pd.EXPN_CODE == _expn.CODE).QNTY = Convert.ToSingle(Qnty1_Txt.Text);
+            
+            if(per1000_Cbx.Checked)
+               PydtsBs1.List.OfType<Data.Payment_Detail>().FirstOrDefault(pd => pd.EXPN_CODE == _expn.CODE).EXPN_PRIC = (long)(Convert.ToSingle(Pric1_Txt.Text) * 1000);
+            else
+               PydtsBs1.List.OfType<Data.Payment_Detail>().FirstOrDefault(pd => pd.EXPN_CODE == _expn.CODE).EXPN_PRIC = (long)Convert.ToSingle(Pric1_Txt.Text);
+
+            PydtActn1_Butn_ButtonClick(sender, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(PydtActn1_Butn.Buttons[1]));
+
+            OrdrItem1_Txt.Text = CochCode1_Txt.Text = "";
+            Pric1_Txt.EditValue = Qnty1_Txt.EditValue = null;            
+            OrdrItem1_Txt.Focus();
+            Expn_Gv.ActiveFilterString = Coch_Gv.ActiveFilterString = "";            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void MtodList_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            /// Must Be Change
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                 {                  
+                   new Job(SendType.Self, 144 /* Execute Bas_Dfin_F */),
+                   new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("showtabpage", "tp_003"))}
+                 });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CochList_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            /// Must Be Change
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
+                 {                  
+                   new Job(SendType.Self, 144 /* Execute Bas_Dfin_F */),
+                   new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("showtabpage", "tp_005"))}
+                 });
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveCutomer_Butn_Click(object sender, EventArgs e)
+      {
+
+      }      
    }
 }

@@ -2266,6 +2266,8 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
+            RqstBnDeleteFngrPrnt1_Click(null, null);
+
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
             Job _InteractWithScsc =

@@ -158,13 +158,14 @@ namespace System.Scsc.Ui.OtherIncome
          }
          else if (keyData == Keys.Enter)
          {
-            //if (!(Btn_RqstRqt1.Focused || Btn_RqstSav1.Focused || Btn_RqstDelete1.Focused || Btn_NewRecord.Focused))
-            SendKeys.Send("{TAB}");
+            if (!(AddToCart1_Butn.Focused || DresNumb_Txt.Focused))
+               SendKeys.Send("{TAB}");
          }
          else if (keyData == Keys.F2)
          {
             //Create_Record();
             Rqst_Tc.SelectedTab = tp_001;
+            OrdrItem1_Txt.Focus();
          }
          else if (keyData == Keys.F9)
          {

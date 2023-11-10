@@ -1,0 +1,600 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>User ID=artauser;Integrated Security=False;Data Source=.;Initial Catalog=iScsc;Password=artasport_anardb;Persist Security Info=True</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="2">
+      <Attendance Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Attendance</Alias>
+        <Columns isList="true" count="16">
+          <value>NAME_DNRM,System.String</value>
+          <value>FNGR_PRNT_DNRM,System.String</value>
+          <value>DEBT_DNRM,System.Int64</value>
+          <value>NUMB_OF_ATTN_MONT,System.Int32</value>
+          <value>SUM_ATTN_MONT_DNRM,System.Int32</value>
+          <value>ENTR_TIME,System.TimeSpan</value>
+          <value>ATTN_DATE,System.String</value>
+          <value>MTOD_DESC,System.String</value>
+          <value>CTGY_DESC,System.String</value>
+          <value>MBSP_END_DATE,System.String</value>
+          <value>COCH_NAME_DNRM,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>RMND_ATTN_MONT,System.Int32</value>
+          <value>CLUB_CODE,System.Int64</value>
+          <value>MUST_EXIT_TIME_DNRM,System.TimeSpan</value>
+          <value>ATTN_DESC,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Attendance</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>SELECT a.CLUB_CODE, a.NAME_DNRM, A.FNGR_PRNT_DNRM, A.DEBT_DNRM, A.NUMB_OF_ATTN_MONT,
+  A.SUM_ATTN_MONT_DNRM, A.ENTR_TIME, DBO.GET_MTOS_U(A.ATTN_DATE) AS ATTN_DATE,
+  M.MTOD_DESC, CB.CTGY_DESC, DBO.GET_MTOS_U(A.MBSP_END_DATE_DNRM) AS
+  MBSP_END_DATE, CO.NAME_DNRM AS COCH_NAME_DNRM,
+  a.CRET_BY, (A.NUMB_OF_ATTN_MONT - A.SUM_ATTN_MONT_DNRM) AS RMND_ATTN_MONT,
+  a.MUST_EXIT_TIME_DNRM, dbo.GET_STRD_U('&lt;Request type="003" code="' + CAST(a.CODE AS VARCHAR(15)) + '" /&gt;') AS ATTN_DESC
+FROM Attendance a INNER JOIN
+  Method m ON a.MTOD_CODE_DNRM = m.CODE INNER JOIN
+  Category_Belt cb ON a.CTGY_CODE_DNRM = cb.CODE AND m.CODE = cb.MTOD_CODE
+  INNER JOIN
+  Fighter co ON a.COCH_FILE_NO = co.FILE_NO
+WHERE {WhereClause}
+</SqlCommand>
+      </Attendance>
+      <Club Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Club</Alias>
+        <Columns isList="true" count="20">
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>CODE,System.Int64</value>
+          <value>NAME,System.String</value>
+          <value>POST_ADRS,System.String</value>
+          <value>EMAL_ADRS,System.String</value>
+          <value>WEB_SITE,System.String</value>
+          <value>CORD_X,System.Double</value>
+          <value>CORD_Y,System.Double</value>
+          <value>TELL_PHON,System.String</value>
+          <value>CELL_PHON,System.String</value>
+          <value>CLUB_CODE,System.Int64</value>
+          <value>ZIP_CODE,System.String</value>
+          <value>ECON_CODE,System.String</value>
+          <value>CLUB_DESC,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Club</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Club</SqlCommand>
+      </Club>
+    </DataSources>
+    <Relations isList="true" count="1">
+      <ATTN_CLUB_FK Ref="5" type="DataRelation" isKey="true">
+        <Alias>ATTN_CLUB_FK</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>CLUB_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>ATTN_CLUB_FK</Name>
+        <NameInSource>ATTN_CLUB_FK</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </ATTN_CLUB_FK>
+    </Relations>
+    <Report isRef="0" />
+    <Variables isList="true" count="11">
+      <value>,SerialNumber,SerialNumber,System.String,,False,False</value>
+      <value>,Date,Date,System.String,,False,False</value>
+      <value>,Hour,Hour,System.String,,False,False</value>
+      <value>,TeacherName,TeacherName,System.String,,False,False</value>
+      <value>,Name,Name,System.String,,False,False</value>
+      <value>,Code,Code,System.String,,False,False</value>
+      <value>,ClassName,ClassName,System.String,,False,False</value>
+      <value>,SaloonNo,SaloonNo,System.String,,False,False</value>
+      <value>,Amount,Amount,System.String,,False,False</value>
+      <value>,EtebarDate,EtebarDate,System.String,,False,False</value>
+      <value>,EnrollUserName,EnrollUserName,System.String,,False,False</value>
+    </Variables>
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="6" type="Page" isKey="true">
+      <Border>None;Black;3;Double;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="1">
+        <DataAttendance Ref="7" type="DataBand" isKey="true">
+          <Border>All;Black;1;Solid;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,0.4,6,4.6</ClientRectangle>
+          <Components isList="true" count="23">
+            <Text1 Ref="8" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>5,1,1,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>923af3e3acbb4d38b70bebd76269dfee</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>مشتری</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text7 Ref="9" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>5,1.4,1,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>be23da9ab8774b6d9582d0439595333f</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>سرپرست</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text14 Ref="10" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.4,5,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>90f5e65ba07d41e084164ac129e13e29</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{Attendance.COCH_NAME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+            <Text15 Ref="11" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,1,3,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>846902315471416fa7eea08cc6c4ea90</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{Attendance.NAME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+            <Text3 Ref="12" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>5,1.8,1,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>4bb0b6f4578e4729ac99c4e6f15c11e9</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>گروه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text17 Ref="13" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1.8,5,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>11fa27e088874119a425fb9b7e07906a</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text17</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{Attendance.MTOD_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text17>
+            <Text2 Ref="14" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>5,2.2,1,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>5baa64b75f254c4e81d907ec2ec51807</Guid>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>رسته</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text4 Ref="15" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,2.2,5,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>b7dcda564d8c4763a22d419b35c10560</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{Attendance.CTGY_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text19 Ref="16" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>4,2.6,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,7</Font>
+              <Guid>dbf849991030486282250abd3871a884</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>جلسات باقیمانده</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
+            <Text21 Ref="17" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>1.6,2.6,1.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,7</Font>
+              <Guid>f0c95016d2af4dab8545ab8c0d85693f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text21</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>اعتبار دوره</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text21>
+            <Text20 Ref="18" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.8,2.6,1.2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>d6ed23e3772445e997d554b54d3d7630</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text20</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{Attendance.RMND_ATTN_MONT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text20>
+            <Text10 Ref="19" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,3.8,6,0.8</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,7</Font>
+              <Guid>2c6dd800ad2e432d832ee552def8de00</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>نرم افزار جامع مدیریتی رله سافت
+09033927103 - 09915666598</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text8 Ref="20" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>1.6,1,0.4,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>502c05c0eef74be8af351890e2571b4f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>کد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text8>
+            <Text22 Ref="21" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,2.6,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>2b7c0b56531f4774ba36ab88b185c76d</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text22</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{Attendance.MBSP_END_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text22>
+            <Text5 Ref="22" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>2,3,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,7</Font>
+              <Guid>cee62930328c406786979404d0b9e13f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>ساعت ورود</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text5>
+            <Text13 Ref="23" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2,3.4,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>b2844bebca784d64a69260134858f879</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text13</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{Attendance.ENTR_TIME}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text13>
+            <Text16 Ref="24" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,3,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,7</Font>
+              <Guid>f2da4b1dcad2451cbdcaadc2bf5f6b87</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text16</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>ساعت خروج</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </Text16>
+            <Text18 Ref="25" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,3.4,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>77c39aaa120b43d59bdc943e6a95fdfe</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{Attendance.MUST_EXIT_TIME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
+            <Text11 Ref="26" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,1,1.6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>Consolas,8,Bold</Font>
+              <Guid>aaa793a291124164b2eeb393a1b28b7c</Guid>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{Attendance.FNGR_PRNT_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+            <Text25 Ref="27" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,6,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>67ac71b1705547688c96d39bd04d6e01</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text25</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>قبض ورود</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text25>
+            <Text9 Ref="28" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0.6,6,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,9,Bold</Font>
+              <Guid>6d6dde51d27c4c148e9d4397524bedeb</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{Attendance.ATTN_CLUB_FK.CLUB_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text6 Ref="29" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>4,3,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,7</Font>
+              <Guid>853a72783ae64d77af500b2d3da9b098</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>تاریخ ورود</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+            <Text12 Ref="30" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4,3.4,2,0.4</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8,Bold</Font>
+              <Guid>f274633d4e194abfa44a3c9bf1c3d6d1</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text12</Name>
+              <Page isRef="6" />
+              <Parent isRef="7" />
+              <Text>{Attendance.ATTN_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=True, Trimming=None, WordWrap=False, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text12>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>Attendance</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataAttendance</Name>
+          <Page isRef="6" />
+          <Parent isRef="6" />
+          <Sort isList="true" count="0" />
+        </DataAttendance>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>6098e725742243daa4a4fe2b67d4ebaf</Guid>
+      <Margins>0.5,0.5,0.5,0.5</Margins>
+      <Name>Page1</Name>
+      <PageHeight>12</PageHeight>
+      <PageWidth>7</PageWidth>
+      <Report isRef="0" />
+      <Watermark Ref="31" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>B Titr,12,Bold,Point,False,178</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="32" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>10/27/2023 11:49:06 PM</ReportChanged>
+  <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_ATTN_002_R.mrt</ReportFile>
+  <ReportGuid>dbc34b126ae5465bbeed83317e020689</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        
+        public Report()
+        {
+            this.InitializeComponent();
+        }
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

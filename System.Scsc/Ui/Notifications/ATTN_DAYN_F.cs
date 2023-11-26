@@ -128,7 +128,7 @@ namespace System.Scsc.Ui.Notifications
                   );
                   break;
                case 1:
-                  if(_attn.EXIT_TIME != null && _attn.Club.Settings.Any(a => a.DRES_AUTO == "002"))
+                  if(_attn.EXIT_TIME == null && _attn.Club.Settings.Any(a => a.DRES_AUTO == "002"))
                   {
                      var dres = _attn.Dresser_Attendances.FirstOrDefault().Dresser as Data.Dresser;
                      if (dres == null) return;

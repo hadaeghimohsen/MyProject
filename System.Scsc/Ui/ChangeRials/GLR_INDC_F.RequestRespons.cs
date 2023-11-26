@@ -293,7 +293,7 @@ namespace System.Scsc.Ui.ChangeRials
                      //Rqst_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "rqid_lb":
-                     Rqid_Lb.Text = control.LABL_TEXT;
+                     //Rqid_Lb.Text = control.LABL_TEXT;
                      //Rqid_Lb.Text = control.LABL_TEXT; // ToolTip
                      //Rqid_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;

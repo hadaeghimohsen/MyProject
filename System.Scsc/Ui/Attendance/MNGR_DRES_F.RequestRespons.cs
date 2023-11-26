@@ -800,8 +800,8 @@ namespace System.Scsc.Ui.Attendance
             isFirstLoaded = true;
          }
 
-         FromAttnDate_Date.Value = ToAttnDate_Date.Value = DateTime.Now;
-         Execute_Query();
+         SuntBs1.DataSource = iScsc.Sub_Units;
+
          job.Status = StatusType.Successful;
       }
 
@@ -819,7 +819,9 @@ namespace System.Scsc.Ui.Attendance
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
-         
+         FromDate_Date.Value = ToDate_Date.Value = DateTime.Now;
+         Execute_Query();
+
          job.Status = StatusType.Successful;
       }
    }

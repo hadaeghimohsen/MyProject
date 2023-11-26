@@ -673,6 +673,15 @@
     <Compile Include="Ui\ChangeRials\GLR_INDC_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\ChangeRials\GLR_CHNG_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ChangeRials\GLR_CHNG_F.Designer.cs">
+      <DependentUpon>GLR_CHNG_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ChangeRials\GLR_CHNG_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\Common\ALL_FLDF_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1402,6 +1411,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.V_Coach_Event.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Computer.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_DiscountPayment.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_Drat.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Event.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_GainLoss.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Inventory.datasource" />
@@ -1573,6 +1583,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\ChangeRials\GLR_INDC_F.resx">
       <DependentUpon>GLR_INDC_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ChangeRials\GLR_CHNG_F.resx">
+      <DependentUpon>GLR_CHNG_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Common\ALL_FLDF_F.resx">
       <DependentUpon>ALL_FLDF_F.cs</DependentUpon>

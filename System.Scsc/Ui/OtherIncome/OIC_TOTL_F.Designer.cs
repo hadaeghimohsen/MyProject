@@ -9155,8 +9155,6 @@
          this.DresNumb_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Office2003;
          this.DresNumb_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.DresNumb_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.DresNumb_Txt.Properties.Mask.EditMask = "d";
-         this.DresNumb_Txt.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
          this.DresNumb_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.DresNumb_Txt.Size = new System.Drawing.Size(87, 28);
          this.DresNumb_Txt.TabIndex = 25;
@@ -19527,14 +19525,14 @@
          this.FreeAdm_Ro.PaintRollout = true;
          this.FreeAdm_Ro.RolloutBorderColor = System.Drawing.Color.Gray;
          this.FreeAdm_Ro.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.FreeAdm_Ro.RolloutStatus = false;
+         this.FreeAdm_Ro.RolloutStatus = true;
          this.FreeAdm_Ro.RolloutTitle = "اطلاعات تکمیلی";
          this.FreeAdm_Ro.RoundCorners = 2;
          this.FreeAdm_Ro.ShadowColor = System.Drawing.Color.DarkGray;
          this.FreeAdm_Ro.ShadowControl = false;
          this.FreeAdm_Ro.ShadowThickness = 3;
          this.FreeAdm_Ro.ShowFocusFrame = false;
-         this.FreeAdm_Ro.Size = new System.Drawing.Size(237, 22);
+         this.FreeAdm_Ro.Size = new System.Drawing.Size(237, 348);
          this.FreeAdm_Ro.TabIndex = 25;
          this.FreeAdm_Ro.TitleBorderColor = System.Drawing.Color.Gray;
          // 
@@ -20335,7 +20333,7 @@
          this.Rqst_Ro.ForeColor = System.Drawing.Color.Black;
          this.Rqst_Ro.FrameOnMouseOverOnly = false;
          this.Rqst_Ro.GroupImage = null;
-         this.Rqst_Ro.Location = new System.Drawing.Point(21, 391);
+         this.Rqst_Ro.Location = new System.Drawing.Point(21, 717);
          this.Rqst_Ro.MaxHeight = 343;
          this.Rqst_Ro.Name = "Rqst_Ro";
          this.Rqst_Ro.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -20631,7 +20629,7 @@
          this.FindReg_Ro.ForeColor = System.Drawing.Color.Black;
          this.FindReg_Ro.FrameOnMouseOverOnly = false;
          this.FindReg_Ro.GroupImage = null;
-         this.FindReg_Ro.Location = new System.Drawing.Point(21, 419);
+         this.FindReg_Ro.Location = new System.Drawing.Point(21, 745);
          this.FindReg_Ro.MaxHeight = 557;
          this.FindReg_Ro.Name = "FindReg_Ro";
          this.FindReg_Ro.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);

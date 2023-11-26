@@ -3857,8 +3857,8 @@ namespace System.Scsc.Ui.MasterPage
                            // Save History for enter or exit
                            iScsc.ExecuteCommand(
                               string.Format(
-                              "INSERT INTO dbo.Dresser_Attendance (Dres_Code, Figh_File_No, Code, Ders_Numb)" + Environment.NewLine +
-                              "SELECT TOP 1 Dres_Code, Figh_File_No, 0, Ders_Numb FROM dbo.Dresser_Attendance da" + Environment.NewLine +
+                              "INSERT INTO dbo.Dresser_Attendance (Dres_Code, Figh_File_No, Code, Ders_Numb, Rqst_Rqid, Mbsp_Rwno, Mbsp_Rect_Code, Conf_Stat)" + Environment.NewLine +
+                              "SELECT TOP 1 Dres_Code, Figh_File_No, 0, Ders_Numb, Rqst_Rqid, Mbsp_Rwno, Mbsp_Rect_Code, Conf_Stat FROM dbo.Dresser_Attendance da" + Environment.NewLine +
                               "WHERE da.Dres_Code IN (SELECT Code FROM dbo.Dresser d WHERE d.Cmnd_Send = '{0}')" + Environment.NewLine +
                               "  AND da.Tkbk_Time IS NULL AND da.Lend_Time IS NOT NULL AND da.Conf_Stat = '002'" + Environment.NewLine +
                               "ORDER BY da.CRET_DATE DESC",
@@ -6088,7 +6088,7 @@ namespace System.Scsc.Ui.MasterPage
                break;
          }
          string year = _pc.GetYear(DateTime.Now).ToString();
-         AdjustDateTime_Lab.Text += string.Format("{0}, {1} {2} {3}", weekdaydesc, dayofmonthdesc, monthdesc, year);
+         AdjustDateTime_Lab.Text += string.Format("{0}, {1} {2}\n\r{3}", weekdaydesc, dayofmonthdesc, monthdesc, year);
 
          if (_settings == null)
             _settings = iScsc.V_Settings;
@@ -7080,21 +7080,7 @@ namespace System.Scsc.Ui.MasterPage
 
       private void Master_Tc_SelectedIndexChanged(object sender, EventArgs e)
       {
-         try
-         {
-            switch (Master_Tc.SelectedIndex)
-            {
-               case 1:
-                  EventX_Rb_CheckedChanged(null, null);
-                  break;
-               default:
-                  break;
-            }
-         }
-         catch (Exception exc)
-         {
-            MessageBox.Show(exc.Message);
-         }
+         
       }
 
       private void EventX_Rb_CheckedChanged(object sender, EventArgs e)
@@ -7274,18 +7260,57 @@ namespace System.Scsc.Ui.MasterPage
             var dres = _attn.Dresser_Attendances.FirstOrDefault().Dresser as Data.Dresser;
             if (dres == null) return;
 
+            // 1402/08/30 * User access to open online locker
             _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
-               {
-                  Input =
-                     new XElement("OprtDres",
-                           new XAttribute("type", "sendoprtdres"),
-                           new XAttribute("cmndname", dres.DRES_NUMB),
-                           new XAttribute("devip", dres.IP_ADRS),
-                           new XAttribute("cmndsend", dres.CMND_SEND ?? "")
-                         )
-               }
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>272</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                    return;
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 272 سطوح امینتی", "عدم دسترسی");
+                              })
+                           },
+                           #endregion
+                        }),
+                     #region Dowork
+                     new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+                     {
+                        Input =
+                           new XElement("OprtDres",
+                                 new XAttribute("type", "sendoprtdres"),
+                                 new XAttribute("cmndname", dres.DRES_NUMB),
+                                 new XAttribute("devip", dres.IP_ADRS),
+                                 new XAttribute("cmndsend", dres.CMND_SEND ?? "")
+                                 )
+                     }
+                     #endregion
+                  })
             );
+
+            //_DefaultGateway.Gateway(
+            //   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+            //   {
+            //      Input =
+            //         new XElement("OprtDres",
+            //               new XAttribute("type", "sendoprtdres"),
+            //               new XAttribute("cmndname", dres.DRES_NUMB),
+            //               new XAttribute("devip", dres.IP_ADRS),
+            //               new XAttribute("cmndsend", dres.CMND_SEND ?? "")
+            //             )
+            //   }
+            //);
          }
          catch (Exception exc)
          {
@@ -7391,21 +7416,74 @@ namespace System.Scsc.Ui.MasterPage
                   _getDown.ORDR = _ordr;
                   break;
                case 2:
+                  // 1402/08/30 * User access to open online locker
                   _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
-                     {
-                        Input =
-                           new XElement("OprtDres",
-                                 new XAttribute("type", "sendoprtdres"),
-                                 new XAttribute("cmndname", _dres.DRES_NUMB),
-                                 new XAttribute("devip", _dres.IP_ADRS),
-                                 new XAttribute("cmndsend", _dres.CMND_SEND ?? "")
-                               )
-                     }
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>272</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 272 سطوح امینتی", "عدم دسترسی");
+                                    })
+                                 },
+                                 #endregion
+                              }),
+                           #region Dowork
+                           new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+                           {
+                              Input =
+                                 new XElement("OprtDres",
+                                       new XAttribute("type", "sendoprtdres"),
+                                       new XAttribute("cmndname", _dres.DRES_NUMB),
+                                       new XAttribute("devip", _dres.IP_ADRS),
+                                       new XAttribute("cmndsend", _dres.CMND_SEND ?? "")
+                                       )
+                           }
+                           #endregion
+                        })
                   );
                   break;
                case 3:
-                  _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>271</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                       {
+                                          _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
+                                          return;
+                                       }
+                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 271 سطوح امینتی", "عدم دسترسی");
+                                    })
+                                 },
+                                 #endregion
+                              }),                           
+                        })
+                  );                  
                   break;
                default:
                   break;
@@ -7422,6 +7500,296 @@ namespace System.Scsc.Ui.MasterPage
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void ExdvOprt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _btn = sender as MaxUi.Button;
+            if (_btn == null) return;
+
+            var _exdv = ExdvBs.Current as Data.External_Device;
+            if (_exdv == null) return;            
+
+            switch (_btn.Tag.ToString())
+            {
+               case "opst":
+                  #region OpenStart
+                  switch (_exdv.DEV_COMP_TYPE)
+	               {
+                     case "001":
+                        if (_exdv.DEV_TYPE != "006") return;
+
+                        iScsc.INS_LGOP_P(
+                           new XElement("Log",
+                              new XAttribute("fileno", ""),
+                              new XAttribute("type", "007"),
+                              new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه داخل باز شد")
+                           )
+                        );
+
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost",
+                              new List<Job>
+                              {
+                                 new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_F */)
+                                 {
+                                    Input = 
+                                       new XElement("MainPage",
+                                          new XAttribute("type", "extdev"),
+                                          new XAttribute("devtype", "006"),
+                                          new XAttribute("contype", "002"),
+                                          new XAttribute("cmdtype", "open"),
+                                          new XAttribute("cmdsend", ""),
+                                          new XAttribute("ip", _exdv.IP_ADRS),
+                                          new XAttribute("sendport", _exdv.PORT_SEND)
+                                       )
+                                 }
+                              }
+                           )
+                        );
+                        break;
+                     case "002":
+                        iScsc.INS_LGOP_P(
+                           new XElement("Log",
+                              new XAttribute("fileno", ""),
+                              new XAttribute("type", "007"),
+                              new XAttribute("text", "رله فرمان دستگاه به صورت دستی توسط کاربر باز شد")
+                           )
+                        );
+
+                        SendCommandDevExpn("in", _exdv.DEV_NAME, "");
+                        break;
+                     case "003":
+                        break;
+	               }
+                  #endregion
+                  break;
+               case "clst":
+                  #region CloseStop
+                  switch (_exdv.DEV_COMP_TYPE)
+                  {
+                     case "001":
+                        if (_exdv.DEV_TYPE != "006") return;
+                        iScsc.INS_LGOP_P(
+                           new XElement("Log",
+                              new XAttribute("fileno", ""),
+                              new XAttribute("type", "007"),
+                              new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه بیرون باز شد")
+                           )
+                        );
+
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost",
+                              new List<Job>
+                              {
+                                 new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_F */)
+                                 {
+                                    Input = 
+                                       new XElement("MainPage",
+                                          new XAttribute("type", "extdev"),
+                                          new XAttribute("devtype", "006"),
+                                          new XAttribute("contype", "002"),
+                                          new XAttribute("cmdtype", "close"),
+                                          new XAttribute("cmdsend", ""),
+                                          new XAttribute("ip", _exdv.IP_ADRS),
+                                          new XAttribute("sendport", _exdv.PORT_SEND)
+                                       )
+                                 }
+                              }
+                           )
+                        );
+                        break;
+                     case "002":
+                        iScsc.INS_LGOP_P(
+                           new XElement("Log",
+                              new XAttribute("fileno", ""),
+                              new XAttribute("type", "007"),
+                              new XAttribute("text", "رله فرمان دستگاه به صورت دستی توسط کاربر باز شد")
+                           )
+                        );
+
+                        SendCommandDevExpn("out", _exdv.DEV_NAME, "");
+                        break;
+                     case "003":
+                        break;
+                  }
+                  #endregion
+                  break;
+               case "er":
+                  #region Error
+                  switch (_exdv.DEV_COMP_TYPE)
+                  {
+                     case "001":
+                        if (_exdv.DEV_TYPE != "006") return;
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost",
+                              new List<Job>
+                              {
+                                 new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_F */)
+                                 {
+                                    Input = 
+                                       new XElement("MainPage",
+                                          new XAttribute("type", "extdev"),
+                                          new XAttribute("devtype", "006"),
+                                          new XAttribute("contype", "002"),
+                                          new XAttribute("cmdtype", "error"),
+                                          new XAttribute("cmdsend", ""),
+                                          new XAttribute("ip", _exdv.IP_ADRS),
+                                          new XAttribute("sendport", _exdv.PORT_SEND)
+                                       )
+                                 }
+                              }
+                           )
+                        );
+                        break;
+                     case "002":
+                        SendCommandDevExpn("er", _exdv.DEV_NAME, "");
+                        break;
+                     case "003":
+                        break;
+                  }
+                  #endregion
+                  break;
+               case "ston":
+                  #region SetOnline
+                  switch (_exdv.DEV_COMP_TYPE)
+                  {
+                     case "001":
+                        if (_exdv.DEV_TYPE != "006") return;
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost",
+                              new List<Job>
+                              {
+                                 new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_F */)
+                                 {
+                                    Input = 
+                                       new XElement("MainPage",
+                                          new XAttribute("type", "extdev"),
+                                          new XAttribute("devtype", "006"),
+                                          new XAttribute("contype", "002"),
+                                          new XAttribute("cmdtype", "gotoonline"),
+                                          new XAttribute("cmdsend", ""),
+                                          new XAttribute("ip", _exdv.IP_ADRS),
+                                          new XAttribute("sendport", _exdv.PORT_SEND)
+                                       )
+                                 }
+                              }
+                           )
+                        );
+                        break;
+                     case "002":
+                        break;
+                     case "003":
+                        break;
+                  }
+                  #endregion
+                  break;
+               case "stof":
+                  #region SetOffline
+                  switch (_exdv.DEV_COMP_TYPE)
+                  {
+                     case "001":
+                        if (_exdv.DEV_TYPE != "006") return;
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost",
+                              new List<Job>
+                              {
+                                 new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_F */)
+                                 {
+                                    Input = 
+                                       new XElement("MainPage",
+                                          new XAttribute("type", "extdev"),
+                                          new XAttribute("devtype", "006"),
+                                          new XAttribute("contype", "002"),
+                                          new XAttribute("cmdtype", "gotooffline"),
+                                          new XAttribute("cmdsend", ""),
+                                          new XAttribute("ip", _exdv.IP_ADRS),
+                                          new XAttribute("sendport", _exdv.PORT_SEND)
+                                       )
+                                 }
+                              }
+                           )
+                        );
+                        break;
+                     case "002":
+                        break;
+                     case "003":
+                        break;
+                  }
+                  #endregion
+                  break;
+               case "slts":
+                  #region SelfTest
+                  switch (_exdv.DEV_COMP_TYPE)
+                  {
+                     case "001":
+                        if (_exdv.DEV_TYPE != "006") return;
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost",
+                              new List<Job>
+                              {
+                                 new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_F */)
+                                 {
+                                    Input = 
+                                       new XElement("MainPage",
+                                          new XAttribute("type", "extdev"),
+                                          new XAttribute("devtype", "006"),
+                                          new XAttribute("contype", "002"),
+                                          new XAttribute("cmdtype", "test"),
+                                          new XAttribute("cmdsend", ""),
+                                          new XAttribute("ip", _exdv.IP_ADRS),
+                                          new XAttribute("sendport", _exdv.PORT_SEND)
+                                       )
+                                 }
+                              }
+                           )
+                        );
+                        break;
+                     case "002":
+                        break;
+                     case "003":
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+                           {
+                              Input =
+                                 new XElement("OprtDres",
+                                     new XAttribute("type", "sendoprtdres"),
+                                     new XAttribute("cmndname", "test"),
+                                     new XAttribute("devip", _exdv.IP_ADRS)
+                                 )
+                           }
+                        );
+                        break;
+                  }
+                  #endregion
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Master_Tc_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
+      {
+         try
+         {
+            switch (e.Page.Name)
+            {
+               case "xTp_001":
+                  EventX_Rb_CheckedChanged(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }      
    }

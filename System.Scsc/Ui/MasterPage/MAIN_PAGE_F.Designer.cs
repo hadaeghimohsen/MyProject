@@ -52,22 +52,28 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject19 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
@@ -218,8 +224,8 @@
          this.spc_desktop = new System.Windows.Forms.SplitContainer();
          this.spc_desktopnew = new DevExpress.XtraEditors.SplitContainerControl();
          this.AdjustDateTime_Lab = new System.Windows.Forms.Label();
-         this.Master_Tc = new System.Windows.Forms.TabControl();
-         this.tabPage1 = new System.Windows.Forms.TabPage();
+         this.Master_Tc = new DevExpress.XtraTab.XtraTabControl();
+         this.xTp_002 = new DevExpress.XtraTab.XtraTabPage();
          this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
          this.rollout4 = new System.MaxUi.Rollout();
          this.CWlet_Pb = new System.Windows.Forms.PictureBox();
@@ -323,7 +329,40 @@
          this.DresConf_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CrntDresNumb_Txt = new DevExpress.XtraEditors.TextEdit();
          this.ActnCrntServOpenDres_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.tabPage2 = new System.Windows.Forms.TabPage();
+         this.rollout10 = new System.MaxUi.Rollout();
+         this.grouper4 = new System.MaxUi.Grouper();
+         this.SetOnline_Butn = new System.MaxUi.Button();
+         this.SetOffline_Butn = new System.MaxUi.Button();
+         this.SelfTest_Butn = new System.MaxUi.Button();
+         this.Error_Butn = new System.MaxUi.Button();
+         this.CloseStop_Butn = new System.MaxUi.Button();
+         this.OpenStart_Butn = new System.MaxUi.Button();
+         this.gridControl3 = new DevExpress.XtraGrid.GridControl();
+         this.ExdvBs = new System.Windows.Forms.BindingSource(this.components);
+         this.Exdv_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.colCODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colDEV_COMP_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colDEV_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colDEV_CON = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCYCL_READ = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colDEV_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colPORT_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colBAND_RATE1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colIP_ADRS1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colPORT_SEND = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colPORT_RECV = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSERV_IP_ADRS = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMTOD_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colACTN_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colEXPN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCRET_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colCMNT = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.xTp_001 = new DevExpress.XtraTab.XtraTabPage();
          this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
          this.rollout1 = new System.MaxUi.Rollout();
          this.EventDays_Spn = new System.MaxUi.Spinner();
@@ -417,8 +456,9 @@
          this.spc_desktop.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktopnew)).BeginInit();
          this.spc_desktopnew.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.Master_Tc)).BeginInit();
          this.Master_Tc.SuspendLayout();
-         this.tabPage1.SuspendLayout();
+         this.xTp_002.SuspendLayout();
          this.flowLayoutPanel4.SuspendLayout();
          this.rollout4.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CWlet_Pb)).BeginInit();
@@ -449,7 +489,13 @@
          this.grouper1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CrntOpenBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CrntDresNumb_Txt.Properties)).BeginInit();
-         this.tabPage2.SuspendLayout();
+         this.rollout10.SuspendLayout();
+         this.grouper4.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ExdvBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Exdv_Gv)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
+         this.xTp_001.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
          this.rollout1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.paymentsGridControl)).BeginInit();
@@ -1987,7 +2033,6 @@
          // spc_desktop.Panel2
          // 
          this.spc_desktop.Panel2.AutoScroll = true;
-         this.spc_desktop.Panel2.BackColor = System.Drawing.Color.Gainsboro;
          this.spc_desktop.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
          this.spc_desktop.Panel2.Controls.Add(this.ShowMain_Btn);
          this.spc_desktop.Panel2.Controls.Add(this.OnlineDres_Butn);
@@ -2016,6 +2061,8 @@
          // 
          // spc_desktopnew
          // 
+         this.spc_desktopnew.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.spc_desktopnew.Appearance.Options.UseBackColor = true;
          this.spc_desktopnew.Dock = System.Windows.Forms.DockStyle.Fill;
          this.spc_desktopnew.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
          this.spc_desktopnew.Location = new System.Drawing.Point(0, 0);
@@ -2025,7 +2072,7 @@
          this.spc_desktopnew.Panel2.Controls.Add(this.Master_Tc);
          this.spc_desktopnew.Panel2.Text = "Panel2";
          this.spc_desktopnew.Size = new System.Drawing.Size(1262, 537);
-         this.spc_desktopnew.SplitterPosition = 276;
+         this.spc_desktopnew.SplitterPosition = 265;
          this.spc_desktopnew.TabIndex = 23;
          this.spc_desktopnew.Text = "splitContainerControl1";
          // 
@@ -2033,7 +2080,7 @@
          // 
          this.AdjustDateTime_Lab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.AdjustDateTime_Lab.Font = new System.Drawing.Font("Segoe UI Light", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.AdjustDateTime_Lab.Location = new System.Drawing.Point(633, 367);
+         this.AdjustDateTime_Lab.Location = new System.Drawing.Point(644, 367);
          this.AdjustDateTime_Lab.Name = "AdjustDateTime_Lab";
          this.AdjustDateTime_Lab.Size = new System.Drawing.Size(343, 155);
          this.AdjustDateTime_Lab.TabIndex = 0;
@@ -2041,27 +2088,45 @@
          // 
          // Master_Tc
          // 
-         this.Master_Tc.Controls.Add(this.tabPage1);
-         this.Master_Tc.Controls.Add(this.tabPage2);
+         this.Master_Tc.AppearancePage.Header.Options.UseTextOptions = true;
+         this.Master_Tc.AppearancePage.Header.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.Master_Tc.AppearancePage.PageClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Master_Tc.AppearancePage.PageClient.Options.UseBackColor = true;
          this.Master_Tc.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.Master_Tc.HeaderAutoFill = DevExpress.Utils.DefaultBoolean.True;
          this.Master_Tc.Location = new System.Drawing.Point(0, 0);
+         this.Master_Tc.LookAndFeel.SkinName = "Office 2013 Dark Gray";
+         this.Master_Tc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Master_Tc.Name = "Master_Tc";
-         this.Master_Tc.RightToLeftLayout = true;
-         this.Master_Tc.SelectedIndex = 0;
-         this.Master_Tc.Size = new System.Drawing.Size(276, 537);
-         this.Master_Tc.TabIndex = 0;
-         this.Master_Tc.SelectedIndexChanged += new System.EventHandler(this.Master_Tc_SelectedIndexChanged);
+         this.Master_Tc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+         this.Master_Tc.SelectedTabPage = this.xTp_002;
+         this.Master_Tc.Size = new System.Drawing.Size(265, 537);
+         this.Master_Tc.TabIndex = 1;
+         this.Master_Tc.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xTp_001,
+            this.xTp_002});
+         this.Master_Tc.SelectedPageChanged += new DevExpress.XtraTab.TabPageChangedEventHandler(this.Master_Tc_SelectedPageChanged);
          // 
-         // tabPage1
+         // xTp_002
          // 
-         this.tabPage1.Controls.Add(this.flowLayoutPanel4);
-         this.tabPage1.Location = new System.Drawing.Point(4, 22);
-         this.tabPage1.Name = "tabPage1";
-         this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(268, 511);
-         this.tabPage1.TabIndex = 0;
-         this.tabPage1.Text = "سیستم جامع";
-         this.tabPage1.UseVisualStyleBackColor = true;
+         this.xTp_002.Appearance.Header.BackColor = System.Drawing.SystemColors.Control;
+         this.xTp_002.Appearance.Header.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_002.Appearance.Header.Options.UseBackColor = true;
+         this.xTp_002.Appearance.Header.Options.UseBorderColor = true;
+         this.xTp_002.Appearance.HeaderActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_002.Appearance.HeaderActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_002.Appearance.HeaderActive.Options.UseBackColor = true;
+         this.xTp_002.Appearance.HeaderActive.Options.UseBorderColor = true;
+         this.xTp_002.Appearance.HeaderHotTracked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_002.Appearance.HeaderHotTracked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_002.Appearance.HeaderHotTracked.Options.UseBackColor = true;
+         this.xTp_002.Appearance.HeaderHotTracked.Options.UseBorderColor = true;
+         this.xTp_002.Appearance.PageClient.BackColor = System.Drawing.SystemColors.Control;
+         this.xTp_002.Appearance.PageClient.Options.UseBackColor = true;
+         this.xTp_002.Controls.Add(this.flowLayoutPanel4);
+         this.xTp_002.Name = "xTp_002";
+         this.xTp_002.Size = new System.Drawing.Size(263, 512);
+         this.xTp_002.Text = "سیستم جامع";
          // 
          // flowLayoutPanel4
          // 
@@ -2074,11 +2139,12 @@
          this.flowLayoutPanel4.Controls.Add(this.rollout7);
          this.flowLayoutPanel4.Controls.Add(this.rollout8);
          this.flowLayoutPanel4.Controls.Add(this.rollout9);
+         this.flowLayoutPanel4.Controls.Add(this.rollout10);
          this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-         this.flowLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+         this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-         this.flowLayoutPanel4.Size = new System.Drawing.Size(262, 505);
+         this.flowLayoutPanel4.Size = new System.Drawing.Size(263, 512);
          this.flowLayoutPanel4.TabIndex = 35;
          this.flowLayoutPanel4.WrapContents = false;
          // 
@@ -2095,7 +2161,7 @@
          this.rollout4.ForeColor = System.Drawing.Color.Black;
          this.rollout4.FrameOnMouseOverOnly = false;
          this.rollout4.GroupImage = null;
-         this.rollout4.Location = new System.Drawing.Point(5, 3);
+         this.rollout4.Location = new System.Drawing.Point(6, 3);
          this.rollout4.MaxHeight = 272;
          this.rollout4.Name = "rollout4";
          this.rollout4.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -2177,7 +2243,7 @@
          this.rollout5.ForeColor = System.Drawing.Color.Black;
          this.rollout5.FrameOnMouseOverOnly = false;
          this.rollout5.GroupImage = null;
-         this.rollout5.Location = new System.Drawing.Point(5, 31);
+         this.rollout5.Location = new System.Drawing.Point(6, 31);
          this.rollout5.MaxHeight = 355;
          this.rollout5.Name = "rollout5";
          this.rollout5.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -2244,7 +2310,7 @@
          this.rollout2.ForeColor = System.Drawing.Color.Black;
          this.rollout2.FrameOnMouseOverOnly = false;
          this.rollout2.GroupImage = null;
-         this.rollout2.Location = new System.Drawing.Point(5, 59);
+         this.rollout2.Location = new System.Drawing.Point(6, 59);
          this.rollout2.MaxHeight = 377;
          this.rollout2.Name = "rollout2";
          this.rollout2.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -2638,7 +2704,7 @@
          this.rollout3.ForeColor = System.Drawing.Color.Black;
          this.rollout3.FrameOnMouseOverOnly = false;
          this.rollout3.GroupImage = null;
-         this.rollout3.Location = new System.Drawing.Point(5, 442);
+         this.rollout3.Location = new System.Drawing.Point(6, 442);
          this.rollout3.MaxHeight = 128;
          this.rollout3.Name = "rollout3";
          this.rollout3.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -2762,7 +2828,7 @@
          this.rollout6.ForeColor = System.Drawing.Color.Black;
          this.rollout6.FrameOnMouseOverOnly = false;
          this.rollout6.GroupImage = null;
-         this.rollout6.Location = new System.Drawing.Point(5, 470);
+         this.rollout6.Location = new System.Drawing.Point(6, 470);
          this.rollout6.MaxHeight = 257;
          this.rollout6.Name = "rollout6";
          this.rollout6.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -3057,7 +3123,7 @@
          this.rollout7.ForeColor = System.Drawing.Color.Black;
          this.rollout7.FrameOnMouseOverOnly = false;
          this.rollout7.GroupImage = null;
-         this.rollout7.Location = new System.Drawing.Point(5, 498);
+         this.rollout7.Location = new System.Drawing.Point(6, 498);
          this.rollout7.MaxHeight = 99;
          this.rollout7.Name = "rollout7";
          this.rollout7.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -3153,7 +3219,7 @@
          this.rollout8.ForeColor = System.Drawing.Color.Black;
          this.rollout8.FrameOnMouseOverOnly = false;
          this.rollout8.GroupImage = null;
-         this.rollout8.Location = new System.Drawing.Point(5, 526);
+         this.rollout8.Location = new System.Drawing.Point(6, 526);
          this.rollout8.MaxHeight = 64;
          this.rollout8.Name = "rollout8";
          this.rollout8.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -3224,7 +3290,7 @@
          this.rollout9.ForeColor = System.Drawing.Color.Black;
          this.rollout9.FrameOnMouseOverOnly = false;
          this.rollout9.GroupImage = null;
-         this.rollout9.Location = new System.Drawing.Point(5, 554);
+         this.rollout9.Location = new System.Drawing.Point(6, 554);
          this.rollout9.MaxHeight = 796;
          this.rollout9.Name = "rollout9";
          this.rollout9.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -3891,16 +3957,410 @@
          this.ActnCrntServOpenDres_Butn.TabIndex = 89;
          this.ActnCrntServOpenDres_Butn.Click += new System.EventHandler(this.ActnCrntServOpenDres_Butn_Click);
          // 
-         // tabPage2
+         // rollout10
          // 
-         this.tabPage2.Controls.Add(this.flowLayoutPanel1);
-         this.tabPage2.Location = new System.Drawing.Point(4, 22);
-         this.tabPage2.Name = "tabPage2";
-         this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(268, 511);
-         this.tabPage2.TabIndex = 1;
-         this.tabPage2.Text = "یادآوری و رخداد ها";
-         this.tabPage2.UseVisualStyleBackColor = true;
+         this.rollout10.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.rollout10.BackgroundGradientColor = System.Drawing.SystemColors.Control;
+         this.rollout10.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
+         this.rollout10.BorderThickness = 1F;
+         this.rollout10.Controls.Add(this.grouper4);
+         this.rollout10.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout10.ForeColor = System.Drawing.Color.Black;
+         this.rollout10.FrameOnMouseOverOnly = false;
+         this.rollout10.GroupImage = null;
+         this.rollout10.Location = new System.Drawing.Point(6, 582);
+         this.rollout10.MaxHeight = 368;
+         this.rollout10.Name = "rollout10";
+         this.rollout10.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
+         this.rollout10.PaintRollout = true;
+         this.rollout10.RolloutBorderColor = System.Drawing.Color.Gray;
+         this.rollout10.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.rollout10.RolloutStatus = false;
+         this.rollout10.RolloutTitle = "سیستم حفاظت کنترل کننده";
+         this.rollout10.RoundCorners = 2;
+         this.rollout10.ShadowColor = System.Drawing.Color.DarkGray;
+         this.rollout10.ShadowControl = false;
+         this.rollout10.ShadowThickness = 3;
+         this.rollout10.ShowFocusFrame = false;
+         this.rollout10.Size = new System.Drawing.Size(237, 22);
+         this.rollout10.TabIndex = 34;
+         this.rollout10.TitleBorderColor = System.Drawing.Color.Gray;
+         // 
+         // grouper4
+         // 
+         this.grouper4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper4.BackgroundGradientColor = System.Drawing.SystemColors.Control;
+         this.grouper4.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
+         this.grouper4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+         this.grouper4.BorderThickness = 1F;
+         this.grouper4.Controls.Add(this.SetOnline_Butn);
+         this.grouper4.Controls.Add(this.SetOffline_Butn);
+         this.grouper4.Controls.Add(this.SelfTest_Butn);
+         this.grouper4.Controls.Add(this.Error_Butn);
+         this.grouper4.Controls.Add(this.CloseStop_Butn);
+         this.grouper4.Controls.Add(this.OpenStart_Butn);
+         this.grouper4.Controls.Add(this.gridControl3);
+         this.grouper4.CustomGroupBoxColor = System.Drawing.Color.White;
+         this.grouper4.ForeColor = System.Drawing.Color.Black;
+         this.grouper4.GroupImage = null;
+         this.grouper4.GroupTitle = "لیست دستگاه ها";
+         this.grouper4.Location = new System.Drawing.Point(7, 29);
+         this.grouper4.Name = "grouper4";
+         this.grouper4.Padding = new System.Windows.Forms.Padding(6, 30, 6, 6);
+         this.grouper4.PaintGroupBox = false;
+         this.grouper4.RoundCorners = 1;
+         this.grouper4.ShadowColor = System.Drawing.Color.DarkGray;
+         this.grouper4.ShadowControl = false;
+         this.grouper4.ShadowThickness = 3;
+         this.grouper4.ShowBorderTitle = false;
+         this.grouper4.Size = new System.Drawing.Size(224, 331);
+         this.grouper4.TabIndex = 91;
+         // 
+         // SetOnline_Butn
+         // 
+         this.SetOnline_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SetOnline_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SetOnline_Butn.FlatAppearance.BorderSize = 0;
+         this.SetOnline_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.SetOnline_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.SetOnline_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SetOnline_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.SetOnline_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.SetOnline_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.SetOnline_Butn.FrameOnMouseOverOnly = false;
+         this.SetOnline_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.SetOnline_Butn.Location = new System.Drawing.Point(8, 297);
+         this.SetOnline_Butn.Name = "SetOnline_Butn";
+         this.SetOnline_Butn.ShowFocusFrame = true;
+         this.SetOnline_Butn.Size = new System.Drawing.Size(99, 25);
+         this.SetOnline_Butn.TabIndex = 68;
+         this.SetOnline_Butn.Tag = "ston";
+         this.SetOnline_Butn.Text = "Set Online";
+         this.SetOnline_Butn.UseVisualStyleBackColor = false;
+         // 
+         // SetOffline_Butn
+         // 
+         this.SetOffline_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SetOffline_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SetOffline_Butn.FlatAppearance.BorderSize = 0;
+         this.SetOffline_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.SetOffline_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.SetOffline_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SetOffline_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.SetOffline_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.SetOffline_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.SetOffline_Butn.FrameOnMouseOverOnly = false;
+         this.SetOffline_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.SetOffline_Butn.Location = new System.Drawing.Point(116, 297);
+         this.SetOffline_Butn.Name = "SetOffline_Butn";
+         this.SetOffline_Butn.ShowFocusFrame = true;
+         this.SetOffline_Butn.Size = new System.Drawing.Size(99, 25);
+         this.SetOffline_Butn.TabIndex = 68;
+         this.SetOffline_Butn.Tag = "stof";
+         this.SetOffline_Butn.Text = "Set Offline";
+         this.SetOffline_Butn.UseVisualStyleBackColor = false;
+         // 
+         // SelfTest_Butn
+         // 
+         this.SelfTest_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SelfTest_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SelfTest_Butn.FlatAppearance.BorderSize = 0;
+         this.SelfTest_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.SelfTest_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.SelfTest_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SelfTest_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.SelfTest_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.SelfTest_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.SelfTest_Butn.FrameOnMouseOverOnly = false;
+         this.SelfTest_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.SelfTest_Butn.Location = new System.Drawing.Point(8, 266);
+         this.SelfTest_Butn.Name = "SelfTest_Butn";
+         this.SelfTest_Butn.ShowFocusFrame = true;
+         this.SelfTest_Butn.Size = new System.Drawing.Size(99, 25);
+         this.SelfTest_Butn.TabIndex = 68;
+         this.SelfTest_Butn.Tag = "slts";
+         this.SelfTest_Butn.Text = "Self Test";
+         this.SelfTest_Butn.UseVisualStyleBackColor = false;
+         // 
+         // Error_Butn
+         // 
+         this.Error_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Error_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Error_Butn.FlatAppearance.BorderSize = 0;
+         this.Error_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.Error_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.Error_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Error_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.Error_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Error_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.Error_Butn.FrameOnMouseOverOnly = false;
+         this.Error_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.Error_Butn.Location = new System.Drawing.Point(116, 266);
+         this.Error_Butn.Name = "Error_Butn";
+         this.Error_Butn.ShowFocusFrame = true;
+         this.Error_Butn.Size = new System.Drawing.Size(99, 25);
+         this.Error_Butn.TabIndex = 68;
+         this.Error_Butn.Tag = "er";
+         this.Error_Butn.Text = "Error";
+         this.Error_Butn.UseVisualStyleBackColor = false;
+         // 
+         // CloseStop_Butn
+         // 
+         this.CloseStop_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CloseStop_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CloseStop_Butn.FlatAppearance.BorderSize = 0;
+         this.CloseStop_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.CloseStop_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.CloseStop_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CloseStop_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.CloseStop_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.CloseStop_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.CloseStop_Butn.FrameOnMouseOverOnly = false;
+         this.CloseStop_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.CloseStop_Butn.Location = new System.Drawing.Point(8, 235);
+         this.CloseStop_Butn.Name = "CloseStop_Butn";
+         this.CloseStop_Butn.ShowFocusFrame = true;
+         this.CloseStop_Butn.Size = new System.Drawing.Size(99, 25);
+         this.CloseStop_Butn.TabIndex = 68;
+         this.CloseStop_Butn.Tag = "clst";
+         this.CloseStop_Butn.Text = "Close / Stop";
+         this.CloseStop_Butn.UseVisualStyleBackColor = false;
+         // 
+         // OpenStart_Butn
+         // 
+         this.OpenStart_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.OpenStart_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.OpenStart_Butn.FlatAppearance.BorderSize = 0;
+         this.OpenStart_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.OpenStart_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.OpenStart_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.OpenStart_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.OpenStart_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.OpenStart_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.OpenStart_Butn.FrameOnMouseOverOnly = false;
+         this.OpenStart_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.OpenStart_Butn.Location = new System.Drawing.Point(116, 235);
+         this.OpenStart_Butn.Name = "OpenStart_Butn";
+         this.OpenStart_Butn.ShowFocusFrame = true;
+         this.OpenStart_Butn.Size = new System.Drawing.Size(99, 25);
+         this.OpenStart_Butn.TabIndex = 68;
+         this.OpenStart_Butn.Tag = "opst";
+         this.OpenStart_Butn.Text = "Open / Start";
+         this.OpenStart_Butn.UseVisualStyleBackColor = false;
+         this.OpenStart_Butn.Click += new System.EventHandler(this.ExdvOprt_Butn_Click);
+         // 
+         // gridControl3
+         // 
+         this.gridControl3.DataSource = this.ExdvBs;
+         this.gridControl3.Location = new System.Drawing.Point(8, 33);
+         this.gridControl3.LookAndFeel.SkinName = "Office 2013 Dark Gray";
+         this.gridControl3.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl3.MainView = this.Exdv_Gv;
+         this.gridControl3.Name = "gridControl3";
+         this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemButtonEdit1});
+         this.gridControl3.Size = new System.Drawing.Size(208, 196);
+         this.gridControl3.TabIndex = 62;
+         this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.Exdv_Gv});
+         // 
+         // ExdvBs
+         // 
+         this.ExdvBs.DataSource = typeof(System.Scsc.Data.External_Device);
+         // 
+         // Exdv_Gv
+         // 
+         this.Exdv_Gv.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Exdv_Gv.Appearance.HeaderPanel.Options.UseFont = true;
+         this.Exdv_Gv.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.Exdv_Gv.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Exdv_Gv.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.Exdv_Gv.Appearance.Row.Options.UseFont = true;
+         this.Exdv_Gv.Appearance.Row.Options.UseTextOptions = true;
+         this.Exdv_Gv.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Exdv_Gv.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colCODE2,
+            this.colDEV_COMP_TYPE,
+            this.colDEV_TYPE,
+            this.colDEV_CON,
+            this.colCYCL_READ,
+            this.colDEV_NAME,
+            this.colPORT_NAME,
+            this.colBAND_RATE1,
+            this.colIP_ADRS1,
+            this.colPORT_SEND,
+            this.colPORT_RECV,
+            this.colSERV_IP_ADRS,
+            this.colMTOD_CODE1,
+            this.colSTAT,
+            this.colACTN_TYPE,
+            this.colEXPN_CODE,
+            this.colCRET_BY2,
+            this.colCRET_DATE2,
+            this.colMDFY_BY2,
+            this.colMDFY_DATE2,
+            this.colCMNT});
+         styleFormatCondition3.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition3.Appearance.Options.UseBackColor = true;
+         styleFormatCondition3.ApplyToRow = true;
+         styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition3.Value1 = "002";
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         styleFormatCondition4.Appearance.Options.UseBackColor = true;
+         styleFormatCondition4.ApplyToRow = true;
+         styleFormatCondition4.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition4.Value1 = "001";
+         this.Exdv_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition3,
+            styleFormatCondition4});
+         this.Exdv_Gv.GridControl = this.gridControl3;
+         this.Exdv_Gv.Name = "Exdv_Gv";
+         this.Exdv_Gv.OptionsBehavior.Editable = false;
+         this.Exdv_Gv.OptionsBehavior.ReadOnly = true;
+         this.Exdv_Gv.OptionsDetail.EnableMasterViewMode = false;
+         this.Exdv_Gv.OptionsFind.ShowClearButton = false;
+         this.Exdv_Gv.OptionsView.EnableAppearanceEvenRow = true;
+         this.Exdv_Gv.OptionsView.ShowGroupPanel = false;
+         this.Exdv_Gv.OptionsView.ShowIndicator = false;
+         // 
+         // colCODE2
+         // 
+         this.colCODE2.FieldName = "CODE";
+         this.colCODE2.Name = "colCODE2";
+         // 
+         // colDEV_COMP_TYPE
+         // 
+         this.colDEV_COMP_TYPE.FieldName = "DEV_COMP_TYPE";
+         this.colDEV_COMP_TYPE.Name = "colDEV_COMP_TYPE";
+         // 
+         // colDEV_TYPE
+         // 
+         this.colDEV_TYPE.FieldName = "DEV_TYPE";
+         this.colDEV_TYPE.Name = "colDEV_TYPE";
+         // 
+         // colDEV_CON
+         // 
+         this.colDEV_CON.FieldName = "DEV_CON";
+         this.colDEV_CON.Name = "colDEV_CON";
+         // 
+         // colCYCL_READ
+         // 
+         this.colCYCL_READ.FieldName = "CYCL_READ";
+         this.colCYCL_READ.Name = "colCYCL_READ";
+         // 
+         // colDEV_NAME
+         // 
+         this.colDEV_NAME.Caption = "نام دستگاه";
+         this.colDEV_NAME.FieldName = "DEV_NAME";
+         this.colDEV_NAME.Name = "colDEV_NAME";
+         this.colDEV_NAME.Visible = true;
+         this.colDEV_NAME.VisibleIndex = 0;
+         // 
+         // colPORT_NAME
+         // 
+         this.colPORT_NAME.FieldName = "PORT_NAME";
+         this.colPORT_NAME.Name = "colPORT_NAME";
+         // 
+         // colBAND_RATE1
+         // 
+         this.colBAND_RATE1.FieldName = "BAND_RATE";
+         this.colBAND_RATE1.Name = "colBAND_RATE1";
+         // 
+         // colIP_ADRS1
+         // 
+         this.colIP_ADRS1.FieldName = "IP_ADRS";
+         this.colIP_ADRS1.Name = "colIP_ADRS1";
+         // 
+         // colPORT_SEND
+         // 
+         this.colPORT_SEND.FieldName = "PORT_SEND";
+         this.colPORT_SEND.Name = "colPORT_SEND";
+         // 
+         // colPORT_RECV
+         // 
+         this.colPORT_RECV.FieldName = "PORT_RECV";
+         this.colPORT_RECV.Name = "colPORT_RECV";
+         // 
+         // colSERV_IP_ADRS
+         // 
+         this.colSERV_IP_ADRS.FieldName = "SERV_IP_ADRS";
+         this.colSERV_IP_ADRS.Name = "colSERV_IP_ADRS";
+         // 
+         // colMTOD_CODE1
+         // 
+         this.colMTOD_CODE1.FieldName = "MTOD_CODE";
+         this.colMTOD_CODE1.Name = "colMTOD_CODE1";
+         // 
+         // colSTAT
+         // 
+         this.colSTAT.FieldName = "STAT";
+         this.colSTAT.Name = "colSTAT";
+         // 
+         // colACTN_TYPE
+         // 
+         this.colACTN_TYPE.FieldName = "ACTN_TYPE";
+         this.colACTN_TYPE.Name = "colACTN_TYPE";
+         // 
+         // colEXPN_CODE
+         // 
+         this.colEXPN_CODE.FieldName = "EXPN_CODE";
+         this.colEXPN_CODE.Name = "colEXPN_CODE";
+         // 
+         // colCRET_BY2
+         // 
+         this.colCRET_BY2.FieldName = "CRET_BY";
+         this.colCRET_BY2.Name = "colCRET_BY2";
+         // 
+         // colCRET_DATE2
+         // 
+         this.colCRET_DATE2.FieldName = "CRET_DATE";
+         this.colCRET_DATE2.Name = "colCRET_DATE2";
+         // 
+         // colMDFY_BY2
+         // 
+         this.colMDFY_BY2.FieldName = "MDFY_BY";
+         this.colMDFY_BY2.Name = "colMDFY_BY2";
+         // 
+         // colMDFY_DATE2
+         // 
+         this.colMDFY_DATE2.FieldName = "MDFY_DATE";
+         this.colMDFY_DATE2.Name = "colMDFY_DATE2";
+         // 
+         // colCMNT
+         // 
+         this.colCMNT.Caption = "توضیحات";
+         this.colCMNT.FieldName = "CMNT";
+         this.colCMNT.Name = "colCMNT";
+         this.colCMNT.Visible = true;
+         this.colCMNT.VisibleIndex = 1;
+         // 
+         // repositoryItemButtonEdit1
+         // 
+         this.repositoryItemButtonEdit1.AutoHeight = false;
+         this.repositoryItemButtonEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "بالابردن الویت", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "پایین آوردن اولویت", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "باز کردن کمد", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "فعال / غیرفعال کردن", null, null, true)});
+         this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
+         this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         // 
+         // xTp_001
+         // 
+         this.xTp_001.Appearance.Header.BackColor = System.Drawing.SystemColors.Control;
+         this.xTp_001.Appearance.Header.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_001.Appearance.Header.Options.UseBackColor = true;
+         this.xTp_001.Appearance.Header.Options.UseBorderColor = true;
+         this.xTp_001.Appearance.HeaderActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_001.Appearance.HeaderActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_001.Appearance.HeaderActive.Options.UseBackColor = true;
+         this.xTp_001.Appearance.HeaderActive.Options.UseBorderColor = true;
+         this.xTp_001.Appearance.PageClient.BackColor = System.Drawing.SystemColors.Control;
+         this.xTp_001.Appearance.PageClient.Options.UseBackColor = true;
+         this.xTp_001.Controls.Add(this.flowLayoutPanel1);
+         this.xTp_001.Name = "xTp_001";
+         this.xTp_001.Size = new System.Drawing.Size(263, 512);
+         this.xTp_001.Text = "یادآوری و رخداد ها";
          // 
          // flowLayoutPanel1
          // 
@@ -3908,9 +4368,9 @@
          this.flowLayoutPanel1.Controls.Add(this.rollout1);
          this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-         this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+         this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-         this.flowLayoutPanel1.Size = new System.Drawing.Size(262, 505);
+         this.flowLayoutPanel1.Size = new System.Drawing.Size(263, 512);
          this.flowLayoutPanel1.TabIndex = 36;
          this.flowLayoutPanel1.WrapContents = false;
          // 
@@ -3928,7 +4388,7 @@
          this.rollout1.ForeColor = System.Drawing.Color.Black;
          this.rollout1.FrameOnMouseOverOnly = false;
          this.rollout1.GroupImage = null;
-         this.rollout1.Location = new System.Drawing.Point(5, 3);
+         this.rollout1.Location = new System.Drawing.Point(6, 3);
          this.rollout1.MaxHeight = 697;
          this.rollout1.Name = "rollout1";
          this.rollout1.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -4167,7 +4627,7 @@
          // 
          // ShowMain_Btn
          // 
-         this.ShowMain_Btn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.ShowMain_Btn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.ShowMain_Btn.Appearance.BorderColor = System.Drawing.Color.White;
          this.ShowMain_Btn.Appearance.Options.UseBackColor = true;
          this.ShowMain_Btn.Appearance.Options.UseBorderColor = true;
@@ -4197,9 +4657,9 @@
          this.OnlineDres_Butn.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.OnlineDres_Butn.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.OnlineDres_Butn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("OnlineDres_Butn.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "مدریت کمد های انلاین", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("OnlineDres_Butn.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "خروج عضو و آزاد سازی کلید", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("OnlineDres_Butn.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "باز کردن کمد", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("OnlineDres_Butn.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "مدریت کمد های انلاین", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("OnlineDres_Butn.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "خروج عضو و آزاد سازی کلید", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("OnlineDres_Butn.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "باز کردن کمد", null, null, true)});
          this.OnlineDres_Butn.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.OnlineDres_Butn.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.OnlineDres_Butn.Properties.NullValuePromptShowForEmptyValue = true;
@@ -4210,7 +4670,7 @@
          // 
          // ChngAttnActn_Butn
          // 
-         this.ChngAttnActn_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.ChngAttnActn_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.ChngAttnActn_Butn.Appearance.BorderColor = System.Drawing.Color.White;
          this.ChngAttnActn_Butn.Appearance.Options.UseBackColor = true;
          this.ChngAttnActn_Butn.Appearance.Options.UseBorderColor = true;
@@ -4229,7 +4689,7 @@
          // 
          // TlgrmBot_Butn
          // 
-         this.TlgrmBot_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.TlgrmBot_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.TlgrmBot_Butn.Appearance.BorderColor = System.Drawing.Color.White;
          this.TlgrmBot_Butn.Appearance.Options.UseBackColor = true;
          this.TlgrmBot_Butn.Appearance.Options.UseBorderColor = true;
@@ -4296,7 +4756,7 @@
          // 
          // AdjustDateTime_Butn
          // 
-         this.AdjustDateTime_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.AdjustDateTime_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.AdjustDateTime_Butn.Appearance.BorderColor = System.Drawing.Color.White;
          this.AdjustDateTime_Butn.Appearance.Font = new System.Drawing.Font("Tahoma", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.AdjustDateTime_Butn.Appearance.Options.UseBackColor = true;
@@ -4334,13 +4794,13 @@
          superToolTip7.Items.Add(toolTipItem6);
          superToolTip7.Items.Add(toolTipTitleItem8);
          this.CardNumb_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "ثبت نام", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject10, "تعویض کارت", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject11, "", null, superToolTip7, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject12, "حضور و غیاب دستی", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "خرید فروشگاهی", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1620, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "مهمان آزاد آقایان", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1621, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "مهمان آزاد بانوان", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject13, "ثبت نام", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "تعویض کارت", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, superToolTip7, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "حضور و غیاب دستی", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "خرید فروشگاهی", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1620, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "مهمان آزاد آقایان", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1621, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject19, "مهمان آزاد بانوان", null, null, true)});
          this.CardNumb_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.CardNumb_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CardNumb_Text.Properties.NullValuePromptShowForEmptyValue = true;
@@ -4370,7 +4830,7 @@
          // 
          // ShowInfo_Butn
          // 
-         this.ShowInfo_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.ShowInfo_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.ShowInfo_Butn.Appearance.BorderColor = System.Drawing.Color.White;
          this.ShowInfo_Butn.Appearance.Options.UseBackColor = true;
          this.ShowInfo_Butn.Appearance.Options.UseBorderColor = true;
@@ -4388,7 +4848,7 @@
          // 
          // StartMenu_Butn
          // 
-         this.StartMenu_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.StartMenu_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.StartMenu_Butn.Appearance.BorderColor = System.Drawing.Color.White;
          this.StartMenu_Butn.Appearance.Options.UseBackColor = true;
          this.StartMenu_Butn.Appearance.Options.UseBorderColor = true;
@@ -4406,7 +4866,7 @@
          // 
          // More_Butn
          // 
-         this.More_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.More_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.More_Butn.Appearance.BorderColor = System.Drawing.Color.White;
          this.More_Butn.Appearance.Options.UseBackColor = true;
          this.More_Butn.Appearance.Options.UseBorderColor = true;
@@ -4436,7 +4896,7 @@
          // 
          // SrvrPing_Butn
          // 
-         this.SrvrPing_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.SrvrPing_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.SrvrPing_Butn.Appearance.BorderColor = System.Drawing.Color.White;
          this.SrvrPing_Butn.Appearance.Options.UseBackColor = true;
          this.SrvrPing_Butn.Appearance.Options.UseBorderColor = true;
@@ -4453,7 +4913,7 @@
          // 
          // GameHours_Butn
          // 
-         this.GameHours_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.GameHours_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.GameHours_Butn.Appearance.BorderColor = System.Drawing.Color.White;
          this.GameHours_Butn.Appearance.Options.UseBackColor = true;
          this.GameHours_Butn.Appearance.Options.UseBorderColor = true;
@@ -4470,7 +4930,7 @@
          // 
          // GateAttn_Butn
          // 
-         this.GateAttn_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.GateAttn_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.GateAttn_Butn.Appearance.BorderColor = System.Drawing.Color.White;
          this.GateAttn_Butn.Appearance.Options.UseBackColor = true;
          this.GateAttn_Butn.Appearance.Options.UseBorderColor = true;
@@ -4488,7 +4948,7 @@
          // 
          // AttendanceSystemAlert_Butn
          // 
-         this.AttendanceSystemAlert_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.AttendanceSystemAlert_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.AttendanceSystemAlert_Butn.Appearance.BorderColor = System.Drawing.Color.White;
          this.AttendanceSystemAlert_Butn.Appearance.Options.UseBackColor = true;
          this.AttendanceSystemAlert_Butn.Appearance.Options.UseBorderColor = true;
@@ -4518,7 +4978,7 @@
          // 
          // ActionCenter_Butn
          // 
-         this.ActionCenter_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.ActionCenter_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.ActionCenter_Butn.Appearance.BorderColor = System.Drawing.Color.White;
          this.ActionCenter_Butn.Appearance.Options.UseBackColor = true;
          this.ActionCenter_Butn.Appearance.Options.UseBorderColor = true;
@@ -4536,7 +4996,7 @@
          // 
          // ShowDesktop_Butn
          // 
-         this.ShowDesktop_Butn.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.ShowDesktop_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.ShowDesktop_Butn.Appearance.BorderColor = System.Drawing.Color.White;
          this.ShowDesktop_Butn.Appearance.Options.UseBackColor = true;
          this.ShowDesktop_Butn.Appearance.Options.UseBorderColor = true;
@@ -4896,8 +5356,9 @@
          this.spc_desktop.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktopnew)).EndInit();
          this.spc_desktopnew.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.Master_Tc)).EndInit();
          this.Master_Tc.ResumeLayout(false);
-         this.tabPage1.ResumeLayout(false);
+         this.xTp_002.ResumeLayout(false);
          this.flowLayoutPanel4.ResumeLayout(false);
          this.rollout4.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.CWlet_Pb)).EndInit();
@@ -4929,7 +5390,13 @@
          this.grouper1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.CrntOpenBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CrntDresNumb_Txt.Properties)).EndInit();
-         this.tabPage2.ResumeLayout(false);
+         this.rollout10.ResumeLayout(false);
+         this.grouper4.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.ExdvBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Exdv_Gv)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).EndInit();
+         this.xTp_001.ResumeLayout(false);
          this.flowLayoutPanel1.ResumeLayout(false);
          this.rollout1.ResumeLayout(false);
          this.rollout1.PerformLayout();
@@ -5167,11 +5634,8 @@
       private DevExpress.XtraEditors.TextEdit CWlet_Txt;
       private Windows.Forms.Timer CWlet_Tm;
       private DevExpress.XtraEditors.SplitContainerControl spc_desktopnew;
-      private Windows.Forms.TabControl Master_Tc;
-      private Windows.Forms.TabPage tabPage1;
       private Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
       private MaxUi.Rollout rollout4;
-      private Windows.Forms.TabPage tabPage2;
       private Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
       private MaxUi.Rollout rollout1;
       private Windows.Forms.RadioButton EventFuture_Rb;
@@ -5290,5 +5754,41 @@
       private MaxUi.Button ActnSlctServOpenDres_Butn;
       private Windows.Forms.BindingSource AttnBs;
       private Windows.Forms.BindingSource CrntOpenBs;
+      private MaxUi.Rollout rollout10;
+      private MaxUi.Grouper grouper4;
+      private DevExpress.XtraGrid.GridControl gridControl3;
+      private DevExpress.XtraGrid.Views.Grid.GridView Exdv_Gv;
+      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
+      private Windows.Forms.BindingSource ExdvBs;
+      private DevExpress.XtraGrid.Columns.GridColumn colCODE2;
+      private DevExpress.XtraGrid.Columns.GridColumn colDEV_COMP_TYPE;
+      private DevExpress.XtraGrid.Columns.GridColumn colDEV_TYPE;
+      private DevExpress.XtraGrid.Columns.GridColumn colDEV_CON;
+      private DevExpress.XtraGrid.Columns.GridColumn colCYCL_READ;
+      private DevExpress.XtraGrid.Columns.GridColumn colDEV_NAME;
+      private DevExpress.XtraGrid.Columns.GridColumn colPORT_NAME;
+      private DevExpress.XtraGrid.Columns.GridColumn colBAND_RATE1;
+      private DevExpress.XtraGrid.Columns.GridColumn colIP_ADRS1;
+      private DevExpress.XtraGrid.Columns.GridColumn colPORT_SEND;
+      private DevExpress.XtraGrid.Columns.GridColumn colPORT_RECV;
+      private DevExpress.XtraGrid.Columns.GridColumn colSERV_IP_ADRS;
+      private DevExpress.XtraGrid.Columns.GridColumn colMTOD_CODE1;
+      private DevExpress.XtraGrid.Columns.GridColumn colSTAT;
+      private DevExpress.XtraGrid.Columns.GridColumn colACTN_TYPE;
+      private DevExpress.XtraGrid.Columns.GridColumn colEXPN_CODE;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_BY2;
+      private DevExpress.XtraGrid.Columns.GridColumn colCRET_DATE2;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_BY2;
+      private DevExpress.XtraGrid.Columns.GridColumn colMDFY_DATE2;
+      private MaxUi.Button SetOnline_Butn;
+      private MaxUi.Button SetOffline_Butn;
+      private MaxUi.Button SelfTest_Butn;
+      private MaxUi.Button Error_Butn;
+      private MaxUi.Button CloseStop_Butn;
+      private MaxUi.Button OpenStart_Butn;
+      private DevExpress.XtraGrid.Columns.GridColumn colCMNT;
+      private DevExpress.XtraTab.XtraTabControl Master_Tc;
+      private DevExpress.XtraTab.XtraTabPage xTp_002;
+      private DevExpress.XtraTab.XtraTabPage xTp_001;
    }
 }

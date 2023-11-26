@@ -166,7 +166,7 @@ namespace System.Scsc.Ui.Regulation
                      //tp_002.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "numbday_lb":
-                     NumbDay_Lb.Text = control.LABL_TEXT;
+                     //NumbDay_Lb.Text = control.LABL_TEXT;
                      //NumbDay_Lb.Text = control.LABL_TEXT; // ToolTip
                      //NumbDay_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -221,7 +221,7 @@ namespace System.Scsc.Ui.Regulation
                      //EpitCode_Clm.Caption = control.LABL_TEXT; // Place Holder
                      break;
                   case "extrinfo_gb":
-                     ExtrInfo_Gb.Text = control.LABL_TEXT;
+                     //ExtrInfo_Gb.Text = control.LABL_TEXT;
                      //ExtrInfo_Gb.Text = control.LABL_TEXT; // ToolTip
                      //ExtrInfo_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -251,7 +251,7 @@ namespace System.Scsc.Ui.Regulation
                      //NumbAttn_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "numofer_lb":
-                     NumOfer_Lb.Text = control.LABL_TEXT;
+                     //NumOfer_Lb.Text = control.LABL_TEXT;
                      //NumOfer_Lb.Text = control.LABL_TEXT; // ToolTip
                      //NumOfer_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;

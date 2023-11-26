@@ -219,7 +219,7 @@ namespace System.Scsc.Ui.OtherIncome
                   PlayHappyBirthDate_Butn.Visible = false;
 
                // 1402/06/08
-               AdatnBs.DataSource = iScsc.Dresser_Attendances.Where(a => a.FIGH_FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && a.TKBK_TIME == null);
+               AdatnBs.DataSource = iScsc.Dresser_Attendances.Where(a => a.RQST_RQID == _rqst.RQID && a.FIGH_FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && a.TKBK_TIME == null);
                HdatnBs.DataSource = iScsc.Dresser_Attendances.Where(a => a.FIGH_FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && a.CONF_STAT == "002" && a.TKBK_TIME != null);
             }
          }
@@ -338,6 +338,12 @@ namespace System.Scsc.Ui.OtherIncome
             Scsc.Data.Request Rqst = RqstBs1.Current as Scsc.Data.Request;
             Scsc.Data.Fighter Figh = FighBs1.Current as Scsc.Data.Fighter;
             if (Rqst == null) return;
+
+            // 1402/08/29 * اگر دستبندی که به مشتری داده میشود تایید نشده باید آنها را تایید کنیم
+            if (AdatnBs.List.OfType<Data.Dresser_Attendance>().Any(da => da.CONF_STAT == "001"))
+            {
+               ConfDasr_Butn_Click(null, null);
+            }
 
             iScsc.OIC_ESAV_F(
                new XElement("Process",
@@ -5073,11 +5079,15 @@ namespace System.Scsc.Ui.OtherIncome
 
             if (AdatnBs.List.OfType<Data.Dresser_Attendance>().Any(a => a.DERS_NUMB == DresNumb_Txt.Text.ToInt32() && a.FIGH_FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && a.LEND_TIME != null && a.TKBK_TIME == null)) return;
 
+            int _dres;
+            if (!int.TryParse(DresNumb_Txt.Text, out _dres)) { DresNumb_Txt.Text = ""; return; }
+
             if (!iScsc.Dressers.Any(d => d.DRES_NUMB == DresNumb_Txt.Text.ToInt32())) return;
 
             var _adatn = AdatnBs.AddNew() as Data.Dresser_Attendance;
             _adatn.FIGH_FILE_NO = _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO;
             _adatn.DERS_NUMB = DresNumb_Txt.Text.ToInt32();
+            _adatn.RQST_RQID = _rqst.RQID;
 
             iScsc.Dresser_Attendances.InsertOnSubmit(_adatn);
             iScsc.SubmitChanges();
@@ -5107,9 +5117,10 @@ namespace System.Scsc.Ui.OtherIncome
 
             iScsc.ExecuteCommand(
                string.Format(
-                  "UPDATE dbo.Dresser_Attendance SET Conf_Stat = '002' WHERE FIGH_FILE_NO = {0} AND TKBK_TIME IS NULL;" + Environment.NewLine +
-                  "UPDATE dbo.Dresser_Attendance SET TKBK_TIME = GETDATE() WHERE FIGH_FILE_NO != {0} AND TKBK_TIME IS NULL;",
-                   _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO
+                  "UPDATE dbo.Dresser_Attendance SET Conf_Stat = '002' WHERE FIGH_FILE_NO = {0} AND RQST_RQID = {1} AND TKBK_TIME IS NULL;" + Environment.NewLine +
+                  "UPDATE dbo.Dresser_Attendance SET TKBK_TIME = GETDATE() WHERE RQST_RQID != {1} AND TKBK_TIME IS NULL AND Ders_Numb IN (SELECT da.Ders_Numb FROM dbo.Dresser_Attendance da WHERE da.Rqst_Rqid = {1});",
+                   _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO,
+                   _rqst.RQID
                )
             );
             requery = true;
@@ -5134,8 +5145,9 @@ namespace System.Scsc.Ui.OtherIncome
 
             iScsc.ExecuteCommand(
                string.Format(
-                  "DELETE dbo.Dresser_Attendance WHERE FIGH_FILE_NO = {0} AND TKBK_TIME IS NULL AND CONF_STAT = '001';",
-                  _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO
+                  "DELETE dbo.Dresser_Attendance WHERE FIGH_FILE_NO = {0} AND RQST_RQID = {1} AND TKBK_TIME IS NULL AND CONF_STAT = '001';",
+                  _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO,
+                  _rqst.RQID
                )
             );
             requery = true;

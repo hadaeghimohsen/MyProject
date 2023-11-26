@@ -67,14 +67,25 @@ namespace System.Scsc.Ui.Common
       {
          if (tb_master.SelectedTab == tp_001)
          {
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
                  new List<Job>
                   {
                      new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
                      new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+                  })
+            );
+         }
+         else if(tb_master.SelectedTab == tp_007)
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                 new List<Job>
+                  {
+                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_007_F"))}
+                  })
+            );
          }
       }
 
@@ -87,13 +98,26 @@ namespace System.Scsc.Ui.Common
             if (crnt == null)
                crnt = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_Deleted_FighterResult;
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
                  new List<Job>
                   {
                      new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Fighter.File_No = {0}", crnt.FILE_NO))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+                  })
+            );
+         }
+         else if(tb_master.SelectedTab == tp_007)
+         {
+            if (GlrlBs.Current == null) return;
+            var _glrl = GlrlBs.Current as Data.Gain_Loss_Rial;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_007_F"), string.Format("Request.Rqid = {0}", _glrl.RQRO_RQST_RQID))}
+                  })
+            );
          }
       }
 
@@ -106,13 +130,26 @@ namespace System.Scsc.Ui.Common
             if (crnt == null)
                crnt = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_Deleted_FighterResult;
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
                  new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Fighter.File_No = {0}", crnt.FILE_NO))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+                 {
+                    new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Fighter.File_No = {0}", crnt.FILE_NO))}
+                 })
+            );
+         }
+         else if (tb_master.SelectedTab == tp_007)
+         {
+            if (GlrlBs.Current == null) return;
+            var _glrl = GlrlBs.Current as Data.Gain_Loss_Rial;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                 new List<Job>
+                 {
+                    new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_007_F"), string.Format("Request.Rqid = {0}", _glrl.RQRO_RQST_RQID))}
+                 })
+            );
          }
       }
 
@@ -3649,6 +3686,7 @@ namespace System.Scsc.Ui.Common
 
       private void RqstBnSettingPrint_Click(object sender, EventArgs e)
       {
+         
          Job _InteractWithScsc =
            new Job(SendType.External, "Localhost",
               new List<Job>
@@ -4362,8 +4400,8 @@ namespace System.Scsc.Ui.Common
          {
             iScsc.ExecuteCommand(
                string.Format(
-                  "UPDATE dbo.Dresser_Attendance SET Conf_Stat = '002' WHERE FIGH_FILE_NO = {0} AND TKBK_TIME IS NULL;" + Environment.NewLine + 
-                  "UPDATE dbo.Dresser_Attendance SET TKBK_TIME = GETDATE() WHERE FIGH_FILE_NO != {0} AND TKBK_TIME IS NULL;",
+                  "UPDATE dbo.Dresser_Attendance SET Conf_Stat = '002' WHERE FIGH_FILE_NO = {0} AND TKBK_TIME IS NULL;" + Environment.NewLine +
+                  "UPDATE dbo.Dresser_Attendance SET TKBK_TIME = GETDATE() WHERE FIGH_FILE_NO != {0} AND TKBK_TIME IS NULL AND Ders_Numb IN (SELECT da.Ders_Numb FROM dbo.Dresser_Attendance da WHERE da.Figh_File_No = {0} AND da.TKBK_TIME IS NULL);",
                   fileno
                )
             );
@@ -4719,13 +4757,13 @@ namespace System.Scsc.Ui.Common
                string.Format(@"MERGE iRoboTech.dbo.Service_Robot_Group T
                               USING (
                                  SELECT sr.SERV_FILE_NO, sr.ROBO_RBID, sr.CHAT_ID, g.GPID, 
-                                    FROM iRoboTech.dbo.Service_Robot sr, iRoboTech.dbo.[Group] g 
-                                    WHERE sr.CHAT_ID = {0}
+                                   FROM iRoboTech.dbo.Service_Robot sr, iRoboTech.dbo.[Group] g 
+                                  WHERE sr.CHAT_ID = {0}
                                     AND g.ROBO_RBID = 391 
                                     AND g.GPID = 121) S
                               ON (T.SRBT_SERV_FILE_NO = S.SERV_FILE_NO AND 
-                                    T.SRBT_ROBO_RBID = S.ROBO_RBID AND
-                                    T.GROP_GPID = s.GPID)
+                                  T.SRBT_ROBO_RBID = S.ROBO_RBID AND
+                                  T.GROP_GPID = s.GPID)
                               WHEN NOT MATCHED THEN 
                                  INSERT (SRBT_SERV_FILE_NO, SRBT_ROBO_RBID, GROP_GPID, STAT)
                                  VALUES (S.SERV_FILE_NO, s.ROBO_RBID, s.GPID, '002')
@@ -4737,6 +4775,111 @@ namespace System.Scsc.Ui.Common
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void GlrcActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _glrl = GlrlBs.Current as Data.Gain_Loss_Rial;
+            if (_glrl == null) return;
+
+            bool checkOK = true;
+            switch (e.Button.Index)
+            {
+               case 0:
+                  // Delete
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>270</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       checkOK = false;
+                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 270 سطوح امینتی", "عدم دسترسی");
+                                    })
+                                 },
+                                 #endregion
+                              }),                           
+                        })
+                  );
+                  if(checkOK)
+                  {
+                     if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+                     iScsc.DEL_PYMT_P(
+                        new XElement("Deposit",
+                           new XAttribute("rqid", _glrl.RQRO_RQST_RQID)
+                        )
+                     );
+                     requery = true;
+                  }
+                  break;
+               case 1:
+                  // Edit
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>269</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 269 سطوح امینتی", "عدم دسترسی");
+                                    })
+                                 },
+                                 #endregion
+                              }),
+                           #region DoWork
+                              new Job(SendType.Self, 169 /* Execute GLR_CHNG_F */),
+                              new Job(SendType.SelfToUserInterface, "GLR_CHNG_F", 10 /* execute Actn_CalF_F */)
+                              {
+                                 Input = 
+                                    new XElement("Gain_Loss_Rial",
+                                       new XAttribute("fileno", fileno),
+                                       new XAttribute("glid", _glrl.GLID),
+                                       new XAttribute("formcaller", GetType().Name)
+                                    )
+                              }
+                           #endregion
+                        })
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }      
    }

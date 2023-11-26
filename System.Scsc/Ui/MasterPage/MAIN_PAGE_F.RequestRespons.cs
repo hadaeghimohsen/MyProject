@@ -618,6 +618,7 @@ namespace System.Scsc.Ui.MasterPage
          DaeatBs.DataSource = iScsc.D_AEATs;
          DevntBs.DataSource = iScsc.D_EVNTs;
          CompaBs.DataSource = iScsc.Computer_Actions;
+         ExdvBs.DataSource = iScsc.External_Devices.Where(ed => ed.STAT == "002");
          FormHandle = this.Handle;
          job.Status = StatusType.Successful;
       }

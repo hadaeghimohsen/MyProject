@@ -36,11 +36,14 @@ namespace System.Scsc.Ui.Attendance
       private void Execute_Query()
       {
          iScsc = new Data.iScscDataContext(ConnectionString);
+         
          int dres = DresBs1.Position;
+         
          ComaBs1.DataSource = iScsc.Computer_Actions;
+         
          DresBs1.Position = dres;
 
-         DresBlnk_Gv.ActiveFilterString = "ORDR Is Null";
+         //DresBlnk_Gv.ActiveFilterString = "ORDR Is Null";
 
          requery = false;
       }
@@ -67,59 +70,31 @@ namespace System.Scsc.Ui.Attendance
       {
          try
          {
-            FromAttnDate_Date.CommitChanges();
-            ToAttnDate_Date.CommitChanges();
+            FromDate_Date.CommitChanges();
+            ToDate_Date.CommitChanges();
+
             var dres = DresBs1.Current as Data.Dresser;
             if (dres == null) return;
 
 
-            FighBs1.DataSource = 
-               iScsc.Attendances
-               .Where(a => 
-                  a.ATTN_DATE.Date >= FromAttnDate_Date.Value.Value.Date &&
-                  a.ATTN_DATE.Date <= ToAttnDate_Date.Value.Value.Date &&
-                  a.Dresser_Attendances.Any(da => da.DRES_CODE == dres.CODE)
-               ).Select(a => a.Fighter1).Distinct();
+            //FighBs1.DataSource = 
+            //   iScsc.Attendances
+            //   .Where(a => 
+            //      a.ATTN_DATE.Date >= FromAttnDate_Date.Value.Value.Date &&
+            //      a.ATTN_DATE.Date <= ToAttnDate_Date.Value.Value.Date &&
+            //      a.Dresser_Attendances.Any(da => da.DRES_CODE == dres.CODE)
+            //   ).Select(a => a.Fighter1).Distinct();
 
+            V_DratBs1.DataSource =
+               iScsc.V_Drats
+               .Where(vd =>
+                  vd.DRAT_DATE.Value.Date >= FromDate_Date.Value.Value.Date &&
+                  vd.DRAT_DATE.Value.Date <= ToDate_Date.Value.Value.Date
+               );
          }
          catch (Exception)
          {
             
-         }
-      }
-
-      private void DresBs1_CurrentChanged(object sender, EventArgs e)
-      {
-         try
-         {
-            Search_Butn_Click(null, null);
-         }catch{}
-      }
-
-      private void FighBs1_CurrentChanged(object sender, EventArgs e)
-      {
-         try
-         {
-            var figh = FighBs1.Current as Data.Fighter;
-            if (figh == null) return;
-
-            UserProFile_Rb.ImageProfile = null;
-            MemoryStream mStream = new MemoryStream();
-            byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO))).ToArray();
-            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-            Bitmap bm = new Bitmap(mStream, false);
-            mStream.Dispose();
-
-            //Pb_FighImg.Visible = true;
-
-            if (InvokeRequired)
-               Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
-            else
-               UserProFile_Rb.ImageProfile = bm;
-         }
-         catch
-         { //Pb_FighImg.Visible = false;
-            UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          }
       }
 
@@ -457,7 +432,35 @@ namespace System.Scsc.Ui.Attendance
             var _dres = DresBs1.Current as Data.Dresser;
             if (_dres == null) return;
 
-            _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>271</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                 {
+                                    _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
+                                    return;
+                                 }
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 271 سطوح امینتی", "عدم دسترسی");
+                              })
+                           },
+                           #endregion
+                        }),                           
+                  })
+            ); 
+            //_dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
             
             iScsc.SubmitChanges();
             requery = true;
@@ -542,6 +545,230 @@ namespace System.Scsc.Ui.Attendance
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void SUNT_CODELookUpEdit_Properties_ButtonClick(object sender, ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 1:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>171</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       #region Show Error
+                                       MessageBox.Show("خطا: عدم دسترسی به کد 171");
+                                       #endregion                           
+                                    })
+                                 },
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>175</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       #region Show Error
+                                       MessageBox.Show("خطا: عدم دسترسی به کد 175");
+                                       #endregion                           
+                                    })
+                                 }
+                                 #endregion
+                              }),
+                           #region DoWork
+                           new Job(SendType.Self, 108 /* Execute Orgn_Totl_F */),
+                           new Job(SendType.SelfToUserInterface, "ORGN_TOTL_F", 10 /* Actn_CalF_P */)
+                           #endregion
+                           })
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void FADratBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _fa = FADratBs.Current as Data.Dresser_Attendance;
+            if (_fa == null) return;
+
+            var _vdrat = V_DratBs1.Current as Data.V_Drat;
+            if(_vdrat == null) return;
+
+            if (!Fa_Rlt.RolloutStatus) return;
+            //var _dres = DresBs1.Current as Data.Dresser;
+            //if(_dres == null) return;
+
+            DratBs.DataSource =
+               iScsc.Dresser_Attendances
+               .Where(da =>
+                  da.CRET_DATE.Value.Date == _vdrat.DRAT_DATE.Value.Date &&
+                  da.FIGH_FILE_NO == _fa.FIGH_FILE_NO &&
+                  da.ATTN_CODE == _fa.ATTN_CODE
+                  //da.DRES_CODE == _dres.CODE
+               );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void FRDratBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _fr = FRDratBs.Current as Data.Dresser_Attendance;
+            if (_fr == null) return;
+
+            var _vdrat = V_DratBs1.Current as Data.V_Drat;
+            if (_vdrat == null) return;
+
+            if (!Fr_Rlt.RolloutStatus) return;
+            //var _dres = DresBs1.Current as Data.Dresser;
+            //if(_dres == null) return;
+
+            DratBs.DataSource =
+               iScsc.Dresser_Attendances
+               .Where(da =>
+                  da.CRET_DATE.Value.Date == _vdrat.DRAT_DATE.Value.Date &&
+                  da.FIGH_FILE_NO == _fr.FIGH_FILE_NO &&
+                  da.RQST_RQID == _fr.RQST_RQID
+               //da.DRES_CODE == _dres.CODE
+               );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void FMDratBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _fm = FMDratBs.Current as Data.Dresser_Attendance;
+            if (_fm == null) return;
+
+            var _vdrat = V_DratBs1.Current as Data.V_Drat;
+            if (_vdrat == null) return;
+
+            if (!Fm_Rlt.RolloutStatus) return;
+            //var _dres = DresBs1.Current as Data.Dresser;
+            //if(_dres == null) return;
+
+            DratBs.DataSource =
+               iScsc.Dresser_Attendances
+               .Where(da =>
+                  da.CRET_DATE.Value.Date == _vdrat.DRAT_DATE.Value.Date &&
+                  da.FIGH_FILE_NO == _fm.FIGH_FILE_NO &&
+                  da.MBSP_RWNO == _fm.MBSP_RWNO
+               //da.DRES_CODE == _dres.CODE
+               );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void V_DratBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _vdrat = V_DratBs1.Current as Data.V_Drat;
+            if (_vdrat == null) return;
+
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            if (Fa_Rlt.RolloutStatus)
+               FADratBs.DataSource =
+                  iScsc.Dresser_Attendances
+                  .Where(da =>
+                     da.ATTN_CODE != null &&
+                     da.Attendance.ATTN_DATE.Date == _vdrat.DRAT_DATE.Value.Date &&
+                     da.DRES_CODE == _dres.CODE
+                  );
+
+            if (Fm_Rlt.RolloutStatus)
+               FMDratBs.DataSource =
+                  iScsc.Dresser_Attendances
+                  .Where(da =>
+                     da.MBSP_RWNO != null &&
+                     da.CRET_DATE.Value.Date == _vdrat.DRAT_DATE.Value.Date &&
+                     da.DRES_CODE == _dres.CODE                     
+                  );
+
+            if (Fr_Rlt.RolloutStatus)
+               FRDratBs.DataSource =
+                  iScsc.Dresser_Attendances
+                  .Where(da =>
+                     da.RQST_RQID != null &&
+                     da.Request.SAVE_DATE.Value.Date == _vdrat.DRAT_DATE.Value.Date &&
+                     da.DRES_CODE == _dres.CODE
+                  );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DresBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            V_DratBs1_CurrentChanged(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Fa_Rlt_Click(object sender, EventArgs e)
+      {
+         Fm_Rlt.RolloutStatus = Fr_Rlt.RolloutStatus = false;
+      }
+
+      private void Fr_Rlt_Click(object sender, EventArgs e)
+      {
+         Fa_Rlt.RolloutStatus = Fm_Rlt.RolloutStatus = false;
+      }
+
+      private void Fm_Rlt_Click(object sender, EventArgs e)
+      {
+         Fa_Rlt.RolloutStatus = Fr_Rlt.RolloutStatus = false;
       }
    }
 }

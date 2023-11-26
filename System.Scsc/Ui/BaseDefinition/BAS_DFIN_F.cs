@@ -2768,7 +2768,11 @@ namespace System.Scsc.Ui.BaseDefinition
                      new XAttribute("attnnotinsrstat", Stng.ATTN_NOT_INSR_STAT ?? "002"),
 
                      new XAttribute("showrbonmnui", Stng.SHOW_RBON_MNUI ?? "002"),
-                     new XAttribute("showslidmnui", Stng.SHOW_SLID_MNUI ?? "001")
+                     new XAttribute("showslidmnui", Stng.SHOW_SLID_MNUI ?? "001"),
+
+                     new XAttribute("negdpstamnt", Stng.NEG_DPST_AMNT ?? "001"),
+                     new XAttribute("dontshoweror", Stng.DONT_SHOW_EROR ?? "001"),
+                     new XAttribute("showerorlog", Stng.SHOW_EROR_LOG ?? "001")
                   )
                )
             );

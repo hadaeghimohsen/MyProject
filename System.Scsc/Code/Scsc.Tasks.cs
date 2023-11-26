@@ -802,6 +802,11 @@ namespace System.Scsc.Code
             if (_Def_Prod_F == null)
                _Def_Prod_F = new Ui.Warehouse.DEF_PROD_F { _DefaultGateway = this };
          }
+         else if (value == "glr_chng_f")
+         {
+            if (_Glr_Chng_F == null)
+               _Glr_Chng_F = new Ui.ChangeRials.GLR_CHNG_F { _DefaultGateway = this };
+         }
 
          // فرم های نمایش تغییرات
          else if (value == "show_atrq_f")
@@ -4897,6 +4902,30 @@ namespace System.Scsc.Code
                   new Job(SendType.SelfToUserInterface, "DEF_PROD_F", 02 /* Execute Set */),
                   new Job(SendType.SelfToUserInterface, "DEF_PROD_F", 07 /* Execute Load_Data */){WhereIsInputData = WhereIsInputDataType.StepBack},
                   new Job(SendType.SelfToUserInterface, "DEF_PROD_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 169
+      /// </summary>
+      /// <param name="job"></param>
+      private void Glr_Chng_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "glr_chng_f"},
+                  new Job(SendType.SelfToUserInterface, "GLR_CHNG_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "GLR_CHNG_F", 07 /* Execute Load_Data */){WhereIsInputData = WhereIsInputDataType.StepBack},
+                  new Job(SendType.SelfToUserInterface, "GLR_CHNG_F", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

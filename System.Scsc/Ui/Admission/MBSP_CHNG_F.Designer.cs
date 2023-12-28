@@ -811,7 +811,6 @@
          this.cBMT_CODEGridLookUpEditView.FocusRectStyle = DevExpress.XtraGrid.Views.Grid.DrawFocusRectStyle.RowFocus;
          this.cBMT_CODEGridLookUpEditView.Name = "cBMT_CODEGridLookUpEditView";
          this.cBMT_CODEGridLookUpEditView.OptionsSelection.EnableAppearanceFocusedCell = false;
-         this.cBMT_CODEGridLookUpEditView.OptionsView.ColumnAutoWidth = false;
          this.cBMT_CODEGridLookUpEditView.OptionsView.RowAutoHeight = true;
          this.cBMT_CODEGridLookUpEditView.OptionsView.ShowGroupPanel = false;
          this.cBMT_CODEGridLookUpEditView.OptionsView.ShowIndicator = false;

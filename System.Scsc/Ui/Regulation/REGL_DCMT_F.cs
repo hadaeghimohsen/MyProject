@@ -520,13 +520,13 @@ namespace System.Scsc.Ui.Regulation
       {
          try
          {
-            var expn = ExpnBs.Current as Data.Expense;
-            if (expn == null) return;
+            var _expn = ExpnBs.Current as Data.Expense;
+            if (_expn == null) return;
 
             var gropcode = Grop_Lov.EditValue;
             if(gropcode == null || gropcode.ToString() == "")return;
 
-            iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, (long)gropcode, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND, expn.ORDR_ITEM, expn.BRND_CODE, expn.MIN_PRIC, expn.MAX_PRIC, expn.UNIT_APBS_CODE, expn.CAN_CALC_PROF);
+            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, (long)gropcode, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, _expn.BRND_CODE, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR);
             requery = true;
          }
          catch { }
@@ -541,10 +541,10 @@ namespace System.Scsc.Ui.Regulation
       {
          try
          {
-            var expn = ExpnBs.Current as Data.Expense;
-            if (expn == null) return;
+            var _expn = ExpnBs.Current as Data.Expense;
+            if (_expn == null) return;
 
-            iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, null, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND, expn.ORDR_ITEM, expn.BRND_CODE, expn.MIN_PRIC, expn.MAX_PRIC, expn.UNIT_APBS_CODE, expn.CAN_CALC_PROF);
+            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, null, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, _expn.BRND_CODE, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR);
          }
          catch { }
       }
@@ -690,13 +690,13 @@ namespace System.Scsc.Ui.Regulation
       {
          try
          {
-            var expn = ExpnBs.Current as Data.Expense;
-            if (expn == null) return;
+            var _expn = ExpnBs.Current as Data.Expense;
+            if (_expn == null) return;
 
             var brndcode = Brnd_Lov.EditValue;
             if (brndcode == null || brndcode.ToString() == "") return;
 
-            iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, expn.GROP_CODE, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND, expn.ORDR_ITEM, (long)brndcode, expn.MIN_PRIC, expn.MAX_PRIC, expn.UNIT_APBS_CODE, expn.CAN_CALC_PROF);
+            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, _expn.GROP_CODE, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, (long)brndcode, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR);
             requery = true;
          }
          catch { }
@@ -711,10 +711,10 @@ namespace System.Scsc.Ui.Regulation
       {
          try
          {
-            var expn = ExpnBs.Current as Data.Expense;
-            if (expn == null) return;
+            var _expn = ExpnBs.Current as Data.Expense;
+            if (_expn == null) return;
 
-            iScsc.UPD_EXPN_P(expn.CODE, expn.PRIC, expn.EXPN_STAT, expn.ADD_QUTS, expn.COVR_DSCT, expn.EXPN_TYPE, expn.BUY_PRIC, expn.BUY_EXTR_PRCT, expn.NUMB_OF_STOK, expn.NUMB_OF_SALE, expn.COVR_TAX, expn.NUMB_OF_ATTN_MONT, expn.NUMB_OF_ATTN_WEEK, expn.MODL_NUMB_BAR_CODE, expn.PRVT_COCH_EXPN, expn.NUMB_CYCL_DAY, expn.NUMB_MONT_OFER, expn.MIN_NUMB, expn.GROP_CODE, expn.EXPN_DESC, expn.MIN_TIME, expn.RELY_CMND, expn.ORDR_ITEM, null, expn.MIN_PRIC, expn.MAX_PRIC, expn.UNIT_APBS_CODE, expn.CAN_CALC_PROF);
+            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, _expn.GROP_CODE, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, null, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR);
          }
          catch { }
       }

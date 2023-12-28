@@ -721,9 +721,6 @@ namespace System.Scsc.Ui.MasterPage
          //   _DefaultGateway.Gateway(_InteractWithScsc);
          //}
 
-         
-         
-
          if(job.Input != null && (job.Input as XElement).Attribute("type").Value == "accesscontrol")
          {
             try
@@ -822,6 +819,12 @@ namespace System.Scsc.Ui.MasterPage
          {
             new Thread(AlarmShow).Start();
          }
+         else if(xinput != null && xinput.Attribute("type").Value == "fngrdevlst")
+         {
+            EdevFngr_Rlt.RolloutStatus = true;
+            FngrPrntOpr_Txt.Text = xinput.Attribute("fngrprnt").Value;
+            FngrPrntOpr_Txt.Focus();
+         }
          job.Status = StatusType.Successful;
       }
 
@@ -841,11 +844,11 @@ namespace System.Scsc.Ui.MasterPage
       /// <param name="job"></param>
       private void SetCardinDevice(Job job)
       {
-         if (Fp1DevIsConnected == false)
-         {
-            //MessageBox.Show("Please connect the device first!", "Error");
-            return;
-         }
+         //if (Fp1DevIsConnected == false)
+         //{
+         //   //MessageBox.Show("Please connect the device first!", "Error");
+         //   return;
+         //}
 
          if (!Fp1DevIsConnected) return;
 
@@ -859,24 +862,109 @@ namespace System.Scsc.Ui.MasterPage
          bool bEnabled = true;
          int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
          Cursor = Cursors.WaitCursor;
-         axCZKEM1.EnableDevice(iMachineNumber, false);
-         
-         axCZKEM1.SetStrCardNumber(CardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
-         if (axCZKEM1.SSR_SetUserInfo(iMachineNumber, EnrollNumber, NameDnrm, "", 0, bEnabled))//upload the user's information(card number included)
+
+         if (Fp1DevIsConnected)
          {
-            //MessageBox.Show("کارت شما در سیستم ثبت گردید");
-            FngrPrnt_Txt.Text = EnrollNumber;
-            if (CardNumb_Text.Text == "") CardNumb_Text.Text = "0";
-            CardNumb_Text.Text = (Convert.ToInt64(CardNumb_Text.Text) + 1).ToString();
-            //MessageBox.Show(string.Format("FngrPrnt {0} CardNumb {1} NameDnrm {2}", EnrollNumber, CardNumber, NameDnrm));
+            axCZKEM1.EnableDevice(iMachineNumber, false);
+
+            axCZKEM1.SetStrCardNumber(CardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+            if (axCZKEM1.SSR_SetUserInfo(iMachineNumber, EnrollNumber, NameDnrm, "", 0, bEnabled))//upload the user's information(card number included)
+            {
+               //MessageBox.Show("کارت شما در سیستم ثبت گردید");
+               //FngrPrnt_Txt.Text = EnrollNumber;
+               //if (CardNumb_Text.Text == "") CardNumb_Text.Text = "0";
+               //CardNumb_Text.Text = (Convert.ToInt64(CardNumb_Text.Text) + 1).ToString();
+               //MessageBox.Show(string.Format("FngrPrnt {0} CardNumb {1} NameDnrm {2}", EnrollNumber, CardNumber, NameDnrm));
+            }
+            else
+            {
+               axCZKEM1.GetLastError(ref idwErrorCode);
+               MessageBox.Show("Operation failed,ErrorCode=" + idwErrorCode.ToString(), "Error");
+            }
+            axCZKEM1.RefreshData(iMachineNumber);//the data in the device should be refreshed
+            axCZKEM1.EnableDevice(iMachineNumber, true);
          }
-         else
+         // Copy on 2nd fingerprint device
+         if(Fp2DevIsConnected)
          {
-            axCZKEM1.GetLastError(ref idwErrorCode);
-            MessageBox.Show("Operation failed,ErrorCode=" + idwErrorCode.ToString(), "Error");
+            axCZKEM2.EnableDevice(iMachineNumber, false);
+
+            axCZKEM2.SetStrCardNumber(CardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+            if (axCZKEM2.SSR_SetUserInfo(iMachineNumber, EnrollNumber, NameDnrm, "", 0, bEnabled))//upload the user's information(card number included)
+            {
+            }
+            else
+            {
+               axCZKEM2.GetLastError(ref idwErrorCode);
+               MessageBox.Show("Operation failed,ErrorCode=" + idwErrorCode.ToString(), "Error");
+            }
+            axCZKEM2.RefreshData(iMachineNumber);//the data in the device should be refreshed
+            axCZKEM2.EnableDevice(iMachineNumber, true);
          }
-         axCZKEM1.RefreshData(iMachineNumber);//the data in the device should be refreshed
-         axCZKEM1.EnableDevice(iMachineNumber, true);
+         if (Fp3DevIsConnected)
+         {
+            axCZKEM3.EnableDevice(iMachineNumber, false);
+
+            axCZKEM3.SetStrCardNumber(CardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+            if (axCZKEM3.SSR_SetUserInfo(iMachineNumber, EnrollNumber, NameDnrm, "", 0, bEnabled))//upload the user's information(card number included)
+            {
+            }
+            else
+            {
+               axCZKEM3.GetLastError(ref idwErrorCode);
+               MessageBox.Show("Operation failed,ErrorCode=" + idwErrorCode.ToString(), "Error");
+            }
+            axCZKEM3.RefreshData(iMachineNumber);//the data in the device should be refreshed
+            axCZKEM3.EnableDevice(iMachineNumber, true);
+         }
+         if (Fp4DevIsConnected)
+         {
+            axCZKEM4.EnableDevice(iMachineNumber, false);
+
+            axCZKEM4.SetStrCardNumber(CardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+            if (axCZKEM4.SSR_SetUserInfo(iMachineNumber, EnrollNumber, NameDnrm, "", 0, bEnabled))//upload the user's information(card number included)
+            {
+            }
+            else
+            {
+               axCZKEM4.GetLastError(ref idwErrorCode);
+               MessageBox.Show("Operation failed,ErrorCode=" + idwErrorCode.ToString(), "Error");
+            }
+            axCZKEM4.RefreshData(iMachineNumber);//the data in the device should be refreshed
+            axCZKEM4.EnableDevice(iMachineNumber, true);
+         }
+         if (Fp5DevIsConnected)
+         {
+            axCZKEM5.EnableDevice(iMachineNumber, false);
+
+            axCZKEM5.SetStrCardNumber(CardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+            if (axCZKEM5.SSR_SetUserInfo(iMachineNumber, EnrollNumber, NameDnrm, "", 0, bEnabled))//upload the user's information(card number included)
+            {
+            }
+            else
+            {
+               axCZKEM5.GetLastError(ref idwErrorCode);
+               MessageBox.Show("Operation failed,ErrorCode=" + idwErrorCode.ToString(), "Error");
+            }
+            axCZKEM5.RefreshData(iMachineNumber);//the data in the device should be refreshed
+            axCZKEM5.EnableDevice(iMachineNumber, true);
+         }
+         if (Fp6DevIsConnected)
+         {
+            axCZKEM6.EnableDevice(iMachineNumber, false);
+
+            axCZKEM6.SetStrCardNumber(CardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+            if (axCZKEM6.SSR_SetUserInfo(iMachineNumber, EnrollNumber, NameDnrm, "", 0, bEnabled))//upload the user's information(card number included)
+            {}
+            else
+            {
+               axCZKEM6.GetLastError(ref idwErrorCode);
+               MessageBox.Show("Operation failed,ErrorCode=" + idwErrorCode.ToString(), "Error");
+            }
+            axCZKEM6.RefreshData(iMachineNumber);//the data in the device should be refreshed
+            axCZKEM6.EnableDevice(iMachineNumber, true);
+         }
+
          Cursor = Cursors.Default;
       }
 
@@ -916,7 +1004,7 @@ namespace System.Scsc.Ui.MasterPage
          {
             var xinput = job.Input as XElement;
             // بررسی اینکه آیا دستگاه انگشتی متصل می باشد
-            if (Fp1DevIsConnected || Fp2DevIsConnected || Fp3DevIsConnected)
+            if (Fp1DevIsConnected || Fp2DevIsConnected || Fp3DevIsConnected || Fp4DevIsConnected || Fp5DevIsConnected || Fp6DevIsConnected)
             {
                var result = false;
                int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
@@ -924,6 +1012,11 @@ namespace System.Scsc.Ui.MasterPage
                {
                   case "5.5.1": // ClearAdministrators
                      result = axCZKEM1.ClearAdministrators(iMachineNumber);
+                     if (Fp2DevIsConnected) result = axCZKEM2.ClearAdministrators(iMachineNumber);
+                     if (Fp3DevIsConnected) result = axCZKEM3.ClearAdministrators(iMachineNumber);
+                     if (Fp4DevIsConnected) result = axCZKEM4.ClearAdministrators(iMachineNumber);
+                     if (Fp5DevIsConnected) result = axCZKEM5.ClearAdministrators(iMachineNumber);
+                     if (Fp6DevIsConnected) result = axCZKEM6.ClearAdministrators(iMachineNumber);
                      break;
                   case "5.2.3.5":
                      result = Delete_Enroll_Finger(xinput.Attribute("enrollnumb").Value);

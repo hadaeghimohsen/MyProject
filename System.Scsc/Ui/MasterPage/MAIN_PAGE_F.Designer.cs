@@ -329,7 +329,17 @@
          this.DresConf_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CrntDresNumb_Txt = new DevExpress.XtraEditors.TextEdit();
          this.ActnCrntServOpenDres_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.rollout10 = new System.MaxUi.Rollout();
+         this.EdevFngr_Rlt = new System.MaxUi.Rollout();
+         this.grouper5 = new System.MaxUi.Grouper();
+         this.label2 = new System.Windows.Forms.Label();
+         this.label1 = new System.Windows.Forms.Label();
+         this.FngrDevList_Flp = new System.Windows.Forms.FlowLayoutPanel();
+         this.FngrDevOpr_Butn = new System.MaxUi.Button();
+         this.DelEnrl_Rb = new System.Windows.Forms.RadioButton();
+         this.StrtCardEnrl_Rb = new System.Windows.Forms.RadioButton();
+         this.StrtNewEnrl_Rb = new System.Windows.Forms.RadioButton();
+         this.FngrPrntOpr_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.CardOpr_Txt = new DevExpress.XtraEditors.TextEdit();
          this.grouper4 = new System.MaxUi.Grouper();
          this.SetOnline_Butn = new System.MaxUi.Button();
          this.SetOffline_Butn = new System.MaxUi.Button();
@@ -489,7 +499,11 @@
          this.grouper1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CrntOpenBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CrntDresNumb_Txt.Properties)).BeginInit();
-         this.rollout10.SuspendLayout();
+         this.EdevFngr_Rlt.SuspendLayout();
+         this.grouper5.SuspendLayout();
+         this.FngrDevList_Flp.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.FngrPrntOpr_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CardOpr_Txt.Properties)).BeginInit();
          this.grouper4.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExdvBs)).BeginInit();
@@ -2055,8 +2069,8 @@
          this.spc_desktop.Panel2.Controls.Add(this.ShowDesktop_Butn);
          this.spc_desktop.Panel2.Padding = new System.Windows.Forms.Padding(5);
          this.spc_desktop.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.spc_desktop.Size = new System.Drawing.Size(1262, 578);
-         this.spc_desktop.SplitterDistance = 537;
+         this.spc_desktop.Size = new System.Drawing.Size(1262, 895);
+         this.spc_desktop.SplitterDistance = 854;
          this.spc_desktop.TabIndex = 3;
          // 
          // spc_desktopnew
@@ -2071,7 +2085,7 @@
          this.spc_desktopnew.Panel1.Text = "Panel1";
          this.spc_desktopnew.Panel2.Controls.Add(this.Master_Tc);
          this.spc_desktopnew.Panel2.Text = "Panel2";
-         this.spc_desktopnew.Size = new System.Drawing.Size(1262, 537);
+         this.spc_desktopnew.Size = new System.Drawing.Size(1262, 854);
          this.spc_desktopnew.SplitterPosition = 265;
          this.spc_desktopnew.TabIndex = 23;
          this.spc_desktopnew.Text = "splitContainerControl1";
@@ -2080,7 +2094,7 @@
          // 
          this.AdjustDateTime_Lab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.AdjustDateTime_Lab.Font = new System.Drawing.Font("Segoe UI Light", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.AdjustDateTime_Lab.Location = new System.Drawing.Point(644, 367);
+         this.AdjustDateTime_Lab.Location = new System.Drawing.Point(644, 684);
          this.AdjustDateTime_Lab.Name = "AdjustDateTime_Lab";
          this.AdjustDateTime_Lab.Size = new System.Drawing.Size(343, 155);
          this.AdjustDateTime_Lab.TabIndex = 0;
@@ -2100,7 +2114,7 @@
          this.Master_Tc.Name = "Master_Tc";
          this.Master_Tc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Master_Tc.SelectedTabPage = this.xTp_002;
-         this.Master_Tc.Size = new System.Drawing.Size(265, 537);
+         this.Master_Tc.Size = new System.Drawing.Size(265, 854);
          this.Master_Tc.TabIndex = 1;
          this.Master_Tc.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
             this.xTp_001,
@@ -2125,7 +2139,7 @@
          this.xTp_002.Appearance.PageClient.Options.UseBackColor = true;
          this.xTp_002.Controls.Add(this.flowLayoutPanel4);
          this.xTp_002.Name = "xTp_002";
-         this.xTp_002.Size = new System.Drawing.Size(263, 512);
+         this.xTp_002.Size = new System.Drawing.Size(263, 829);
          this.xTp_002.Text = "سیستم جامع";
          // 
          // flowLayoutPanel4
@@ -2139,12 +2153,12 @@
          this.flowLayoutPanel4.Controls.Add(this.rollout7);
          this.flowLayoutPanel4.Controls.Add(this.rollout8);
          this.flowLayoutPanel4.Controls.Add(this.rollout9);
-         this.flowLayoutPanel4.Controls.Add(this.rollout10);
+         this.flowLayoutPanel4.Controls.Add(this.EdevFngr_Rlt);
          this.flowLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
          this.flowLayoutPanel4.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-         this.flowLayoutPanel4.Size = new System.Drawing.Size(263, 512);
+         this.flowLayoutPanel4.Size = new System.Drawing.Size(263, 829);
          this.flowLayoutPanel4.TabIndex = 35;
          this.flowLayoutPanel4.WrapContents = false;
          // 
@@ -2161,7 +2175,7 @@
          this.rollout4.ForeColor = System.Drawing.Color.Black;
          this.rollout4.FrameOnMouseOverOnly = false;
          this.rollout4.GroupImage = null;
-         this.rollout4.Location = new System.Drawing.Point(6, 3);
+         this.rollout4.Location = new System.Drawing.Point(23, 3);
          this.rollout4.MaxHeight = 272;
          this.rollout4.Name = "rollout4";
          this.rollout4.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -2243,7 +2257,7 @@
          this.rollout5.ForeColor = System.Drawing.Color.Black;
          this.rollout5.FrameOnMouseOverOnly = false;
          this.rollout5.GroupImage = null;
-         this.rollout5.Location = new System.Drawing.Point(6, 31);
+         this.rollout5.Location = new System.Drawing.Point(23, 31);
          this.rollout5.MaxHeight = 355;
          this.rollout5.Name = "rollout5";
          this.rollout5.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -2310,7 +2324,7 @@
          this.rollout2.ForeColor = System.Drawing.Color.Black;
          this.rollout2.FrameOnMouseOverOnly = false;
          this.rollout2.GroupImage = null;
-         this.rollout2.Location = new System.Drawing.Point(6, 59);
+         this.rollout2.Location = new System.Drawing.Point(23, 59);
          this.rollout2.MaxHeight = 377;
          this.rollout2.Name = "rollout2";
          this.rollout2.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -2704,7 +2718,7 @@
          this.rollout3.ForeColor = System.Drawing.Color.Black;
          this.rollout3.FrameOnMouseOverOnly = false;
          this.rollout3.GroupImage = null;
-         this.rollout3.Location = new System.Drawing.Point(6, 442);
+         this.rollout3.Location = new System.Drawing.Point(23, 442);
          this.rollout3.MaxHeight = 128;
          this.rollout3.Name = "rollout3";
          this.rollout3.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -2828,7 +2842,7 @@
          this.rollout6.ForeColor = System.Drawing.Color.Black;
          this.rollout6.FrameOnMouseOverOnly = false;
          this.rollout6.GroupImage = null;
-         this.rollout6.Location = new System.Drawing.Point(6, 470);
+         this.rollout6.Location = new System.Drawing.Point(23, 470);
          this.rollout6.MaxHeight = 257;
          this.rollout6.Name = "rollout6";
          this.rollout6.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -3123,7 +3137,7 @@
          this.rollout7.ForeColor = System.Drawing.Color.Black;
          this.rollout7.FrameOnMouseOverOnly = false;
          this.rollout7.GroupImage = null;
-         this.rollout7.Location = new System.Drawing.Point(6, 498);
+         this.rollout7.Location = new System.Drawing.Point(23, 498);
          this.rollout7.MaxHeight = 99;
          this.rollout7.Name = "rollout7";
          this.rollout7.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -3219,7 +3233,7 @@
          this.rollout8.ForeColor = System.Drawing.Color.Black;
          this.rollout8.FrameOnMouseOverOnly = false;
          this.rollout8.GroupImage = null;
-         this.rollout8.Location = new System.Drawing.Point(6, 526);
+         this.rollout8.Location = new System.Drawing.Point(23, 526);
          this.rollout8.MaxHeight = 64;
          this.rollout8.Name = "rollout8";
          this.rollout8.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -3290,7 +3304,7 @@
          this.rollout9.ForeColor = System.Drawing.Color.Black;
          this.rollout9.FrameOnMouseOverOnly = false;
          this.rollout9.GroupImage = null;
-         this.rollout9.Location = new System.Drawing.Point(6, 554);
+         this.rollout9.Location = new System.Drawing.Point(23, 554);
          this.rollout9.MaxHeight = 796;
          this.rollout9.Name = "rollout9";
          this.rollout9.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -3957,34 +3971,189 @@
          this.ActnCrntServOpenDres_Butn.TabIndex = 89;
          this.ActnCrntServOpenDres_Butn.Click += new System.EventHandler(this.ActnCrntServOpenDres_Butn_Click);
          // 
-         // rollout10
+         // EdevFngr_Rlt
          // 
-         this.rollout10.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.rollout10.BackgroundGradientColor = System.Drawing.SystemColors.Control;
-         this.rollout10.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
-         this.rollout10.BorderThickness = 1F;
-         this.rollout10.Controls.Add(this.grouper4);
-         this.rollout10.CustomRolloutColor = System.Drawing.Color.LightGray;
-         this.rollout10.ForeColor = System.Drawing.Color.Black;
-         this.rollout10.FrameOnMouseOverOnly = false;
-         this.rollout10.GroupImage = null;
-         this.rollout10.Location = new System.Drawing.Point(6, 582);
-         this.rollout10.MaxHeight = 368;
-         this.rollout10.Name = "rollout10";
-         this.rollout10.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
-         this.rollout10.PaintRollout = true;
-         this.rollout10.RolloutBorderColor = System.Drawing.Color.Gray;
-         this.rollout10.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.rollout10.RolloutStatus = false;
-         this.rollout10.RolloutTitle = "سیستم حفاظت کنترل کننده";
-         this.rollout10.RoundCorners = 2;
-         this.rollout10.ShadowColor = System.Drawing.Color.DarkGray;
-         this.rollout10.ShadowControl = false;
-         this.rollout10.ShadowThickness = 3;
-         this.rollout10.ShowFocusFrame = false;
-         this.rollout10.Size = new System.Drawing.Size(237, 22);
-         this.rollout10.TabIndex = 34;
-         this.rollout10.TitleBorderColor = System.Drawing.Color.Gray;
+         this.EdevFngr_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.EdevFngr_Rlt.BackgroundGradientColor = System.Drawing.SystemColors.Control;
+         this.EdevFngr_Rlt.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
+         this.EdevFngr_Rlt.BorderThickness = 1F;
+         this.EdevFngr_Rlt.Controls.Add(this.grouper5);
+         this.EdevFngr_Rlt.Controls.Add(this.grouper4);
+         this.EdevFngr_Rlt.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.EdevFngr_Rlt.ForeColor = System.Drawing.Color.Black;
+         this.EdevFngr_Rlt.FrameOnMouseOverOnly = false;
+         this.EdevFngr_Rlt.GroupImage = null;
+         this.EdevFngr_Rlt.Location = new System.Drawing.Point(23, 582);
+         this.EdevFngr_Rlt.MaxHeight = 682;
+         this.EdevFngr_Rlt.Name = "EdevFngr_Rlt";
+         this.EdevFngr_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
+         this.EdevFngr_Rlt.PaintRollout = true;
+         this.EdevFngr_Rlt.RolloutBorderColor = System.Drawing.Color.Gray;
+         this.EdevFngr_Rlt.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.EdevFngr_Rlt.RolloutStatus = false;
+         this.EdevFngr_Rlt.RolloutTitle = "سیستم حفاظت کنترل کننده";
+         this.EdevFngr_Rlt.RoundCorners = 2;
+         this.EdevFngr_Rlt.ShadowColor = System.Drawing.Color.DarkGray;
+         this.EdevFngr_Rlt.ShadowControl = false;
+         this.EdevFngr_Rlt.ShadowThickness = 3;
+         this.EdevFngr_Rlt.ShowFocusFrame = false;
+         this.EdevFngr_Rlt.Size = new System.Drawing.Size(237, 22);
+         this.EdevFngr_Rlt.TabIndex = 34;
+         this.EdevFngr_Rlt.TitleBorderColor = System.Drawing.Color.Gray;
+         // 
+         // grouper5
+         // 
+         this.grouper5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper5.BackgroundGradientColor = System.Drawing.SystemColors.Control;
+         this.grouper5.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
+         this.grouper5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
+         this.grouper5.BorderThickness = 1F;
+         this.grouper5.Controls.Add(this.label2);
+         this.grouper5.Controls.Add(this.label1);
+         this.grouper5.Controls.Add(this.FngrDevList_Flp);
+         this.grouper5.Controls.Add(this.DelEnrl_Rb);
+         this.grouper5.Controls.Add(this.StrtCardEnrl_Rb);
+         this.grouper5.Controls.Add(this.StrtNewEnrl_Rb);
+         this.grouper5.Controls.Add(this.FngrPrntOpr_Txt);
+         this.grouper5.Controls.Add(this.CardOpr_Txt);
+         this.grouper5.CustomGroupBoxColor = System.Drawing.Color.White;
+         this.grouper5.ForeColor = System.Drawing.Color.Black;
+         this.grouper5.GroupImage = null;
+         this.grouper5.GroupTitle = "لیست دستگاه های احراز هویت";
+         this.grouper5.Location = new System.Drawing.Point(7, 34);
+         this.grouper5.Name = "grouper5";
+         this.grouper5.Padding = new System.Windows.Forms.Padding(6, 30, 6, 6);
+         this.grouper5.PaintGroupBox = false;
+         this.grouper5.RoundCorners = 1;
+         this.grouper5.ShadowColor = System.Drawing.Color.DarkGray;
+         this.grouper5.ShadowControl = false;
+         this.grouper5.ShadowThickness = 3;
+         this.grouper5.ShowBorderTitle = false;
+         this.grouper5.Size = new System.Drawing.Size(224, 305);
+         this.grouper5.TabIndex = 91;
+         // 
+         // label2
+         // 
+         this.label2.AutoSize = true;
+         this.label2.Location = new System.Drawing.Point(141, 101);
+         this.label2.Name = "label2";
+         this.label2.Size = new System.Drawing.Size(49, 13);
+         this.label2.TabIndex = 72;
+         this.label2.Text = "کد کارت :";
+         // 
+         // label1
+         // 
+         this.label1.AutoSize = true;
+         this.label1.Location = new System.Drawing.Point(141, 73);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(74, 13);
+         this.label1.TabIndex = 72;
+         this.label1.Text = "کد شناسایی :";
+         // 
+         // FngrDevList_Flp
+         // 
+         this.FngrDevList_Flp.AutoScroll = true;
+         this.FngrDevList_Flp.Controls.Add(this.FngrDevOpr_Butn);
+         this.FngrDevList_Flp.Location = new System.Drawing.Point(9, 124);
+         this.FngrDevList_Flp.Name = "FngrDevList_Flp";
+         this.FngrDevList_Flp.Size = new System.Drawing.Size(206, 171);
+         this.FngrDevList_Flp.TabIndex = 71;
+         // 
+         // FngrDevOpr_Butn
+         // 
+         this.FngrDevOpr_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.FngrDevOpr_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.FngrDevOpr_Butn.FlatAppearance.BorderSize = 0;
+         this.FngrDevOpr_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.FngrDevOpr_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+         this.FngrDevOpr_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.FngrDevOpr_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.FngrDevOpr_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.FngrDevOpr_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.FngrDevOpr_Butn.FrameOnMouseOverOnly = false;
+         this.FngrDevOpr_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.FngrDevOpr_Butn.Location = new System.Drawing.Point(23, 3);
+         this.FngrDevOpr_Butn.Name = "FngrDevOpr_Butn";
+         this.FngrDevOpr_Butn.ShowFocusFrame = true;
+         this.FngrDevOpr_Butn.Size = new System.Drawing.Size(180, 25);
+         this.FngrDevOpr_Butn.TabIndex = 74;
+         this.FngrDevOpr_Butn.Text = "192.168.1.100";
+         this.FngrDevOpr_Butn.UseVisualStyleBackColor = false;
+         this.FngrDevOpr_Butn.Click += new System.EventHandler(this.FngrDevOpr_Butn_Click);
+         // 
+         // DelEnrl_Rb
+         // 
+         this.DelEnrl_Rb.AutoSize = true;
+         this.DelEnrl_Rb.Location = new System.Drawing.Point(116, 45);
+         this.DelEnrl_Rb.Name = "DelEnrl_Rb";
+         this.DelEnrl_Rb.Size = new System.Drawing.Size(99, 17);
+         this.DelEnrl_Rb.TabIndex = 70;
+         this.DelEnrl_Rb.Text = "حذف اثر انگشت";
+         this.DelEnrl_Rb.UseVisualStyleBackColor = true;
+         // 
+         // StrtCardEnrl_Rb
+         // 
+         this.StrtCardEnrl_Rb.AutoSize = true;
+         this.StrtCardEnrl_Rb.Location = new System.Drawing.Point(9, 22);
+         this.StrtCardEnrl_Rb.Name = "StrtCardEnrl_Rb";
+         this.StrtCardEnrl_Rb.Size = new System.Drawing.Size(103, 17);
+         this.StrtCardEnrl_Rb.TabIndex = 69;
+         this.StrtCardEnrl_Rb.Text = "ثبت کارت عضویت";
+         this.StrtCardEnrl_Rb.UseVisualStyleBackColor = true;
+         // 
+         // StrtNewEnrl_Rb
+         // 
+         this.StrtNewEnrl_Rb.AutoSize = true;
+         this.StrtNewEnrl_Rb.Checked = true;
+         this.StrtNewEnrl_Rb.Location = new System.Drawing.Point(122, 22);
+         this.StrtNewEnrl_Rb.Name = "StrtNewEnrl_Rb";
+         this.StrtNewEnrl_Rb.Size = new System.Drawing.Size(93, 17);
+         this.StrtNewEnrl_Rb.TabIndex = 69;
+         this.StrtNewEnrl_Rb.TabStop = true;
+         this.StrtNewEnrl_Rb.Text = "ثبت اثر انگشت";
+         this.StrtNewEnrl_Rb.UseVisualStyleBackColor = true;
+         // 
+         // FngrPrntOpr_Txt
+         // 
+         this.FngrPrntOpr_Txt.EditValue = "";
+         this.FngrPrntOpr_Txt.Location = new System.Drawing.Point(9, 68);
+         this.FngrPrntOpr_Txt.MenuManager = this.MainRbonMenu_Rbnc;
+         this.FngrPrntOpr_Txt.Name = "FngrPrntOpr_Txt";
+         this.FngrPrntOpr_Txt.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info;
+         this.FngrPrntOpr_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.FngrPrntOpr_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.FngrPrntOpr_Txt.Properties.Appearance.Options.UseFont = true;
+         this.FngrPrntOpr_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.FngrPrntOpr_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.FngrPrntOpr_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.FngrPrntOpr_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.FngrPrntOpr_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton()});
+         this.FngrPrntOpr_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.FngrPrntOpr_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.FngrPrntOpr_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.FngrPrntOpr_Txt.Size = new System.Drawing.Size(126, 22);
+         this.FngrPrntOpr_Txt.TabIndex = 73;
+         this.FngrPrntOpr_Txt.ButtonClick += new DevExpress.XtraEditors.Controls.ButtonPressedEventHandler(this.FngrPrntOpr_Txt_ButtonClick);
+         // 
+         // CardOpr_Txt
+         // 
+         this.CardOpr_Txt.EditValue = "";
+         this.CardOpr_Txt.Location = new System.Drawing.Point(9, 96);
+         this.CardOpr_Txt.Name = "CardOpr_Txt";
+         this.CardOpr_Txt.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info;
+         this.CardOpr_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.CardOpr_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.CardOpr_Txt.Properties.Appearance.Options.UseFont = true;
+         this.CardOpr_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.CardOpr_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.CardOpr_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.CardOpr_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.CardOpr_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.CardOpr_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.CardOpr_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.CardOpr_Txt.Size = new System.Drawing.Size(126, 22);
+         this.CardOpr_Txt.TabIndex = 73;
          // 
          // grouper4
          // 
@@ -4004,7 +4173,7 @@
          this.grouper4.ForeColor = System.Drawing.Color.Black;
          this.grouper4.GroupImage = null;
          this.grouper4.GroupTitle = "لیست دستگاه ها";
-         this.grouper4.Location = new System.Drawing.Point(7, 29);
+         this.grouper4.Location = new System.Drawing.Point(7, 345);
          this.grouper4.Name = "grouper4";
          this.grouper4.Padding = new System.Windows.Forms.Padding(6, 30, 6, 6);
          this.grouper4.PaintGroupBox = false;
@@ -4359,7 +4528,7 @@
          this.xTp_001.Appearance.PageClient.Options.UseBackColor = true;
          this.xTp_001.Controls.Add(this.flowLayoutPanel1);
          this.xTp_001.Name = "xTp_001";
-         this.xTp_001.Size = new System.Drawing.Size(263, 512);
+         this.xTp_001.Size = new System.Drawing.Size(263, 829);
          this.xTp_001.Text = "یادآوری و رخداد ها";
          // 
          // flowLayoutPanel1
@@ -4370,7 +4539,7 @@
          this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
          this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-         this.flowLayoutPanel1.Size = new System.Drawing.Size(263, 512);
+         this.flowLayoutPanel1.Size = new System.Drawing.Size(263, 829);
          this.flowLayoutPanel1.TabIndex = 36;
          this.flowLayoutPanel1.WrapContents = false;
          // 
@@ -4389,7 +4558,7 @@
          this.rollout1.FrameOnMouseOverOnly = false;
          this.rollout1.GroupImage = null;
          this.rollout1.Location = new System.Drawing.Point(6, 3);
-         this.rollout1.MaxHeight = 697;
+         this.rollout1.MaxHeight = 948;
          this.rollout1.Name = "rollout1";
          this.rollout1.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout1.PaintRollout = true;
@@ -4402,7 +4571,7 @@
          this.rollout1.ShadowControl = false;
          this.rollout1.ShadowThickness = 3;
          this.rollout1.ShowFocusFrame = false;
-         this.rollout1.Size = new System.Drawing.Size(237, 697);
+         this.rollout1.Size = new System.Drawing.Size(237, 948);
          this.rollout1.TabIndex = 26;
          this.rollout1.TitleBorderColor = System.Drawing.Color.Gray;
          // 
@@ -5345,7 +5514,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "MAIN_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1262, 720);
+         this.Size = new System.Drawing.Size(1262, 1037);
          this.statusStrip1.ResumeLayout(false);
          this.statusStrip1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.MainRbonMenu_Rbnc)).EndInit();
@@ -5390,7 +5559,12 @@
          this.grouper1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.CrntOpenBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CrntDresNumb_Txt.Properties)).EndInit();
-         this.rollout10.ResumeLayout(false);
+         this.EdevFngr_Rlt.ResumeLayout(false);
+         this.grouper5.ResumeLayout(false);
+         this.grouper5.PerformLayout();
+         this.FngrDevList_Flp.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.FngrPrntOpr_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CardOpr_Txt.Properties)).EndInit();
          this.grouper4.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExdvBs)).EndInit();
@@ -5754,7 +5928,7 @@
       private MaxUi.Button ActnSlctServOpenDres_Butn;
       private Windows.Forms.BindingSource AttnBs;
       private Windows.Forms.BindingSource CrntOpenBs;
-      private MaxUi.Rollout rollout10;
+      private MaxUi.Rollout EdevFngr_Rlt;
       private MaxUi.Grouper grouper4;
       private DevExpress.XtraGrid.GridControl gridControl3;
       private DevExpress.XtraGrid.Views.Grid.GridView Exdv_Gv;
@@ -5790,5 +5964,15 @@
       private DevExpress.XtraTab.XtraTabControl Master_Tc;
       private DevExpress.XtraTab.XtraTabPage xTp_002;
       private DevExpress.XtraTab.XtraTabPage xTp_001;
+      private MaxUi.Grouper grouper5;
+      private Windows.Forms.RadioButton StrtNewEnrl_Rb;
+      private Windows.Forms.RadioButton DelEnrl_Rb;
+      private Windows.Forms.Label label1;
+      private Windows.Forms.FlowLayoutPanel FngrDevList_Flp;
+      private MaxUi.Button FngrDevOpr_Butn;
+      private DevExpress.XtraEditors.ButtonEdit FngrPrntOpr_Txt;
+      private Windows.Forms.Label label2;
+      private DevExpress.XtraEditors.TextEdit CardOpr_Txt;
+      private Windows.Forms.RadioButton StrtCardEnrl_Rb;
    }
 }

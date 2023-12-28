@@ -100,7 +100,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XElement("Password", NewPassword_Be.Text),
                      new XElement("IsLock", false),
                      new XElement("GrantToRole", Ts_GrantToRole.IsOn),
-                     new XElement("GrantToPrivilege", Ts_GrantToPrivilege.IsOn)
+                     new XElement("GrantToPrivilege", Ts_GrantToPrivilege.IsOn),
+                     new XElement("JustDef", "001")
                   )
                )
             );

@@ -1088,18 +1088,31 @@ namespace System.Scsc.Ui.Notifications
       {
          try
          {
-            RqstBnDeleteFngrPrnt1_Click(null, null);
-
             var _attn = AttnBs1.Current as Data.Attendance;
             if (_attn == null) return;
 
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {                  
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "Add User Info"), new XAttribute("enrollnumb", _attn.FNGR_PRNT_DNRM))}
-               });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            if (ModifierKeys.HasFlag(Keys.Control))
+            {
+               
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {                  
+                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Actn_CalF_P */){Input = new XElement("Process", new XAttribute("type", "fngrdevlst"), new XAttribute("fngrprnt", _attn.FNGR_PRNT_DNRM))}
+                     })
+               );
+               return;
+            }
+
+            RqstBnDeleteFngrPrnt1_Click(null, null);            
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "Add User Info"), new XAttribute("enrollnumb", _attn.FNGR_PRNT_DNRM))}
+                  })
+            );
          }
          catch (Exception exc) { }
       }

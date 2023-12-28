@@ -462,14 +462,14 @@ namespace System.Scsc.Ui.Common
          }
          if (figh == null) return;
 
+         RqstBnFignInfo_Lb.Text = figh.NAME_DNRM;
+         PayDebtAmnt_Txt.Text = figh.DEBT_DNRM.ToString();
+
          long fileno = figh.FILE_NO;
          try
          {
             // 1401/05/22 * Focused
-            ServProf_Tc.SelectedIndex = 0;
-
-            RqstBnFignInfo_Lb.Text = figh.NAME_DNRM;
-            PayDebtAmnt_Txt.Text = figh.DEBT_DNRM.ToString();
+            ServProf_Tc.SelectedIndex = 0;            
 
             MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == fileno && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
             Mbsp_gv.TopRowIndex = 0;

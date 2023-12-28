@@ -1408,6 +1408,10 @@ namespace System.Scsc.Ui.Common
             DMexdBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Misc_Expense_Discount_INFO");
             DMexcBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Misc_Expense_Cost_INFO");
 
+            // 1402/10/07 * Relaod Dresser VIP
+            LstDVipBs.DataSource = iScsc.Dressers.Where(d => d.VIP_STAT == "002");
+            ADVipBs.DataSource = iScsc.Dresser_Vip_Fighters.Where(dv => dv.MBSP_FIGH_FILE_NO == fileno && dv.STAT == "002");
+            HDVipBs.DataSource = iScsc.Dresser_Vip_Fighters.Where(dv => dv.MBSP_FIGH_FILE_NO == fileno && dv.STAT == "001");
             // 1401/08/08 * Reload data on tabpage control
             tb_master_SelectedIndexChanged(null, null);
 

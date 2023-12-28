@@ -188,9 +188,6 @@ namespace System.Scsc.Data
     partial void InsertProduct(Product instance);
     partial void UpdateProduct(Product instance);
     partial void DeleteProduct(Product instance);
-    partial void InsertDresser(Dresser instance);
-    partial void UpdateDresser(Dresser instance);
-    partial void DeleteDresser(Dresser instance);
     partial void InsertAggregation_Operation(Aggregation_Operation instance);
     partial void UpdateAggregation_Operation(Aggregation_Operation instance);
     partial void DeleteAggregation_Operation(Aggregation_Operation instance);
@@ -382,14 +379,20 @@ namespace System.Scsc.Data
     partial void InsertAttendance(Attendance instance);
     partial void UpdateAttendance(Attendance instance);
     partial void DeleteAttendance(Attendance instance);
+    partial void InsertExternal_Device(External_Device instance);
+    partial void UpdateExternal_Device(External_Device instance);
+    partial void DeleteExternal_Device(External_Device instance);
     partial void InsertExpense(Expense instance);
     partial void DeleteExpense(Expense instance);
     partial void InsertSetting(Setting instance);
     partial void UpdateSetting(Setting instance);
     partial void DeleteSetting(Setting instance);
-    partial void InsertExternal_Device(External_Device instance);
-    partial void UpdateExternal_Device(External_Device instance);
-    partial void DeleteExternal_Device(External_Device instance);
+    partial void InsertDresser(Dresser instance);
+    partial void UpdateDresser(Dresser instance);
+    partial void DeleteDresser(Dresser instance);
+    partial void InsertDresser_Vip_Fighter(Dresser_Vip_Fighter instance);
+    partial void UpdateDresser_Vip_Fighter(Dresser_Vip_Fighter instance);
+    partial void DeleteDresser_Vip_Fighter(Dresser_Vip_Fighter instance);
     #endregion
 		
 		public iScscDataContext() : 
@@ -1862,14 +1865,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Dresser> Dressers
-		{
-			get
-			{
-				return this.GetTable<Dresser>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Aggregation_Operation> Aggregation_Operations
 		{
 			get
@@ -2630,6 +2625,22 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		public System.Data.Linq.Table<External_Device> External_Devices
+		{
+			get
+			{
+				return this.GetTable<External_Device>();
+			}
+		}
+		
+		public System.Data.Linq.Table<V_Drat> V_Drats
+		{
+			get
+			{
+				return this.GetTable<V_Drat>();
+			}
+		}
+		
 		public System.Data.Linq.Table<Expense> Expenses
 		{
 			get
@@ -2646,19 +2657,19 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<External_Device> External_Devices
+		public System.Data.Linq.Table<Dresser> Dressers
 		{
 			get
 			{
-				return this.GetTable<External_Device>();
+				return this.GetTable<Dresser>();
 			}
 		}
 		
-		public System.Data.Linq.Table<V_Drat> V_Drats
+		public System.Data.Linq.Table<Dresser_Vip_Fighter> Dresser_Vip_Fighters
 		{
 			get
 			{
-				return this.GetTable<V_Drat>();
+				return this.GetTable<Dresser_Vip_Fighter>();
 			}
 		}
 		
@@ -3171,7 +3182,7 @@ namespace System.Scsc.Data
 		
 		private void UpdateExpense(Expense obj)
 		{
-			this.UPD_EXPN_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.PRIC)), obj.EXPN_STAT, obj.ADD_QUTS, obj.COVR_DSCT, obj.EXPN_TYPE, ((System.Nullable<long>)(obj.BUY_PRIC)), ((System.Nullable<long>)(obj.BUY_EXTR_PRCT)), ((System.Nullable<int>)(obj.NUMB_OF_STOK)), ((System.Nullable<int>)(obj.NUMB_OF_SALE)), obj.COVR_TAX, ((System.Nullable<int>)(obj.NUMB_OF_ATTN_MONT)), ((System.Nullable<int>)(obj.NUMB_OF_ATTN_WEEK)), obj.MODL_NUMB_BAR_CODE, obj.PRVT_COCH_EXPN, ((System.Nullable<int>)(obj.NUMB_CYCL_DAY)), ((System.Nullable<int>)(obj.NUMB_MONT_OFER)), ((System.Nullable<int>)(obj.MIN_NUMB)), ((System.Nullable<long>)(obj.GROP_CODE)), obj.EXPN_DESC, ((System.Nullable<System.DateTime>)(obj.MIN_TIME)), obj.RELY_CMND, obj.ORDR_ITEM, ((System.Nullable<long>)(obj.BRND_CODE)), ((System.Nullable<long>)(obj.MIN_PRIC)), ((System.Nullable<long>)(obj.MAX_PRIC)), ((System.Nullable<long>)(obj.UNIT_APBS_CODE)), obj.CAN_CALC_PROF);
+			this.UPD_EXPN_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.PRIC)), obj.EXPN_STAT, obj.ADD_QUTS, obj.COVR_DSCT, obj.EXPN_TYPE, ((System.Nullable<long>)(obj.BUY_PRIC)), ((System.Nullable<long>)(obj.BUY_EXTR_PRCT)), ((System.Nullable<int>)(obj.NUMB_OF_STOK)), ((System.Nullable<int>)(obj.NUMB_OF_SALE)), obj.COVR_TAX, ((System.Nullable<int>)(obj.NUMB_OF_ATTN_MONT)), ((System.Nullable<int>)(obj.NUMB_OF_ATTN_WEEK)), obj.MODL_NUMB_BAR_CODE, obj.PRVT_COCH_EXPN, ((System.Nullable<int>)(obj.NUMB_CYCL_DAY)), ((System.Nullable<int>)(obj.NUMB_MONT_OFER)), ((System.Nullable<int>)(obj.MIN_NUMB)), ((System.Nullable<long>)(obj.GROP_CODE)), obj.EXPN_DESC, ((System.Nullable<System.DateTime>)(obj.MIN_TIME)), obj.RELY_CMND, obj.ORDR_ITEM, ((System.Nullable<long>)(obj.BRND_CODE)), ((System.Nullable<long>)(obj.MIN_PRIC)), ((System.Nullable<long>)(obj.MAX_PRIC)), ((System.Nullable<long>)(obj.UNIT_APBS_CODE)), obj.CAN_CALC_PROF, obj.MUST_FILL_OWNR);
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Saved_Request", IsComposable=true)]
@@ -4887,13 +4898,6 @@ namespace System.Scsc.Data
 			return this.CreateMethodCallQuery<VF_Last_Info_Deleted_FighterResult>(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fileNo, frstName, lastName, natlCode, fngrPrnt, cellPhon, tellPhon, sexType, servNo, globCode, momCellPhon, momTellPhon, dadCellPHon, dadTellPHon);
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_DART_P")]
-		public int INS_DART_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AttnCode", DbType="BigInt")] System.Nullable<long> attnCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ComaCode", DbType="BigInt")] System.Nullable<long> comaCode)
-		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), attnCode, comaCode);
-			return ((int)(result.ReturnValue));
-		}
-		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_REGL_P")]
 		public int INS_REGL_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="Year", DbType="SmallInt")] System.Nullable<short> year, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Type", DbType="VarChar(3)")] string type, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LettNo", DbType="VarChar(15)")] string lettNo, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LettDate", DbType="DateTime")] System.Nullable<System.DateTime> lettDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LettOwnr", DbType="NVarChar(250)")] string lettOwnr, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StrtDate", DbType="DateTime")] System.Nullable<System.DateTime> strtDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndDate", DbType="DateTime")] System.Nullable<System.DateTime> endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="TaxPrct", DbType="Real")] System.Nullable<float> taxPrct, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="DutyPrct", DbType="Real")] System.Nullable<float> dutyPrct, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AmntType", DbType="VarChar(3)")] string amntType, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="InsrPric", DbType="BigInt")] System.Nullable<long> insrPric)
 		{
@@ -5523,6 +5527,13 @@ namespace System.Scsc.Data
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_DPST_P")]
+		public int DEL_DPST_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_EXPN_P")]
 		public int UPD_EXPN_P(
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODE", DbType="BigInt")] System.Nullable<long> cODE, 
@@ -5552,16 +5563,17 @@ namespace System.Scsc.Data
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Min_Pric", DbType="BigInt")] System.Nullable<long> min_Pric, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Max_Pric", DbType="BigInt")] System.Nullable<long> max_Pric, 
 					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Unit_Apbs_Code", DbType="BigInt")] System.Nullable<long> unit_Apbs_Code, 
-					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CAN_CALC_PROF", DbType="VarChar(3)")] string cAN_CALC_PROF)
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="CAN_CALC_PROF", DbType="VarChar(3)")] string cAN_CALC_PROF, 
+					[global::System.Data.Linq.Mapping.ParameterAttribute(Name="Must_Fill_Ownr", DbType="VarChar(3)")] string must_Fill_Ownr)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cODE, pRIC, eXPN_STAT, aDD_QUTS, cOVR_DSCT, eXPN_TYPE, bUY_PRIC, bUY_EXTR_PRCT, nUMB_OF_STOK, nUMB_OF_SALE, cOVR_TAX, nUMB_OF_ATTN_MONT, nUMB_OF_ATTN_WEEK, mODL_NUMB_BAR_CODE, pRVT_COCH_EXPN, nUMB_CYCL_DAY, nUMB_MONT_OFER, mIN_NUMB, gROP_CODE, eXPN_DESC, mIN_TIME, rELY_CMND, oRDR_ITEM, bRND_CODE, min_Pric, max_Pric, unit_Apbs_Code, cAN_CALC_PROF);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cODE, pRIC, eXPN_STAT, aDD_QUTS, cOVR_DSCT, eXPN_TYPE, bUY_PRIC, bUY_EXTR_PRCT, nUMB_OF_STOK, nUMB_OF_SALE, cOVR_TAX, nUMB_OF_ATTN_MONT, nUMB_OF_ATTN_WEEK, mODL_NUMB_BAR_CODE, pRVT_COCH_EXPN, nUMB_CYCL_DAY, nUMB_MONT_OFER, mIN_NUMB, gROP_CODE, eXPN_DESC, mIN_TIME, rELY_CMND, oRDR_ITEM, bRND_CODE, min_Pric, max_Pric, unit_Apbs_Code, cAN_CALC_PROF, must_Fill_Ownr);
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_DPST_P")]
-		public int DEL_DPST_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_DART_P")]
+		public int INS_DART_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="AttnCode", DbType="BigInt")] System.Nullable<long> attnCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ComaCode", DbType="BigInt")] System.Nullable<long> comaCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EdevCode", DbType="BigInt")] System.Nullable<long> edevCode)
 		{
-			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), attnCode, comaCode, edevCode);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -38990,11 +39002,11 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntitySet<Dresser> _Dressers;
-		
 		private EntitySet<User_Link_Method> _User_Link_Methods;
 		
 		private EntitySet<Modual_Report_Direct_Print> _Modual_Report_Direct_Prints;
+		
+		private EntitySet<Dresser> _Dressers;
 		
 		private EntityRef<Method> _Method;
 		
@@ -39024,9 +39036,9 @@ namespace System.Scsc.Data
 		
 		public Computer_Action()
 		{
-			this._Dressers = new EntitySet<Dresser>(new Action<Dresser>(this.attach_Dressers), new Action<Dresser>(this.detach_Dressers));
 			this._User_Link_Methods = new EntitySet<User_Link_Method>(new Action<User_Link_Method>(this.attach_User_Link_Methods), new Action<User_Link_Method>(this.detach_User_Link_Methods));
 			this._Modual_Report_Direct_Prints = new EntitySet<Modual_Report_Direct_Print>(new Action<Modual_Report_Direct_Print>(this.attach_Modual_Report_Direct_Prints), new Action<Modual_Report_Direct_Print>(this.detach_Modual_Report_Direct_Prints));
+			this._Dressers = new EntitySet<Dresser>(new Action<Dresser>(this.attach_Dressers), new Action<Dresser>(this.detach_Dressers));
 			this._Method = default(EntityRef<Method>);
 			OnCreated();
 		}
@@ -39215,19 +39227,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Computer_Action_Dresser", Storage="_Dressers", ThisKey="CODE", OtherKey="COMA_CODE")]
-		public EntitySet<Dresser> Dressers
-		{
-			get
-			{
-				return this._Dressers;
-			}
-			set
-			{
-				this._Dressers.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Computer_Action_User_Link_Method", Storage="_User_Link_Methods", ThisKey="CODE", OtherKey="COMA_CODE")]
 		public EntitySet<User_Link_Method> User_Link_Methods
 		{
@@ -39251,6 +39250,19 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Modual_Report_Direct_Prints.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Computer_Action_Dresser", Storage="_Dressers", ThisKey="CODE", OtherKey="COMA_CODE")]
+		public EntitySet<Dresser> Dressers
+		{
+			get
+			{
+				return this._Dressers;
+			}
+			set
+			{
+				this._Dressers.Assign(value);
 			}
 		}
 		
@@ -39308,18 +39320,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		private void attach_Dressers(Dresser entity)
-		{
-			this.SendPropertyChanging();
-			entity.Computer_Action = this;
-		}
-		
-		private void detach_Dressers(Dresser entity)
-		{
-			this.SendPropertyChanging();
-			entity.Computer_Action = null;
-		}
-		
 		private void attach_User_Link_Methods(User_Link_Method entity)
 		{
 			this.SendPropertyChanging();
@@ -39339,6 +39339,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Modual_Report_Direct_Prints(Modual_Report_Direct_Print entity)
+		{
+			this.SendPropertyChanging();
+			entity.Computer_Action = null;
+		}
+		
+		private void attach_Dressers(Dresser entity)
+		{
+			this.SendPropertyChanging();
+			entity.Computer_Action = this;
+		}
+		
+		private void detach_Dressers(Dresser entity)
 		{
 			this.SendPropertyChanging();
 			entity.Computer_Action = null;
@@ -46993,449 +47005,6 @@ namespace System.Scsc.Data
 					this._DOMN_DESC = value;
 				}
 			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Dresser")]
-	public partial class Dresser : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Nullable<long> _COMA_CODE;
-		
-		private long _CODE;
-		
-		private System.Nullable<int> _DRES_NUMB;
-		
-		private string _DESC;
-		
-		private string _REC_STAT;
-		
-		private System.Nullable<int> _ORDR;
-		
-		private string _CMND_SEND;
-		
-		private string _COMM_PORT;
-		
-		private System.Nullable<int> _BAND_RATE;
-		
-		private string _IP_ADRS;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<Dresser_Attendance> _Dresser_Attendances;
-		
-		private EntityRef<Computer_Action> _Computer_Action;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCOMA_CODEChanging(System.Nullable<long> value);
-    partial void OnCOMA_CODEChanged();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnDRES_NUMBChanging(System.Nullable<int> value);
-    partial void OnDRES_NUMBChanged();
-    partial void OnDESCChanging(string value);
-    partial void OnDESCChanged();
-    partial void OnREC_STATChanging(string value);
-    partial void OnREC_STATChanged();
-    partial void OnORDRChanging(System.Nullable<int> value);
-    partial void OnORDRChanged();
-    partial void OnCMND_SENDChanging(string value);
-    partial void OnCMND_SENDChanged();
-    partial void OnCOMM_PORTChanging(string value);
-    partial void OnCOMM_PORTChanged();
-    partial void OnBAND_RATEChanging(System.Nullable<int> value);
-    partial void OnBAND_RATEChanged();
-    partial void OnIP_ADRSChanging(string value);
-    partial void OnIP_ADRSChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Dresser()
-		{
-			this._Dresser_Attendances = new EntitySet<Dresser_Attendance>(new Action<Dresser_Attendance>(this.attach_Dresser_Attendances), new Action<Dresser_Attendance>(this.detach_Dresser_Attendances));
-			this._Computer_Action = default(EntityRef<Computer_Action>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMA_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> COMA_CODE
-		{
-			get
-			{
-				return this._COMA_CODE;
-			}
-			set
-			{
-				if ((this._COMA_CODE != value))
-				{
-					if (this._Computer_Action.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCOMA_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._COMA_CODE = value;
-					this.SendPropertyChanged("COMA_CODE");
-					this.OnCOMA_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRES_NUMB", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> DRES_NUMB
-		{
-			get
-			{
-				return this._DRES_NUMB;
-			}
-			set
-			{
-				if ((this._DRES_NUMB != value))
-				{
-					this.OnDRES_NUMBChanging(value);
-					this.SendPropertyChanging();
-					this._DRES_NUMB = value;
-					this.SendPropertyChanged("DRES_NUMB");
-					this.OnDRES_NUMBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DESC]", Storage="_DESC", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
-		public string DESC
-		{
-			get
-			{
-				return this._DESC;
-			}
-			set
-			{
-				if ((this._DESC != value))
-				{
-					this.OnDESCChanging(value);
-					this.SendPropertyChanging();
-					this._DESC = value;
-					this.SendPropertyChanged("DESC");
-					this.OnDESCChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REC_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string REC_STAT
-		{
-			get
-			{
-				return this._REC_STAT;
-			}
-			set
-			{
-				if ((this._REC_STAT != value))
-				{
-					this.OnREC_STATChanging(value);
-					this.SendPropertyChanging();
-					this._REC_STAT = value;
-					this.SendPropertyChanged("REC_STAT");
-					this.OnREC_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> ORDR
-		{
-			get
-			{
-				return this._ORDR;
-			}
-			set
-			{
-				if ((this._ORDR != value))
-				{
-					this.OnORDRChanging(value);
-					this.SendPropertyChanging();
-					this._ORDR = value;
-					this.SendPropertyChanged("ORDR");
-					this.OnORDRChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMND_SEND", DbType="VarChar(100)", UpdateCheck=UpdateCheck.Never)]
-		public string CMND_SEND
-		{
-			get
-			{
-				return this._CMND_SEND;
-			}
-			set
-			{
-				if ((this._CMND_SEND != value))
-				{
-					this.OnCMND_SENDChanging(value);
-					this.SendPropertyChanging();
-					this._CMND_SEND = value;
-					this.SendPropertyChanged("CMND_SEND");
-					this.OnCMND_SENDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMM_PORT", DbType="VarChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string COMM_PORT
-		{
-			get
-			{
-				return this._COMM_PORT;
-			}
-			set
-			{
-				if ((this._COMM_PORT != value))
-				{
-					this.OnCOMM_PORTChanging(value);
-					this.SendPropertyChanging();
-					this._COMM_PORT = value;
-					this.SendPropertyChanged("COMM_PORT");
-					this.OnCOMM_PORTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAND_RATE", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> BAND_RATE
-		{
-			get
-			{
-				return this._BAND_RATE;
-			}
-			set
-			{
-				if ((this._BAND_RATE != value))
-				{
-					this.OnBAND_RATEChanging(value);
-					this.SendPropertyChanging();
-					this._BAND_RATE = value;
-					this.SendPropertyChanged("BAND_RATE");
-					this.OnBAND_RATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADRS", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
-		public string IP_ADRS
-		{
-			get
-			{
-				return this._IP_ADRS;
-			}
-			set
-			{
-				if ((this._IP_ADRS != value))
-				{
-					this.OnIP_ADRSChanging(value);
-					this.SendPropertyChanging();
-					this._IP_ADRS = value;
-					this.SendPropertyChanged("IP_ADRS");
-					this.OnIP_ADRSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dresser_Dresser_Attendance", Storage="_Dresser_Attendances", ThisKey="CODE", OtherKey="DRES_CODE")]
-		public EntitySet<Dresser_Attendance> Dresser_Attendances
-		{
-			get
-			{
-				return this._Dresser_Attendances;
-			}
-			set
-			{
-				this._Dresser_Attendances.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Computer_Action_Dresser", Storage="_Computer_Action", ThisKey="COMA_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Computer_Action Computer_Action
-		{
-			get
-			{
-				return this._Computer_Action.Entity;
-			}
-			set
-			{
-				Computer_Action previousValue = this._Computer_Action.Entity;
-				if (((previousValue != value) 
-							|| (this._Computer_Action.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Computer_Action.Entity = null;
-						previousValue.Dressers.Remove(this);
-					}
-					this._Computer_Action.Entity = value;
-					if ((value != null))
-					{
-						value.Dressers.Add(this);
-						this._COMA_CODE = value.CODE;
-					}
-					else
-					{
-						this._COMA_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Computer_Action");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_Dresser_Attendances(Dresser_Attendance entity)
-		{
-			this.SendPropertyChanging();
-			entity.Dresser = this;
-		}
-		
-		private void detach_Dresser_Attendances(Dresser_Attendance entity)
-		{
-			this.SendPropertyChanging();
-			entity.Dresser = null;
 		}
 	}
 	
@@ -67305,6 +66874,8 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Attendance> _Attendances1;
 		
+		private EntitySet<Dresser_Vip_Fighter> _Dresser_Vip_Fighters;
+		
 		private EntityRef<Fighter> _Fighter1;
 		
 		private EntityRef<Region> _Region;
@@ -67536,6 +67107,7 @@ namespace System.Scsc.Data
 			this._Dresser_Attendances = new EntitySet<Dresser_Attendance>(new Action<Dresser_Attendance>(this.attach_Dresser_Attendances), new Action<Dresser_Attendance>(this.detach_Dresser_Attendances));
 			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
 			this._Attendances1 = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances1), new Action<Attendance>(this.detach_Attendances1));
+			this._Dresser_Vip_Fighters = new EntitySet<Dresser_Vip_Fighter>(new Action<Dresser_Vip_Fighter>(this.attach_Dresser_Vip_Fighters), new Action<Dresser_Vip_Fighter>(this.detach_Dresser_Vip_Fighters));
 			this._Fighter1 = default(EntityRef<Fighter>);
 			this._Region = default(EntityRef<Region>);
 			this._Sub_Unit = default(EntityRef<Sub_Unit>);
@@ -69819,6 +69391,19 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Dresser_Vip_Fighter", Storage="_Dresser_Vip_Fighters", ThisKey="FILE_NO", OtherKey="MBSP_FIGH_FILE_NO")]
+		public EntitySet<Dresser_Vip_Fighter> Dresser_Vip_Fighters
+		{
+			get
+			{
+				return this._Dresser_Vip_Fighters;
+			}
+			set
+			{
+				this._Dresser_Vip_Fighters.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter", Storage="_Fighter1", ThisKey="REF_CODE_DNRM", OtherKey="FILE_NO", IsForeignKey=true)]
 		public Fighter Fighter1
 		{
@@ -70626,6 +70211,18 @@ namespace System.Scsc.Data
 		{
 			this.SendPropertyChanging();
 			entity.Fighter1 = null;
+		}
+		
+		private void attach_Dresser_Vip_Fighters(Dresser_Vip_Fighter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Dresser_Vip_Fighters(Dresser_Vip_Fighter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
 		}
 	}
 	
@@ -75274,6 +74871,8 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Attendance> _Attendances;
 		
+		private EntitySet<Dresser_Vip_Fighter> _Dresser_Vip_Fighters;
+		
 		private EntityRef<Fighter_Public> _Fighter_Public;
 		
 		private EntityRef<Fighter> _Fighter;
@@ -75372,6 +74971,7 @@ namespace System.Scsc.Data
 			this._Payment_Expenses = new EntitySet<Payment_Expense>(new Action<Payment_Expense>(this.attach_Payment_Expenses), new Action<Payment_Expense>(this.detach_Payment_Expenses));
 			this._Dresser_Attendances = new EntitySet<Dresser_Attendance>(new Action<Dresser_Attendance>(this.attach_Dresser_Attendances), new Action<Dresser_Attendance>(this.detach_Dresser_Attendances));
 			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
+			this._Dresser_Vip_Fighters = new EntitySet<Dresser_Vip_Fighter>(new Action<Dresser_Vip_Fighter>(this.attach_Dresser_Vip_Fighters), new Action<Dresser_Vip_Fighter>(this.detach_Dresser_Vip_Fighters));
 			this._Fighter_Public = default(EntityRef<Fighter_Public>);
 			this._Fighter = default(EntityRef<Fighter>);
 			this._Request_Row = default(EntityRef<Request_Row>);
@@ -76196,6 +75796,19 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Dresser_Vip_Fighter", Storage="_Dresser_Vip_Fighters", ThisKey="FIGH_FILE_NO,RWNO,RECT_CODE", OtherKey="MBSP_FIGH_FILE_NO,MBSP_RWNO,MBSP_RECT_CODE")]
+		public EntitySet<Dresser_Vip_Fighter> Dresser_Vip_Fighters
+		{
+			get
+			{
+				return this._Dresser_Vip_Fighters;
+			}
+			set
+			{
+				this._Dresser_Vip_Fighters.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Public_Member_Ship", Storage="_Fighter_Public", ThisKey="FIGH_FILE_NO,FGPB_RWNO_DNRM,FGPB_RECT_CODE_DNRM", OtherKey="FIGH_FILE_NO,RWNO,RECT_CODE", IsForeignKey=true)]
 		public Fighter_Public Fighter_Public
 		{
@@ -76527,6 +76140,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Attendances(Attendance entity)
+		{
+			this.SendPropertyChanging();
+			entity.Member_Ship = null;
+		}
+		
+		private void attach_Dresser_Vip_Fighters(Dresser_Vip_Fighter entity)
+		{
+			this.SendPropertyChanging();
+			entity.Member_Ship = this;
+		}
+		
+		private void detach_Dresser_Vip_Fighters(Dresser_Vip_Fighter entity)
 		{
 			this.SendPropertyChanging();
 			entity.Member_Ship = null;
@@ -100894,13 +100519,13 @@ namespace System.Scsc.Data
 		
 		private EntityRef<Aggregation_Operation_Detail> _Aggregation_Operation_Detail;
 		
-		private EntityRef<Dresser> _Dresser;
-		
 		private EntityRef<Member_Ship> _Member_Ship;
 		
 		private EntityRef<Request> _Request;
 		
 		private EntityRef<Attendance> _Attendance;
+		
+		private EntityRef<Dresser> _Dresser;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -100952,10 +100577,10 @@ namespace System.Scsc.Data
 		{
 			this._Fighter = default(EntityRef<Fighter>);
 			this._Aggregation_Operation_Detail = default(EntityRef<Aggregation_Operation_Detail>);
-			this._Dresser = default(EntityRef<Dresser>);
 			this._Member_Ship = default(EntityRef<Member_Ship>);
 			this._Request = default(EntityRef<Request>);
 			this._Attendance = default(EntityRef<Attendance>);
+			this._Dresser = default(EntityRef<Dresser>);
 			OnCreated();
 		}
 		
@@ -101461,40 +101086,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dresser_Dresser_Attendance", Storage="_Dresser", ThisKey="DRES_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Dresser Dresser
-		{
-			get
-			{
-				return this._Dresser.Entity;
-			}
-			set
-			{
-				Dresser previousValue = this._Dresser.Entity;
-				if (((previousValue != value) 
-							|| (this._Dresser.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Dresser.Entity = null;
-						previousValue.Dresser_Attendances.Remove(this);
-					}
-					this._Dresser.Entity = value;
-					if ((value != null))
-					{
-						value.Dresser_Attendances.Add(this);
-						this._DRES_CODE = value.CODE;
-					}
-					else
-					{
-						this._DRES_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Dresser");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Dresser_Attendance", Storage="_Member_Ship", ThisKey="FIGH_FILE_NO,MBSP_RWNO,MBSP_RECT_CODE", OtherKey="FIGH_FILE_NO,RWNO,RECT_CODE", IsForeignKey=true)]
 		public Member_Ship Member_Ship
 		{
@@ -101597,6 +101188,40 @@ namespace System.Scsc.Data
 						this._ATTN_CODE = default(Nullable<long>);
 					}
 					this.SendPropertyChanged("Attendance");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dresser_Dresser_Attendance", Storage="_Dresser", ThisKey="DRES_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Dresser Dresser
+		{
+			get
+			{
+				return this._Dresser.Entity;
+			}
+			set
+			{
+				Dresser previousValue = this._Dresser.Entity;
+				if (((previousValue != value) 
+							|| (this._Dresser.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Dresser.Entity = null;
+						previousValue.Dresser_Attendances.Remove(this);
+					}
+					this._Dresser.Entity = value;
+					if ((value != null))
+					{
+						value.Dresser_Attendances.Add(this);
+						this._DRES_CODE = value.CODE;
+					}
+					else
+					{
+						this._DRES_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Dresser");
 				}
 			}
 		}
@@ -103204,6 +102829,677 @@ namespace System.Scsc.Data
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.External_Device")]
+	public partial class External_Device : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _CODE;
+		
+		private string _DEV_COMP_TYPE;
+		
+		private string _DEV_TYPE;
+		
+		private string _DEV_CON;
+		
+		private string _CYCL_READ;
+		
+		private string _DEV_NAME;
+		
+		private string _PORT_NAME;
+		
+		private System.Nullable<int> _BAND_RATE;
+		
+		private string _IP_ADRS;
+		
+		private System.Nullable<long> _PORT_SEND;
+		
+		private System.Nullable<long> _PORT_RECV;
+		
+		private string _SERV_IP_ADRS;
+		
+		private System.Nullable<long> _MTOD_CODE;
+		
+		private string _STAT;
+		
+		private string _ACTN_TYPE;
+		
+		private System.Nullable<long> _EXPN_CODE;
+		
+		private string _CMNT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<External_Device_Link_Method> _External_Device_Link_Methods;
+		
+		private EntitySet<External_Device_Link_External_Device> _External_Device_Link_External_Devices;
+		
+		private EntitySet<External_Device_Link_External_Device> _External_Device_Link_External_Devices1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnDEV_COMP_TYPEChanging(string value);
+    partial void OnDEV_COMP_TYPEChanged();
+    partial void OnDEV_TYPEChanging(string value);
+    partial void OnDEV_TYPEChanged();
+    partial void OnDEV_CONChanging(string value);
+    partial void OnDEV_CONChanged();
+    partial void OnCYCL_READChanging(string value);
+    partial void OnCYCL_READChanged();
+    partial void OnDEV_NAMEChanging(string value);
+    partial void OnDEV_NAMEChanged();
+    partial void OnPORT_NAMEChanging(string value);
+    partial void OnPORT_NAMEChanged();
+    partial void OnBAND_RATEChanging(System.Nullable<int> value);
+    partial void OnBAND_RATEChanged();
+    partial void OnIP_ADRSChanging(string value);
+    partial void OnIP_ADRSChanged();
+    partial void OnPORT_SENDChanging(System.Nullable<long> value);
+    partial void OnPORT_SENDChanged();
+    partial void OnPORT_RECVChanging(System.Nullable<long> value);
+    partial void OnPORT_RECVChanged();
+    partial void OnSERV_IP_ADRSChanging(string value);
+    partial void OnSERV_IP_ADRSChanged();
+    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
+    partial void OnMTOD_CODEChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnACTN_TYPEChanging(string value);
+    partial void OnACTN_TYPEChanged();
+    partial void OnEXPN_CODEChanging(System.Nullable<long> value);
+    partial void OnEXPN_CODEChanged();
+    partial void OnCMNTChanging(string value);
+    partial void OnCMNTChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public External_Device()
+		{
+			this._External_Device_Link_Methods = new EntitySet<External_Device_Link_Method>(new Action<External_Device_Link_Method>(this.attach_External_Device_Link_Methods), new Action<External_Device_Link_Method>(this.detach_External_Device_Link_Methods));
+			this._External_Device_Link_External_Devices = new EntitySet<External_Device_Link_External_Device>(new Action<External_Device_Link_External_Device>(this.attach_External_Device_Link_External_Devices), new Action<External_Device_Link_External_Device>(this.detach_External_Device_Link_External_Devices));
+			this._External_Device_Link_External_Devices1 = new EntitySet<External_Device_Link_External_Device>(new Action<External_Device_Link_External_Device>(this.attach_External_Device_Link_External_Devices1), new Action<External_Device_Link_External_Device>(this.detach_External_Device_Link_External_Devices1));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_COMP_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DEV_COMP_TYPE
+		{
+			get
+			{
+				return this._DEV_COMP_TYPE;
+			}
+			set
+			{
+				if ((this._DEV_COMP_TYPE != value))
+				{
+					this.OnDEV_COMP_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._DEV_COMP_TYPE = value;
+					this.SendPropertyChanged("DEV_COMP_TYPE");
+					this.OnDEV_COMP_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DEV_TYPE
+		{
+			get
+			{
+				return this._DEV_TYPE;
+			}
+			set
+			{
+				if ((this._DEV_TYPE != value))
+				{
+					this.OnDEV_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._DEV_TYPE = value;
+					this.SendPropertyChanged("DEV_TYPE");
+					this.OnDEV_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_CON", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DEV_CON
+		{
+			get
+			{
+				return this._DEV_CON;
+			}
+			set
+			{
+				if ((this._DEV_CON != value))
+				{
+					this.OnDEV_CONChanging(value);
+					this.SendPropertyChanging();
+					this._DEV_CON = value;
+					this.SendPropertyChanged("DEV_CON");
+					this.OnDEV_CONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CYCL_READ", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string CYCL_READ
+		{
+			get
+			{
+				return this._CYCL_READ;
+			}
+			set
+			{
+				if ((this._CYCL_READ != value))
+				{
+					this.OnCYCL_READChanging(value);
+					this.SendPropertyChanging();
+					this._CYCL_READ = value;
+					this.SendPropertyChanged("CYCL_READ");
+					this.OnCYCL_READChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_NAME", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string DEV_NAME
+		{
+			get
+			{
+				return this._DEV_NAME;
+			}
+			set
+			{
+				if ((this._DEV_NAME != value))
+				{
+					this.OnDEV_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._DEV_NAME = value;
+					this.SendPropertyChanged("DEV_NAME");
+					this.OnDEV_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NAME", DbType="VarChar(10)", UpdateCheck=UpdateCheck.Never)]
+		public string PORT_NAME
+		{
+			get
+			{
+				return this._PORT_NAME;
+			}
+			set
+			{
+				if ((this._PORT_NAME != value))
+				{
+					this.OnPORT_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._PORT_NAME = value;
+					this.SendPropertyChanged("PORT_NAME");
+					this.OnPORT_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAND_RATE", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> BAND_RATE
+		{
+			get
+			{
+				return this._BAND_RATE;
+			}
+			set
+			{
+				if ((this._BAND_RATE != value))
+				{
+					this.OnBAND_RATEChanging(value);
+					this.SendPropertyChanging();
+					this._BAND_RATE = value;
+					this.SendPropertyChanged("BAND_RATE");
+					this.OnBAND_RATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADRS", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string IP_ADRS
+		{
+			get
+			{
+				return this._IP_ADRS;
+			}
+			set
+			{
+				if ((this._IP_ADRS != value))
+				{
+					this.OnIP_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._IP_ADRS = value;
+					this.SendPropertyChanged("IP_ADRS");
+					this.OnIP_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_SEND", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> PORT_SEND
+		{
+			get
+			{
+				return this._PORT_SEND;
+			}
+			set
+			{
+				if ((this._PORT_SEND != value))
+				{
+					this.OnPORT_SENDChanging(value);
+					this.SendPropertyChanging();
+					this._PORT_SEND = value;
+					this.SendPropertyChanged("PORT_SEND");
+					this.OnPORT_SENDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_RECV", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> PORT_RECV
+		{
+			get
+			{
+				return this._PORT_RECV;
+			}
+			set
+			{
+				if ((this._PORT_RECV != value))
+				{
+					this.OnPORT_RECVChanging(value);
+					this.SendPropertyChanging();
+					this._PORT_RECV = value;
+					this.SendPropertyChanged("PORT_RECV");
+					this.OnPORT_RECVChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_IP_ADRS", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string SERV_IP_ADRS
+		{
+			get
+			{
+				return this._SERV_IP_ADRS;
+			}
+			set
+			{
+				if ((this._SERV_IP_ADRS != value))
+				{
+					this.OnSERV_IP_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._SERV_IP_ADRS = value;
+					this.SendPropertyChanged("SERV_IP_ADRS");
+					this.OnSERV_IP_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> MTOD_CODE
+		{
+			get
+			{
+				return this._MTOD_CODE;
+			}
+			set
+			{
+				if ((this._MTOD_CODE != value))
+				{
+					this.OnMTOD_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._MTOD_CODE = value;
+					this.SendPropertyChanged("MTOD_CODE");
+					this.OnMTOD_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string ACTN_TYPE
+		{
+			get
+			{
+				return this._ACTN_TYPE;
+			}
+			set
+			{
+				if ((this._ACTN_TYPE != value))
+				{
+					this.OnACTN_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._ACTN_TYPE = value;
+					this.SendPropertyChanged("ACTN_TYPE");
+					this.OnACTN_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> EXPN_CODE
+		{
+			get
+			{
+				return this._EXPN_CODE;
+			}
+			set
+			{
+				if ((this._EXPN_CODE != value))
+				{
+					this.OnEXPN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._EXPN_CODE = value;
+					this.SendPropertyChanged("EXPN_CODE");
+					this.OnEXPN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string CMNT
+		{
+			get
+			{
+				return this._CMNT;
+			}
+			set
+			{
+				if ((this._CMNT != value))
+				{
+					this.OnCMNTChanging(value);
+					this.SendPropertyChanging();
+					this._CMNT = value;
+					this.SendPropertyChanged("CMNT");
+					this.OnCMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_Method", Storage="_External_Device_Link_Methods", ThisKey="CODE", OtherKey="EDEV_CODE")]
+		public EntitySet<External_Device_Link_Method> External_Device_Link_Methods
+		{
+			get
+			{
+				return this._External_Device_Link_Methods;
+			}
+			set
+			{
+				this._External_Device_Link_Methods.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_External_Device", Storage="_External_Device_Link_External_Devices", ThisKey="CODE", OtherKey="EDEV_CODE")]
+		public EntitySet<External_Device_Link_External_Device> External_Device_Link_External_Devices
+		{
+			get
+			{
+				return this._External_Device_Link_External_Devices;
+			}
+			set
+			{
+				this._External_Device_Link_External_Devices.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_External_Device1", Storage="_External_Device_Link_External_Devices1", ThisKey="CODE", OtherKey="LINK_EDEV_CODE")]
+		public EntitySet<External_Device_Link_External_Device> External_Device_Link_External_Devices1
+		{
+			get
+			{
+				return this._External_Device_Link_External_Devices1;
+			}
+			set
+			{
+				this._External_Device_Link_External_Devices1.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_External_Device_Link_Methods(External_Device_Link_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = this;
+		}
+		
+		private void detach_External_Device_Link_Methods(External_Device_Link_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = null;
+		}
+		
+		private void attach_External_Device_Link_External_Devices(External_Device_Link_External_Device entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = this;
+		}
+		
+		private void detach_External_Device_Link_External_Devices(External_Device_Link_External_Device entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = null;
+		}
+		
+		private void attach_External_Device_Link_External_Devices1(External_Device_Link_External_Device entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device1 = this;
+		}
+		
+		private void detach_External_Device_Link_External_Devices1(External_Device_Link_External_Device entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V$Drat")]
+	public partial class V_Drat
+	{
+		
+		private System.Nullable<System.DateTime> _DRAT_DATE;
+		
+		private System.Nullable<int> _DART_NUMB;
+		
+		public V_Drat()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRAT_DATE", DbType="Date")]
+		public System.Nullable<System.DateTime> DRAT_DATE
+		{
+			get
+			{
+				return this._DRAT_DATE;
+			}
+			set
+			{
+				if ((this._DRAT_DATE != value))
+				{
+					this._DRAT_DATE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DART_NUMB", DbType="Int")]
+		public System.Nullable<int> DART_NUMB
+		{
+			get
+			{
+				return this._DART_NUMB;
+			}
+			set
+			{
+				if ((this._DART_NUMB != value))
+				{
+					this._DART_NUMB = value;
+				}
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Expense")]
 	public partial class Expense : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -103283,6 +103579,8 @@ namespace System.Scsc.Data
 		private System.Nullable<long> _UNIT_APBS_CODE;
 		
 		private string _CAN_CALC_PROF;
+		
+		private string _MUST_FILL_OWNR;
 		
 		private string _CRET_BY;
 		
@@ -103418,6 +103716,8 @@ namespace System.Scsc.Data
     partial void OnUNIT_APBS_CODEChanged();
     partial void OnCAN_CALC_PROFChanging(string value);
     partial void OnCAN_CALC_PROFChanged();
+    partial void OnMUST_FILL_OWNRChanging(string value);
+    partial void OnMUST_FILL_OWNRChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -103457,7 +103757,7 @@ namespace System.Scsc.Data
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGL_YEAR", DbType="SmallInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGL_YEAR", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<short> REGL_YEAR
 		{
 			get
@@ -103481,7 +103781,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGL_CODE", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REGL_CODE", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> REGL_CODE
 		{
 			get
@@ -103505,7 +103805,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXTP_CODE", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXTP_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> EXTP_CODE
 		{
 			get
@@ -103529,7 +103829,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CTGY_CODE", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CTGY_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> CTGY_CODE
 		{
 			get
@@ -103553,7 +103853,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> MTOD_CODE
 		{
 			get
@@ -103577,7 +103877,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GROP_CODE", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GROP_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> GROP_CODE
 		{
 			get
@@ -103601,7 +103901,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRND_CODE", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRND_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> BRND_CODE
 		{
 			get
@@ -103645,7 +103945,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_DESC", DbType="NVarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_DESC", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string EXPN_DESC
 		{
 			get
@@ -103665,7 +103965,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRIC", DbType="BigInt NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRIC", DbType="BigInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public long PRIC
 		{
 			get
@@ -103685,7 +103985,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_PRIC", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_PRIC", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> MIN_PRIC
 		{
 			get
@@ -103705,7 +104005,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAX_PRIC", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MAX_PRIC", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> MAX_PRIC
 		{
 			get
@@ -103725,7 +104025,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXTR_PRCT", DbType="BigInt NOT NULL")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXTR_PRCT", DbType="BigInt NOT NULL", UpdateCheck=UpdateCheck.Never)]
 		public long EXTR_PRCT
 		{
 			get
@@ -103745,7 +104045,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_STAT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string EXPN_STAT
 		{
 			get
@@ -103765,7 +104065,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADD_QUTS", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ADD_QUTS", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string ADD_QUTS
 		{
 			get
@@ -103785,7 +104085,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COVR_DSCT", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COVR_DSCT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string COVR_DSCT
 		{
 			get
@@ -103805,7 +104105,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_TYPE", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string EXPN_TYPE
 		{
 			get
@@ -103825,7 +104125,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUY_PRIC", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUY_PRIC", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> BUY_PRIC
 		{
 			get
@@ -103845,7 +104145,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUY_EXTR_PRCT", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BUY_EXTR_PRCT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> BUY_EXTR_PRCT
 		{
 			get
@@ -103865,7 +104165,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_STOK", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_STOK", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> NUMB_OF_STOK
 		{
 			get
@@ -103885,7 +104185,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_SALE", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_SALE", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> NUMB_OF_SALE
 		{
 			get
@@ -103905,7 +104205,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_REMN_DNRM", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_REMN_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> NUMB_OF_REMN_DNRM
 		{
 			get
@@ -103925,7 +104225,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_ITEM", DbType="VarChar(100)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_ITEM", DbType="VarChar(100)", UpdateCheck=UpdateCheck.Never)]
 		public string ORDR_ITEM
 		{
 			get
@@ -103945,7 +104245,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COVR_TAX", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COVR_TAX", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string COVR_TAX
 		{
 			get
@@ -103965,7 +104265,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_ATTN_MONT", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_ATTN_MONT", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> NUMB_OF_ATTN_MONT
 		{
 			get
@@ -103985,7 +104285,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_ATTN_WEEK", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_ATTN_WEEK", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> NUMB_OF_ATTN_WEEK
 		{
 			get
@@ -104005,7 +104305,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MODL_NUMB_BAR_CODE", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MODL_NUMB_BAR_CODE", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string MODL_NUMB_BAR_CODE
 		{
 			get
@@ -104025,7 +104325,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRVT_COCH_EXPN", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PRVT_COCH_EXPN", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string PRVT_COCH_EXPN
 		{
 			get
@@ -104045,7 +104345,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_NUMB", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_NUMB", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> MIN_NUMB
 		{
 			get
@@ -104065,7 +104365,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_CYCL_DAY", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_CYCL_DAY", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> NUMB_CYCL_DAY
 		{
 			get
@@ -104085,7 +104385,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_MONT_OFER", DbType="Int")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_MONT_OFER", DbType="Int", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<int> NUMB_MONT_OFER
 		{
 			get
@@ -104105,7 +104405,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_TIME", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_TIME", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> MIN_TIME
 		{
 			get
@@ -104125,7 +104425,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RELY_CMND", DbType="VarChar(50)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RELY_CMND", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
 		public string RELY_CMND
 		{
 			get
@@ -104145,7 +104445,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROF_AMNT_DNRM", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PROF_AMNT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> PROF_AMNT_DNRM
 		{
 			get
@@ -104165,7 +104465,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEDU_AMNT_DNRM", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEDU_AMNT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> DEDU_AMNT_DNRM
 		{
 			get
@@ -104185,7 +104485,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UNIT_APBS_CODE", DbType="BigInt")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_UNIT_APBS_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<long> UNIT_APBS_CODE
 		{
 			get
@@ -104209,7 +104509,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAN_CALC_PROF", DbType="VarChar(3)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CAN_CALC_PROF", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
 		public string CAN_CALC_PROF
 		{
 			get
@@ -104229,7 +104529,27 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MUST_FILL_OWNR", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string MUST_FILL_OWNR
+		{
+			get
+			{
+				return this._MUST_FILL_OWNR;
+			}
+			set
+			{
+				if ((this._MUST_FILL_OWNR != value))
+				{
+					this.OnMUST_FILL_OWNRChanging(value);
+					this.SendPropertyChanging();
+					this._MUST_FILL_OWNR = value;
+					this.SendPropertyChanged("MUST_FILL_OWNR");
+					this.OnMUST_FILL_OWNRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string CRET_BY
 		{
 			get
@@ -104249,7 +104569,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> CRET_DATE
 		{
 			get
@@ -104269,7 +104589,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
 		public string MDFY_BY
 		{
 			get
@@ -104289,7 +104609,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
 		public System.Nullable<System.DateTime> MDFY_DATE
 		{
 			get
@@ -105161,6 +105481,30 @@ namespace System.Scsc.Data
 		
 		private string _SHOW_EROR_LOG;
 		
+		private string _DEV4_STAT;
+		
+		private string _IP_ADR4;
+		
+		private System.Nullable<int> _PORT_NUM4;
+		
+		private string _ATTN_COMP_CNC4;
+		
+		private string _DEV5_STAT;
+		
+		private string _IP_ADR5;
+		
+		private System.Nullable<int> _PORT_NUM5;
+		
+		private string _ATTN_COMP_CNC5;
+		
+		private string _DEV6_STAT;
+		
+		private string _IP_ADR6;
+		
+		private System.Nullable<int> _PORT_NUM6;
+		
+		private string _ATTN_COMP_CNC6;
+		
 		private EntityRef<Club> _Club;
 		
     #region Extensibility Method Definitions
@@ -105327,6 +105671,30 @@ namespace System.Scsc.Data
     partial void OnDONT_SHOW_ERORChanged();
     partial void OnSHOW_EROR_LOGChanging(string value);
     partial void OnSHOW_EROR_LOGChanged();
+    partial void OnDEV4_STATChanging(string value);
+    partial void OnDEV4_STATChanged();
+    partial void OnIP_ADR4Changing(string value);
+    partial void OnIP_ADR4Changed();
+    partial void OnPORT_NUM4Changing(System.Nullable<int> value);
+    partial void OnPORT_NUM4Changed();
+    partial void OnATTN_COMP_CNC4Changing(string value);
+    partial void OnATTN_COMP_CNC4Changed();
+    partial void OnDEV5_STATChanging(string value);
+    partial void OnDEV5_STATChanged();
+    partial void OnIP_ADR5Changing(string value);
+    partial void OnIP_ADR5Changed();
+    partial void OnPORT_NUM5Changing(System.Nullable<int> value);
+    partial void OnPORT_NUM5Changed();
+    partial void OnATTN_COMP_CNC5Changing(string value);
+    partial void OnATTN_COMP_CNC5Changed();
+    partial void OnDEV6_STATChanging(string value);
+    partial void OnDEV6_STATChanged();
+    partial void OnIP_ADR6Changing(string value);
+    partial void OnIP_ADR6Changed();
+    partial void OnPORT_NUM6Changing(System.Nullable<int> value);
+    partial void OnPORT_NUM6Changed();
+    partial void OnATTN_COMP_CNC6Changing(string value);
+    partial void OnATTN_COMP_CNC6Changed();
     #endregion
 		
 		public Setting()
@@ -105335,7 +105703,7 @@ namespace System.Scsc.Data
 			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_CODE", DbType="BigInt")]
 		public System.Nullable<long> CLUB_CODE
 		{
 			get
@@ -105379,7 +105747,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)")]
 		public string DFLT_STAT
 		{
 			get
@@ -105399,7 +105767,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP", DbType="Bit")]
 		public System.Nullable<bool> BACK_UP
 		{
 			get
@@ -105419,7 +105787,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_APP_EXIT", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_APP_EXIT", DbType="Bit")]
 		public System.Nullable<bool> BACK_UP_APP_EXIT
 		{
 			get
@@ -105439,7 +105807,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_IN_TRED", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_IN_TRED", DbType="Bit")]
 		public System.Nullable<bool> BACK_UP_IN_TRED
 		{
 			get
@@ -105459,7 +105827,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_OPTN_PATH", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_OPTN_PATH", DbType="Bit")]
 		public System.Nullable<bool> BACK_UP_OPTN_PATH
 		{
 			get
@@ -105479,7 +105847,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_OPTN_PATH_ADRS", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_OPTN_PATH_ADRS", DbType="NVarChar(MAX)")]
 		public string BACK_UP_OPTN_PATH_ADRS
 		{
 			get
@@ -105499,7 +105867,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_ROOT_PATH", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_ROOT_PATH", DbType="NVarChar(MAX)")]
 		public string BACK_UP_ROOT_PATH
 		{
 			get
@@ -105519,7 +105887,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRES_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRES_STAT", DbType="VarChar(3)")]
 		public string DRES_STAT
 		{
 			get
@@ -105539,7 +105907,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRES_AUTO", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRES_AUTO", DbType="VarChar(3)")]
 		public string DRES_AUTO
 		{
 			get
@@ -105559,7 +105927,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MORE_FIGH_ONE_DRES", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MORE_FIGH_ONE_DRES", DbType="VarChar(3)")]
 		public string MORE_FIGH_ONE_DRES
 		{
 			get
@@ -105579,7 +105947,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MORE_ATTN_SESN", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MORE_ATTN_SESN", DbType="VarChar(3)")]
 		public string MORE_ATTN_SESN
 		{
 			get
@@ -105599,7 +105967,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTF_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTF_STAT", DbType="VarChar(3)")]
 		public string NOTF_STAT
 		{
 			get
@@ -105619,7 +105987,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTF_EXP_DAY", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTF_EXP_DAY", DbType="Int")]
 		public System.Nullable<int> NOTF_EXP_DAY
 		{
 			get
@@ -105639,7 +106007,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTF_VIST_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTF_VIST_DATE", DbType="Date")]
 		public System.Nullable<System.DateTime> NOTF_VIST_DATE
 		{
 			get
@@ -105659,7 +106027,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_SYST_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_SYST_TYPE", DbType="VarChar(3)")]
 		public string ATTN_SYST_TYPE
 		{
 			get
@@ -105679,7 +106047,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMM_PORT_NAME", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMM_PORT_NAME", DbType="VarChar(30)")]
 		public string COMM_PORT_NAME
 		{
 			get
@@ -105699,7 +106067,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAND_RATE", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAND_RATE", DbType="Int")]
 		public System.Nullable<int> BAND_RATE
 		{
 			get
@@ -105719,7 +106087,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAR_CODE_DATA_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAR_CODE_DATA_TYPE", DbType="VarChar(3)")]
 		public string BAR_CODE_DATA_TYPE
 		{
 			get
@@ -105739,7 +106107,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN3_EVNT_ACTN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN3_EVNT_ACTN_TYPE", DbType="VarChar(3)")]
 		public string ATN3_EVNT_ACTN_TYPE
 		{
 			get
@@ -105759,7 +106127,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADDR", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADDR", DbType="VarChar(15)")]
 		public string IP_ADDR
 		{
 			get
@@ -105779,7 +106147,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUMB", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUMB", DbType="Int")]
 		public System.Nullable<int> PORT_NUMB
 		{
 			get
@@ -105799,7 +106167,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CONCT", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CONCT", DbType="VarChar(30)")]
 		public string ATTN_COMP_CONCT
 		{
 			get
@@ -105819,7 +106187,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN1_EVNT_ACTN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN1_EVNT_ACTN_TYPE", DbType="VarChar(3)")]
 		public string ATN1_EVNT_ACTN_TYPE
 		{
 			get
@@ -105839,7 +106207,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR2", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR2", DbType="VarChar(15)")]
 		public string IP_ADR2
 		{
 			get
@@ -105859,7 +106227,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM2", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM2", DbType="Int")]
 		public System.Nullable<int> PORT_NUM2
 		{
 			get
@@ -105879,7 +106247,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC2", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC2", DbType="VarChar(30)")]
 		public string ATTN_COMP_CNC2
 		{
 			get
@@ -105899,7 +106267,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN2_EVNT_ACTN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN2_EVNT_ACTN_TYPE", DbType="VarChar(3)")]
 		public string ATN2_EVNT_ACTN_TYPE
 		{
 			get
@@ -105919,7 +106287,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOTF_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOTF_STAT", DbType="VarChar(3)")]
 		public string ATTN_NOTF_STAT
 		{
 			get
@@ -105939,7 +106307,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOTF_CLOS_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOTF_CLOS_TYPE", DbType="VarChar(3)")]
 		public string ATTN_NOTF_CLOS_TYPE
 		{
 			get
@@ -105959,7 +106327,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOTF_CLOS_INTR", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOTF_CLOS_INTR", DbType="Int")]
 		public System.Nullable<int> ATTN_NOTF_CLOS_INTR
 		{
 			get
@@ -105979,7 +106347,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_CLNG_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_CLNG_STAT", DbType="VarChar(3)")]
 		public string DEBT_CLNG_STAT
 		{
 			get
@@ -105999,7 +106367,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOST_DEBT_CLNG_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOST_DEBT_CLNG_AMNT", DbType="BigInt")]
 		public System.Nullable<long> MOST_DEBT_CLNG_AMNT
 		{
 			get
@@ -106019,7 +106387,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_DEBT_DAY", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_DEBT_DAY", DbType="Int")]
 		public System.Nullable<int> EXPR_DEBT_DAY
 		{
 			get
@@ -106039,7 +106407,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_CHCK_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_CHCK_STAT", DbType="VarChar(3)")]
 		public string DEBT_CHCK_STAT
 		{
 			get
@@ -106059,7 +106427,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERM_ENTR_DEBT_SERV_NUMB", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERM_ENTR_DEBT_SERV_NUMB", DbType="Int")]
 		public System.Nullable<int> PERM_ENTR_DEBT_SERV_NUMB
 		{
 			get
@@ -106079,7 +106447,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRY_VALD_SBMT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRY_VALD_SBMT", DbType="VarChar(3)")]
 		public string TRY_VALD_SBMT
 		{
 			get
@@ -106099,7 +106467,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_ATTN_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_ATTN_STAT", DbType="VarChar(3)")]
 		public string GATE_ATTN_STAT
 		{
 			get
@@ -106119,7 +106487,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_COMM_PORT_NAME", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_COMM_PORT_NAME", DbType="VarChar(30)")]
 		public string GATE_COMM_PORT_NAME
 		{
 			get
@@ -106139,7 +106507,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_BAND_RATE", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_BAND_RATE", DbType="Int")]
 		public System.Nullable<int> GATE_BAND_RATE
 		{
 			get
@@ -106159,7 +106527,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_TIME_CLOS", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_TIME_CLOS", DbType="Int")]
 		public System.Nullable<int> GATE_TIME_CLOS
 		{
 			get
@@ -106179,7 +106547,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_ENTR_OPEN", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_ENTR_OPEN", DbType="VarChar(3)")]
 		public string GATE_ENTR_OPEN
 		{
 			get
@@ -106199,7 +106567,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_EXIT_OPEN", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_EXIT_OPEN", DbType="VarChar(3)")]
 		public string GATE_EXIT_OPEN
 		{
 			get
@@ -106219,7 +106587,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_EXTR_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_EXTR_STAT", DbType="VarChar(3)")]
 		public string EXPN_EXTR_STAT
 		{
 			get
@@ -106239,7 +106607,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_COMM_PORT_NAME", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_COMM_PORT_NAME", DbType="VarChar(30)")]
 		public string EXPN_COMM_PORT_NAME
 		{
 			get
@@ -106259,7 +106627,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_BAND_RATE", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_BAND_RATE", DbType="Int")]
 		public System.Nullable<int> EXPN_BAND_RATE
 		{
 			get
@@ -106279,7 +106647,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RUN_QURY", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RUN_QURY", DbType="VarChar(3)")]
 		public string RUN_QURY
 		{
 			get
@@ -106299,7 +106667,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_PRNT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_PRNT_STAT", DbType="VarChar(3)")]
 		public string ATTN_PRNT_STAT
 		{
 			get
@@ -106319,7 +106687,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHAR_MBSP_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHAR_MBSP_STAT", DbType="VarChar(3)")]
 		public string SHAR_MBSP_STAT
 		{
 			get
@@ -106339,7 +106707,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RUN_RBOT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RUN_RBOT", DbType="VarChar(3)")]
 		public string RUN_RBOT
 		{
 			get
@@ -106359,7 +106727,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HLDY_CONT", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HLDY_CONT", DbType="Int")]
 		public System.Nullable<int> HLDY_CONT
 		{
 			get
@@ -106379,7 +106747,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLER_ZERO", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLER_ZERO", DbType="VarChar(3)")]
 		public string CLER_ZERO
 		{
 			get
@@ -106399,7 +106767,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DUPL_NATL_CODE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DUPL_NATL_CODE", DbType="VarChar(3)")]
 		public string DUPL_NATL_CODE
 		{
 			get
@@ -106419,7 +106787,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DUPL_CELL_PHON", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DUPL_CELL_PHON", DbType="VarChar(3)")]
 		public string DUPL_CELL_PHON
 		{
 			get
@@ -106439,7 +106807,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPT_NATL_CODE_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPT_NATL_CODE_STAT", DbType="VarChar(3)")]
 		public string INPT_NATL_CODE_STAT
 		{
 			get
@@ -106459,7 +106827,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPT_CELL_PHON_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPT_CELL_PHON_STAT", DbType="VarChar(3)")]
 		public string INPT_CELL_PHON_STAT
 		{
 			get
@@ -106479,7 +106847,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR3", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR3", DbType="VarChar(15)")]
 		public string IP_ADR3
 		{
 			get
@@ -106499,7 +106867,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM3", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM3", DbType="Int")]
 		public System.Nullable<int> PORT_NUM3
 		{
 			get
@@ -106519,7 +106887,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC3", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC3", DbType="VarChar(30)")]
 		public string ATTN_COMP_CNC3
 		{
 			get
@@ -106539,7 +106907,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN4_EVNT_ACTN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN4_EVNT_ACTN_TYPE", DbType="VarChar(3)")]
 		public string ATN4_EVNT_ACTN_TYPE
 		{
 			get
@@ -106559,7 +106927,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LEN_FNGR_PRNT", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LEN_FNGR_PRNT", DbType="SmallInt")]
 		public System.Nullable<short> LEN_FNGR_PRNT
 		{
 			get
@@ -106579,7 +106947,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_GUST_NUMB_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_GUST_NUMB_TYPE", DbType="VarChar(3)")]
 		public string ATTN_GUST_NUMB_TYPE
 		{
 			get
@@ -106599,7 +106967,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_DELY_TIME", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_DELY_TIME", DbType="SmallInt")]
 		public System.Nullable<short> ATTN_DELY_TIME
 		{
 			get
@@ -106619,7 +106987,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND1_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND1_PATH", DbType="NVarChar(4000)")]
 		public string SND1_PATH
 		{
 			get
@@ -106639,7 +107007,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND2_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND2_PATH", DbType="NVarChar(4000)")]
 		public string SND2_PATH
 		{
 			get
@@ -106659,7 +107027,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND3_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND3_PATH", DbType="NVarChar(4000)")]
 		public string SND3_PATH
 		{
 			get
@@ -106679,7 +107047,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND4_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND4_PATH", DbType="NVarChar(4000)")]
 		public string SND4_PATH
 		{
 			get
@@ -106699,7 +107067,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND5_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND5_PATH", DbType="NVarChar(4000)")]
 		public string SND5_PATH
 		{
 			get
@@ -106719,7 +107087,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND6_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND6_PATH", DbType="NVarChar(4000)")]
 		public string SND6_PATH
 		{
 			get
@@ -106739,7 +107107,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND7_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND7_PATH", DbType="NVarChar(4000)")]
 		public string SND7_PATH
 		{
 			get
@@ -106759,7 +107127,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND8_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND8_PATH", DbType="NVarChar(4000)")]
 		public string SND8_PATH
 		{
 			get
@@ -106779,7 +107147,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND9_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND9_PATH", DbType="NVarChar(4000)")]
 		public string SND9_PATH
 		{
 			get
@@ -106799,7 +107167,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REST_ATTN_NUMB_BY_YEAR", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REST_ATTN_NUMB_BY_YEAR", DbType="VarChar(3)")]
 		public string REST_ATTN_NUMB_BY_YEAR
 		{
 			get
@@ -106819,7 +107187,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOT_INSR_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOT_INSR_STAT", DbType="VarChar(3)")]
 		public string ATTN_NOT_INSR_STAT
 		{
 			get
@@ -106839,7 +107207,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_RBON_MNUI", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_RBON_MNUI", DbType="VarChar(3)")]
 		public string SHOW_RBON_MNUI
 		{
 			get
@@ -106859,7 +107227,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_SLID_MNUI", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_SLID_MNUI", DbType="VarChar(3)")]
 		public string SHOW_SLID_MNUI
 		{
 			get
@@ -106879,7 +107247,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NEG_DPST_AMNT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NEG_DPST_AMNT", DbType="VarChar(3)")]
 		public string NEG_DPST_AMNT
 		{
 			get
@@ -106899,7 +107267,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONT_SHOW_EROR", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONT_SHOW_EROR", DbType="VarChar(3)")]
 		public string DONT_SHOW_EROR
 		{
 			get
@@ -106919,7 +107287,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_EROR_LOG", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_EROR_LOG", DbType="VarChar(3)")]
 		public string SHOW_EROR_LOG
 		{
 			get
@@ -106935,6 +107303,246 @@ namespace System.Scsc.Data
 					this._SHOW_EROR_LOG = value;
 					this.SendPropertyChanged("SHOW_EROR_LOG");
 					this.OnSHOW_EROR_LOGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV4_STAT", DbType="VarChar(3)")]
+		public string DEV4_STAT
+		{
+			get
+			{
+				return this._DEV4_STAT;
+			}
+			set
+			{
+				if ((this._DEV4_STAT != value))
+				{
+					this.OnDEV4_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DEV4_STAT = value;
+					this.SendPropertyChanged("DEV4_STAT");
+					this.OnDEV4_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR4", DbType="VarChar(15)")]
+		public string IP_ADR4
+		{
+			get
+			{
+				return this._IP_ADR4;
+			}
+			set
+			{
+				if ((this._IP_ADR4 != value))
+				{
+					this.OnIP_ADR4Changing(value);
+					this.SendPropertyChanging();
+					this._IP_ADR4 = value;
+					this.SendPropertyChanged("IP_ADR4");
+					this.OnIP_ADR4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM4", DbType="Int")]
+		public System.Nullable<int> PORT_NUM4
+		{
+			get
+			{
+				return this._PORT_NUM4;
+			}
+			set
+			{
+				if ((this._PORT_NUM4 != value))
+				{
+					this.OnPORT_NUM4Changing(value);
+					this.SendPropertyChanging();
+					this._PORT_NUM4 = value;
+					this.SendPropertyChanged("PORT_NUM4");
+					this.OnPORT_NUM4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC4", DbType="VarChar(30)")]
+		public string ATTN_COMP_CNC4
+		{
+			get
+			{
+				return this._ATTN_COMP_CNC4;
+			}
+			set
+			{
+				if ((this._ATTN_COMP_CNC4 != value))
+				{
+					this.OnATTN_COMP_CNC4Changing(value);
+					this.SendPropertyChanging();
+					this._ATTN_COMP_CNC4 = value;
+					this.SendPropertyChanged("ATTN_COMP_CNC4");
+					this.OnATTN_COMP_CNC4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV5_STAT", DbType="VarChar(3)")]
+		public string DEV5_STAT
+		{
+			get
+			{
+				return this._DEV5_STAT;
+			}
+			set
+			{
+				if ((this._DEV5_STAT != value))
+				{
+					this.OnDEV5_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DEV5_STAT = value;
+					this.SendPropertyChanged("DEV5_STAT");
+					this.OnDEV5_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR5", DbType="VarChar(15)")]
+		public string IP_ADR5
+		{
+			get
+			{
+				return this._IP_ADR5;
+			}
+			set
+			{
+				if ((this._IP_ADR5 != value))
+				{
+					this.OnIP_ADR5Changing(value);
+					this.SendPropertyChanging();
+					this._IP_ADR5 = value;
+					this.SendPropertyChanged("IP_ADR5");
+					this.OnIP_ADR5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM5", DbType="Int")]
+		public System.Nullable<int> PORT_NUM5
+		{
+			get
+			{
+				return this._PORT_NUM5;
+			}
+			set
+			{
+				if ((this._PORT_NUM5 != value))
+				{
+					this.OnPORT_NUM5Changing(value);
+					this.SendPropertyChanging();
+					this._PORT_NUM5 = value;
+					this.SendPropertyChanged("PORT_NUM5");
+					this.OnPORT_NUM5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC5", DbType="VarChar(30)")]
+		public string ATTN_COMP_CNC5
+		{
+			get
+			{
+				return this._ATTN_COMP_CNC5;
+			}
+			set
+			{
+				if ((this._ATTN_COMP_CNC5 != value))
+				{
+					this.OnATTN_COMP_CNC5Changing(value);
+					this.SendPropertyChanging();
+					this._ATTN_COMP_CNC5 = value;
+					this.SendPropertyChanged("ATTN_COMP_CNC5");
+					this.OnATTN_COMP_CNC5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV6_STAT", DbType="VarChar(3)")]
+		public string DEV6_STAT
+		{
+			get
+			{
+				return this._DEV6_STAT;
+			}
+			set
+			{
+				if ((this._DEV6_STAT != value))
+				{
+					this.OnDEV6_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DEV6_STAT = value;
+					this.SendPropertyChanged("DEV6_STAT");
+					this.OnDEV6_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR6", DbType="VarChar(15)")]
+		public string IP_ADR6
+		{
+			get
+			{
+				return this._IP_ADR6;
+			}
+			set
+			{
+				if ((this._IP_ADR6 != value))
+				{
+					this.OnIP_ADR6Changing(value);
+					this.SendPropertyChanging();
+					this._IP_ADR6 = value;
+					this.SendPropertyChanged("IP_ADR6");
+					this.OnIP_ADR6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM6", DbType="Int")]
+		public System.Nullable<int> PORT_NUM6
+		{
+			get
+			{
+				return this._PORT_NUM6;
+			}
+			set
+			{
+				if ((this._PORT_NUM6 != value))
+				{
+					this.OnPORT_NUM6Changing(value);
+					this.SendPropertyChanging();
+					this._PORT_NUM6 = value;
+					this.SendPropertyChanged("PORT_NUM6");
+					this.OnPORT_NUM6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC6", DbType="VarChar(30)")]
+		public string ATTN_COMP_CNC6
+		{
+			get
+			{
+				return this._ATTN_COMP_CNC6;
+			}
+			set
+			{
+				if ((this._ATTN_COMP_CNC6 != value))
+				{
+					this.OnATTN_COMP_CNC6Changing(value);
+					this.SendPropertyChanging();
+					this._ATTN_COMP_CNC6 = value;
+					this.SendPropertyChanged("ATTN_COMP_CNC6");
+					this.OnATTN_COMP_CNC6Changed();
 				}
 			}
 		}
@@ -106994,45 +107602,33 @@ namespace System.Scsc.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.External_Device")]
-	public partial class External_Device : INotifyPropertyChanging, INotifyPropertyChanged
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Dresser")]
+	public partial class Dresser : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
+		private System.Nullable<long> _COMA_CODE;
+		
 		private long _CODE;
 		
-		private string _DEV_COMP_TYPE;
+		private System.Nullable<int> _DRES_NUMB;
 		
-		private string _DEV_TYPE;
+		private string _DESC;
 		
-		private string _DEV_CON;
+		private string _REC_STAT;
 		
-		private string _CYCL_READ;
+		private System.Nullable<int> _ORDR;
 		
-		private string _DEV_NAME;
+		private string _CMND_SEND;
 		
-		private string _PORT_NAME;
+		private string _COMM_PORT;
 		
 		private System.Nullable<int> _BAND_RATE;
 		
 		private string _IP_ADRS;
 		
-		private System.Nullable<long> _PORT_SEND;
-		
-		private System.Nullable<long> _PORT_RECV;
-		
-		private string _SERV_IP_ADRS;
-		
-		private System.Nullable<long> _MTOD_CODE;
-		
-		private string _STAT;
-		
-		private string _ACTN_TYPE;
-		
-		private System.Nullable<long> _EXPN_CODE;
-		
-		private string _CMNT;
+		private string _VIP_STAT;
 		
 		private string _CRET_BY;
 		
@@ -107042,50 +107638,38 @@ namespace System.Scsc.Data
 		
 		private System.Nullable<System.DateTime> _MDFY_DATE;
 		
-		private EntitySet<External_Device_Link_Method> _External_Device_Link_Methods;
+		private EntitySet<Dresser_Attendance> _Dresser_Attendances;
 		
-		private EntitySet<External_Device_Link_External_Device> _External_Device_Link_External_Devices;
+		private EntitySet<Dresser_Vip_Fighter> _Dresser_Vip_Fighters;
 		
-		private EntitySet<External_Device_Link_External_Device> _External_Device_Link_External_Devices1;
+		private EntityRef<Computer_Action> _Computer_Action;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
+    partial void OnCOMA_CODEChanging(System.Nullable<long> value);
+    partial void OnCOMA_CODEChanged();
     partial void OnCODEChanging(long value);
     partial void OnCODEChanged();
-    partial void OnDEV_COMP_TYPEChanging(string value);
-    partial void OnDEV_COMP_TYPEChanged();
-    partial void OnDEV_TYPEChanging(string value);
-    partial void OnDEV_TYPEChanged();
-    partial void OnDEV_CONChanging(string value);
-    partial void OnDEV_CONChanged();
-    partial void OnCYCL_READChanging(string value);
-    partial void OnCYCL_READChanged();
-    partial void OnDEV_NAMEChanging(string value);
-    partial void OnDEV_NAMEChanged();
-    partial void OnPORT_NAMEChanging(string value);
-    partial void OnPORT_NAMEChanged();
+    partial void OnDRES_NUMBChanging(System.Nullable<int> value);
+    partial void OnDRES_NUMBChanged();
+    partial void OnDESCChanging(string value);
+    partial void OnDESCChanged();
+    partial void OnREC_STATChanging(string value);
+    partial void OnREC_STATChanged();
+    partial void OnORDRChanging(System.Nullable<int> value);
+    partial void OnORDRChanged();
+    partial void OnCMND_SENDChanging(string value);
+    partial void OnCMND_SENDChanged();
+    partial void OnCOMM_PORTChanging(string value);
+    partial void OnCOMM_PORTChanged();
     partial void OnBAND_RATEChanging(System.Nullable<int> value);
     partial void OnBAND_RATEChanged();
     partial void OnIP_ADRSChanging(string value);
     partial void OnIP_ADRSChanged();
-    partial void OnPORT_SENDChanging(System.Nullable<long> value);
-    partial void OnPORT_SENDChanged();
-    partial void OnPORT_RECVChanging(System.Nullable<long> value);
-    partial void OnPORT_RECVChanged();
-    partial void OnSERV_IP_ADRSChanging(string value);
-    partial void OnSERV_IP_ADRSChanged();
-    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
-    partial void OnMTOD_CODEChanged();
-    partial void OnSTATChanging(string value);
-    partial void OnSTATChanged();
-    partial void OnACTN_TYPEChanging(string value);
-    partial void OnACTN_TYPEChanged();
-    partial void OnEXPN_CODEChanging(System.Nullable<long> value);
-    partial void OnEXPN_CODEChanged();
-    partial void OnCMNTChanging(string value);
-    partial void OnCMNTChanged();
+    partial void OnVIP_STATChanging(string value);
+    partial void OnVIP_STATChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -107096,12 +107680,36 @@ namespace System.Scsc.Data
     partial void OnMDFY_DATEChanged();
     #endregion
 		
-		public External_Device()
+		public Dresser()
 		{
-			this._External_Device_Link_Methods = new EntitySet<External_Device_Link_Method>(new Action<External_Device_Link_Method>(this.attach_External_Device_Link_Methods), new Action<External_Device_Link_Method>(this.detach_External_Device_Link_Methods));
-			this._External_Device_Link_External_Devices = new EntitySet<External_Device_Link_External_Device>(new Action<External_Device_Link_External_Device>(this.attach_External_Device_Link_External_Devices), new Action<External_Device_Link_External_Device>(this.detach_External_Device_Link_External_Devices));
-			this._External_Device_Link_External_Devices1 = new EntitySet<External_Device_Link_External_Device>(new Action<External_Device_Link_External_Device>(this.attach_External_Device_Link_External_Devices1), new Action<External_Device_Link_External_Device>(this.detach_External_Device_Link_External_Devices1));
+			this._Dresser_Attendances = new EntitySet<Dresser_Attendance>(new Action<Dresser_Attendance>(this.attach_Dresser_Attendances), new Action<Dresser_Attendance>(this.detach_Dresser_Attendances));
+			this._Dresser_Vip_Fighters = new EntitySet<Dresser_Vip_Fighter>(new Action<Dresser_Vip_Fighter>(this.attach_Dresser_Vip_Fighters), new Action<Dresser_Vip_Fighter>(this.detach_Dresser_Vip_Fighters));
+			this._Computer_Action = default(EntityRef<Computer_Action>);
 			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMA_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> COMA_CODE
+		{
+			get
+			{
+				return this._COMA_CODE;
+			}
+			set
+			{
+				if ((this._COMA_CODE != value))
+				{
+					if (this._Computer_Action.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCOMA_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._COMA_CODE = value;
+					this.SendPropertyChanged("COMA_CODE");
+					this.OnCOMA_CODEChanged();
+				}
+			}
 		}
 		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
@@ -107124,122 +107732,122 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_COMP_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string DEV_COMP_TYPE
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRES_NUMB", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> DRES_NUMB
 		{
 			get
 			{
-				return this._DEV_COMP_TYPE;
+				return this._DRES_NUMB;
 			}
 			set
 			{
-				if ((this._DEV_COMP_TYPE != value))
+				if ((this._DRES_NUMB != value))
 				{
-					this.OnDEV_COMP_TYPEChanging(value);
+					this.OnDRES_NUMBChanging(value);
 					this.SendPropertyChanging();
-					this._DEV_COMP_TYPE = value;
-					this.SendPropertyChanged("DEV_COMP_TYPE");
-					this.OnDEV_COMP_TYPEChanged();
+					this._DRES_NUMB = value;
+					this.SendPropertyChanged("DRES_NUMB");
+					this.OnDRES_NUMBChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string DEV_TYPE
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[DESC]", Storage="_DESC", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string DESC
 		{
 			get
 			{
-				return this._DEV_TYPE;
+				return this._DESC;
 			}
 			set
 			{
-				if ((this._DEV_TYPE != value))
+				if ((this._DESC != value))
 				{
-					this.OnDEV_TYPEChanging(value);
+					this.OnDESCChanging(value);
 					this.SendPropertyChanging();
-					this._DEV_TYPE = value;
-					this.SendPropertyChanged("DEV_TYPE");
-					this.OnDEV_TYPEChanged();
+					this._DESC = value;
+					this.SendPropertyChanged("DESC");
+					this.OnDESCChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_CON", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string DEV_CON
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REC_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string REC_STAT
 		{
 			get
 			{
-				return this._DEV_CON;
+				return this._REC_STAT;
 			}
 			set
 			{
-				if ((this._DEV_CON != value))
+				if ((this._REC_STAT != value))
 				{
-					this.OnDEV_CONChanging(value);
+					this.OnREC_STATChanging(value);
 					this.SendPropertyChanging();
-					this._DEV_CON = value;
-					this.SendPropertyChanged("DEV_CON");
-					this.OnDEV_CONChanged();
+					this._REC_STAT = value;
+					this.SendPropertyChanged("REC_STAT");
+					this.OnREC_STATChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CYCL_READ", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string CYCL_READ
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> ORDR
 		{
 			get
 			{
-				return this._CYCL_READ;
+				return this._ORDR;
 			}
 			set
 			{
-				if ((this._CYCL_READ != value))
+				if ((this._ORDR != value))
 				{
-					this.OnCYCL_READChanging(value);
+					this.OnORDRChanging(value);
 					this.SendPropertyChanging();
-					this._CYCL_READ = value;
-					this.SendPropertyChanged("CYCL_READ");
-					this.OnCYCL_READChanged();
+					this._ORDR = value;
+					this.SendPropertyChanged("ORDR");
+					this.OnORDRChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_NAME", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string DEV_NAME
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMND_SEND", DbType="VarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string CMND_SEND
 		{
 			get
 			{
-				return this._DEV_NAME;
+				return this._CMND_SEND;
 			}
 			set
 			{
-				if ((this._DEV_NAME != value))
+				if ((this._CMND_SEND != value))
 				{
-					this.OnDEV_NAMEChanging(value);
+					this.OnCMND_SENDChanging(value);
 					this.SendPropertyChanging();
-					this._DEV_NAME = value;
-					this.SendPropertyChanged("DEV_NAME");
-					this.OnDEV_NAMEChanged();
+					this._CMND_SEND = value;
+					this.SendPropertyChanged("CMND_SEND");
+					this.OnCMND_SENDChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NAME", DbType="VarChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string PORT_NAME
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMM_PORT", DbType="VarChar(10)", UpdateCheck=UpdateCheck.Never)]
+		public string COMM_PORT
 		{
 			get
 			{
-				return this._PORT_NAME;
+				return this._COMM_PORT;
 			}
 			set
 			{
-				if ((this._PORT_NAME != value))
+				if ((this._COMM_PORT != value))
 				{
-					this.OnPORT_NAMEChanging(value);
+					this.OnCOMM_PORTChanging(value);
 					this.SendPropertyChanging();
-					this._PORT_NAME = value;
-					this.SendPropertyChanged("PORT_NAME");
-					this.OnPORT_NAMEChanged();
+					this._COMM_PORT = value;
+					this.SendPropertyChanged("COMM_PORT");
+					this.OnCOMM_PORTChanged();
 				}
 			}
 		}
@@ -107264,7 +107872,7 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADRS", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADRS", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
 		public string IP_ADRS
 		{
 			get
@@ -107284,162 +107892,22 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_SEND", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> PORT_SEND
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VIP_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string VIP_STAT
 		{
 			get
 			{
-				return this._PORT_SEND;
+				return this._VIP_STAT;
 			}
 			set
 			{
-				if ((this._PORT_SEND != value))
+				if ((this._VIP_STAT != value))
 				{
-					this.OnPORT_SENDChanging(value);
+					this.OnVIP_STATChanging(value);
 					this.SendPropertyChanging();
-					this._PORT_SEND = value;
-					this.SendPropertyChanged("PORT_SEND");
-					this.OnPORT_SENDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_RECV", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> PORT_RECV
-		{
-			get
-			{
-				return this._PORT_RECV;
-			}
-			set
-			{
-				if ((this._PORT_RECV != value))
-				{
-					this.OnPORT_RECVChanging(value);
-					this.SendPropertyChanging();
-					this._PORT_RECV = value;
-					this.SendPropertyChanged("PORT_RECV");
-					this.OnPORT_RECVChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_IP_ADRS", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string SERV_IP_ADRS
-		{
-			get
-			{
-				return this._SERV_IP_ADRS;
-			}
-			set
-			{
-				if ((this._SERV_IP_ADRS != value))
-				{
-					this.OnSERV_IP_ADRSChanging(value);
-					this.SendPropertyChanging();
-					this._SERV_IP_ADRS = value;
-					this.SendPropertyChanged("SERV_IP_ADRS");
-					this.OnSERV_IP_ADRSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> MTOD_CODE
-		{
-			get
-			{
-				return this._MTOD_CODE;
-			}
-			set
-			{
-				if ((this._MTOD_CODE != value))
-				{
-					this.OnMTOD_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._MTOD_CODE = value;
-					this.SendPropertyChanged("MTOD_CODE");
-					this.OnMTOD_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string STAT
-		{
-			get
-			{
-				return this._STAT;
-			}
-			set
-			{
-				if ((this._STAT != value))
-				{
-					this.OnSTATChanging(value);
-					this.SendPropertyChanging();
-					this._STAT = value;
-					this.SendPropertyChanged("STAT");
-					this.OnSTATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string ACTN_TYPE
-		{
-			get
-			{
-				return this._ACTN_TYPE;
-			}
-			set
-			{
-				if ((this._ACTN_TYPE != value))
-				{
-					this.OnACTN_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._ACTN_TYPE = value;
-					this.SendPropertyChanged("ACTN_TYPE");
-					this.OnACTN_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> EXPN_CODE
-		{
-			get
-			{
-				return this._EXPN_CODE;
-			}
-			set
-			{
-				if ((this._EXPN_CODE != value))
-				{
-					this.OnEXPN_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._EXPN_CODE = value;
-					this.SendPropertyChanged("EXPN_CODE");
-					this.OnEXPN_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
-		public string CMNT
-		{
-			get
-			{
-				return this._CMNT;
-			}
-			set
-			{
-				if ((this._CMNT != value))
-				{
-					this.OnCMNTChanging(value);
-					this.SendPropertyChanging();
-					this._CMNT = value;
-					this.SendPropertyChanged("CMNT");
-					this.OnCMNTChanged();
+					this._VIP_STAT = value;
+					this.SendPropertyChanged("VIP_STAT");
+					this.OnVIP_STATChanged();
 				}
 			}
 		}
@@ -107524,42 +107992,63 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_Method", Storage="_External_Device_Link_Methods", ThisKey="CODE", OtherKey="EDEV_CODE")]
-		public EntitySet<External_Device_Link_Method> External_Device_Link_Methods
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dresser_Dresser_Attendance", Storage="_Dresser_Attendances", ThisKey="CODE", OtherKey="DRES_CODE")]
+		public EntitySet<Dresser_Attendance> Dresser_Attendances
 		{
 			get
 			{
-				return this._External_Device_Link_Methods;
+				return this._Dresser_Attendances;
 			}
 			set
 			{
-				this._External_Device_Link_Methods.Assign(value);
+				this._Dresser_Attendances.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_External_Device", Storage="_External_Device_Link_External_Devices", ThisKey="CODE", OtherKey="EDEV_CODE")]
-		public EntitySet<External_Device_Link_External_Device> External_Device_Link_External_Devices
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dresser_Dresser_Vip_Fighter", Storage="_Dresser_Vip_Fighters", ThisKey="CODE", OtherKey="DRES_CODE")]
+		public EntitySet<Dresser_Vip_Fighter> Dresser_Vip_Fighters
 		{
 			get
 			{
-				return this._External_Device_Link_External_Devices;
+				return this._Dresser_Vip_Fighters;
 			}
 			set
 			{
-				this._External_Device_Link_External_Devices.Assign(value);
+				this._Dresser_Vip_Fighters.Assign(value);
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_External_Device1", Storage="_External_Device_Link_External_Devices1", ThisKey="CODE", OtherKey="LINK_EDEV_CODE")]
-		public EntitySet<External_Device_Link_External_Device> External_Device_Link_External_Devices1
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Computer_Action_Dresser", Storage="_Computer_Action", ThisKey="COMA_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Computer_Action Computer_Action
 		{
 			get
 			{
-				return this._External_Device_Link_External_Devices1;
+				return this._Computer_Action.Entity;
 			}
 			set
 			{
-				this._External_Device_Link_External_Devices1.Assign(value);
+				Computer_Action previousValue = this._Computer_Action.Entity;
+				if (((previousValue != value) 
+							|| (this._Computer_Action.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Computer_Action.Entity = null;
+						previousValue.Dressers.Remove(this);
+					}
+					this._Computer_Action.Entity = value;
+					if ((value != null))
+					{
+						value.Dressers.Add(this);
+						this._COMA_CODE = value.CODE;
+					}
+					else
+					{
+						this._COMA_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Computer_Action");
+				}
 			}
 		}
 		
@@ -107583,84 +108072,412 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		private void attach_External_Device_Link_Methods(External_Device_Link_Method entity)
+		private void attach_Dresser_Attendances(Dresser_Attendance entity)
 		{
 			this.SendPropertyChanging();
-			entity.External_Device = this;
+			entity.Dresser = this;
 		}
 		
-		private void detach_External_Device_Link_Methods(External_Device_Link_Method entity)
+		private void detach_Dresser_Attendances(Dresser_Attendance entity)
 		{
 			this.SendPropertyChanging();
-			entity.External_Device = null;
+			entity.Dresser = null;
 		}
 		
-		private void attach_External_Device_Link_External_Devices(External_Device_Link_External_Device entity)
+		private void attach_Dresser_Vip_Fighters(Dresser_Vip_Fighter entity)
 		{
 			this.SendPropertyChanging();
-			entity.External_Device = this;
+			entity.Dresser = this;
 		}
 		
-		private void detach_External_Device_Link_External_Devices(External_Device_Link_External_Device entity)
+		private void detach_Dresser_Vip_Fighters(Dresser_Vip_Fighter entity)
 		{
 			this.SendPropertyChanging();
-			entity.External_Device = null;
-		}
-		
-		private void attach_External_Device_Link_External_Devices1(External_Device_Link_External_Device entity)
-		{
-			this.SendPropertyChanging();
-			entity.External_Device1 = this;
-		}
-		
-		private void detach_External_Device_Link_External_Devices1(External_Device_Link_External_Device entity)
-		{
-			this.SendPropertyChanging();
-			entity.External_Device1 = null;
+			entity.Dresser = null;
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V$Drat")]
-	public partial class V_Drat
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Dresser_Vip_Fighter")]
+	public partial class Dresser_Vip_Fighter : INotifyPropertyChanging, INotifyPropertyChanged
 	{
 		
-		private System.Nullable<System.DateTime> _DRAT_DATE;
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private System.Nullable<int> _DART_NUMB;
+		private System.Nullable<long> _DRES_CODE;
 		
-		public V_Drat()
+		private System.Nullable<long> _MBSP_FIGH_FILE_NO;
+		
+		private System.Nullable<short> _MBSP_RWNO;
+		
+		private string _MBSP_RECT_CODE;
+		
+		private long _CODE;
+		
+		private string _STAT;
+		
+		private System.Nullable<System.DateTime> _EXPR_DATE;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private EntityRef<Dresser> _Dresser;
+		
+		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Member_Ship> _Member_Ship;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnDRES_CODEChanging(System.Nullable<long> value);
+    partial void OnDRES_CODEChanged();
+    partial void OnMBSP_FIGH_FILE_NOChanging(System.Nullable<long> value);
+    partial void OnMBSP_FIGH_FILE_NOChanged();
+    partial void OnMBSP_RWNOChanging(System.Nullable<short> value);
+    partial void OnMBSP_RWNOChanged();
+    partial void OnMBSP_RECT_CODEChanging(string value);
+    partial void OnMBSP_RECT_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnEXPR_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnEXPR_DATEChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    #endregion
+		
+		public Dresser_Vip_Fighter()
 		{
+			this._Dresser = default(EntityRef<Dresser>);
+			this._Fighter = default(EntityRef<Fighter>);
+			this._Member_Ship = default(EntityRef<Member_Ship>);
+			OnCreated();
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRAT_DATE", DbType="Date")]
-		public System.Nullable<System.DateTime> DRAT_DATE
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRES_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> DRES_CODE
 		{
 			get
 			{
-				return this._DRAT_DATE;
+				return this._DRES_CODE;
 			}
 			set
 			{
-				if ((this._DRAT_DATE != value))
+				if ((this._DRES_CODE != value))
 				{
-					this._DRAT_DATE = value;
+					if (this._Dresser.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDRES_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._DRES_CODE = value;
+					this.SendPropertyChanged("DRES_CODE");
+					this.OnDRES_CODEChanged();
 				}
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DART_NUMB", DbType="Int")]
-		public System.Nullable<int> DART_NUMB
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBSP_FIGH_FILE_NO", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> MBSP_FIGH_FILE_NO
 		{
 			get
 			{
-				return this._DART_NUMB;
+				return this._MBSP_FIGH_FILE_NO;
 			}
 			set
 			{
-				if ((this._DART_NUMB != value))
+				if ((this._MBSP_FIGH_FILE_NO != value))
 				{
-					this._DART_NUMB = value;
+					if ((this._Fighter.HasLoadedOrAssignedValue || this._Member_Ship.HasLoadedOrAssignedValue))
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMBSP_FIGH_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._MBSP_FIGH_FILE_NO = value;
+					this.SendPropertyChanged("MBSP_FIGH_FILE_NO");
+					this.OnMBSP_FIGH_FILE_NOChanged();
 				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBSP_RWNO", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<short> MBSP_RWNO
+		{
+			get
+			{
+				return this._MBSP_RWNO;
+			}
+			set
+			{
+				if ((this._MBSP_RWNO != value))
+				{
+					if (this._Member_Ship.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMBSP_RWNOChanging(value);
+					this.SendPropertyChanging();
+					this._MBSP_RWNO = value;
+					this.SendPropertyChanged("MBSP_RWNO");
+					this.OnMBSP_RWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MBSP_RECT_CODE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string MBSP_RECT_CODE
+		{
+			get
+			{
+				return this._MBSP_RECT_CODE;
+			}
+			set
+			{
+				if ((this._MBSP_RECT_CODE != value))
+				{
+					if (this._Member_Ship.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMBSP_RECT_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._MBSP_RECT_CODE = value;
+					this.SendPropertyChanged("MBSP_RECT_CODE");
+					this.OnMBSP_RECT_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> EXPR_DATE
+		{
+			get
+			{
+				return this._EXPR_DATE;
+			}
+			set
+			{
+				if ((this._EXPR_DATE != value))
+				{
+					this.OnEXPR_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._EXPR_DATE = value;
+					this.SendPropertyChanged("EXPR_DATE");
+					this.OnEXPR_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dresser_Dresser_Vip_Fighter", Storage="_Dresser", ThisKey="DRES_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Dresser Dresser
+		{
+			get
+			{
+				return this._Dresser.Entity;
+			}
+			set
+			{
+				Dresser previousValue = this._Dresser.Entity;
+				if (((previousValue != value) 
+							|| (this._Dresser.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Dresser.Entity = null;
+						previousValue.Dresser_Vip_Fighters.Remove(this);
+					}
+					this._Dresser.Entity = value;
+					if ((value != null))
+					{
+						value.Dresser_Vip_Fighters.Add(this);
+						this._DRES_CODE = value.CODE;
+					}
+					else
+					{
+						this._DRES_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Dresser");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Dresser_Vip_Fighter", Storage="_Fighter", ThisKey="MBSP_FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Dresser_Vip_Fighters.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Dresser_Vip_Fighters.Add(this);
+						this._MBSP_FIGH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._MBSP_FIGH_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Member_Ship_Dresser_Vip_Fighter", Storage="_Member_Ship", ThisKey="MBSP_FIGH_FILE_NO,MBSP_RWNO,MBSP_RECT_CODE", OtherKey="FIGH_FILE_NO,RWNO,RECT_CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Member_Ship Member_Ship
+		{
+			get
+			{
+				return this._Member_Ship.Entity;
+			}
+			set
+			{
+				Member_Ship previousValue = this._Member_Ship.Entity;
+				if (((previousValue != value) 
+							|| (this._Member_Ship.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Member_Ship.Entity = null;
+						previousValue.Dresser_Vip_Fighters.Remove(this);
+					}
+					this._Member_Ship.Entity = value;
+					if ((value != null))
+					{
+						value.Dresser_Vip_Fighters.Add(this);
+						this._MBSP_FIGH_FILE_NO = value.FIGH_FILE_NO;
+						this._MBSP_RWNO = value.RWNO;
+						this._MBSP_RECT_CODE = value.RECT_CODE;
+					}
+					else
+					{
+						this._MBSP_FIGH_FILE_NO = default(Nullable<long>);
+						this._MBSP_RWNO = default(Nullable<short>);
+						this._MBSP_RECT_CODE = default(string);
+					}
+					this.SendPropertyChanged("Member_Ship");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

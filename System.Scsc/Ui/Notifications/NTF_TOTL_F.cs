@@ -1124,7 +1124,7 @@ namespace System.Scsc.Ui.Notifications
          {
             if (AttnBs2.Current == null) return;
 
-            iScsc.INS_DART_P((AttnBs2.Current as Data.Attendance).CODE, null);
+            iScsc.INS_DART_P((AttnBs2.Current as Data.Attendance).CODE, null, null);
 
             requry = true;
          }

@@ -2758,6 +2758,21 @@ namespace System.Scsc.Ui.BaseDefinition
                      new XAttribute("attncompcnc3", Stng.ATTN_COMP_CNC3 ?? ""),
                      new XAttribute("atn4evntactntype", Stng.ATN4_EVNT_ACTN_TYPE ?? "001"),
 
+                     new XAttribute("dev4stat", Stng.DEV4_STAT ?? ""),
+                     new XAttribute("ipadr4", Stng.IP_ADR4 ?? ""),
+                     new XAttribute("portnum4", Stng.PORT_NUM4 ?? 0),
+                     new XAttribute("attncompcnc4", Stng.ATTN_COMP_CNC4 ?? ""),
+
+                     new XAttribute("dev5stat", Stng.DEV5_STAT ?? ""),
+                     new XAttribute("ipadr5", Stng.IP_ADR5 ?? ""),
+                     new XAttribute("portnum5", Stng.PORT_NUM5 ?? 0),
+                     new XAttribute("attncompcnc5", Stng.ATTN_COMP_CNC5 ?? ""),
+
+                     new XAttribute("dev6stat", Stng.DEV6_STAT ?? ""),
+                     new XAttribute("ipadr6", Stng.IP_ADR6 ?? ""),
+                     new XAttribute("portnum6", Stng.PORT_NUM6 ?? 0),
+                     new XAttribute("attncompcnc6", Stng.ATTN_COMP_CNC6 ?? ""),
+
                      new XAttribute("attngustnumbtype", Stng.ATTN_GUST_NUMB_TYPE ?? "002"),
                      new XAttribute("attndelytime", Stng.ATTN_DELY_TIME ?? 0),
 

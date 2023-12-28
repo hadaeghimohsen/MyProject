@@ -138,7 +138,7 @@ namespace System.Scsc.Ui.Attendance
                   string.Format(
                   "INSERT INTO dbo.Dresser(Coma_Code, Code, Dres_Numb, Rec_Stat, IP_Adrs, Ordr, Cmnd_Send)" +
                   "SELECT {0}, 0, {1}, '002', '{2}', {1}, dbo.GET_LPAD_U('{1}', 3, '0') WHERE NOT EXISTS (" + 
-                  "SELECT * FROM dbo.Dresser d WHERE d.Coma_Code = {0} AND Dres_Numb = {1} );",
+                  "SELECT * FROM dbo.Dresser d WHERE d.Coma_Code = {0} AND Dres_Numb = {1} AND IP_Adrs = '{2}');",
                   _coma.CODE, i,
                   IP_Txt.Text
                   )
@@ -260,14 +260,14 @@ namespace System.Scsc.Ui.Attendance
             TestLockerInLoop_Tmr.Enabled = false;
             TestLockerInLoop_Tmr.Interval = (int)(Wait_Nud.Value * 1000);
 
-            if (_dressersList.Count == DresBs1.List.OfType<Data.Dresser>().Where(d => d.REC_STAT == "002" && (All_Rb.Checked || (Even_Rb.Checked && d.ORDR % 2 == 0) || (Odd_Rb.Checked && d.ORDR % 2 != 0))).Count() && InftLoop_Cbx.Checked)
+            if (_dressersList.Count == DresBs1.List.OfType<Data.Dresser>().Where(d => d.REC_STAT == "002" && (!FocusCntrl_Cbx.Checked || d.IP_ADRS == IPAdrsCntrl_Txt.Text) && (All_Rb.Checked || (Even_Rb.Checked && d.ORDR % 2 == 0) || (Odd_Rb.Checked && d.ORDR % 2 != 0))).Count() && InftLoop_Cbx.Checked)
                _dressersList.Clear();
 
-            if (_dressersList.Count == DresBs1.List.OfType<Data.Dresser>().Where(d => d.REC_STAT == "002" && (All_Rb.Checked || (Even_Rb.Checked && d.ORDR % 2 == 0) || (Odd_Rb.Checked && d.ORDR % 2 != 0))).Count())
+            if (_dressersList.Count == DresBs1.List.OfType<Data.Dresser>().Where(d => d.REC_STAT == "002" && (!FocusCntrl_Cbx.Checked || d.IP_ADRS == IPAdrsCntrl_Txt.Text) && (All_Rb.Checked || (Even_Rb.Checked && d.ORDR % 2 == 0) || (Odd_Rb.Checked && d.ORDR % 2 != 0))).Count())
                return;
 
             int _slct = 0;
-            var _validDressers = DresBs1.List.OfType<Data.Dresser>().Where(d => d.REC_STAT == "002" && !_dressersList.Any(dd => dd.CODE == d.CODE) && (All_Rb.Checked || (Even_Rb.Checked && d.ORDR % 2 == 0) || (Odd_Rb.Checked && d.ORDR % 2 != 0)));
+            var _validDressers = DresBs1.List.OfType<Data.Dresser>().Where(d => d.REC_STAT == "002" && (!FocusCntrl_Cbx.Checked || d.IP_ADRS == IPAdrsCntrl_Txt.Text) && !_dressersList.Any(dd => dd.CODE == d.CODE) && (All_Rb.Checked || (Even_Rb.Checked && d.ORDR % 2 == 0) || (Odd_Rb.Checked && d.ORDR % 2 != 0)));
             Data.Dresser _iRec = null;
 
             _slct = _rndm.Next(0, _validDressers.Count());
@@ -395,7 +395,13 @@ namespace System.Scsc.Ui.Attendance
       {
          try
          {
-            DresBs1.List.OfType<Data.Dresser>().ToList().ForEach(d => d.ORDR = null);
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            if(LockCntrl_Cbx.Checked)
+               DresBs1.List.OfType<Data.Dresser>().Where(d => d.IP_ADRS == _dres.IP_ADRS).ToList().ForEach(d => d.ORDR = null);
+            else
+               DresBs1.List.OfType<Data.Dresser>().ToList().ForEach(d => d.ORDR = null);
             //DresBlnk_Gv.ActiveFilterString = "ORDR Is Null";
             //int _indx = 0,
             //    _len = (int)DstnNumb_Nud.Value,
@@ -483,9 +489,20 @@ namespace System.Scsc.Ui.Attendance
             var _dres = DresBs1.Current as Data.Dresser;
             if (_dres == null) return;
 
-            _dres.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null).Count() + 1;
-
-            //DresBlnk_Gv.ActiveFilterString = "ORDR Is Null";
+            switch (e.Button.Index)
+            {
+               case 0:
+                  if(LockCntrl_Cbx.Checked)
+                     _dres.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null && d.IP_ADRS == _dres.IP_ADRS).Count() + 1;
+                  else
+                     _dres.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null).Count() + 1;
+                  break;
+               case 1:
+                  _dres.ORDR = null;
+                  break;
+               default:
+                  break;
+            }
 
             iScsc.SubmitChanges();
             requery = true;
@@ -769,6 +786,686 @@ namespace System.Scsc.Ui.Attendance
       private void Fm_Rlt_Click(object sender, EventArgs e)
       {
          Fa_Rlt.RolloutStatus = Fr_Rlt.RolloutStatus = false;
+      }
+
+      private void UpdateOrdrOpr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if(_dres == null)return;
+
+            if(FromNumb_Se.Value <= ToNumb_Se.Value)
+            {
+               for (int i = (int)FromNumb_Se.Value; i <= (int)ToNumb_Se.Value; i++)
+               {
+                  if (LockCntrl_Cbx.Checked)
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null && d.IP_ADRS == _dres.IP_ADRS).Count() + 1;
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null && d.IP_ADRS == _dres.IP_ADRS).Count() + 1;
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null && d.IP_ADRS == _dres.IP_ADRS).Count() + 1;
+                     }
+                  }
+                  else
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null).Count() + 1;
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null).Count() + 1;
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null).Count() + 1;
+                     }
+                  }
+               }
+            }
+            else
+            {
+               for (int i = (int)FromNumb_Se.Value; i >= (int)ToNumb_Se.Value; i--)
+               {
+                  if (LockCntrl_Cbx.Checked)
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null && d.IP_ADRS == _dres.IP_ADRS).Count() + 1;
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null && d.IP_ADRS == _dres.IP_ADRS).Count() + 1;
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null && d.IP_ADRS == _dres.IP_ADRS).Count() + 1;
+                     }
+                  }
+                  else
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null).Count() + 1;
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null).Count() + 1;
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.ORDR = DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR != null).Count() + 1;
+                     }
+                  }
+               }
+            }
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ClenOrdrPont_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            DresBs1.List.OfType<Data.Dresser>().Where(d => d.ORDR >= _dres.ORDR).ToList().ForEach(d => d.ORDR = null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void FocusCntrl_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            Dres_Gv.ActiveFilterString = FocusCntrl_Cbx.Checked ? (string.Format("IP_ADRS = '{0}'", _dres.IP_ADRS)) : "";
+            if (FocusCntrl_Cbx.Checked)
+               IPAdrsCntrl_Txt.Text = _dres.IP_ADRS;
+            else
+               IPAdrsCntrl_Txt.Text = "";
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void UpdateVipOpr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            if (FromNumb_Se.Value <= ToNumb_Se.Value)
+            {
+               for (int i = (int)FromNumb_Se.Value; i <= (int)ToNumb_Se.Value; i++)
+               {
+                  if (LockCntrl_Cbx.Checked)
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.VIP_STAT = "002";
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.VIP_STAT = "002";
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.VIP_STAT = "002";
+                     }
+                  }
+                  else
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.VIP_STAT = "002";
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.VIP_STAT = "002";
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.VIP_STAT = "002";
+                     }
+                  }
+               }
+            }
+            else
+            {
+               for (int i = (int)FromNumb_Se.Value; i >= (int)ToNumb_Se.Value; i--)
+               {
+                  if (LockCntrl_Cbx.Checked)
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.VIP_STAT = "002";
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.VIP_STAT = "002";
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.VIP_STAT = "002";
+                     }
+                  }
+                  else
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.VIP_STAT = "002";
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.VIP_STAT = "002";
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.VIP_STAT = "002";
+                     }
+                  }
+               }
+            }
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void UpdateDActvOpr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>271</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                 {
+                                    if (FromNumb_Se.Value <= ToNumb_Se.Value)
+                                    {
+                                       for (int i = (int)FromNumb_Se.Value; i <= (int)ToNumb_Se.Value; i++)
+                                       {
+                                          if (LockCntrl_Cbx.Checked)
+                                          {
+                                             var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                                             if (_dresi == null) return;
+
+                                             if (AllOrdr_Rb.Checked)
+                                                _dresi.REC_STAT = "001";
+                                             else if (EvenOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 == 0)
+                                                   _dresi.REC_STAT = "001";
+                                             }
+                                             else if (OddOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 != 0)
+                                                   _dresi.REC_STAT = "001";
+                                             }
+                                          }
+                                          else
+                                          {
+                                             var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                                             if (_dresi == null) return;
+
+                                             if (AllOrdr_Rb.Checked)
+                                                _dresi.REC_STAT = "001";
+                                             else if (EvenOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 == 0)
+                                                   _dresi.REC_STAT = "001";
+                                             }
+                                             else if (OddOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 != 0)
+                                                   _dresi.REC_STAT = "001";
+                                             }
+                                          }
+                                       }
+                                    }
+                                    else
+                                    {
+                                       for (int i = (int)FromNumb_Se.Value; i >= (int)ToNumb_Se.Value; i--)
+                                       {
+                                          if (LockCntrl_Cbx.Checked)
+                                          {
+                                             var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                                             if (_dresi == null) return;
+
+                                             if (AllOrdr_Rb.Checked)
+                                                _dresi.REC_STAT = "001";
+                                             else if (EvenOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 == 0)
+                                                   _dresi.REC_STAT = "001";
+                                             }
+                                             else if (OddOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 != 0)
+                                                   _dresi.REC_STAT = "001";
+                                             }
+                                          }
+                                          else
+                                          {
+                                             var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                                             if (_dresi == null) return;
+
+                                             if (AllOrdr_Rb.Checked)
+                                                _dresi.REC_STAT = "001";
+                                             else if (EvenOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 == 0)
+                                                   _dresi.REC_STAT = "001";
+                                             }
+                                             else if (OddOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 != 0)
+                                                   _dresi.REC_STAT = "001";
+                                             }
+                                          }
+                                       }
+                                    }
+                                    return;
+                                 }
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 271 سطوح امینتی", "عدم دسترسی");
+                              })
+                           },
+                           #endregion
+                        }),                           
+                  })
+            ); 
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void UpdateActvOpr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>271</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                 {
+                                    if (FromNumb_Se.Value <= ToNumb_Se.Value)
+                                    {
+                                       for (int i = (int)FromNumb_Se.Value; i <= (int)ToNumb_Se.Value; i++)
+                                       {
+                                          if (LockCntrl_Cbx.Checked)
+                                          {
+                                             var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                                             if (_dresi == null) return;
+
+                                             if (AllOrdr_Rb.Checked)
+                                                _dresi.REC_STAT = "002";
+                                             else if (EvenOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 == 0)
+                                                   _dresi.REC_STAT = "002";
+                                             }
+                                             else if (OddOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 != 0)
+                                                   _dresi.REC_STAT = "002";
+                                             }
+                                          }
+                                          else
+                                          {
+                                             var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                                             if (_dresi == null) return;
+
+                                             if (AllOrdr_Rb.Checked)
+                                                _dresi.REC_STAT = "002";
+                                             else if (EvenOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 == 0)
+                                                   _dresi.REC_STAT = "002";
+                                             }
+                                             else if (OddOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 != 0)
+                                                   _dresi.REC_STAT = "002";
+                                             }
+                                          }
+                                       }
+                                    }
+                                    else
+                                    {
+                                       for (int i = (int)FromNumb_Se.Value; i >= (int)ToNumb_Se.Value; i--)
+                                       {
+                                          if (LockCntrl_Cbx.Checked)
+                                          {
+                                             var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                                             if (_dresi == null) return;
+
+                                             if (AllOrdr_Rb.Checked)
+                                                _dresi.REC_STAT = "002";
+                                             else if (EvenOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 == 0)
+                                                   _dresi.REC_STAT = "002";
+                                             }
+                                             else if (OddOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 != 0)
+                                                   _dresi.REC_STAT = "002";
+                                             }
+                                          }
+                                          else
+                                          {
+                                             var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                                             if (_dresi == null) return;
+
+                                             if (AllOrdr_Rb.Checked)
+                                                _dresi.REC_STAT = "002";
+                                             else if (EvenOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 == 0)
+                                                   _dresi.REC_STAT = "002";
+                                             }
+                                             else if (OddOrdr_Rb.Checked)
+                                             {
+                                                if (i % 2 != 0)
+                                                   _dresi.REC_STAT = "002";
+                                             }
+                                          }
+                                       }
+                                    }
+                                    return;
+                                 }
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 271 سطوح امینتی", "عدم دسترسی");
+                              })
+                           },
+                           #endregion
+                        }),                           
+                  })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void UpdateVip2NormOpr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            if (FromNumb_Se.Value <= ToNumb_Se.Value)
+            {
+               for (int i = (int)FromNumb_Se.Value; i <= (int)ToNumb_Se.Value; i++)
+               {
+                  if (LockCntrl_Cbx.Checked)
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.VIP_STAT = "001";
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.VIP_STAT = "001";
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.VIP_STAT = "001";
+                     }
+                  }
+                  else
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.VIP_STAT = "001";
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.VIP_STAT = "001";
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.VIP_STAT = "001";
+                     }
+                  }
+               }
+            }
+            else
+            {
+               for (int i = (int)FromNumb_Se.Value; i >= (int)ToNumb_Se.Value; i--)
+               {
+                  if (LockCntrl_Cbx.Checked)
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.VIP_STAT = "001";
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.VIP_STAT = "001";
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.VIP_STAT = "001";
+                     }
+                  }
+                  else
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.VIP_STAT = "001";
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.VIP_STAT = "001";
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.VIP_STAT = "001";
+                     }
+                  }
+               }
+            }
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void UpdateDescOpr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            if (FromNumb_Se.Value <= ToNumb_Se.Value)
+            {
+               for (int i = (int)FromNumb_Se.Value; i <= (int)ToNumb_Se.Value; i++)
+               {
+                  if (LockCntrl_Cbx.Checked)
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.DESC = DescOpr_Txt.Text;
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                     }
+                  }
+                  else
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.VIP_STAT = DescOpr_Txt.Text;
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                     }
+                  }
+               }
+            }
+            else
+            {
+               for (int i = (int)FromNumb_Se.Value; i >= (int)ToNumb_Se.Value; i--)
+               {
+                  if (LockCntrl_Cbx.Checked)
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.VIP_STAT = DescOpr_Txt.Text;
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                     }
+                  }
+                  else
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                        _dresi.VIP_STAT = DescOpr_Txt.Text;
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                     }
+                  }
+               }
+            }
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

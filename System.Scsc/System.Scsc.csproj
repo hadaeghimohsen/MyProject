@@ -1170,6 +1170,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Document_Spec.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Dresser.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Dresser_Attendance.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Dresser_Vip_Fighter.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ACTG.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ACTN.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ACTV.datasource" />

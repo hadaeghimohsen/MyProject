@@ -1870,9 +1870,18 @@ namespace System.Scsc.Ui.MasterPage
       public zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
       public zkemkeeper.CZKEMClass axCZKEM2 = new zkemkeeper.CZKEMClass();
       public zkemkeeper.CZKEMClass axCZKEM3 = new zkemkeeper.CZKEMClass();
+      // 1402/10/02 * دستگاه های رختکن
+      public zkemkeeper.CZKEMClass axCZKEM4 = new zkemkeeper.CZKEMClass();
+      public zkemkeeper.CZKEMClass axCZKEM5 = new zkemkeeper.CZKEMClass();
+      public zkemkeeper.CZKEMClass axCZKEM6 = new zkemkeeper.CZKEMClass();
+
       bool Fp1DevIsConnected = false;
       bool Fp2DevIsConnected = false;
       bool Fp3DevIsConnected = false;
+      // 1402/10/02 * دستگاه های رختکن
+      bool Fp4DevIsConnected = false;
+      bool Fp5DevIsConnected = false;
+      bool Fp6DevIsConnected = false;
       XElement xHost = null;
       void Start_FingerPrint()
       {
@@ -1972,6 +1981,9 @@ namespace System.Scsc.Ui.MasterPage
                                     Tsp_AttnSys.ForeColor = Color.Green;
                                     int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                     axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+
+                                    // 1402/10/05 * اضافه کردن دستگاه اثرانگشت به لیست
+                                    AddFngrDevOpr(axCZKEM1, fingerPrintSetting.IP_ADDR, "پذیرش 1");
                                  }
                                  else
                                  {
@@ -2075,6 +2087,9 @@ namespace System.Scsc.Ui.MasterPage
                                     Tsp_AttnSys.ForeColor = Color.Green;
                                     int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                     axCZKEM2.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+
+                                    // 1402/10/05 * اضافه کردن دستگاه اثرانگشت به لیست
+                                    AddFngrDevOpr(axCZKEM2, fingerPrintSetting.IP_ADR2, "تردد 1");
                                  }
                                  else
                                  {
@@ -2921,6 +2936,8 @@ namespace System.Scsc.Ui.MasterPage
       {
          Tm_FingerPrintWorker.Enabled = false;
 
+         FngrDevList_Flp.Controls.Clear();
+
          Start_FingerPrint();
          Start_OnlineDresser();
          Start_BarCode();
@@ -2993,7 +3010,7 @@ namespace System.Scsc.Ui.MasterPage
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
-            else if(Fp2DevIsConnected)
+            if(Fp2DevIsConnected)
             {
                for (int i = 0; i < 10; i++)
                {
@@ -3005,7 +3022,7 @@ namespace System.Scsc.Ui.MasterPage
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
-            else if (Fp3DevIsConnected)
+            if (Fp3DevIsConnected)
             {
                for (int i = 0; i < 10; i++)
                {
@@ -3014,6 +3031,42 @@ namespace System.Scsc.Ui.MasterPage
                //axCZKEM3.SSR_DelUserTmpExt(1, enrollid, 6);
                axCZKEM3.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
                axCZKEM3.ClearSLog(1);
+
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
+            if (Fp4DevIsConnected)
+            {
+               for (int i = 0; i < 10; i++)
+               {
+                  axCZKEM4.SSR_DelUserTmpExt(1, enrollid, i);
+               }
+               //axCZKEM3.SSR_DelUserTmpExt(1, enrollid, 6);
+               axCZKEM4.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
+               axCZKEM4.ClearSLog(1);
+
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
+            if (Fp5DevIsConnected)
+            {
+               for (int i = 0; i < 10; i++)
+               {
+                  axCZKEM5.SSR_DelUserTmpExt(1, enrollid, i);
+               }
+               //axCZKEM3.SSR_DelUserTmpExt(1, enrollid, 6);
+               axCZKEM5.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
+               axCZKEM5.ClearSLog(1);
+
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
+            if (Fp6DevIsConnected)
+            {
+               for (int i = 0; i < 10; i++)
+               {
+                  axCZKEM6.SSR_DelUserTmpExt(1, enrollid, i);
+               }
+               //axCZKEM3.SSR_DelUserTmpExt(1, enrollid, 6);
+               axCZKEM6.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
+               axCZKEM6.ClearSLog(1);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
@@ -3049,6 +3102,24 @@ namespace System.Scsc.Ui.MasterPage
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
+            if (Fp4DevIsConnected)
+            {
+               var result = axCZKEM4.ClearKeeperData(1);
+
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
+            if (Fp5DevIsConnected)
+            {
+               var result = axCZKEM5.ClearKeeperData(1);
+
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
+            if (Fp6DevIsConnected)
+            {
+               var result = axCZKEM6.ClearKeeperData(1);
+
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
             return true;
          }
          catch (Exception exc)
@@ -3079,6 +3150,24 @@ namespace System.Scsc.Ui.MasterPage
                result = axCZKEM3.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                result = axCZKEM3.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
             }
+            if (Fp4DevIsConnected)
+            {
+               //MessageBox.Show("3rd Device Enrolling");
+               result = axCZKEM4.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+               result = axCZKEM4.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+            }
+            if (Fp5DevIsConnected)
+            {
+               //MessageBox.Show("3rd Device Enrolling");
+               result = axCZKEM5.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+               result = axCZKEM5.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+            }
+            if (Fp6DevIsConnected)
+            {
+               //MessageBox.Show("3rd Device Enrolling");
+               result = axCZKEM6.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+               result = axCZKEM6.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+            }
             return true;
          }
          catch(Exception exc)
@@ -3105,7 +3194,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                return result;
             }
-            else if (Fp2DevIsConnected)
+            if (Fp2DevIsConnected)
             {
                var result = axCZKEM2.SSR_SetUserInfo(1, enrollid, enrollid, password, 0, true);
                if (result)
@@ -3118,9 +3207,48 @@ namespace System.Scsc.Ui.MasterPage
                }
                return result;
             }
-            else if (Fp3DevIsConnected)
+            if (Fp3DevIsConnected)
             {
                var result = axCZKEM3.SSR_SetUserInfo(1, enrollid, enrollid, password, 0, true);
+               if (result)
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+               }
+               else
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+               }
+               return result;
+            }
+            if (Fp4DevIsConnected)
+            {
+               var result = axCZKEM4.SSR_SetUserInfo(1, enrollid, enrollid, password, 0, true);
+               if (result)
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+               }
+               else
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+               }
+               return result;
+            }
+            if (Fp5DevIsConnected)
+            {
+               var result = axCZKEM5.SSR_SetUserInfo(1, enrollid, enrollid, password, 0, true);
+               if (result)
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+               }
+               else
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+               }
+               return result;
+            }
+            if (Fp6DevIsConnected)
+            {
+               var result = axCZKEM6.SSR_SetUserInfo(1, enrollid, enrollid, password, 0, true);
                if (result)
                {
                   BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
@@ -3690,45 +3818,48 @@ namespace System.Scsc.Ui.MasterPage
                {
                   CrntOpenBs.DataSource = iScsc.Attendances.Where(a => a.ATTN_DATE.Date == DateTime.Now.Date && a.ATTN_STAT == "002" && a.DERS_NUMB == _rslt && a.EXIT_TIME == null).OrderByDescending(a => a.ENTR_TIME).Take(1);
 
-                  var _attn = CrntOpenBs.Current as Data.Attendance;
-                  if (_attn != null)
+                  if (CrntOpenBs.List.Count != 0)
                   {
-                     if (_attn.IMAG_RCDC_RCID_DNRM != null)
+                     var _attn = CrntOpenBs.Current as Data.Attendance;
+                     if (_attn != null)
                      {
-                        try
+                        if (_attn.IMAG_RCDC_RCID_DNRM != null)
+                        {
+                           try
+                           {
+                              ServProFile_Rb.ImageProfile = null;
+                              ServProFile_Rb.ImageVisiable = true;
+                              MemoryStream mStream = new MemoryStream();
+                              byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _attn.FIGH_FILE_NO))).ToArray();
+                              mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                              Bitmap bm = new Bitmap(mStream, false);
+                              mStream.Dispose();
+
+                              if (InvokeRequired)
+                                 Invoke(new Action(() => ServProFile_Rb.ImageProfile = bm));
+                              else
+                                 ServProFile_Rb.ImageProfile = bm;
+
+                              ServProFile_Rb.Tag = _attn.FIGH_FILE_NO;
+                           }
+                           catch { }
+                        }
+                        else
                         {
                            ServProFile_Rb.ImageProfile = null;
-                           ServProFile_Rb.ImageVisiable = true;
-                           MemoryStream mStream = new MemoryStream();
-                           byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _attn.FIGH_FILE_NO))).ToArray();
-                           mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-                           Bitmap bm = new Bitmap(mStream, false);
-                           mStream.Dispose();
-
-                           if (InvokeRequired)
-                              Invoke(new Action(() => ServProFile_Rb.ImageProfile = bm));
-                           else
-                              ServProFile_Rb.ImageProfile = bm;
-
-                           ServProFile_Rb.Tag = _attn.FIGH_FILE_NO;
+                           ServProFile_Rb.Tag = null;
                         }
-                        catch { }
+
+                        if (ServProFile_Rb.ImageProfile == null && _attn.Fighter1.SEX_TYPE_DNRM == "002")
+                           ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1148;
+                        else if (ServProFile_Rb.ImageProfile == null)
+                           ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1149;
                      }
                      else
                      {
                         ServProFile_Rb.ImageProfile = null;
                         ServProFile_Rb.Tag = null;
                      }
-
-                     if (ServProFile_Rb.ImageProfile == null && _attn.Fighter1.SEX_TYPE_DNRM == "002")
-                        ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1148;
-                     else if (ServProFile_Rb.ImageProfile == null)
-                        ServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1149;
-                  }
-                  else
-                  {
-                     ServProFile_Rb.ImageProfile = null;
-                     ServProFile_Rb.Tag = null;
                   }
                }
 
@@ -4173,7 +4304,7 @@ namespace System.Scsc.Ui.MasterPage
             try
             {
                Ping ping = new Ping();
-               var pingstatus = ping.Send(IPAddress, 500);
+               var pingstatus = ping.Send(IPAddress, 5000);
 
                if (pingstatus.Status == IPStatus.Success)
                {
@@ -4247,44 +4378,6 @@ namespace System.Scsc.Ui.MasterPage
                                           int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                           axCZKEM3.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
-                                          var lastOnLinePorts = OnlineDres_Butn.Tag as List<SerialPort>;
-                                          foreach (SerialPort port in lastOnLinePorts)
-                                          {
-                                             if (port.IsOpen)
-                                                port.Close();
-                                          }
-
-                                          lastOnLinePorts.Clear();
-
-                                          // فعال سازی گزینه پورت های سریال برای مدیریت کمد
-                                          // ابتدا متوجه میشویم که این کامپیوتر به کدام پورت ها دسترسی دارد آنها رو فعال میکنیم
-                                          iScsc = new Data.iScscDataContext(ConnectionString);
-                                          var onLineDresserPorts = iScsc.Dressers.Where(d => d.Computer_Action.COMP_NAME == host.Attribute("name").Value).Select(d => new { Com_Port = d.COMM_PORT, Band_Rate = d.BAND_RATE }).Distinct();
-                                          OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} -=> ( {1} )", "تعداد مرکز کنترل ها", onLineDresserPorts.Count());
-
-                                          List<SerialPort> onLinePorts = new List<SerialPort>();
-                                          foreach (var port in onLineDresserPorts)
-                                          {
-                                             var p = new SerialPort(port.Com_Port, (int)port.Band_Rate);
-                                             try
-                                             {
-                                                p.StopBits = StopBits.One;
-                                                p.Parity = Parity.None;
-                                                p.DataBits = 8;
-                                                p.Open();
-                                                onLinePorts.Add(p);
-
-                                                OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} ( {1} ) -=> {2}", "مرکز کنترل شماره", p.PortName, "Enabled");
-                                             }
-                                             catch
-                                             {
-                                                OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} ( {1} ) -=> {2}", "مرکز کنترل شماره", p.PortName, "Disabled");
-                                             }
-                                          }
-
-                                          // شماره پورت را به تگ اضافه میکنیم
-                                          OnlineDres_Butn.Tag = onLinePorts;
-
                                           BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
                                        }
                                        else
@@ -4309,33 +4402,236 @@ namespace System.Scsc.Ui.MasterPage
                                     int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                     axCZKEM3.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
-                                    // فعال سازی گزینه پورت های سریال برای مدیریت کمد
-                                    // ابتدا متوجه میشویم که این کامپیوتر به کدام پورت ها دسترسی دارد آنها رو فعال میکنیم
-                                    var onLineDresserPorts = iScsc.Dressers.Where(d => d.Computer_Action.COMP_NAME == host.Attribute("name").Value).Select(d => new { Com_Port = d.COMM_PORT, Band_Rate = d.BAND_RATE }).Distinct();
-                                    OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} -=> ( {1} )", "تعداد مرکز کنترل ها", onLineDresserPorts.Count());
+                                    // 1402/10/05 * اضافه کردن دستگاه اثرانگشت به لیست
+                                    AddFngrDevOpr(axCZKEM3, fingerPrintSetting.IP_ADR3, "رختکن 1");
 
-                                    List<SerialPort> onLinePorts = new List<SerialPort>();
-                                    foreach (var port in onLineDresserPorts)
+                                    BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+                                 }
+                                 else
+                                 {
+                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                 }
+                              }
+                           }
+                        }
+                        #endregion
+                        #region 4st Device
+                        if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC4 == host.Attribute("cpu").Value))
+                        {
+                           var fingerPrintSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC4 == host.Attribute("cpu").Value).FirstOrDefault();
+
+                           if (fingerPrintSetting == null) return;
+
+                           // اگر حضور غیاب با دستگاه انگشتی نباشد
+                           if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
+
+                           // اگر حضور و غیاب با دستگاه انگشتی باشد و ارتباط را چک میکنیم
+                           if (fingerPrintSetting.DEV4_STAT == "002" && fingerPrintSetting.IP_ADR4 != null && fingerPrintSetting.IP_ADR4.Length >= 10 && fingerPrintSetting.PORT_NUM4 != null)
+                           {
+                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              var dev =
+                                 new Device_On_Network(fingerPrintSetting.IP_ADR4)
+                                 {
+                                    SPort = (int)fingerPrintSetting.PORT_NUM4,
+                                    RPort = (int)fingerPrintSetting.PORT_NUM4,
+                                    DeviceType = "FngrPrnt",
+                                    DeviceName = "دستگاه اثر انگشت رختکن"
+                                 };
+                              dev.CallBack =
+                                 new Action(() =>
+                                 {
+                                    Fp4DevIsConnected = axCZKEM4.Connect_Net(fingerPrintSetting.IP_ADR4, Convert.ToInt32(fingerPrintSetting.PORT_NUM4));
+                                    if (!dev.Init)
                                     {
-                                       var p = new SerialPort(port.Com_Port, (int)port.Band_Rate);
-                                       try
-                                       {
-                                          p.StopBits = StopBits.One;
-                                          p.Parity = Parity.None;
-                                          p.DataBits = 8;
-                                          p.Open();
-                                          onLinePorts.Add(p);
-
-                                          OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} ( {1} ) -=> {2}", "مرکز کنترل شماره", p.PortName, "Enabled");
-                                       }
-                                       catch
-                                       {
-                                          OnlineDres_Butn.ToolTip += Environment.NewLine + string.Format("{0} ( {1} ) -=> {2}", "مرکز کنترل شماره", p.PortName, "Disabled");
-                                       }
+                                       // fire event for fetch 
+                                       axCZKEM4.OnAttTransactionEx += axCZKEM3_OnAttTransactionEx;
+                                       dev.Init = true;
                                     }
 
-                                    // شماره پورت را به تگ اضافه میکنیم
-                                    OnlineDres_Butn.Tag = onLinePorts;
+                                    if (Fp4DevIsConnected)
+                                    {
+                                       OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                       int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                       axCZKEM4.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+
+                                       BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+                                    }
+                                    else
+                                    {
+                                       OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                    }
+                                 });
+                              DeviceOnNetworks.Add(dev);
+
+                              if (dev.PingStatus)
+                              {
+                                 if (!Fp4DevIsConnected)
+                                 {
+                                    Fp4DevIsConnected = axCZKEM4.Connect_Net(fingerPrintSetting.IP_ADR4, Convert.ToInt32(fingerPrintSetting.PORT_NUM4));
+                                    // fire event for fetch 
+                                    axCZKEM4.OnAttTransactionEx += axCZKEM3_OnAttTransactionEx;
+                                    dev.Init = true;
+                                 }
+                                 if (Fp4DevIsConnected == true)
+                                 {
+                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                    int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                    axCZKEM4.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+
+                                    // 1402/10/05 * اضافه کردن دستگاه اثرانگشت به لیست
+                                    AddFngrDevOpr(axCZKEM4, fingerPrintSetting.IP_ADR4, "رختکن 2");
+
+                                    BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+                                 }
+                                 else
+                                 {
+                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                 }
+                              }
+                           }
+                        }
+                        #endregion
+                        #region 5st Device
+                        if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC5 == host.Attribute("cpu").Value))
+                        {
+                           var fingerPrintSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC5 == host.Attribute("cpu").Value).FirstOrDefault();
+
+                           if (fingerPrintSetting == null) return;
+
+                           // اگر حضور غیاب با دستگاه انگشتی نباشد
+                           if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
+
+                           // اگر حضور و غیاب با دستگاه انگشتی باشد و ارتباط را چک میکنیم
+                           if (fingerPrintSetting.DEV5_STAT == "002" && fingerPrintSetting.IP_ADR5 != null && fingerPrintSetting.IP_ADR5.Length >= 10 && fingerPrintSetting.PORT_NUM5 != null)
+                           {
+                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              var dev =
+                                 new Device_On_Network(fingerPrintSetting.IP_ADR5)
+                                 {
+                                    SPort = (int)fingerPrintSetting.PORT_NUM5,
+                                    RPort = (int)fingerPrintSetting.PORT_NUM5,
+                                    DeviceType = "FngrPrnt",
+                                    DeviceName = "دستگاه اثر انگشت رختکن"
+                                 };
+                              dev.CallBack =
+                                 new Action(() =>
+                                 {
+                                    Fp5DevIsConnected = axCZKEM5.Connect_Net(fingerPrintSetting.IP_ADR5, Convert.ToInt32(fingerPrintSetting.PORT_NUM5));
+                                    if (!dev.Init)
+                                    {
+                                       // fire event for fetch 
+                                       axCZKEM5.OnAttTransactionEx += axCZKEM3_OnAttTransactionEx;
+                                       dev.Init = true;
+                                    }
+
+                                    if (Fp5DevIsConnected)
+                                    {
+                                       OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                       int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                       axCZKEM5.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+
+                                       BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+                                    }
+                                    else
+                                    {
+                                       OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                    }
+                                 });
+                              DeviceOnNetworks.Add(dev);
+
+                              if (dev.PingStatus)
+                              {
+                                 if (!Fp5DevIsConnected)
+                                 {
+                                    Fp5DevIsConnected = axCZKEM5.Connect_Net(fingerPrintSetting.IP_ADR5, Convert.ToInt32(fingerPrintSetting.PORT_NUM5));
+                                    // fire event for fetch 
+                                    axCZKEM5.OnAttTransactionEx += axCZKEM3_OnAttTransactionEx;
+                                    dev.Init = true;
+                                 }
+                                 if (Fp5DevIsConnected == true)
+                                 {
+                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                    int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                    axCZKEM5.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+
+                                    // 1402/10/05 * اضافه کردن دستگاه اثرانگشت به لیست
+                                    AddFngrDevOpr(axCZKEM5, fingerPrintSetting.IP_ADR5, "رختکن 3");
+
+                                    BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+                                 }
+                                 else
+                                 {
+                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                 }
+                              }
+                           }
+                        }
+                        #endregion
+                        #region 6st Device
+                        if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC6 == host.Attribute("cpu").Value))
+                        {
+                           var fingerPrintSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_COMP_CNC6 == host.Attribute("cpu").Value).FirstOrDefault();
+
+                           if (fingerPrintSetting == null) return;
+
+                           // اگر حضور غیاب با دستگاه انگشتی نباشد
+                           if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
+
+                           // اگر حضور و غیاب با دستگاه انگشتی باشد و ارتباط را چک میکنیم
+                           if (fingerPrintSetting.DEV6_STAT == "002" && fingerPrintSetting.IP_ADR6 != null && fingerPrintSetting.IP_ADR6.Length >= 10 && fingerPrintSetting.PORT_NUM6 != null)
+                           {
+                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              var dev =
+                                 new Device_On_Network(fingerPrintSetting.IP_ADR6)
+                                 {
+                                    SPort = (int)fingerPrintSetting.PORT_NUM6,
+                                    RPort = (int)fingerPrintSetting.PORT_NUM6,
+                                    DeviceType = "FngrPrnt",
+                                    DeviceName = "دستگاه اثر انگشت رختکن"
+                                 };
+                              dev.CallBack =
+                                 new Action(() =>
+                                 {
+                                    Fp6DevIsConnected = axCZKEM6.Connect_Net(fingerPrintSetting.IP_ADR6, Convert.ToInt32(fingerPrintSetting.PORT_NUM6));
+                                    if (!dev.Init)
+                                    {
+                                       // fire event for fetch 
+                                       axCZKEM6.OnAttTransactionEx += axCZKEM3_OnAttTransactionEx;
+                                       dev.Init = true;
+                                    }
+
+                                    if (Fp6DevIsConnected)
+                                    {
+                                       OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                       int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                       axCZKEM6.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+
+                                       BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+                                    }
+                                    else
+                                    {
+                                       OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                    }
+                                 });
+                              DeviceOnNetworks.Add(dev);
+
+                              if (dev.PingStatus)
+                              {
+                                 if (!Fp6DevIsConnected)
+                                 {
+                                    Fp6DevIsConnected = axCZKEM6.Connect_Net(fingerPrintSetting.IP_ADR6, Convert.ToInt32(fingerPrintSetting.PORT_NUM6));
+                                    // fire event for fetch 
+                                    axCZKEM6.OnAttTransactionEx += axCZKEM3_OnAttTransactionEx;
+                                    dev.Init = true;
+                                 }
+                                 if (Fp6DevIsConnected == true)
+                                 {
+                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                    int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
+                                    axCZKEM6.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
+
+                                    // 1402/10/05 * اضافه کردن دستگاه اثرانگشت به لیست
+                                    AddFngrDevOpr(axCZKEM6, fingerPrintSetting.IP_ADR6, "رختکن 4");
 
                                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
                                  }
@@ -4366,7 +4662,7 @@ namespace System.Scsc.Ui.MasterPage
             var attncode = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == EnrollNumber && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null).Max(a => a.CODE);
 
             // ثبت ساعت باز کردن کمد            
-            iScsc.INS_DART_P(attncode, null);
+            iScsc.INS_DART_P(attncode, null, null);
 
             // اینجا باید شماره سریال پورت را پیدا کنیم و پیام را بهش ارسال کنیم
             var dresrattn = iScsc.Dresser_Attendances.FirstOrDefault(da => da.ATTN_CODE == attncode);
@@ -5952,7 +6248,6 @@ namespace System.Scsc.Ui.MasterPage
                      new List<Job>
                      {
                         new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))},
-                        //new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", CardNumb_Text.Text))}                        
                      });
                   _DefaultGateway.Gateway(_InteractWithScsc);
 
@@ -5981,11 +6276,11 @@ namespace System.Scsc.Ui.MasterPage
 
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",
-                        new List<Job>
-                        {                  
-                           new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
-                           new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", figh.FILE_NO)))}
-                        })
+                     new List<Job>
+                     {                  
+                        new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                        new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", figh.FILE_NO)))}
+                     })
                );
             }            
          }
@@ -6019,6 +6314,7 @@ namespace System.Scsc.Ui.MasterPage
       private void Tm_ShowTime_Tick(object sender, EventArgs e)
       {
          //AdjustDateTime_Butn.Text = DateTime.Now.ToString("HH:mm:ss");
+         Tm_ShowTime.Interval = 60000;
          AdjustDateTime_Butn.Text = DateTime.Now.ToString("HH:mm");
          AdjustDateTime_Lab.Text = string.Format("{0}/{1}/{2}", _pc.GetYear(DateTime.Now), _pc.GetMonth(DateTime.Now), _pc.GetDayOfMonth(DateTime.Now)) + Environment.NewLine;
          string weekdaydesc = "";
@@ -6188,19 +6484,19 @@ namespace System.Scsc.Ui.MasterPage
                      if (dev.PingStatus)
                      {
                         dev.CallBack();
-                        _DefaultGateway.Gateway(
-                           new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
-                           {
-                              Input =
-                                 new List<object>
-                                 {
-                                    ToolTipIcon.Info,
-                                    string.Format("Device Name : {0}\n\rIP Address : {1}", dev.DeviceName, dev.IPAddress),
-                                    "دستگاه به شبکه متصل شد",
-                                    2000
-                                 }
-                           }
-                        );
+                        //_DefaultGateway.Gateway(
+                        //   new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                        //   {
+                        //      Input =
+                        //         new List<object>
+                        //         {
+                        //            ToolTipIcon.Info,
+                        //            string.Format("Device Name : {0}\n\rIP Address : {1}", dev.DeviceName, dev.IPAddress),
+                        //            "دستگاه به شبکه متصل شد",
+                        //            2000
+                        //         }
+                        //   }
+                        //);
 
                         ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " connected." + Environment.NewLine;
 
@@ -6209,19 +6505,19 @@ namespace System.Scsc.Ui.MasterPage
                      }
                      else
                      {
-                        _DefaultGateway.Gateway(
-                           new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
-                           {
-                              Input =
-                                 new List<object>
-                                 {
-                                    ToolTipIcon.Warning,
-                                    string.Format("Device Name : {0}\n\rIP Address : {1}", dev.DeviceName, dev.IPAddress),
-                                    "دستگاه به شبکه متصل نیست",
-                                    2000
-                                 }
-                           }
-                        );
+                        //_DefaultGateway.Gateway(
+                        //   new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                        //   {
+                        //      Input =
+                        //         new List<object>
+                        //         {
+                        //            ToolTipIcon.Warning,
+                        //            string.Format("Device Name : {0}\n\rIP Address : {1}", dev.DeviceName, dev.IPAddress),
+                        //            "دستگاه به شبکه متصل نیست",
+                        //            2000
+                        //         }
+                        //   }
+                        //);
 
                         ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " disconnected." + Environment.NewLine;
 
@@ -6999,8 +7295,8 @@ namespace System.Scsc.Ui.MasterPage
 
       private void ShowMain_Btn_Click(object sender, EventArgs e)
       {
-         if (spc_desktopnew.SplitterPosition != 276)
-            spc_desktopnew.SplitterPosition = 276;
+         if (spc_desktopnew.SplitterPosition != 265)
+            spc_desktopnew.SplitterPosition = 265;
          else
             spc_desktopnew.SplitterPosition = 0;
 
@@ -7441,7 +7737,7 @@ namespace System.Scsc.Ui.MasterPage
                                  #endregion
                               }),
                            #region Dowork
-                           new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+                           new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */)
                            {
                               Input =
                                  new XElement("OprtDres",
@@ -7786,6 +8082,92 @@ namespace System.Scsc.Ui.MasterPage
                default:
                   break;
             }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddFngrDevOpr(zkemkeeper.CZKEMClass _dev, string _ip, string _name)
+      {
+         try
+         {
+            if (!FngrDevList_Flp.Controls.OfType<MaxUi.Button>().Any(b => (b.Tag as zkemkeeper.CZKEMClass) == _dev))
+            {
+               var _btnDev = new MaxUi.Button() { Size = new Size(180, 25), Text = string.Format("{0}-( {1} )", _ip, _name), Tag = _dev };
+               _btnDev.Click += FngrDevOpr_Butn_Click;
+               FngrDevList_Flp.Controls.Add(_btnDev);
+            }
+         }
+         catch { }
+      }
+
+      private void FngrDevOpr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dev = (sender as MaxUi.Button).Tag as zkemkeeper.CZKEMClass;
+
+            if (_dev == null) return;
+
+            if(StrtNewEnrl_Rb.Checked)
+            {
+               _dev.SSR_SetUserInfo(1, FngrPrntOpr_Txt.Text, FngrPrntOpr_Txt.Text, "", 0, true);
+               if (_dev.StartEnrollEx(FngrPrntOpr_Txt.Text, 6, 0))
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+               }
+               else { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; }
+            }
+            else if(DelEnrl_Rb.Checked)
+            {
+               for (int i = 0; i < 10; i++)
+               {
+                  _dev.SSR_DelUserTmpExt(1, FngrPrntOpr_Txt.Text, i);
+               }
+               //axCZKEM1.SSR_DelUserTmpExt(1, enrollid, 6);
+               _dev.DeleteUserInfoEx(1, Convert.ToInt32(FngrPrntOpr_Txt.Text));
+               _dev.ClearSLog(1);
+
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
+            else if(StrtCardEnrl_Rb.Checked)
+            {
+               _dev.EnableDevice(1, false);
+
+               _dev.SetStrCardNumber(CardOpr_Txt.Text);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+               if (_dev.SSR_SetUserInfo(1, FngrPrntOpr_Txt.Text, FngrPrntOpr_Txt.Text, "", 0, true))//upload the user's information(card number included)
+               {
+                  //MessageBox.Show("کارت شما در سیستم ثبت گردید");
+                  //FngrPrnt_Txt.Text = EnrollNumber;
+                  //if (CardNumb_Text.Text == "") CardNumb_Text.Text = "0";
+                  //CardNumb_Text.Text = (Convert.ToInt64(CardNumb_Text.Text) + 1).ToString();
+                  //MessageBox.Show(string.Format("FngrPrnt {0} CardNumb {1} NameDnrm {2}", EnrollNumber, CardNumber, NameDnrm));
+               }
+               else
+               {
+                  int idwErrorCode = 0;
+                  _dev.GetLastError(ref idwErrorCode);
+                  MessageBox.Show("Operation failed,ErrorCode=" + idwErrorCode.ToString(), "Error");
+               }
+               _dev.RefreshData(1);//the data in the device should be refreshed
+               _dev.EnableDevice(1, true);
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void FngrPrntOpr_Txt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            FngrPrnt_Txt.Text = FngrPrntOpr_Txt.Text;
+
+            ShowInfo_Butn_Click(null, null);
          }
          catch (Exception exc)
          {

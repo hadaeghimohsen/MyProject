@@ -1194,6 +1194,7 @@
          this.Pyds_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.colCretTime = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemTimeEdit4 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
+         this.gridColumn378 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Parm3_Gb = new System.Windows.Forms.GroupBox();
          this.Back3_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
@@ -1841,6 +1842,7 @@
          this.colMDFY_BY14 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE15 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colStatistic1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn489 = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.Ptyp_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pmst_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PcdtiActn_Butn)).BeginInit();
@@ -7658,7 +7660,8 @@
             this.gridColumn83,
             this.colDPST_STAT,
             this.gridColumn86,
-            this.gridColumn252});
+            this.gridColumn252,
+            this.gridColumn489});
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          styleFormatCondition1.Appearance.Options.UseBackColor = true;
          styleFormatCondition1.ApplyToRow = true;
@@ -7691,7 +7694,7 @@
          this.colGLRL_GLID.OptionsColumn.AllowEdit = false;
          this.colGLRL_GLID.OptionsColumn.ReadOnly = true;
          this.colGLRL_GLID.Visible = true;
-         this.colGLRL_GLID.VisibleIndex = 12;
+         this.colGLRL_GLID.VisibleIndex = 13;
          this.colGLRL_GLID.Width = 133;
          // 
          // colRWNO3
@@ -7702,7 +7705,7 @@
          this.colRWNO3.Name = "colRWNO3";
          this.colRWNO3.OptionsColumn.FixedWidth = true;
          this.colRWNO3.Visible = true;
-         this.colRWNO3.VisibleIndex = 11;
+         this.colRWNO3.VisibleIndex = 12;
          this.colRWNO3.Width = 31;
          // 
          // Glrd_Butn
@@ -7740,7 +7743,7 @@
          this.colRCPT_MTOD.OptionsColumn.AllowEdit = false;
          this.colRCPT_MTOD.OptionsColumn.ReadOnly = true;
          this.colRCPT_MTOD.Visible = true;
-         this.colRCPT_MTOD.VisibleIndex = 9;
+         this.colRCPT_MTOD.VisibleIndex = 10;
          this.colRCPT_MTOD.Width = 67;
          // 
          // repositoryItemLookUpEdit7
@@ -7938,7 +7941,7 @@
          this.gridColumn86.UnboundExpression = "Iif([Gain_Loss_Rial.DPST_STAT] == \'002\', [AMNT] , -[AMNT] )";
          this.gridColumn86.UnboundType = DevExpress.Data.UnboundColumnType.Object;
          this.gridColumn86.Visible = true;
-         this.gridColumn86.VisibleIndex = 10;
+         this.gridColumn86.VisibleIndex = 11;
          this.gridColumn86.Width = 82;
          // 
          // gridColumn252
@@ -12796,7 +12799,8 @@
             this.gridColumn71,
             this.SexType3_Clm,
             this.gridColumn78,
-            this.colCretTime});
+            this.colCretTime,
+            this.gridColumn378});
          this.gridView4.GridControl = this.gridControl2;
          this.gridView4.Name = "gridView4";
          this.gridView4.OptionsFind.AlwaysVisible = true;
@@ -12819,7 +12823,7 @@
          this.RqtpCode3_Clm.FieldName = "Request_Row.Request_Type.RQTP_DESC";
          this.RqtpCode3_Clm.Name = "RqtpCode3_Clm";
          this.RqtpCode3_Clm.Visible = true;
-         this.RqtpCode3_Clm.VisibleIndex = 10;
+         this.RqtpCode3_Clm.VisibleIndex = 11;
          this.RqtpCode3_Clm.Width = 110;
          // 
          // FileNo3_Clm
@@ -12828,7 +12832,7 @@
          this.FileNo3_Clm.FieldName = "Request_Row.Fighter.NAME_DNRM";
          this.FileNo3_Clm.Name = "FileNo3_Clm";
          this.FileNo3_Clm.Visible = true;
-         this.FileNo3_Clm.VisibleIndex = 9;
+         this.FileNo3_Clm.VisibleIndex = 10;
          this.FileNo3_Clm.Width = 103;
          // 
          // colRWNO1
@@ -12867,7 +12871,7 @@
          this.AmntType3_Clm.FieldName = "AMNT_TYPE";
          this.AmntType3_Clm.Name = "AmntType3_Clm";
          this.AmntType3_Clm.Visible = true;
-         this.AmntType3_Clm.VisibleIndex = 6;
+         this.AmntType3_Clm.VisibleIndex = 7;
          this.AmntType3_Clm.Width = 96;
          // 
          // Pyds_Lov
@@ -12972,7 +12976,7 @@
          this.SexType3_Clm.OptionsColumn.FixedWidth = true;
          this.SexType3_Clm.OptionsColumn.ReadOnly = true;
          this.SexType3_Clm.Visible = true;
-         this.SexType3_Clm.VisibleIndex = 7;
+         this.SexType3_Clm.VisibleIndex = 8;
          // 
          // repositoryItemLookUpEdit3
          // 
@@ -12994,7 +12998,7 @@
          this.gridColumn78.Name = "gridColumn78";
          this.gridColumn78.OptionsColumn.FixedWidth = true;
          this.gridColumn78.Visible = true;
-         this.gridColumn78.VisibleIndex = 8;
+         this.gridColumn78.VisibleIndex = 9;
          this.gridColumn78.Width = 81;
          // 
          // Pyds_Butn
@@ -13033,6 +13037,14 @@
          this.repositoryItemTimeEdit4.Mask.UseMaskAsDisplayFormat = true;
          this.repositoryItemTimeEdit4.Name = "repositoryItemTimeEdit4";
          this.repositoryItemTimeEdit4.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         // 
+         // gridColumn378
+         // 
+         this.gridColumn378.Caption = "آیتم درآمد";
+         this.gridColumn378.FieldName = "Payment_Detail.PYDT_DESC";
+         this.gridColumn378.Name = "gridColumn378";
+         this.gridColumn378.Visible = true;
+         this.gridColumn378.VisibleIndex = 6;
          // 
          // Parm3_Gb
          // 
@@ -19681,6 +19693,18 @@
          this.colStatistic1.Visible = true;
          this.colStatistic1.VisibleIndex = 19;
          // 
+         // gridColumn489
+         // 
+         this.gridColumn489.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.gridColumn489.AppearanceCell.Options.UseBackColor = true;
+         this.gridColumn489.Caption = "پرداخت به حساب";
+         this.gridColumn489.FieldName = "App_Base_Define.TITL_DESC";
+         this.gridColumn489.Name = "gridColumn489";
+         this.gridColumn489.OptionsColumn.AllowEdit = false;
+         this.gridColumn489.OptionsColumn.ReadOnly = true;
+         this.gridColumn489.Visible = true;
+         this.gridColumn489.VisibleIndex = 9;
+         // 
          // RPT_PMMT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -21913,5 +21937,7 @@
       private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colREGN_PRVN_CODE5;
       private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit RqroActn_Butn;
       private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn378;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn489;
    }
 }

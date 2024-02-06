@@ -6693,18 +6693,24 @@ namespace System.RoboTech.Controller
                   else
                      caption = "لطفا گزینه مورد نظر خود را انتخاب کنید";
 
-                  int? _clmnNumb = null;
+                  int? _clmnNumb = null, _rowsNumb = null;
                   if (xelement.Attribute("clmnnumb") != null)
-                     _clmnNumb = xelement.Attribute("clmnnumb").Value.ToInt32();
+                     _clmnNumb = xelement.Attribute("clmnnumb").Value.ToInt32();          
+          
+                  _rowsNumb = xelement.Descendants("InlineKeyboardButton").ToList().Count;
 
                   try
                   {
-                     await
-                        Bot.SendTextMessageAsync(
-                           chatId: chatid,
-                           text: caption,
-                           replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").ToList(), _clmnNumb)
-                        );
+                     for (int i = 0; i <= (_rowsNumb / 100); i++)
+                     {
+                        await
+                           Bot.SendTextMessageAsync(
+                              chatId: chatid,
+                              text: caption,
+                              replyMarkup: CreateInLineKeyboard(xelement.Descendants("InlineKeyboardButton").Skip(i * 100).Take(100).ToList(), _clmnNumb)
+                           );
+                     }
+                     
                   }
                   catch { }
 

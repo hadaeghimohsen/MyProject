@@ -28,8 +28,9 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          this.modual_ReportGridControl = new DevExpress.XtraGrid.GridControl();
-         this.MdrpBs1 = new System.Windows.Forms.BindingSource();
+         this.MdrpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.MdulName_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -41,7 +42,7 @@
          this.colRPRT_PATH = new DevExpress.XtraGrid.Columns.GridColumn();
          this.ShowPrvw_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DYsnoBs1 = new System.Windows.Forms.BindingSource();
+         this.DYsnoBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colDFLT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_BY = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -276,7 +277,7 @@
          this.simpleButton3.Name = "simpleButton3";
          this.simpleButton3.Size = new System.Drawing.Size(61, 59);
          this.simpleButton3.TabIndex = 4;
-         this.simpleButton3.ToolTip = "بازگشت";
+         this.simpleButton3.ToolTip = "چاپ";
          this.simpleButton3.Click += new System.EventHandler(this.mb_SelectReport_Click);
          // 
          // simpleButton2

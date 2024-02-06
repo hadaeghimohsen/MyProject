@@ -14,6 +14,7 @@ using System.MaxUi;
 using System.Globalization;
 using DevExpress.XtraEditors;
 using System.Scsc.ExtCode;
+using System.Threading;
 
 namespace System.Scsc.Ui.Notifications
 {
@@ -115,6 +116,8 @@ namespace System.Scsc.Ui.Notifications
          if (attnvist > 0) return;
          attnvist++;
 
+         var _stng = iScsc.Settings.FirstOrDefault(s => Fga_Uclb_U.Contains(s.CLUB_CODE));
+
          if (_attn.EXIT_TIME != null)
          {
             //Lbl_AccessControl.Text = "خروج از باشگاه";
@@ -130,13 +133,16 @@ namespace System.Scsc.Ui.Notifications
             DresNumb_Butn.Enabled = true;
 
             // 1396/10/18 * آیا گزینه نمایش چاپ حضوری انجام شود یا خیر
-            if (_attn.Fighter1.FGPB_TYPE_DNRM == "001" && iScsc.Settings.FirstOrDefault(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).ATTN_PRNT_STAT == "002")
+            if (_attn.Fighter1.FGPB_TYPE_DNRM == "001" && _stng.ATTN_PRNT_STAT == "002")
             {
                // 1397/01/28 * برای آن دسته از ورود هایی که هنوز چاپ نشده اند
                if(_attn.PRNT_STAT != "002")
                   PrintDefault_Butn_Click(null, null);
             }
          }
+
+         // 1402/10/21 * اگر سیستم قفل انلاین باشد
+         SetDVip_Butn.Visible = OpenDVip_Butn.Visible = _stng.DRES_AUTO == "002";
 
          if(gateControl)
             _DefaultGateway.Gateway(
@@ -193,7 +199,17 @@ namespace System.Scsc.Ui.Notifications
 
          AttnDate_Date.Value = _attn.ATTN_DATE;
          AttnDate_Lb.Text = AttnDate_Date.GetText("yyyy/MM/dd");
-         Mtod_Lb.Text = string.Format("{0} - {1}", _attn.Method.MTOD_DESC, _attn.Category_Belt.CTGY_DESC);
+         if (_attn.FGPB_TYPE_DNRM == "001")
+         {
+            Mtod_Lb.Text = string.Format("{0} - {1}", _attn.Method.MTOD_DESC, _attn.Category_Belt.CTGY_DESC);
+            CochProFile_Rb.Visible = true;
+         }
+         else
+         {
+            Mtod_Lb.Text = "پرسنل";
+            CochName_Lb.Text = "";
+            CochProFile_Rb.Visible = false;
+         }
          if (_attn.NUMB_OF_ATTN_MONT == 0) NumbAttnMont_Lb.Visible = false;
          else NumbAttnMont_Lb.Visible = true;
 
@@ -458,6 +474,8 @@ namespace System.Scsc.Ui.Notifications
 
          // 1401/07/23 * روز سرگونی حکومت کثیف آخوندی
          PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.MBSP_FIGH_FILE_NO == _attn.FIGH_FILE_NO && pd.MBSP_RECT_CODE == "004" && pd.MBSP_RWNO == _attn.MBSP_RWNO_DNRM);
+
+         //if()
 
          DoBkg_Tr.Enabled = true;
       }
@@ -1071,11 +1089,15 @@ namespace System.Scsc.Ui.Notifications
                .Any(s =>
                   s.PHON_NUMB == _attn.CELL_PHON_DNRM
                );
+
+            // 1402/10/21 * بار گذاری کمدهایی که میتوان به مشتریان داد
+            DresBs.DataSource = iScsc.Dressers.Where(d => d.VIP_STAT == "001" && d.REC_STAT == "002" && !d.Dresser_Attendances.Any(da => da.Attendance.EXIT_TIME == null) && !d.Dresser_Vip_Fighters.Any(dv => dv.STAT == "002"));
+            DratGv.ActiveFilterString = "Tkbk_Time IS NULL";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
-            MessageBox.Show("Do Bkg Error");
+            //MessageBox.Show(exc.Message);
+            //MessageBox.Show("Do Bkg Error");
          }
          finally
          {
@@ -1197,5 +1219,326 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception exc) { }
       }
       #endregion
+
+      private void SetDVip_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _attn = AttnBs1.Current as Data.Attendance;
+            if(_attn == null && _attn.Dresser_Attendances == null)return;
+            
+            var _dvipcode = _attn.Dresser_Attendances.FirstOrDefault(d => d.DRAT_CODE == null).CODE;
+
+            bool _freelockvip = false;
+            var _lockbydvip = iScsc.Dresser_Vip_Fighters.FirstOrDefault(d => d.DRES_CODE == _dvipcode && d.STAT == "002" && d.MBSP_FIGH_FILE_NO != _attn.FIGH_FILE_NO);
+            if(_lockbydvip != null)
+            {
+               if (MessageBox.Show(this, string.Format("در حال حاضر کمد در اختیار {0} مباشد آیا با آزاد کردن کمد موافق هستید?", _lockbydvip.Fighter.NAME_DNRM), "خطا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+               _freelockvip = true;
+            }
+
+            // اگر مشتری دارای کمد اختصاصی یا اجاره ای باشه نباید کمد دیگری به آن داده شود
+            if(iScsc.Dresser_Vip_Fighters.Any(d => d.MBSP_FIGH_FILE_NO == _attn.FIGH_FILE_NO && d.STAT == "002"))
+            {
+               MessageBox.Show(this, "مشتری دارای کمد اختصاصی یا اجاره ای میباشد، شما قادر به اختصاص کمد جدید به این مشتری نیستید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               return;
+            }
+
+            // 1402/10/10 * بررسی اینکه آیا این کمد برای این دوره درست انتخاب شده یا خیر
+            var _edlm = iScsc.External_Device_Link_Methods;
+            if(_edlm.Any())
+            {
+               if(!_edlm.Any(i => i.MTOD_CODE == _attn.Member_Ship.FGPB_MTOD_CODE_DNRM && iScsc.Dressers.Any(d => d.CODE == _dvipcode && d.IP_ADRS == i.External_Device.IP_ADRS)))
+               {
+                  MessageBox.Show(this, "کمد انتخاب شده برای این گروه خدمات تعریف نشده، لطفا اصلاح کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  return;
+               }
+            }
+
+            if(_freelockvip)
+               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
+            iScsc.ExecuteCommand("INSERT INTO dbo.Dresser_Vip_Fighter (Dres_Code, Mbsp_Figh_File_No, Mbsp_Rwno, Mbsp_Rect_Code, Code, Stat) VALUES ({0}, {1}, {2}, '004', 0, '002');", _dvipcode, _attn.FIGH_FILE_NO, _attn.Member_Ship.RWNO);
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+               {
+                  Input =
+                     new List<object>
+                     {
+                        ToolTipIcon.Info,
+                        "کمد به مشتری اختصاص داده شد",
+                        "اختصاص کمد به مشتری",
+                        2000
+                     }
+               }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void OpenDVip_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _attn = AttnBs1.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            var dres = _attn.Dresser_Attendances.FirstOrDefault().Dresser as Data.Dresser;
+            if (dres == null) return;
+
+            if (MessageBox.Show(this, "آیا با باز کردن کمد موافق هستید؟", "تایید فعالیت", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            // 1402/08/30 * User access to open online locker
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> 
+                              {
+                                 "<Privilege>272</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                 "DataGuard"
+                              },
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                    return;
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 272 سطوح امینتی", "عدم دسترسی");
+                              })
+                           },
+                           #endregion
+                        }),
+                     #region Dowork
+                     new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+                     {
+                        Input =
+                           new XElement("OprtDres",
+                                 new XAttribute("type", "sendoprtdres"),
+                                 new XAttribute("cmndname", dres.DRES_NUMB),
+                                 new XAttribute("devip", dres.IP_ADRS),
+                                 new XAttribute("cmndsend", dres.CMND_SEND ?? "")
+                                 )
+                     }
+                     #endregion
+                  })
+            );
+
+            // 1402/10/21 * باز کردن کمدهای همراهان
+            if (iScsc.Dresser_Attendances.Any(da => da.ATTN_CODE == _attn.CODE && da.DRAT_CODE != null))
+            {
+               new Thread(new ThreadStart(() => OpenDresPart_Tmr_Tick(_attn.CODE))).Start();
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void OpenDresPart_Tmr_Tick(long attncode)
+      {
+         try
+         {
+            foreach (var _dres in iScsc.Dresser_Attendances.Where(da => da.ATTN_CODE == attncode && da.DRAT_CODE != null).OrderBy(d => d.DERS_NUMB))
+            {
+               Thread.Sleep(4000);
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+                  {
+                     Input =
+                        new XElement("OprtDres",
+                           new XAttribute("type", "sendoprtdres"),
+                           new XAttribute("cmndname", _dres.Dresser.DRES_NUMB),
+                           new XAttribute("devip", _dres.Dresser.IP_ADRS),
+                           new XAttribute("cmndsend", _dres.Dresser.CMND_SEND ?? "")
+                        )
+                  }
+               );
+            }
+         }
+         catch { }
+      } 
+
+      private void DresActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            var _attn = AttnBs1.Current as Data.Attendance;
+
+            attncode = _attn.CODE;
+
+            switch (e.Button.Index)
+            {               
+               case 0:
+                  // 1402/08/30 * User access to open online locker
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>272</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 272 سطوح امینتی", "عدم دسترسی");
+                                    })
+                                 },
+                                 #endregion
+                              }),
+                           #region Dowork
+                           new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */)
+                           {
+                              Input =
+                                 new XElement("OprtDres",
+                                       new XAttribute("type", "sendoprtdres"),
+                                       new XAttribute("cmndname", _dres.DRES_NUMB),
+                                       new XAttribute("devip", _dres.IP_ADRS),
+                                       new XAttribute("cmndsend", _dres.CMND_SEND ?? "")
+                                       )
+                           }
+                           #endregion
+                        })
+                  );
+                  break;
+               case 1:
+                  //var _dvipcode = _attn.Dresser_Attendances.FirstOrDefault(d => d.DRAT_CODE == null).DRES_CODE;
+                  var _mbsp = _attn.Member_Ship;            
+
+                  bool _freelockvip = false;
+                  var _lockbydvip = iScsc.Dresser_Vip_Fighters.FirstOrDefault(d => d.DRES_CODE == _dres.CODE && d.STAT == "002" && d.MBSP_FIGH_FILE_NO != _attn.FIGH_FILE_NO);
+                  if(_lockbydvip != null)
+                  {
+                     if (MessageBox.Show(this, string.Format("در حال حاضر کمد در اختیار {0} مباشد آیا با آزاد کردن کمد موافق هستید?", _lockbydvip.Fighter.NAME_DNRM), "خطا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                     _freelockvip = true;
+                  }
+
+                  //// اگر مشتری دارای کمد اختصاصی یا اجاره ای باشه نباید کمد دیگری به آن داده شود
+                  //if(iScsc.Dresser_Vip_Fighters.Any(d => d.MBSP_FIGH_FILE_NO == _attn.FIGH_FILE_NO && d.STAT == "002"))
+                  //{
+                  //   MessageBox.Show(this, "مشتری دارای کمد اختصاصی یا اجاره ای میباشد، شما قادر به اختصاص کمد جدید به این مشتری نیستید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  //   return;
+                  //}
+
+                  // 1402/10/10 * بررسی اینکه آیا این کمد برای این دوره درست انتخاب شده یا خیر
+                  var _edlm = iScsc.External_Device_Link_Methods;
+                  if(_edlm.Any())
+                  {
+                     if(!_edlm.Any(i => i.MTOD_CODE == _mbsp.FGPB_MTOD_CODE_DNRM && iScsc.Dressers.Any(d => d.CODE == _dres.CODE && d.IP_ADRS == i.External_Device.IP_ADRS)))
+                     {
+                        MessageBox.Show(this, "کمد انتخاب شده برای این گروه خدمات تعریف نشده، لطفا اصلاح کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                     }
+                  }
+
+                  if(_freelockvip)
+                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
+                  iScsc.ExecuteCommand("INSERT INTO dbo.Dresser_Attendance (Dres_Code, Attn_Code, Figh_File_No, Code, Drat_Code, Ders_Numb, Lend_Time) SELECT {0}, {1}, {2}, 0, {4}, {3}, CAST(GETDATE() AS TIME(0)) WHERE NOT EXISTS (SELECT 0 FROM dbo.Dresser_Attendance WHERE Dres_Code = {0} AND Attn_Code = {1});", _dres.CODE, _attn.CODE, fileno, _dres.DRES_NUMB, _attn.Dresser_Attendances.FirstOrDefault(d => d.DRAT_CODE == null).CODE);
+                  break;
+               default:
+                  break;
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query(true);
+         }
+      }
+
+      private void ActnDrat_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _drat = DratBs.Current as Data.Dresser_Attendance;
+            if (_drat == null || _drat.DRAT_CODE == null) return;
+
+            var _dres = _drat.Dresser;
+
+            attncode = _drat.ATTN_CODE;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  // 1402/08/30 * User access to open online locker
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>272</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 272 سطوح امینتی", "عدم دسترسی");
+                                    })
+                                 },
+                                 #endregion
+                              }),
+                           #region Dowork
+                           new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */)
+                           {
+                              Input =
+                                 new XElement("OprtDres",
+                                       new XAttribute("type", "sendoprtdres"),
+                                       new XAttribute("cmndname", _dres.DRES_NUMB),
+                                       new XAttribute("devip", _dres.IP_ADRS),
+                                       new XAttribute("cmndsend", _dres.CMND_SEND ?? "")
+                                       )
+                           }
+                           #endregion
+                        })
+                  );
+                  break;
+               case 1:
+                  iScsc.ExecuteCommand("DELETE dbo.Dresser_Attendance WHERE Attn_Code = {0} AND Ders_Numb = '{0}';", _drat.ATTN_CODE, _drat.DERS_NUMB);
+                  break;
+               default:
+                  break;
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query(true);
+         }
+      }
    }
 }

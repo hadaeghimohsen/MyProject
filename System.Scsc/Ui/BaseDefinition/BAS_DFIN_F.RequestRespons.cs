@@ -368,7 +368,7 @@ namespace System.Scsc.Ui.BaseDefinition
                      //Ctgy_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "exitcode_lb":
-                     ExitCode_Lb.Text = control.LABL_TEXT;
+                     //ExitCode_Lb.Text = control.LABL_TEXT;
                      //ExitCode_Lb.Text = control.LABL_TEXT; // ToolTip
                      //ExitCode_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -761,6 +761,7 @@ namespace System.Scsc.Ui.BaseDefinition
          UserBs1.DataSource = iScsc.V_Users;
          DMsgtBs.DataSource = iScsc.D_MSGTs;
          DEfdtBs.DataSource = iScsc.D_EFDTs;
+         DRedrBs.DataSource = iScsc.D_REDRs;
 
          AttnComPortName_Lov.Items.Clear();
          GateComPortName_Lov.Items.Clear();
@@ -770,6 +771,19 @@ namespace System.Scsc.Ui.BaseDefinition
          GateComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());
          ExpnComPortName_Lov.Items.AddRange(SerialPort.GetPortNames());
 
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self)
+            {
+               AfterChangedOutput =
+                  new Action<object>(
+                     (output) =>
+                     {
+                        var hostinfo = output as XElement;
+                        ComputerInfo_Lb.Text = hostinfo.ToString();
+                     }
+                  )
+            }
+         );
 
          job.Status = StatusType.Successful;
       }
@@ -800,8 +814,7 @@ namespace System.Scsc.Ui.BaseDefinition
                default:
                   SwitchButtonsTabPage(Cash_Butn);
                   break;
-            }
-            
+            }            
          }
          else
          {

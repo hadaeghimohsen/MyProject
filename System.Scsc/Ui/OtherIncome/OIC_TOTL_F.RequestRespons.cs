@@ -470,6 +470,7 @@ namespace System.Scsc.Ui.OtherIncome
          DCetpBs.DataSource = iScsc.D_CETPs;
          DPycoBs.DataSource = iScsc.D_PYCOs;
          MtodBs1.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
+         GropBs.DataSource = iScsc.Group_Expenses.Where(g => g.GROP_TYPE == "001" && g.STAT == "002");
          UnitBs.DataSource = iScsc.App_Base_Defines.Where(u => u.ENTY_NAME == "PRODUCTUNIT_INFO");
          RtoaBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Payment_To_Another_Account");
          DRqpmBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Request_Parameter");

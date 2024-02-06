@@ -254,9 +254,12 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
+            var Rqst = RqstBs3.Current as Data.Request;
+            if (Rqst == null) return;
+
             if (MessageBox.Show(this, "آیا با انصراف تمدید مشتری مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            var Rqst = RqstBs3.Current as Data.Request;
+            
 
             if (Rqst != null && Rqst.RQID > 0)
             {
@@ -422,7 +425,7 @@ namespace System.Scsc.Ui.Admission
 
             if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3))
             {
-               CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 && (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE))/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
+               CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 /*&& (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE)*/)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
                Gb_Expense3.Visible = true;
                MemberShip_Gbx.Visible = true;
                MbspInfo_Gbx.Visible = true;
@@ -465,7 +468,7 @@ namespace System.Scsc.Ui.Admission
             }
             else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3)) && Rqst.RQID > 0)
             {
-               CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 && (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE))/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
+               CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 /*&& (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE)*/)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
                Gb_Expense3.Visible = false;
                MemberShip_Gbx.Visible = true;
                MbspInfo_Gbx.Visible = true;
@@ -580,6 +583,12 @@ namespace System.Scsc.Ui.Admission
                         })
                );
             }
+            else if (GotoProfile_Cbx.Checked)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)) }
+               );
+            }
 
             // 1402/02/26 * ذخیره کردن شماره درخواست برای نمونه برداری برای کارت مشتریان دیگر
             if (RqstDupl_Pbtn.PickChecked)
@@ -624,7 +633,7 @@ namespace System.Scsc.Ui.Admission
           {
               lov_regn = sender as LookUpEdit;
               if (lov_regn.EditValue == null || lov_regn.EditValue.ToString().Length != 3) return;
-              CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 && (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(lov_prvn.EditValue.ToString() + lov_regn.EditValue.ToString()))/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
+              CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 /*&& (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(lov_prvn.EditValue.ToString() + lov_regn.EditValue.ToString())*/)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
           }
           catch
           {
@@ -1223,7 +1232,7 @@ namespace System.Scsc.Ui.Admission
                if (VPosBs1.List.Count == 0)
                   UsePos_Cb.Checked = false;
 
-               if (UsePos_Cb.Checked)
+               if (UsePos_Cb.Checked /* 1402/11/01 if payment no debt */ && PymtsBs3.List.OfType<Data.Payment>().Any(p => (p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM) > 0))
                {
                   foreach (Data.Payment pymt in PymtsBs3)
                   {
@@ -2433,17 +2442,35 @@ namespace System.Scsc.Ui.Admission
             if (rqst == null) return;
 
             var pydt = PydtsBs3.Current as Data.Payment_Detail;
+            var fgpb = FighBs3.Current as Data.Fighter;
 
             switch (e.Button.Index)
             {
                case 0:
-                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET QNTY += 1 WHERE PYMT_RQST_RQID = {0};", rqst.RQID));
+                  iScsc.ExecuteCommand(
+                     string.Format(
+                        "UPDATE dbo.Payment_Detail SET QNTY += 1 WHERE PYMT_RQST_RQID = {0};" + Environment.NewLine +
+                        "UPDATE dbo.Member_Ship SET End_Date = DATEADD(Day, {2} * ({3} + 1), Strt_Date), Numb_Of_Attn_Mont = {1} * {2} WHERE RQRO_RQST_RQID = {0};",
+                        rqst.RQID,
+                        fgpb.Category_Belt.NUMB_OF_ATTN_MONT,
+                        pydt.QNTY + 1,
+                        fgpb.Category_Belt.NUMB_CYCL_DAY)
+                     );
                   requery = true;
                   break;
                case 1:
                   if (pydt.QNTY > 1)
                   {
-                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET QNTY -= 1 WHERE PYMT_RQST_RQID = {0};", rqst.RQID));
+                     iScsc.ExecuteCommand(
+                        string.Format(
+                           "UPDATE dbo.Payment_Detail SET QNTY -= 1 WHERE PYMT_RQST_RQID = {0};" + Environment.NewLine +
+                           "UPDATE dbo.Member_Ship SET End_Date = DATEADD(Day, -({3} + 1), End_Date), Numb_Of_Attn_Mont = {1} * {2} WHERE RQRO_RQST_RQID = {0};",
+                           rqst.RQID,
+                           fgpb.Category_Belt.NUMB_OF_ATTN_MONT,
+                           pydt.QNTY - 1,
+                           fgpb.Category_Belt.NUMB_CYCL_DAY,
+                           rqst.RQID)
+                        );
                      requery = true;
                   }
                   break;

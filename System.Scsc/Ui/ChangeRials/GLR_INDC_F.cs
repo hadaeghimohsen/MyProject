@@ -136,6 +136,7 @@ namespace System.Scsc.Ui.ChangeRials
                                  new XAttribute("cardno", gd.CARD_NO ?? ""),
                                  new XAttribute("flowno", gd.FLOW_NO ?? ""),
                                  new XAttribute("refno", gd.REF_NO ?? ""),
+                                 new XAttribute("rtoacode", gd.RCPT_TO_OTHR_ACNT ?? 0),
                                  new XAttribute("actndate", gd.ACTN_DATE.HasValue ? gd.ACTN_DATE.Value.ToString("yyyy-MM-dd") : "")
                               )
                            )
@@ -622,6 +623,11 @@ namespace System.Scsc.Ui.ChangeRials
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void RtoaLov_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+
       }      
    }
 }

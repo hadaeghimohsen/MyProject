@@ -664,6 +664,15 @@
     <Compile Include="Ui\ChangeMethodCategory\ShowChanges\SHOW_CTRQ_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\ChangeRials\GLR_TRAN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\ChangeRials\GLR_TRAN_F.Designer.cs">
+      <DependentUpon>GLR_TRAN_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\ChangeRials\GLR_TRAN_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\ChangeRials\GLR_INDC_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1250,6 +1259,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_RCST.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_RCTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_RECT.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_REDR.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_RGTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_RPAC.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_RQST.datasource" />
@@ -1274,6 +1284,8 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Expense_Type_Step.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device_Link_Method.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.External_Device_Weekday.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.External_Device_Weekday_Timing.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Call.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Coupon.datasource" />
@@ -1581,6 +1593,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\ChangeMethodCategory\ShowChanges\SHOW_CTRQ_F.resx">
       <DependentUpon>SHOW_CTRQ_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\ChangeRials\GLR_TRAN_F.resx">
+      <DependentUpon>GLR_TRAN_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\ChangeRials\GLR_INDC_F.resx">
       <DependentUpon>GLR_INDC_F.cs</DependentUpon>

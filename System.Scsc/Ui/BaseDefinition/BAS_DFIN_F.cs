@@ -15,6 +15,9 @@ using System.Globalization;
 using DevExpress.XtraGrid.Views.Grid;
 using DevExpress.XtraEditors.Repository;
 using System.Data.Linq;
+using System.Diagnostics;
+using DevExpress.XtraTreeList;
+using DevExpress.XtraTreeList.Nodes;
 
 namespace System.Scsc.Ui.BaseDefinition
 {
@@ -2255,35 +2258,79 @@ namespace System.Scsc.Ui.BaseDefinition
             var coma = ComaBs.Current as Data.Computer_Action;
             if (coma == null || coma.CODE == 0) return;
 
-            Job _InteractWithScsc =
-               new Job(SendType.External, "Localhost",
-                  new List<Job>
-                  {
-                     new Job(SendType.External, "Commons",
+            switch (e.Button.Index)
+            {
+               case 0:
+                  Job _InteractWithScsc =
+                     new Job(SendType.External, "Localhost",
                         new List<Job>
                         {
-                           #region Access Privilege
-                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
-                           {
-                              Input = new List<string> 
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
                               {
-                                 "<Privilege>234</Privilege><Sub_Sys>5</Sub_Sys>", 
-                                 "DataGuard"
-                              },
-                              AfterChangedOutput = new Action<object>((output) => {
-                                 if ((bool)output)
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
                                  {
-                                    iScsc.ExecuteCommand(string.Format("Update dbo.Computer_Action SET Mtod_Code = NULL WHERE Code = {0}", coma.CODE));
-                                    requery = true;
-                                    return;
-                                 }
-                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 234 سطوح امینتی", "عدم دسترسی");
-                              })
-                           },
-                           #endregion
-                        }),                  
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>234</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                       {
+                                          iScsc.ExecuteCommand(string.Format("Update dbo.Computer_Action SET Mtod_Code = NULL WHERE Code = {0}", coma.CODE));
+                                          requery = true;
+                                          return;
+                                       }
+                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 234 سطوح امینتی", "عدم دسترسی");
+                                    })
+                                 },
+                                 #endregion
+                              }),                  
+                        });
+                  _DefaultGateway.Gateway(_InteractWithScsc);
+                  break;
+               case 1:
+                  if(coma.ANY_DESK_PATH != "")
+                  {
+                     ProcessStartInfo startInfo = new ProcessStartInfo();
+                     startInfo.FileName = coma.ANY_DESK_PATH;
+                     startInfo.Arguments = string.Format("{0} --with-password", coma.ANY_DESK_ID/*, (coma.ANY_DESK_PSWD == null || coma.ANY_DESK_PSWD.Length == 0 ? "" : "--pasword " + coma.ANY_DESK_PSWD)*/);
+                     startInfo.UseShellExecute = false;
+                     startInfo.RedirectStandardInput = true;
+
+                     Process process = new Process();
+                     process.StartInfo = startInfo;
+                     process.Start();
+
+                     process.StandardInput.WriteLine("password");
+                     process.StandardInput.Flush();
+                     process.StandardInput.Close();
+                  }
+                  break;
+               case 2:
+                  if (coma.ANY_DESK_PATH != "")
+                  {
+                     ProcessStartInfo startInfo = new ProcessStartInfo();
+                     startInfo.FileName = coma.ANY_DESK_PATH;
+                     startInfo.Arguments = string.Format("{0} --with-password", coma.IP_ADRS);
+                     startInfo.UseShellExecute = false;
+                     startInfo.RedirectStandardInput = true;
+
+                     Process process = new Process();
+                     process.StartInfo = startInfo;
+                     process.Start();
+
+                     process.StandardInput.WriteLine("password");
+                     process.StandardInput.Flush();
+                     process.StandardInput.Close();
+                  }
+                  break;
+               case 3:
+                  Process.Start("explorer.exe", @"\\" + coma.IP_ADRS);
+                  break;
+            }            
          }
          catch (Exception exc)
          {
@@ -3691,6 +3738,7 @@ namespace System.Scsc.Ui.BaseDefinition
                         ComaBs.AddNew();
                         var coma = ComaBs.Current as Data.Computer_Action;
                         coma.COMP_NAME = hostinfo.Attribute("name").Value;
+                        coma.IP_ADRS = hostinfo.Attribute("ip").Value;
                         coma.CHCK_ATTN_ALRM = "001";
                         coma.CHCK_DOBL_ATTN_STAT = "001";
 
@@ -5284,19 +5332,50 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
+            var _btn = (MaxUi.Button)sender;
+
             if(DuplCtgy_Fcb.Checked)
             {
-               foreach (var _ctgy in CtgyBs1.List.OfType<Data.Category_Belt>())
+               switch (_btn.Tag.ToString())
                {
-                  iScsc.INS_CTGY_P(_ctgy.MTOD_CODE, _ctgy.CTGY_DESC + DuplChar_Txt.Text, _ctgy.CTGY_DESC + DuplChar_Txt.Text, null, _ctgy.EPIT_TYPE, _ctgy.NUMB_OF_ATTN_MONT, _ctgy.NUMB_CYCL_DAY, _ctgy.NUMB_MONT_OFER, _ctgy.PRVT_COCH_EXPN, _ctgy.PRIC, _ctgy.DFLT_STAT, _ctgy.CTGY_STAT, _ctgy.GUST_NUMB, null, _ctgy.RWRD_ATTN_PRIC, _ctgy.SHOW_STAT);
-               }
+                  case "char":
+                     foreach (var _ctgy in CtgyBs1.List.OfType<Data.Category_Belt>())
+                     {
+                        iScsc.INS_CTGY_P(_ctgy.MTOD_CODE, _ctgy.CTGY_CODE, _ctgy.CTGY_DESC + DuplChar_Txt.Text, _ctgy.CTGY_DESC + DuplChar_Txt.Text, null, _ctgy.EPIT_TYPE, _ctgy.NUMB_OF_ATTN_MONT, _ctgy.NUMB_CYCL_DAY, _ctgy.NUMB_MONT_OFER, _ctgy.PRVT_COCH_EXPN, _ctgy.PRIC, _ctgy.DFLT_STAT, _ctgy.CTGY_STAT, _ctgy.GUST_NUMB, null, _ctgy.RWRD_ATTN_PRIC, _ctgy.SHOW_STAT, _ctgy.FEE_AMNT);
+                     }
+                     break;
+                  case "month":
+                     if (Convert.ToInt32(CtgyMont_Txt.EditValue) == 0) {CtgyMont_Txt.Focus(); return;}
+                     if (CtgyTmpStr_Txt.Text == "") { CtgyTmpStr_Txt.Focus(); return; }
+
+                     foreach (var _ctgy in CtgyBs1.List.OfType<Data.Category_Belt>())
+                     {
+                        iScsc.INS_CTGY_P(_ctgy.MTOD_CODE, _ctgy.CTGY_CODE, _ctgy.CTGY_DESC + DuplChar_Txt.Text, string.Format(CtgyTmpStr_Txt.Text, Convert.ToInt32(CtgyMont_Txt.EditValue) * _ctgy.NUMB_OF_ATTN_MONT, CtgyMont_Txt.Text), null, _ctgy.EPIT_TYPE, _ctgy.NUMB_OF_ATTN_MONT * Convert.ToInt32(CtgyMont_Txt.EditValue), _ctgy.NUMB_CYCL_DAY * Convert.ToInt32(CtgyMont_Txt.EditValue), _ctgy.NUMB_MONT_OFER, _ctgy.PRVT_COCH_EXPN, _ctgy.PRIC * Convert.ToInt32(CtgyMont_Txt.EditValue), _ctgy.DFLT_STAT, _ctgy.CTGY_STAT, _ctgy.GUST_NUMB * Convert.ToInt32(CtgyMont_Txt.EditValue), null, _ctgy.RWRD_ATTN_PRIC, _ctgy.SHOW_STAT, _ctgy.FEE_AMNT);
+                     }
+                     break;
+               }               
             }
             else
             {
-               var _ctgy = CtgyBs1.Current as Data.Category_Belt;
-               if (_ctgy == null) return;
+               switch (_btn.Tag.ToString())
+               {
+                  case "char":
+                     var _ctgy = CtgyBs1.Current as Data.Category_Belt;
+                     if (_ctgy == null) return;
 
-               iScsc.INS_CTGY_P(_ctgy.MTOD_CODE, _ctgy.CTGY_DESC + DuplChar_Txt.Text, _ctgy.CTGY_DESC + DuplChar_Txt.Text, null, _ctgy.EPIT_TYPE, _ctgy.NUMB_OF_ATTN_MONT, _ctgy.NUMB_CYCL_DAY, _ctgy.NUMB_MONT_OFER, _ctgy.PRVT_COCH_EXPN, _ctgy.PRIC, _ctgy.DFLT_STAT, _ctgy.CTGY_STAT, _ctgy.GUST_NUMB, null, _ctgy.RWRD_ATTN_PRIC, _ctgy.SHOW_STAT);
+                     iScsc.INS_CTGY_P(_ctgy.MTOD_CODE, _ctgy.CTGY_CODE, _ctgy.CTGY_DESC + DuplChar_Txt.Text, _ctgy.CTGY_DESC + DuplChar_Txt.Text, null, _ctgy.EPIT_TYPE, _ctgy.NUMB_OF_ATTN_MONT, _ctgy.NUMB_CYCL_DAY, _ctgy.NUMB_MONT_OFER, _ctgy.PRVT_COCH_EXPN, _ctgy.PRIC, _ctgy.DFLT_STAT, _ctgy.CTGY_STAT, _ctgy.GUST_NUMB , null, _ctgy.RWRD_ATTN_PRIC, _ctgy.SHOW_STAT, _ctgy.FEE_AMNT);
+                     break;
+                  case "month":
+                     if (Convert.ToInt32(CtgyMont_Txt.EditValue) == 0) {CtgyMont_Txt.Focus(); return;}
+                     if (CtgyTmpStr_Txt.Text == "") { CtgyTmpStr_Txt.Focus(); return; }
+
+                     foreach (var i in Ctgy_Gv.GetSelectedRows())
+                     {
+                        _ctgy = Ctgy_Gv.GetRow(i) as Data.Category_Belt;
+                        iScsc.INS_CTGY_P(_ctgy.MTOD_CODE, _ctgy.CTGY_CODE, _ctgy.CTGY_DESC + DuplChar_Txt.Text, string.Format(CtgyTmpStr_Txt.Text, Convert.ToInt32(CtgyMont_Txt.EditValue) * _ctgy.NUMB_OF_ATTN_MONT, CtgyMont_Txt.Text), null, _ctgy.EPIT_TYPE, _ctgy.NUMB_OF_ATTN_MONT * Convert.ToInt32(CtgyMont_Txt.EditValue), _ctgy.NUMB_CYCL_DAY * Convert.ToInt32(CtgyMont_Txt.EditValue), _ctgy.NUMB_MONT_OFER, _ctgy.PRVT_COCH_EXPN, _ctgy.PRIC * Convert.ToInt32(CtgyMont_Txt.EditValue), _ctgy.DFLT_STAT, _ctgy.CTGY_STAT, _ctgy.GUST_NUMB * Convert.ToInt32(CtgyMont_Txt.EditValue), null, _ctgy.RWRD_ATTN_PRIC, _ctgy.SHOW_STAT, _ctgy.FEE_AMNT);
+                     }
+                     break;
+               }               
             }
             requery = true;
          }
@@ -5309,7 +5388,6 @@ namespace System.Scsc.Ui.BaseDefinition
             if (requery)
                Execute_Query();
          }
-
       }
 
       private void FngrPrnt1_Lb_Click(object sender, EventArgs e)
@@ -5405,6 +5483,321 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             MessageBox.Show(exc.Message);
          }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DupAnydeskPath_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var coma = ComaBs.Current as Data.Computer_Action;
+            if (coma == null) return;
+
+            ComaBs.List.OfType<Data.Computer_Action>().Where(c => c.CODE != coma.CODE).ToList().ForEach(c => c.ANY_DESK_PATH = coma.ANY_DESK_PATH);
+
+            SaveComa_Butn_Click(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveEdvw_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            EdvwGv.PostEditor();
+            EdwtGv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddEdvw_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _edev = ExdvBs.Current as Data.External_Device;
+            if (_edev == null) return;
+
+            if (EdvwBs.List.OfType<Data.External_Device_Weekday>().Any(ex => ex.CODE == 0)) return;
+
+            var _edvw = EdvwBs.AddNew() as Data.External_Device_Weekday;
+            _edvw.External_Device = _edev;
+            _edvw.STAT = "002";
+
+            iScsc.External_Device_Weekdays.InsertOnSubmit(_edvw);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelEdvw_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _edvw = EdvwBs.Current as Data.External_Device_Weekday;
+            if (_edvw == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            iScsc.External_Device_Weekdays.DeleteOnSubmit(_edvw);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddEdwt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _edvw = EdvwBs.Current as Data.External_Device_Weekday;
+            if (_edvw == null) return;
+
+            if (EdwtBs.List.OfType<Data.External_Device_Weekday_Timing>().Any(ex => ex.CODE == 0)) return;
+
+            var _edwt = EdwtBs.AddNew() as Data.External_Device_Weekday_Timing;
+            _edwt.External_Device_Weekday = _edvw;
+            _edwt.STRT_TIME = DateTime.Now;
+            _edwt.END_TIME = DateTime.Now.AddHours(2);
+            _edwt.STAT = "002";
+
+            iScsc.External_Device_Weekday_Timings.InsertOnSubmit(_edwt);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelEdwt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _edwt = EdwtBs.Current as Data.External_Device_Weekday_Timing;
+            if (_edwt == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            iScsc.External_Device_Weekday_Timings.DeleteOnSubmit(_edwt);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void EdevEven_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _edev = ExdvBs.Current as Data.External_Device;
+            if (_edev == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+               "MERGE dbo.External_Device_Weekday T " + 
+               "USING (SELECT w.Valu FROM D$Wkdy w WHERE w.Valu IN ('002', '004', '007')) S " + 
+               "ON (T.Edev_Code = {0} AND T.Week_Day = S.Valu) " +
+               "WHEN NOT MATCHED THEN INSERT (Edev_Code, Week_Day, Stat, Code) VALUES ({0}, s.Valu, '002', dbo.GNRT_NVID_U());",
+               _edev.CODE
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void EdevOdd_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _edev = ExdvBs.Current as Data.External_Device;
+            if (_edev == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+               "MERGE dbo.External_Device_Weekday T " +
+               "USING (SELECT w.Valu FROM D$Wkdy w WHERE w.Valu NOT IN ('002', '004', '006', '007')) S " +
+               "ON (T.Edev_Code = {0} AND T.Week_Day = S.Valu) " +
+               "WHEN NOT MATCHED THEN INSERT (Edev_Code, Week_Day, Stat, Code) VALUES ({0}, s.Valu, '002', dbo.GNRT_NVID_U());",
+               _edev.CODE
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void EdevFridy_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _edev = ExdvBs.Current as Data.External_Device;
+            if (_edev == null) return;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+               "MERGE dbo.External_Device_Weekday T " +
+               "USING (SELECT w.Valu FROM D$Wkdy w WHERE w.Valu IN ('006')) S " +
+               "ON (T.Edev_Code = {0} AND T.Week_Day = S.Valu) " +
+               "WHEN NOT MATCHED THEN INSERT (Edev_Code, Week_Day, Stat, Code) VALUES ({0}, s.Valu, '002', dbo.GNRT_NVID_U());",
+               _edev.CODE
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private DragDropEffects GetDragDropEffect(TreeList tl, TreeListNode dragNode)
+      {
+         TreeListNode targetNode;
+         Point p = tl.PointToClient(MousePosition);
+         targetNode = tl.CalcHitInfo(p).Node;
+
+         if (dragNode != null && targetNode != null
+             && dragNode != targetNode
+            /*&& dragNode.ParentNode == targetNode.ParentNode*/)
+            return DragDropEffects.Move;
+         else
+            return DragDropEffects.None;
+      }      
+
+      private void i_Tl_DragOver(object sender, DragEventArgs e)
+      {
+         TreeListNode dragNode = e.Data.GetData(typeof(TreeListNode)) as TreeListNode;
+         e.Effect = GetDragDropEffect(sender as TreeList, dragNode);
+      }
+
+      private void i_Tl_CalcNodeDragImageIndex(object sender, DevExpress.XtraTreeList.CalcNodeDragImageIndexEventArgs e)
+      {
+         TreeList tl = sender as TreeList;
+         if (GetDragDropEffect(tl, tl.FocusedNode) == DragDropEffects.None)
+            e.ImageIndex = -1;  // no icon
+         else
+            e.ImageIndex = 1;  // the reorder icon (a curved arrow)
+      }
+
+      private void Mtod_Tl_DragDrop(object sender, DragEventArgs e)
+      {
+         try
+         {
+            TreeListNode dragNode, targetNode;
+            TreeList tl = sender as TreeList;
+            Point p = tl.PointToClient(new Point(e.X, e.Y));
+
+            dragNode = e.Data.GetData(typeof(TreeListNode)) as TreeListNode;
+            targetNode = tl.CalcHitInfo(p).Node;
+
+            //iRoboTech.UPD_PMNU_P((long?)dragNode.GetValue("MUID"), (long?)targetNode.GetValue("MUID"));
+            if ((long?)dragNode.GetValue("CODE") != 0)
+            {
+               iScsc.ExecuteCommand(
+                  string.Format("UPDATE dbo.Method SET Mtod_Code = {0} WHERE Code = {1};", 
+                     (long?)targetNode.GetValue("CODE"), 
+                     (long?)dragNode.GetValue("CODE"))
+               );
+               requery = true;
+            }
+
+            tl.SetNodeIndex(dragNode, tl.GetNodeIndex(targetNode));
+            e.Effect = DragDropEffects.None;
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Ctgy_Tl_DragDrop(object sender, DragEventArgs e)
+      {
+         try
+         {
+            TreeListNode dragNode, targetNode;
+            TreeList tl = sender as TreeList;
+            Point p = tl.PointToClient(new Point(e.X, e.Y));
+
+            dragNode = e.Data.GetData(typeof(TreeListNode)) as TreeListNode;
+            targetNode = tl.CalcHitInfo(p).Node;
+
+            //iRoboTech.UPD_PMNU_P((long?)dragNode.GetValue("MUID"), (long?)targetNode.GetValue("MUID"));
+            if ((long?)dragNode.GetValue("CODE") != 0)
+            {
+               iScsc.ExecuteCommand(
+                  string.Format("UPDATE dbo.Category_Belt SET Ctgy_Code = {0} WHERE Code = {1};",
+                     (long?)targetNode.GetValue("CODE"),
+                     (long?)dragNode.GetValue("CODE"))
+               );
+               requery = true;
+            }
+
+            tl.SetNodeIndex(dragNode, tl.GetNodeIndex(targetNode));
+            e.Effect = DragDropEffects.None;
+         }
+         catch (Exception exc) { MessageBox.Show(exc.Message); }
          finally
          {
             if (requery)

@@ -285,11 +285,11 @@ namespace System.Scsc.Ui.Attendance
             //}
             //else if (Odd_Rb.Checked)
             //{
-
             //}
 
             _dressersList.Add(_iRec);
             DresBs1.Position = DresBs1.IndexOf(_iRec);
+
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
                {

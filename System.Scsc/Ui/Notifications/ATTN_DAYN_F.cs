@@ -12,6 +12,7 @@ using System.MaxUi;
 using System.Xml.Linq;
 using System.Scsc.ExtCode;
 using System.IO;
+using System.Threading;
 
 namespace System.Scsc.Ui.Notifications
 {
@@ -145,6 +146,12 @@ namespace System.Scsc.Ui.Notifications
                                   )
                         }
                      );
+
+                     // 1402/10/21 * باز کردن کمدهای همراهان
+                     if (iScsc.Dresser_Attendances.Any(da => da.ATTN_CODE == _attn.CODE && da.DRAT_CODE != null))
+                     {
+                        new Thread(new ThreadStart(() => OpenDresPart_Tmr_Tick(_attn.CODE))).Start();
+                     }
                   }
                   _attn.MDFY_DATE = DateTime.Now;
                   iScsc.SubmitChanges();
@@ -182,6 +189,30 @@ namespace System.Scsc.Ui.Notifications
             }
          }
       }
+
+      private void OpenDresPart_Tmr_Tick(long attncode)
+      {
+         try
+         {
+            foreach (var _dres in iScsc.Dresser_Attendances.Where(da => da.ATTN_CODE == attncode && da.DRAT_CODE != null).OrderBy(d => d.DERS_NUMB))
+            {
+               Thread.Sleep(4000);
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+                  {
+                     Input =
+                        new XElement("OprtDres",
+                           new XAttribute("type", "sendoprtdres"),
+                           new XAttribute("cmndname", _dres.Dresser.DRES_NUMB),
+                           new XAttribute("devip", _dres.Dresser.IP_ADRS),
+                           new XAttribute("cmndsend", _dres.Dresser.CMND_SEND ?? "")
+                        )
+                  }
+               );
+            }
+         }
+         catch { }
+      } 
 
       private void Btn_AutoExitAttn_Click(object sender, EventArgs e)
       {

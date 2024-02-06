@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
 using System.Linq;
@@ -10,9 +11,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
 
-namespace System.Scsc.Ui.Notifications
+namespace System.Scsc.Ui.ChangeRials
 {
-   partial class ATTN_DAYN_F : ISendRequest
+   partial class GLR_TRAN_F : ISendRequest
    {
       public IRouter _DefaultGateway { get; set; }
       private Data.iScscDataContext iScsc;
@@ -21,7 +22,8 @@ namespace System.Scsc.Ui.Notifications
       private List<long?> Fga_Uclb_U;
       int Sleeping = 1;
       int step = 15;
-      bool isPainted = false;
+      private string CurrentUser;
+      private string formCaller = "";
       private string RegnLang = "054";
 
       public void SendRequest(Job job)
@@ -70,15 +72,33 @@ namespace System.Scsc.Ui.Notifications
 
          if (keyData == Keys.Escape)
          {
-            job.Next =
-               new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, GetType().Name, 04 /* Execute UnPaint */)
+                  })
+            );
+
+            switch (formCaller)
+            {
+               case "ALL_FLDF_F":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost", formCaller, 08 /* Exec LoadDataSource */, SendType.SelfToUserInterface)
+                  );
+                  break;
+               default:
+                  break;
+            }
+            formCaller = "";
+            //job.Next =
+            //   new Job(SendType.SelfToUserInterface, this.GetType().Name, 04 /* Execute UnPaint */);
          }
          else if (keyData == Keys.Enter)
          {
-            if (!(Reload_Butn.Focused))
-               SendKeys.Send("{TAB}");
+            //if (!(Btn_Search.Focused))
+            SendKeys.Send("{TAB}");
          }
-         
          job.Status = StatusType.Successful;
       }
 
@@ -108,8 +128,7 @@ namespace System.Scsc.Ui.Notifications
          Fga_Uprv_U = iScsc.FGA_UPRV_U() ?? "";
          Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
-
-         FromAttnDate_Date.Value = DateTime.Now;
+         CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
@@ -125,70 +144,13 @@ namespace System.Scsc.Ui.Notifications
             {
                switch (control.CNTL_NAME.ToLower())
                {
-                  case "cbmtcode_lb":
-                     CbmtCode_Lb.Text = control.LABL_TEXT;
-                     //CbmtCode_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //CbmtCode_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "cochfileno_clm":
-                     CochFileNo_Clm.Caption = control.LABL_TEXT;
-                     //CochFileNo_Clm.Text = control.LABL_TEXT; // ToolTip
-                     //CochFileNo_Clm.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "atendesc_lb":
-                     //AtenDesc_Lb.Text = control.LABL_TEXT;
-                     //AtenDesc_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //AtenDesc_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "attnparm_gb":
-                     //AttnParm_Gb.Text = control.LABL_TEXT;
-                     //AttnParm_Gb.Text = control.LABL_TEXT; // ToolTip
-                     //AttnParm_Gb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "fromdate_lb":
-                     FromDate_Lb.Text = control.LABL_TEXT;
-                     //FromDate_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //FromDate_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "todate_lb":
-                     ToDate_Lb.Text = control.LABL_TEXT;
-                     //ToDate_Lb.Text = control.LABL_TEXT; // ToolTip
-                     //ToDate_Lb.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "fileno_clm":
-                     FileNo_Clm.Caption = control.LABL_TEXT;
-                     //FileNo_Clm.Text = control.LABL_TEXT; // ToolTip
-                     //FileNo_Clm.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "entertime_clm":
-                     EnterTime_Clm.Caption = control.LABL_TEXT;
-                     //EnterTime_Clm.Text = control.LABL_TEXT; // ToolTip
-                     //EnterTime_Clm.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "exittime_clm":
-                     ExitTime_Clm.Caption = control.LABL_TEXT;
-                     //ExitTime_Clm.Text = control.LABL_TEXT; // ToolTip
-                     //ExitTime_Clm.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "mtodcode_clm":
-                     MtodCode_Clm.Caption = control.LABL_TEXT;
-                     //MtodCode_Clm.Text = control.LABL_TEXT; // ToolTip
-                     //MtodCode_Clm.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "ctgycode_clm":
-                     CtgyCode_Clm.Caption = control.LABL_TEXT;
-                     //CtgyCode_Clm.Text = control.LABL_TEXT; // ToolTip
-                     //CtgyCode_Clm.Text = control.LABL_TEXT; // Place Holder
-                     break;
-                  case "dersnum_clm":
-                     DersNum_Clm.Caption = control.LABL_TEXT;
-                     //DersNum_Clm.Text = control.LABL_TEXT; // ToolTip
-                     //DersNum_Clm.Text = control.LABL_TEXT; // Place Holder
+                  default:
                      break;
                }
             }
          }
          #endregion
+
 
 
          job.Status = StatusType.Successful;
@@ -220,8 +182,7 @@ namespace System.Scsc.Ui.Notifications
          if(attnNotfSetting.ATTN_NOTF_STAT == "002" && attnNotfSetting.ATTN_NOTF_CLOS_TYPE == "002")
          {
             Thread.Sleep((int)attnNotfSetting.ATTN_NOTF_CLOS_INTR);
-            if(isPainted)
-               Back_Butn_Click(null, null);
+            //RqstBnExit1_Click(null, null);
          }
          job.Status = StatusType.Successful;
       }
@@ -257,7 +218,6 @@ namespace System.Scsc.Ui.Notifications
       /// <param name="job"></param>
       private new void Paint(Job job)
       {
-         isPainted = true;
          //Job _Paint = new Job(SendType.External, "Desktop",
          //   new List<Job>
          //   {
@@ -271,7 +231,7 @@ namespace System.Scsc.Ui.Notifications
             {
                new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("Scsc:{0}",GetType().Name), this }  },
-               new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "right:in-screen:stretch:center"} }               
+               new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "right:dock:default:center"} }               
             });
          _DefaultGateway.Gateway(_Paint);
 
@@ -285,13 +245,13 @@ namespace System.Scsc.Ui.Notifications
       /// <param name="job"></param>
       private void UnPaint(Job job)
       {
-         isPainted = false;
          //_DefaultGateway.Gateway(
          //   new Job(SendType.External, "Localhost",
          //      new List<Job>
          //      {
          //         new Job(SendType.SelfToUserInterface, "Wall", 16 /* Execute Pop */),
-         //         new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 09 /* Execute TakeOnWall */){Input = this},
+         //         new Job(SendType.SelfToUserInterface, "Wall", 02 /* Execute RemoveFromWall */){Input = this},
+         //         new Job(SendType.SelfToUserInterface, "Wall", 20 /* Execute ResetUiWithoutEnabled */),
          //      })
          //   );
          job.Next =
@@ -317,12 +277,7 @@ namespace System.Scsc.Ui.Notifications
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => cbmt.MTOD_STAT == "002" && Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101);
-         CochBs.DataSource = iScsc.Fighters.Where(f => f.FGPB_TYPE_DNRM == "003" && Convert.ToInt32(f.ACTV_TAG_DNRM) >= 101);
-         MtodBs.DataSource = iScsc.Methods;//.Where(m => m.MTOD_STAT == "002");
-         CtgyBs.DataSource = iScsc.Category_Belts;//.Where(c => c.CTGY_STAT == "002");
-         DActnBs.DataSource = iScsc.D_ACTNs;
-         DSxtpBs1.DataSource = iScsc.D_SXTPs;
+         DRcmtBs1.DataSource = iScsc.D_RCMTs;
          job.Status = StatusType.Successful;
       }
 
@@ -333,12 +288,16 @@ namespace System.Scsc.Ui.Notifications
       private void Actn_CalF_P(Job job)
       {
          var xinput = job.Input as XElement;
-         if(xinput != null)
-         {
-            ToAttnDate_Date.Value = FromAttnDate_Date.Value = Convert.ToDateTime(xinput.Attribute("attndate").Value);
-         }
-         if(isPainted)
-            Execute_Query();
+
+         // 1396/11/04
+         if ((job.Input as XElement).Attribute("formcaller") != null)
+            formCaller = (job.Input as XElement).Attribute("formcaller").Value;
+         else
+            formCaller = "";
+
+         _glid = Convert.ToInt64((job.Input as XElement).Attribute("glid").Value);
+
+         Execute_Query();
          job.Status = StatusType.Successful;
       }
    }

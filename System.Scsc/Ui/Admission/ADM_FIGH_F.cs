@@ -246,10 +246,11 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با انصراف درخواست مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-
             var Rqst = RqstBs1.Current as Data.Request;
+            if (Rqst == null) return;
 
+            if (MessageBox.Show(this, "آیا با انصراف درخواست مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            
             if (Rqst != null && Rqst.RQID > 0)
             {
                /*
@@ -340,6 +341,8 @@ namespace System.Scsc.Ui.Admission
                      }
                   );
 
+               
+
                // ثبت حضوری به صورت اتوماتیک
                if (SaveAttn_PkBt.PickChecked)
                   AutoAttn();
@@ -427,6 +430,12 @@ namespace System.Scsc.Ui.Admission
                            new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
                            new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", FNGR_PRNT_TextEdit.Text), new XAttribute("formcaller", GetType().Name))}
                         })
+                  );
+               }
+               else if (GotoProfile_Cbx.Checked)
+               {
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)) }
                   );
                }
 
@@ -707,7 +716,7 @@ namespace System.Scsc.Ui.Admission
             if (VPosBs1.List.Count == 0)
                UsePos_Cb.Checked = false;
 
-            if (UsePos_Cb.Checked)
+            if (UsePos_Cb.Checked /* 1402/11/01 if payment no debt */ && PymtsBs1.List.OfType<Data.Payment>().Any(p => (p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM) > 0))
             {
                foreach (Data.Payment pymt in PymtsBs1)
                {
@@ -1970,18 +1979,36 @@ namespace System.Scsc.Ui.Admission
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
 
-            var pydt = PydtsBs1.Current as Data.Payment_Detail;            
+            var pydt = PydtsBs1.Current as Data.Payment_Detail; 
+            var fgpb = FgpbsBs1.Current as Data.Fighter_Public;
 
             switch (e.Button.Index)
             {
                case 0:
-                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET QNTY += 1 WHERE PYMT_RQST_RQID = {0};", rqst.RQID));
+                  iScsc.ExecuteCommand(
+                     string.Format(
+                        "UPDATE dbo.Payment_Detail SET QNTY += 1 WHERE PYMT_RQST_RQID = {0};" + Environment.NewLine +
+                        "UPDATE dbo.Member_Ship SET End_Date = DATEADD(Day, {2} * ({3} + 1), Strt_Date), Numb_Of_Attn_Mont = {1} * {2} WHERE RQRO_RQST_RQID = {0};", 
+                        rqst.RQID,
+                        fgpb.Category_Belt.NUMB_OF_ATTN_MONT,
+                        pydt.QNTY + 1,
+                        fgpb.Category_Belt.NUMB_CYCL_DAY)
+                     );
                   requery = true;
                   break;
                case 1:
                   if (pydt.QNTY > 1)
                   {
-                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET QNTY -= 1 WHERE PYMT_RQST_RQID = {0};", rqst.RQID));
+                     iScsc.ExecuteCommand(
+                        string.Format(
+                           "UPDATE dbo.Payment_Detail SET QNTY -= 1 WHERE PYMT_RQST_RQID = {0};" + Environment.NewLine +
+                           "UPDATE dbo.Member_Ship SET End_Date = DATEADD(Day, -({3} + 1), End_Date), Numb_Of_Attn_Mont = {1} * {2} WHERE RQRO_RQST_RQID = {0};",
+                           rqst.RQID,
+                           fgpb.Category_Belt.NUMB_OF_ATTN_MONT,
+                           pydt.QNTY - 1,
+                           fgpb.Category_Belt.NUMB_CYCL_DAY,
+                           rqst.RQID)
+                        );
                      requery = true;
                   }
                   break;

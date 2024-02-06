@@ -377,6 +377,12 @@ namespace System.Scsc.Ui.OtherIncome
                   Btn_RqstBnARqt1_Click(null, null);
                }
             }
+            else if (GotoProfile_Cbx.Checked)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)) }
+               );
+            }
 
             // 1399/12/10 * اضافه کردن فرم مربوط به ثبت اطلاعات درخواست مشتریان
             if(followups != "")
@@ -885,7 +891,7 @@ namespace System.Scsc.Ui.OtherIncome
                iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID));
             }
 
-            if (Accept_Cb.Checked)
+            if (Accept_Cb.Checked /* 1402/11/01 if payment no debt */ && PymtsBs1.List.OfType<Data.Payment>().Any(p => (p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM) > 0))
             {
                var pymt = PymtsBs1.Current as Data.Payment;
                if (pymt == null) return;
@@ -5702,6 +5708,50 @@ namespace System.Scsc.Ui.OtherIncome
       private void SaveCutomer_Butn_Click(object sender, EventArgs e)
       {
 
+      }
+
+      private void ActnEGrp_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _expn = ExpnBs1.Current as Data.Expense;
+            if (_expn == null) return;
+
+            var _grop = GropBs.Current as Data.Group_Expense;
+            if (_grop == null) return;
+
+            if (ModifierKeys.HasFlag(Keys.Control))
+            {
+               _expn.Group_Expense1 = null;
+               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Expense SET Grop_Code = NULL WHERE Code = {0};", _expn.CODE));
+            }
+            else
+            {
+               _expn.Group_Expense1 = _grop;
+               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Expense SET Grop_Code = {0} WHERE Code = {1};", _grop.CODE, _expn.CODE));
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void OldRqstShowProfile_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _OldRqst = OldRqstBs1.Current as Data.Request;
+            if (_OldRqst == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _OldRqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO)) }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }      
    }
 }

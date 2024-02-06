@@ -143,6 +143,8 @@
          this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFGPB_CBMT_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.colSEX_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.attendanceGridControl)).BeginInit();
@@ -173,6 +175,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit6)).BeginInit();
          this.SuspendLayout();
          // 
          // ExitTime_Clm
@@ -209,7 +212,7 @@
          this.CbmtCode_Lb.AutoSize = true;
          this.CbmtCode_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CbmtCode_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         this.CbmtCode_Lb.Location = new System.Drawing.Point(615, 74);
+         this.CbmtCode_Lb.Location = new System.Drawing.Point(737, 70);
          this.CbmtCode_Lb.Name = "CbmtCode_Lb";
          this.CbmtCode_Lb.Size = new System.Drawing.Size(69, 14);
          this.CbmtCode_Lb.TabIndex = 38;
@@ -221,7 +224,7 @@
          this.FromDate_Lb.AutoSize = true;
          this.FromDate_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.FromDate_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         this.FromDate_Lb.Location = new System.Drawing.Point(613, 13);
+         this.FromDate_Lb.Location = new System.Drawing.Point(735, 9);
          this.FromDate_Lb.Name = "FromDate_Lb";
          this.FromDate_Lb.Size = new System.Drawing.Size(48, 14);
          this.FromDate_Lb.TabIndex = 38;
@@ -233,7 +236,7 @@
          this.ToDate_Lb.AutoSize = true;
          this.ToDate_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.ToDate_Lb.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
-         this.ToDate_Lb.Location = new System.Drawing.Point(613, 46);
+         this.ToDate_Lb.Location = new System.Drawing.Point(735, 42);
          this.ToDate_Lb.Name = "ToDate_Lb";
          this.ToDate_Lb.Size = new System.Drawing.Size(48, 14);
          this.ToDate_Lb.TabIndex = 38;
@@ -241,12 +244,12 @@
          // 
          // Back_Butn
          // 
+         this.Back_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Back_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Back_Butn.Appearance.Options.UseBackColor = true;
-         this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1061;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(690, 0);
+         this.Back_Butn.Location = new System.Drawing.Point(812, 0);
          this.Back_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -275,8 +278,9 @@
             this.repositoryItemLookUpEdit1,
             this.repositoryItemLookUpEdit2,
             this.repositoryItemLookUpEdit3,
-            this.repositoryItemLookUpEdit5});
-         this.attendanceGridControl.Size = new System.Drawing.Size(732, 576);
+            this.repositoryItemLookUpEdit5,
+            this.repositoryItemLookUpEdit6});
+         this.attendanceGridControl.Size = new System.Drawing.Size(854, 576);
          this.attendanceGridControl.TabIndex = 0;
          this.attendanceGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -320,7 +324,8 @@
             this.CtgyCode_Clm,
             this.colATTN_SYS_TYPE,
             this.colRTNG_NUMB,
-            this.colDebtDnrm});
+            this.colDebtDnrm,
+            this.colSEX_TYPE});
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          styleFormatCondition1.Appearance.Options.UseBackColor = true;
          styleFormatCondition1.ApplyToRow = true;
@@ -363,7 +368,7 @@
          this.FileNo_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
          this.FileNo_Clm.Visible = true;
-         this.FileNo_Clm.VisibleIndex = 10;
+         this.FileNo_Clm.VisibleIndex = 11;
          this.FileNo_Clm.Width = 131;
          // 
          // colATTN_DATE
@@ -650,7 +655,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.Tb_Master);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(746, 713);
+         this.splitContainerControl1.Size = new System.Drawing.Size(868, 713);
          this.splitContainerControl1.SplitterPosition = 99;
          this.splitContainerControl1.TabIndex = 3;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -714,7 +719,7 @@
          this.Cbmt_Pkb.ImageIndexPickDown = 2;
          this.Cbmt_Pkb.ImageIndexPickUp = 2;
          this.Cbmt_Pkb.ImageList = null;
-         this.Cbmt_Pkb.Location = new System.Drawing.Point(359, 69);
+         this.Cbmt_Pkb.Location = new System.Drawing.Point(481, 67);
          this.Cbmt_Pkb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Cbmt_Pkb.Name = "Cbmt_Pkb";
          this.Cbmt_Pkb.Next = null;
@@ -736,7 +741,7 @@
          this.ClearCbmt_Butn.Appearance.Options.UseBackColor = true;
          this.ClearCbmt_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ClearCbmt_Butn.Image")));
          this.ClearCbmt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ClearCbmt_Butn.Location = new System.Drawing.Point(467, 70);
+         this.ClearCbmt_Butn.Location = new System.Drawing.Point(589, 68);
          this.ClearCbmt_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.ClearCbmt_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ClearCbmt_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -757,7 +762,7 @@
          this.PrintSetting_Butn.ImageIndex = 2;
          this.PrintSetting_Butn.ImageList = this.imageList1;
          this.PrintSetting_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintSetting_Butn.Location = new System.Drawing.Point(252, 6);
+         this.PrintSetting_Butn.Location = new System.Drawing.Point(374, 6);
          this.PrintSetting_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrintSetting_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintSetting_Butn.Name = "PrintSetting_Butn";
@@ -787,7 +792,7 @@
          this.Mtod_Pkb.ImageIndexPickDown = 1;
          this.Mtod_Pkb.ImageIndexPickUp = 1;
          this.Mtod_Pkb.ImageList = null;
-         this.Mtod_Pkb.Location = new System.Drawing.Point(395, 69);
+         this.Mtod_Pkb.Location = new System.Drawing.Point(517, 67);
          this.Mtod_Pkb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Mtod_Pkb.Name = "Mtod_Pkb";
          this.Mtod_Pkb.Next = null;
@@ -814,7 +819,7 @@
          this.Print_Butn.ImageIndex = 1;
          this.Print_Butn.ImageList = this.imageList1;
          this.Print_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Print_Butn.Location = new System.Drawing.Point(298, 6);
+         this.Print_Butn.Location = new System.Drawing.Point(420, 6);
          this.Print_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Print_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Print_Butn.Name = "Print_Butn";
@@ -829,7 +834,7 @@
          this.ToAttnDate_Date.CustomFormat = "dd/MM/yyyy";
          this.ToAttnDate_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.ToAttnDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.ToAttnDate_Date.Location = new System.Drawing.Point(497, 39);
+         this.ToAttnDate_Date.Location = new System.Drawing.Point(619, 35);
          this.ToAttnDate_Date.Name = "ToAttnDate_Date";
          this.ToAttnDate_Date.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.ToAttnDate_Date.Size = new System.Drawing.Size(112, 27);
@@ -849,7 +854,7 @@
          this.Coch_Pkb.ImageIndexPickDown = 0;
          this.Coch_Pkb.ImageIndexPickUp = 0;
          this.Coch_Pkb.ImageList = null;
-         this.Coch_Pkb.Location = new System.Drawing.Point(431, 69);
+         this.Coch_Pkb.Location = new System.Drawing.Point(553, 67);
          this.Coch_Pkb.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
          this.Coch_Pkb.Name = "Coch_Pkb";
          this.Coch_Pkb.Next = null;
@@ -874,7 +879,7 @@
          this.PrintDefault_Butn.ImageIndex = 0;
          this.PrintDefault_Butn.ImageList = this.imageList1;
          this.PrintDefault_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.PrintDefault_Butn.Location = new System.Drawing.Point(344, 6);
+         this.PrintDefault_Butn.Location = new System.Drawing.Point(466, 6);
          this.PrintDefault_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrintDefault_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.PrintDefault_Butn.Name = "PrintDefault_Butn";
@@ -885,11 +890,12 @@
          // 
          // Btn_AutoExitAttn
          // 
+         this.Btn_AutoExitAttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Btn_AutoExitAttn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Btn_AutoExitAttn.Appearance.Options.UseBackColor = true;
          this.Btn_AutoExitAttn.Image = global::System.Scsc.Properties.Resources.IMAGE_1171;
          this.Btn_AutoExitAttn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Btn_AutoExitAttn.Location = new System.Drawing.Point(395, 6);
+         this.Btn_AutoExitAttn.Location = new System.Drawing.Point(517, 6);
          this.Btn_AutoExitAttn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Btn_AutoExitAttn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Btn_AutoExitAttn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -904,7 +910,7 @@
          this.FromAttnDate_Date.CustomFormat = "dd/MM/yyyy";
          this.FromAttnDate_Date.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.FromAttnDate_Date.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.FromAttnDate_Date.Location = new System.Drawing.Point(497, 6);
+         this.FromAttnDate_Date.Location = new System.Drawing.Point(619, 2);
          this.FromAttnDate_Date.Name = "FromAttnDate_Date";
          this.FromAttnDate_Date.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.FromAttnDate_Date.Size = new System.Drawing.Size(112, 27);
@@ -914,7 +920,7 @@
          // CBMT_CODE_GridLookUpEdit
          // 
          this.CBMT_CODE_GridLookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CBMT_CODE_GridLookUpEdit.Location = new System.Drawing.Point(497, 70);
+         this.CBMT_CODE_GridLookUpEdit.Location = new System.Drawing.Point(619, 66);
          this.CBMT_CODE_GridLookUpEdit.Name = "CBMT_CODE_GridLookUpEdit";
          this.CBMT_CODE_GridLookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CBMT_CODE_GridLookUpEdit.Properties.Appearance.Options.UseFont = true;
@@ -1118,11 +1124,12 @@
          // 
          // Reload_Butn
          // 
+         this.Reload_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Reload_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
          this.Reload_Butn.Appearance.Options.UseBackColor = true;
          this.Reload_Butn.Image = ((System.Drawing.Image)(resources.GetObject("Reload_Butn.Image")));
          this.Reload_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Reload_Butn.Location = new System.Drawing.Point(446, 6);
+         this.Reload_Butn.Location = new System.Drawing.Point(568, 6);
          this.Reload_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.Reload_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Reload_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1141,7 +1148,7 @@
          this.Tb_Master.Name = "Tb_Master";
          this.Tb_Master.RightToLeftLayout = true;
          this.Tb_Master.SelectedIndex = 0;
-         this.Tb_Master.Size = new System.Drawing.Size(746, 609);
+         this.Tb_Master.Size = new System.Drawing.Size(868, 609);
          this.Tb_Master.TabIndex = 1;
          // 
          // tp_001
@@ -1150,7 +1157,7 @@
          this.tp_001.Location = new System.Drawing.Point(4, 23);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(738, 582);
+         this.tp_001.Size = new System.Drawing.Size(860, 582);
          this.tp_001.TabIndex = 0;
          this.tp_001.Text = "لیست حضور";
          this.tp_001.UseVisualStyleBackColor = true;
@@ -1373,6 +1380,28 @@
          // 
          this.DSxtpBs1.DataSource = typeof(System.Scsc.Data.D_SXTP);
          // 
+         // colSEX_TYPE
+         // 
+         this.colSEX_TYPE.Caption = "جنسیت";
+         this.colSEX_TYPE.ColumnEdit = this.repositoryItemLookUpEdit6;
+         this.colSEX_TYPE.FieldName = "SEX_TYPE_DNRM";
+         this.colSEX_TYPE.Name = "colSEX_TYPE";
+         this.colSEX_TYPE.OptionsColumn.AllowEdit = false;
+         this.colSEX_TYPE.OptionsColumn.ReadOnly = true;
+         this.colSEX_TYPE.Visible = true;
+         this.colSEX_TYPE.VisibleIndex = 10;
+         // 
+         // repositoryItemLookUpEdit6
+         // 
+         this.repositoryItemLookUpEdit6.AutoHeight = false;
+         this.repositoryItemLookUpEdit6.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit6.DataSource = this.DSxtpBs1;
+         this.repositoryItemLookUpEdit6.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit6.Name = "repositoryItemLookUpEdit6";
+         this.repositoryItemLookUpEdit6.NullText = "";
+         this.repositoryItemLookUpEdit6.ValueMember = "VALU";
+         // 
          // ATTN_DAYN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1383,7 +1412,7 @@
          this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "ATTN_DAYN_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(762, 713);
+         this.Size = new System.Drawing.Size(884, 713);
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.attendanceGridControl)).EndInit();
@@ -1414,6 +1443,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit6)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -1523,5 +1553,7 @@
       private DevExpress.XtraGrid.Columns.GridColumn colEND_DATE;
       private DevExpress.XtraGrid.Columns.GridColumn colFGPB_CBMT_CODE_DNRM;
       private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit AttnActn_Butn;
+      private DevExpress.XtraGrid.Columns.GridColumn colSEX_TYPE;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit6;
    }
 }

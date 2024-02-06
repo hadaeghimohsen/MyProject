@@ -617,8 +617,9 @@ namespace System.Scsc.Ui.MasterPage
          //FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          DaeatBs.DataSource = iScsc.D_AEATs;
          DevntBs.DataSource = iScsc.D_EVNTs;
-         CompaBs.DataSource = iScsc.Computer_Actions;
-         ExdvBs.DataSource = iScsc.External_Devices.Where(ed => ed.STAT == "002");
+         ANoteBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Note_Tag_Info");
+
+         Execute_Query();
          FormHandle = this.Handle;
          job.Status = StatusType.Successful;
       }
@@ -1099,12 +1100,43 @@ namespace System.Scsc.Ui.MasterPage
             // 1402/08/13 * قفل انلاین
             if(cmnd == "opendres-tryopen")
             {
+               if (RSignalOpen_Butn.Tag == null)
+               {
+                  RSignalOpen_Butn.Tag = "key";
+                  LSignalOpen_Butn.Tag = null;
+                  _wplayer_url = "";
+                  new Thread(new ThreadStart(() => AlarmShow(RSignalOpen_Butn))).Start();
+               }
+               else
+               {
+                  RSignalOpen_Butn.Tag = null;
+                  LSignalOpen_Butn.Tag = "key";
+                  _wplayer_url = "";
+                  new Thread(new ThreadStart(() => AlarmShow(LSignalOpen_Butn))).Start();
+               }
+
+               Partners_Butn.Visible = PrtnrCont_Butn.Visible = PrtnrPos_Butn.Visible = PartnerDresNum_Butn.Visible = false;
+               PrtnrProc1_Pbc.Visible = PrtnrProc2_Pbc.Visible = PrtnrProc3_Pbc.Visible = PartnerDresNum_Butn.Visible = false;
                var _attn = iScsc.Attendances.FirstOrDefault(a => a.FIGH_FILE_NO == figh.FILE_NO && a.EXIT_TIME == null && a.ATTN_STAT == "002" && a.ATTN_DATE.Date == DateTime.Now.Date);
                if(_attn != null)
                {
+                  // ثبت ساعت باز کردن کمد            
+                  iScsc.INS_DART_P(_attn.CODE, null, null);
+
+                  // اینجا باید شماره سریال پورت را پیدا کنیم و پیام را بهش ارسال کنیم
+                  var dresrattn = iScsc.Dresser_Attendances.FirstOrDefault(da => da.ATTN_CODE == _attn.CODE && da.DRAT_CODE == null);
+
                   cmnd = "opendres";
-                  var _dres = iScsc.Dressers.FirstOrDefault(d => d.DRES_NUMB == _attn.DERS_NUMB);
+                  var _dres = iScsc.Dressers.FirstOrDefault(d => d.Computer_Action.COMP_NAME == xHost.Attribute("name").Value && d.REC_STAT == "002" && d.CODE == dresrattn.Dresser.CODE);
                   param = string.Format("{0},{1},{2},{3}", _dres.CODE, _dres.DRES_NUMB, _dres.IP_ADRS, _dres.CMND_SEND);
+
+                  // 1402/10/21 * باز کردن کمدهای همراهان
+                  if (iScsc.Dresser_Attendances.Any(da => da.ATTN_CODE == _attn.CODE && da.DRAT_CODE != null))
+                  {                     
+                     Partners_Butn.Visible = PartnerDresNum_Butn.Visible = PrtnrPos_Butn.Visible = true;
+                     PrtnrCont_Butn.Visible = PrtnrProc1_Pbc.Visible = PrtnrProc2_Pbc.Visible = PrtnrProc3_Pbc.Visible = true;
+                     new Thread(new ThreadStart(() => OpenDresPart_Tmr_Tick(_attn.CODE))).Start();
+                  }
                }
             }
 
@@ -1249,6 +1281,7 @@ namespace System.Scsc.Ui.MasterPage
                         }
                      )
                   );
+
                   job.Output =
                      new XElement("Output",
                         new XAttribute("resultcode", 10004),

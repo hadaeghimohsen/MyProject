@@ -686,6 +686,7 @@ namespace System.Scsc.Ui.Common
                PydtsBs1.EndEdit();
                PydsBs1.EndEdit();
                PmmtBs1.EndEdit();
+               PmmtGv.PostEditor();
 
                iScsc.SubmitChanges();
                requery = true;
@@ -1288,6 +1289,7 @@ namespace System.Scsc.Ui.Common
             var mbsp = MbspBs.Current as Data.Member_Ship;
             if (mbsp == null) return;
             Attn_gv.ActiveFilterString = string.Format("MBSP_RWNO_DNRM = '{0}' AND ATTN_STAT = '002'", mbsp.RWNO);
+            //LstDVipGv.ActiveFilterString = string.Format("IP_ADRS = '{0}'", LstDVipBs.List.OfType<Data.Dresser>().Where(d => iScsc.exter));
 
             long? rqid = 0;
             if(mbsp.RWNO == 1)            
@@ -1525,7 +1527,16 @@ namespace System.Scsc.Ui.Common
                   new Job(SendType.External, "Localhost",
                     new List<Job>
                     {
-                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("File_No = {0}", fileno))}
+                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
+                       {
+                          Input = 
+                           new XElement("Print", 
+                              new XAttribute("type", "Default"), 
+                              new XAttribute("modual", GetType().Name), 
+                              new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), 
+                              string.Format("File_No = {0}", fileno) 
+                           )
+                       }
                     })
                );
             }
@@ -1662,7 +1673,29 @@ namespace System.Scsc.Ui.Common
                   break;
             }
 
-            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQID, (short?)1, null, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, null);
+            // 1401/09/19 * #MahsaAmini
+            // اگر تخفیف برای پرسنل بخواهیم ثبت کنیم باید چک کنیم که آیا تخفیف وارد شده بیشتر سهم پرسنل نباشد
+            if (PydsType_Lov.EditValue.ToString() == "005")
+            {
+               var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+
+               var _calcexpn =
+                  iScsc.CALC_EXPN_U(
+                     new XElement("Request",
+                         new XAttribute("rqid", pymt.RQID),
+                         new XAttribute("expncode", _pydt.EXPN_CODE)
+                     )
+                  );
+
+               // اگر مبلغ تخفیف بیشتر از سهم پرسنل باشد باید جلو آن گرفته شود
+               if (_calcexpn < amnt)
+               {
+                  MessageBox.Show(this, "مبلغ تخفیف وارد شده از سهم پرسنل بیشتر حق پرداختی ایشان میباشد، لطفا درصد تخفیف یا مبلغ تخفیف را اصلاح کنید", "تخفیف غیرمجاز پرسنل");
+                  return;
+               }
+            }
+
+            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQID, (short?)1, pydt.EXPN_CODE, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, null);
 
             PydsAmnt_Txt.EditValue = null;
             PydsDesc_Txt.EditValue = null;
@@ -2903,7 +2936,9 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با حذف کامل مشتری موافق هستید، بعد از انجام عملیات به هیچ عنوان اطلاعات قابلیت بازیابی را ندارند", "هشدار جهت عملیات بدون بازگشت", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف کامل مشتری موافق هستید، بعد از انجام عملیات به هیچ عنوان اطلاعات قابلیت بازیابی را ندارند", "تاییدیه اول : هشدار جهت عملیات بدون بازگشت", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف کامل مشتری موافق هستید، بعد از انجام عملیات به هیچ عنوان اطلاعات قابلیت بازیابی را ندارند", "تاییدیه دوم : هشدار جهت عملیات بدون بازگشت", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف کامل مشتری موافق هستید، بعد از انجام عملیات به هیچ عنوان اطلاعات قابلیت بازیابی را ندارند", "تاییدیه سوم : هشدار جهت عملیات بدون بازگشت", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.DEL_FIGH_P(
                new XElement("Fighter",
@@ -4914,18 +4949,39 @@ namespace System.Scsc.Ui.Common
             if (LstDVip_Butn.EditValue == null || LstDVip_Butn.EditValue.ToString() == "") return;
 
             var _dvipcode = Convert.ToInt64(LstDVip_Butn.EditValue);
-            var _mbsp = MbspBs.Current as Data.Member_Ship;
-
-            var _lockbydvip = iScsc.Dresser_Vip_Fighters.FirstOrDefault(d => d.DRES_CODE == _dvipcode && d.STAT == "002" && d.MBSP_FIGH_FILE_NO != fileno);
-            if(_lockbydvip != null)
-            {
-               if (MessageBox.Show(this, string.Format("در حال حاضر کمد در اختیار {0} مباشد آیا با آزاد کردن کمد موافق هستید?", _lockbydvip.Fighter.NAME_DNRM), "خطا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
-               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
-            }
+            var _mbsp = MbspBs.Current as Data.Member_Ship;            
 
             switch (e.Button.Index)
             {
                case 1:
+                  bool _freelockvip = false;
+                  var _lockbydvip = iScsc.Dresser_Vip_Fighters.FirstOrDefault(d => d.DRES_CODE == _dvipcode && d.STAT == "002" && d.MBSP_FIGH_FILE_NO != fileno);
+                  if(_lockbydvip != null)
+                  {
+                     if (MessageBox.Show(this, string.Format("در حال حاضر کمد در اختیار {0} مباشد آیا با آزاد کردن کمد موافق هستید?", _lockbydvip.Fighter.NAME_DNRM), "خطا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                     _freelockvip = true;
+                  }
+
+                  // اگر مشتری دارای کمد اختصاصی یا اجاره ای باشه نباید کمد دیگری به آن داده شود
+                  if(iScsc.Dresser_Vip_Fighters.Any(d => d.MBSP_FIGH_FILE_NO == fileno && d.STAT == "002"))
+                  {
+                     MessageBox.Show(this, "مشتری دارای کمد اختصاصی یا اجاره ای میباشد، شما قادر به اختصاص کمد جدید به این مشتری نیستید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     return;
+                  }
+
+                  // 1402/10/10 * بررسی اینکه آیا این کمد برای این دوره درست انتخاب شده یا خیر
+                  var _edlm = iScsc.External_Device_Link_Methods;
+                  if(_edlm.Any())
+                  {
+                     if(!_edlm.Any(i => i.MTOD_CODE == _mbsp.FGPB_MTOD_CODE_DNRM && iScsc.Dressers.Any(d => d.CODE == _dvipcode && d.IP_ADRS == i.External_Device.IP_ADRS)))
+                     {
+                        MessageBox.Show(this, "کمد انتخاب شده برای این گروه خدمات تعریف نشده، لطفا اصلاح کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                     }
+                  }
+
+                  if(_freelockvip)
+                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
                   iScsc.ExecuteCommand("INSERT INTO dbo.Dresser_Vip_Fighter (Dres_Code, Mbsp_Figh_File_No, Mbsp_Rwno, Mbsp_Rect_Code, Code, Stat) VALUES ({0}, {1}, {2}, '004', 0, '002');", _dvipcode, fileno, _mbsp.RWNO);
                   break;
                default:
@@ -4944,6 +5000,139 @@ namespace System.Scsc.Ui.Common
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void DresVipNormType_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _btn = (SimpleButton)sender;
+
+            switch (_btn.Tag.ToString())
+            {
+               case "norm":
+                  _btn.Tag = "vip";
+                  _btn.Text = "کمد VIP";
+
+                  LstDVipBs.DataSource = iScsc.Dressers.Where(d => d.VIP_STAT == "002" && d.REC_STAT == "002" && !d.Dresser_Vip_Fighters.Any(dv => dv.STAT == "002"));
+                  break;
+               case "vip":
+                  _btn.Tag = "norm";
+                  _btn.Text = "کمد اجاره ای";
+
+                  LstDVipBs.DataSource = iScsc.Dressers.Where(d => d.VIP_STAT == "001" && d.REC_STAT == "002" && !d.Dresser_Attendances.Any(da => da.Attendance.EXIT_TIME == null) && !d.Dresser_Vip_Fighters.Any(dv => dv.STAT == "002"));
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DpstTran_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void CyclTran_Butn_Click(object sender, EventArgs e)
+      {
+
+      }
+
+      private void PmmtActn_Butn_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 0:
+                  DeltPymt_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PydsActn_Butn_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 0:
+                  DeltPyds_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Rtoa_Lov_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 1:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                           new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                           {
+                              Input = 
+                                 new XElement("App_Base",
+                                    new XAttribute("tablename", "Payment_To_Another_Account"),
+                                    new XAttribute("formcaller", GetType().Name)
+                                 )
+                           }
+                        }
+                     )
+                  );
+                  break;
+               case 2:
+                  PymtSave_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PydsDesc_Butn_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 0:
+                  PymtSave_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }      
    }

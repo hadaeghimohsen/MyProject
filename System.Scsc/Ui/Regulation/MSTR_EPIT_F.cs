@@ -281,5 +281,45 @@ namespace System.Scsc.Ui.Regulation
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void GropBnAdd1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (GropBs2.List.OfType<Data.Group_Expense>().Any(g => g.CODE == 0)) return;
+
+            var _grop = GropBs2.AddNew() as Data.Group_Expense;
+            iScsc.Group_Expenses.InsertOnSubmit(_grop);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void GropBnADel1_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _grop = GropBs2.Current as Data.Group_Expense;
+            if (_grop == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید?", "حذف رکورد") != DialogResult.Yes) return;
+            if(_grop.GROP_TYPE == "001")
+               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Expense SET Grop_Code = NULL WHERE Grop_Code = {0}; DELETE dbo.Group_Expense WHERE Code = {0};", _grop.CODE));
+            else if (_grop.GROP_TYPE == "002")
+               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Expense SET Brnd_Code = NULL WHERE Brnd_Code = {0}; DELETE dbo.Group_Expense WHERE Code = {0};", _grop.CODE));
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
    }
 }

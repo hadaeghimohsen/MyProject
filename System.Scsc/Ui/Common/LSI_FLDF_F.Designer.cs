@@ -137,6 +137,12 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject28 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip20 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip21 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem25 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip22 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem26 = new DevExpress.Utils.ToolTipTitleItem();
@@ -199,12 +205,6 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip21 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem25 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem10 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip20 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem24 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem9 = new DevExpress.Utils.ToolTipItem();
          this.DebtDnrm_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
@@ -663,6 +663,8 @@
          this.label13 = new System.Windows.Forms.Label();
          this.imageList2 = new System.Windows.Forms.ImageList(this.components);
          this.ServInfo_Pn = new System.Windows.Forms.Panel();
+         this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
+         this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
          this.searchLookUpEdit2 = new DevExpress.XtraEditors.SearchLookUpEdit();
          this.FighBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -969,8 +971,6 @@
          this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripMenuItem65 = new System.Windows.Forms.ToolStripMenuItem();
          this.ExportFile_Sfd = new System.Windows.Forms.SaveFileDialog();
-         this.simpleButton9 = new DevExpress.XtraEditors.SimpleButton();
-         this.simpleButton10 = new DevExpress.XtraEditors.SimpleButton();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnMbsp_Butn)).BeginInit();
@@ -1331,7 +1331,7 @@
          this.colDEBT_DNRM.OptionsColumn.AllowEdit = false;
          this.colDEBT_DNRM.OptionsColumn.ReadOnly = true;
          this.colDEBT_DNRM.Visible = true;
-         this.colDEBT_DNRM.VisibleIndex = 5;
+         this.colDEBT_DNRM.VisibleIndex = 4;
          this.colDEBT_DNRM.Width = 58;
          // 
          // colMBSP_END_DATE1
@@ -6097,6 +6097,60 @@
          this.ServInfo_Pn.Size = new System.Drawing.Size(671, 176);
          this.ServInfo_Pn.TabIndex = 12;
          // 
+         // simpleButton10
+         // 
+         this.simpleButton10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.simpleButton10.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.simpleButton10.Appearance.Options.UseBackColor = true;
+         this.simpleButton10.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton10.Image")));
+         this.simpleButton10.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.simpleButton10.Location = new System.Drawing.Point(48, 34);
+         this.simpleButton10.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.simpleButton10.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+         this.simpleButton10.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton10.Name = "simpleButton10";
+         this.simpleButton10.Size = new System.Drawing.Size(114, 22);
+         toolTipTitleItem24.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+         toolTipTitleItem24.Appearance.Options.UseImage = true;
+         toolTipTitleItem24.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem24.Image")));
+         toolTipTitleItem24.Text = "یکسان سازی دستگاه های اثر انگشت کمد انلاین";
+         toolTipItem9.LeftIndent = 6;
+         toolTipItem9.Text = "برای اینکه تمامی دستگاه های مجموعه شما شخص ثبت نامی را شناسایی کنند نیاز به یکپار" +
+    "چه سازی دارد";
+         superToolTip20.Items.Add(toolTipTitleItem24);
+         superToolTip20.Items.Add(toolTipItem9);
+         this.simpleButton10.SuperTip = superToolTip20;
+         this.simpleButton10.TabIndex = 73;
+         this.simpleButton10.Text = "یکسان سازی";
+         this.simpleButton10.Click += new System.EventHandler(this.RqstBnDuplicateFngrPrnt1_Click);
+         // 
+         // simpleButton9
+         // 
+         this.simpleButton9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.simpleButton9.Appearance.BackColor = System.Drawing.Color.Gainsboro;
+         this.simpleButton9.Appearance.Options.UseBackColor = true;
+         this.simpleButton9.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton9.Image")));
+         this.simpleButton9.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
+         this.simpleButton9.Location = new System.Drawing.Point(48, 6);
+         this.simpleButton9.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.simpleButton9.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
+         this.simpleButton9.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.simpleButton9.Name = "simpleButton9";
+         this.simpleButton9.Size = new System.Drawing.Size(114, 22);
+         toolTipTitleItem25.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+         toolTipTitleItem25.Appearance.Options.UseImage = true;
+         toolTipTitleItem25.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem25.Image")));
+         toolTipTitleItem25.Text = "تعریف اثر انگشت";
+         toolTipItem10.LeftIndent = 6;
+         toolTipItem10.Text = "برای سیستم های اثر انگشت و کمد انلاین میتوانید با این گزینه به دستگاه اصلی پیام ت" +
+    "عریف اثر انگشت را ارسال کنید";
+         superToolTip21.Items.Add(toolTipTitleItem25);
+         superToolTip21.Items.Add(toolTipItem10);
+         this.simpleButton9.SuperTip = superToolTip21;
+         this.simpleButton9.TabIndex = 73;
+         this.simpleButton9.Text = "تعریف اثر انگشت";
+         this.simpleButton9.Click += new System.EventHandler(this.RqstBnEnrollFngrPrnt1_Click);
+         // 
          // searchLookUpEdit2
          // 
          this.searchLookUpEdit2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -7061,7 +7115,7 @@
          this.colFILE_NO1.Name = "colFILE_NO1";
          this.colFILE_NO1.OptionsColumn.FixedWidth = true;
          this.colFILE_NO1.Visible = true;
-         this.colFILE_NO1.VisibleIndex = 8;
+         this.colFILE_NO1.VisibleIndex = 7;
          this.colFILE_NO1.Width = 30;
          // 
          // repositoryItemHyperLinkEdit1
@@ -7100,7 +7154,7 @@
          this.colDPST_AMNT_DNRM.OptionsColumn.AllowEdit = false;
          this.colDPST_AMNT_DNRM.OptionsColumn.ReadOnly = true;
          this.colDPST_AMNT_DNRM.Visible = true;
-         this.colDPST_AMNT_DNRM.VisibleIndex = 4;
+         this.colDPST_AMNT_DNRM.VisibleIndex = 3;
          this.colDPST_AMNT_DNRM.Width = 58;
          // 
          // colFGPB_RWNO_DNRM1
@@ -7201,7 +7255,7 @@
          this.colFRST_NAME_DNRM1.OptionsColumn.AllowEdit = false;
          this.colFRST_NAME_DNRM1.OptionsColumn.ReadOnly = true;
          this.colFRST_NAME_DNRM1.Visible = true;
-         this.colFRST_NAME_DNRM1.VisibleIndex = 6;
+         this.colFRST_NAME_DNRM1.VisibleIndex = 5;
          this.colFRST_NAME_DNRM1.Width = 58;
          // 
          // colLAST_NAME_DNRM1
@@ -7212,7 +7266,7 @@
          this.colLAST_NAME_DNRM1.OptionsColumn.AllowEdit = false;
          this.colLAST_NAME_DNRM1.OptionsColumn.ReadOnly = true;
          this.colLAST_NAME_DNRM1.Visible = true;
-         this.colLAST_NAME_DNRM1.VisibleIndex = 7;
+         this.colLAST_NAME_DNRM1.VisibleIndex = 6;
          this.colLAST_NAME_DNRM1.Width = 105;
          // 
          // colFATH_NAME_DNRM1
@@ -7259,8 +7313,6 @@
          this.colCELL_PHON_DNRM1.Name = "colCELL_PHON_DNRM1";
          this.colCELL_PHON_DNRM1.OptionsColumn.AllowEdit = false;
          this.colCELL_PHON_DNRM1.OptionsColumn.ReadOnly = true;
-         this.colCELL_PHON_DNRM1.Visible = true;
-         this.colCELL_PHON_DNRM1.VisibleIndex = 3;
          this.colCELL_PHON_DNRM1.Width = 54;
          // 
          // colTELL_PHON_DNRM1
@@ -9024,60 +9076,6 @@
          // 
          this.ExportFile_Sfd.DefaultExt = "csv";
          this.ExportFile_Sfd.Filter = "CSV file (*.csv) | *.csv|Text File (*.txt) | *.txt";
-         // 
-         // simpleButton9
-         // 
-         this.simpleButton9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.simpleButton9.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-         this.simpleButton9.Appearance.Options.UseBackColor = true;
-         this.simpleButton9.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton9.Image")));
-         this.simpleButton9.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton9.Location = new System.Drawing.Point(48, 6);
-         this.simpleButton9.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.simpleButton9.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
-         this.simpleButton9.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton9.Name = "simpleButton9";
-         this.simpleButton9.Size = new System.Drawing.Size(114, 22);
-         toolTipTitleItem25.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-         toolTipTitleItem25.Appearance.Options.UseImage = true;
-         toolTipTitleItem25.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem25.Image")));
-         toolTipTitleItem25.Text = "تعریف اثر انگشت";
-         toolTipItem10.LeftIndent = 6;
-         toolTipItem10.Text = "برای سیستم های اثر انگشت و کمد انلاین میتوانید با این گزینه به دستگاه اصلی پیام ت" +
-    "عریف اثر انگشت را ارسال کنید";
-         superToolTip21.Items.Add(toolTipTitleItem25);
-         superToolTip21.Items.Add(toolTipItem10);
-         this.simpleButton9.SuperTip = superToolTip21;
-         this.simpleButton9.TabIndex = 73;
-         this.simpleButton9.Text = "تعریف اثر انگشت";
-         this.simpleButton9.Click += new System.EventHandler(this.RqstBnEnrollFngrPrnt1_Click);
-         // 
-         // simpleButton10
-         // 
-         this.simpleButton10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.simpleButton10.Appearance.BackColor = System.Drawing.Color.Gainsboro;
-         this.simpleButton10.Appearance.Options.UseBackColor = true;
-         this.simpleButton10.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton10.Image")));
-         this.simpleButton10.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton10.Location = new System.Drawing.Point(48, 34);
-         this.simpleButton10.LookAndFeel.SkinName = "Office 2010 Silver";
-         this.simpleButton10.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
-         this.simpleButton10.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.simpleButton10.Name = "simpleButton10";
-         this.simpleButton10.Size = new System.Drawing.Size(114, 22);
-         toolTipTitleItem24.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-         toolTipTitleItem24.Appearance.Options.UseImage = true;
-         toolTipTitleItem24.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem24.Image")));
-         toolTipTitleItem24.Text = "یکسان سازی دستگاه های اثر انگشت کمد انلاین";
-         toolTipItem9.LeftIndent = 6;
-         toolTipItem9.Text = "برای اینکه تمامی دستگاه های مجموعه شما شخص ثبت نامی را شناسایی کنند نیاز به یکپار" +
-    "چه سازی دارد";
-         superToolTip20.Items.Add(toolTipTitleItem24);
-         superToolTip20.Items.Add(toolTipItem9);
-         this.simpleButton10.SuperTip = superToolTip20;
-         this.simpleButton10.TabIndex = 73;
-         this.simpleButton10.Text = "یکسان سازی";
-         this.simpleButton10.Click += new System.EventHandler(this.RqstBnDuplicateFngrPrnt1_Click);
          // 
          // LSI_FLDF_F
          // 

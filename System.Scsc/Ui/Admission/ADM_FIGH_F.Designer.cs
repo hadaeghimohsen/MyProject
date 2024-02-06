@@ -590,6 +590,7 @@
          this.DfltPric_Lb = new System.Windows.Forms.Label();
          this.GustSaveRqst_Cbx = new System.Windows.Forms.CheckBox();
          this.grouper3 = new System.MaxUi.Grouper();
+         this.GotoProfile_Cbx = new System.Windows.Forms.CheckBox();
          this.CELL_PHON_TextEdit = new DevExpress.XtraEditors.ButtonEdit();
          this.NATL_CODE_TextEdit = new DevExpress.XtraEditors.ButtonEdit();
          this.AdmMoreInfo_Tp = new System.Windows.Forms.TabPage();
@@ -5169,7 +5170,6 @@
          this.RQTT_CODE_LookUpEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.RQTT_CODE_LookUpEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.RQTT_CODE_LookUpEdit1.Properties.NullText = "";
-         this.RQTT_CODE_LookUpEdit1.Properties.ReadOnly = true;
          this.RQTT_CODE_LookUpEdit1.Properties.ValueMember = "CODE";
          this.RQTT_CODE_LookUpEdit1.Size = new System.Drawing.Size(107, 22);
          this.RQTT_CODE_LookUpEdit1.TabIndex = 0;
@@ -6264,6 +6264,7 @@
          this.grouper3.Controls.Add(this.BrthDate_Lb);
          this.grouper3.Controls.Add(this.OthrExpnInfo_Ckbx);
          this.grouper3.Controls.Add(this.SexType_Lb);
+         this.grouper3.Controls.Add(this.GotoProfile_Cbx);
          this.grouper3.Controls.Add(this.NatlCodeVald_Cbx);
          this.grouper3.Controls.Add(this.InsrInfo_Ckbx);
          this.grouper3.Controls.Add(this.BRTH_DATE_PersianDateEdit);
@@ -6287,6 +6288,18 @@
          this.grouper3.ShowBorderTitle = false;
          this.grouper3.Size = new System.Drawing.Size(567, 211);
          this.grouper3.TabIndex = 0;
+         // 
+         // GotoProfile_Cbx
+         // 
+         this.GotoProfile_Cbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.GotoProfile_Cbx.AutoSize = true;
+         this.GotoProfile_Cbx.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.GotoProfile_Cbx.ForeColor = System.Drawing.Color.Blue;
+         this.GotoProfile_Cbx.Location = new System.Drawing.Point(96, 39);
+         this.GotoProfile_Cbx.Name = "GotoProfile_Cbx";
+         this.GotoProfile_Cbx.Size = new System.Drawing.Size(15, 14);
+         this.GotoProfile_Cbx.TabIndex = 10;
+         this.GotoProfile_Cbx.UseVisualStyleBackColor = true;
          // 
          // CELL_PHON_TextEdit
          // 
@@ -9840,5 +9853,6 @@
       private MaxUi.NewPickBtn RqstDupl_Pbtn;
       private Windows.Forms.TabPage tabPage7;
       private Windows.Forms.Button SendFngrToEdit_Butn;
+      private Windows.Forms.CheckBox GotoProfile_Cbx;
    }
 }

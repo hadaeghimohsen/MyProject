@@ -3085,7 +3085,7 @@
          // 
          // Cycl_Gb
          // 
-         this.Cycl_Gb.BackColor = System.Drawing.Color.LightGray;
+         this.Cycl_Gb.BackColor = System.Drawing.SystemColors.Control;
          this.Cycl_Gb.Controls.Add(this.ServProf_Tc);
          this.Cycl_Gb.Controls.Add(this.ServInfo_Pn);
          this.Cycl_Gb.Dock = System.Windows.Forms.DockStyle.Fill;

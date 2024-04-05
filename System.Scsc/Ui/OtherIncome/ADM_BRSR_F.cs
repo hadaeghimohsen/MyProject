@@ -33,6 +33,8 @@ namespace System.Scsc.Ui.OtherIncome
          {
             //if (tb_master.SelectedTab == tp_001)
             {
+               GC.Collect();
+               GC.WaitForPendingFinalizers();
                iScsc = new Data.iScscDataContext(ConnectionString);
                if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))                  
                   vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);
@@ -66,6 +68,8 @@ namespace System.Scsc.Ui.OtherIncome
          {
             //if (tb_master.SelectedTab == tp_001)
             {
+               GC.Collect();
+               GC.WaitForPendingFinalizers();
                iScsc = new Data.iScscDataContext(ConnectionString);
                //if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))
                vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);

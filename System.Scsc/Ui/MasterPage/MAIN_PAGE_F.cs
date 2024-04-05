@@ -198,6 +198,7 @@ namespace System.Scsc.Ui.MasterPage
 
             Sp_Barcode.PortName = barCodeSetting.COMM_PORT_NAME;
             Sp_Barcode.BaudRate = (int)barCodeSetting.BAND_RATE;
+            Sp_Barcode.Handshake = Handshake.None;
             Sp_Barcode.Open();            
 
             if (Sp_Barcode.IsOpen)
@@ -2634,6 +2635,28 @@ namespace System.Scsc.Ui.MasterPage
                   }
                   #endregion
                }
+               else if (AttnType_Lov.EditValue.ToString() == "014")
+               {
+                  #region ارائه و تحویل دستبند کمدی
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           //new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){ Input = Keys.Escape },
+                           //new Job(SendType.Self, 110 /* Execute WHO_ARYU_F */),
+                           new Job(SendType.SelfToUserInterface, "WHO_ARYU_F", 10 /* Execute Actn_CalF_F*/ )
+                           {
+                              Input = 
+                                 new XElement("Fighter",
+                                    new XAttribute("cmndtype", "sendparam"),
+                                    new XAttribute("enroll", EnrollNumber),
+                                    new XAttribute("formcaller", GetType().Name)
+                                 )
+                           }
+                        })
+                  );
+                  #endregion
+               }
                return; 
             }
 
@@ -3323,7 +3346,7 @@ namespace System.Scsc.Ui.MasterPage
 
             var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
 
-            #region Saela Company
+            #region Saela & Nuoro Company
             #region card reader
             foreach (var cardreader in devs.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "001"))
             {
@@ -3371,7 +3394,18 @@ namespace System.Scsc.Ui.MasterPage
             #endregion
 
             #region gate control
-            foreach (var gate in devs.Where(d => (d.DEV_COMP_TYPE == "001" || d.DEV_COMP_TYPE == "003") && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS)))
+            foreach (var gate in 
+               devs.Where(d => 
+                  _listIPHost.Contains(d.SERV_IP_ADRS) && 
+                  (
+                     // Saela && Nuoro for gate control
+                     ((d.DEV_COMP_TYPE == "001" || d.DEV_COMP_TYPE == "003") && d.DEV_TYPE == "006") ||
+                     // Nuoro for online locker for action with managment locker room with card reader
+                     (d.DEV_COMP_TYPE == "003" && d.DEV_TYPE == "010" && d.ACTN_TYPE == "013") ||
+                     // Nuoro for card reader with define for attendance
+                     (d.DEV_COMP_TYPE == "003" && d.DEV_TYPE == "001" && (d.ACTN_TYPE == "001" /* حضوری */ || d.ACTN_TYPE == "003" /* نمایش */ || d.ACTN_TYPE == "011" /* کپی کارت گروهی */ || d.ACTN_TYPE == "014" /* ارائه و تحویل دستبند کمدی */))
+                  )
+            ))
             {
                if(gate.DEV_CON == "001")
                {
@@ -3435,7 +3469,7 @@ namespace System.Scsc.Ui.MasterPage
 
             //MessageBox.Show(xHost.ToString());            
 
-            #region AnarSoft Company
+            #region RelaySoft Company
             #region Device Bilard & CityGame & Reader & Seven Segment & Online LockerS Gym
             // آیا کامپیوتر مورد نظر به عنوان سرور تلقی میشود که باید به بعضی از دستگاه ها پاسخگو باشد
             if (devs.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "007" || d.DEV_TYPE == "008" || d.DEV_TYPE == "009" || d.DEV_TYPE == "010" || (d.DEV_TYPE == "001" && d.DEV_CON == "002")) && _listIPHost.Contains(d.SERV_IP_ADRS)).Any())
@@ -3703,62 +3737,153 @@ namespace System.Scsc.Ui.MasterPage
 
       private void LsGate_OnDataRecived(int port, byte[] recieve)
       {
+         // if data is ok
+         var recieveStr = BitConverter.ToString(recieve).Split('-');
+         //CrntValuGetData_Butn.EditValue = recieveStr;
+         //CardOpr_Txt.EditValue = recieveStr;
+         string enrollNumber = "";
+
+         #region Data recieved from saela and Nuoro gate control
          var gate = iScsc.External_Devices.Where(ed => (ed.DEV_COMP_TYPE == "001" || ed.DEV_COMP_TYPE == "003") && ed.DEV_TYPE == "006" && ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
-         try
+         if (gate != null)
          {
-            // if data is ok
-            var recieveStr = BitConverter.ToString(recieve).Split('-');
-            string enrollNumber = "";
-            
-            // 1402/11/05 * اگر میخواهیم چک کنیم که این دستگاه تایم استفاده کردنش هست یا خیر
-            /*
-               001	یکشنبه
-               002	دو شنبه
-               003	سه شنبه
-               004	چهار شنبه
-               005	پنج شنبه
-               006	جمعه
-               007	شنبه
-             */
-            var _weekday = DateTime.Now.DayOfWeek;
-            if (gate.External_Device_Weekdays.Count() > 0)
+            try
             {
-               if(gate.External_Device_Weekdays
-                  .Any(ew => ew.STAT == "002" 
-                          && ew.WEEK_DAY == string.Format("00{0}", (int)(_weekday+1)))
-               )
+               // 1402/11/05 * اگر میخواهیم چک کنیم که این دستگاه تایم استفاده کردنش هست یا خیر
+               /*
+                  001	یکشنبه
+                  002	دو شنبه
+                  003	سه شنبه
+                  004	چهار شنبه
+                  005	پنج شنبه
+                  006	جمعه
+                  007	شنبه
+                */
+               var _weekday = DateTime.Now.DayOfWeek;
+               if (gate.External_Device_Weekdays.Count() > 0)
                {
-                  // checking must be Continue
-                  if(gate.External_Device_Weekdays
-                  .Any(ew => ew.STAT == "002" 
-                          && ew.WEEK_DAY == string.Format("00{0}", (int)(_weekday+1)) 
-                          && ew.External_Device_Weekday_Timings.Count() > 0)
+                  if (gate.External_Device_Weekdays
+                     .Any(ew => ew.STAT == "002"
+                             && ew.WEEK_DAY == string.Format("00{0}", (int)(_weekday + 1)))
                   )
                   {
-                     if(!gate.External_Device_Weekdays
-                        .Any(ew => ew.STAT == "002" 
-                                && ew.WEEK_DAY == string.Format("00{0}", (int)(_weekday+1)) 
-                                && ew.External_Device_Weekday_Timings.Any(et => et.STAT == "002" 
-                                && DateTime.Now.TimeOfDay >= et.STRT_TIME.Value.TimeOfDay 
-                                && DateTime.Now.TimeOfDay <= et.END_TIME.Value.TimeOfDay))
+                     // checking must be Continue
+                     if (gate.External_Device_Weekdays
+                     .Any(ew => ew.STAT == "002"
+                             && ew.WEEK_DAY == string.Format("00{0}", (int)(_weekday + 1))
+                             && ew.External_Device_Weekday_Timings.Count() > 0)
                      )
                      {
-                        // Error 
-                        if (gate.DEV_COMP_TYPE == "001")
+                        if (!gate.External_Device_Weekdays
+                           .Any(ew => ew.STAT == "002"
+                                   && ew.WEEK_DAY == string.Format("00{0}", (int)(_weekday + 1))
+                                   && ew.External_Device_Weekday_Timings.Any(et => et.STAT == "002"
+                                   && DateTime.Now.TimeOfDay >= et.STRT_TIME.Value.TimeOfDay
+                                   && DateTime.Now.TimeOfDay <= et.END_TIME.Value.TimeOfDay))
+                        )
                         {
-                           var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
-                           SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+                           // Error 
+                           if (gate.DEV_COMP_TYPE == "001")
+                           {
+                              var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
+                              SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+                           }
+                           else if (gate.DEV_COMP_TYPE == "003")
+                           {
+                              var cmd = new byte[] { 0xFA, 0xBA, 0x05, 0x03, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
+                              SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+                           }
+                           return;
                         }
-                        else if (gate.DEV_COMP_TYPE == "003")
-                        {
-                           var cmd = new byte[] { 0xFA, 0xBA, 0x05, 0x03, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
-                           SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
-                        }
-                        return;
                      }
                   }
+                  else
+                  {
+                     // Error 
+                     if (gate.DEV_COMP_TYPE == "001")
+                     {
+                        var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
+                        SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+                     }
+                     else if (gate.DEV_COMP_TYPE == "003")
+                     {
+                        var cmd = new byte[] { 0xFA, 0xBA, 0x05, 0x03, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
+                        SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+                     }
+                     return;
+                  }
                }
+
+               // Saela gate control
+               if (gate.DEV_COMP_TYPE == "001")
+               {
+                  for (int i = recieveStr.Count() - 6; i < recieveStr.Count() - 2; i++)
+                  {
+                     enrollNumber += recieveStr[i];
+                  }
+               }
+               // Nuoro gate control
+               else if (gate.DEV_COMP_TYPE == "003")
+               {
+                  //for (int i = recieveStr.Count() - 6; i < recieveStr.Count() - 2; i++)
+                  //{
+                  //   enrollNumber += recieveStr[i];
+                  //}
+                  // Mifare
+                  if (gate.CARD_READ_TYPE == "001")
+                  {
+
+                  }
+                  // RO
+                  else if (gate.CARD_READ_TYPE == "002")
+                  {
+                     enrollNumber =
+                        Convert.ToInt32(
+                           ConvertHex2Ascii(
+                              string.Join("", /*recieveStr.Reverse().Where(i => i != "00").Take(4)*/ recieveStr.Skip(4).Take(6))
+                           ),
+                           16
+                        ).ToString().PadLeft(10, '0');
+                     //return;
+                  }
+               }
+
+               // 1402/11/16 * Send Signal to receive data
+               GetValuDataFromExtrDev(gate, enrollNumber);
+
+               // IF NOT VALID ENROLCODE
+               if (enrollNumber.In("0004000", "00040000", "00010000", "00000000")) return;
+
+               // 1402/11/02 * اگر نیاز باشه برای کپی برداری از این آیتم استفاده کنیم
+               if (AttnType_Lov.EditValue != null && AttnType_Lov.EditValue.ToString() == "011")
+               {
+                  OnAttTransactionEx(enrollNumber);
+                  return;
+               }
+
+               // Alarm 
+               new Thread(AlarmShow).Start();
+
+               iScsc = new Data.iScscDataContext(ConnectionString);
+
+               if (InvokeRequired)
+                  Invoke(new Action(() =>
+                  {
+                     // اگر کارت قبلا خوانده شده
+                     if (FngrPrnt_Txt.Text == enrollNumber) return;
+                     FngrPrnt_Txt.Text = enrollNumber;
+                  }));
                else
+               {
+                  // اگر کارت قبلا خوانده شده
+                  if (FngrPrnt_Txt.Text == enrollNumber) return;
+                  FngrPrnt_Txt.Text = enrollNumber;
+               }
+
+               //var gate = iScsc.External_Devices.Where(ed => ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
+
+               // IF NOT EXISTS ANY SERVICE RETURN AND STOPED!!
+               if (!iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == enrollNumber))
                {
                   // Error 
                   if (gate.DEV_COMP_TYPE == "001")
@@ -3773,220 +3898,184 @@ namespace System.Scsc.Ui.MasterPage
                   }
                   return;
                }
-            }               
 
-            // Saela gate control
-            if (gate.DEV_COMP_TYPE == "001")
-            {
-               for (int i = recieveStr.Count() - 6; i < recieveStr.Count() - 2; i++)
+               var mbsp = new Data.Member_Ship();
+               var _gateMtods = gate.External_Device_Link_Methods.Where(gm => gm.STAT == "002").Select(gm => gm.MTOD_CODE);
+
+               // بررسی اینکه برای پرسنل هایی که داریم نیازی به بررسی تردد نداریم
+               if (iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == enrollNumber && f.FGPB_TYPE_DNRM == "003"))
                {
-                  enrollNumber += recieveStr[i];
-               }
-            }
-            // Nouro gate control
-            else if (gate.DEV_COMP_TYPE == "003")
-            {
-               //for (int i = recieveStr.Count() - 6; i < recieveStr.Count() - 2; i++)
-               //{
-               //   enrollNumber += recieveStr[i];
-               //}
-               // Mifare
-               if (gate.CARD_READ_TYPE == "001")
-               {
-                  
-               }
-               // RO
-               else if(gate.CARD_READ_TYPE == "002")
-               {
-                  enrollNumber =                     
-                     Convert.ToInt32(
-                        ConvertHex2Ascii(
-                           string.Join("", /*recieveStr.Reverse().Where(i => i != "00").Take(4)*/ recieveStr.Skip(4).Take(6))
-                        ),
-                        16
-                     ).ToString().PadLeft(10, '0');
-                  //return;
-               }
-            }
-
-            // 1402/11/16 * Send Signal to receive data
-            GetValuDataFromExtrDev(gate, enrollNumber);
-
-            // IF NOT VALID ENROLCODE
-            if (enrollNumber.In("0004000", "00040000", "00010000", "00000000")) return;
-
-            // 1402/11/02 * اگر نیاز باشه برای کپی برداری از این آیتم استفاده کنیم
-            if(AttnType_Lov.EditValue != null && AttnType_Lov.EditValue.ToString() == "011")
-            {
-               OnAttTransactionEx(enrollNumber);
-               return;
-            }
-
-            // Alarm 
-            new Thread(AlarmShow).Start();
-
-            iScsc = new Data.iScscDataContext(ConnectionString);
-
-            if (InvokeRequired)
-               Invoke(new Action(() =>
-               {
-                  // اگر کارت قبلا خوانده شده
-                  if (FngrPrnt_Txt.Text == enrollNumber) return;
-                  FngrPrnt_Txt.Text = enrollNumber;
-               }));
-            else
-            {
-               // اگر کارت قبلا خوانده شده
-               if (FngrPrnt_Txt.Text == enrollNumber) return;
-               FngrPrnt_Txt.Text = enrollNumber;
-            }
-
-            //var gate = iScsc.External_Devices.Where(ed => ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
-
-            // IF NOT EXISTS ANY SERVICE RETURN AND STOPED!!
-            if (!iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == enrollNumber))
-            {
-               // Error 
-               if (gate.DEV_COMP_TYPE == "001")
-               {
-                  var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
-                  SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
-               }
-               else if(gate.DEV_COMP_TYPE == "003")
-               {
-                  var cmd = new byte[] { 0xFA, 0xBA, 0x05, 0x03, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE};
-                  SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
-               }
-               return;
-            }            
-
-            var mbsp = new Data.Member_Ship();
-            var _gateMtods = gate.External_Device_Link_Methods.Where(gm => gm.STAT == "002").Select(gm => gm.MTOD_CODE);
-
-            // بررسی اینکه برای پرسنل هایی که داریم نیازی به بررسی تردد نداریم
-            if (iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == enrollNumber && f.FGPB_TYPE_DNRM == "003"))
-            {
-               mbsp =
-               iScsc.Member_Ships
-               .Where(ms =>
-                  ms.Fighter.FNGR_PRNT_DNRM == enrollNumber &&
-                  ms.VALD_TYPE == "002" &&
-                  ms.RECT_CODE == "004" &&
-                  DateTime.Now.IsBetween(ms.STRT_DATE.Value.Date, ms.END_DATE.Value.Date)
-               ).FirstOrDefault();
-            }
-            else
-            {
-               mbsp =
+                  mbsp =
                   iScsc.Member_Ships
                   .Where(ms =>
                      ms.Fighter.FNGR_PRNT_DNRM == enrollNumber &&
-                     //ms.Fighter_Public.MTOD_CODE == gate.MTOD_CODE &&
-                     _gateMtods.Contains(ms.Fighter_Public.MTOD_CODE) &&
                      ms.VALD_TYPE == "002" &&
                      ms.RECT_CODE == "004" &&
-                     ms.STRT_DATE <= DateTime.Now.Date &&
-                     ms.END_DATE >= DateTime.Now.Date &&
-                     (ms.NUMB_OF_ATTN_MONT == 0 || ms.NUMB_OF_ATTN_MONT > ms.SUM_ATTN_MONT_DNRM)
+                     DateTime.Now.IsBetween(ms.STRT_DATE.Value.Date, ms.END_DATE.Value.Date)
                   ).FirstOrDefault();
-            }
-
-            // این گزینه برای مشتریان لحاظ میشود
-            if(mbsp == null)
-            {
-               // 1398/12/23 * اگرمشتری اخرین جلسه وارد شده و بخواهد که خارج شود
-               var lastinputattn = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == enrollNumber && /*a.MTOD_CODE_DNRM == gate.MTOD_CODE*/_gateMtods.Contains(a.MTOD_CODE_DNRM)  && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null);
-               if (lastinputattn != null && lastinputattn.Count() >= 1)
+               }
+               else
                {
-                  // Send [Close] command to Gate
-                  // یک خروج به مشتری زده میشود
+                  mbsp =
+                     iScsc.Member_Ships
+                     .Where(ms =>
+                        ms.Fighter.FNGR_PRNT_DNRM == enrollNumber &&
+                           //ms.Fighter_Public.MTOD_CODE == gate.MTOD_CODE &&
+                        _gateMtods.Contains(ms.Fighter_Public.MTOD_CODE) &&
+                        ms.VALD_TYPE == "002" &&
+                        ms.RECT_CODE == "004" &&
+                        ms.STRT_DATE <= DateTime.Now.Date &&
+                        ms.END_DATE >= DateTime.Now.Date &&
+                        (ms.NUMB_OF_ATTN_MONT == 0 || ms.NUMB_OF_ATTN_MONT > ms.SUM_ATTN_MONT_DNRM)
+                     ).FirstOrDefault();
+               }
+
+               // این گزینه برای مشتریان لحاظ میشود
+               if (mbsp == null)
+               {
+                  // 1398/12/23 * اگرمشتری اخرین جلسه وارد شده و بخواهد که خارج شود
+                  var lastinputattn = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == enrollNumber && /*a.MTOD_CODE_DNRM == gate.MTOD_CODE*/_gateMtods.Contains(a.MTOD_CODE_DNRM) && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null);
+                  if (lastinputattn != null && lastinputattn.Count() >= 1)
+                  {
+                     // Send [Close] command to Gate
+                     // یک خروج به مشتری زده میشود
+                     if (gate.DEV_COMP_TYPE == "001")
+                     {
+                        var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0b, 0x08, 0x00, 0x00, 0x00, 0xf7, 0xDD };
+                        SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+                     }
+                     else if (gate.DEV_COMP_TYPE == "003")
+                     {
+                        var cmd = new byte[] { 0xFA, 0xBA, 0x02, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
+                        SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+                     }
+
+                     iScsc.INS_ATTN_P(null, lastinputattn.FirstOrDefault().FIGH_FILE_NO, DateTime.Now, null, "001", lastinputattn.FirstOrDefault().MBSP_RWNO_DNRM, "002", "001");
+                     return;
+                  }
+                  else
+                  {
+                     // Send [Error] command to gate
+                     if (gate.DEV_COMP_TYPE == "001")
+                     {
+                        var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
+                        SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+                     }
+                     else if (gate.DEV_COMP_TYPE == "003")
+                     {
+                        var cmd = new byte[] { 0xFA, 0xBA, 0x05, 0x03, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
+                        SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+                     }
+                     return;
+                  }
+               }
+
+               iScsc.INS_ATTN_P(null, mbsp.FIGH_FILE_NO, DateTime.Now, null, "001", mbsp.RWNO, "002", "001");
+
+               // Find Attendance in today
+               var attn = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == mbsp.FIGH_FILE_NO && a.MBSP_RWNO_DNRM == mbsp.RWNO && a.ATTN_DATE == DateTime.Now.Date).OrderByDescending(a => a.ENTR_TIME).FirstOrDefault();
+
+               // Send [Open] or [Close] command to gate
+               if (attn == null || attn.EXIT_TIME == null)
+               {
+                  if (gate.DEV_COMP_TYPE == "001")
+                  {
+                     // Send [Open] command to gate
+                     var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0C, 0x08, 0x00, 0x00, 0x00, 0xf0, 0xDD };
+
+                     //byte xorByte = 0;
+                     //for (int i = 1; i <= cmd.Length - 3; i++)
+                     //   xorByte ^= cmd[i];
+                     //cmd[cmd.Length - 2] = xorByte;
+
+                     SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+                  }
+                  else if (gate.DEV_COMP_TYPE == "003")
+                  {
+                     var cmd = new byte[] { 0xFA, 0xBA, 0x02, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
+                     SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+                  }
+               }
+               else
+               {
+                  // Send [Close] command to gate
                   if (gate.DEV_COMP_TYPE == "001")
                   {
                      var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0b, 0x08, 0x00, 0x00, 0x00, 0xf7, 0xDD };
                      SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
                   }
-                  else if(gate.DEV_COMP_TYPE == "003")
+                  else if (gate.DEV_COMP_TYPE == "003")
                   {
                      var cmd = new byte[] { 0xFA, 0xBA, 0x02, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
                      SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
                   }
-
-                  iScsc.INS_ATTN_P(null, lastinputattn.FirstOrDefault().FIGH_FILE_NO, DateTime.Now, null, "001", lastinputattn.FirstOrDefault().MBSP_RWNO_DNRM, "002", "001");
-                  return;
-               }
-               else
-               {
-                  // Send [Error] command to gate
-                  if (gate.DEV_COMP_TYPE == "001")
-                  {
-                     var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
-                     SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
-                  }
-                  else if(gate.DEV_COMP_TYPE == "003")
-                  {
-                     var cmd = new byte[] { 0xFA, 0xBA, 0x05, 0x03, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
-                     SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
-                  }
-                  return;
                }
             }
-
-            iScsc.INS_ATTN_P(null, mbsp.FIGH_FILE_NO, DateTime.Now, null, "001", mbsp.RWNO, "002", "001");
-
-            // Find Attendance in today
-            var attn = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == mbsp.FIGH_FILE_NO && a.MBSP_RWNO_DNRM == mbsp.RWNO && a.ATTN_DATE == DateTime.Now.Date).OrderByDescending(a => a.ENTR_TIME).FirstOrDefault();
-            
-            // Send [Open] or [Close] command to gate
-            if (attn == null || attn.EXIT_TIME == null)
+            catch (Exception exc)
             {
+               //MessageBox.Show(exc.Message);
+               // Send [Error] command to gate
                if (gate.DEV_COMP_TYPE == "001")
                {
-                  // Send [Open] command to gate
-                  var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0C, 0x08, 0x00, 0x00, 0x00, 0xf0, 0xDD };
-
-                  //byte xorByte = 0;
-                  //for (int i = 1; i <= cmd.Length - 3; i++)
-                  //   xorByte ^= cmd[i];
-                  //cmd[cmd.Length - 2] = xorByte;
-
+                  var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
                   SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
                }
-               else if(gate.DEV_COMP_TYPE == "003")
+               else if (gate.DEV_COMP_TYPE == "003")
                {
-                  var cmd = new byte[] { 0xFA, 0xBA, 0x02, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
-                  SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
-               }
-            }
-            else
-            {
-               // Send [Close] command to gate
-               if (gate.DEV_COMP_TYPE == "001")
-               {                  
-                  var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0b, 0x08, 0x00, 0x00, 0x00, 0xf7, 0xDD };
-                  SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
-               }
-               else if(gate.DEV_COMP_TYPE == "003")
-               {
-                  var cmd = new byte[] { 0xFA, 0xBA, 0x02, 0x07, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
+                  var cmd = new byte[] { 0xFA, 0xBA, 0x05, 0x03, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
                   SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
                }
             }
          }
-         catch (Exception exc)
+         #endregion
+         #region Data recieved from Nuoro online locker 
+         var nuorodevs = iScsc.External_Devices.Where(ed => ed.DEV_COMP_TYPE == "003" /* Nuoro */ && (ed.DEV_TYPE == "001" /* Card Reader */ || ed.DEV_TYPE == "010" /* Online Locker */) && ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
+         if (nuorodevs != null)
          {
-            //MessageBox.Show(exc.Message);
-            // Send [Error] command to gate
-            if (gate.DEV_COMP_TYPE == "001")
+            if (nuorodevs.CARD_READ_TYPE == "001")
             {
-               var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x21, 0x00, 0x04, 0x00, 0x00, 0xD1, 0xDD };
-               SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+
             }
-            else if(gate.DEV_COMP_TYPE == "003")
+            // RO
+            else if (nuorodevs.CARD_READ_TYPE == "002")
             {
-               var cmd = new byte[] { 0xFA, 0xBA, 0x05, 0x03, 0x03, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0xEE };
-               SendCommand(gate.IP_ADRS, (int)gate.PORT_SEND, cmd);
+               enrollNumber =
+                  Convert.ToInt32(
+                     ConvertHex2Ascii(
+                        string.Join("", /*recieveStr.Reverse().Where(i => i != "00").Take(4)*/ recieveStr.Skip(4).Take(6))
+                     ),
+                     16
+                  ).ToString().PadLeft(10, '0');
+               //return;
+            }
+            // 1402/10/28 * if enrollnumber is not valid
+            if (enrollNumber == "0") return;
+
+            // 1402/11/16 * Send Signal to receive data
+            GetValuDataFromExtrDev(gate, enrollNumber);
+
+            // Alarm 
+            new Thread(AlarmShow).Start();
+
+            // Nuoro for card reader with define for attendance
+            if (nuorodevs.DEV_TYPE == "001" && (nuorodevs.ACTN_TYPE == "001" || nuorodevs.ACTN_TYPE == "003" || nuorodevs.ACTN_TYPE == "011" || nuorodevs.ACTN_TYPE == "014"))
+            {
+               var _tmp = AttnType_Lov.EditValue;
+               AttnType_Lov.EditValue = nuorodevs.ACTN_TYPE;
+               if (InvokeRequired)
+                  Invoke(new Action(() => OnAttTransactionEx(enrollNumber)));
+               else
+                  OnAttTransactionEx(enrollNumber);
+               AttnType_Lov.EditValue = _tmp;
+               return;
+            }
+            // Nuoro for online locker for action with managment locker room with card reader
+            else if (nuorodevs.DEV_TYPE == "010" && nuorodevs.ACTN_TYPE == "013")
+            {
+
             }
          }
+         #endregion
       }
 
       private void SendCommand(String server, int port, byte[] message)
@@ -9004,6 +9093,33 @@ namespace System.Scsc.Ui.MasterPage
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void FighBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _figh = FighBs.Current as Data.Fighter;
+            if (_figh == null) { CrntServGetData_Butn.Text = "---"; return; }
+
+            CrntServGetData_Butn.Text = _figh.NAME_DNRM;
+         }
+         catch { }
+      }
+
+      private void SrvrPing_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (ModifierKeys.HasFlag(Keys.Control))
+            {
+               _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\radar.mp3";
+               new Thread(AlarmShow).Start();
+               DeviceOnNetworks.OfType<Device_On_Network>().ToList().ForEach(d => d.PingStatus = false);
+               Tm_ShowTime_Tick(null, null);
+            }
+         }
+         catch { }
       }
    }
 }

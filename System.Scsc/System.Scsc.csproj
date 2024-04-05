@@ -1145,6 +1145,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Aggregation_Operation_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.App_Base_Define.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Attendance.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Attendance_Wrist.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Base_Calculate_Expense.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Base_Unit.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Basic_Body_Fitness_Movement.datasource" />

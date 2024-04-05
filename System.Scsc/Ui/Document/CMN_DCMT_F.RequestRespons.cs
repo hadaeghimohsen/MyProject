@@ -427,6 +427,7 @@ namespace System.Scsc.Ui.Document
       /// <param name="job"></param>
       private void Actn_CalF_P(Job job)
       {
+         pb_destination.Image = null;
          picFPImg.Image = System.Scsc.Properties.Resources.IMAGE_1201;
          textFngr.Text = "";
          if (job.Input is XElement)

@@ -282,17 +282,18 @@ namespace System.Scsc.Ui.ReportManager
 
                s.Compile();
                s.Render();
-               foreach (var _printer in crnt.Modual_Report_Direct_Prints.Where(p => p.STAT == "002" && p.USER_ID == CurrentUser && p.Computer_Action.COMP_NAME == ComputerName))
-               {
-                  if (_printer.DFLT_PRNT == "002")
-                     s.Print(false, (short)_printer.COPY_NUMB);
-                  else
-                  {
-                     _printerSettings.Copies = (short)_printer.COPY_NUMB;
-                     _printerSettings.PrinterName = _printer.PRNT_NAME;
-                     s.Print(false, _printerSettings);
-                  }
-               }                     
+               //foreach (var _printer in crnt.Modual_Report_Direct_Prints.Where(p => p.STAT == "002" && p.USER_ID == CurrentUser && p.Computer_Action.COMP_NAME == ComputerName))
+               //{
+               //   if (_printer.DFLT_PRNT == "002")
+               //      s.Print(false, (short)_printer.COPY_NUMB);
+               //   else
+               //   {
+               //      _printerSettings.Copies = (short)_printer.COPY_NUMB;
+               //      _printerSettings.PrinterName = _printer.PRNT_NAME;
+               //      s.Print(false, _printerSettings);
+               //   }
+               //}
+               s.Print(false);
             }
          }
          catch

@@ -364,7 +364,7 @@ namespace System.Scsc.Ui.Admission
                   CtgyCode_Lov.Focus();
                   return;
                }
-            }
+            }            
 
             iScsc.UCC_TRQT_P(
                new XElement("Process",

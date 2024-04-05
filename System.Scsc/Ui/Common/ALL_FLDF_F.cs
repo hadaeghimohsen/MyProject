@@ -888,8 +888,8 @@ namespace System.Scsc.Ui.Common
          {
             var pymt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
             if (pymt == null) return;
-            var pydt = PydtsBs1.Current as Data.Payment_Detail;
-            if (pydt == null) return;
+            var pd = PydtsBs1.Current as Data.Payment_Detail;
+            if (pd == null) return;
 
             switch (e.Button.Index)
             {
@@ -933,7 +933,7 @@ namespace System.Scsc.Ui.Common
                            new XElement("Payment",
                               new XAttribute("cashcode", pymt.CASH_CODE),
                               new XElement("Payment_Detail",
-                                 new XAttribute("code", pydt.CODE)
+                                 new XAttribute("code", pd.CODE)
                               )
                            )
                         )
@@ -980,15 +980,25 @@ namespace System.Scsc.Ui.Common
                            new XElement("Payment",
                               new XAttribute("cashcode", pymt.CASH_CODE),
                               new XElement("Payment_Detail",
-                                 new XAttribute("code", pydt.CODE),
-                                 new XAttribute("expncode", pydt.EXPN_CODE),
-                                 new XAttribute("expnpric", pydt.EXPN_PRIC),
-                                 new XAttribute("pydtdesc", pydt.PYDT_DESC ?? ""),
-                                 new XAttribute("qnty", pydt.QNTY ?? 1),
-                                 new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
-                                 new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM ?? 0),
-                                 new XAttribute("mtodcodednrm", pydt.MTOD_CODE_DNRM),
-                                 new XAttribute("ctgycodednrm", pydt.CTGY_CODE_DNRM)
+                                 new XAttribute("code", pd.CODE),
+                                 new XAttribute("expncode", pd.EXPN_CODE),
+                                 new XAttribute("expnpric", pd.EXPN_PRIC),
+                                 new XAttribute("pydtdesc", pd.PYDT_DESC ?? ""),
+                                 new XAttribute("qnty", pd.QNTY ?? 1),
+                                 new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
+                                 new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0),
+                                 new XAttribute("mtodcodednrm", pd.MTOD_CODE_DNRM),
+                                 new XAttribute("ctgycodednrm", pd.CTGY_CODE_DNRM),
+                                 new XAttribute("mbsprwno", pd.MBSP_RWNO ?? 0),
+                                 new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
+                                 new XAttribute("fromnumb", pd.FROM_NUMB ?? 0),
+                                 new XAttribute("tonumb", pd.TO_NUMB ?? 0),
+                                 new XAttribute("extscode", pd.EXTS_CODE ?? 0),
+                                 new XAttribute("extsrsrvdate", pd.EXTS_RSRV_DATE == null ? "" : pd.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd")),
+                                 new XAttribute("totlwegh", pd.TOTL_WEGH ?? 0),
+                                 new XAttribute("unitnumb", pd.UNIT_NUMB ?? 0),
+                                 new XAttribute("unitapbscode", pd.UNIT_APBS_CODE ?? 0),
+                                 new XAttribute("cmnt", pd.CMNT ?? "")
                               )
                            )
                         )
@@ -1037,7 +1047,7 @@ namespace System.Scsc.Ui.Common
                               {
                                  Input = 
                                     new XElement("Payment",
-                                       new XAttribute("pydtcode", pydt.CODE),
+                                       new XAttribute("pydtcode", pd.CODE),
                                        new XAttribute("fileno", fileno)
                                     )
                               }
@@ -1161,7 +1171,7 @@ namespace System.Scsc.Ui.Common
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
 
-            Refresh_Butn_Click(null, null);
+            //Refresh_Butn_Click(null, null);
          }
          catch(Exception exc)
          {

@@ -248,7 +248,7 @@ namespace System.Scsc.Ui.Document
                   )
                )
             );
-            MessageBox.Show("پروفایل عکس شما با موفقیت تایید شد");
+            //MessageBox.Show("پروفایل عکس شما با موفقیت تایید شد");
 
             if (Tb_StartStopVideo.PickChecked)
                Tb_StartStopVideo.PickChecked = false;
@@ -366,6 +366,7 @@ namespace System.Scsc.Ui.Document
          RcvdBs.Position = _rcvd;
 
          Btn_SetProfileImage_Click(null, null);
+         mb_back_Click(null, null);
       }
 
       private void Tm_NewFrameProcess_Tick(object sender, EventArgs e)

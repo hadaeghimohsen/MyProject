@@ -1540,5 +1540,196 @@ namespace System.Scsc.Ui.Notifications
                Execute_Query(true);
          }
       }
+
+      private void WristBand_Txt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _attn = AttnBs1.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            if (WristBand_Txt.EditValue == null || WristBand_Txt.EditValue.ToString() == "") return;
+
+            string _tmp = "";
+            attncode = _attn.CODE;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  if (!AtnwBs.List.OfType<Data.Attendance_Wrist>().Any(aw => aw.Fighter1.FNGR_PRNT_DNRM == WristBand_Txt.Text))
+                  {
+                     var _wrst = iScsc.Fighters.FirstOrDefault(w => w.FNGR_PRNT_DNRM == WristBand_Txt.Text);
+                     if (_wrst == null) return;
+
+                     if (!AutoAddToList_Cbx.Checked && MessageBox.Show(this, "آیا با اضافه کردن دستبند به لیست موافق هستید؟", "عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                     
+                     iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.Attendance_Wrist(Attn_Code, Atnw_Figh_File_No, Code, Atnw_Fngr_Prnt_Dnrm) VALUES ({0}, {1}, 0, '{2}');", _attn.CODE, _wrst.FILE_NO, _wrst.FNGR_PRNT_DNRM));
+
+                     // اگر تعداد دستبند هایی که داده میوشد بیشتر از یک عدد باشد باید تعداد جلسات بیشتری از مشتری کم شود
+                     if (AtnwBs.Count >= 1)
+                     {
+                        iScsc.ExecuteCommand(
+                           string.Format(
+                              "UPDATE dbo.Attendance SET SUM_ATTN_MONT_DNRM += 1 WHERE CODE = {0};" + Environment.NewLine +
+                              "UPDATE ms SET ms.SUM_ATTN_MONT_DNRM += 1 FROM dbo.Member_Ship ms, dbo.Attendance a WHERE a.Code = {0} AND a.MBSP_RWNO_DNRM = ms.RWNO AND a.FIGH_FILE_NO = ms.FIGH_FILE_NO AND ms.RECT_CODE = '004';", 
+                           _attn.CODE)
+                        );
+
+                        iScsc.INS_LGOP_P(
+                           new XElement("Log",
+                               new XAttribute("fileno", _attn.FIGH_FILE_NO),
+                               new XAttribute("type", "011"),
+                               new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _attn.NAME_DNRM + " یک جلسه به صورت دستی بابت دستبند اضافه کم کرد")
+                           )
+                        );
+                     }
+                  }
+                  else
+                  {
+                     if (!ConfBackWrst_Cbx.Checked && MessageBox.Show(this, "آیا با تحویل و برگشت دستبند موافق هستید؟", "عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+                     // اگر قبلا این دستبند برگشت داده شده باشد
+                     if (AtnwBs.List.OfType<Data.Attendance_Wrist>().Any(aw => aw.ATTN_CODE == _attn.CODE && aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text && aw.STAT == "002")) return;
+
+                     // وضعیت برگشت دستبند را فعال میکنیم
+                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Attendance_Wrist SET STAT = '002' WHERE Attn_Code = {0} AND Atnw_Fngr_Prnt_Dnrm = '{1}';", _attn.CODE, WristBand_Txt.Text));
+
+                     _tmp = AtnwBs.List.OfType<Data.Attendance_Wrist>().FirstOrDefault(aw => aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text).Dresser == null ? AtnwBs.List.OfType<Data.Attendance_Wrist>().FirstOrDefault(aw => aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text).ATNW_FNGR_PRNT_DNRM : AtnwBs.List.OfType<Data.Attendance_Wrist>().FirstOrDefault(aw => aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text).Dresser.DRES_NUMB.ToString();
+
+                     iScsc.INS_LGOP_P(
+                        new XElement("Log",
+                              new XAttribute("fileno", _attn.FIGH_FILE_NO),
+                              new XAttribute("type", "015"),
+                              new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _attn.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " را تحویل گرفت")
+                        )
+                     );
+                  }
+                  break;
+               default:
+                  break;
+            }
+            requery = true;
+         }
+         catch { }
+         finally
+         {
+            if (requery)
+               Execute_Query(true);
+         }
+      }
+
+      private void Atnw_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _atnw = AtnwBs.Current as Data.Attendance_Wrist;
+            if (_atnw == null) return;
+
+            string _tmp = "";
+            attncode = _atnw.ATTN_CODE;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  if (_atnw.Dresser == null) return;
+
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+                     {
+                        Input =
+                           new XElement("OprtDres",
+                                 new XAttribute("type", "sendoprtdres"),
+                                 new XAttribute("cmndname", _atnw.Dresser.DRES_NUMB),
+                                 new XAttribute("devip", _atnw.Dresser.IP_ADRS),
+                                 new XAttribute("cmndsend", _atnw.Dresser.CMND_SEND ?? "")
+                               )
+                     }
+                  );
+
+                  _tmp = _atnw.Dresser == null ? _atnw.Fighter1.FNGR_PRNT_DNRM : _atnw.Dresser.DRES_NUMB.ToString();
+
+                  iScsc.INS_LGOP_P(
+                     new XElement("Log",
+                           new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
+                           new XAttribute("type", "016"),
+                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " باز کرد")
+                     )
+                  );
+                  break;
+               case 1:
+                  if (!ConfBackWrst_Cbx.Checked && MessageBox.Show(this, "آیا با تحویل و برگشت دستبند موافق هستید؟", "عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+                  // اگر قبلا این دستبند برگشت داده شده باشد
+                  if (AtnwBs.List.OfType<Data.Attendance_Wrist>().Any(aw => /*aw.ATTN_CODE == _atnw.ATTN_CODE && aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text*/aw.CODE == _atnw.CODE && aw.STAT == "002")) return;
+
+                  // وضعیت برگشت دستبند را فعال میکنیم
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Attendance_Wrist SET STAT = '002' WHERE CODE = {0};", /*_atnw.ATTN_CODE, WristBand_Txt.Text*/ _atnw.CODE));
+
+                  _tmp = _atnw.Dresser == null ? _atnw.Fighter1.FNGR_PRNT_DNRM : _atnw.Dresser.DRES_NUMB.ToString();
+
+                  iScsc.INS_LGOP_P(
+                     new XElement("Log",
+                           new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
+                           new XAttribute("type", "015"),
+                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " را تحویل گرفت")
+                     )
+                  );
+                  break;
+               case 2:
+                  if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف دستبند", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+                  iScsc.ExecuteCommand(string.Format("DELETE dbo.Attendance_Wrist WHERE Code = {0};", _atnw.CODE));
+
+                  _tmp = _atnw.Dresser == null ? _atnw.Fighter1.FNGR_PRNT_DNRM : _atnw.Dresser.DRES_NUMB.ToString();
+
+                  iScsc.INS_LGOP_P(
+                     new XElement("Log",
+                           new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
+                           new XAttribute("type", "014"),
+                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " را حذف کرد")
+                     )
+                  );
+
+                  if(AtnwBs.List.Count > 1)
+                  {
+                     iScsc.ExecuteCommand(
+                        string.Format(
+                           "UPDATE dbo.Attendance SET SUM_ATTN_MONT_DNRM -= 1 WHERE CODE = {0};" + Environment.NewLine +
+                           "UPDATE ms SET ms.SUM_ATTN_MONT_DNRM -= 1 FROM dbo.Member_Ship ms, dbo.Attendance a WHERE a.Code = {0} AND a.MBSP_RWNO_DNRM = ms.RWNO AND a.FIGH_FILE_NO = ms.FIGH_FILE_NO AND ms.RECT_CODE = '004';",
+                        _atnw.ATTN_CODE)
+                     );
+
+                     _tmp = _atnw.Dresser == null ? _atnw.Fighter1.FNGR_PRNT_DNRM : _atnw.Dresser.DRES_NUMB.ToString();
+
+                     iScsc.INS_LGOP_P(
+                        new XElement("Log",
+                              new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
+                              new XAttribute("type", "012"),
+                              new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " برگشت یک جلسه به دوره مشتری به صورت دستی بابت حذف دستبند شماره " + _tmp + " انجام شد")
+                        )
+                     );
+                  }
+                  break;
+               case 3:
+                  formcaller = "";
+                  RqstBnExit1_Click(null, null);
+                  var attn = AttnBs1.Current as Data.Attendance;
+
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _atnw.ATNW_FIGH_FILE_NO)) }
+                  );
+                  break;
+               default:
+                  break;
+            }
+            requery = true;
+         }
+         catch { }
+         finally
+         {
+            if (requery)
+               Execute_Query(true);
+         }
+      }
    }
 }

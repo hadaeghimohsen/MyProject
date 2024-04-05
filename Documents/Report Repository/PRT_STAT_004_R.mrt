@@ -25,11 +25,11 @@
         <NameInSource>iScsc</NameInSource>
         <Parameters isList="true" count="0" />
         <SqlCommand>SELECT dbo.GET_MTOS_U(r.SAVE_DATE) AS PERS_SAVE_DATE,
-	c.NAME_DNRM, pd.PYDT_DESC, pd.QNTY, (pd.EXPN_PRIC * pd.QNTY - (ISNULL(ps.AMNT, 0))) AS PYMT_AMNT
-	FROM dbo.V#Report_Action_Parameter v,
+	c.NAME_DNRM, pd.PYDT_DESC, pd.QNTY, (pd.EXPN_PRIC * pd.QNTY - (SELECT ISNULL(SUM(ps.AMNT), 0) FROM dbo.Payment_Discount ps WHERE pd.PYMT_RQST_RQID = ps.PYMT_RQST_RQID AND pd.EXPN_CODE = ps.EXPN_CODE)) AS PYMT_AMNT
+  FROM dbo.V#Report_Action_Parameter v,
        dbo.Request r, dbo.Request_Row rr, dbo.Payment p, dbo.Fighter f,
        dbo.V#Coach c, dbo.Method m, dbo.Category_Belt cb,
-       dbo.Payment_Detail pd LEFT OUTER JOIN dbo.Payment_Discount ps ON (pd.PYMT_RQST_RQID = ps.PYMT_RQST_RQID AND pd.EXPN_CODE = ps.EXPN_CODE)
+       dbo.Payment_Detail pd --LEFT OUTER JOIN dbo.Payment_Discount ps ON (pd.PYMT_RQST_RQID = ps.PYMT_RQST_RQID AND pd.EXPN_CODE = ps.EXPN_CODE)
  WHERE r.RQID = p.RQST_RQID
    AND r.RQID = rr.RQST_RQID
    AND rr.FIGH_FILE_NO = f.FILE_NO
@@ -38,7 +38,7 @@
    AND pd.MTOD_CODE_DNRM = m.CODE
    AND pd.CTGY_CODE_DNRM = cb.CODE
    AND CAST(r.SAVE_DATE AS DATE) BETWEEN v.FROM_DATE AND v.TO_DATE
-   AND r.RQTP_CODE = '016'
+   AND r.RQTP_CODE IN ( '001', '009', '016' )
    AND r.RQST_STAT = '002'
    AND (v.COCH_FILE_NO IS NULL OR pd.FIGH_FILE_NO = v.COCH_FILE_NO)
    AND (v.CBMT_CODE IS NULL OR pd.CBMT_CODE_DNRM = v.CBMT_CODE)
@@ -427,10 +427,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>12/3/2022 9:58:09 AM</ReportChanged>
+  <ReportChanged>3/29/2024 9:54:51 PM</ReportChanged>
   <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_STAT_004_R.mrt</ReportFile>
-  <ReportGuid>3a1eaf3122624af494f0a5e48f6adb12</ReportGuid>
+  <ReportGuid>638fd7544a0a491f86b426e348e4bb80</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

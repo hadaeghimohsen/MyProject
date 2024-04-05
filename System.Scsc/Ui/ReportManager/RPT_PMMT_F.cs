@@ -1800,10 +1800,10 @@ namespace System.Scsc.Ui.ReportManager
          {
             Mbsp14Bs.DataSource = _rqro.Member_Ships.FirstOrDefault(ms => ms.RECT_CODE == "004");
          }
-         else
-         {
-            Mbsp14Bs.List.Clear();
-         }
+         //else
+         //{
+         //   Mbsp14Bs.Clear();
+         //}
       }
 
       private void ServProFile_Rb_Click(object sender, EventArgs e)

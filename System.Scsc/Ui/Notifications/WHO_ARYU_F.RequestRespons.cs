@@ -28,6 +28,7 @@ namespace System.Scsc.Ui.Notifications
       private short? mbsprwno;
       private string formcaller = "";
       private bool isFirstLoaded = false;
+      private string CurrentUser;
 
       public void SendRequest(Job job)
       {
@@ -164,6 +165,7 @@ namespace System.Scsc.Ui.Notifications
          );
          ConnectionString = GetConnectionString.Output.ToString();
          iScsc = new Data.iScscDataContext(GetConnectionString.Output.ToString());
+         CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          //Fga_Uprv_U = iScsc.FGA_UPRV_U() ?? "";
          //Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
@@ -319,29 +321,42 @@ namespace System.Scsc.Ui.Notifications
          {
             var xinput = job.Input as XElement;
 
-            //Lbl_Dresser.BackColor = SystemColors.Control;
-            fileno = xinput.Attribute("fileno").Value;
-            AttnDate_Date.Value = Convert.ToDateTime(xinput.Attribute("attndate").Value);
-            // 1396/07/16 * اضافه شدن 
-            if (xinput.Attribute("attncode") != null)
-               attncode = Convert.ToInt64(xinput.Attribute("attncode").Value);
-            else
-               attncode = null;
+            if (xinput.Attribute("cmndtype") != null)
+            {
+               if (xinput.Attribute("cmndtype").Value == "sendparam")
+               {
+                  WristBand_Txt.EditValue = xinput.Attribute("enroll").Value;
+                  WristBand_Txt_ButtonClick(WristBand_Txt, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(WristBand_Txt.Properties.Buttons[0]));
+                  Info_Tb.SelectedTabPage = Tp_DefWrst;
+               }
+            }
+            else 
+            {
+               Info_Tb.SelectedTabPage = Tp_OldAttn;
+               //Lbl_Dresser.BackColor = SystemColors.Control;
+               fileno = xinput.Attribute("fileno").Value;
+               AttnDate_Date.Value = Convert.ToDateTime(xinput.Attribute("attndate").Value);
+               // 1396/07/16 * اضافه شدن 
+               if (xinput.Attribute("attncode") != null)
+                  attncode = Convert.ToInt64(xinput.Attribute("attncode").Value);
+               else
+                  attncode = null;
 
-            if (xinput.Attribute("mbsprwno") != null)
-               mbsprwno = Convert.ToInt16(xinput.Attribute("mbsprwno").Value);
-            else
-               mbsprwno = null;
+               if (xinput.Attribute("mbsprwno") != null)
+                  mbsprwno = Convert.ToInt16(xinput.Attribute("mbsprwno").Value);
+               else
+                  mbsprwno = null;
 
-            if (xinput.Attribute("formcaller") != null)
-               formcaller = xinput.Attribute("formcaller").Value;
-            else
-               formcaller = "";
+               if (xinput.Attribute("formcaller") != null)
+                  formcaller = xinput.Attribute("formcaller").Value;
+               else
+                  formcaller = "";
 
-            if (xinput.Attribute("gatecontrol") != null)
-               gateControl = true;
-            else
-               gateControl = false;
+               if (xinput.Attribute("gatecontrol") != null)
+                  gateControl = true;
+               else
+                  gateControl = false;
+            }
          }
          catch { }
          finally

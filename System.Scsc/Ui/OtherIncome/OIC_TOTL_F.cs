@@ -1615,6 +1615,7 @@ namespace System.Scsc.Ui.OtherIncome
          {
             Pydt_Gv.PostEditor();
             Pydt2_Gv.PostEditor();
+            Pydt3_Gv.PostEditor();
             /* Do Something for insert or update Payment Detail Price */
             var rqst = RqstBs1.Current as Data.Request;
 
@@ -1638,7 +1639,8 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
                               new XAttribute("totlwegh", pd.TOTL_WEGH ?? 0),
                               new XAttribute("unitnumb", pd.UNIT_NUMB ?? 0),
-                              new XAttribute("unitapbscode", pd.UNIT_APBS_CODE ?? 0)
+                              new XAttribute("unitapbscode", pd.UNIT_APBS_CODE ?? 0),
+                              new XAttribute("cmnt", pd.CMNT ?? "")
                            )
                         )
                      )
@@ -1688,7 +1690,8 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("extsrsrvdate", pd.EXTS_RSRV_DATE == null ? "" : pd.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd")),
                               new XAttribute("totlwegh", pd.TOTL_WEGH ?? 0),
                               new XAttribute("unitnumb", pd.UNIT_NUMB ?? 0),
-                              new XAttribute("unitapbscode", pd.UNIT_APBS_CODE ?? 0)
+                              new XAttribute("unitapbscode", pd.UNIT_APBS_CODE ?? 0),
+                              new XAttribute("cmnt", pd.CMNT ?? "")
                            )
                         )
                      )
@@ -4657,6 +4660,8 @@ namespace System.Scsc.Ui.OtherIncome
                .InsertOnSubmit(_rqpm);
 
             iScsc.SubmitChanges();
+            //iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.Request_Parameter(Rqst_Rqid, Apbs_Code, Code) VALUES ({0}, {1}, 0);", _rqst.RQID, _drqpm.CODE));
+
             requery = true;
          }
          catch (Exception exc)

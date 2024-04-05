@@ -1194,8 +1194,11 @@ namespace System.Scsc.Ui.BaseDefinition
             else if (Tb_Master.SelectedTab == tp_005)
             {
                CbmtBs1.EndEdit();
-               CbmtCoch_Gv.PostEditor();
-               iScsc.SubmitChanges();
+               CbmtCoch_Gv.PostEditor();  
+               //iScsc.SubmitChanges();
+               var cbmt = CbmtBs1.Current as Data.Club_Method;
+               if (cbmt == null) return;
+               iScsc.UPD_CBMT_P(cbmt.CODE, cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.MTOD_STAT, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE, cbmt.DURT_ATTN_SOND_PATH);
                requery = true;
             }
             if (Tb_Master.SelectedTab == tp_005)
@@ -5798,6 +5801,170 @@ namespace System.Scsc.Ui.BaseDefinition
             e.Effect = DragDropEffects.None;
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void UpLvlMtod_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mtod = MtodBs1.Current as Data.Method;
+            if (_mtod == null) return;
+
+            var _upMtod = _mtod.Method1;
+            
+            if(_upMtod != null)
+            {
+               iScsc.ExecuteCommand(
+                  string.Format("UPDATE dbo.Method SET Mtod_Code = {0} WHERE Code = {1};", 
+                     _upMtod.MTOD_CODE == null ? "NULL" : _upMtod.MTOD_CODE.ToString(),
+                     _mtod.CODE
+                  )
+               );
+            }
+            else
+            {
+               iScsc.ExecuteCommand(
+                  string.Format("UPDATE dbo.Method SET Mtod_Code = NULL WHERE Code = {0};",
+                     _mtod.CODE
+                  )
+               );
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void UpLvlCtgy_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _ctgy = CtgyBs1.Current as Data.Category_Belt;
+            if (_ctgy == null) return;
+
+            var _upCtgy = _ctgy.Category_Belt1;
+
+            if (_upCtgy != null)
+            {
+               iScsc.ExecuteCommand(
+                  string.Format("UPDATE dbo.Category_Belt SET Ctgy_Code = {0} WHERE Code = {1};",
+                     _upCtgy.CTGY_CODE == null ? "NULL" : _upCtgy.CTGY_CODE.ToString(),
+                     _ctgy.CODE
+                  )
+               );
+            }
+            else
+            {
+               iScsc.ExecuteCommand(
+                  string.Format("UPDATE dbo.Category_Belt SET Ctgy_Code = NULL WHERE Code = {0};",
+                     _ctgy.CODE
+                  )
+               );
+            }
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ClenCochCbmt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            CochStrtCbmt_Te.EditValue = CochEndCbmt_Te.EditValue = null;
+            CochSex_Lov.EditValue = null;
+            CochDayType_Lov.EditValue = "003";
+            CochCapCbmt_Lov.EditValue = "002";
+            CochCapNCbmt_Txt.EditValue = 0;
+            CochTimeCbmt_Lov.EditValue = "002";
+            CochTimNCbmt_Txt.EditValue = 90;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveCochCbmt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _club = ClubBs1.Current as Data.Club;
+            if (_club == null) return;
+
+            var _coch = CochBs1.Current as Data.Fighter;
+            if (_coch == null) return;
+
+            var _mtod = MtodBs1.Current as Data.Method;
+            if (_mtod == null) return;
+
+            Data.Club_Method _cbmt = null;
+            if (CbmtBs2.List.OfType<Data.Club_Method>().Any(c => c.CODE == 0))
+            {
+               _cbmt = CbmtBs2.List.OfType<Data.Club_Method>().FirstOrDefault(c => c.CODE == 0);
+               _cbmt.CLUB_CODE = _club.CODE;
+               _cbmt.COCH_FILE_NO = _coch.FILE_NO;
+               _cbmt.MTOD_CODE = _mtod.CODE;
+               _cbmt.STRT_TIME = ((DateTime)CochStrtCbmt_Te.EditValue).TimeOfDay;
+               _cbmt.END_TIME = ((DateTime)CochEndCbmt_Te.EditValue).TimeOfDay;
+               _cbmt.SEX_TYPE = (string)CochSex_Lov.EditValue;
+               _cbmt.DAY_TYPE = (string)CochDayType_Lov.EditValue;
+               _cbmt.CPCT_STAT = (string)CochCapCbmt_Lov.EditValue;
+               _cbmt.CPCT_NUMB = Convert.ToInt32(CochCapNCbmt_Txt.EditValue);
+               _cbmt.CBMT_TIME_STAT = (string)CochTimeCbmt_Lov.EditValue;
+               _cbmt.CLAS_TIME = Convert.ToInt32(CochTimNCbmt_Txt.EditValue);
+            }
+            else
+            {
+               _cbmt =
+                  new Data.Club_Method()
+                  {
+                     CLUB_CODE = _club.CODE,
+                     COCH_FILE_NO = _coch.FILE_NO,
+                     MTOD_CODE = _mtod.CODE,
+                     STRT_TIME = ((DateTime)CochStrtCbmt_Te.EditValue).TimeOfDay,
+                     END_TIME = ((DateTime)CochEndCbmt_Te.EditValue).TimeOfDay,
+                     SEX_TYPE = (string)CochSex_Lov.EditValue,
+                     DAY_TYPE = (string)CochDayType_Lov.EditValue,
+                     CPCT_STAT = (string)CochCapCbmt_Lov.EditValue,
+                     CPCT_NUMB = Convert.ToInt32(CochCapNCbmt_Txt.EditValue),
+                     CBMT_TIME_STAT = (string)CochTimeCbmt_Lov.EditValue,
+                     CLAS_TIME = Convert.ToInt32(CochTimNCbmt_Txt.EditValue)
+                  };
+            }
+
+            if (_cbmt.CODE == 0)
+               iScsc.INS_CBMT_P(_cbmt.CLUB_CODE, _cbmt.MTOD_CODE, _cbmt.COCH_FILE_NO, _cbmt.DAY_TYPE, _cbmt.STRT_TIME, _cbmt.END_TIME, _cbmt.SEX_TYPE, _cbmt.CBMT_DESC, _cbmt.DFLT_STAT, _cbmt.CPCT_NUMB, _cbmt.CPCT_STAT, _cbmt.CBMT_TIME, _cbmt.CBMT_TIME_STAT, _cbmt.CLAS_TIME, _cbmt.AMNT, _cbmt.NATL_CODE, _cbmt.DURT_ATTN_SOND_PATH);
+            else
+               iScsc.UPD_CBMT_P(_cbmt.CODE, _cbmt.CLUB_CODE, _cbmt.MTOD_CODE, _cbmt.COCH_FILE_NO, _cbmt.MTOD_STAT, _cbmt.DAY_TYPE, _cbmt.STRT_TIME, _cbmt.END_TIME, _cbmt.SEX_TYPE, _cbmt.CBMT_DESC, _cbmt.DFLT_STAT, _cbmt.CPCT_NUMB, _cbmt.CPCT_STAT, _cbmt.CBMT_TIME, _cbmt.CBMT_TIME_STAT, _cbmt.CLAS_TIME, _cbmt.AMNT, _cbmt.NATL_CODE, _cbmt.DURT_ATTN_SOND_PATH);
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
          finally
          {
             if (requery)

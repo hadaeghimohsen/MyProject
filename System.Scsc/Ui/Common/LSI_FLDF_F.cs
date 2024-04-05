@@ -399,54 +399,68 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            MbspBs.List.Clear();
-            ExpnAmnt_Txt.Text = PymtAmnt_Txt.Text = DscnAmnt_Txt.Text = "";
-
-            string SuntCode = "";
-            if (SuntCode_Lov.EditValue == null || SuntCode_Lov.Text == "")
-               SuntCode = null;
-            else
-               SuntCode = SuntCode_Lov.EditValue.ToString();
-
-            long? ClubCode = null;
-            if (ClubCode_Lov.EditValue == null || ClubCode_Lov.Text == "")
-               ClubCode = null;
-            else
-               ClubCode = (long?)ClubCode_Lov.EditValue;
-
-            if(Tb_Master.SelectedTab == mtp_001)
-            {
-               FighBs.DataSource = 
-                  iScsc.Fighters.
-                  Where(f => 
-                     Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) 
-                  && f.CONF_STAT == "002"
-                  && f.FGPB_TYPE_DNRM != "003"
-                  && f.ACTV_TAG_DNRM == "101"
-                  && (FrstName_Txt.Text == "" || f.FRST_NAME_DNRM.Contains(FrstName_Txt.Text))
-                  && (LastName_Txt.Text == "" || f.LAST_NAME_DNRM.Contains(LastName_Txt.Text))
-                  && (NatlCode_Txt.Text == "" || f.NATL_CODE_DNRM.Contains(NatlCode_Txt.Text))
-                  && (FngrPrnt_Txt.Text == "" || f.FNGR_PRNT_DNRM.Contains(FngrPrnt_Txt.Text))
-                  && (CellPhon_Txt.Text == "" || f.CELL_PHON_DNRM.Contains(CellPhon_Txt.Text))
-                  && (TellPhon_Txt.Text == "" || f.TELL_PHON_DNRM.Contains(TellPhon_Txt.Text))
-                  && (ServNo_Txt.Text == "" || f.SERV_NO_DNRM.Contains(ServNo_Txt.Text))
-                  && (GlobCode_Txt.Text == "" || f.GLOB_CODE_DNRM.Contains(GlobCode_Txt.Text))
-                  && (BothSex_Rb.Checked || (f.SEX_TYPE_DNRM == (Men_Rb.Checked ? "001" : "002")))
-                  && (ClubCode == null || f.CLUB_CODE_DNRM == ClubCode)
-                  && (SuntCode == null || f.SUNT_CODE_DNRM == SuntCode)                  
-                  ).OrderByDescending(f => f.MBSP_END_DATE)
-                  .Take((int)FtchRows_Nud.Value);
-            }
-            else if (Tb_Master.SelectedTab == mtp_002)
-            {
-               vF_Fighs.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null, SuntCode).Where(f => f.CLUB_CODE == (ClubCode ?? f.CLUB_CODE)).OrderByDescending(s => s.END_DATE).Take((int)FtchRows_Nud.Value);
-               vF_Last_Info_FighterResultGridControl.Focus();
-            }
-
-            requery = false;
+            Search_Butn.Enabled = false;
+            new Threading.Thread(SearchAsync).Start();
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
+      }
+
+      private void SearchAsync()
+      {
+         GC.Collect();
+         GC.WaitForPendingFinalizers();
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         Invoke(
+            new Action(() =>
+               {
+                  MbspBs.List.Clear();
+                  ExpnAmnt_Txt.Text = PymtAmnt_Txt.Text = DscnAmnt_Txt.Text = "";
+
+                  string SuntCode = "";
+                  if (SuntCode_Lov.EditValue == null || SuntCode_Lov.Text == "")
+                     SuntCode = null;
+                  else
+                     SuntCode = SuntCode_Lov.EditValue.ToString();
+
+                  long? ClubCode = null;
+                  if (ClubCode_Lov.EditValue == null || ClubCode_Lov.Text == "")
+                     ClubCode = null;
+                  else
+                     ClubCode = (long?)ClubCode_Lov.EditValue;
+
+                  if (Tb_Master.SelectedTab == mtp_001)
+                  {
+                     FighBs.DataSource =
+                        iScsc.Fighters.
+                        Where(f =>
+                           Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM)
+                        && f.CONF_STAT == "002"
+                        && f.FGPB_TYPE_DNRM != "003"
+                        && f.ACTV_TAG_DNRM == "101"
+                        && (FrstName_Txt.Text == "" || f.FRST_NAME_DNRM.Contains(FrstName_Txt.Text))
+                        && (LastName_Txt.Text == "" || f.LAST_NAME_DNRM.Contains(LastName_Txt.Text))
+                        && (NatlCode_Txt.Text == "" || f.NATL_CODE_DNRM.Contains(NatlCode_Txt.Text))
+                        && (FngrPrnt_Txt.Text == "" || f.FNGR_PRNT_DNRM.Contains(FngrPrnt_Txt.Text))
+                        && (CellPhon_Txt.Text == "" || f.CELL_PHON_DNRM.Contains(CellPhon_Txt.Text))
+                        && (TellPhon_Txt.Text == "" || f.TELL_PHON_DNRM.Contains(TellPhon_Txt.Text))
+                        && (ServNo_Txt.Text == "" || f.SERV_NO_DNRM.Contains(ServNo_Txt.Text))
+                        && (GlobCode_Txt.Text == "" || f.GLOB_CODE_DNRM.Contains(GlobCode_Txt.Text))
+                        && (BothSex_Rb.Checked || (f.SEX_TYPE_DNRM == (Men_Rb.Checked ? "001" : "002")))
+                        && (ClubCode == null || f.CLUB_CODE_DNRM == ClubCode)
+                        && (SuntCode == null || f.SUNT_CODE_DNRM == SuntCode)
+                        ).OrderByDescending(f => f.MBSP_END_DATE)
+                        .Take((int)FtchRows_Nud.Value);
+                  }
+                  else if (Tb_Master.SelectedTab == mtp_002)
+                  {
+                     vF_Fighs.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null, SuntCode).Where(f => f.CLUB_CODE == (ClubCode ?? f.CLUB_CODE)).OrderByDescending(s => s.END_DATE).Take((int)FtchRows_Nud.Value);
+                     vF_Last_Info_FighterResultGridControl.Focus();
+                  }
+
+                  requery = false;
+                  Search_Butn.Enabled = true;
+               })
+         );         
       }
 
       private void vF_Last_Info_FighterResultBindingSource_CurrentChanged(object sender, EventArgs e)

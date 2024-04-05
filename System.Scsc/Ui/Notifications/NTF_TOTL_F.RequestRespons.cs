@@ -19,6 +19,7 @@ namespace System.Scsc.Ui.Notifications
       private List<long?> Fga_Uclb_U;
       private bool isFirstLoaded = false;
       private string formStatus = "";
+      private Data.Setting stng;
 
       public void SendRequest(Job job)
       {
@@ -101,6 +102,9 @@ namespace System.Scsc.Ui.Notifications
          Fga_Uprv_U = iScsc.FGA_UPRV_U() ?? "";
          Fga_Urgn_U = iScsc.FGA_URGN_U() ?? "";
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
+
+         // 1402/11/21 * برای جناب صمیمی که درخواست کردن دیگه خطا نباشه
+         stng = iScsc.Settings.FirstOrDefault(s => Fga_Uclb_U.Contains(s.CLUB_CODE));
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)

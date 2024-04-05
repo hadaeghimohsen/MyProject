@@ -679,6 +679,7 @@
          this.repositoryItemTimeEdit5 = new DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit();
          this.gridColumn86 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn252 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn489 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
          this.rollout4 = new System.MaxUi.Rollout();
@@ -816,6 +817,7 @@
          this.CochFileNo1_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.MtodCode1_Lb = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CtgyCode1_Lb = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn490 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.tabPage16 = new System.Windows.Forms.TabPage();
          this.Mbsp_gc = new DevExpress.XtraGrid.GridControl();
          this.Mbsp14Bs = new System.Windows.Forms.BindingSource(this.components);
@@ -1010,6 +1012,15 @@
          this.colRequest_Type1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRequester_Type1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSub_State = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.bindingNavigator1 = new System.Windows.Forms.BindingNavigator(this.components);
+         this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
+         this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
+         this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
+         this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+         this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
+         this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
          this.splitContainerControl24 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl26 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl25 = new DevExpress.XtraGrid.GridControl();
@@ -1842,7 +1853,6 @@
          this.colMDFY_BY14 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE15 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colStatistic1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn489 = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.Ptyp_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pmst_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PcdtiActn_Butn)).BeginInit();
@@ -2073,6 +2083,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView26)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit22)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit22.CalendarTimeProperties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).BeginInit();
+         this.bindingNavigator1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl24)).BeginInit();
          this.splitContainerControl24.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl26)).BeginInit();
@@ -7955,6 +7967,18 @@
          this.gridColumn252.Visible = true;
          this.gridColumn252.VisibleIndex = 7;
          // 
+         // gridColumn489
+         // 
+         this.gridColumn489.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.gridColumn489.AppearanceCell.Options.UseBackColor = true;
+         this.gridColumn489.Caption = "پرداخت به حساب";
+         this.gridColumn489.FieldName = "App_Base_Define.TITL_DESC";
+         this.gridColumn489.Name = "gridColumn489";
+         this.gridColumn489.OptionsColumn.AllowEdit = false;
+         this.gridColumn489.OptionsColumn.ReadOnly = true;
+         this.gridColumn489.Visible = true;
+         this.gridColumn489.VisibleIndex = 9;
+         // 
          // labelControl1
          // 
          this.labelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
@@ -9409,10 +9433,12 @@
             this.gridColumn350,
             this.CochFileNo1_Clm,
             this.MtodCode1_Lb,
-            this.CtgyCode1_Lb});
+            this.CtgyCode1_Lb,
+            this.gridColumn490});
          this.gridView28.GridControl = this.payment_DetailsGridControl;
          this.gridView28.Name = "gridView28";
          this.gridView28.OptionsDetail.EnableMasterViewMode = false;
+         this.gridView28.OptionsView.EnableAppearanceEvenRow = true;
          this.gridView28.OptionsView.ShowGroupPanel = false;
          this.gridView28.OptionsView.ShowIndicator = false;
          // 
@@ -9439,8 +9465,8 @@
          this.ExpnCode1_Lb.OptionsColumn.AllowEdit = false;
          this.ExpnCode1_Lb.OptionsColumn.ReadOnly = true;
          this.ExpnCode1_Lb.Visible = true;
-         this.ExpnCode1_Lb.VisibleIndex = 4;
-         this.ExpnCode1_Lb.Width = 109;
+         this.ExpnCode1_Lb.VisibleIndex = 5;
+         this.ExpnCode1_Lb.Width = 58;
          // 
          // gridColumn337
          // 
@@ -9456,7 +9482,7 @@
          this.ExpnPric_Clm.Name = "ExpnPric_Clm";
          this.ExpnPric_Clm.Visible = true;
          this.ExpnPric_Clm.VisibleIndex = 3;
-         this.ExpnPric_Clm.Width = 58;
+         this.ExpnPric_Clm.Width = 90;
          // 
          // ExpnExtrPrct_Clm
          // 
@@ -9469,7 +9495,7 @@
          this.ExpnExtrPrct_Clm.OptionsColumn.ReadOnly = true;
          this.ExpnExtrPrct_Clm.Visible = true;
          this.ExpnExtrPrct_Clm.VisibleIndex = 2;
-         this.ExpnExtrPrct_Clm.Width = 62;
+         this.ExpnExtrPrct_Clm.Width = 97;
          // 
          // gridColumn338
          // 
@@ -9483,7 +9509,7 @@
          this.Qnty_Clm.Name = "Qnty_Clm";
          this.Qnty_Clm.Visible = true;
          this.Qnty_Clm.VisibleIndex = 1;
-         this.Qnty_Clm.Width = 27;
+         this.Qnty_Clm.Width = 42;
          // 
          // gridColumn339
          // 
@@ -9578,7 +9604,7 @@
          this.TotlExpn_Clm.UnboundType = DevExpress.Data.UnboundColumnType.Object;
          this.TotlExpn_Clm.Visible = true;
          this.TotlExpn_Clm.VisibleIndex = 0;
-         this.TotlExpn_Clm.Width = 56;
+         this.TotlExpn_Clm.Width = 87;
          // 
          // gridColumn350
          // 
@@ -9605,8 +9631,8 @@
          this.CochFileNo1_Clm.OptionsColumn.AllowEdit = false;
          this.CochFileNo1_Clm.OptionsColumn.ReadOnly = true;
          this.CochFileNo1_Clm.Visible = true;
-         this.CochFileNo1_Clm.VisibleIndex = 7;
-         this.CochFileNo1_Clm.Width = 94;
+         this.CochFileNo1_Clm.VisibleIndex = 8;
+         this.CochFileNo1_Clm.Width = 97;
          // 
          // MtodCode1_Lb
          // 
@@ -9616,8 +9642,8 @@
          this.MtodCode1_Lb.OptionsColumn.AllowEdit = false;
          this.MtodCode1_Lb.OptionsColumn.ReadOnly = true;
          this.MtodCode1_Lb.Visible = true;
-         this.MtodCode1_Lb.VisibleIndex = 6;
-         this.MtodCode1_Lb.Width = 79;
+         this.MtodCode1_Lb.VisibleIndex = 7;
+         this.MtodCode1_Lb.Width = 76;
          // 
          // CtgyCode1_Lb
          // 
@@ -9627,8 +9653,19 @@
          this.CtgyCode1_Lb.OptionsColumn.AllowEdit = false;
          this.CtgyCode1_Lb.OptionsColumn.ReadOnly = true;
          this.CtgyCode1_Lb.Visible = true;
-         this.CtgyCode1_Lb.VisibleIndex = 5;
-         this.CtgyCode1_Lb.Width = 79;
+         this.CtgyCode1_Lb.VisibleIndex = 6;
+         this.CtgyCode1_Lb.Width = 83;
+         // 
+         // gridColumn490
+         // 
+         this.gridColumn490.Caption = "توضیحات";
+         this.gridColumn490.FieldName = "CMNT";
+         this.gridColumn490.Name = "gridColumn490";
+         this.gridColumn490.OptionsColumn.AllowEdit = false;
+         this.gridColumn490.OptionsColumn.ReadOnly = true;
+         this.gridColumn490.Visible = true;
+         this.gridColumn490.VisibleIndex = 4;
+         this.gridColumn490.Width = 371;
          // 
          // tabPage16
          // 
@@ -11068,6 +11105,7 @@
          this.splitContainerControl22.Location = new System.Drawing.Point(0, 0);
          this.splitContainerControl22.Name = "splitContainerControl22";
          this.splitContainerControl22.Panel1.Controls.Add(this.gridControl19);
+         this.splitContainerControl22.Panel1.Controls.Add(this.bindingNavigator1);
          this.splitContainerControl22.Panel1.Text = "Panel1";
          this.splitContainerControl22.Panel2.Controls.Add(this.splitContainerControl24);
          this.splitContainerControl22.Panel2.Text = "Panel2";
@@ -11080,14 +11118,14 @@
          // 
          this.gridControl19.DataSource = this.Rqst14Bs;
          this.gridControl19.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.gridControl19.Location = new System.Drawing.Point(0, 0);
+         this.gridControl19.Location = new System.Drawing.Point(0, 25);
          this.gridControl19.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl19.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl19.MainView = this.gridView26;
          this.gridControl19.Name = "gridControl19";
          this.gridControl19.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit22});
-         this.gridControl19.Size = new System.Drawing.Size(196, 252);
+         this.gridControl19.Size = new System.Drawing.Size(196, 227);
          this.gridControl19.TabIndex = 12;
          this.gridControl19.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView26});
@@ -11371,6 +11409,94 @@
          // 
          this.colSub_State.FieldName = "Sub_State";
          this.colSub_State.Name = "colSub_State";
+         // 
+         // bindingNavigator1
+         // 
+         this.bindingNavigator1.AddNewItem = null;
+         this.bindingNavigator1.BindingSource = this.Rqst14Bs;
+         this.bindingNavigator1.CountItem = this.bindingNavigatorCountItem;
+         this.bindingNavigator1.DeleteItem = null;
+         this.bindingNavigator1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bindingNavigatorMoveFirstItem,
+            this.bindingNavigatorMovePreviousItem,
+            this.bindingNavigatorSeparator,
+            this.bindingNavigatorPositionItem,
+            this.bindingNavigatorCountItem,
+            this.bindingNavigatorSeparator1,
+            this.bindingNavigatorMoveNextItem,
+            this.bindingNavigatorMoveLastItem});
+         this.bindingNavigator1.Location = new System.Drawing.Point(0, 0);
+         this.bindingNavigator1.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
+         this.bindingNavigator1.MoveLastItem = this.bindingNavigatorMoveLastItem;
+         this.bindingNavigator1.MoveNextItem = this.bindingNavigatorMoveNextItem;
+         this.bindingNavigator1.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
+         this.bindingNavigator1.Name = "bindingNavigator1";
+         this.bindingNavigator1.PositionItem = this.bindingNavigatorPositionItem;
+         this.bindingNavigator1.Size = new System.Drawing.Size(196, 25);
+         this.bindingNavigator1.TabIndex = 13;
+         this.bindingNavigator1.Text = "bindingNavigator1";
+         // 
+         // bindingNavigatorCountItem
+         // 
+         this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+         this.bindingNavigatorCountItem.Size = new System.Drawing.Size(35, 22);
+         this.bindingNavigatorCountItem.Text = "of {0}";
+         this.bindingNavigatorCountItem.ToolTipText = "Total number of items";
+         // 
+         // bindingNavigatorMoveFirstItem
+         // 
+         this.bindingNavigatorMoveFirstItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
+         this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
+         this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorMoveFirstItem.Text = "Move first";
+         // 
+         // bindingNavigatorMovePreviousItem
+         // 
+         this.bindingNavigatorMovePreviousItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
+         this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
+         this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorMovePreviousItem.Text = "Move previous";
+         // 
+         // bindingNavigatorSeparator
+         // 
+         this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
+         this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 25);
+         // 
+         // bindingNavigatorPositionItem
+         // 
+         this.bindingNavigatorPositionItem.AccessibleName = "Position";
+         this.bindingNavigatorPositionItem.AutoSize = false;
+         this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
+         this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(20, 23);
+         this.bindingNavigatorPositionItem.Text = "0";
+         this.bindingNavigatorPositionItem.ToolTipText = "Current position";
+         // 
+         // bindingNavigatorSeparator1
+         // 
+         this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
+         this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
+         // 
+         // bindingNavigatorMoveNextItem
+         // 
+         this.bindingNavigatorMoveNextItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
+         this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
+         this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorMoveNextItem.Text = "Move next";
+         // 
+         // bindingNavigatorMoveLastItem
+         // 
+         this.bindingNavigatorMoveLastItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+         this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
+         this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
+         this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
+         this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(23, 22);
+         this.bindingNavigatorMoveLastItem.Text = "Move last";
          // 
          // splitContainerControl24
          // 
@@ -19693,18 +19819,6 @@
          this.colStatistic1.Visible = true;
          this.colStatistic1.VisibleIndex = 19;
          // 
-         // gridColumn489
-         // 
-         this.gridColumn489.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.gridColumn489.AppearanceCell.Options.UseBackColor = true;
-         this.gridColumn489.Caption = "پرداخت به حساب";
-         this.gridColumn489.FieldName = "App_Base_Define.TITL_DESC";
-         this.gridColumn489.Name = "gridColumn489";
-         this.gridColumn489.OptionsColumn.AllowEdit = false;
-         this.gridColumn489.OptionsColumn.ReadOnly = true;
-         this.gridColumn489.Visible = true;
-         this.gridColumn489.VisibleIndex = 9;
-         // 
          // RPT_PMMT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -19961,6 +20075,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView26)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit22.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit22)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.bindingNavigator1)).EndInit();
+         this.bindingNavigator1.ResumeLayout(false);
+         this.bindingNavigator1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl24)).EndInit();
          this.splitContainerControl24.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl26)).EndInit();
@@ -21939,5 +22056,15 @@
       private DevExpress.XtraGrid.Views.BandedGrid.GridBand gridBand2;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn378;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn489;
+      private Windows.Forms.BindingNavigator bindingNavigator1;
+      private Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
+      private Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
+      private Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
+      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
+      private Windows.Forms.ToolStripTextBox bindingNavigatorPositionItem;
+      private Windows.Forms.ToolStripSeparator bindingNavigatorSeparator1;
+      private Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
+      private Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn490;
    }
 }

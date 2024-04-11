@@ -20,7 +20,7 @@ namespace System.Scsc.Ui.MasterPage
       private Data.iScscDataContext iScsc;
       private string ConnectionString;
       private List<long?> Fga_Uclb_U;
-      private string Crnt_User;
+      private string CurrentUser;
       private string RegnLang = "054";
       private DateTime ExprInstDate, CrntDate = DateTime.Now;
 
@@ -244,7 +244,7 @@ namespace System.Scsc.Ui.MasterPage
          iScsc = new Data.iScscDataContext(GetConnectionString.Output.ToString());
 
          Fga_Uclb_U = (iScsc.FGA_UCLB_U() ?? "").Split(',').Select(c => (long?)Int64.Parse(c)).ToList();
-         Lbs_CrntUser.Text = Crnt_User = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
+         Lbs_CrntUser.Text = CurrentUser = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
 
          //Tm_ShowTime_Tick(null, null);         
 

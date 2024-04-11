@@ -475,7 +475,13 @@ namespace System.Scsc.Ui.Notifications
          // 1401/07/23 * روز سرگونی حکومت کثیف آخوندی
          PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.MBSP_FIGH_FILE_NO == _attn.FIGH_FILE_NO && pd.MBSP_RECT_CODE == "004" && pd.MBSP_RWNO == _attn.MBSP_RWNO_DNRM);
 
-         //if()
+         // 1403/01/18 * اگر مشتری دستبند از باشگاه گرفته باشد باید با یه پیام هشدار به منشی ها اعلام کنیم که دستبند ها رو دریافت کنند
+         if(_attn.EXIT_TIME != null && _attn.Attendance_Wrists.Any(aw => aw.STAT == "001"))
+         {
+            Info_Tb.SelectedTabPage = Tp_DefWrst;
+            wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Illuminate.mp3";
+            PlaySound();
+         }
 
          DoBkg_Tr.Enabled = true;
       }
@@ -1051,14 +1057,14 @@ namespace System.Scsc.Ui.Notifications
 
             // Load All Attendance Cycle
             AllCyclAttnBs1.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == _attn.FIGH_FILE_NO && a.MBSP_RWNO_DNRM == _attn.MBSP_RWNO_DNRM && a.ATTN_STAT == "002" && a.EXIT_TIME != null /*&& a.CODE != _attn.CODE*/);
-            var attns = AllCyclAttnBs1.List.OfType<Data.Attendance>();
+            var _attns = AllCyclAttnBs1.List.OfType<Data.Attendance>();
 
             TotlCyclAttn_Lb.Visible = false;
 
-            if(attns.Count() >= 1)
+            if(_attns.Count() >= 1)
             {
-               h = attns.Sum(a => (int)(a.EXIT_TIME.Value.TotalHours - a.ENTR_TIME.Value.TotalHours));
-               m = Math.Abs(attns.Sum(a => (int)(a.EXIT_TIME.Value.TotalHours - a.ENTR_TIME.Value.TotalHours) * 60 - (int)(a.EXIT_TIME.Value.TotalMinutes - a.ENTR_TIME.Value.TotalMinutes)));
+               h = _attns.Sum(a => (int)(a.EXIT_TIME.Value.TotalHours - a.ENTR_TIME.Value.TotalHours));
+               m = Math.Abs(_attns.Sum(a => (int)(a.EXIT_TIME.Value.TotalHours - a.ENTR_TIME.Value.TotalHours) * 60 - (int)(a.EXIT_TIME.Value.TotalMinutes - a.ENTR_TIME.Value.TotalMinutes)));
 
                if(m >= 60)
                {
@@ -1066,7 +1072,7 @@ namespace System.Scsc.Ui.Notifications
                   m = m % 60;
                }
             
-               TotlCyclAttn_Lb.Text = string.Format("{0} : {1}\n\r{2} : {3}\n\r{4} : {5}", "جلسات", attns.Count(), "ساعت", h, "دقیقه", m);
+               TotlCyclAttn_Lb.Text = string.Format("{0} : {1}\n\r{2} : {3}\n\r{4} : {5}", "جلسات", _attns.Count(), "ساعت", h, "دقیقه", m);
                TotlCyclAttn_Lb.Visible = true;
                Infos_Ro.RolloutStatus = true;
             }
@@ -1093,6 +1099,15 @@ namespace System.Scsc.Ui.Notifications
             // 1402/10/21 * بار گذاری کمدهایی که میتوان به مشتریان داد
             DresBs.DataSource = iScsc.Dressers.Where(d => d.VIP_STAT == "001" && d.REC_STAT == "002" && !d.Dresser_Attendances.Any(da => da.Attendance.EXIT_TIME == null) && !d.Dresser_Vip_Fighters.Any(dv => dv.STAT == "002"));
             DratGv.ActiveFilterString = "Tkbk_Time IS NULL";
+
+            // 1403/01/18 * اگر مشتری دستبند از باشگاه گرفته باشد باید با یه پیام هشدار به منشی ها اعلام کنیم که دستبند ها رو دریافت کنند
+            if (_attns.Any(a => a.Attendance_Wrists.Any(aw => aw.STAT == "001")))
+            {
+               Tb_WristInfo.SelectedTabPage = Tp_OldGetWrist;
+               OldAttnGetWrstBs.DataSource = AllCyclAttnBs1.List.OfType<Data.Attendance>().Any(a => a.CODE != _attn.CODE && a.Attendance_Wrists.Any(aw => aw.STAT == "001"));
+               wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Illuminate.mp3";
+               PlaySound();
+            }
          }
          catch (Exception exc)
          {
@@ -1609,6 +1624,7 @@ namespace System.Scsc.Ui.Notifications
                   break;
             }
             requery = true;
+            WristBand_Txt.Text = "";
          }
          catch { }
          finally

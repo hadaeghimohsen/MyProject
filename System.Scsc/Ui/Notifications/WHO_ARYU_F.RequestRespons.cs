@@ -307,6 +307,7 @@ namespace System.Scsc.Ui.Notifications
 
          finishcommand:
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(cm => cm.MTOD_STAT == "002");
+         DYsnoBs.DataSource = iScsc.D_YSNOs;
 
          job.Status = StatusType.Successful;
       }
@@ -326,6 +327,27 @@ namespace System.Scsc.Ui.Notifications
                if (xinput.Attribute("cmndtype").Value == "sendparam")
                {
                   WristBand_Txt.EditValue = xinput.Attribute("enroll").Value;
+                  if(Convert.ToBoolean(xinput.Attribute("checkforce").Value))
+                  {
+                     var _attn = iScsc.Attendance_Wrists.FirstOrDefault(aw => aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text && aw.STAT == "001").Attendance;
+                     if (_attn != null)
+                     {
+                        attncode = _attn.CODE;
+                        fileno = _attn.FIGH_FILE_NO.ToString();
+                        AttnDate_Date.Value = _attn.ATTN_DATE;
+                        mbsprwno = _attn.MBSP_RWNO_DNRM;
+
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost",
+                              new List<Job>
+                              {
+                                 new Job(SendType.Self, 110 /* Execute WHO_ARYU_F */)
+                              })
+                        );
+
+                        Execute_Query(true);
+                     }
+                  }
                   WristBand_Txt_ButtonClick(WristBand_Txt, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(WristBand_Txt.Properties.Buttons[0]));
                   Info_Tb.SelectedTabPage = Tp_DefWrst;
                }
@@ -336,6 +358,7 @@ namespace System.Scsc.Ui.Notifications
                //Lbl_Dresser.BackColor = SystemColors.Control;
                fileno = xinput.Attribute("fileno").Value;
                AttnDate_Date.Value = Convert.ToDateTime(xinput.Attribute("attndate").Value);
+
                // 1396/07/16 * اضافه شدن 
                if (xinput.Attribute("attncode") != null)
                   attncode = Convert.ToInt64(xinput.Attribute("attncode").Value);
@@ -346,17 +369,17 @@ namespace System.Scsc.Ui.Notifications
                   mbsprwno = Convert.ToInt16(xinput.Attribute("mbsprwno").Value);
                else
                   mbsprwno = null;
+            }            
 
-               if (xinput.Attribute("formcaller") != null)
-                  formcaller = xinput.Attribute("formcaller").Value;
-               else
-                  formcaller = "";
+            if (xinput.Attribute("formcaller") != null)
+               formcaller = xinput.Attribute("formcaller").Value;
+            else
+               formcaller = "";
 
-               if (xinput.Attribute("gatecontrol") != null)
-                  gateControl = true;
-               else
-                  gateControl = false;
-            }
+            if (xinput.Attribute("gatecontrol") != null)
+               gateControl = true;
+            else
+               gateControl = false;
          }
          catch { }
          finally

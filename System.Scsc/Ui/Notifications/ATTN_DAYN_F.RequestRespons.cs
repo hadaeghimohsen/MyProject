@@ -323,6 +323,7 @@ namespace System.Scsc.Ui.Notifications
          CtgyBs.DataSource = iScsc.Category_Belts;//.Where(c => c.CTGY_STAT == "002");
          DActnBs.DataSource = iScsc.D_ACTNs;
          DSxtpBs1.DataSource = iScsc.D_SXTPs;
+         DYsnoBs.DataSource = iScsc.D_YSNOs;
          job.Status = StatusType.Successful;
       }
 

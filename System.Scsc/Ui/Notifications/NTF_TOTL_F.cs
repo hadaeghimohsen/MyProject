@@ -13,6 +13,7 @@ using DevExpress.XtraGrid.Views.Grid;
 using System.IO;
 using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
 using System.MaxUi;
+using System.Threading;
 
 namespace System.Scsc.Ui.Notifications
 {
@@ -654,6 +655,22 @@ namespace System.Scsc.Ui.Notifications
          }
       }
 
+      WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+      string _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+      Color _evencolor = Color.YellowGreen, _oddcolor = Color.LimeGreen;
+      private void AlarmShow()
+      {
+         if (InvokeRequired)
+         {
+            try
+            {
+               wplayer.URL = _wplayer_url;
+               wplayer.controls.play();
+            }
+            catch { }
+         }
+      }
+
       private void Btn_Absent_Click(object sender, EventArgs e)
       {
          object fileno = "";
@@ -663,6 +680,9 @@ namespace System.Scsc.Ui.Notifications
             {
                if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Nud_FileNo2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                {
+                  _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+                  new Thread(AlarmShow).Start();
+
                   /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
@@ -689,6 +709,9 @@ namespace System.Scsc.Ui.Notifications
             {
                if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                {
+                  _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+                  new Thread(AlarmShow).Start();
+
                   /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",

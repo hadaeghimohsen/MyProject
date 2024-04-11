@@ -374,6 +374,19 @@ namespace System.Scsc.Ui.Notifications
             }
             else
                CochProFile_Rb.Visible = false;
+
+            if (LoadInfo_Cbx.Checked)
+            {
+               // 1403/01/23 * بارگذاری خدمات وابسته
+               PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.MBSP_FIGH_FILE_NO == _attn.FIGH_FILE_NO && pd.MBSP_RECT_CODE == "004" && pd.MBSP_RWNO == _attn.MBSP_RWNO_DNRM);
+               // 1403/01/23 * بارگذاری سوابق جلسات گذشته
+               AllCyclAttnBs1.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == _attn.FIGH_FILE_NO && a.MBSP_RWNO_DNRM == _attn.MBSP_RWNO_DNRM && a.ATTN_STAT == "002" && a.EXIT_TIME != null);
+               OldAttnGetWrstBs.DataSource = AllCyclAttnBs1.List.OfType<Data.Attendance>().Any(a => a.CODE != _attn.CODE && a.Attendance_Wrists.Any(aw => aw.STAT == "001"));
+            }
+            else
+            {
+               PdtMBs.DataSource = AllCyclAttnBs1.DataSource = OldAttnGetWrstBs.DataSource = null;
+            }
          }
          catch(Exception exc)
          {

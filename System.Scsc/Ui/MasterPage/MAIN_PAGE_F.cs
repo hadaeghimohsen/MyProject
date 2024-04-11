@@ -2580,7 +2580,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                else if(AttnType_Lov.EditValue.ToString() == "011")
                {
-                  if (!iScsc.Request_Duplicates.Any(rd => rd.STAT == "002" && rd.CRET_BY == Crnt_User))
+                  if (!iScsc.Request_Duplicates.Any(rd => rd.STAT == "002" && rd.CRET_BY == CurrentUser))
                   {
                      _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\disconnect.wav";
                      new Thread(AlarmShow).Start();
@@ -2650,6 +2650,7 @@ namespace System.Scsc.Ui.MasterPage
                                  new XElement("Fighter",
                                     new XAttribute("cmndtype", "sendparam"),
                                     new XAttribute("enroll", EnrollNumber),
+                                    new XAttribute("checkforce", ModifierKeys.HasFlag(Keys.Control)),
                                     new XAttribute("formcaller", GetType().Name)
                                  )
                            }
@@ -2925,6 +2926,9 @@ namespace System.Scsc.Ui.MasterPage
 
                if (mbsp.Count() >= 2)
                {
+                  _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+                  new Thread(AlarmShow).Start();
+
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -3427,12 +3431,13 @@ namespace System.Scsc.Ui.MasterPage
                         {
                            // IP Address Setting
                            var lsgate_cb = new TcpListenerX((int)gate.PORT_RECV);
-                           if (!dev.Init)
+                           dev.TcpListenerX = lsgate_cb;
+                           //if (!dev.Init)
                            {
                               // Init Send Instance                  
                               //lsgate_cb.StartListening();
 
-                              lsgate_cb.OnDataRecived += LsGate_OnDataRecived;
+                              lsgate_cb.OnDataRecived += LsGate_OnDataRecived;                              
                               dev.Init = true;
                            }
                         });
@@ -3455,6 +3460,7 @@ namespace System.Scsc.Ui.MasterPage
                      // Init Send Instance                  
                      //lsgate.StartListening();
                      lsgate.OnDataRecived += LsGate_OnDataRecived;
+                     dev.TcpListenerX = lsgate;
                      dev.Init = true;
                   }
                   //var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x23, 0x00, 0x03, 0x00, 0x00, 0xd4, 0xDD };
@@ -3569,10 +3575,11 @@ namespace System.Scsc.Ui.MasterPage
       public class TcpListenerX
       {
          #region (Private Properties)
-         public TcpListener listener = null;
+         public TcpListener _serverListener = null;
+         TcpClient _tcpClient;
          IPAddress localAddr;
          Byte[] bytes;
-         NetworkStream stream;
+         NetworkStream _stream;
          #endregion
          public bool IsEnable { set; get; }
          public delegate void DataRecived(int port, byte[] data);
@@ -3583,14 +3590,17 @@ namespace System.Scsc.Ui.MasterPage
             try
             {
                localAddr = IPAddress.Any;//IPAddress.Parse(IP);
-               listener = new TcpListener(localAddr, Port);
+               _serverListener = new TcpListener(localAddr, Port);
                IsEnable = false;
-               listener.Start();
-               TcpClient client = listener.AcceptTcpClient();
-               stream = client.GetStream();
+               _serverListener.Start();
+               _tcpClient = _serverListener.AcceptTcpClient();
+               // 1403/01/22 * How to create a TcpClient in C# that can recover from a lost network connection?
+               if (_stream != null)
+                  _stream.Dispose();
+               _stream = _tcpClient.GetStream();
                StartListening();
             }
-            catch (Exception exc)
+            catch
             {
                //MessageBox.Show(string.Format("{0}\n\r{1}", "TcpListenerX:" + Port.ToString(), exc.Message));
             }
@@ -3600,11 +3610,13 @@ namespace System.Scsc.Ui.MasterPage
          {
             try
             {
+               // Saela Byte Length : 17
+               // Nuoro Byte Length : 12
                IsEnable = true;
                bytes = new Byte[17];
-               stream.BeginRead(bytes, 0, bytes.Length, Callback, null);
+               _stream.BeginRead(bytes, 0, bytes.Length, Callback, null);
             }
-            catch (Exception exc)
+            catch
             {
                //MessageBox.Show(string.Format("{0}\n\r{1}", "Start Listening:" + listener.LocalEndpoint.ToString().Split(':')[1], exc.Message));
             }
@@ -3616,8 +3628,8 @@ namespace System.Scsc.Ui.MasterPage
             {               
                if (!IsEnable)
                   return;
-               OnDataRecived(Convert.ToInt32(listener.LocalEndpoint.ToString().Split(':')[1]), bytes);
-               stream.BeginRead(bytes, 0, bytes.Length, Callback, null);
+               OnDataRecived(Convert.ToInt32(_serverListener.LocalEndpoint.ToString().Split(':')[1]), bytes);
+               _stream.BeginRead(bytes, 0, bytes.Length, Callback, null);
             }
             catch
             {
@@ -3629,110 +3641,46 @@ namespace System.Scsc.Ui.MasterPage
          public void StopListening()
          {
             IsEnable = false;
+            // 1403/01/22 * closes all server
+            _stream.Close();
+            _stream.Dispose();
+            _tcpClient.Close();
+            _tcpClient.Dispose();
+            _serverListener.Stop();            
          }
-      }
 
-      WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-      string _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
-      Color _evencolor = Color.YellowGreen, _oddcolor = Color.LimeGreen;
-      private void AlarmShow()
-      {
-         if (InvokeRequired)
+         public bool IsAlive()
          {
             try
             {
-               wplayer.URL = _wplayer_url;
-               wplayer.controls.play();
-            }
-            catch { }
+               if (_tcpClient != null && _tcpClient.Client != null && _tcpClient.Client.Connected)
+               {
+                  /* pear to the documentation on Poll:
+                   * When passing SelectMode.SelectRead as a parameter to the Poll method it will return 
+                   * -either- true if Socket.Listen(Int32) has been called and a connection is pending;
+                   * -or- true if data is available for reading; 
+                   * -or- true if the connection has been closed, reset, or terminated; 
+                   * otherwise, returns false
+                   */
 
-            var tempcolor = BackGrnd_Butn.NormalColorA;
-            for (int i = 0; i < 5; i++)
+                  // Detect if client disconnected
+                  if (_tcpClient.Client.Poll(0, SelectMode.SelectRead))
+                  {
+                     byte[] buff = new byte[1];
+                     if (_tcpClient.Client.Receive(buff, SocketFlags.Peek) == 0)
+                        return false;
+                     else
+                        return true;
+                  }
+                  return true;
+               }
+               return false;
+            }
+            catch
             {
-               if (i % 2 == 0)
-                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = _evencolor;//Color.YellowGreen;
-               else
-                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = _oddcolor;//Color.LimeGreen;
-
-               Thread.Sleep(100);
-            }
-            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = tempcolor;
-
-            _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
-            _evencolor = Color.YellowGreen; _oddcolor = Color.LimeGreen;
+               return false;
+            }            
          }
-      }
-
-      private void AlarmShow(MaxUi.RoundedButton _obj)
-      {
-         if (InvokeRequired)
-         {
-            //_obj.Visible = true;
-            try
-            {
-               wplayer.URL = _wplayer_url;
-               wplayer.controls.play();
-            }
-            catch { }
-
-            var tempcolorA = _obj.NormalColorA;
-            var tempcolorB = _obj.NormalColorB;
-            for (int i = 0; i < 5; i++)
-            {
-               if (i % 2 == 0)
-                  _obj.NormalColorA = _obj.NormalColorB = _evencolor;//Color.YellowGreen;
-               else
-                  _obj.NormalColorA = _obj.NormalColorB = _oddcolor;//Color.LimeGreen;
-
-               Thread.Sleep(100);
-            }
-            _obj.NormalColorA = tempcolorA;
-            _obj.NormalColorB = tempcolorB;
-            //_obj.Visible = false;
-            _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
-            _evencolor = Color.Yellow; _oddcolor = Color.Lime;
-         }
-      }
-
-      public string ConvertHex2Ascii(String hexString)
-      {
-         try
-         {
-            string ascii = string.Empty;
-
-            for (int i = 0; i < hexString.Length; i += 2)
-            {
-               String hs = string.Empty;
-
-               hs = hexString.Substring(i, 2);
-               uint decval = System.Convert.ToUInt32(hs, 16);
-               char character = System.Convert.ToChar(decval);
-               ascii += character;
-
-            }
-
-            return ascii;
-         }
-         catch {  }
-
-         return string.Empty;
-      }     
-									
-      public string ConvertASCIIToDecimal(string str)
-      {
-	      string dec = string.Empty;
-
-	      for (int i = 0; i < str.Length; ++i)
-	      {
-		      string cDec = ((byte)str[i]).ToString();
-
-		      if (cDec.Length < 3)
-			      cDec = cDec.PadLeft(3, '0');
-
-		      dec += cDec;
-	      }
-
-	      return dec;
       }
 
       private void LsGate_OnDataRecived(int port, byte[] recieve)
@@ -4028,7 +3976,7 @@ namespace System.Scsc.Ui.MasterPage
             }
          }
          #endregion
-         #region Data recieved from Nuoro online locker 
+         #region Data recieved from Nuoro online locker
          var nuorodevs = iScsc.External_Devices.Where(ed => ed.DEV_COMP_TYPE == "003" /* Nuoro */ && (ed.DEV_TYPE == "001" /* Card Reader */ || ed.DEV_TYPE == "010" /* Online Locker */) && ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
          if (nuorodevs != null)
          {
@@ -4072,10 +4020,116 @@ namespace System.Scsc.Ui.MasterPage
             // Nuoro for online locker for action with managment locker room with card reader
             else if (nuorodevs.DEV_TYPE == "010" && nuorodevs.ACTN_TYPE == "013")
             {
+               //MessageBox.Show(enrollNumber);
+               //if (enrollNumber.In("0004000", "00040000", "00010000", "00000000", "AABBCCDD")) { return; }
 
+               OnOpenDresserWithWrist(enrollNumber);
             }
          }
          #endregion
+      }
+
+      WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+      string _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+      Color _evencolor = Color.YellowGreen, _oddcolor = Color.LimeGreen;
+      private void AlarmShow()
+      {
+         if (InvokeRequired)
+         {
+            try
+            {
+               wplayer.URL = _wplayer_url;
+               wplayer.controls.play();
+            }
+            catch { }
+
+            var tempcolor = BackGrnd_Butn.NormalColorA;
+            for (int i = 0; i < 5; i++)
+            {
+               if (i % 2 == 0)
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = _evencolor;//Color.YellowGreen;
+               else
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = _oddcolor;//Color.LimeGreen;
+
+               Thread.Sleep(100);
+            }
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = tempcolor;
+
+            _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+            _evencolor = Color.YellowGreen; _oddcolor = Color.LimeGreen;
+         }
+      }
+
+      private void AlarmShow(MaxUi.RoundedButton _obj)
+      {
+         if (InvokeRequired)
+         {
+            //_obj.Visible = true;
+            try
+            {
+               wplayer.URL = _wplayer_url;
+               wplayer.controls.play();
+            }
+            catch { }
+
+            var tempcolorA = _obj.NormalColorA;
+            var tempcolorB = _obj.NormalColorB;
+            for (int i = 0; i < 5; i++)
+            {
+               if (i % 2 == 0)
+                  _obj.NormalColorA = _obj.NormalColorB = _evencolor;//Color.YellowGreen;
+               else
+                  _obj.NormalColorA = _obj.NormalColorB = _oddcolor;//Color.LimeGreen;
+
+               Thread.Sleep(100);
+            }
+            _obj.NormalColorA = tempcolorA;
+            _obj.NormalColorB = tempcolorB;
+            //_obj.Visible = false;
+            _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+            _evencolor = Color.Yellow; _oddcolor = Color.Lime;
+         }
+      }
+
+      public string ConvertHex2Ascii(String hexString)
+      {
+         try
+         {
+            string ascii = string.Empty;
+
+            for (int i = 0; i < hexString.Length; i += 2)
+            {
+               String hs = string.Empty;
+
+               hs = hexString.Substring(i, 2);
+               uint decval = System.Convert.ToUInt32(hs, 16);
+               char character = System.Convert.ToChar(decval);
+               ascii += character;
+
+            }
+
+            return ascii;
+         }
+         catch {  }
+
+         return string.Empty;
+      }     
+									
+      public string ConvertASCIIToDecimal(string str)
+      {
+	      string dec = string.Empty;
+
+	      for (int i = 0; i < str.Length; ++i)
+	      {
+		      string cDec = ((byte)str[i]).ToString();
+
+		      if (cDec.Length < 3)
+			      cDec = cDec.PadLeft(3, '0');
+
+		      dec += cDec;
+	      }
+
+	      return dec;
       }
 
       private void SendCommand(String server, int port, byte[] message)
@@ -4677,6 +4731,7 @@ namespace System.Scsc.Ui.MasterPage
          public string DeviceType { get; set; }
          public string DeviceName { get; set; }
          public bool Init { get; set; }
+         public TcpListenerX TcpListenerX { get; set; }
 
          public Action CallBack { get; set; }
          public void Ping()
@@ -4697,10 +4752,19 @@ namespace System.Scsc.Ui.MasterPage
             }
             catch { }
          }
+         
+         public void Stop()
+         {
+            TcpListenerX.StopListening();
+         }
+
+         public bool IsALive()
+         {
+            return TcpListenerX.IsAlive();
+         }
       }
 
       private List<Device_On_Network> DeviceOnNetworks = new List<Device_On_Network>();
-
       
       #endregion
 
@@ -5096,6 +5160,99 @@ namespace System.Scsc.Ui.MasterPage
             }
 
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+         }
+         catch (Exception exc)
+         {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+         }
+      }
+
+      private void OnOpenDresserWithWrist(string EnrollNumber)
+      {
+         try
+         {
+            //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\tick.wav";
+            if (RSignalOpen_Butn.Tag == null)
+            {
+               RSignalOpen_Butn.Tag = "key";
+               LSignalOpen_Butn.Tag = null;
+               _wplayer_url = "";
+               new Thread(new ThreadStart(() => AlarmShow(RSignalOpen_Butn))).Start();
+            }
+            else
+            {
+               RSignalOpen_Butn.Tag = null;
+               LSignalOpen_Butn.Tag = "key";
+               _wplayer_url = "";
+               new Thread(new ThreadStart(() => AlarmShow(LSignalOpen_Butn))).Start();
+            }
+
+            Partners_Butn.Visible = PrtnrCont_Butn.Visible = PrtnrPos_Butn.Visible = PartnerDresNum_Butn.Visible = false;
+            PrtnrProc1_Pbc.Visible = PrtnrProc2_Pbc.Visible = PrtnrProc3_Pbc.Visible = PartnerDresNum_Butn.Visible = false;
+            // شماره کد انگشتی را وارد باکس میکنیم
+            OnlineDres_Butn.Focus();
+            OnlineDres_Butn.Text = EnrollNumber;            
+
+            // در اولین گام باید چک کنیم که این داده ورودی برای دستبند میباشد
+            var _atnw = iScsc.Attendance_Wrists.FirstOrDefault(aw => aw.STAT == "001" && aw.ATNW_FNGR_PRNT_DNRM == EnrollNumber && aw.Attendance.EXIT_TIME == null && aw.Attendance.ATTN_DATE.Date == DateTime.Now.Date && aw.DRES_CODE_DNRM != null);
+            if (_atnw != null)
+            {
+               var _dev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_TYPE == "010" && d.STAT == "002" && _atnw.Dresser.IP_ADRS == d.IP_ADRS);
+
+               OprtExtDev(
+                  new XElement("MainPage",
+                        new XAttribute("devtype", _dev.DEV_TYPE),
+                        new XAttribute("contype", _dev.DEV_CON),
+                        new XAttribute("cmdtype", _atnw.Dresser.DRES_NUMB),
+                        new XAttribute("ip", _dev.IP_ADRS),
+                        new XAttribute("sendport", _dev.PORT_SEND)
+                  )
+               );
+            }
+            else
+            {
+
+               // ابتدا پیدا میکنیم که امروز کدام ردیف حضور و غیاب را داریم
+               var attncode = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == EnrollNumber && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null).Max(a => a.CODE);
+
+               // ثبت ساعت باز کردن کمد            
+               iScsc.INS_DART_P(attncode, null, null);
+
+               // اینجا باید شماره سریال پورت را پیدا کنیم و پیام را بهش ارسال کنیم
+               var dresrattn = iScsc.Dresser_Attendances.FirstOrDefault(da => da.ATTN_CODE == attncode && da.DRAT_CODE == null);
+
+               // پیدا کردن پورت برای ارسال
+               //var ports = OnlineDres_Butn.Tag as List<SerialPort>;
+               //var port = ports.FirstOrDefault(p => p.PortName == dresrattn.Dresser.COMM_PORT);
+               //port.Write(dresrattn.Attendance.DERS_NUMB.ToString());
+               var ctrldev = iScsc.Dressers.FirstOrDefault(d => d.Computer_Action.COMP_NAME == xHost.Attribute("name").Value && d.REC_STAT == "002" && d.CODE == dresrattn.Dresser.CODE);
+               var _dev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_TYPE == "010" && d.STAT == "002" && ctrldev.IP_ADRS == d.IP_ADRS);
+
+               OprtExtDev(
+                  new XElement("MainPage",
+                        new XAttribute("devtype", _dev.DEV_TYPE),
+                        new XAttribute("contype", _dev.DEV_CON),
+                        new XAttribute("cmdtype", dresrattn.Dresser.DRES_NUMB),
+                        new XAttribute("ip", _dev.IP_ADRS),
+                        new XAttribute("sendport", _dev.PORT_SEND)
+                  )
+               );
+               // ابتدا نمایش  صفحه نمایش اتفاق بیوفتد
+               //SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString().PadLeft(3, '0'), devsName.FirstOrDefault(d => d.DEV_TYPE == "009").DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
+
+               // مرحله بعدی ارسال پیام به دستگاه کنترلر مربوط به کمدهای قفل انلاین هست
+               //SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString().PadLeft(3, '0'), devsName.FirstOrDefault(d => d.DEV_TYPE == "010" && d.IP_ADRS == ctrldev.IP_ADRS).DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
+
+               // 1402/10/21 * باز کردن کمدهای همراهان
+               if (iScsc.Dresser_Attendances.Any(da => da.ATTN_CODE == attncode && da.DRAT_CODE != null))
+               {
+                  Partners_Butn.Visible = PrtnrCont_Butn.Visible = PrtnrPos_Butn.Visible = PartnerDresNum_Butn.Visible = true;
+                  PrtnrCont_Butn.Visible = PrtnrProc1_Pbc.Visible = PrtnrProc2_Pbc.Visible = PrtnrProc3_Pbc.Visible = true;
+                  new Thread(new ThreadStart(() => OpenDresPart_Tmr_Tick(attncode))).Start();
+               }
+
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
+            }
          }
          catch (Exception exc)
          {
@@ -6700,6 +6857,31 @@ namespace System.Scsc.Ui.MasterPage
          {
             Tm_FingerPrintWorker.Enabled = true;
          }
+         else if (ModifierKeys.HasFlag(Keys.Shift))
+         {
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            var _attn = iScsc.Attendances.Where(a => a.ATTN_DATE.Date == DateTime.Now.Date && a.ATTN_STAT == "002").OrderByDescending(a => a.ENTR_TIME).FirstOrDefault();
+            if (_attn == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost",
+                  new List<Job>
+                  {
+                     //new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){ Input = Keys.Escape },
+                     new Job(SendType.Self, 110 /* Execute WHO_ARYU_F */),
+                     new Job(SendType.SelfToUserInterface, "WHO_ARYU_F", 10 /* Execute Actn_CalF_F*/ )
+                     {
+                        Input = 
+                        new XElement("Fighter",
+                           new XAttribute("fileno", _attn.FIGH_FILE_NO),
+                           new XAttribute("attndate",_attn.ATTN_DATE.Date),
+                           new XAttribute("attncode", _attn.CODE),
+                           new XAttribute("formcaller", GetType().Name)
+                        )
+                     }
+                  })
+            );
+         }
          else
          {
             _DefaultGateway.Gateway(
@@ -6878,17 +7060,29 @@ namespace System.Scsc.Ui.MasterPage
             // اگر چک کردن تست ارتباط فعال باشد
             if (TryPing_Cbx.Checked)
             {
+               //ActionCenter_Butn.ToolTip += "Checked external device..." + Environment.NewLine;
                // بررسی دستگاه های درون شبکه
                foreach (Device_On_Network dev in DeviceOnNetworks)
                {
+                  //ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " call is a lived method." + Environment.NewLine;
+                  // 1403/01/22 * if client is connected and keep a live
+                  if (!dev.IsALive())
+                  {
+                     ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " not a lived." + Environment.NewLine;
+                     _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\alert2.wav";
+                     new Thread(AlarmShow).Start(); 
+                     dev.PingStatus = false;
+                  }
                   // اگر دستگاه غیرفعال بوده
                   if (!dev.PingStatus)
                   {
                      // دستگاه را دوباره تست میکنیم
                      dev.Ping();
                      // اگر دستگاه انلاین شد
-                     if (dev.PingStatus)
+                     if (dev.PingStatus /*&& !dev.IsALive()*/)
                      {
+                        // Kill client and reconnenct
+                        dev.Stop();
                         dev.CallBack();
                         //_DefaultGateway.Gateway(
                         //   new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
@@ -6903,7 +7097,6 @@ namespace System.Scsc.Ui.MasterPage
                         //         }
                         //   }
                         //);
-
                         ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " connected." + Environment.NewLine;
 
                         _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\connect.wav";
@@ -6956,7 +7149,6 @@ namespace System.Scsc.Ui.MasterPage
                      Sp_GateAttn.Open();
                   }
                }
-
             }
          }
          catch (Exception exc) { ActionCenter_Butn.ToolTip = exc.Message; }
@@ -9115,9 +9307,212 @@ namespace System.Scsc.Ui.MasterPage
             {
                _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\radar.mp3";
                new Thread(AlarmShow).Start();
-               DeviceOnNetworks.OfType<Device_On_Network>().ToList().ForEach(d => d.PingStatus = false);
+               DeviceOnNetworks.OfType<Device_On_Network>().ToList().ForEach(d => { d.PingStatus = false; });
                Tm_ShowTime_Tick(null, null);
             }
+         }
+         catch { }
+      }
+
+      private void AtnwFind_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            if(AtnwDate_Rb.Checked && !AtnwDate_Dt.Value.HasValue){AtnwDate_Dt.Focus(); AtnwDate_Dt.Value = DateTime.Now;}
+            var _date = AtnwToday_Rb.Checked ? DateTime.Now : (AtnwDate_Rb.Checked ? AtnwDate_Dt.Value : null);
+            if (AtnwBfor_Rb.Checked) { _date = DateTime.Now; }
+            
+            AtnwBs.DataSource =
+               iScsc.Attendance_Wrists
+               .Where(aw => 
+                  (AtnwBfor_Rb.Checked ? (aw.Attendance.ATTN_DATE < DateTime.Now.Date) : aw.Attendance.ATTN_DATE == _date.Value.Date) &&
+                  (aw.STAT == (AtnwStat001_Cbx.Checked ? "001" : "000") || aw.STAT == (AtnwStat002_Cbx.Checked ? "002" : "000"))
+               );
+         }
+         catch { }
+      }
+
+      private void AtnwActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _atnw = AtnwBs.Current as Data.Attendance_Wrist;
+            if (_atnw == null) return;
+
+            string _tmp = "";
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  if (_atnw.Dresser == null) return;
+
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
+                     {
+                        Input =
+                           new XElement("OprtDres",
+                                 new XAttribute("type", "sendoprtdres"),
+                                 new XAttribute("cmndname", _atnw.Dresser.DRES_NUMB),
+                                 new XAttribute("devip", _atnw.Dresser.IP_ADRS),
+                                 new XAttribute("cmndsend", _atnw.Dresser.CMND_SEND ?? "")
+                               )
+                     }
+                  );
+
+                  _tmp = _atnw.Dresser == null ? _atnw.Fighter1.FNGR_PRNT_DNRM : _atnw.Dresser.DRES_NUMB.ToString();
+
+                  iScsc.INS_LGOP_P(
+                     new XElement("Log",
+                           new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
+                           new XAttribute("type", "016"),
+                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " باز کرد")
+                     )
+                  );
+                  break;
+               case 1:
+                  if ( MessageBox.Show(this, "آیا با تحویل و برگشت دستبند موافق هستید؟", "عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+                  // اگر قبلا این دستبند برگشت داده شده باشد
+                  if (AtnwBs.List.OfType<Data.Attendance_Wrist>().Any(aw => /*aw.ATTN_CODE == _atnw.ATTN_CODE && aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text*/aw.CODE == _atnw.CODE && aw.STAT == "002")) return;
+
+                  // وضعیت برگشت دستبند را فعال میکنیم
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Attendance_Wrist SET STAT = '002' WHERE CODE = {0};", /*_atnw.ATTN_CODE, WristBand_Txt.Text*/ _atnw.CODE));
+
+                  _tmp = _atnw.Dresser == null ? _atnw.Fighter1.FNGR_PRNT_DNRM : _atnw.Dresser.DRES_NUMB.ToString();
+
+                  iScsc.INS_LGOP_P(
+                     new XElement("Log",
+                           new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
+                           new XAttribute("type", "015"),
+                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " را تحویل گرفت")
+                     )
+                  );
+                  break;
+               case 2:
+                  if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف دستبند", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+                  iScsc.ExecuteCommand(string.Format("DELETE dbo.Attendance_Wrist WHERE Code = {0};", _atnw.CODE));
+
+                  _tmp = _atnw.Dresser == null ? _atnw.Fighter1.FNGR_PRNT_DNRM : _atnw.Dresser.DRES_NUMB.ToString();
+
+                  iScsc.INS_LGOP_P(
+                     new XElement("Log",
+                           new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
+                           new XAttribute("type", "014"),
+                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " را حذف کرد")
+                     )
+                  );
+
+                  if (AtnwBs.List.Count > 1)
+                  {
+                     iScsc.ExecuteCommand(
+                        string.Format(
+                           "UPDATE dbo.Attendance SET SUM_ATTN_MONT_DNRM -= 1 WHERE CODE = {0};" + Environment.NewLine +
+                           "UPDATE ms SET ms.SUM_ATTN_MONT_DNRM -= 1 FROM dbo.Member_Ship ms, dbo.Attendance a WHERE a.Code = {0} AND a.MBSP_RWNO_DNRM = ms.RWNO AND a.FIGH_FILE_NO = ms.FIGH_FILE_NO AND ms.RECT_CODE = '004';",
+                        _atnw.ATTN_CODE)
+                     );
+
+                     _tmp = _atnw.Dresser == null ? _atnw.Fighter1.FNGR_PRNT_DNRM : _atnw.Dresser.DRES_NUMB.ToString();
+
+                     iScsc.INS_LGOP_P(
+                        new XElement("Log",
+                              new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
+                              new XAttribute("type", "012"),
+                              new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " برگشت یک جلسه به دوره مشتری به صورت دستی بابت حذف دستبند شماره " + _tmp + " انجام شد")
+                        )
+                     );
+                  }
+                  break;
+               case 3:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM)) }
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch { }
+      }
+
+      private void AtnwBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _atnw = AtnwBs.Current as Data.Attendance_Wrist;
+            if (_atnw == null) return;
+
+            //AtnwCont_Btn.Text = 
+
+            var _figh = _atnw.Fighter;
+            if (_figh != null)
+            {
+               if (_figh.IMAG_RCDC_RCID_DNRM != null)
+               {
+                  try
+                  {
+                     ServProFileAtnw_Rb.ImageProfile = null;
+                     ServProFileAtnw_Rb.ImageVisiable = true;
+                     MemoryStream mStream = new MemoryStream();
+                     byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _figh.FILE_NO))).ToArray();
+                     mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                     Bitmap bm = new Bitmap(mStream, false);
+                     mStream.Dispose();
+
+                     if (InvokeRequired)
+                        Invoke(new Action(() => ServProFileAtnw_Rb.ImageProfile = bm));
+                     else
+                        ServProFileAtnw_Rb.ImageProfile = bm;
+
+                     ServProFileAtnw_Rb.Tag = _figh.FILE_NO;
+                  }
+                  catch { }
+               }
+               else
+               {
+                  ServProFileAtnw_Rb.ImageProfile = null;
+                  ServProFileAtnw_Rb.Tag = null;
+               }
+
+               if (ServProFileAtnw_Rb.ImageProfile == null && _figh.SEX_TYPE_DNRM == "002")
+                  ServProFileAtnw_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1148;
+               else if (ServProFileAtnw_Rb.ImageProfile == null)
+                  ServProFileAtnw_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1149;
+            }
+            else
+            {
+               ServProFileAtnw_Rb.ImageProfile = null;
+               ServProFileAtnw_Rb.Tag = null;
+            }
+         }
+         catch { }
+      }
+
+      private void AtwnWrst_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _atnw = AtnwBs.Current as Data.Attendance_Wrist;
+            if (_atnw == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _atnw.ATNW_FIGH_FILE_NO)) }
+            );
+         }
+         catch { }
+      }
+
+      private void AtnwFigh_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _atnw = AtnwBs.Current as Data.Attendance_Wrist;
+            if (_atnw == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM)) }
+            );
          }
          catch { }
       }

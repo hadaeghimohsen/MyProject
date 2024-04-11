@@ -857,6 +857,7 @@ namespace System.Scsc.Code
                //_Rqst_Trac_F.SendRequest(job);
                break;
             case "WHO_ARYU_F":
+               if (_Who_Aryu_F == null) { job.Status = StatusType.Failed; return; }
                _Who_Aryu_F.SendRequest(job);
                break;
             case "RFD_TOTL_F":

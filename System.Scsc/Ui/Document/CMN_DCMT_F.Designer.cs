@@ -153,6 +153,7 @@
          this.RqstBnADoc1 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnRegl01 = new System.Windows.Forms.ToolStripButton();
          this.RqstBnExit1 = new System.Windows.Forms.ToolStripButton();
+         this.panel3 = new System.Windows.Forms.Panel();
          this.TC_Dcmt.SuspendLayout();
          this.tp_001.SuspendLayout();
          this.Dcmt_Gb.SuspendLayout();
@@ -197,6 +198,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.picFPImg)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).BeginInit();
          this.RqstBn1.SuspendLayout();
+         this.panel3.SuspendLayout();
          this.SuspendLayout();
          // 
          // StrtDate_Lb
@@ -1182,6 +1184,7 @@
          this.tp_003.AutoScroll = true;
          this.tp_003.AutoScrollMinSize = new System.Drawing.Size(771, 0);
          this.tp_003.BackColor = System.Drawing.SystemColors.Control;
+         this.tp_003.Controls.Add(this.panel3);
          this.tp_003.Controls.Add(this.Btn_AcceptPicture);
          this.tp_003.Controls.Add(this.Btn_TakePicture);
          this.tp_003.Controls.Add(this.Npb_Face3x4Zone);
@@ -1194,7 +1197,6 @@
          this.tp_003.Controls.Add(this.LOV_VideoSrc);
          this.tp_003.Controls.Add(this.Pb_Face3x4Zone);
          this.tp_003.Controls.Add(this.Pb_FaceZone);
-         this.tp_003.Controls.Add(this.pb_destination);
          this.tp_003.Controls.Add(this.pb_source);
          this.tp_003.Location = new System.Drawing.Point(4, 23);
          this.tp_003.Name = "tp_003";
@@ -1215,7 +1217,7 @@
          this.Btn_AcceptPicture.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.Btn_AcceptPicture.Image = global::System.Scsc.Properties.Resources.IMAGE_1115;
          this.Btn_AcceptPicture.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Btn_AcceptPicture.Location = new System.Drawing.Point(826, 295);
+         this.Btn_AcceptPicture.Location = new System.Drawing.Point(724, 369);
          this.Btn_AcceptPicture.LookAndFeel.SkinName = "Office 2010 Blue";
          this.Btn_AcceptPicture.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Btn_AcceptPicture.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1238,7 +1240,7 @@
          this.Btn_TakePicture.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.Btn_TakePicture.Image = global::System.Scsc.Properties.Resources.IMAGE_1209;
          this.Btn_TakePicture.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Btn_TakePicture.Location = new System.Drawing.Point(553, 295);
+         this.Btn_TakePicture.Location = new System.Drawing.Point(647, 369);
          this.Btn_TakePicture.LookAndFeel.SkinName = "Office 2010 Blue";
          this.Btn_TakePicture.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Btn_TakePicture.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1410,11 +1412,10 @@
          // pb_destination
          // 
          this.pb_destination.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.pb_destination.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.pb_destination.Location = new System.Drawing.Point(553, 6);
+         this.pb_destination.Location = new System.Drawing.Point(30, 30);
          this.pb_destination.Name = "pb_destination";
-         this.pb_destination.Size = new System.Drawing.Size(326, 283);
-         this.pb_destination.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+         this.pb_destination.Size = new System.Drawing.Size(259, 263);
+         this.pb_destination.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.pb_destination.TabIndex = 0;
          this.pb_destination.TabStop = false;
          // 
@@ -1574,7 +1575,7 @@
          // toolStripLabel1
          // 
          this.toolStripLabel1.Name = "toolStripLabel1";
-         this.toolStripLabel1.Size = new System.Drawing.Size(34, 44);
+         this.toolStripLabel1.Size = new System.Drawing.Size(35, 44);
          this.toolStripLabel1.Text = "of {0}";
          this.toolStripLabel1.ToolTipText = "Total number of items";
          // 
@@ -1764,6 +1765,17 @@
          this.RqstBnExit1.ToolTipText = "خروج";
          this.RqstBnExit1.Click += new System.EventHandler(this.mb_back_Click);
          // 
+         // panel3
+         // 
+         this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.panel3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel3.BackgroundImage")));
+         this.panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+         this.panel3.Controls.Add(this.pb_destination);
+         this.panel3.Location = new System.Drawing.Point(553, 6);
+         this.panel3.Name = "panel3";
+         this.panel3.Size = new System.Drawing.Size(326, 326);
+         this.panel3.TabIndex = 102;
+         // 
          // CMN_DCMT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1824,6 +1836,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.RqstBn1)).EndInit();
          this.RqstBn1.ResumeLayout(false);
          this.RqstBn1.PerformLayout();
+         this.panel3.ResumeLayout(false);
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -1948,5 +1961,6 @@
       private DevExpress.XtraEditors.SimpleButton simpleButton1;
       private Windows.Forms.RichTextBox textFngr;
       private Windows.Forms.PictureBox picFPImg;
+      private Windows.Forms.Panel panel3;
    }
 }

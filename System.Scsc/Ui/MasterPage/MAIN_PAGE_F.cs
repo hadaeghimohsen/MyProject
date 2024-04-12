@@ -3640,13 +3640,17 @@ namespace System.Scsc.Ui.MasterPage
 
          public void StopListening()
          {
-            IsEnable = false;
-            // 1403/01/22 * closes all server
-            _stream.Close();
-            _stream.Dispose();
-            _tcpClient.Close();
-            _tcpClient.Dispose();
-            _serverListener.Stop();            
+            try
+            {
+               IsEnable = false;
+               // 1403/01/22 * closes all server
+               _stream.Close();
+               _stream.Dispose();
+               _tcpClient.Close();
+               _tcpClient.Dispose();
+               _serverListener.Stop();
+            }
+            catch { }
          }
 
          public bool IsAlive()
@@ -4003,7 +4007,7 @@ namespace System.Scsc.Ui.MasterPage
             GetValuDataFromExtrDev(gate, enrollNumber);
 
             // Alarm 
-            new Thread(AlarmShow).Start();
+            //new Thread(AlarmShow).Start();
 
             // Nuoro for card reader with define for attendance
             if (nuorodevs.DEV_TYPE == "001" && (nuorodevs.ACTN_TYPE == "001" || nuorodevs.ACTN_TYPE == "003" || nuorodevs.ACTN_TYPE == "011" || nuorodevs.ACTN_TYPE == "014"))
@@ -4755,11 +4759,13 @@ namespace System.Scsc.Ui.MasterPage
          
          public void Stop()
          {
+            if (TcpListenerX == null) return;
             TcpListenerX.StopListening();
          }
 
          public bool IsALive()
          {
+            if (TcpListenerX == null) return false;
             return TcpListenerX.IsAlive();
          }
       }
@@ -7039,7 +7045,7 @@ namespace System.Scsc.Ui.MasterPage
             }
 
             Ping ping = new Ping();
-            var pingstatus = ping.Send(SrvrPing_Butn.Tag.ToString(), 500);
+            var pingstatus = ping.Send(SrvrPing_Butn.Tag.ToString(), 500);            
 
             if (pingstatus.Status == IPStatus.Success)
             {
@@ -7055,7 +7061,7 @@ namespace System.Scsc.Ui.MasterPage
 
                _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\disconnect.wav";
                new Thread(AlarmShow).Start();
-            }
+            }            
 
             // اگر چک کردن تست ارتباط فعال باشد
             if (TryPing_Cbx.Checked)
@@ -7072,7 +7078,7 @@ namespace System.Scsc.Ui.MasterPage
                      _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\alert2.wav";
                      new Thread(AlarmShow).Start(); 
                      dev.PingStatus = false;
-                  }
+                  }                  
                   // اگر دستگاه غیرفعال بوده
                   if (!dev.PingStatus)
                   {
@@ -7151,7 +7157,7 @@ namespace System.Scsc.Ui.MasterPage
                }
             }
          }
-         catch (Exception exc) { ActionCenter_Butn.ToolTip = exc.Message; }
+         catch (Exception exc) { ActionCenter_Butn.ToolTip += exc.Message; }
       }
 
       private void AdjustDateTime_Butn_Click(object sender, EventArgs e)
@@ -9340,6 +9346,8 @@ namespace System.Scsc.Ui.MasterPage
             var _atnw = AtnwBs.Current as Data.Attendance_Wrist;
             if (_atnw == null) return;
 
+            if (AcptActnDres_Cbx.Checked && MessageBox.Show(this, "آیا با انجام عملیات موافق هستید؟", "تایید عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
             string _tmp = "";
 
             switch (e.Button.Index)
@@ -9512,6 +9520,20 @@ namespace System.Scsc.Ui.MasterPage
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM)) }
+            );
+         }
+         catch { }
+      }
+
+      private void Evnt_Gv_DoubleClick(object sender, EventArgs e)
+      {
+         try
+         {
+            var _evnt = Evnt_Gv.GetFocusedRow() as Data.V_Event;
+            if (_evnt == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _evnt.FILE_NO)) }
             );
          }
          catch { }

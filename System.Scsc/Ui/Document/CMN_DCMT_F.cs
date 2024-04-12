@@ -20,6 +20,11 @@ namespace System.Scsc.Ui.Document
       public CMN_DCMT_F()
       {
          InitializeComponent();
+
+         System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+         gp.AddEllipse(0, 0, pb_destination.Width, pb_destination.Height);
+         System.Drawing.Region rg = new System.Drawing.Region(gp);
+         pb_destination.Region = rg;
       }
 
       private void Bt_SelectFile_Click(object sender, EventArgs e)

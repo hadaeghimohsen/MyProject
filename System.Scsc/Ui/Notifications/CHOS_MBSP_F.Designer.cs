@@ -28,12 +28,14 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CHOS_MBSP_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
-         this.MbspBn1 = new System.Windows.Forms.BindingNavigator();
+         this.MbspBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
@@ -50,11 +52,11 @@
          this.NameDnrm_Lbl = new System.Windows.Forms.Label();
          this.UserProFile_Rb = new System.MaxUi.RoundedButton();
          this.Mbsp_gc = new DevExpress.XtraGrid.GridControl();
-         this.MbspBs = new System.Windows.Forms.BindingSource();
+         this.MbspBs = new System.Windows.Forms.BindingSource(this.components);
          this.Mbsp_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colRQRO_RQST_RQID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.CochBs1 = new System.Windows.Forms.BindingSource();
+         this.CochBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colRQRO_RWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFIGH_FILE_NO1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRWNO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -83,6 +85,7 @@
          this.colFighter = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colATTNRMND = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.colVALD_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.MbspBn1)).BeginInit();
          this.MbspBn1.SuspendLayout();
          this.panel4.SuspendLayout();
@@ -336,7 +339,20 @@
             this.colMDFY_DATE,
             this.colRequest_Row,
             this.colFighter,
-            this.colATTNRMND});
+            this.colATTNRMND,
+            this.colVALD_TYPE});
+         styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.Navy;
+         styleFormatCondition1.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold);
+         styleFormatCondition1.Appearance.ForeColor = System.Drawing.Color.White;
+         styleFormatCondition1.Appearance.Options.UseBackColor = true;
+         styleFormatCondition1.Appearance.Options.UseFont = true;
+         styleFormatCondition1.Appearance.Options.UseForeColor = true;
+         styleFormatCondition1.ApplyToRow = true;
+         styleFormatCondition1.Column = this.colRWNO;
+         styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition1.Expression = "Today() >= [STRT_DATE] And Today()  <= [END_DATE] And [VALD_TYPE] == \'002\'";
+         this.Mbsp_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition1});
          this.Mbsp_Gv.GridControl = this.Mbsp_gc;
          this.Mbsp_Gv.Name = "Mbsp_Gv";
          this.Mbsp_Gv.OptionsDetail.EnableMasterViewMode = false;
@@ -349,7 +365,7 @@
          // 
          // colRQRO_RQST_RQID
          // 
-         this.colRQRO_RQST_RQID.Caption = "نام مربی";
+         this.colRQRO_RQST_RQID.Caption = "سرپرست";
          this.colRQRO_RQST_RQID.ColumnEdit = this.repositoryItemLookUpEdit1;
          this.colRQRO_RQST_RQID.FieldName = "Fighter_Public.COCH_FILE_NO";
          this.colRQRO_RQST_RQID.Name = "colRQRO_RQST_RQID";
@@ -381,7 +397,7 @@
          // 
          // colRQRO_RWNO1
          // 
-         this.colRQRO_RWNO1.Caption = "ورزش";
+         this.colRQRO_RWNO1.Caption = "گروه";
          this.colRQRO_RWNO1.FieldName = "Fighter_Public.Method.MTOD_DESC";
          this.colRQRO_RWNO1.Name = "colRQRO_RWNO1";
          this.colRQRO_RWNO1.OptionsColumn.AllowEdit = false;
@@ -392,7 +408,7 @@
          // 
          // colFIGH_FILE_NO1
          // 
-         this.colFIGH_FILE_NO1.Caption = "رسته";
+         this.colFIGH_FILE_NO1.Caption = "زیر گروه";
          this.colFIGH_FILE_NO1.FieldName = "Fighter_Public.Category_Belt.CTGY_DESC";
          this.colFIGH_FILE_NO1.Name = "colFIGH_FILE_NO1";
          this.colFIGH_FILE_NO1.OptionsColumn.AllowEdit = false;
@@ -592,6 +608,12 @@
          this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
          this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
          // 
+         // colVALD_TYPE
+         // 
+         this.colVALD_TYPE.Caption = "VALD_TYPE";
+         this.colVALD_TYPE.FieldName = "VALD_TYPE";
+         this.colVALD_TYPE.Name = "colVALD_TYPE";
+         // 
          // CHOS_MBSP_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -674,6 +696,7 @@
       private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit1;
       private Windows.Forms.Label FngrPrnt_Lbl;
       private Windows.Forms.Label NameDnrm_Lbl;
+      private DevExpress.XtraGrid.Columns.GridColumn colVALD_TYPE;
 
    }
 }

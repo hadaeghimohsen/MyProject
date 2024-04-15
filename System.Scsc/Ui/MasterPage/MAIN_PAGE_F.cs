@@ -7072,7 +7072,7 @@ namespace System.Scsc.Ui.MasterPage
                {
                   //ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " call is a lived method." + Environment.NewLine;
                   // 1403/01/22 * if client is connected and keep a live
-                  if (!dev.IsALive())
+                  if (!dev.IsALive() && dev.DeviceType.NotIn("FngrPrnt"))
                   {
                      ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " not a lived." + Environment.NewLine;
                      _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\alert2.wav";
@@ -7088,7 +7088,7 @@ namespace System.Scsc.Ui.MasterPage
                      if (dev.PingStatus /*&& !dev.IsALive()*/)
                      {
                         // Kill client and reconnenct
-                        dev.Stop();
+                        if(dev.DeviceType.NotIn("FngrPrnt")) dev.Stop();
                         dev.CallBack();
                         //_DefaultGateway.Gateway(
                         //   new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)

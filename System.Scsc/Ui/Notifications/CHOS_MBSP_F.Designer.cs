@@ -35,6 +35,7 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.colRWNO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.MbspBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -59,7 +60,6 @@
          this.CochBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.colRQRO_RWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFIGH_FILE_NO1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colRWNO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRECT_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTRT_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -84,8 +84,8 @@
          this.colRequest_Row = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFighter = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colATTNRMND = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.colVALD_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemButtonEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          ((System.ComponentModel.ISupportInitialize)(this.MbspBn1)).BeginInit();
          this.MbspBn1.SuspendLayout();
          this.panel4.SuspendLayout();
@@ -98,6 +98,18 @@
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit1)).BeginInit();
          this.SuspendLayout();
+         // 
+         // colRWNO
+         // 
+         this.colRWNO.Caption = "ردیف";
+         this.colRWNO.FieldName = "RWNO";
+         this.colRWNO.Name = "colRWNO";
+         this.colRWNO.OptionsColumn.AllowEdit = false;
+         this.colRWNO.OptionsColumn.FixedWidth = true;
+         this.colRWNO.OptionsColumn.ReadOnly = true;
+         this.colRWNO.Visible = true;
+         this.colRWNO.VisibleIndex = 8;
+         this.colRWNO.Width = 47;
          // 
          // MbspBn1
          // 
@@ -350,7 +362,8 @@
          styleFormatCondition1.ApplyToRow = true;
          styleFormatCondition1.Column = this.colRWNO;
          styleFormatCondition1.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-         styleFormatCondition1.Expression = "Today() >= [STRT_DATE] And Today()  <= [END_DATE] And [VALD_TYPE] == \'002\'";
+         styleFormatCondition1.Expression = "(Today() >= [STRT_DATE] And Today()  <= [END_DATE] And [VALD_TYPE] == \'002\') And " +
+    "([NUMB_OF_ATTN_MONT]  == 0  Or ([NUMB_OF_ATTN_MONT] > 0 And [colATTNRMND] > 0))";
          this.Mbsp_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition1});
          this.Mbsp_Gv.GridControl = this.Mbsp_gc;
@@ -417,18 +430,6 @@
          this.colFIGH_FILE_NO1.VisibleIndex = 0;
          this.colFIGH_FILE_NO1.Width = 91;
          // 
-         // colRWNO
-         // 
-         this.colRWNO.Caption = "ردیف";
-         this.colRWNO.FieldName = "RWNO";
-         this.colRWNO.Name = "colRWNO";
-         this.colRWNO.OptionsColumn.AllowEdit = false;
-         this.colRWNO.OptionsColumn.FixedWidth = true;
-         this.colRWNO.OptionsColumn.ReadOnly = true;
-         this.colRWNO.Visible = true;
-         this.colRWNO.VisibleIndex = 8;
-         this.colRWNO.Width = 47;
-         // 
          // colRECT_CODE
          // 
          this.colRECT_CODE.FieldName = "RECT_CODE";
@@ -483,7 +484,7 @@
          // 
          // colNUMB_OF_DAYS_DNRM
          // 
-         this.colNUMB_OF_DAYS_DNRM.Caption = "تعداد روز";
+         this.colNUMB_OF_DAYS_DNRM.Caption = "CD";
          this.colNUMB_OF_DAYS_DNRM.FieldName = "NUMB_OF_DAYS_DNRM";
          this.colNUMB_OF_DAYS_DNRM.Name = "colNUMB_OF_DAYS_DNRM";
          this.colNUMB_OF_DAYS_DNRM.OptionsColumn.AllowEdit = false;
@@ -500,7 +501,7 @@
          // 
          // colNUMB_OF_ATTN_MONT
          // 
-         this.colNUMB_OF_ATTN_MONT.Caption = "کل جلسات";
+         this.colNUMB_OF_ATTN_MONT.Caption = "T";
          this.colNUMB_OF_ATTN_MONT.FieldName = "NUMB_OF_ATTN_MONT";
          this.colNUMB_OF_ATTN_MONT.Name = "colNUMB_OF_ATTN_MONT";
          this.colNUMB_OF_ATTN_MONT.OptionsColumn.AllowEdit = false;
@@ -586,7 +587,7 @@
          // 
          // colATTNRMND
          // 
-         this.colATTNRMND.Caption = "جلسات باقیمانده";
+         this.colATTNRMND.Caption = "R";
          this.colATTNRMND.FieldName = "colATTNRMND";
          this.colATTNRMND.Name = "colATTNRMND";
          this.colATTNRMND.OptionsColumn.AllowEdit = false;
@@ -598,6 +599,12 @@
          this.colATTNRMND.VisibleIndex = 4;
          this.colATTNRMND.Width = 93;
          // 
+         // colVALD_TYPE
+         // 
+         this.colVALD_TYPE.Caption = "VALD_TYPE";
+         this.colVALD_TYPE.FieldName = "VALD_TYPE";
+         this.colVALD_TYPE.Name = "colVALD_TYPE";
+         // 
          // repositoryItemButtonEdit1
          // 
          this.repositoryItemButtonEdit1.AutoHeight = false;
@@ -607,12 +614,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit1.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "تعویض کردن هزینه و کلاس", null, null, true)});
          this.repositoryItemButtonEdit1.Name = "repositoryItemButtonEdit1";
          this.repositoryItemButtonEdit1.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-         // 
-         // colVALD_TYPE
-         // 
-         this.colVALD_TYPE.Caption = "VALD_TYPE";
-         this.colVALD_TYPE.FieldName = "VALD_TYPE";
-         this.colVALD_TYPE.Name = "colVALD_TYPE";
          // 
          // CHOS_MBSP_F
          // 

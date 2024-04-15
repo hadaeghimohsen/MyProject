@@ -96,11 +96,6 @@
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition13 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition14 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition15 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip16 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem20 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
@@ -206,6 +201,11 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject38 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject39 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject40 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition15 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject17 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject18 = new DevExpress.Utils.SerializableAppearanceObject();
          this.DebtDnrm_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
@@ -213,7 +213,7 @@
          this.colVALD_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.AttnMbsp_Butn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn72 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.CyclRwno_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.TotlDebtAmnt_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPYMT_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Ptyp_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -387,7 +387,6 @@
          this.CochBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.MtodCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CtgyCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.CyclRwno_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CyclStrtDate_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit3 = new dxExample.PersianRepositoryItemDateEdit();
          this.CyclEndDAte_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -395,38 +394,7 @@
          this.CyclNumAttn_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CyclAttnRemn_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREMN_DAY = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridControl12 = new DevExpress.XtraGrid.GridControl();
          this.PdtMBs = new System.Windows.Forms.BindingSource(this.components);
-         this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
-         this.gridColumn67 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn68 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn69 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn70 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn71 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn73 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn74 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn75 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn76 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn77 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn78 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn79 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemLookUpEdit11 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.gridColumn80 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn81 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn82 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn83 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.persianRepositoryItemDateEdit10 = new dxExample.PersianRepositoryItemDateEdit();
-         this.gridColumn84 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn85 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn86 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn87 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn88 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn89 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn90 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
-         this.gridColumn91 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn92 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.gridColumn93 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.panel1 = new System.Windows.Forms.Panel();
          this.DebtPymtAmnt_Txt = new DevExpress.XtraEditors.TextEdit();
          this.label15 = new System.Windows.Forms.Label();
@@ -894,6 +862,7 @@
          this.PayCashDebt_Butn = new System.Windows.Forms.ToolStripMenuItem();
          this.PayPosDebt_Butn = new System.Windows.Forms.ToolStripMenuItem();
          this.PayDepositeDebt_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
+         this.PayCard2CardDebt_Tsmi = new System.Windows.Forms.ToolStripMenuItem();
          this.افزایشسپردهToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.مبلغسپردهگذاریToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.PayDepositeAmnt_Tsmi = new System.Windows.Forms.ToolStripTextBox();
@@ -972,6 +941,39 @@
          this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
          this.toolStripMenuItem65 = new System.Windows.Forms.ToolStripMenuItem();
          this.ExportFile_Sfd = new System.Windows.Forms.SaveFileDialog();
+         this.gridControl12 = new DevExpress.XtraGrid.GridControl();
+         this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
+         this.gridColumn67 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn68 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn69 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn70 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn71 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn72 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn73 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn74 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn75 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn76 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn77 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn78 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn79 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit11 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.gridColumn80 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn81 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn82 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn83 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.persianRepositoryItemDateEdit10 = new dxExample.PersianRepositoryItemDateEdit();
+         this.gridColumn84 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn85 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn86 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn87 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn88 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn89 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn90 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemButtonEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
+         this.gridColumn91 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn92 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn93 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn332 = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnMbsp_Butn)).BeginInit();
@@ -1019,13 +1021,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.CochBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3.CalendarTimeProperties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridControl12)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PdtMBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit11)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit10)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit10.CalendarTimeProperties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).BeginInit();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.DebtPymtAmnt_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PymtAmnt_Txt.Properties)).BeginInit();
@@ -1105,6 +1101,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExportLabel_Txt.Properties)).BeginInit();
          this.AllMenu_Cmn.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl12)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView5)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit11)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit10)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit10.CalendarTimeProperties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).BeginInit();
          this.SuspendLayout();
          // 
          // DebtDnrm_Clm
@@ -1180,10 +1182,17 @@
          this.gridColumn2.FieldName = "TYPE";
          this.gridColumn2.Name = "gridColumn2";
          // 
-         // gridColumn72
+         // CyclRwno_Clm
          // 
-         this.gridColumn72.FieldName = "PAY_STAT";
-         this.gridColumn72.Name = "gridColumn72";
+         this.CyclRwno_Clm.Caption = "ردیف";
+         this.CyclRwno_Clm.FieldName = "RWNO";
+         this.CyclRwno_Clm.Name = "CyclRwno_Clm";
+         this.CyclRwno_Clm.OptionsColumn.AllowEdit = false;
+         this.CyclRwno_Clm.OptionsColumn.FixedWidth = true;
+         this.CyclRwno_Clm.OptionsColumn.ReadOnly = true;
+         this.CyclRwno_Clm.Visible = true;
+         this.CyclRwno_Clm.VisibleIndex = 10;
+         this.CyclRwno_Clm.Width = 47;
          // 
          // TotlDebtAmnt_Clm
          // 
@@ -3233,7 +3242,8 @@
          styleFormatCondition14.ApplyToRow = true;
          styleFormatCondition14.Column = this.CyclRwno_Clm;
          styleFormatCondition14.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
-         styleFormatCondition14.Expression = "Today() >= [STRT_DATE] And Today()  <= [END_DATE] And [VALD_TYPE] == \'002\'";
+         styleFormatCondition14.Expression = "(Today() >= [STRT_DATE] And Today()  <= [END_DATE] And [VALD_TYPE] == \'002\') And " +
+    "([NUMB_OF_ATTN_MONT]  == 0  Or ([NUMB_OF_ATTN_MONT] > 0 And [colATTNRMND] > 0))";
          this.Mbsp_gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition10,
             styleFormatCondition11,
@@ -3301,18 +3311,6 @@
          this.CtgyCode_Clm.Visible = true;
          this.CtgyCode_Clm.VisibleIndex = 1;
          this.CtgyCode_Clm.Width = 84;
-         // 
-         // CyclRwno_Clm
-         // 
-         this.CyclRwno_Clm.Caption = "ردیف";
-         this.CyclRwno_Clm.FieldName = "RWNO";
-         this.CyclRwno_Clm.Name = "CyclRwno_Clm";
-         this.CyclRwno_Clm.OptionsColumn.AllowEdit = false;
-         this.CyclRwno_Clm.OptionsColumn.FixedWidth = true;
-         this.CyclRwno_Clm.OptionsColumn.ReadOnly = true;
-         this.CyclRwno_Clm.Visible = true;
-         this.CyclRwno_Clm.VisibleIndex = 10;
-         this.CyclRwno_Clm.Width = 47;
          // 
          // CyclStrtDate_Clm
          // 
@@ -3407,305 +3405,9 @@
          this.colREMN_DAY.VisibleIndex = 7;
          this.colREMN_DAY.Width = 27;
          // 
-         // gridControl12
-         // 
-         this.gridControl12.DataSource = this.PdtMBs;
-         this.gridControl12.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.gridControl12.Location = new System.Drawing.Point(0, 0);
-         this.gridControl12.LookAndFeel.SkinName = "Office 2013 Dark Gray";
-         this.gridControl12.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.gridControl12.MainView = this.gridView5;
-         this.gridControl12.Name = "gridControl12";
-         this.gridControl12.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
-            this.repositoryItemLookUpEdit11,
-            this.repositoryItemButtonEdit3,
-            this.persianRepositoryItemDateEdit10});
-         this.gridControl12.Size = new System.Drawing.Size(657, 80);
-         this.gridControl12.TabIndex = 11;
-         this.gridControl12.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.gridView5});
-         // 
          // PdtMBs
          // 
          this.PdtMBs.DataSource = typeof(System.Scsc.Data.Payment_Detail);
-         // 
-         // gridView5
-         // 
-         this.gridView5.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.gridView5.Appearance.FooterPanel.Options.UseFont = true;
-         this.gridView5.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView5.Appearance.HeaderPanel.Options.UseFont = true;
-         this.gridView5.Appearance.HeaderPanel.Options.UseTextOptions = true;
-         this.gridView5.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView5.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
-         this.gridView5.Appearance.Row.Options.UseFont = true;
-         this.gridView5.Appearance.Row.Options.UseTextOptions = true;
-         this.gridView5.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
-            this.gridColumn67,
-            this.gridColumn68,
-            this.gridColumn69,
-            this.gridColumn70,
-            this.gridColumn71,
-            this.gridColumn72,
-            this.gridColumn73,
-            this.gridColumn74,
-            this.gridColumn75,
-            this.gridColumn76,
-            this.gridColumn77,
-            this.gridColumn78,
-            this.gridColumn79,
-            this.gridColumn80,
-            this.gridColumn81,
-            this.gridColumn82,
-            this.gridColumn83,
-            this.gridColumn84,
-            this.gridColumn85,
-            this.gridColumn86,
-            this.gridColumn87,
-            this.gridColumn88,
-            this.gridColumn89,
-            this.gridColumn90,
-            this.gridColumn91,
-            this.gridColumn92,
-            this.gridColumn93});
-         styleFormatCondition15.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
-         styleFormatCondition15.Appearance.Options.UseBackColor = true;
-         styleFormatCondition15.ApplyToRow = true;
-         styleFormatCondition15.Column = this.gridColumn72;
-         styleFormatCondition15.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition15.Value1 = "001";
-         this.gridView5.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition15});
-         this.gridView5.GridControl = this.gridControl12;
-         this.gridView5.Name = "gridView5";
-         this.gridView5.OptionsBehavior.Editable = false;
-         this.gridView5.OptionsBehavior.ReadOnly = true;
-         this.gridView5.OptionsDetail.EnableMasterViewMode = false;
-         this.gridView5.OptionsView.ShowGroupPanel = false;
-         this.gridView5.OptionsView.ShowIndicator = false;
-         // 
-         // gridColumn67
-         // 
-         this.gridColumn67.FieldName = "PYMT_CASH_CODE";
-         this.gridColumn67.Name = "gridColumn67";
-         // 
-         // gridColumn68
-         // 
-         this.gridColumn68.FieldName = "PYMT_RQST_RQID";
-         this.gridColumn68.Name = "gridColumn68";
-         // 
-         // gridColumn69
-         // 
-         this.gridColumn69.FieldName = "RQRO_RWNO";
-         this.gridColumn69.Name = "gridColumn69";
-         // 
-         // gridColumn70
-         // 
-         this.gridColumn70.Caption = "آیتم هزینه";
-         this.gridColumn70.FieldName = "Expense.EXPN_DESC";
-         this.gridColumn70.Name = "gridColumn70";
-         this.gridColumn70.OptionsColumn.AllowEdit = false;
-         this.gridColumn70.OptionsColumn.ReadOnly = true;
-         this.gridColumn70.Visible = true;
-         this.gridColumn70.VisibleIndex = 3;
-         this.gridColumn70.Width = 318;
-         // 
-         // gridColumn71
-         // 
-         this.gridColumn71.FieldName = "CODE";
-         this.gridColumn71.Name = "gridColumn71";
-         // 
-         // gridColumn73
-         // 
-         this.gridColumn73.Caption = "مبلغ واحد";
-         this.gridColumn73.DisplayFormat.FormatString = "{0:N0}";
-         this.gridColumn73.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.gridColumn73.FieldName = "EXPN_PRIC";
-         this.gridColumn73.Name = "gridColumn73";
-         this.gridColumn73.Width = 58;
-         // 
-         // gridColumn74
-         // 
-         this.gridColumn74.Caption = "ارزش افزوده";
-         this.gridColumn74.DisplayFormat.FormatString = "{0:n0}";
-         this.gridColumn74.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.gridColumn74.FieldName = "EXPN_EXTR_PRCT";
-         this.gridColumn74.Name = "gridColumn74";
-         this.gridColumn74.OptionsColumn.AllowEdit = false;
-         this.gridColumn74.OptionsColumn.ReadOnly = true;
-         this.gridColumn74.Width = 62;
-         // 
-         // gridColumn75
-         // 
-         this.gridColumn75.FieldName = "REMN_PRIC";
-         this.gridColumn75.Name = "gridColumn75";
-         // 
-         // gridColumn76
-         // 
-         this.gridColumn76.Caption = "تعداد";
-         this.gridColumn76.FieldName = "QNTY";
-         this.gridColumn76.Name = "gridColumn76";
-         this.gridColumn76.Visible = true;
-         this.gridColumn76.VisibleIndex = 2;
-         this.gridColumn76.Width = 76;
-         // 
-         // gridColumn77
-         // 
-         this.gridColumn77.FieldName = "DOCM_NUMB";
-         this.gridColumn77.Name = "gridColumn77";
-         // 
-         // gridColumn78
-         // 
-         this.gridColumn78.FieldName = "ISSU_DATE";
-         this.gridColumn78.Name = "gridColumn78";
-         // 
-         // gridColumn79
-         // 
-         this.gridColumn79.Caption = "نوع پرداخت";
-         this.gridColumn79.ColumnEdit = this.repositoryItemLookUpEdit11;
-         this.gridColumn79.FieldName = "RCPT_MTOD";
-         this.gridColumn79.Name = "gridColumn79";
-         this.gridColumn79.Width = 94;
-         // 
-         // repositoryItemLookUpEdit11
-         // 
-         this.repositoryItemLookUpEdit11.Appearance.Options.UseTextOptions = true;
-         this.repositoryItemLookUpEdit11.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.repositoryItemLookUpEdit11.AutoHeight = false;
-         this.repositoryItemLookUpEdit11.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true)});
-         this.repositoryItemLookUpEdit11.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
-            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع پرداحت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
-         this.repositoryItemLookUpEdit11.DisplayMember = "DOMN_DESC";
-         this.repositoryItemLookUpEdit11.Name = "repositoryItemLookUpEdit11";
-         this.repositoryItemLookUpEdit11.NullText = "";
-         this.repositoryItemLookUpEdit11.ValueMember = "VALU";
-         // 
-         // gridColumn80
-         // 
-         this.gridColumn80.FieldName = "RECV_LETT_NO";
-         this.gridColumn80.Name = "gridColumn80";
-         // 
-         // gridColumn81
-         // 
-         this.gridColumn81.FieldName = "RECV_LETT_DATE";
-         this.gridColumn81.Name = "gridColumn81";
-         // 
-         // gridColumn82
-         // 
-         this.gridColumn82.Caption = "کاربر ثبت کننده";
-         this.gridColumn82.FieldName = "CRET_BY";
-         this.gridColumn82.Name = "gridColumn82";
-         this.gridColumn82.Visible = true;
-         this.gridColumn82.VisibleIndex = 1;
-         this.gridColumn82.Width = 103;
-         // 
-         // gridColumn83
-         // 
-         this.gridColumn83.Caption = "تاریخ ثبت کننده";
-         this.gridColumn83.ColumnEdit = this.persianRepositoryItemDateEdit10;
-         this.gridColumn83.FieldName = "CRET_DATE";
-         this.gridColumn83.Name = "gridColumn83";
-         this.gridColumn83.Visible = true;
-         this.gridColumn83.VisibleIndex = 0;
-         this.gridColumn83.Width = 125;
-         // 
-         // persianRepositoryItemDateEdit10
-         // 
-         this.persianRepositoryItemDateEdit10.AutoHeight = false;
-         this.persianRepositoryItemDateEdit10.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.persianRepositoryItemDateEdit10.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.persianRepositoryItemDateEdit10.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
-         this.persianRepositoryItemDateEdit10.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
-         this.persianRepositoryItemDateEdit10.Name = "persianRepositoryItemDateEdit10";
-         // 
-         // gridColumn84
-         // 
-         this.gridColumn84.FieldName = "MDFY_BY";
-         this.gridColumn84.Name = "gridColumn84";
-         // 
-         // gridColumn85
-         // 
-         this.gridColumn85.FieldName = "MDFY_DATE";
-         this.gridColumn85.Name = "gridColumn85";
-         // 
-         // gridColumn86
-         // 
-         this.gridColumn86.FieldName = "Expense";
-         this.gridColumn86.Name = "gridColumn86";
-         // 
-         // gridColumn87
-         // 
-         this.gridColumn87.FieldName = "Request_Row";
-         this.gridColumn87.Name = "gridColumn87";
-         // 
-         // gridColumn88
-         // 
-         this.gridColumn88.FieldName = "Payment";
-         this.gridColumn88.Name = "gridColumn88";
-         // 
-         // gridColumn89
-         // 
-         this.gridColumn89.Caption = "مبلغ هزینه";
-         this.gridColumn89.DisplayFormat.FormatString = "{0:n0}";
-         this.gridColumn89.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
-         this.gridColumn89.FieldName = "colTotlExpn";
-         this.gridColumn89.Name = "gridColumn89";
-         this.gridColumn89.OptionsColumn.AllowEdit = false;
-         this.gridColumn89.OptionsColumn.ReadOnly = true;
-         this.gridColumn89.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
-            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "colTotlExpn", "{0:n0}")});
-         this.gridColumn89.UnboundExpression = "([EXPN_PRIC] + [EXPN_EXTR_PRCT]) * [QNTY]";
-         this.gridColumn89.UnboundType = DevExpress.Data.UnboundColumnType.Object;
-         this.gridColumn89.Width = 56;
-         // 
-         // gridColumn90
-         // 
-         this.gridColumn90.ColumnEdit = this.repositoryItemButtonEdit3;
-         this.gridColumn90.Name = "gridColumn90";
-         this.gridColumn90.OptionsColumn.FixedWidth = true;
-         this.gridColumn90.Width = 79;
-         // 
-         // repositoryItemButtonEdit3
-         // 
-         this.repositoryItemButtonEdit3.AutoHeight = false;
-         this.repositoryItemButtonEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit3.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit3.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit3.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "تعویض کردن هزینه و کلاس", null, null, true)});
-         this.repositoryItemButtonEdit3.Name = "repositoryItemButtonEdit3";
-         this.repositoryItemButtonEdit3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
-         // 
-         // gridColumn91
-         // 
-         this.gridColumn91.Caption = "سرپرست";
-         this.gridColumn91.FieldName = "Fighter.NAME_DNRM";
-         this.gridColumn91.Name = "gridColumn91";
-         this.gridColumn91.OptionsColumn.AllowEdit = false;
-         this.gridColumn91.OptionsColumn.ReadOnly = true;
-         this.gridColumn91.Width = 94;
-         // 
-         // gridColumn92
-         // 
-         this.gridColumn92.Caption = "گروه";
-         this.gridColumn92.FieldName = "Method.MTOD_DESC";
-         this.gridColumn92.Name = "gridColumn92";
-         this.gridColumn92.OptionsColumn.AllowEdit = false;
-         this.gridColumn92.OptionsColumn.ReadOnly = true;
-         this.gridColumn92.Width = 79;
-         // 
-         // gridColumn93
-         // 
-         this.gridColumn93.Caption = "زیر گروه";
-         this.gridColumn93.FieldName = "Category_Belt.CTGY_DESC";
-         this.gridColumn93.Name = "gridColumn93";
-         this.gridColumn93.OptionsColumn.AllowEdit = false;
-         this.gridColumn93.OptionsColumn.ReadOnly = true;
-         this.gridColumn93.Width = 79;
          // 
          // panel1
          // 
@@ -6060,6 +5762,7 @@
          this.imageList2.Images.SetKeyName(13, "IMAGE_1206.png");
          this.imageList2.Images.SetKeyName(14, "IMAGE_1154.png");
          this.imageList2.Images.SetKeyName(15, "IMAGE_1582.png");
+         this.imageList2.Images.SetKeyName(16, "IMAGE_1756.png");
          // 
          // ServInfo_Pn
          // 
@@ -8453,7 +8156,8 @@
             this.toolStripSeparator6,
             this.PayCashDebt_Butn,
             this.PayPosDebt_Butn,
-            this.PayDepositeDebt_Tsmi});
+            this.PayDepositeDebt_Tsmi,
+            this.PayCard2CardDebt_Tsmi});
          this.پرداختبدهیToolStripMenuItem.Image = global::System.Scsc.Properties.Resources.IMAGE_1088;
          this.پرداختبدهیToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
          this.پرداختبدهیToolStripMenuItem.Name = "پرداختبدهیToolStripMenuItem";
@@ -8513,6 +8217,16 @@
          this.PayDepositeDebt_Tsmi.Size = new System.Drawing.Size(271, 54);
          this.PayDepositeDebt_Tsmi.Text = "کسر از سپرده";
          this.PayDepositeDebt_Tsmi.Click += new System.EventHandler(this.PayDepositeDebt_Tsmi_Click);
+         // 
+         // PayCard2CardDebt_Tsmi
+         // 
+         this.PayCard2CardDebt_Tsmi.Image = global::System.Scsc.Properties.Resources.IMAGE_1756;
+         this.PayCard2CardDebt_Tsmi.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+         this.PayCard2CardDebt_Tsmi.Name = "PayCard2CardDebt_Tsmi";
+         this.PayCard2CardDebt_Tsmi.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.F8)));
+         this.PayCard2CardDebt_Tsmi.Size = new System.Drawing.Size(271, 54);
+         this.PayCard2CardDebt_Tsmi.Text = "کارت به کارت";
          // 
          // افزایشسپردهToolStripMenuItem
          // 
@@ -9089,6 +8803,318 @@
          this.ExportFile_Sfd.DefaultExt = "csv";
          this.ExportFile_Sfd.Filter = "CSV file (*.csv) | *.csv|Text File (*.txt) | *.txt";
          // 
+         // gridControl12
+         // 
+         this.gridControl12.DataSource = this.PdtMBs;
+         this.gridControl12.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.gridControl12.Location = new System.Drawing.Point(0, 0);
+         this.gridControl12.LookAndFeel.SkinName = "Office 2013 Dark Gray";
+         this.gridControl12.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.gridControl12.MainView = this.gridView5;
+         this.gridControl12.Name = "gridControl12";
+         this.gridControl12.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
+            this.repositoryItemLookUpEdit11,
+            this.repositoryItemButtonEdit3,
+            this.persianRepositoryItemDateEdit10});
+         this.gridControl12.Size = new System.Drawing.Size(657, 80);
+         this.gridControl12.TabIndex = 11;
+         this.gridControl12.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.gridView5});
+         // 
+         // gridView5
+         // 
+         this.gridView5.Appearance.FooterPanel.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.gridView5.Appearance.FooterPanel.Options.UseFont = true;
+         this.gridView5.Appearance.HeaderPanel.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.gridView5.Appearance.HeaderPanel.Options.UseFont = true;
+         this.gridView5.Appearance.HeaderPanel.Options.UseTextOptions = true;
+         this.gridView5.Appearance.HeaderPanel.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView5.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9F);
+         this.gridView5.Appearance.Row.Options.UseFont = true;
+         this.gridView5.Appearance.Row.Options.UseTextOptions = true;
+         this.gridView5.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.gridView5.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridColumn67,
+            this.gridColumn68,
+            this.gridColumn69,
+            this.gridColumn70,
+            this.gridColumn71,
+            this.gridColumn72,
+            this.gridColumn73,
+            this.gridColumn74,
+            this.gridColumn75,
+            this.gridColumn76,
+            this.gridColumn77,
+            this.gridColumn78,
+            this.gridColumn79,
+            this.gridColumn80,
+            this.gridColumn81,
+            this.gridColumn82,
+            this.gridColumn83,
+            this.gridColumn84,
+            this.gridColumn85,
+            this.gridColumn86,
+            this.gridColumn87,
+            this.gridColumn88,
+            this.gridColumn89,
+            this.gridColumn90,
+            this.gridColumn91,
+            this.gridColumn92,
+            this.gridColumn93,
+            this.gridColumn332});
+         styleFormatCondition15.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(128)))));
+         styleFormatCondition15.Appearance.Options.UseBackColor = true;
+         styleFormatCondition15.ApplyToRow = true;
+         styleFormatCondition15.Column = this.gridColumn72;
+         styleFormatCondition15.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition15.Value1 = "001";
+         this.gridView5.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
+            styleFormatCondition15});
+         this.gridView5.GridControl = this.gridControl12;
+         this.gridView5.Name = "gridView5";
+         this.gridView5.OptionsBehavior.Editable = false;
+         this.gridView5.OptionsBehavior.ReadOnly = true;
+         this.gridView5.OptionsDetail.EnableMasterViewMode = false;
+         this.gridView5.OptionsView.EnableAppearanceEvenRow = true;
+         this.gridView5.OptionsView.ShowGroupPanel = false;
+         this.gridView5.OptionsView.ShowIndicator = false;
+         // 
+         // gridColumn67
+         // 
+         this.gridColumn67.FieldName = "PYMT_CASH_CODE";
+         this.gridColumn67.Name = "gridColumn67";
+         // 
+         // gridColumn68
+         // 
+         this.gridColumn68.FieldName = "PYMT_RQST_RQID";
+         this.gridColumn68.Name = "gridColumn68";
+         // 
+         // gridColumn69
+         // 
+         this.gridColumn69.FieldName = "RQRO_RWNO";
+         this.gridColumn69.Name = "gridColumn69";
+         // 
+         // gridColumn70
+         // 
+         this.gridColumn70.Caption = "آیتم هزینه";
+         this.gridColumn70.FieldName = "Expense.EXPN_DESC";
+         this.gridColumn70.Name = "gridColumn70";
+         this.gridColumn70.OptionsColumn.AllowEdit = false;
+         this.gridColumn70.OptionsColumn.ReadOnly = true;
+         this.gridColumn70.Visible = true;
+         this.gridColumn70.VisibleIndex = 4;
+         this.gridColumn70.Width = 269;
+         // 
+         // gridColumn71
+         // 
+         this.gridColumn71.FieldName = "CODE";
+         this.gridColumn71.Name = "gridColumn71";
+         // 
+         // gridColumn72
+         // 
+         this.gridColumn72.FieldName = "PAY_STAT";
+         this.gridColumn72.Name = "gridColumn72";
+         // 
+         // gridColumn73
+         // 
+         this.gridColumn73.Caption = "مبلغ واحد";
+         this.gridColumn73.DisplayFormat.FormatString = "{0:N0}";
+         this.gridColumn73.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.gridColumn73.FieldName = "EXPN_PRIC";
+         this.gridColumn73.Name = "gridColumn73";
+         this.gridColumn73.Width = 58;
+         // 
+         // gridColumn74
+         // 
+         this.gridColumn74.Caption = "ارزش افزوده";
+         this.gridColumn74.DisplayFormat.FormatString = "{0:n0}";
+         this.gridColumn74.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.gridColumn74.FieldName = "EXPN_EXTR_PRCT";
+         this.gridColumn74.Name = "gridColumn74";
+         this.gridColumn74.OptionsColumn.AllowEdit = false;
+         this.gridColumn74.OptionsColumn.ReadOnly = true;
+         this.gridColumn74.Width = 62;
+         // 
+         // gridColumn75
+         // 
+         this.gridColumn75.FieldName = "REMN_PRIC";
+         this.gridColumn75.Name = "gridColumn75";
+         // 
+         // gridColumn76
+         // 
+         this.gridColumn76.Caption = "تعداد";
+         this.gridColumn76.FieldName = "QNTY";
+         this.gridColumn76.Name = "gridColumn76";
+         this.gridColumn76.Visible = true;
+         this.gridColumn76.VisibleIndex = 3;
+         this.gridColumn76.Width = 34;
+         // 
+         // gridColumn77
+         // 
+         this.gridColumn77.FieldName = "DOCM_NUMB";
+         this.gridColumn77.Name = "gridColumn77";
+         // 
+         // gridColumn78
+         // 
+         this.gridColumn78.FieldName = "ISSU_DATE";
+         this.gridColumn78.Name = "gridColumn78";
+         // 
+         // gridColumn79
+         // 
+         this.gridColumn79.Caption = "نوع پرداخت";
+         this.gridColumn79.ColumnEdit = this.repositoryItemLookUpEdit11;
+         this.gridColumn79.FieldName = "RCPT_MTOD";
+         this.gridColumn79.Name = "gridColumn79";
+         this.gridColumn79.Width = 94;
+         // 
+         // repositoryItemLookUpEdit11
+         // 
+         this.repositoryItemLookUpEdit11.Appearance.Options.UseTextOptions = true;
+         this.repositoryItemLookUpEdit11.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.repositoryItemLookUpEdit11.AutoHeight = false;
+         this.repositoryItemLookUpEdit11.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject15, "", null, null, true)});
+         this.repositoryItemLookUpEdit11.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع پرداحت", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.repositoryItemLookUpEdit11.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit11.Name = "repositoryItemLookUpEdit11";
+         this.repositoryItemLookUpEdit11.NullText = "";
+         this.repositoryItemLookUpEdit11.ValueMember = "VALU";
+         // 
+         // gridColumn80
+         // 
+         this.gridColumn80.FieldName = "RECV_LETT_NO";
+         this.gridColumn80.Name = "gridColumn80";
+         // 
+         // gridColumn81
+         // 
+         this.gridColumn81.FieldName = "RECV_LETT_DATE";
+         this.gridColumn81.Name = "gridColumn81";
+         // 
+         // gridColumn82
+         // 
+         this.gridColumn82.Caption = "کاربر ثبت";
+         this.gridColumn82.FieldName = "CRET_BY";
+         this.gridColumn82.Name = "gridColumn82";
+         this.gridColumn82.Visible = true;
+         this.gridColumn82.VisibleIndex = 1;
+         this.gridColumn82.Width = 52;
+         // 
+         // gridColumn83
+         // 
+         this.gridColumn83.Caption = "تاریخ ثبت کننده";
+         this.gridColumn83.ColumnEdit = this.persianRepositoryItemDateEdit10;
+         this.gridColumn83.FieldName = "CRET_DATE";
+         this.gridColumn83.Name = "gridColumn83";
+         this.gridColumn83.Visible = true;
+         this.gridColumn83.VisibleIndex = 0;
+         this.gridColumn83.Width = 87;
+         // 
+         // persianRepositoryItemDateEdit10
+         // 
+         this.persianRepositoryItemDateEdit10.AutoHeight = false;
+         this.persianRepositoryItemDateEdit10.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.persianRepositoryItemDateEdit10.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.persianRepositoryItemDateEdit10.CalendarTimeProperties.CloseUpKey = new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.F4);
+         this.persianRepositoryItemDateEdit10.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
+         this.persianRepositoryItemDateEdit10.Name = "persianRepositoryItemDateEdit10";
+         // 
+         // gridColumn84
+         // 
+         this.gridColumn84.FieldName = "MDFY_BY";
+         this.gridColumn84.Name = "gridColumn84";
+         // 
+         // gridColumn85
+         // 
+         this.gridColumn85.FieldName = "MDFY_DATE";
+         this.gridColumn85.Name = "gridColumn85";
+         // 
+         // gridColumn86
+         // 
+         this.gridColumn86.FieldName = "Expense";
+         this.gridColumn86.Name = "gridColumn86";
+         // 
+         // gridColumn87
+         // 
+         this.gridColumn87.FieldName = "Request_Row";
+         this.gridColumn87.Name = "gridColumn87";
+         // 
+         // gridColumn88
+         // 
+         this.gridColumn88.FieldName = "Payment";
+         this.gridColumn88.Name = "gridColumn88";
+         // 
+         // gridColumn89
+         // 
+         this.gridColumn89.Caption = "مبلغ هزینه";
+         this.gridColumn89.DisplayFormat.FormatString = "{0:n0}";
+         this.gridColumn89.DisplayFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
+         this.gridColumn89.FieldName = "colTotlExpn";
+         this.gridColumn89.Name = "gridColumn89";
+         this.gridColumn89.OptionsColumn.AllowEdit = false;
+         this.gridColumn89.OptionsColumn.ReadOnly = true;
+         this.gridColumn89.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "colTotlExpn", "{0:n0}")});
+         this.gridColumn89.UnboundExpression = "([EXPN_PRIC] + [EXPN_EXTR_PRCT]) * [QNTY]";
+         this.gridColumn89.UnboundType = DevExpress.Data.UnboundColumnType.Object;
+         this.gridColumn89.Width = 56;
+         // 
+         // gridColumn90
+         // 
+         this.gridColumn90.ColumnEdit = this.repositoryItemButtonEdit3;
+         this.gridColumn90.Name = "gridColumn90";
+         this.gridColumn90.OptionsColumn.FixedWidth = true;
+         this.gridColumn90.Width = 79;
+         // 
+         // repositoryItemButtonEdit3
+         // 
+         this.repositoryItemButtonEdit3.AutoHeight = false;
+         this.repositoryItemButtonEdit3.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit3.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject16, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit3.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject17, "", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("repositoryItemButtonEdit3.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject18, "تعویض کردن هزینه و کلاس", null, null, true)});
+         this.repositoryItemButtonEdit3.Name = "repositoryItemButtonEdit3";
+         this.repositoryItemButtonEdit3.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.HideTextEditor;
+         // 
+         // gridColumn91
+         // 
+         this.gridColumn91.Caption = "سرپرست";
+         this.gridColumn91.FieldName = "Fighter.NAME_DNRM";
+         this.gridColumn91.Name = "gridColumn91";
+         this.gridColumn91.OptionsColumn.AllowEdit = false;
+         this.gridColumn91.OptionsColumn.ReadOnly = true;
+         this.gridColumn91.Width = 94;
+         // 
+         // gridColumn92
+         // 
+         this.gridColumn92.Caption = "گروه";
+         this.gridColumn92.FieldName = "Method.MTOD_DESC";
+         this.gridColumn92.Name = "gridColumn92";
+         this.gridColumn92.OptionsColumn.AllowEdit = false;
+         this.gridColumn92.OptionsColumn.ReadOnly = true;
+         this.gridColumn92.Width = 79;
+         // 
+         // gridColumn93
+         // 
+         this.gridColumn93.Caption = "زیر گروه";
+         this.gridColumn93.FieldName = "Category_Belt.CTGY_DESC";
+         this.gridColumn93.Name = "gridColumn93";
+         this.gridColumn93.OptionsColumn.AllowEdit = false;
+         this.gridColumn93.OptionsColumn.ReadOnly = true;
+         this.gridColumn93.Width = 79;
+         // 
+         // gridColumn332
+         // 
+         this.gridColumn332.Caption = "توضیحات";
+         this.gridColumn332.FieldName = "CMNT";
+         this.gridColumn332.Name = "gridColumn332";
+         this.gridColumn332.Visible = true;
+         this.gridColumn332.VisibleIndex = 2;
+         this.gridColumn332.Width = 180;
+         // 
          // LSI_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9147,13 +9173,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.CochBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridControl12)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PdtMBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit11)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit10.CalendarTimeProperties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit10)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).EndInit();
          this.panel1.ResumeLayout(false);
          this.panel1.PerformLayout();
          ((System.ComponentModel.ISupportInitialize)(this.DebtPymtAmnt_Txt.Properties)).EndInit();
@@ -9236,6 +9256,12 @@
          ((System.ComponentModel.ISupportInitialize)(this.gridView2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ExportLabel_Txt.Properties)).EndInit();
          this.AllMenu_Cmn.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.gridControl12)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.gridView5)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit11)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit10.CalendarTimeProperties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit10)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -9872,39 +9898,7 @@
       private Windows.Forms.Label label13;
       private Windows.Forms.BindingSource RServBs;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl4;
-      private DevExpress.XtraGrid.GridControl gridControl12;
       private Windows.Forms.BindingSource PdtMBs;
-      private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn67;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn68;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn69;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn70;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn71;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn72;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn73;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn74;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn75;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn76;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn77;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn78;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn79;
-      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit11;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn80;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn81;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn82;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn83;
-      private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit10;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn84;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn85;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn86;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn87;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn88;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn89;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn90;
-      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit3;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn91;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn92;
-      private DevExpress.XtraGrid.Columns.GridColumn gridColumn93;
       private Windows.Forms.TabControl Tb_Master;
       private Windows.Forms.TabPage mtp_001;
       private DevExpress.XtraGrid.GridControl Figh_Gc;
@@ -10008,5 +10002,39 @@
       private DevExpress.XtraGrid.Columns.GridColumn colRemnDay1;
       private DevExpress.XtraEditors.SimpleButton simpleButton10;
       private DevExpress.XtraEditors.SimpleButton simpleButton9;
+      private Windows.Forms.ToolStripMenuItem PayCard2CardDebt_Tsmi;
+      private DevExpress.XtraGrid.GridControl gridControl12;
+      private DevExpress.XtraGrid.Views.Grid.GridView gridView5;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn67;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn68;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn69;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn70;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn71;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn72;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn73;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn74;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn75;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn76;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn77;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn78;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn79;
+      private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit11;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn80;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn81;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn82;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn83;
+      private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit10;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn84;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn85;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn86;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn87;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn88;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn89;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn90;
+      private DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit repositoryItemButtonEdit3;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn91;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn92;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn93;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn332;
    }
 }

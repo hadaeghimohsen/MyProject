@@ -2967,7 +2967,8 @@ namespace System.Scsc.Ui.OtherIncome
                         new XAttribute("extsrsrvdate", pydt.EXTS_RSRV_DATE == null ? "" : pydt.EXTS_RSRV_DATE.Value.ToString("yyyy-MM-dd")),
                         new XAttribute("totlwegh", pydt.TOTL_WEGH ?? 0),
                         new XAttribute("unitnumb", pydt.UNIT_NUMB ?? 0),
-                        new XAttribute("unitapbscode", pydt.UNIT_APBS_CODE ?? 0)
+                        new XAttribute("unitapbscode", pydt.UNIT_APBS_CODE ?? 0),
+                        new XAttribute("cmnt", pydt.CMNT ?? "")
                      )
                   )
                )

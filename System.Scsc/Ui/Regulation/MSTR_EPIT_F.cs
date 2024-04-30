@@ -252,7 +252,7 @@ namespace System.Scsc.Ui.Regulation
          {
             foreach (var item in DExpn_Gv.GetSelectedRows())
             {
-               var _expn = UExpn_Gv.GetRow(item) as Data.Expense;
+               var _expn = DExpn_Gv.GetRow(item) as Data.Expense;
                //_expn.GROP_CODE = null;
                iScsc.ExecuteCommand(string.Format("UPDATE dbo.Expense SET Grop_Code = NULL WHERE Code = {0};", _expn.CODE));
             }
@@ -263,6 +263,11 @@ namespace System.Scsc.Ui.Regulation
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
 
@@ -319,6 +324,57 @@ namespace System.Scsc.Ui.Regulation
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void GropStat_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _grop = GropBs2.Current as Data.Group_Expense;
+            if (_grop == null) return;
+
+            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Group_Expense SET STAT = '{1}' WHERE CODE = {0};", _grop.CODE, (_grop.STAT == "001" ? "002" : "001")));
+            
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               GropBnAReload1_Click(null, null);
+               Execute_Query();
+            }
+         }
+      }
+
+      private void GropStat_Tsmi_Click(object sender, EventArgs e)
+      {
+         GropStat_Butn_ButtonClick(null, null);
+      }
+
+      private void ActvDactvGrop_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.ExecuteCommand(string.Format("UPDATE ge SET ge.STAT = m.Mtod_Stat FROM dbo.Group_Expense ge, dbo.Method m WHERE ge.Code = m.Code;"));
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               GropBnAReload1_Click(null, null);
+               Execute_Query();
+            }
          }
       }
    }

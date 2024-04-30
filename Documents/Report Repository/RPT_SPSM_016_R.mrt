@@ -1,0 +1,503 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>User ID=demo;Integrated Security=False;Data Source=.;Initial Catalog=iScsc001;Password=50D37BF3-F5AA-49B0-B497-AD8F4C62D31F;Persist Security Info=True</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="1">
+      <MQL Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>MQL</Alias>
+        <Columns isList="true" count="24">
+          <value>CRET_BY,System.String</value>
+          <value>PYDT_DESC,System.String</value>
+          <value>EXPN_PRIC,System.Int64</value>
+          <value>QNTY,System.Single</value>
+          <value>MTOD_DESC,System.String</value>
+          <value>CTGY_DESC,System.String</value>
+          <value>MBSP_RWNO,System.Int16</value>
+          <value>FROM_NUMB,System.Int64</value>
+          <value>TO_NUMB,System.Int64</value>
+          <value>PROF_AMNT_DNRM,System.Int64</value>
+          <value>DEDU_AMNT_DNRM,System.Int64</value>
+          <value>CMNT,System.String</value>
+          <value>PERS_CRET_DATE,System.String</value>
+          <value>PERS_EXPR_DATE,System.String</value>
+          <value>NAME_DNRM,System.String</value>
+          <value>CELL_PHON_DNRM,System.String</value>
+          <value>RQST_NUMB,System.Int64</value>
+          <value>USER_NAME,System.String</value>
+          <value>GROP_DESC,System.String</value>
+          <value>PARM_FROM_DATE,System.String</value>
+          <value>PARM_TO_DATE,System.String</value>
+          <value>RQID,System.Int64</value>
+          <value>SEX_TYPE_DNRM,System.String</value>
+          <value>SEX_DESC,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>MQL</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>SELECT  
+	pd.CRET_BY ,
+	dbo.GET_MTOS_U(pd.CRET_DATE) AS PERS_CRET_DATE ,
+	pd.PYDT_DESC ,
+	pd.EXPN_PRIC ,
+	pd.QNTY ,
+	m.MTOD_DESC ,
+	cb.CTGY_DESC ,
+	dbo.GET_MTOS_U(pd.EXPR_DATE) AS PERS_EXPR_DATE ,
+	pd.MBSP_RWNO ,
+	pd.FROM_NUMB ,
+	pd.TO_NUMB ,
+	pd.PROF_AMNT_DNRM ,
+	pd.DEDU_AMNT_DNRM ,
+	pd.CMNT,
+	f.NAME_DNRM,
+	f.CELL_PHON_DNRM,
+	rq.RQST_NUMB,
+	u.USER_NAME,
+	ge.GROP_DESC,
+	dbo.GET_MTOS_U(r.FROM_DATE) AS PARM_FROM_DATE,
+	dbo.GET_MTOS_U(r.TO_DATE) AS PARM_TO_DATE,
+	rq.RQID,
+	f.SEX_TYPE_DNRM,
+	ds.DOMN_DESC AS SEX_DESC
+  FROM 
+	dbo.Payment_Detail pd,
+    dbo.Expense e,
+    dbo.Group_Expense ge, 
+    dbo.Method m,
+    dbo.Category_Belt cb,
+    dbo.Request_Row rr,
+    dbo.Request rq,
+    dbo.Fighter f,
+    dbo.D$SXTP ds,
+    dbo.V#Users u,
+    dbo.V#Report_Action_Parameter r
+WHERE pd.Expn_Code = e.Code
+AND e.Grop_Code = ge.Code
+AND pd.MTOD_CODE_DNRM = m.CODE
+AND pd.CTGY_CODE_DNRM = cb.CODE
+AND m.CODE = cb.MTOD_CODE
+AND rr.RQST_RQID = pd.PYMT_RQST_RQID
+AND rr.RWNO = pd.RQRO_RWNO
+AND rr.FIGH_FILE_NO = f.FILE_NO
+AND f.SEX_TYPE_DNRM = ds.VALU
+AND rr.RQTP_CODE IN ('001', '009', '016')
+AND rq.rqid = rr.RQST_RQID
+AND rq.RQST_STAT = '002'
+AND pd.CRET_BY = u.USER_DB
+AND CAST(pd.CRET_DATE AS DATE) BETWEEN r.FROM_DATE AND r.TO_DATE
+AND (r.RECD_OWNR IS NULL OR pd.CRET_BY = r.RECD_OWNR)
+AND (r.COCH_FILE_NO IS NULL OR pd.FIGH_FILE_NO = r.COCH_FILE_NO)
+AND (r.ORGN_CODE_DNRM IS NULL OR f.ORGN_CODE_DNRM = r.ORGN_CODE_DNRM)
+--AND pd.PYMT_RQST_RQID = 14030934743296;</SqlCommand>
+      </MQL>
+    </DataSources>
+    <Relations isList="true" count="0" />
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="4" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="7">
+        <HeaderBand1 Ref="5" type="HeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.4,6.4,1.8</ClientRectangle>
+          <Components isList="true" count="5">
+            <Text7 Ref="6" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>0,0,6.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <Guid>2d1736d88207413fb6f6ab3db14c8087</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text7</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>گزارش گروه درآمد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text7>
+            <Text1 Ref="7" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>0,0.6,6.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <Guid>47c982dd6c0e413cb0967d85ec33ca7d</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>تاریخ {MQL.PARM_FROM_DATE}   -   {MQL.PARM_TO_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text3 Ref="8" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>3,1.2,3.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>492c5ece7e3c480eb7fbb16e378a6405</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text3</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>سرگروه درآمد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text3>
+            <Text9 Ref="9" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>2.2,1.2,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>ca8f4b3a8afd4293860d5645d275078f</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text9</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>تعداد</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text9>
+            <Text15 Ref="10" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>0,1.2,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>18697e2fbea248c0a59856ed767a0a51</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text15</Name>
+              <Page isRef="4" />
+              <Parent isRef="5" />
+              <Text>جمع مبلغ فروش</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text15>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Guid>1640a47b26384728b2c00286001be758</Guid>
+          <Name>HeaderBand1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </HeaderBand1>
+        <Sex_Ghb Ref="11" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,3,6.4,0.6</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text10 Ref="12" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>0,0,5.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text10</Name>
+              <Page isRef="4" />
+              <Parent isRef="11" />
+              <Text>{MQL.SEX_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text10>
+            <Text11 Ref="13" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>5.4,0,1,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text11</Name>
+              <Page isRef="4" />
+              <Parent isRef="11" />
+              <Text>جنسیت</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text11>
+          </Components>
+          <Condition>{MQL.SEX_DESC}</Condition>
+          <Conditions isList="true" count="0" />
+          <Name>Sex_Ghb</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </Sex_Ghb>
+        <GExp_Ghb Ref="14" type="GroupHeaderBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,4.4,6.4,0.6</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text2 Ref="15" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>3,0,3.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="4" />
+              <Parent isRef="14" />
+              <Text>{MQL.GROP_DESC}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+            <Text8 Ref="16" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>2.2,0,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10</Font>
+              <Guid>980ed048f151453f9a275014b299c7b7</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text8</Name>
+              <Page isRef="4" />
+              <Parent isRef="14" />
+              <Text>{Count(Sex_Ghb)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="17" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text8>
+            <Text14 Ref="18" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>White</Brush>
+              <ClientRectangle>0,0,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10</Font>
+              <Guid>d990bc354a034c9cbe0d8b83494bb0af</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text14</Name>
+              <Page isRef="4" />
+              <Parent isRef="14" />
+              <Text>{Sum(Sex_Ghb,MQL.EXPN_PRIC * MQL.QNTY)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="19" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text14>
+          </Components>
+          <Condition>{MQL.GROP_DESC}</Condition>
+          <Conditions isList="true" count="0" />
+          <Name>GExp_Ghb</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </GExp_Ghb>
+        <DataMQL Ref="20" type="DataBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <CalcInvisible>True</CalcInvisible>
+          <ClientRectangle>0,5.8,6.4,0</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
+          <DataSourceName>MQL</DataSourceName>
+          <Enabled>False</Enabled>
+          <Filters isList="true" count="0" />
+          <KeepChildTogether>True</KeepChildTogether>
+          <KeepDetailsTogether>True</KeepDetailsTogether>
+          <Name>DataMQL</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+          <Sort isList="true" count="4">
+            <value>ASC</value>
+            <value>NAME_DNRM</value>
+            <value>ASC</value>
+            <value>RQST_NUMB</value>
+          </Sort>
+        </DataMQL>
+        <GroupFooterBand2 Ref="21" type="GroupFooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,6.6,6.4,0</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <Name>GroupFooterBand2</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </GroupFooterBand2>
+        <GroupFooterBand1 Ref="22" type="GroupFooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,7.4,6.4,0</ClientRectangle>
+          <Components isList="true" count="0" />
+          <Conditions isList="true" count="0" />
+          <Guid>eeb57ab60d4c4243871167d2a3700fb5</Guid>
+          <Name>GroupFooterBand1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </GroupFooterBand1>
+        <FooterBand1 Ref="23" type="FooterBand" isKey="true">
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,8.2,6.4,0.6</ClientRectangle>
+          <Components isList="true" count="3">
+            <Text4 Ref="24" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>2.2,0,0.8,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10</Font>
+              <Guid>5289e6862b584e868fe21fd20f8dfbdb</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text4</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <Text>{Sum(DataMQL,MQL.QNTY)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="25" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Totals</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text4>
+            <Text5 Ref="26" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>0,0,2.2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10</Font>
+              <Guid>f8d0db8a06704cbab7f43dc64dc090a0</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text5</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <Text>{Sum(DataMQL,MQL.EXPN_PRIC * MQL.QNTY)}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="27" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text5>
+            <Text6 Ref="28" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[214:224:236]</Brush>
+              <ClientRectangle>3,0,3.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,8,Bold</Font>
+              <Guid>4a5b97418c0f4f8bbab91255ab556f27</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text6</Name>
+              <Page isRef="4" />
+              <Parent isRef="23" />
+              <Text>سرجمع</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text6>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>FooterBand1</Name>
+          <Page isRef="4" />
+          <Parent isRef="4" />
+        </FooterBand1>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>2a4c55ac2ca94ec5baae383b33730dcc</Guid>
+      <Margins>0.4,0.1,0.1,0.1</Margins>
+      <Name>Page1</Name>
+      <Orientation>Landscape</Orientation>
+      <PageHeight>17.5</PageHeight>
+      <PageWidth>6.9</PageWidth>
+      <Report isRef="0" />
+      <Watermark Ref="29" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="30" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>4/30/2024 12:17:10 PM</ReportChanged>
+  <ReportCreated>8/1/2017 3:08:42 PM</ReportCreated>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_SPSM_016_R.mrt</ReportFile>
+  <ReportGuid>f3020144afe3444f8c6b9fd0e8b47141</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Centimeters</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+		#endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

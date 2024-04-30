@@ -422,7 +422,7 @@
          this.panel5 = new System.Windows.Forms.Panel();
          this.PlayDurtAttn_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
-         this.panel1 = new System.Windows.Forms.Panel();
+         this.Coch_Pnl = new System.Windows.Forms.Panel();
          this.Infos_Ro = new System.MaxUi.Rollout();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.DoBkg_Tr = new System.Windows.Forms.Timer(this.components);
@@ -525,7 +525,7 @@
          this.panel9.SuspendLayout();
          this.flowLayoutPanel2.SuspendLayout();
          this.panel5.SuspendLayout();
-         this.panel1.SuspendLayout();
+         this.Coch_Pnl.SuspendLayout();
          this.Infos_Ro.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).BeginInit();
          this.splitContainerControl1.SuspendLayout();
@@ -4225,7 +4225,7 @@
          this.panel5.Controls.Add(this.PlayDurtAttn_Butn);
          this.panel5.Controls.Add(this.labelControl6);
          this.panel5.Controls.Add(this.panel8);
-         this.panel5.Controls.Add(this.panel1);
+         this.panel5.Controls.Add(this.Coch_Pnl);
          this.panel5.Controls.Add(this.AttnDate_Lb);
          this.panel5.Controls.Add(this.CochName_Lb);
          this.panel5.Controls.Add(this.Mtod_Lb);
@@ -4262,15 +4262,15 @@
          this.labelControl6.Size = new System.Drawing.Size(719, 13);
          this.labelControl6.TabIndex = 105;
          // 
-         // panel1
+         // Coch_Pnl
          // 
-         this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
-         this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-         this.panel1.Controls.Add(this.CochProFile_Rb);
-         this.panel1.Location = new System.Drawing.Point(603, 8);
-         this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(120, 120);
-         this.panel1.TabIndex = 101;
+         this.Coch_Pnl.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Coch_Pnl.BackgroundImage")));
+         this.Coch_Pnl.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+         this.Coch_Pnl.Controls.Add(this.CochProFile_Rb);
+         this.Coch_Pnl.Location = new System.Drawing.Point(603, 8);
+         this.Coch_Pnl.Name = "Coch_Pnl";
+         this.Coch_Pnl.Size = new System.Drawing.Size(120, 120);
+         this.Coch_Pnl.TabIndex = 101;
          // 
          // Infos_Ro
          // 
@@ -4439,7 +4439,7 @@
          this.panel9.ResumeLayout(false);
          this.flowLayoutPanel2.ResumeLayout(false);
          this.panel5.ResumeLayout(false);
-         this.panel1.ResumeLayout(false);
+         this.Coch_Pnl.ResumeLayout(false);
          this.Infos_Ro.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.splitContainerControl1)).EndInit();
          this.splitContainerControl1.ResumeLayout(false);
@@ -4602,7 +4602,7 @@
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl1;
       private Windows.Forms.Label EndDate_Lb;
       private Windows.Forms.Label StrtDate_Lb;
-      private Windows.Forms.Panel panel1;
+      private Windows.Forms.Panel Coch_Pnl;
       private Windows.Forms.Panel panel5;
       private DevExpress.XtraEditors.LabelControl labelControl6;
       private DevExpress.XtraEditors.SimpleButton PlayDurtAttn_Butn;

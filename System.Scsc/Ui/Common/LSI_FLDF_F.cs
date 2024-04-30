@@ -28,20 +28,20 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            if (Tb_Master.SelectedTab == mtp_001)
+            //if (Tb_Master.SelectedTab == mtp_001)
             {
                var CrntFigh = FighBs.Current as Data.Fighter;
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", CrntFigh.FILE_NO)) }
                );
             }
-            else
-            {
-               var CrntFigh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", CrntFigh.FILE_NO)) }
-               );
-            }
+            //else
+            //{
+            //   var CrntFigh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   _DefaultGateway.Gateway(
+            //      new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", CrntFigh.FILE_NO)) }
+            //   );
+            //}
          }
          catch { }
       }
@@ -70,7 +70,7 @@ namespace System.Scsc.Ui.Common
          if (vF_Fighs.Current == null) return;
          string filenos = "";
 
-         foreach (int i in PBLC_Gv.GetSelectedRows())
+         foreach (int i in FIGH_Gv.GetSelectedRows())
          {
             vF_Fighs.Position = i;
             var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
@@ -319,41 +319,41 @@ namespace System.Scsc.Ui.Common
 
       private void Lbls_Click(object sender, EventArgs e)
       {
-         colRemnDay.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
+         //colRemnDay.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
          colRemnDay1.SortOrder = DevExpress.Data.ColumnSortOrder.Descending;
          LabelControl lbl = (LabelControl)sender;
          switch (lbl.Name)
          {
             case "Green_Lbl":
-               PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] >= 4";
+               //PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] >= 4";
                FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] >= 4";
                break;
             case "Red_Lbl":
-               PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] = 0";
+               //PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] = 0";
                FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] = 0";
                break;
             case "Yellow_Lbl":
-               PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] <= 3 And [colRemnDay] >= 1";
+               //PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] <= 3 And [colRemnDay] >= 1";
                FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] <= 3 And [colRemnDay] >= 1";
                break;
             case "Gray_Lbl":
-               PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] < -7";
+               //PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] < -7";
                FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] < -7";
                break;
             case "Gold_Lbl":
-               PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] < 0 And [colRemnDay] >= -7";
+               //PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] < 0 And [colRemnDay] >= -7";
                FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] < 0 And [colRemnDay] >= -7";
                break;
             case "YellowGreen_Lbl":
-               PBLC_Gv.ActiveFilterString = "TYPE != '003'";
+               //PBLC_Gv.ActiveFilterString = "TYPE != '003'";
                FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003'";
                break;
             case "DebtUp_Lbl":
-               PBLC_Gv.ActiveFilterString = "TYPE != '003' And DEBT_DNRM > 0";
+               //PBLC_Gv.ActiveFilterString = "TYPE != '003' And DEBT_DNRM > 0";
                FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And DEBT_DNRM > 0";
                break;
             case "DebtDown_Lbl":
-               PBLC_Gv.ActiveFilterString = "TYPE != '003' And DPST_AMNT_DNRM > 0";
+               //PBLC_Gv.ActiveFilterString = "TYPE != '003' And DPST_AMNT_DNRM > 0";
                FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And DPST_AMNT_DNRM > 0";
                break;
             case "NullProfile_Lbl":
@@ -361,11 +361,11 @@ namespace System.Scsc.Ui.Common
             case "NullDcmt_Lbl":
                break;
             case "YesInsr_Lbl":
-               PBLC_Gv.ActiveFilterString = string.Format("TYPE != '003' And INSR_DATE_DNRM >= #{0}#", DateTime.Now.ToShortDateString());
+               //PBLC_Gv.ActiveFilterString = string.Format("TYPE != '003' And INSR_DATE_DNRM >= #{0}#", DateTime.Now.ToShortDateString());
                FIGH_Gv.ActiveFilterString = string.Format("FGPB_TYPE_DNRM != '003' And INSR_DATE_DNRM >= #{0}#", DateTime.Now.ToShortDateString());
                break;
             case "NoInsr_Lbl":
-               PBLC_Gv.ActiveFilterString = string.Format("TYPE != '003' And (IsNullOrEmpty(INSR_DATE_DNRM) OR INSR_DATE_DNRM < #{0}#)", DateTime.Now.ToShortDateString());
+               //PBLC_Gv.ActiveFilterString = string.Format("TYPE != '003' And (IsNullOrEmpty(INSR_DATE_DNRM) OR INSR_DATE_DNRM < #{0}#)", DateTime.Now.ToShortDateString());
                FIGH_Gv.ActiveFilterString = string.Format("FGPB_TYPE_DNRM != '003' And (IsNullOrEmpty(INSR_DATE_DNRM) OR INSR_DATE_DNRM < #{0}#)", DateTime.Now.ToShortDateString());
                break;
          }
@@ -428,7 +428,7 @@ namespace System.Scsc.Ui.Common
                   else
                      ClubCode = (long?)ClubCode_Lov.EditValue;
 
-                  if (Tb_Master.SelectedTab == mtp_001)
+                  //if (Tb_Master.SelectedTab == mtp_001)
                   {
                      FighBs.DataSource =
                         iScsc.Fighters.
@@ -451,11 +451,11 @@ namespace System.Scsc.Ui.Common
                         ).OrderByDescending(f => f.MBSP_END_DATE)
                         .Take((int)FtchRows_Nud.Value);
                   }
-                  else if (Tb_Master.SelectedTab == mtp_002)
-                  {
-                     vF_Fighs.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null, SuntCode).Where(f => f.CLUB_CODE == (ClubCode ?? f.CLUB_CODE)).OrderByDescending(s => s.END_DATE).Take((int)FtchRows_Nud.Value);
-                     vF_Last_Info_FighterResultGridControl.Focus();
-                  }
+                  //else if (Tb_Master.SelectedTab == mtp_002)
+                  //{
+                  //   vF_Fighs.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null, SuntCode).Where(f => f.CLUB_CODE == (ClubCode ?? f.CLUB_CODE)).OrderByDescending(s => s.END_DATE).Take((int)FtchRows_Nud.Value);
+                  //   vF_Last_Info_FighterResultGridControl.Focus();
+                  //}
 
                   requery = false;
                   Search_Butn.Enabled = true;
@@ -466,14 +466,14 @@ namespace System.Scsc.Ui.Common
       private void vF_Last_Info_FighterResultBindingSource_CurrentChanged(object sender, EventArgs e)
       {
          dynamic figh;
-         if (Tb_Master.SelectedTab == mtp_001)
+         //if (Tb_Master.SelectedTab == mtp_001)
          {
             figh = FighBs.Current as Data.Fighter;
          }
-         else
-         {
-            figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-         }
+         //else
+         //{
+         //   figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+         //}
          if (figh == null) return;
 
          RqstBnFignInfo_Lb.Text = figh.NAME_DNRM;
@@ -765,21 +765,21 @@ namespace System.Scsc.Ui.Common
          {
             RqstBnDeleteFngrPrnt1_Click(null, null);
 
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               if (figh == null) return;
-               if (figh.FNGR_PRNT_DNRM == "") { return; }
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   if (figh == null) return;
+            //   if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
-                     {                  
-                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "Add User Info"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
-                     })
-               );
-            }
-            else if(Tb_Master.SelectedTab == mtp_001)
+            //   _DefaultGateway.Gateway(
+            //      new Job(SendType.External, "Localhost",
+            //         new List<Job>
+            //         {                  
+            //            new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "Add User Info"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
+            //         })
+            //   );
+            //}
+            //else if(Tb_Master.SelectedTab == mtp_001)
             {
                var figh = FighBs.Current as Data.Fighter;
                if (figh == null) return;
@@ -802,21 +802,21 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               if (figh == null) return;
-               if (figh.FNGR_PRNT_DNRM == "") { return; }
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   if (figh == null) return;
+            //   if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
-                     {                  
-                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.5"), new XAttribute("funcdesc", "Delete User Info"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
-                     })
-               );
-            }
-            else if(Tb_Master.SelectedTab == mtp_001)
+            //   _DefaultGateway.Gateway(
+            //      new Job(SendType.External, "Localhost",
+            //         new List<Job>
+            //         {                  
+            //            new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.5"), new XAttribute("funcdesc", "Delete User Info"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
+            //         })
+            //   );
+            //}
+            //else if(Tb_Master.SelectedTab == mtp_001)
             {
                var figh = FighBs.Current as Data.Fighter;
                if (figh == null) return;
@@ -838,21 +838,21 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               if (figh == null) return;
-               if (figh.FNGR_PRNT_DNRM == "") { return; }
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   if (figh == null) return;
+            //   if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
-                     {                  
-                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.7.2"), new XAttribute("funcdesc", "Duplicate User Info Into All Device"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
-                     })
-               );
-            }
-            else if(Tb_Master.SelectedTab == mtp_001)
+            //   _DefaultGateway.Gateway(
+            //      new Job(SendType.External, "Localhost",
+            //         new List<Job>
+            //         {                  
+            //            new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.7.2"), new XAttribute("funcdesc", "Duplicate User Info Into All Device"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
+            //         })
+            //   );
+            //}
+            //else if(Tb_Master.SelectedTab == mtp_001)
             {
                var figh = FighBs.Current as Data.Fighter;
                if (figh == null) return;
@@ -876,29 +876,29 @@ namespace System.Scsc.Ui.Common
          {
             if (MessageBox.Show(this, "آیا با حذف اثر انگشت از مشتری و اختصاص برای کاربر جدید موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               if (figh == null) return;
-               if (figh.FNGR_PRNT_DNRM == "") { return; }
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   if (figh == null) return;
+            //   if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-               // اثر انگشت را از دستگاه پاک میکنیم
-               RqstBnDeleteFngrPrnt1_Click(null, null);
+            //   // اثر انگشت را از دستگاه پاک میکنیم
+            //   RqstBnDeleteFngrPrnt1_Click(null, null);
 
-               // ابتدا کد انگشتی را از مشتری میگیریم
-               ClearFingerPrint_Butn_Click(null, null);
+            //   // ابتدا کد انگشتی را از مشتری میگیریم
+            //   ClearFingerPrint_Butn_Click(null, null);
 
-               // باز کردن فرم ثبت نام برای مشتری جدید
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
-                     {
-                        new Job(SendType.Self, 123 /* Execute Adm_Figh_F */),
-                        new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", figh.FNGR_PRNT_DNRM))}
-                     })
-               );
-            }
-            else if(Tb_Master.SelectedTab == mtp_001)
+            //   // باز کردن فرم ثبت نام برای مشتری جدید
+            //   _DefaultGateway.Gateway(
+            //      new Job(SendType.External, "Localhost",
+            //         new List<Job>
+            //         {
+            //            new Job(SendType.Self, 123 /* Execute Adm_Figh_F */),
+            //            new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", figh.FNGR_PRNT_DNRM))}
+            //         })
+            //   );
+            //}
+            //else if(Tb_Master.SelectedTab == mtp_001)
             {
                var figh = FighBs.Current as Data.Fighter;
                if (figh == null) return;
@@ -931,25 +931,25 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               if (figh == null) return;
-               if (figh.FNGR_PRNT_DNRM == "") { return; }
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   if (figh == null) return;
+            //   if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
-                  {
-                     Input =
-                        new XElement("Command",
-                           new XAttribute("type", "fngrprntdev"),
-                           new XAttribute("fngractn", "enroll"),
-                           new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM)
-                        )
-                  }
-               );
-            }
-            else if(Tb_Master.SelectedTab == mtp_001)
+            //   _DefaultGateway.Gateway(
+            //      new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+            //      {
+            //         Input =
+            //            new XElement("Command",
+            //               new XAttribute("type", "fngrprntdev"),
+            //               new XAttribute("fngractn", "enroll"),
+            //               new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM)
+            //            )
+            //      }
+            //   );
+            //}
+            //else if(Tb_Master.SelectedTab == mtp_001)
             {
                var figh = FighBs.Current as Data.Fighter;
                if (figh == null) return;
@@ -975,25 +975,25 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               if (figh == null) return;
-               if (figh.FNGR_PRNT_DNRM == "") { return; }
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   if (figh == null) return;
+            //   if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
-                  {
-                     Input =
-                        new XElement("Command",
-                           new XAttribute("type", "fngrprntdev"),
-                           new XAttribute("fngractn", "delete"),
-                           new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM)
-                        )
-                  }
-               );
-            }
-            else if(Tb_Master.SelectedTab == mtp_001)
+            //   _DefaultGateway.Gateway(
+            //      new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
+            //      {
+            //         Input =
+            //            new XElement("Command",
+            //               new XAttribute("type", "fngrprntdev"),
+            //               new XAttribute("fngractn", "delete"),
+            //               new XAttribute("fngrprnt", figh.FNGR_PRNT_DNRM)
+            //            )
+            //      }
+            //   );
+            //}
+            //else if(Tb_Master.SelectedTab == mtp_001)
             {
                var figh = FighBs.Current as Data.Fighter;
                if (figh == null) return;
@@ -1020,23 +1020,23 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               if (figh == null) return;
-               if (figh.FNGR_PRNT_DNRM == "") { return; }
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   if (figh == null) return;
+            //   if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-               iScsc.SCV_PBLC_P(
-                  new XElement("Process",
-                     new XElement("Fighter",
-                        new XAttribute("fileno", figh.FILE_NO),
-                        new XAttribute("columnname", "FNGR_PRNT"),
-                        new XAttribute("newvalue", "")
-                     )
-                  )
-               );
-            }
-            else if(Tb_Master.SelectedTab == mtp_001)
+            //   iScsc.SCV_PBLC_P(
+            //      new XElement("Process",
+            //         new XElement("Fighter",
+            //            new XAttribute("fileno", figh.FILE_NO),
+            //            new XAttribute("columnname", "FNGR_PRNT"),
+            //            new XAttribute("newvalue", "")
+            //         )
+            //      )
+            //   );
+            //}
+            //else if(Tb_Master.SelectedTab == mtp_001)
             {
                var figh = FighBs.Current as Data.Fighter;
                if (figh == null) return;
@@ -1068,22 +1068,22 @@ namespace System.Scsc.Ui.Common
 
       private void RqstBnEditPblc_Click(object sender, EventArgs e)
       {
-         if (Tb_Master.SelectedTab == mtp_002)
-         {
-            dynamic figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-            if (figh == null)
-               figh = vF_Fighs.Current as Data.VF_Last_Info_Deleted_FighterResult;
+         //if (Tb_Master.SelectedTab == mtp_002)
+         //{
+         //   dynamic figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+         //   if (figh == null)
+         //      figh = vF_Fighs.Current as Data.VF_Last_Info_Deleted_FighterResult;
 
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "Localhost",
-                  new List<Job>
-               {
-                  new Job(SendType.Self, 70 /* Execute Adm_Chng_F */),
-                  new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "changeinfo"), new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"), new XAttribute("formcaller", GetType().Name))}
-               })
-            );
-         }
-         else if (Tb_Master.SelectedTab == mtp_001)
+         //   _DefaultGateway.Gateway(
+         //      new Job(SendType.External, "Localhost",
+         //         new List<Job>
+         //      {
+         //         new Job(SendType.Self, 70 /* Execute Adm_Chng_F */),
+         //         new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "changeinfo"), new XAttribute("fileno", figh.FILE_NO), new XAttribute("auto", "true"), new XAttribute("formcaller", GetType().Name))}
+         //      })
+         //   );
+         //}
+         //else if (Tb_Master.SelectedTab == mtp_001)
          {
             var figh = FighBs.Current as Data.Fighter;
             if (figh == null) return;
@@ -1102,22 +1102,22 @@ namespace System.Scsc.Ui.Common
 
       private void RqstBnInsr_Click(object sender, EventArgs e)
       {
-         if (Tb_Master.SelectedTab == mtp_002)
-         {
-            dynamic figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-            if (figh == null)
-               figh = vF_Fighs.Current as Data.VF_Last_Info_Deleted_FighterResult;
+         //if (Tb_Master.SelectedTab == mtp_002)
+         //{
+         //   dynamic figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+         //   if (figh == null)
+         //      figh = vF_Fighs.Current as Data.VF_Last_Info_Deleted_FighterResult;
 
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "Localhost",
-                  new List<Job>
-               {
-                  new Job(SendType.Self, 80 /* Execute Ins_Totl_F */),
-                  new Job(SendType.SelfToUserInterface, "INS_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewinscard"), new XAttribute("fileno", figh.FILE_NO), new XAttribute("formcaller", GetType().Name))}
-               })
-            );
-         }
-         else if(Tb_Master.SelectedTab == mtp_001)
+         //   _DefaultGateway.Gateway(
+         //      new Job(SendType.External, "Localhost",
+         //         new List<Job>
+         //      {
+         //         new Job(SendType.Self, 80 /* Execute Ins_Totl_F */),
+         //         new Job(SendType.SelfToUserInterface, "INS_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewinscard"), new XAttribute("fileno", figh.FILE_NO), new XAttribute("formcaller", GetType().Name))}
+         //      })
+         //   );
+         //}
+         //else if(Tb_Master.SelectedTab == mtp_001)
          {
             var figh = FighBs.Current as Data.Fighter;
             if (figh == null) return;
@@ -1151,9 +1151,9 @@ namespace System.Scsc.Ui.Common
 
       private void PymtBnDebt_Click(object sender, EventArgs e)
       {
-         if(Tb_Master.SelectedTab == mtp_002)
-            colActn_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(colActn_Butn.Buttons[6]));
-         else if(Tb_Master.SelectedTab == mtp_001)
+         //if(Tb_Master.SelectedTab == mtp_002)
+         //   colActn_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(colActn_Butn.Buttons[6]));
+         //else if(Tb_Master.SelectedTab == mtp_001)
             colActn1_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(colActn_Butn.Buttons[6]));
       }
 
@@ -1227,12 +1227,12 @@ namespace System.Scsc.Ui.Common
          try
          {
             Data.Fighter figh = null;
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
-            }
-            else if (Tb_Master.SelectedTab == mtp_001)
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
+            //}
+            //else if (Tb_Master.SelectedTab == mtp_001)
             {
                figh = FighBs.Current as Data.Fighter;
             }
@@ -1263,12 +1263,12 @@ namespace System.Scsc.Ui.Common
          try
          {
             Data.Fighter figh = null;
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
-            }
-            else if (Tb_Master.SelectedTab == mtp_001)
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
+            //}
+            //else if (Tb_Master.SelectedTab == mtp_001)
             {
                figh = FighBs.Current as Data.Fighter;
             }
@@ -1299,12 +1299,12 @@ namespace System.Scsc.Ui.Common
          try
          {
             Data.Fighter figh = null;
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
-            }
-            else if(Tb_Master.SelectedTab == mtp_001)
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
+            //}
+            //else if(Tb_Master.SelectedTab == mtp_001)
             {
                figh = FighBs.Current as Data.Fighter;
             }
@@ -1369,12 +1369,12 @@ namespace System.Scsc.Ui.Common
          try
          {
             Data.Fighter figh = null;
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
-            }
-            else if (Tb_Master.SelectedTab == mtp_001)
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
+            //}
+            //else if (Tb_Master.SelectedTab == mtp_001)
             {
                figh = FighBs.Current as Data.Fighter;
             }
@@ -1507,12 +1507,12 @@ namespace System.Scsc.Ui.Common
          try
          {
             Data.Fighter figh = null;
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
-            }
-            else if (Tb_Master.SelectedTab == mtp_001)
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
+            //}
+            //else if (Tb_Master.SelectedTab == mtp_001)
             {
                figh = FighBs.Current as Data.Fighter;
             }
@@ -1572,17 +1572,87 @@ namespace System.Scsc.Ui.Common
          }
       }
 
+      private void PayCard2CardDebt_Tsmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Data.Fighter figh = null;
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
+            //}
+            //else if(Tb_Master.SelectedTab == mtp_001)
+            {
+               figh = FighBs.Current as Data.Fighter;
+            }
+
+            // اگر مشترکی وجود نداشته باشد
+            if (figh == null) return;
+            // اگر مشتری بدهی نداشته باشد
+            if (figh.DEBT_DNRM == 0) return;
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            //if (figh.FIGH_STAT == "001") return;
+
+            var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > figh.DEBT_DNRM) return;
+
+            var vf_SavePayment =
+               iScsc.VF_Save_Payments(null, figh.FILE_NO)
+               .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+            foreach (var pymt in vf_SavePayment)
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "009"),
+                           new XAttribute("actndate", DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            Search_Butn_Click(null, null);
+         }
+      }
+
       private void PayCashDepositeAmnt_Tsmi_Click(object sender, EventArgs e)
       {
          try
          {
             Data.Fighter figh = null;
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
-            }
-            else if (Tb_Master.SelectedTab == mtp_001)
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
+            //}
+            //else if (Tb_Master.SelectedTab == mtp_001)
             {
                figh = FighBs.Current as Data.Fighter;
             }
@@ -1665,12 +1735,12 @@ namespace System.Scsc.Ui.Common
          try
          {
             Data.Fighter figh = null;
-            if (Tb_Master.SelectedTab == mtp_002)
-            {
-               var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-               figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
-            }
-            else if (Tb_Master.SelectedTab == mtp_001)
+            //if (Tb_Master.SelectedTab == mtp_002)
+            //{
+            //   var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            //   figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh1.FILE_NO);
+            //}
+            //else if (Tb_Master.SelectedTab == mtp_001)
             {
                figh = FighBs.Current as Data.Fighter;
             }

@@ -4407,7 +4407,7 @@ namespace System.Scsc.Ui.OtherIncome
 
             if (!LinkMtod_Cbx.Checked)
             {
-               CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && c.ACTV_TAG_DNRM == "101" && c.CONF_STAT == "002");
+               CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && c.ACTV_TAG_DNRM == "101" && c.CONF_STAT == "002" && c.Club_Methods.Any(cm => cm.MTOD_STAT == "002"));
 
                ExpnBs1.DataSource =
                   iScsc.Expenses.Where(ex =>

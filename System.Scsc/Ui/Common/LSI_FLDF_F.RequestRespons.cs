@@ -277,32 +277,32 @@ namespace System.Scsc.Ui.Common
                      //BothSex_Rb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "lastname_clm":
-                     LastName_Clm.Caption = control.LABL_TEXT;
+                     //LastName_Clm.Caption = control.LABL_TEXT;
                      //LastName_Clm.Caption = control.LABL_TEXT; // ToolTip
                      //LastName_Clm.Caption = control.LABL_TEXT; // Place Holder
                      break;
                   case "frstname_clm":
-                     FrstName_Clm.Caption = control.LABL_TEXT;
+                     //FrstName_Clm.Caption = control.LABL_TEXT;
                      //FrstName_Clm.Caption = control.LABL_TEXT; // ToolTip
                      //FrstName_Clm.Caption = control.LABL_TEXT; // Place Holder
                      break;
                   case "debtdnrm_clm":
-                     DebtDnrm_Clm.Caption = control.LABL_TEXT;
+                     //DebtDnrm_Clm.Caption = control.LABL_TEXT;
                      //DebtDnrm_Clm.Caption = control.LABL_TEXT; // ToolTip
                      //DebtDnrm_Clm.Caption = control.LABL_TEXT; // Place Holder
                      break;
                   case "dpstamnt_clm":
-                     DpstAmnt_Clm.Caption = control.LABL_TEXT;
+                     //DpstAmnt_Clm.Caption = control.LABL_TEXT;
                      //DpstAmnt_Clm.Caption = control.LABL_TEXT; // ToolTip
                      //DpstAmnt_Clm.Caption = control.LABL_TEXT; // Place Holder
                      break;
                   case "fngrprnt_clm":
-                     FngrPrnt_Clm.Caption = control.LABL_TEXT;
+                     //FngrPrnt_Clm.Caption = control.LABL_TEXT;
                      //FngrPrnt_Clm.Caption = control.LABL_TEXT; // ToolTip
                      //FngrPrnt_Clm.Caption = control.LABL_TEXT; // Place Holder
                      break;
                   case "chatid_clm":
-                     ChatId_Clm.Caption = control.LABL_TEXT;
+                     //ChatId_Clm.Caption = control.LABL_TEXT;
                      //ChatId_Clm.Caption = control.LABL_TEXT; // ToolTip
                      //ChatId_Clm.Caption = control.LABL_TEXT; // Place Holder
                      break;
@@ -467,7 +467,7 @@ namespace System.Scsc.Ui.Common
             //dSXTPBindingSource.DataSource = iScsc.D_SXTPs;
             //dFGTPBindingSource.DataSource = iScsc.D_FGTPs;
             //dFGSTBindingSource.DataSource = iScsc.D_FGSTs;
-            CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
+            CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && c.Club_Methods.Any(cm => cm.MTOD_STAT == "002"));
             SuntBs1.DataSource = iScsc.Sub_Units;
             ClubBs.DataSource = iScsc.Clubs.Where(c => Fga_Uclb_U.Contains(c.CODE));
 
@@ -505,13 +505,13 @@ namespace System.Scsc.Ui.Common
          switch (x.Attribute("showlist").Value)
          {
             case "001": //  مشترییان
-               PBLC_Gv.ActiveFilterString = "TYPE != '003'";
+               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003'";
                break;
             case "003":
-               PBLC_Gv.ActiveFilterString = "TYPE = '003'";
+               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM = '003'";
                break;
             case "004":
-               PBLC_Gv.ActiveFilterString = "TYPE = '004'";
+               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM = '004'";
                break;
             default:
                break;

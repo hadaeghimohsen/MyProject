@@ -269,7 +269,11 @@ namespace System.Scsc.Ui.MasterPage
             enrollNumber = enrollNumber.Trim();
 
             // 1402/11/16 * Send Signal to receive data
-            GetValuDataFromExtrDev(null, enrollNumber);
+            // 1403/02/06 * Checked Old USB Device
+            if (InvokeRequired)
+               Invoke(new Action(() => GetValuDataFromExtrDev(null, enrollNumber)));
+            else
+               GetValuDataFromExtrDev(null, enrollNumber);
 
             //enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
 
@@ -362,7 +366,11 @@ namespace System.Scsc.Ui.MasterPage
             //oldenrollnumber = enrollNumber;
 
             // 1402/11/16 * Send Signal to receive data
-            GetValuDataFromExtrDev(null, enrollNumber);
+            // 1403/02/06 * Checked Old USB Device
+            if (InvokeRequired)
+               Invoke(new Action(() => GetValuDataFromExtrDev(null, enrollNumber)));
+            else
+               GetValuDataFromExtrDev(null, enrollNumber);
 
             if (barCodeSetting.BAR_CODE_DATA_TYPE == "001")
             {
@@ -7406,13 +7414,13 @@ namespace System.Scsc.Ui.MasterPage
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
-      private void button4_Click(object sender, EventArgs e)
-      {
-         if (InvokeRequired)
-            Invoke(new Action(() => OnOpenDresser(OnlineDres_Butn.Text)));
-         else
-            OnOpenDresser(OnlineDres_Butn.Text);
-      }
+      //private void button4_Click(object sender, EventArgs e)
+      //{
+      //   if (InvokeRequired)
+      //      Invoke(new Action(() => OnOpenDresser(OnlineDres_Butn.Text)));
+      //   else
+      //      OnOpenDresser(OnlineDres_Butn.Text);
+      //}
 
       private static void OpenHttpClient()
       {
@@ -7544,11 +7552,30 @@ namespace System.Scsc.Ui.MasterPage
             )
          );
 
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost",
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
                new List<Job>
                {
-                  //new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>276</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 276 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+                  #region DoWork
                   new Job(SendType.SelfToUserInterface, GetType().Name, 10 /* Execute Actn_CalF_F */)
                   {
                      Input = 
@@ -7557,9 +7584,9 @@ namespace System.Scsc.Ui.MasterPage
                            new XAttribute("gateactn", "close")
                         )
                   }
-               }
-            )
-         );
+                  #endregion
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void tol_opengatebutn_ItemClick(object sender, ItemClickEventArgs e)
@@ -7572,11 +7599,30 @@ namespace System.Scsc.Ui.MasterPage
             )
          );
 
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost",
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
                new List<Job>
                {
-                  //new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>275</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 275 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+                  #region DoWork
                   new Job(SendType.SelfToUserInterface, GetType().Name, 10 /* Execute Actn_CalF_F */)
                   {
                      Input = 
@@ -7585,9 +7631,9 @@ namespace System.Scsc.Ui.MasterPage
                            new XAttribute("gateactn", "open")
                         )
                   }
-               }
-            )
-         );
+                  #endregion
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void OpenGate_Tsm_Click(object sender, EventArgs e)
@@ -9333,7 +9379,8 @@ namespace System.Scsc.Ui.MasterPage
                iScsc.Attendance_Wrists
                .Where(aw => 
                   (AtnwBfor_Rb.Checked ? (aw.Attendance.ATTN_DATE < DateTime.Now.Date) : aw.Attendance.ATTN_DATE == _date.Value.Date) &&
-                  (aw.STAT == (AtnwStat001_Cbx.Checked ? "001" : "000") || aw.STAT == (AtnwStat002_Cbx.Checked ? "002" : "000"))
+                  (aw.STAT == (AtnwStat001_Cbx.Checked ? "001" : "000") || aw.STAT == (AtnwStat002_Cbx.Checked ? "002" : "000")) &&
+                  ((JServAtnw_Cbx.Checked ? aw.Fighter.FGPB_TYPE_DNRM == "001" : false) || (JPersAtnw_Cbx.Checked ? aw.Fighter.FGPB_TYPE_DNRM == "003" : false))
                );
          }
          catch { }
@@ -9346,7 +9393,7 @@ namespace System.Scsc.Ui.MasterPage
             var _atnw = AtnwBs.Current as Data.Attendance_Wrist;
             if (_atnw == null) return;
 
-            if (AcptActnDres_Cbx.Checked && MessageBox.Show(this, "آیا با انجام عملیات موافق هستید؟", "تایید عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+            if (AcptActnAtnw_Cbx.Checked && MessageBox.Show(this, "آیا با انجام عملیات موافق هستید؟", "تایید عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
             string _tmp = "";
 

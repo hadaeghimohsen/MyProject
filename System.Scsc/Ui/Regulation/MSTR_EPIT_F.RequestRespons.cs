@@ -180,13 +180,15 @@ namespace System.Scsc.Ui.Regulation
       {
          EpitBs1.DataSource = iScsc.Expense_Items;
          DittpBs1.DataSource = iScsc.D_ITTPs;
-         GropBs2.DataSource = iScsc.Group_Expenses;
+         GropBs2.DataSource = iScsc.Group_Expenses;//.Where(ge => ge.STAT == "002" && iScsc.Methods.Any(m => m.MTOD_STAT == "002" && m.CODE == ge.CODE));
          DGptpBs1.DataSource = iScsc.D_GPTPs;
          string[] _rqtpCode = {"001", "009", "012", "016"};
          RqtpBs.DataSource = iScsc.Request_Types.Where(r => _rqtpCode.Contains(r.CODE));
+         DActvBs.DataSource = iScsc.D_ACTVs;
 
-         UExpn_Gv.ActiveFilterString = string.Format("EXPN_STAT = '002'");
-         DExpn_Gv.ActiveFilterString = string.Format("EXPN_STAT = '002'");
+         UExpn_Gv.ActiveFilterString = string.Format("EXPN_STAT = '002' AND GROP_CODE IS NULL");
+         DExpn_Gv.ActiveFilterString = string.Format("EXPN_STAT = '002' AND GROP_CODE IS NOT NULL");
+         
 
          var xinput = job.Input as XElement;
          switch(xinput.Attribute("type").Value)

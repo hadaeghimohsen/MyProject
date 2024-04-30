@@ -737,7 +737,7 @@
             this.repositoryItemLookUpEdit3,
             this.repositoryItemLookUpEdit5,
             this.repositoryItemLookUpEdit6});
-         this.attendanceGridControl.Size = new System.Drawing.Size(854, 864);
+         this.attendanceGridControl.Size = new System.Drawing.Size(854, 886);
          this.attendanceGridControl.TabIndex = 0;
          this.attendanceGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -1139,7 +1139,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.Tb_Master);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(868, 1128);
+         this.splitContainerControl1.Size = new System.Drawing.Size(868, 1150);
          this.splitContainerControl1.SplitterPosition = 99;
          this.splitContainerControl1.TabIndex = 3;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -1669,7 +1669,7 @@
          this.Tb_Master.Name = "Tb_Master";
          this.Tb_Master.RightToLeftLayout = true;
          this.Tb_Master.SelectedIndex = 0;
-         this.Tb_Master.Size = new System.Drawing.Size(868, 1024);
+         this.Tb_Master.Size = new System.Drawing.Size(868, 1046);
          this.Tb_Master.TabIndex = 1;
          // 
          // tp_001
@@ -1678,7 +1678,7 @@
          this.tp_001.Location = new System.Drawing.Point(4, 23);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(860, 997);
+         this.tp_001.Size = new System.Drawing.Size(860, 1019);
          this.tp_001.TabIndex = 0;
          this.tp_001.Text = "لیست حضور";
          this.tp_001.UseVisualStyleBackColor = true;
@@ -1694,7 +1694,7 @@
          this.Attn_Scc.Panel1.Text = "Panel1";
          this.Attn_Scc.Panel2.Controls.Add(this.AttnProp_Tc);
          this.Attn_Scc.Panel2.Text = "Panel2";
-         this.Attn_Scc.Size = new System.Drawing.Size(854, 991);
+         this.Attn_Scc.Size = new System.Drawing.Size(854, 1013);
          this.Attn_Scc.SplitterPosition = 122;
          this.Attn_Scc.TabIndex = 1;
          this.Attn_Scc.Text = "splitContainerControl2";
@@ -2023,7 +2023,7 @@
          this.Tp_01_02.Location = new System.Drawing.Point(4, 23);
          this.Tp_01_02.Name = "Tp_01_02";
          this.Tp_01_02.Padding = new System.Windows.Forms.Padding(3);
-         this.Tp_01_02.Size = new System.Drawing.Size(846, 254);
+         this.Tp_01_02.Size = new System.Drawing.Size(846, 95);
          this.Tp_01_02.TabIndex = 0;
          this.Tp_01_02.Text = "دستبند های کمدی";
          this.Tp_01_02.UseVisualStyleBackColor = true;
@@ -2037,7 +2037,7 @@
          this.tabControl1.Name = "tabControl1";
          this.tabControl1.RightToLeftLayout = true;
          this.tabControl1.SelectedIndex = 0;
-         this.tabControl1.Size = new System.Drawing.Size(840, 248);
+         this.tabControl1.Size = new System.Drawing.Size(840, 89);
          this.tabControl1.TabIndex = 18;
          // 
          // tabPage1
@@ -2046,7 +2046,7 @@
          this.tabPage1.Location = new System.Drawing.Point(4, 23);
          this.tabPage1.Name = "tabPage1";
          this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(832, 221);
+         this.tabPage1.Size = new System.Drawing.Size(832, 62);
          this.tabPage1.TabIndex = 0;
          this.tabPage1.Text = "فعلی";
          this.tabPage1.UseVisualStyleBackColor = true;
@@ -2063,7 +2063,7 @@
          this.gridControl3.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.Atnw_Butn,
             this.AtnwStat_Lov});
-         this.gridControl3.Size = new System.Drawing.Size(826, 215);
+         this.gridControl3.Size = new System.Drawing.Size(826, 56);
          this.gridControl3.TabIndex = 17;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView3});
@@ -2269,7 +2269,7 @@
          this.tabPage2.Location = new System.Drawing.Point(4, 23);
          this.tabPage2.Name = "tabPage2";
          this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(832, 222);
+         this.tabPage2.Size = new System.Drawing.Size(832, 63);
          this.tabPage2.TabIndex = 1;
          this.tabPage2.Text = "قبلی ها";
          this.tabPage2.UseVisualStyleBackColor = true;
@@ -2285,7 +2285,7 @@
          this.splitContainerControl5.Panel1.Text = "Panel1";
          this.splitContainerControl5.Panel2.Controls.Add(this.gridControl6);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(826, 216);
+         this.splitContainerControl5.Size = new System.Drawing.Size(826, 57);
          this.splitContainerControl5.SplitterPosition = 141;
          this.splitContainerControl5.TabIndex = 1;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -2302,7 +2302,7 @@
          this.gridControl5.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.OldAtnw_Butn,
             this.OldAtnwStat_Lov});
-         this.gridControl5.Size = new System.Drawing.Size(680, 216);
+         this.gridControl5.Size = new System.Drawing.Size(680, 57);
          this.gridControl5.TabIndex = 17;
          this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -2520,7 +2520,7 @@
             this.repositoryItemButtonEdit1,
             this.repositoryItemLookUpEdit7,
             this.repositoryItemLookUpEdit8});
-         this.gridControl6.Size = new System.Drawing.Size(141, 216);
+         this.gridControl6.Size = new System.Drawing.Size(141, 57);
          this.gridControl6.TabIndex = 16;
          this.gridControl6.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView7});
@@ -2781,7 +2781,7 @@
          this.Tp_01_03.Location = new System.Drawing.Point(4, 23);
          this.Tp_01_03.Name = "Tp_01_03";
          this.Tp_01_03.Padding = new System.Windows.Forms.Padding(3);
-         this.Tp_01_03.Size = new System.Drawing.Size(846, 254);
+         this.Tp_01_03.Size = new System.Drawing.Size(846, 95);
          this.Tp_01_03.TabIndex = 1;
          this.Tp_01_03.Text = "کمد همراهان";
          this.Tp_01_03.UseVisualStyleBackColor = true;
@@ -2796,7 +2796,7 @@
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.gridControl4);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(840, 248);
+         this.splitContainerControl2.Size = new System.Drawing.Size(840, 89);
          this.splitContainerControl2.SplitterPosition = 0;
          this.splitContainerControl2.TabIndex = 1;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -2812,7 +2812,7 @@
          this.gridControl2.Name = "gridControl2";
          this.gridControl2.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.ActnDrat_Butn});
-         this.gridControl2.Size = new System.Drawing.Size(835, 248);
+         this.gridControl2.Size = new System.Drawing.Size(835, 89);
          this.gridControl2.TabIndex = 63;
          this.gridControl2.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.DratGv});
@@ -3228,7 +3228,7 @@
          this.Tp_01_04.Location = new System.Drawing.Point(4, 23);
          this.Tp_01_04.Name = "Tp_01_04";
          this.Tp_01_04.Padding = new System.Windows.Forms.Padding(3);
-         this.Tp_01_04.Size = new System.Drawing.Size(846, 254);
+         this.Tp_01_04.Size = new System.Drawing.Size(846, 95);
          this.Tp_01_04.TabIndex = 3;
          this.Tp_01_04.Text = "خدمات وابسته";
          this.Tp_01_04.UseVisualStyleBackColor = true;
@@ -3246,7 +3246,7 @@
             this.repositoryItemLookUpEdit11,
             this.repositoryItemButtonEdit3,
             this.persianRepositoryItemDateEdit10});
-         this.gridControl12.Size = new System.Drawing.Size(840, 248);
+         this.gridControl12.Size = new System.Drawing.Size(840, 89);
          this.gridControl12.TabIndex = 12;
          this.gridControl12.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -3757,7 +3757,7 @@
          this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "ATTN_DAYN_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(884, 1128);
+         this.Size = new System.Drawing.Size(884, 1150);
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit13)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit14)).EndInit();

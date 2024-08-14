@@ -82,12 +82,13 @@
          this.colNAME1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Buld_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.persianRepositoryItemDateEdit6 = new dxExample.PersianRepositoryItemDateEdit();
+         this.Actn4Mesg_Cbx = new System.Windows.Forms.CheckBox();
          this.StopRobot_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.StrtBot_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
-         this.Actn4Mesg_Cbx = new System.Windows.Forms.CheckBox();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.ActvProcMsg_Tm = new System.Windows.Forms.Timer(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov2)).BeginInit();
          this.Tb_master.SuspendLayout();
@@ -624,6 +625,17 @@
          this.persianRepositoryItemDateEdit6.CalendarTimeProperties.PopupBorderStyle = DevExpress.XtraEditors.Controls.PopupBorderStyles.Default;
          this.persianRepositoryItemDateEdit6.Name = "persianRepositoryItemDateEdit6";
          // 
+         // Actn4Mesg_Cbx
+         // 
+         this.Actn4Mesg_Cbx.AutoSize = true;
+         this.Actn4Mesg_Cbx.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.Actn4Mesg_Cbx.Location = new System.Drawing.Point(0, 100);
+         this.Actn4Mesg_Cbx.Name = "Actn4Mesg_Cbx";
+         this.Actn4Mesg_Cbx.Size = new System.Drawing.Size(251, 18);
+         this.Actn4Mesg_Cbx.TabIndex = 4;
+         this.Actn4Mesg_Cbx.Text = "پردازش پیامهای دریافتی از سرور";
+         this.Actn4Mesg_Cbx.UseVisualStyleBackColor = true;
+         // 
          // StopRobot_Butn
          // 
          this.StopRobot_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -667,19 +679,6 @@
          this.panelControl5.Size = new System.Drawing.Size(738, 53);
          this.panelControl5.TabIndex = 13;
          // 
-         // Actn4Mesg_Cbx
-         // 
-         this.Actn4Mesg_Cbx.AutoSize = true;
-         this.Actn4Mesg_Cbx.Checked = true;
-         this.Actn4Mesg_Cbx.CheckState = System.Windows.Forms.CheckState.Checked;
-         this.Actn4Mesg_Cbx.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.Actn4Mesg_Cbx.Location = new System.Drawing.Point(0, 100);
-         this.Actn4Mesg_Cbx.Name = "Actn4Mesg_Cbx";
-         this.Actn4Mesg_Cbx.Size = new System.Drawing.Size(251, 18);
-         this.Actn4Mesg_Cbx.TabIndex = 4;
-         this.Actn4Mesg_Cbx.Text = "پردازش پیامهای دریافتی از سرور";
-         this.Actn4Mesg_Cbx.UseVisualStyleBackColor = true;
-         // 
          // labelControl15
          // 
          this.labelControl15.Appearance.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -710,6 +709,12 @@
          this.Back_Butn.TabIndex = 3;
          this.Back_Butn.ToolTip = "بازگشت";
          this.Back_Butn.Click += new System.EventHandler(this.Btn_Back_Click);
+         // 
+         // ActvProcMsg_Tm
+         // 
+         this.ActvProcMsg_Tm.Enabled = true;
+         this.ActvProcMsg_Tm.Interval = 60000;
+         this.ActvProcMsg_Tm.Tick += new System.EventHandler(this.ActvProcMsg_Tm_Tick);
          // 
          // STRT_ROBO_F
          // 
@@ -802,5 +807,6 @@
       private Windows.Forms.ToolStripMenuItem RunNoRun_Tsmi;
       private DevExpress.XtraGrid.Columns.GridColumn colRUN_STAT;
       public Windows.Forms.CheckBox Actn4Mesg_Cbx;
+      private Windows.Forms.Timer ActvProcMsg_Tm;
    }
 }

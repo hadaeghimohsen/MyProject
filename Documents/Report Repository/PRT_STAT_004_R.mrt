@@ -218,12 +218,12 @@
         </Personel_Gp>
         <Pydt_Gp Ref="16" type="GroupHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,5.2,6.4,0.8</ClientRectangle>
+          <ClientRectangle>0,5.2,6.4,0.6</ClientRectangle>
           <Components isList="true" count="3">
             <DataMQL_RCPT_DESC Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.2,0,3.2,0.8</ClientRectangle>
+              <ClientRectangle>2.4,0,4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Mitra,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -246,7 +246,7 @@
             <DataMQL_TOTL_AMNT Ref="19" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2,0,1.2,0.8</ClientRectangle>
+              <ClientRectangle>1.6,0,0.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Mitra,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -269,7 +269,7 @@
             <Text3 Ref="21" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,2,0.8</ClientRectangle>
+              <ClientRectangle>0,0,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Mitra,10,Bold</Font>
               <Guid>b621f6e700a94822b934fbf1de9b0299</Guid>
@@ -299,12 +299,12 @@
         </Pydt_Gp>
         <HeaderMQL Ref="23" type="HeaderBand" isKey="true">
           <Brush>[187:182:174]</Brush>
-          <ClientRectangle>0,6.8,6.4,0.8</ClientRectangle>
+          <ClientRectangle>0,6.6,6.4,0.8</ClientRectangle>
           <Components isList="true" count="3">
             <HeaderMQL_TOTL_AMNT Ref="24" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2,0,1.2,0.8</ClientRectangle>
+              <ClientRectangle>1.6,0,0.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Mitra,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -321,7 +321,7 @@
             <HeaderMQL_RCPT_DESC Ref="25" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3.2,0,3.2,0.8</ClientRectangle>
+              <ClientRectangle>2.4,0,4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Mitra,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -338,7 +338,7 @@
             <Text4 Ref="26" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,2,0.8</ClientRectangle>
+              <ClientRectangle>0,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Mitra,10,Bold</Font>
               <Guid>ade15e0aaa974c95a3ff4bcacfc7772f</Guid>
@@ -362,7 +362,7 @@
         <DataMQL Ref="27" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,8.4,6.4,0</ClientRectangle>
+          <ClientRectangle>0,8.2,6.4,0</ClientRectangle>
           <Components isList="true" count="0" />
           <Conditions isList="true" count="0" />
           <DataSourceName>MQL</DataSourceName>
@@ -374,7 +374,7 @@
         </DataMQL>
         <FooterBand1 Ref="28" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,9.2,6.4,0.6</ClientRectangle>
+          <ClientRectangle>0,9,6.4,0.6</ClientRectangle>
           <Components isList="true" count="1">
             <Text10 Ref="29" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
@@ -427,10 +427,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>3/29/2024 9:54:51 PM</ReportChanged>
+  <ReportChanged>5/10/2024 9:15:00 PM</ReportChanged>
   <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_STAT_004_R.mrt</ReportFile>
-  <ReportGuid>638fd7544a0a491f86b426e348e4bb80</ReportGuid>
+  <ReportGuid>8601a2bfea3f410986c8d8ff5dc53ec1</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

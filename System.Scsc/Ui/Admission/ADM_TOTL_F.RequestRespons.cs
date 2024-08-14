@@ -520,6 +520,7 @@ namespace System.Scsc.Ui.Admission
             DDsatBs.DataSource = iScsc.D_DSATs;
             DCetpBs.DataSource = iScsc.D_CETPs;
             DYsnoBs.DataSource = iScsc.D_YSNOs;
+            DWkdyBs.DataSource = iScsc.D_WKDies;
             PrvnBs1.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
 
             isFirstLoaded = true;
@@ -537,6 +538,10 @@ namespace System.Scsc.Ui.Admission
          //MtodBs2.DataSource = iScsc.Methods.Where(m=> m.MTOD_STAT == "002");
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && cbmt.Method.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
          CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
+
+         HldyBs.DataSource =
+            iScsc.Holidays.Where(h => h.HLDY_DATE.Value.Date >= DateTime.Now.Date);
+
          job.Status = StatusType.Successful;
       }
 

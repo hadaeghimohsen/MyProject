@@ -560,6 +560,9 @@ namespace System.Scsc.Ui.MasterPage
          }
          #endregion
 
+         // 1403/02/21
+         Main_Pnl.Controls.OfType<MaxUi.Rollout>().ToList().ForEach(r => r.RolloutStatus = (r.Tag == null) ? false : true);
+
          job.Status = StatusType.Successful;
       }
 
@@ -1033,6 +1036,12 @@ namespace System.Scsc.Ui.MasterPage
                      break;
                   case "5.2.3.8.0":
                      result = SetPassword_Enroll_Finger(xinput.Attribute("enrollnumb").Value, xinput.Attribute("password").Value);
+                     break;
+                  case "5.2.3.8.1":
+                     result = Start_Enroll_Face(xinput.Attribute("enrollnumb").Value);
+                     break;
+                  case "5.2.3.8.2":
+                     result = Delete_Enroll_Face(xinput.Attribute("enrollnumb").Value);
                      break;
                }
 

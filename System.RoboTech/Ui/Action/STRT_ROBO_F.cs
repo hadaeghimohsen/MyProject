@@ -60,6 +60,8 @@ namespace System.RoboTech.Ui.Action
 
          robotStarted = true;
 
+         ActvProcMsg_Tm.Enabled = true;
+
          OrgnBs.MoveFirst();
          foreach (var orgn in OrgnBs.List.OfType<Data.Organ>())
          {
@@ -155,6 +157,17 @@ namespace System.RoboTech.Ui.Action
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void ActvProcMsg_Tm_Tick(object sender, EventArgs e)
+      {
+         try
+         {
+            ActvProcMsg_Tm.Enabled = false;
+            //Threading.Thread.Sleep(60000);
+            Actn4Mesg_Cbx.Checked = true;            
+         }
+         catch { }
       }
    }
 }

@@ -1578,6 +1578,20 @@ namespace System.Scsc.Ui.BaseDefinition
                      //WeekDay_Butn_Click(null, null);
                      PrintDefaultClubMethod_Butn_Click(null, null);
                      break;
+                  case 3:
+                     if (MessageBox.Show(this, "آیا با حذف کردن رکورد موافقید؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+                     iScsc.STNG_SAVE_P(
+                        new XElement("Config",
+                           new XAttribute("type", "005"),
+                           new XElement("Delete",
+                              new XElement("Club_Method",
+                                 new XAttribute("code", cbmt.CODE)
+                              )
+                           )
+                        )
+                     );
+                     break;
                   default:
                      break;
                }
@@ -5969,6 +5983,31 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void ActvCoch_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            CochBs1.DataSource =
+               iScsc.Fighters
+               .Where(c => 
+                  c.FGPB_TYPE_DNRM == "003" &&
+                  (
+                     ActvCoch_Cbx.Checked ?
+                     c.Club_Methods
+                     .Any(cm => 
+                        cm.MTOD_STAT == "002" &&
+                        cm.Method.MTOD_STAT == "002"
+                     ) :
+                     true
+                  )
+               );
+         }
+         catch (Exception exc)
+         {
+
          }
       }
    }

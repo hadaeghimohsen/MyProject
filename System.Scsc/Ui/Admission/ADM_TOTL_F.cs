@@ -418,12 +418,12 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            var Rqst = RqstBs3.Current as Data.Request;
+            var _rqst = RqstBs3.Current as Data.Request;
 
             // 1401/05/21 * فعال سازی فیلتر برای عدم نمایش اطلاعات کد تخفیف سوخته مشتریان
             Fgdc_Gv.ActiveFilterString = "STAT = '002'";
 
-            if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3))
+            if (_rqst.SSTT_MSTT_CODE == 2 && (_rqst.SSTT_CODE == 1 || _rqst.SSTT_CODE == 2 || _rqst.SSTT_CODE == 3))
             {
                CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 /*&& (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE)*/)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
                Gb_Expense3.Visible = true;
@@ -446,7 +446,7 @@ namespace System.Scsc.Ui.Admission
                {
                   UserProFile_Rb.ImageProfile = null;
                   MemoryStream mStream = new MemoryStream();
-                  byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO))).ToArray();
+                  byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO))).ToArray();
                   mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
                   Bitmap bm = new Bitmap(mStream, false);
                   mStream.Dispose();
@@ -464,9 +464,9 @@ namespace System.Scsc.Ui.Admission
                }
 
                // 1397/12/18 * نمایش اطلاعات دوره های قبلی مشتری
-               MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+               MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
             }
-            else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3)) && Rqst.RQID > 0)
+            else if (!(_rqst.SSTT_MSTT_CODE == 2 && (_rqst.SSTT_CODE == 1 || _rqst.SSTT_CODE == 2 || _rqst.SSTT_CODE == 3)) && _rqst.RQID > 0)
             {
                CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 /*&& (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE)*/)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
                Gb_Expense3.Visible = false;
@@ -487,7 +487,7 @@ namespace System.Scsc.Ui.Admission
                {
                   UserProFile_Rb.ImageProfile = null;
                   MemoryStream mStream = new MemoryStream();
-                  byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO))).ToArray();
+                  byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO))).ToArray();
                   mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
                   Bitmap bm = new Bitmap(mStream, false);
                   mStream.Dispose();
@@ -505,9 +505,9 @@ namespace System.Scsc.Ui.Admission
                }
 
                // 1397/12/18 * نمایش اطلاعات دوره های قبلی مشتری
-               MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+               MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
             }
-            else if (Rqst.RQID == 0)
+            else if (_rqst.RQID == 0)
             {
                Gb_Expense3.Visible = false;
                MemberShip_Gbx.Visible = false;
@@ -525,6 +525,13 @@ namespace System.Scsc.Ui.Admission
                //DPST_AMNT_Txt.EditValue = "";
                //DEBT_AMNT_Txt.EditValue = "";
                SexFltr_Pkb.Visible = false;
+            }
+
+            var _mbsp = _rqst.Request_Rows.FirstOrDefault().Member_Ships.FirstOrDefault();
+            if (_mbsp != null)
+            {
+               Hldy_gv.ActiveFilterString =
+                  string.Format("Hldy_Date >= #{0}# AND Hldy_Date <= #{1}#", _mbsp.STRT_DATE.Value.ToShortDateString(), _mbsp.END_DATE.Value.ToShortDateString());
             }
          }
          catch
@@ -1561,108 +1568,82 @@ namespace System.Scsc.Ui.Admission
       private void Btn_AutoCalcAttn_Click(object sender, EventArgs e)
       {
          try
-         {            
-            //if (tb_master.SelectedTab == tp_001)
-            //{
-            //   //var rqst = RqstBs1.Current as Data.Request;
-            //   //if (rqst == null) return;
+         {
+            long ctgycode = (long)CtgyCode_Lov.EditValue;
+            string rqttcode = (string)RqttCode_Lov.EditValue;
+            var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "009" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
 
-            //   long mtodcode = (long)MtodCode_LookupEdit001.EditValue;
-            //   long ctgycode = (long)CtgyCode_LookupEdit001.EditValue;
-            //   string rqttcode = (string)RQTT_CODE_LookUpEdit1.EditValue;
-            //   var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "001" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && exp.MTOD_CODE == mtodcode && exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
-               
-            //   StrtDate_DateTime001.Value = DateTime.Now;
-            //   //if (MessageBox.Show(this, "تعداد جلسات با احتساب یک روز در میان می باشد؟", "مشخص شدن تاریخ پایان", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-            //   //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(2*(expn.NUMB_OF_ATTN_MONT - 1)));
-            //   //else
-            //   //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(expn.NUMB_OF_ATTN_MONT));
-            //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-            //   NumbOfAttnMont_TextEdit001.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;
-            //   NumbOfAttnWeek_TextEdit001.EditValue = expn.NUMB_OF_ATTN_WEEK ?? 0;
-            //   NumbMontOfer_TextEdit001.EditValue = expn.NUMB_MONT_OFER ?? 0;
-            //}
-            //if (tb_master.SelectedTab == tp_003)
+            //StrtDate_DateTime003.Value = DateTime.Now;
+            //if(MessageBox.Show(this, "تعداد جلسات با احتساب یک روز در میان می باشد؟", "مشخص شدن تاریخ پایان", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            //   EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(2 * (expn.NUMB_OF_ATTN_MONT - 1)));
+            //else
+            //   EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_OF_ATTN_MONT));
+            if (ModifierKeys == Keys.Control)
             {
-               //var rqst = RqstBs3.Current as Data.Request;
-               //if (rqst == null) return;
-
-               long ctgycode = (long)CtgyCode_Lov.EditValue;
-               string rqttcode = (string)RqttCode_Lov.EditValue;
-               var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "009" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
-
-               //StrtDate_DateTime003.Value = DateTime.Now;
-               //if(MessageBox.Show(this, "تعداد جلسات با احتساب یک روز در میان می باشد؟", "مشخص شدن تاریخ پایان", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
-               //   EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(2 * (expn.NUMB_OF_ATTN_MONT - 1)));
-               //else
-               //   EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_OF_ATTN_MONT));
-               if (ModifierKeys == Keys.Control)
-               {
-                  // تاریخ پایان بر اساس تاریخ شروعی که وارد شده محاسبه گردد
-                  StrtDate_DateTime003.CommitChanges();
-                  var strtdate = StrtDate_DateTime003.Value;
-                  if (strtdate.HasValue)
-                     EndDate_DateTime003.Value = strtdate.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-                  else
-                  {
-                     StrtDate_DateTime003.Value = DateTime.Now;
-                     EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-                  }
-               }
-               else if (ModifierKeys == Keys.Shift)
-               {
-                  // تاریخ شروع به اولین روز همان ماه برگردد
-                  StrtDate_DateTime003.CommitChanges();
-                  var strtdate = StrtDate_DateTime003.Value;
-                  if (strtdate.HasValue)
-                  {
-                     var day = StrtDate_DateTime003.GetText("dd").ToInt32();
-                     if (day != 1)
-                        StrtDate_DateTime003.Value = StrtDate_DateTime003.Value.Value.AddDays((day - 1) * -1);
-                     EndDate_DateTime003.Value = StrtDate_DateTime003.Value.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-                  }
-                  else
-                  {
-                     StrtDate_DateTime003.Value = DateTime.Now;
-                     var day = StrtDate_DateTime003.GetText("dd").ToInt32();
-                     if (day != 1)
-                        StrtDate_DateTime003.Value = StrtDate_DateTime003.Value.Value.AddDays((day - 1) * -1);
-                     EndDate_DateTime003.Value = StrtDate_DateTime003.Value.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-                  }
-               }
+               // تاریخ پایان بر اساس تاریخ شروعی که وارد شده محاسبه گردد
+               StrtDate_DateTime003.CommitChanges();
+               var strtdate = StrtDate_DateTime003.Value;
+               if (strtdate.HasValue)
+                  EndDate_DateTime003.Value = strtdate.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
                else
                {
                   StrtDate_DateTime003.Value = DateTime.Now;
                   EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
                }
-               //EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-               NumbOfAttnMont_TextEdit003.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;
-               NumbMontOfer_TextEdit003.EditValue = expn.NUMB_MONT_OFER ?? 0;
-
-               // Set Price on Label
-               DfltPric_Lb.Text = string.Format("{0:n0} {1} *** {2}", expn.PRIC, DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(a => a.VALU == expn.Expense_Type.Request_Requester.Regulation.AMNT_TYPE).DOMN_DESC, expn.Method.MTOD_DESC);
-               DfltPric_Lb.Tag = expn.PRIC;
-               TotlPic_Lb.Tag = DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(a => a.VALU == expn.Expense_Type.Request_Requester.Regulation.AMNT_TYPE).DOMN_DESC;
-               IncAttnPric_Nud.Value = expn.NUMB_OF_ATTN_MONT ?? 0;
-
-               // 1401/05/22 * اگر ظرفیت کلاسی پر شده باشد به منشی اعلام میکنیم
-               if (CapacityCycle_Lb.Tag != null && Convert.ToInt64(CapacityCycle_Lb.Tag) <= 0 && MessageBox.Show(this, "ظرفیت ثبت نام گروه انتخابی پر شده، آیا مایل به این هستید که گروه دیگری را انتخاب کنید؟", "محدودیت ظرفیت ثبت نام", MessageBoxButtons.YesNo) == DialogResult.Yes) 
-               {
-                  //SexFltr_Pkb_PickCheckedChange(null);
-                  Cbmt_Gv.ActiveFilterString = string.Format("[Sex_Type] = '{0}' AND MTOD_CODE = {1} OR [Sex_Type] = '003' AND MTOD_CODE = {1}", SexFltr_Pkb.PickChecked ? "001" : "002", expn.MTOD_CODE);
-                  CbmtCode_Lov.Focus(); 
-                  return; 
-               }
-
-               var _crntcbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.CODE == (long)CbmtCode_Lov.EditValue);
-               // 1401/07/18 * روز سرنگونی حکومت فاسر آخوندی
-               StrtTime_Te.EditValue = _crntcbmt.STRT_TIME;
-               EndTime_Te.EditValue = _crntcbmt.END_TIME;
-
-               Btn_RqstRqt3_Click(null, null);
             }
+            else if (ModifierKeys == Keys.Shift)
+            {
+               // تاریخ شروع به اولین روز همان ماه برگردد
+               StrtDate_DateTime003.CommitChanges();
+               var strtdate = StrtDate_DateTime003.Value;
+               if (strtdate.HasValue)
+               {
+                  var day = StrtDate_DateTime003.GetText("dd").ToInt32();
+                  if (day != 1)
+                     StrtDate_DateTime003.Value = StrtDate_DateTime003.Value.Value.AddDays((day - 1) * -1);
+                  EndDate_DateTime003.Value = StrtDate_DateTime003.Value.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+               }
+               else
+               {
+                  StrtDate_DateTime003.Value = DateTime.Now;
+                  var day = StrtDate_DateTime003.GetText("dd").ToInt32();
+                  if (day != 1)
+                     StrtDate_DateTime003.Value = StrtDate_DateTime003.Value.Value.AddDays((day - 1) * -1);
+                  EndDate_DateTime003.Value = StrtDate_DateTime003.Value.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+               }
+            }
+            else
+            {
+               StrtDate_DateTime003.Value = DateTime.Now;
+               EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+            }
+            //EndDate_DateTime003.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
+            NumbOfAttnMont_TextEdit003.EditValue = expn.NUMB_OF_ATTN_MONT ?? 0;
+            NumbMontOfer_TextEdit003.EditValue = expn.NUMB_MONT_OFER ?? 0;
+
+            // Set Price on Label
+            DfltPric_Lb.Text = string.Format("{0:n0} {1} *** {2}", expn.PRIC, DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(a => a.VALU == expn.Expense_Type.Request_Requester.Regulation.AMNT_TYPE).DOMN_DESC, expn.Method.MTOD_DESC);
+            DfltPric_Lb.Tag = expn.PRIC;
+            TotlPic_Lb.Tag = DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(a => a.VALU == expn.Expense_Type.Request_Requester.Regulation.AMNT_TYPE).DOMN_DESC;
+            IncAttnPric_Nud.Value = expn.NUMB_OF_ATTN_MONT ?? 0;
+
+            // 1401/05/22 * اگر ظرفیت کلاسی پر شده باشد به منشی اعلام میکنیم
+            if (CapacityCycle_Lb.Tag != null && Convert.ToInt64(CapacityCycle_Lb.Tag) <= 0 && MessageBox.Show(this, "ظرفیت ثبت نام گروه انتخابی پر شده، آیا مایل به این هستید که گروه دیگری را انتخاب کنید؟", "محدودیت ظرفیت ثبت نام", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+               //SexFltr_Pkb_PickCheckedChange(null);
+               Cbmt_Gv.ActiveFilterString = string.Format("[Sex_Type] = '{0}' AND MTOD_CODE = {1} OR [Sex_Type] = '003' AND MTOD_CODE = {1}", SexFltr_Pkb.PickChecked ? "001" : "002", expn.MTOD_CODE);
+               CbmtCode_Lov.Focus();
+               return;
+            }
+
+            var _crntcbmt = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.CODE == (long)CbmtCode_Lov.EditValue);
+            // 1401/07/18 * روز سرنگونی حکومت فاسر آخوندی
+            StrtTime_Te.EditValue = _crntcbmt.STRT_TIME;
+            EndTime_Te.EditValue = _crntcbmt.END_TIME;
+
+            Btn_RqstRqt3_Click(null, null);
          }
-         catch (Exception )
+         catch (Exception)
          {
             MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
          }
@@ -2279,15 +2260,23 @@ namespace System.Scsc.Ui.Admission
 
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {                  
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "Add User Info"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
-               });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = 
+                           new XElement("DeviceControlFunction", 
+                              new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.1" /* Add Face */ : "5.2.3.8" /* Add Finger */)), 
+                              new XAttribute("funcdesc", "Add User Info"), 
+                              new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                           )
+                     }
+                  })
+            );
          }
-         catch (Exception exc) { }
+         catch { }
       }
 
       private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
@@ -2296,15 +2285,23 @@ namespace System.Scsc.Ui.Admission
          {
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            Job _InteractWithScsc =
+            _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",
                   new List<Job>
-                     {                  
-                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.5"), new XAttribute("funcdesc", "Delete User Info"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
-                     });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = 
+                           new XElement("DeviceControlFunction", 
+                              new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.2" /* Delete Face */ : "5.2.3.5" /* Delete Finger */)), 
+                              new XAttribute("funcdesc", "Delete User Info"), 
+                              new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                           )
+                     }
+                  })
+            );
          }
-         catch (Exception exc) { }
+         catch { }
       }
 
       private void RqstBnDuplicateFngrPrnt1_Click(object sender, EventArgs e)
@@ -2313,15 +2310,22 @@ namespace System.Scsc.Ui.Admission
          {
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {                  
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.7.2"), new XAttribute("funcdesc", "Duplicate User Info Into All Device"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
-               });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = new XElement("DeviceControlFunction", 
+                           new XAttribute("functype", "5.2.7.2" /* Duplicate */), 
+                           new XAttribute("funcdesc", "Duplicate User Info Into All Device"), 
+                           new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                        )
+                     }
+                  })
+            );
          }
-         catch (Exception exc) { }
+         catch { }
       }
 
       private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
@@ -2653,7 +2657,7 @@ namespace System.Scsc.Ui.Admission
 
             if(ListMbspBs.List.Count > 0)
             {
-               Adm_Tc.SelectedTab = tp_006;
+               Adm_Tc.SelectedTab = More_Tp;
                More_Tc.SelectedTab = tp_007;
                CochName_Txt.Text = _cbmt.Fighter.NAME_DNRM;
                MtodName_Txt.Text = _cbmt.Method.MTOD_DESC;
@@ -2728,7 +2732,7 @@ namespace System.Scsc.Ui.Admission
             switch (e.Button.Index)
             {
                case 1:
-                  Adm_Tc.SelectedTab = tp_006;
+                  Adm_Tc.SelectedTab = More_Tp;
                   More_Tc.SelectedTab = tp_008;
                   Rcpt2OthrAcnt2_Lov.EditValue = _pmmt.RCPT_TO_OTHR_ACNT;
                   Rcpt2OthrAcnt2_Lov_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(Rcpt2OthrAcnt2_Lov.Properties.Buttons[1]));
@@ -3012,6 +3016,127 @@ namespace System.Scsc.Ui.Admission
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void MbspActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _mbsp = MbspBs.Current as Data.Member_Ship;
+            if (_mbsp == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  CbmtCode_Lov.EditValue = _mbsp.FGPB_CBMT_CODE_DNRM;
+                  CtgyCode_Lov.EditValue = _mbsp.FGPB_CTGY_CODE_DNRM;
+                  StrtDate_DateTime003.Value = _mbsp.END_DATE.Value.Date.AddDays(1);
+                  Btn_AutoCalcAttn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void CretMbss_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mbsp = MbspBs3.Current as Data.Member_Ship;
+            if (_mbsp == null) return;
+
+            iScsc.CRET_MBSS_P(
+               new XElement("Param",
+                   new XAttribute("rqrorqstrqid", _mbsp.RQRO_RQST_RQID),
+                   new XAttribute("rqrorwno", _mbsp.RQRO_RWNO),
+                   new XAttribute("fileno", _mbsp.FIGH_FILE_NO),
+                   new XAttribute("rwno", _mbsp.RWNO),
+                   new XAttribute("rectcode", _mbsp.RECT_CODE),
+                   new XAttribute("strtdate", _mbsp.STRT_DATE.Value.ToString("yyyy-MM-dd")),
+                   new XAttribute("enddate", _mbsp.END_DATE.Value.ToString("yyyy-MM-dd")),
+                   new XAttribute("attnnumb", _mbsp.NUMB_OF_ATTN_MONT),
+                   new XAttribute("cbmtcode", CbmtCode_Lov.EditValue ?? 0)
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelMbss_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mbsp = MbspBs3.Current as Data.Member_Ship;
+            if (_mbsp == null) return;
+
+            if (_mbsp.Member_Ship_Sessions.Any() && MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+            iScsc.ExecuteCommand(
+               string.Format("DELETE dbo.Member_Ship_Session WHERE Rqro_Rqst_Rqid = {0} AND Rqro_Rwno = {1}", _mbsp.RQRO_RQST_RQID, _mbsp.RQRO_RWNO)
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveMbss_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Mbss_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ShowInfoMbss_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mbsp = MbspBs3.Current as Data.Member_Ship;
+            if (_mbsp == null) return;
+
+            Adm_Tc.SelectedTab = More_Tp;
+            More_Tc.SelectedTab = tp_010;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }  
       }
    }
 }

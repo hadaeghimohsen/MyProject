@@ -28,15 +28,12 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          this.panel1 = new System.Windows.Forms.Panel();
-         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-         this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-         this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
-         this.Sb_Profile1 = new DevExpress.XtraEditors.SimpleButton();
-         this.UserBs = new System.Windows.Forms.BindingSource(this.components);
          this.SubmitChange_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
+         this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+         this.Sb_Profile1 = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
@@ -68,6 +65,8 @@
          this.simpleButton29 = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton30 = new DevExpress.XtraEditors.SimpleButton();
          this.simpleButton31 = new DevExpress.XtraEditors.SimpleButton();
+         this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
+         this.UserBs = new System.Windows.Forms.BindingSource();
          this.SelectImage_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ImageFile_Ofd = new System.Windows.Forms.OpenFileDialog();
          this.panel1.SuspendLayout();
@@ -86,6 +85,22 @@
          this.panel1.Size = new System.Drawing.Size(952, 59);
          this.panel1.TabIndex = 0;
          // 
+         // SubmitChange_Butn
+         // 
+         this.SubmitChange_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.SubmitChange_Butn.Appearance.Options.UseBackColor = true;
+         this.SubmitChange_Butn.Dock = System.Windows.Forms.DockStyle.Left;
+         this.SubmitChange_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1440;
+         this.SubmitChange_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.SubmitChange_Butn.Location = new System.Drawing.Point(0, 0);
+         this.SubmitChange_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.SubmitChange_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.SubmitChange_Butn.Name = "SubmitChange_Butn";
+         this.SubmitChange_Butn.Size = new System.Drawing.Size(61, 59);
+         this.SubmitChange_Butn.TabIndex = 2;
+         this.SubmitChange_Butn.ToolTip = "ذخیره اطلاعات";
+         this.SubmitChange_Butn.Click += new System.EventHandler(this.SubmitChange_Butn_Click);
+         // 
          // labelControl1
          // 
          this.labelControl1.Appearance.Font = new System.Drawing.Font("B Koodak", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
@@ -100,6 +115,22 @@
          this.labelControl1.Size = new System.Drawing.Size(152, 59);
          this.labelControl1.TabIndex = 1;
          this.labelControl1.Text = "گالری تصاویر";
+         // 
+         // Back_Butn
+         // 
+         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(248)))));
+         this.Back_Butn.Appearance.Options.UseBackColor = true;
+         this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.Back_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1371;
+         this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.Back_Butn.Location = new System.Drawing.Point(891, 0);
+         this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Back_Butn.Name = "Back_Butn";
+         this.Back_Butn.Size = new System.Drawing.Size(61, 59);
+         this.Back_Butn.TabIndex = 0;
+         this.Back_Butn.ToolTip = "بازگشت";
+         this.Back_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
          // flowLayoutPanel1
          // 
@@ -144,18 +175,6 @@
          this.flowLayoutPanel1.Size = new System.Drawing.Size(899, 275);
          this.flowLayoutPanel1.TabIndex = 1;
          // 
-         // labelControl5
-         // 
-         this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl5.Appearance.Font = new System.Drawing.Font("B Traffic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Black;
-         this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl5.Location = new System.Drawing.Point(671, 76);
-         this.labelControl5.Name = "labelControl5";
-         this.labelControl5.Size = new System.Drawing.Size(253, 24);
-         this.labelControl5.TabIndex = 12;
-         this.labelControl5.Text = "لطفا عکس مورد علاقه خود را انتخاب کنید";
-         // 
          // Sb_Profile1
          // 
          this.Sb_Profile1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -178,43 +197,6 @@
          this.Sb_Profile1.Size = new System.Drawing.Size(80, 80);
          this.Sb_Profile1.TabIndex = 3;
          this.Sb_Profile1.Click += new System.EventHandler(this.Sb_Profile1_Click);
-         // 
-         // UserBs
-         // 
-         this.UserBs.DataSource = typeof(System.DataGuard.Data.User);
-         this.UserBs.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.UserBs_ListChanged);
-         // 
-         // SubmitChange_Butn
-         // 
-         this.SubmitChange_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.SubmitChange_Butn.Appearance.Options.UseBackColor = true;
-         this.SubmitChange_Butn.Dock = System.Windows.Forms.DockStyle.Left;
-         this.SubmitChange_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1440;
-         this.SubmitChange_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.SubmitChange_Butn.Location = new System.Drawing.Point(0, 0);
-         this.SubmitChange_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.SubmitChange_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.SubmitChange_Butn.Name = "SubmitChange_Butn";
-         this.SubmitChange_Butn.Size = new System.Drawing.Size(61, 59);
-         this.SubmitChange_Butn.TabIndex = 2;
-         this.SubmitChange_Butn.ToolTip = "بازگشت";
-         this.SubmitChange_Butn.Click += new System.EventHandler(this.SubmitChange_Butn_Click);
-         // 
-         // Back_Butn
-         // 
-         this.Back_Butn.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(24)))), ((int)(((byte)(36)))), ((int)(((byte)(248)))));
-         this.Back_Butn.Appearance.Options.UseBackColor = true;
-         this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
-         this.Back_Butn.Image = global::System.DataGuard.Properties.Resources.IMAGE_1371;
-         this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(891, 0);
-         this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.Back_Butn.Name = "Back_Butn";
-         this.Back_Butn.Size = new System.Drawing.Size(61, 59);
-         this.Back_Butn.TabIndex = 0;
-         this.Back_Butn.ToolTip = "بازگشت";
-         this.Back_Butn.Click += new System.EventHandler(this.Back_Butn_Click);
          // 
          // simpleButton1
          // 
@@ -928,6 +910,23 @@
          this.simpleButton31.Size = new System.Drawing.Size(80, 80);
          this.simpleButton31.TabIndex = 34;
          this.simpleButton31.Click += new System.EventHandler(this.Sb_Profile1_Click);
+         // 
+         // labelControl5
+         // 
+         this.labelControl5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl5.Appearance.Font = new System.Drawing.Font("B Traffic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Black;
+         this.labelControl5.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+         this.labelControl5.Location = new System.Drawing.Point(671, 76);
+         this.labelControl5.Name = "labelControl5";
+         this.labelControl5.Size = new System.Drawing.Size(253, 24);
+         this.labelControl5.TabIndex = 12;
+         this.labelControl5.Text = "لطفا عکس مورد علاقه خود را انتخاب کنید";
+         // 
+         // UserBs
+         // 
+         this.UserBs.DataSource = typeof(System.DataGuard.Data.User);
+         this.UserBs.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.UserBs_ListChanged);
          // 
          // SelectImage_Butn
          // 

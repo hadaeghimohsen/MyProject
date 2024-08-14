@@ -146,6 +146,7 @@
          this.colSEX_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DSxtpBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.colRWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.LoadInfo_Cbx = new System.MaxUi.CheckButton();
          this.ServProFile_Rb = new System.MaxUi.RoundedButton();
@@ -470,6 +471,8 @@
          // 
          // ExitTime_Clm
          // 
+         this.ExitTime_Clm.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.ExitTime_Clm.AppearanceCell.Options.UseBackColor = true;
          this.ExitTime_Clm.Caption = "ساعت خروج";
          this.ExitTime_Clm.ColumnEdit = this.repositoryItemTimeEdit1;
          this.ExitTime_Clm.FieldName = "EXIT_TIME";
@@ -782,7 +785,8 @@
             this.colATTN_SYS_TYPE,
             this.colRTNG_NUMB,
             this.colDebtDnrm,
-            this.colSEX_TYPE});
+            this.colSEX_TYPE,
+            this.colRWNO1});
          styleFormatCondition1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          styleFormatCondition1.Appearance.Options.UseBackColor = true;
          styleFormatCondition1.ApplyToRow = true;
@@ -826,7 +830,7 @@
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
          this.FileNo_Clm.Visible = true;
          this.FileNo_Clm.VisibleIndex = 11;
-         this.FileNo_Clm.Width = 131;
+         this.FileNo_Clm.Width = 169;
          // 
          // colATTN_DATE
          // 
@@ -858,7 +862,7 @@
          this.CochFileNo_Clm.OptionsColumn.ReadOnly = true;
          this.CochFileNo_Clm.Visible = true;
          this.CochFileNo_Clm.VisibleIndex = 6;
-         this.CochFileNo_Clm.Width = 54;
+         this.CochFileNo_Clm.Width = 50;
          // 
          // repositoryItemLookUpEdit1
          // 
@@ -882,6 +886,8 @@
          // 
          // EnterTime_Clm
          // 
+         this.EnterTime_Clm.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+         this.EnterTime_Clm.AppearanceCell.Options.UseBackColor = true;
          this.EnterTime_Clm.Caption = "ساعت ورود";
          this.EnterTime_Clm.ColumnEdit = this.repositoryItemTimeEdit1;
          this.EnterTime_Clm.FieldName = "ENTR_TIME";
@@ -961,7 +967,7 @@
          this.gridColumn1.Name = "gridColumn1";
          this.gridColumn1.Visible = true;
          this.gridColumn1.VisibleIndex = 0;
-         this.gridColumn1.Width = 108;
+         this.gridColumn1.Width = 101;
          // 
          // Actn_Butn
          // 
@@ -985,7 +991,7 @@
          this.MtodCode_Clm.OptionsColumn.ReadOnly = true;
          this.MtodCode_Clm.Visible = true;
          this.MtodCode_Clm.VisibleIndex = 5;
-         this.MtodCode_Clm.Width = 54;
+         this.MtodCode_Clm.Width = 50;
          // 
          // repositoryItemLookUpEdit2
          // 
@@ -1012,7 +1018,7 @@
          this.CtgyCode_Clm.OptionsColumn.ReadOnly = true;
          this.CtgyCode_Clm.Visible = true;
          this.CtgyCode_Clm.VisibleIndex = 4;
-         this.CtgyCode_Clm.Width = 54;
+         this.CtgyCode_Clm.Width = 50;
          // 
          // repositoryItemLookUpEdit3
          // 
@@ -1039,7 +1045,7 @@
          this.colATTN_SYS_TYPE.OptionsColumn.ReadOnly = true;
          this.colATTN_SYS_TYPE.Visible = true;
          this.colATTN_SYS_TYPE.VisibleIndex = 3;
-         this.colATTN_SYS_TYPE.Width = 54;
+         this.colATTN_SYS_TYPE.Width = 50;
          // 
          // repositoryItemLookUpEdit5
          // 
@@ -1065,7 +1071,7 @@
          this.colRTNG_NUMB.Name = "colRTNG_NUMB";
          this.colRTNG_NUMB.Visible = true;
          this.colRTNG_NUMB.VisibleIndex = 2;
-         this.colRTNG_NUMB.Width = 40;
+         this.colRTNG_NUMB.Width = 37;
          // 
          // colDebtDnrm
          // 
@@ -1080,7 +1086,7 @@
          this.colDebtDnrm.OptionsColumn.ReadOnly = true;
          this.colDebtDnrm.Visible = true;
          this.colDebtDnrm.VisibleIndex = 9;
-         this.colDebtDnrm.Width = 66;
+         this.colDebtDnrm.Width = 62;
          // 
          // colSEX_TYPE
          // 
@@ -1092,6 +1098,7 @@
          this.colSEX_TYPE.OptionsColumn.ReadOnly = true;
          this.colSEX_TYPE.Visible = true;
          this.colSEX_TYPE.VisibleIndex = 10;
+         this.colSEX_TYPE.Width = 70;
          // 
          // repositoryItemLookUpEdit6
          // 
@@ -1107,6 +1114,22 @@
          // DSxtpBs1
          // 
          this.DSxtpBs1.DataSource = typeof(System.Scsc.Data.D_SXTP);
+         // 
+         // colRWNO1
+         // 
+         this.colRWNO1.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.colRWNO1.AppearanceCell.Options.UseBackColor = true;
+         this.colRWNO1.AppearanceHeader.Options.UseTextOptions = true;
+         this.colRWNO1.AppearanceHeader.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.colRWNO1.Caption = "#";
+         this.colRWNO1.FieldName = "RWNO";
+         this.colRWNO1.Name = "colRWNO1";
+         this.colRWNO1.OptionsColumn.AllowEdit = false;
+         this.colRWNO1.OptionsColumn.FixedWidth = true;
+         this.colRWNO1.OptionsColumn.ReadOnly = true;
+         this.colRWNO1.Visible = true;
+         this.colRWNO1.VisibleIndex = 12;
+         this.colRWNO1.Width = 30;
          // 
          // splitContainerControl1
          // 
@@ -1147,14 +1170,12 @@
          // LoadInfo_Cbx
          // 
          this.LoadInfo_Cbx.Appearance = System.Windows.Forms.Appearance.Button;
-         this.LoadInfo_Cbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.LoadInfo_Cbx.Checked = true;
-         this.LoadInfo_Cbx.CheckState = System.Windows.Forms.CheckState.Checked;
-         this.LoadInfo_Cbx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.LoadInfo_Cbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.LoadInfo_Cbx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
          this.LoadInfo_Cbx.FlatAppearance.BorderSize = 0;
-         this.LoadInfo_Cbx.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.LoadInfo_Cbx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.LoadInfo_Cbx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.LoadInfo_Cbx.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.LoadInfo_Cbx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.LoadInfo_Cbx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
          this.LoadInfo_Cbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.LoadInfo_Cbx.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.LoadInfo_Cbx.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -3539,7 +3560,7 @@
          this.tp_002.Location = new System.Drawing.Point(4, 23);
          this.tp_002.Name = "tp_002";
          this.tp_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_002.Size = new System.Drawing.Size(860, 997);
+         this.tp_002.Size = new System.Drawing.Size(860, 1019);
          this.tp_002.TabIndex = 1;
          this.tp_002.Text = "لیست غایب ها";
          this.tp_002.UseVisualStyleBackColor = true;
@@ -3556,7 +3577,7 @@
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.persianRepositoryItemDateEdit1,
             this.AttnActn_Butn});
-         this.gridControl1.Size = new System.Drawing.Size(854, 991);
+         this.gridControl1.Size = new System.Drawing.Size(854, 1013);
          this.gridControl1.TabIndex = 1;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView2});
@@ -4149,5 +4170,6 @@
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn72;
       private Windows.Forms.BindingSource OldDefWristBs;
       private MaxUi.CheckButton LoadInfo_Cbx;
+      private DevExpress.XtraGrid.Columns.GridColumn colRWNO1;
    }
 }

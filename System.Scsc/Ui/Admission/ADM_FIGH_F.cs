@@ -70,22 +70,22 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            var Rqst = RqstBs1.Current as Data.Request;
+            var _rqst = RqstBs1.Current as Data.Request;
 
-            if (Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3))
+            if (_rqst.SSTT_MSTT_CODE == 2 && (_rqst.SSTT_CODE == 1 || _rqst.SSTT_CODE == 2 || _rqst.SSTT_CODE == 3))
             {
                Gb_Expense.Visible = true;
                //Btn_RqstDelete1.Visible = true;
                //Btn_RqstSav1.Visible = false;
                RqstBnASav1.Enabled = false;
             }
-            else if (!(Rqst.SSTT_MSTT_CODE == 2 && (Rqst.SSTT_CODE == 1 || Rqst.SSTT_CODE == 2 || Rqst.SSTT_CODE == 3)) && Rqst.RQID > 0)
+            else if (!(_rqst.SSTT_MSTT_CODE == 2 && (_rqst.SSTT_CODE == 1 || _rqst.SSTT_CODE == 2 || _rqst.SSTT_CODE == 3)) && _rqst.RQID > 0)
             {
                Gb_Expense.Visible = false;
                //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = true;
                RqstBnASav1.Enabled = true;
             }
-            else if (Rqst.RQID == 0)
+            else if (_rqst.RQID == 0)
             {
                Gb_Expense.Visible = false;
                //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
@@ -93,6 +93,13 @@ namespace System.Scsc.Ui.Admission
                RqstBnASav1.Enabled = false;
                RQTT_CODE_LookUpEdit1.EditValue = "001";
                RefDesc_Txt.EditValue = "";
+            }
+
+            var _mbsp = _rqst.Request_Rows.FirstOrDefault().Member_Ships.FirstOrDefault();
+            if (_mbsp != null)
+            {
+               Hldy_gv.ActiveFilterString =
+                  string.Format("Hldy_Date >= #{0}# AND Hldy_Date <= #{1}#", _mbsp.STRT_DATE.Value.ToShortDateString(), _mbsp.END_DATE.Value.ToShortDateString());
             }
          }
          catch
@@ -1070,15 +1077,23 @@ namespace System.Scsc.Ui.Admission
 
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {                  
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "Add User Info"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
-               });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = 
+                           new XElement("DeviceControlFunction", 
+                              new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.1" /* Add Face */ : "5.2.3.8" /* Add Finger */)), 
+                              new XAttribute("funcdesc", "Add User Info"), 
+                              new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                           )
+                     }
+                  })
+            );
          }
-         catch (Exception exc) { }
+         catch { }
       }
 
       private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
@@ -1087,15 +1102,23 @@ namespace System.Scsc.Ui.Admission
          {
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            Job _InteractWithScsc =
+            _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",
                   new List<Job>
-                     {                  
-                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.5"), new XAttribute("funcdesc", "Delete User Info"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
-                     });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = 
+                           new XElement("DeviceControlFunction", 
+                              new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.2" /* Delete Face */ : "5.2.3.5" /* Delete Finger */)), 
+                              new XAttribute("funcdesc", "Delete User Info"), 
+                              new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                           )
+                     }
+                  })
+            );
          }
-         catch (Exception exc) { }
+         catch { }
       }
 
       private void RqstBnDuplicateFngrPrnt1_Click(object sender, EventArgs e)
@@ -1104,15 +1127,22 @@ namespace System.Scsc.Ui.Admission
          {
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {                  
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.7.2"), new XAttribute("funcdesc", "Duplicate User Info Into All Device"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
-               });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = new XElement("DeviceControlFunction", 
+                           new XAttribute("functype", "5.2.7.2" /* Duplicate */), 
+                           new XAttribute("funcdesc", "Duplicate User Info Into All Device"), 
+                           new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                        )
+                     }
+                  })
+            );
          }
-         catch (Exception exc) { }
+         catch { }
       }
 
       private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
@@ -2641,6 +2671,104 @@ namespace System.Scsc.Ui.Admission
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void CretMbss_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mbsp = MbspBs1.Current as Data.Member_Ship;
+            if (_mbsp == null) return;
+
+            var _fgpb = FgpbsBs1.Current as Data.Fighter_Public;
+
+            iScsc.CRET_MBSS_P(
+               new XElement("Param",
+                   new XAttribute("rqrorqstrqid", _mbsp.RQRO_RQST_RQID),
+                   new XAttribute("rqrorwno", _mbsp.RQRO_RWNO),
+                   new XAttribute("fileno", _mbsp.FIGH_FILE_NO),
+                   new XAttribute("rwno", _mbsp.RWNO),
+                   new XAttribute("rectcode", _mbsp.RECT_CODE),
+                   new XAttribute("strtdate", _mbsp.STRT_DATE.Value.ToString("yyyy-MM-dd")),
+                   new XAttribute("enddate", _mbsp.END_DATE.Value.ToString("yyyy-MM-dd")),
+                   new XAttribute("attnnumb", _mbsp.NUMB_OF_ATTN_MONT),
+                   new XAttribute("cbmtcode", _fgpb.CBMT_CODE)
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelMbss_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mbsp = MbspBs1.Current as Data.Member_Ship;
+            if (_mbsp == null) return;
+
+            if (_mbsp.Member_Ship_Sessions.Any() && MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+            iScsc.ExecuteCommand(
+               string.Format("DELETE dbo.Member_Ship_Session WHERE Rqro_Rqst_Rqid = {0} AND Rqro_Rwno = {1}", _mbsp.RQRO_RQST_RQID, _mbsp.RQRO_RWNO)
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveMbss_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Mbss_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ShowInfoMbss_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mbsp = MbspBs1.Current as Data.Member_Ship;
+            if (_mbsp == null) return;
+
+            Adm_Tc.SelectedTab = More_Tp;
+            More_Tc.SelectedTab = tp_010;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }         
       }
    }
 }

@@ -1007,6 +1007,7 @@ namespace System.Scsc.Ui.Common
                   }
                   break;
                case 2:
+                  return;
                   checkOK = true;
                   #region Check Security
                   _InteractWithScsc =
@@ -1036,7 +1037,7 @@ namespace System.Scsc.Ui.Common
                            });
                   _DefaultGateway.Gateway(_InteractWithScsc);
                   #endregion
-                  if(checkOK)
+                  if (checkOK)
                   {
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "localhost",
@@ -1056,12 +1057,41 @@ namespace System.Scsc.Ui.Common
                      );
                   }
                   break;
+               case 3:
+                  if (pd.Request_Row.RQTP_CODE != "016") return;
+                  if (MessageBox.Show(this, "آیا با حذف صاحب هزینه موافق هستید؟", "حذف صاحب هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+                  if (ModifierKeys == Keys.Control)
+                  {
+                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET FIGH_FILE_NO = NULL WHERE Pymt_Rqst_Rqid = {0} AND FIGH_FILE_NO = {1};", pd.PYMT_RQST_RQID, pd.FIGH_FILE_NO));
+                  }
+                  else
+                  {
+                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET FIGH_FILE_NO = NULL WHERE Code = {0};", pd.CODE));
+                  }
+
+                  requery = true;
+                  break;
+               case 4:
+                  if (pd.Request_Row.RQTP_CODE != "016") return;
+                  if (MessageBox.Show(this, "آیا با حذف رکورد هزینه خدمات وابسته به دوره موافق هستید؟", "حذف رکورد خدمات وابسته به دوره", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+
+                  if (ModifierKeys == Keys.Control)
+                  {
+                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET Mbsp_Figh_File_No = NULL, Mbsp_Rwno = NULL, Mbsp_Rect_Code = NULL WHERE Pymt_Rqst_Rqid = {0} AND FIGH_FILE_NO = {1};", pd.PYMT_RQST_RQID, pd.FIGH_FILE_NO));
+                  }
+                  else
+                  {
+                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET Mbsp_Figh_File_No = NULL, Mbsp_Rwno = NULL, Mbsp_Rect_Code = NULL WHERE Code = {0};", pd.CODE));
+                  }
+
+                  requery = true;
+                  break;
                default:
                   break;
             }
          }
-         catch (Exception )
-         {}
+         catch { }
          finally
          {
             if(requery)
@@ -1917,15 +1947,23 @@ namespace System.Scsc.Ui.Common
 
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {                  
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "Add User Info"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
-               });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = 
+                           new XElement("DeviceControlFunction", 
+                              new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.1" /* Add Face */ : "5.2.3.8" /* Add Finger */)), 
+                              new XAttribute("funcdesc", "Add User Info"), 
+                              new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                           )
+                     }
+                  })
+            );
          }
-         catch (Exception exc) { }
+         catch { }
       }
 
       private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
@@ -1934,13 +1972,21 @@ namespace System.Scsc.Ui.Common
          {
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {                  
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.5"), new XAttribute("funcdesc", "Delete User Info"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
-               });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = 
+                           new XElement("DeviceControlFunction", 
+                              new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.2" /* Delete Face */ : "5.2.3.5" /* Delete Finger */)), 
+                              new XAttribute("funcdesc", "Delete User Info"), 
+                              new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                           )
+                     }
+                  })
+            );
          }
          catch (Exception exc) { }
       }
@@ -1951,13 +1997,20 @@ namespace System.Scsc.Ui.Common
          {
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {                  
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.7.2"), new XAttribute("funcdesc", "Duplicate User Info Into All Device"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
-               });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = new XElement("DeviceControlFunction", 
+                           new XAttribute("functype", "5.2.7.2" /* Duplicate */), 
+                           new XAttribute("funcdesc", "Duplicate User Info Into All Device"), 
+                           new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                        )
+                     }
+                  })
+            );
          }
          catch (Exception exc) { }
       }
@@ -5255,6 +5308,102 @@ namespace System.Scsc.Ui.Common
             }
 
             Refresh_Butn_Click(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ActnMbsp_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (_pydt == null) return;
+
+            var _mbsp = MbspBs.Current as Data.Member_Ship;
+            if (_mbsp == null) return;
+
+            if (_pydt.Request_Row.RQTP_CODE != "016") return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  if (_pydt.MBSP_RWNO == _mbsp.RWNO) return;
+                  if (_pydt.MBSP_RWNO != null && MessageBox.Show(this, "آیا با ویرایش کردن ردیف تمدید دوره موافق هستید؟", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET Mbsp_Figh_File_No = {1}, Mbsp_Rwno = {2}, Mbsp_Rect_Code = '004' WHERE Code = {0};", _pydt.CODE, fileno, _mbsp.RWNO));
+                  requery = true;
+                  break;
+               default:
+                  break;
+            }
+            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               UpdateDebt_Btn_Click(null, null);
+               //Execute_Query();
+               tb_master.SelectedTab = tp_003;
+            }
+         }
+      }
+
+      private void ActnCbmt_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (_pydt == null) return;
+
+            var _cbmt = CbmtBs1.Current as Data.Club_Method;
+            if (_cbmt == null) return;
+
+            if (_pydt.Request_Row.RQTP_CODE != "016") return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  if (_pydt.CBMT_CODE_DNRM == _cbmt.CODE && _pydt.FIGH_FILE_NO == _cbmt.COCH_FILE_NO) return;
+                  if (_pydt.FIGH_FILE_NO != null && MessageBox.Show(this, "آیا با اصلاح صاحب هزینه آیتم درآمد موافق هستید؟", "اصلاح صاحب هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET Cbmt_Code_DNRM = {1}, Figh_File_No = {2} WHERE Code = {0};", _pydt.CODE, _cbmt.CODE, _cbmt.COCH_FILE_NO));
+                  requery = true;
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               UpdateDebt_Btn_Click(null, null);
+               //Execute_Query();
+               tb_master.SelectedTab = tp_003;
+            }
+         }
+      }
+
+      private void PydtsBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+            if (_pydt == null) return;
+
+            PdCbmt_Gv.ActiveFilterString = string.Format("Mtod_Code = {0}", _pydt.MTOD_CODE_DNRM);
          }
          catch (Exception exc)
          {

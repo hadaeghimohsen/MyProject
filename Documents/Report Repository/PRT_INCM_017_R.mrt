@@ -1198,12 +1198,12 @@ WHERE {WhereClause}</SqlCommand>
         <DataPayment_Detail Ref="58" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,8.4,6.4,0.4</ClientRectangle>
+          <ClientRectangle>0,8.4,6.4,0.6</ClientRectangle>
           <Components isList="true" count="4">
             <DataPayment_Detail_EXPN_PRIC Ref="59" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,1.2,0.4</ClientRectangle>
+              <ClientRectangle>0,0,1.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,10</Font>
               <HorAlignment>Center</HorAlignment>
@@ -1225,7 +1225,7 @@ WHERE {WhereClause}</SqlCommand>
             <DataPayment_Detail_EXPN_CODE Ref="61" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>2,0,2.6,0.4</ClientRectangle>
+              <ClientRectangle>2,0,2.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,10</Font>
               <HorAlignment>Center</HorAlignment>
@@ -1242,7 +1242,7 @@ WHERE {WhereClause}</SqlCommand>
             <Text4 Ref="62" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.6,0,1.8,0.4</ClientRectangle>
+              <ClientRectangle>4.6,0,1.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,10</Font>
               <Guid>7ef219615fd045fb8b1989003628f09c</Guid>
@@ -1261,7 +1261,7 @@ WHERE {WhereClause}</SqlCommand>
             <Text22 Ref="63" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.2,0,0.8,0.4</ClientRectangle>
+              <ClientRectangle>1.2,0,0.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,10</Font>
               <Guid>6f5c730c9f9640b490f19a220d206be3</Guid>
@@ -1298,7 +1298,7 @@ WHERE {WhereClause}</SqlCommand>
         </DataPayment_Detail>
         <HeaderBand1 Ref="65" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,9.6,6.4,0.4</ClientRectangle>
+          <ClientRectangle>0,9.8,6.4,0.4</ClientRectangle>
           <Components isList="true" count="1">
             <Text23 Ref="66" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
@@ -1328,7 +1328,7 @@ WHERE {WhereClause}</SqlCommand>
         <DataPayment Ref="67" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,10.8,6.4,1.2</ClientRectangle>
+          <ClientRectangle>0,11,6.4,1.2</ClientRectangle>
           <Components isList="true" count="7">
             <DataPayment_SUM_EXPN_PRIC Ref="68" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
@@ -1477,7 +1477,7 @@ WHERE {WhereClause}</SqlCommand>
         </DataPayment>
         <FooterRequest_Parameter Ref="78" type="FooterBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,12.8,6.4,0.8</ClientRectangle>
+          <ClientRectangle>0,13,6.4,0.8</ClientRectangle>
           <Components isList="true" count="2">
             <Text1 Ref="79" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
@@ -1524,7 +1524,7 @@ WHERE {WhereClause}</SqlCommand>
         </FooterRequest_Parameter>
         <HeaderPayment_Method Ref="81" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,14.4,6.4,0.4</ClientRectangle>
+          <ClientRectangle>0,14.6,6.4,0.4</ClientRectangle>
           <Components isList="true" count="5">
             <HeaderPayment_Method_AMNT Ref="82" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
@@ -1621,12 +1621,12 @@ WHERE {WhereClause}</SqlCommand>
         <DataPayment_Method Ref="87" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,15.6,6.4,0.4</ClientRectangle>
+          <ClientRectangle>0,15.8,6.4,0.6</ClientRectangle>
           <Components isList="true" count="5">
             <DataPayment_Method_AMNT Ref="88" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.6,0,1.2,0.4</ClientRectangle>
+              <ClientRectangle>4.6,0,1.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,8</Font>
               <HorAlignment>Center</HorAlignment>
@@ -1649,7 +1649,7 @@ WHERE {WhereClause}</SqlCommand>
             <DataPayment_Method_PMMT_RCMT_FK_DOMN_DESC Ref="90" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>1.4,0,1.6,0.4</ClientRectangle>
+              <ClientRectangle>1.4,0,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,8</Font>
               <HorAlignment>Center</HorAlignment>
@@ -1666,7 +1666,7 @@ WHERE {WhereClause}</SqlCommand>
             <DataPayment_Method_FLOW_NO Ref="91" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,1.4,0.4</ClientRectangle>
+              <ClientRectangle>0,0,1.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,8</Font>
               <HorAlignment>Center</HorAlignment>
@@ -1683,7 +1683,7 @@ WHERE {WhereClause}</SqlCommand>
             <DataPayment_Method_RWNO Ref="92" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>5.8,0,0.6,0.4</ClientRectangle>
+              <ClientRectangle>5.8,0,0.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,8</Font>
               <HorAlignment>Center</HorAlignment>
@@ -1700,7 +1700,7 @@ WHERE {WhereClause}</SqlCommand>
             <Text11 Ref="93" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>3,0,1.6,0.4</ClientRectangle>
+              <ClientRectangle>3,0,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,8</Font>
               <Guid>12d31f2611c747249edf200509b1a5d8</Guid>
@@ -1732,7 +1732,7 @@ WHERE {WhereClause}</SqlCommand>
         </DataPayment_Method>
         <HeaderRequest_Parameter Ref="94" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,16.8,6.4,0.4</ClientRectangle>
+          <ClientRectangle>0,17.2,6.4,0.4</ClientRectangle>
           <Components isList="true" count="2">
             <HeaderRequest_Parameter_CMNT Ref="95" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
@@ -1777,12 +1777,12 @@ WHERE {WhereClause}</SqlCommand>
         <DataRequest_Parameter Ref="97" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,18,6.4,0.4</ClientRectangle>
+          <ClientRectangle>0,18.4,6.4,0.6</ClientRectangle>
           <Components isList="true" count="2">
             <DataRequest_Parameter_CMNT Ref="98" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>0,0,4.6,0.4</ClientRectangle>
+              <ClientRectangle>0,0,4.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,10</Font>
               <HorAlignment>Center</HorAlignment>
@@ -1799,7 +1799,7 @@ WHERE {WhereClause}</SqlCommand>
             <DataRequest_Parameter_RQPM_LINK_APBS_FK_TITL_DESC Ref="99" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <ClientRectangle>4.6,0,1.8,0.4</ClientRectangle>
+              <ClientRectangle>4.6,0,1.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,10</Font>
               <HorAlignment>Center</HorAlignment>
@@ -1850,10 +1850,10 @@ WHERE {WhereClause}</SqlCommand>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>1/17/2024 9:47:55 AM</ReportChanged>
+  <ReportChanged>5/10/2024 5:52:36 PM</ReportChanged>
   <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_INCM_017_R.mrt</ReportFile>
-  <ReportGuid>0a0905aa4fea4553bbc1de47623c2954</ReportGuid>
+  <ReportGuid>a859978cba2b4970b21e4dc734907d20</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

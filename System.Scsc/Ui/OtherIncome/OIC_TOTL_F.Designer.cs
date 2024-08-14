@@ -24893,7 +24893,7 @@
          this.ExpnDesc_Clm.OptionsColumn.FixedWidth = true;
          this.ExpnDesc_Clm.OptionsColumn.ReadOnly = true;
          this.ExpnDesc_Clm.Visible = true;
-         this.ExpnDesc_Clm.Width = 132;
+         this.ExpnDesc_Clm.Width = 161;
          // 
          // colOrdr_Item
          // 
@@ -24916,7 +24916,7 @@
          this.Pric_Clm.OptionsColumn.AllowEdit = false;
          this.Pric_Clm.OptionsColumn.ReadOnly = true;
          this.Pric_Clm.Visible = true;
-         this.Pric_Clm.Width = 88;
+         this.Pric_Clm.Width = 59;
          // 
          // colBRND_CODE
          // 

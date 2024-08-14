@@ -1181,6 +1181,7 @@ namespace System.Scsc.Ui.Common
             //AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
             
             CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
+            CbmtBs1.DataSource = iScsc.Club_Methods.Where(cm => cm.MTOD_STAT == "002" && cm.Method.MTOD_STAT == "002");
 
             //var crnt = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;
 

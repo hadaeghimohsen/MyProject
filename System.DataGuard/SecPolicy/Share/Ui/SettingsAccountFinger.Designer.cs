@@ -29,9 +29,9 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsAccountFinger));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.panel1 = new System.Windows.Forms.Panel();
          this.SubmitChange_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -147,7 +147,7 @@
          this.SubmitChange_Butn.Name = "SubmitChange_Butn";
          this.SubmitChange_Butn.Size = new System.Drawing.Size(61, 59);
          this.SubmitChange_Butn.TabIndex = 3;
-         this.SubmitChange_Butn.ToolTip = "بازگشت";
+         this.SubmitChange_Butn.ToolTip = "ذخیره اطلاعات";
          this.SubmitChange_Butn.Click += new System.EventHandler(this.SubmitChange_Butn_Click);
          // 
          // Back_Butn
@@ -263,7 +263,7 @@
          this.FngrDevStat_Pn.Controls.Add(this.labelControl9);
          this.FngrDevStat_Pn.Controls.Add(this.buttonEdit1);
          this.FngrDevStat_Pn.Controls.Add(this.pictureBox3);
-         this.FngrDevStat_Pn.Location = new System.Drawing.Point(187, 650);
+         this.FngrDevStat_Pn.Location = new System.Drawing.Point(170, 650);
          this.FngrDevStat_Pn.Name = "FngrDevStat_Pn";
          this.FngrDevStat_Pn.Size = new System.Drawing.Size(571, 334);
          this.FngrDevStat_Pn.TabIndex = 22;
@@ -409,7 +409,7 @@
          this.buttonEdit3.Properties.AppearanceFocused.Options.UseFont = true;
          this.buttonEdit3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit3.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit3.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.buttonEdit3.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.buttonEdit3.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.buttonEdit3.Properties.NullValuePromptShowForEmptyValue = true;
@@ -444,7 +444,7 @@
          this.buttonEdit2.Properties.AppearanceFocused.Options.UseFont = true;
          this.buttonEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit2.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit2.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.buttonEdit2.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.buttonEdit2.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.buttonEdit2.Properties.NullValuePromptShowForEmptyValue = true;
@@ -516,7 +516,7 @@
          this.buttonEdit1.Properties.AppearanceFocused.Options.UseFont = true;
          this.buttonEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.buttonEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.buttonEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.buttonEdit1.Properties.NullValuePromptShowForEmptyValue = true;
@@ -544,7 +544,7 @@
          this.StrLen_Lbl.Appearance.ForeColor = System.Drawing.Color.Black;
          this.StrLen_Lbl.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.StrLen_Lbl.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.StrLen_Lbl.Location = new System.Drawing.Point(249, 570);
+         this.StrLen_Lbl.Location = new System.Drawing.Point(232, 570);
          this.StrLen_Lbl.Name = "StrLen_Lbl";
          this.StrLen_Lbl.Size = new System.Drawing.Size(6, 13);
          this.StrLen_Lbl.TabIndex = 19;
@@ -558,7 +558,7 @@
          this.labelControl12.Appearance.ForeColor = System.Drawing.Color.Black;
          this.labelControl12.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl12.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl12.Location = new System.Drawing.Point(203, 570);
+         this.labelControl12.Location = new System.Drawing.Point(186, 570);
          this.labelControl12.Name = "labelControl12";
          this.labelControl12.Size = new System.Drawing.Size(40, 13);
          this.labelControl12.TabIndex = 19;
@@ -567,7 +567,7 @@
          // Ts_FingerDeviceStat
          // 
          this.Ts_FingerDeviceStat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Ts_FingerDeviceStat.Location = new System.Drawing.Point(764, 666);
+         this.Ts_FingerDeviceStat.Location = new System.Drawing.Point(747, 666);
          this.Ts_FingerDeviceStat.Name = "Ts_FingerDeviceStat";
          this.Ts_FingerDeviceStat.Properties.LookAndFeel.SkinName = "Office 2013";
          this.Ts_FingerDeviceStat.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -583,7 +583,7 @@
          this.labelControl5.Appearance.ForeColor = System.Drawing.Color.Gray;
          this.labelControl5.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl5.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl5.Location = new System.Drawing.Point(233, 626);
+         this.labelControl5.Location = new System.Drawing.Point(216, 626);
          this.labelControl5.Name = "labelControl5";
          this.labelControl5.Size = new System.Drawing.Size(601, 22);
          this.labelControl5.TabIndex = 19;
@@ -599,7 +599,7 @@
          this.labelControl8.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
          this.labelControl8.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.labelControl8.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl8.Location = new System.Drawing.Point(393, 307);
+         this.labelControl8.Location = new System.Drawing.Point(376, 307);
          this.labelControl8.Name = "labelControl8";
          this.labelControl8.Size = new System.Drawing.Size(442, 51);
          this.labelControl8.TabIndex = 19;
@@ -616,7 +616,7 @@
          this.simpleButton1.Appearance.Options.UseFont = true;
          this.simpleButton1.Appearance.Options.UseForeColor = true;
          this.simpleButton1.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.simpleButton1.Location = new System.Drawing.Point(203, 331);
+         this.simpleButton1.Location = new System.Drawing.Point(186, 331);
          this.simpleButton1.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.simpleButton1.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton1.Name = "simpleButton1";
@@ -627,7 +627,7 @@
          // textFngr
          // 
          this.textFngr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.textFngr.Location = new System.Drawing.Point(203, 364);
+         this.textFngr.Location = new System.Drawing.Point(186, 364);
          this.textFngr.Name = "textFngr";
          this.textFngr.ReadOnly = true;
          this.textFngr.Size = new System.Drawing.Size(420, 200);
@@ -648,7 +648,7 @@
          this.FngrIndx5_Butn.ImageProfile = null;
          this.FngrIndx5_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.FngrIndx5_Butn.ImageVisiable = true;
-         this.FngrIndx5_Butn.Location = new System.Drawing.Point(392, 134);
+         this.FngrIndx5_Butn.Location = new System.Drawing.Point(375, 134);
          this.FngrIndx5_Butn.Name = "FngrIndx5_Butn";
          this.FngrIndx5_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.FngrIndx5_Butn.NormalColorA = System.Drawing.Color.White;
@@ -673,7 +673,7 @@
          this.FngrIndx4_Butn.ImageProfile = null;
          this.FngrIndx4_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.FngrIndx4_Butn.ImageVisiable = true;
-         this.FngrIndx4_Butn.Location = new System.Drawing.Point(363, 134);
+         this.FngrIndx4_Butn.Location = new System.Drawing.Point(346, 134);
          this.FngrIndx4_Butn.Name = "FngrIndx4_Butn";
          this.FngrIndx4_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.FngrIndx4_Butn.NormalColorA = System.Drawing.Color.White;
@@ -698,7 +698,7 @@
          this.FngrIndx6_Butn.ImageProfile = null;
          this.FngrIndx6_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.FngrIndx6_Butn.ImageVisiable = true;
-         this.FngrIndx6_Butn.Location = new System.Drawing.Point(458, 68);
+         this.FngrIndx6_Butn.Location = new System.Drawing.Point(441, 68);
          this.FngrIndx6_Butn.Name = "FngrIndx6_Butn";
          this.FngrIndx6_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.FngrIndx6_Butn.NormalColorA = System.Drawing.Color.White;
@@ -723,7 +723,7 @@
          this.FngrIndx3_Butn.ImageProfile = null;
          this.FngrIndx3_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.FngrIndx3_Butn.ImageVisiable = true;
-         this.FngrIndx3_Butn.Location = new System.Drawing.Point(308, 65);
+         this.FngrIndx3_Butn.Location = new System.Drawing.Point(291, 65);
          this.FngrIndx3_Butn.Name = "FngrIndx3_Butn";
          this.FngrIndx3_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.FngrIndx3_Butn.NormalColorA = System.Drawing.Color.White;
@@ -748,7 +748,7 @@
          this.FngrIndx7_Butn.ImageProfile = null;
          this.FngrIndx7_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.FngrIndx7_Butn.ImageVisiable = true;
-         this.FngrIndx7_Butn.Location = new System.Drawing.Point(497, 56);
+         this.FngrIndx7_Butn.Location = new System.Drawing.Point(480, 56);
          this.FngrIndx7_Butn.Name = "FngrIndx7_Butn";
          this.FngrIndx7_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.FngrIndx7_Butn.NormalColorA = System.Drawing.Color.White;
@@ -773,7 +773,7 @@
          this.FngrIndx2_Butn.ImageProfile = null;
          this.FngrIndx2_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.FngrIndx2_Butn.ImageVisiable = true;
-         this.FngrIndx2_Butn.Location = new System.Drawing.Point(265, 56);
+         this.FngrIndx2_Butn.Location = new System.Drawing.Point(248, 56);
          this.FngrIndx2_Butn.Name = "FngrIndx2_Butn";
          this.FngrIndx2_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.FngrIndx2_Butn.NormalColorA = System.Drawing.Color.White;
@@ -798,7 +798,7 @@
          this.FngrIndx8_Butn.ImageProfile = null;
          this.FngrIndx8_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.FngrIndx8_Butn.ImageVisiable = true;
-         this.FngrIndx8_Butn.Location = new System.Drawing.Point(536, 68);
+         this.FngrIndx8_Butn.Location = new System.Drawing.Point(519, 68);
          this.FngrIndx8_Butn.Name = "FngrIndx8_Butn";
          this.FngrIndx8_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.FngrIndx8_Butn.NormalColorA = System.Drawing.Color.White;
@@ -823,7 +823,7 @@
          this.FngrIndx1_Butn.ImageProfile = null;
          this.FngrIndx1_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.FngrIndx1_Butn.ImageVisiable = true;
-         this.FngrIndx1_Butn.Location = new System.Drawing.Point(226, 68);
+         this.FngrIndx1_Butn.Location = new System.Drawing.Point(209, 68);
          this.FngrIndx1_Butn.Name = "FngrIndx1_Butn";
          this.FngrIndx1_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.FngrIndx1_Butn.NormalColorA = System.Drawing.Color.White;
@@ -848,7 +848,7 @@
          this.FngrIndx9_Butn.ImageProfile = null;
          this.FngrIndx9_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.FngrIndx9_Butn.ImageVisiable = true;
-         this.FngrIndx9_Butn.Location = new System.Drawing.Point(572, 99);
+         this.FngrIndx9_Butn.Location = new System.Drawing.Point(555, 99);
          this.FngrIndx9_Butn.Name = "FngrIndx9_Butn";
          this.FngrIndx9_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.FngrIndx9_Butn.NormalColorA = System.Drawing.Color.White;
@@ -873,7 +873,7 @@
          this.FngrIndx0_Butn.ImageProfile = null;
          this.FngrIndx0_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.FngrIndx0_Butn.ImageVisiable = true;
-         this.FngrIndx0_Butn.Location = new System.Drawing.Point(187, 99);
+         this.FngrIndx0_Butn.Location = new System.Drawing.Point(170, 99);
          this.FngrIndx0_Butn.Name = "FngrIndx0_Butn";
          this.FngrIndx0_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.FngrIndx0_Butn.NormalColorA = System.Drawing.Color.White;
@@ -888,7 +888,7 @@
          // 
          this.labelControl4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl4.Appearance.Font = new System.Drawing.Font("B Koodak", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl4.Location = new System.Drawing.Point(714, 573);
+         this.labelControl4.Location = new System.Drawing.Point(697, 573);
          this.labelControl4.Name = "labelControl4";
          this.labelControl4.Size = new System.Drawing.Size(165, 47);
          this.labelControl4.TabIndex = 13;
@@ -898,7 +898,7 @@
          // 
          this.labelControl6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.labelControl6.Appearance.Font = new System.Drawing.Font("B Koodak", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl6.Location = new System.Drawing.Point(729, 254);
+         this.labelControl6.Location = new System.Drawing.Point(712, 254);
          this.labelControl6.Name = "labelControl6";
          this.labelControl6.Size = new System.Drawing.Size(150, 47);
          this.labelControl6.TabIndex = 13;
@@ -911,7 +911,7 @@
          this.labelControl3.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.labelControl3.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.labelControl3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.UserBs, "TitleEn", true));
-         this.labelControl3.Location = new System.Drawing.Point(729, 201);
+         this.labelControl3.Location = new System.Drawing.Point(712, 201);
          this.labelControl3.Name = "labelControl3";
          this.labelControl3.Size = new System.Drawing.Size(150, 29);
          this.labelControl3.TabIndex = 14;
@@ -921,7 +921,7 @@
          // 
          this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.pictureBox2.Image = global::System.DataGuard.Properties.Resources.IMAGE_1676;
-         this.pictureBox2.Location = new System.Drawing.Point(187, 83);
+         this.pictureBox2.Location = new System.Drawing.Point(170, 83);
          this.pictureBox2.Name = "pictureBox2";
          this.pictureBox2.Size = new System.Drawing.Size(200, 200);
          this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -932,7 +932,7 @@
          // 
          this.FngrDevStat_Pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FngrDevStat_Pb.Image = global::System.DataGuard.Properties.Resources.IMAGE_1674;
-         this.FngrDevStat_Pb.Location = new System.Drawing.Point(839, 655);
+         this.FngrDevStat_Pb.Location = new System.Drawing.Point(822, 655);
          this.FngrDevStat_Pb.Name = "FngrDevStat_Pb";
          this.FngrDevStat_Pb.Size = new System.Drawing.Size(45, 45);
          this.FngrDevStat_Pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -943,7 +943,7 @@
          // 
          this.picFPImg.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.picFPImg.Image = global::System.DataGuard.Properties.Resources.IMAGE_1675;
-         this.picFPImg.Location = new System.Drawing.Point(629, 364);
+         this.picFPImg.Location = new System.Drawing.Point(612, 364);
          this.picFPImg.Name = "picFPImg";
          this.picFPImg.Size = new System.Drawing.Size(200, 200);
          this.picFPImg.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -954,7 +954,7 @@
          // 
          this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.pictureBox1.Image = global::System.DataGuard.Properties.Resources.IMAGE_1672;
-         this.pictureBox1.Location = new System.Drawing.Point(393, 83);
+         this.pictureBox1.Location = new System.Drawing.Point(376, 83);
          this.pictureBox1.Name = "pictureBox1";
          this.pictureBox1.Size = new System.Drawing.Size(200, 200);
          this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -966,7 +966,7 @@
          this.ImageAccount_Pb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.ImageAccount_Pb.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.UserBs, "USER_IMAG", true));
          this.ImageAccount_Pb.Image = global::System.DataGuard.Properties.Resources.IMAGE_1429;
-         this.ImageAccount_Pb.Location = new System.Drawing.Point(729, 45);
+         this.ImageAccount_Pb.Location = new System.Drawing.Point(712, 45);
          this.ImageAccount_Pb.Name = "ImageAccount_Pb";
          this.ImageAccount_Pb.Size = new System.Drawing.Size(150, 150);
          this.ImageAccount_Pb.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;

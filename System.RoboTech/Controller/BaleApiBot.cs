@@ -764,6 +764,8 @@ namespace System.RoboTech.Controller
          {
             if (!_Strt_Robo_F.Actn4Mesg_Cbx.Checked) return;
 
+            if (e.CallbackQuery.Message.Date.Date < DateTime.Now.Date) return;
+
             var callBackQuery = e.CallbackQuery;
             string data = callBackQuery.Data;
             #region HoldHistory
@@ -1500,6 +1502,8 @@ namespace System.RoboTech.Controller
       {
          if (!_Strt_Robo_F.Actn4Mesg_Cbx.Checked) return;
 
+         if (e.Message.Date.Date < DateTime.Now.Date) return;
+
          ChatInfo chat = null;
          try
          {            
@@ -2082,9 +2086,9 @@ namespace System.RoboTech.Controller
             try
             {
                if (ConsoleOutLog_MemTxt.InvokeRequired)
-                  ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", message.Chat.Id, message.From.FirstName + ", " + message.From.LastName, message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text));
+                  ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", message.Chat.Id, message.From != null ? ( message.From.FirstName ?? "" + ", " + message.From.LastName ?? "" ) : "Unknown", message.Text ?? "", Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text));
                else
-                  ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", message.Chat.Id, message.From.FirstName + ", " + message.From.LastName, message.Text, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text;
+                  ConsoleOutLog_MemTxt.Text = string.Format("{3} , {4} , {0}, {1}, {2}\r\n", message.Chat.Id, message.From != null ? (message.From.FirstName ?? "" + ", " + message.From.LastName ?? "") : "Unknown", message.Text ?? "", Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text;
             }
             catch { }
 

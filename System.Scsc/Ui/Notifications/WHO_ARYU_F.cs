@@ -46,6 +46,7 @@ namespace System.Scsc.Ui.Notifications
          {
             attnvist = 0;
             iScsc = new Data.iScscDataContext(ConnectionString);
+
             //DRES_NUMB_Txt.Focus();
             // 1395/12/11 * مشخص کردن نوع مبلغ برای بدهی
             if (Lbl_AmntType.Tag == null)
@@ -116,20 +117,26 @@ namespace System.Scsc.Ui.Notifications
          if (attnvist > 0) return;
          attnvist++;
 
-         var _stng = iScsc.Settings.FirstOrDefault(s => Fga_Uclb_U.Contains(s.CLUB_CODE));
+         if(_stng == null)
+            _stng = iScsc.Settings.FirstOrDefault(s => Fga_Uclb_U.Contains(s.CLUB_CODE));
+
+         // 1403/02/21 * اگر قفل انلاین میباشد شماره کمد دیگر قابل ویرایش نباشد
+         DRES_NUMB_Txt.Properties.ReadOnly = _stng.DRES_AUTO == "002";
+         // 1403/02/21 * نمایس شماره ردیف ورود و خروج
+         AttnRwno_Txt.Text = _attn.RWNO.ToString();
 
          if (_attn.EXIT_TIME != null)
          {
             //Lbl_AccessControl.Text = "خروج از باشگاه";
             //Lbl_AccessControl.ForeColor = Color.White;
-            DRES_NUMB_Txt.Properties.ReadOnly = true;
+            //DRES_NUMB_Txt.Properties.ReadOnly = true;
             DresNumb_Butn.Enabled = false;
          }
          else
          {
             //Lbl_AccessControl.Text = "ورود مجاز است";
             //Lbl_AccessControl.ForeColor = Color.GreenYellow;
-            DRES_NUMB_Txt.Properties.ReadOnly = false;
+            //DRES_NUMB_Txt.Properties.ReadOnly = false;
             DresNumb_Butn.Enabled = true;
 
             // 1396/10/18 * آیا گزینه نمایش چاپ حضوری انجام شود یا خیر
@@ -929,7 +936,9 @@ namespace System.Scsc.Ui.Notifications
 
             if(hBDay == "")
             {
-               hBDay = iScsc.Settings.FirstOrDefault(s => s.CLUB_CODE == _attn.CLUB_CODE).SND7_PATH;               
+               if (_stng == null)
+                  _stng = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
+               hBDay = _stng.SND7_PATH;               
             }
 
             if (hBDay == null || hBDay.Trim() == "") return;
@@ -1005,7 +1014,9 @@ namespace System.Scsc.Ui.Notifications
 
             if (debtAlrm == "")
             {
-               debtAlrm = iScsc.Settings.FirstOrDefault(s => s.CLUB_CODE == _attn.CLUB_CODE).SND9_PATH;
+               if (_stng == null)
+                  _stng = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
+               debtAlrm = _stng.SND9_PATH;
             }
 
             if (debtAlrm == null || debtAlrm.Trim() == "") return;
@@ -1745,6 +1756,28 @@ namespace System.Scsc.Ui.Notifications
          {
             if (requery)
                Execute_Query(true);
+         }
+      }
+
+      private void OthrIncome_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            formcaller = "";
+            //RqstBnExit1_Click(null, null);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */) { Input = Keys.Escape },
+                     new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                     new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", fileno)))}
+                  })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

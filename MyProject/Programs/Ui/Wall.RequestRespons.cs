@@ -84,6 +84,9 @@ namespace MyProject.Programs.Ui
             case 22:
                SetSystemNotification(job);
                break;
+            case 23:
+               Peek(job);
+               break;
             default: break;
          }
       }
@@ -466,23 +469,30 @@ namespace MyProject.Programs.Ui
       /// <param name="job"></param>
       private void Push(Job job)
       {
-         List<object> input = job.Input as List<object>;
-
-         if(_ActiveUI.Count == 0)
+         try
          {
-            job.Status = StatusType.Successful;
-            return;
-         }
-         
-         var crntobj = _ActiveUI.FirstOrDefault().Ui;
-         if (crntobj == input[1] as UserControl)
-         {
-            job.Status = StatusType.Successful;
-            return;
-         }
+            List<object> input = job.Input as List<object>;
 
-         _ActiveUI.Push(new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control });
-         job.Status = StatusType.Successful;
+            if (_ActiveUI.Count == 0)
+            {
+               job.Status = StatusType.Successful;
+               return;
+            }
+
+            var crntobj = _ActiveUI.FirstOrDefault().Ui;
+            if (crntobj == input[1] as UserControl)
+            {
+               job.Status = StatusType.Successful;
+               return;
+            }
+
+            _ActiveUI.Push(new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control });
+            job.Status = StatusType.Successful;
+         }
+         catch
+         {
+            job.Status = StatusType.Failed;
+         }
       }
 
       /// <summary>
@@ -491,9 +501,13 @@ namespace MyProject.Programs.Ui
       /// <param name="job"></param>
       private void Pop(Job job)
       {
-         if(_ActiveUI.Count >= 1)
-            job.Output = _ActiveUI.Pop();
-         job.Status = StatusType.Successful;
+         try
+         {
+            if (_ActiveUI.Count >= 1)
+               job.Output = _ActiveUI.Pop();
+            job.Status = StatusType.Successful;
+         }
+         catch { job.Status = StatusType.Failed; }
       }
 
       /// <summary>
@@ -502,28 +516,32 @@ namespace MyProject.Programs.Ui
       /// <param name="job"></param>
       private void ResetUi(Job job)
       {
-         if (_ActiveUI.Count > 1)
+         try
          {
-            if (!InvokeRequired)
+            if (_ActiveUI.Count > 1)
             {
-               ActiveUi activeUi = _ActiveUI.Peek();
-               // 1397/05/20 * User Control not change enabled
-               //activeUi.Ui.Enabled = !activeUi.Ui.Enabled;
-               if (activeUi.Ui.Enabled) activeUi.Ui.Focus();
-            }
-            else
-            {
-               Invoke(new Action(() =>
+               if (!InvokeRequired)
                {
                   ActiveUi activeUi = _ActiveUI.Peek();
                   // 1397/05/20 * User Control not change enabled
                   //activeUi.Ui.Enabled = !activeUi.Ui.Enabled;
                   if (activeUi.Ui.Enabled) activeUi.Ui.Focus();
-               }));
+               }
+               else
+               {
+                  Invoke(new Action(() =>
+                  {
+                     ActiveUi activeUi = _ActiveUI.Peek();
+                     // 1397/05/20 * User Control not change enabled
+                     //activeUi.Ui.Enabled = !activeUi.Ui.Enabled;
+                     if (activeUi.Ui.Enabled) activeUi.Ui.Focus();
+                  }));
+               }
+
             }
-            
+            job.Status = StatusType.Successful;
          }
-         job.Status = StatusType.Successful;
+         catch { job.Status = StatusType.Failed; }
       }
 
       /// <summary>
@@ -587,6 +605,23 @@ namespace MyProject.Programs.Ui
          //Thread.Sleep((int)ntfydata[3]);
 
          job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 23
+      /// </summary>
+      /// <param name="job"></param>
+      private void Peek(Job job)
+      {
+         try
+         {
+            job.Output = _ActiveUI.Peek().Ui;
+            job.Status = StatusType.Successful;
+         }
+         catch
+         {
+            job.Status = StatusType.Failed;
+         }
       }
 
       #region Private Member
@@ -1128,5 +1163,7 @@ namespace MyProject.Programs.Ui
          }
       }
       #endregion
+
+
    }
 }

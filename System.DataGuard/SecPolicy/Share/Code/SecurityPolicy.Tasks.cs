@@ -860,7 +860,7 @@ namespace System.DataGuard.SecPolicy.Share.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi*/){Input = "settingsotheraccounts"},
                   new Job(SendType.SelfToUserInterface, "SettingsOtherAccounts", 02 /* Execute Set */),                  
-                  //new Job(SendType.SelfToUserInterface, "SettingsSystemPackage", 05 /* Execute CheckSecurity */),
+                  new Job(SendType.SelfToUserInterface, "SettingsOtherAccounts", 05 /* Execute CheckSecurity */),
                   new Job(SendType.SelfToUserInterface, "SettingsOtherAccounts", 07 /* Execute LoadData */),
                   new Job(SendType.SelfToUserInterface, "SettingsOtherAccounts", 03 /* Execute Paint */)
                });

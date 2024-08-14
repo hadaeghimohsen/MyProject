@@ -9,98 +9,10 @@
         <Name>iScsc</Name>
       </iScsc>
     </Databases>
-    <DataSources isList="true" count="10">
-      <Fighter Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
-        <Alias>Fighter</Alias>
-        <Columns isList="true" count="77">
-          <value>CONF_STAT,System.String</value>
-          <value>REGN_PRVN_CNTY_CODE,System.String</value>
-          <value>REGN_PRVN_CODE,System.String</value>
-          <value>REGN_CODE,System.String</value>
-          <value>FILE_NO,System.Int64</value>
-          <value>FIGH_STAT,System.String</value>
-          <value>RQST_RQID,System.Int64</value>
-          <value>NAME_DNRM,System.String</value>
-          <value>FRST_NAME_DNRM,System.String</value>
-          <value>LAST_NAME_DNRM,System.String</value>
-          <value>FATH_NAME_DNRM,System.String</value>
-          <value>POST_ADRS_DNRM,System.String</value>
-          <value>SEX_TYPE_DNRM,System.String</value>
-          <value>BRTH_DATE_DNRM,System.DateTime</value>
-          <value>CELL_PHON_DNRM,System.String</value>
-          <value>TELL_PHON_DNRM,System.String</value>
-          <value>FGPB_TYPE_DNRM,System.String</value>
-          <value>INSR_NUMB_DNRM,System.String</value>
-          <value>INSR_DATE_DNRM,System.DateTime</value>
-          <value>TEST_DATE_DNRM,System.DateTime</value>
-          <value>CAMP_DATE_DNRM,System.DateTime</value>
-          <value>CTGY_CODE_DNRM,System.Int64</value>
-          <value>MTOD_CODE_DNRM,System.Int64</value>
-          <value>CLUB_CODE_DNRM,System.Int64</value>
-          <value>COCH_FILE_NO_DNRM,System.Int64</value>
-          <value>COCH_CRTF_YEAR_DNRM,System.Int64</value>
-          <value>CBMT_CODE_DNRM,System.Int64</value>
-          <value>DAY_TYPE_DNRM,System.String</value>
-          <value>ATTN_TIME_DNRM,System.String</value>
-          <value>ACTV_TAG_DNRM,System.String</value>
-          <value>BLOD_GROP_DNRM,System.String</value>
-          <value>FIGH_FILE_NO,System.Int64</value>
-          <value>IMAG_RCDC_RCID_DNRM,System.Int64</value>
-          <value>IMAG_RWNO_DNRM,System.Int64</value>
-          <value>CARD_NUMB_DNRM,System.String</value>
-          <value>FNGR_PRNT_DNRM,System.String</value>
-          <value>SUNT_BUNT_DEPT_ORGN_CODE_DNRM,System.String</value>
-          <value>SUNT_BUNT_DEPT_CODE_DNRM,System.String</value>
-          <value>SUNT_BUNT_CODE_DNRM,System.String</value>
-          <value>SUNT_CODE_DNRM,System.String</value>
-          <value>CORD_X_DNRM,System.Double</value>
-          <value>CORD_Y_DNRM,System.Double</value>
-          <value>SERV_NO_DNRM,System.String</value>
-          <value>NATL_CODE_DNRM,System.String</value>
-          <value>GLOB_CODE_DNRM,System.String</value>
-          <value>CHAT_ID_DNRM,System.Int64</value>
-          <value>FMLY_NUMB_DNRM,System.Int64</value>
-          <value>MOM_CELL_PHON_DNRM,System.String</value>
-          <value>MOM_TELL_PHON_DNRM,System.String</value>
-          <value>MOM_CHAT_ID_DNRM,System.Int64</value>
-          <value>DAD_CELL_PHON_DNRM,System.String</value>
-          <value>DAD_TELL_PHON_DNRM,System.String</value>
-          <value>DAD_CHAT_ID_DNRM,System.Int64</value>
-          <value>CRET_BY,System.String</value>
-          <value>CRET_DATE,System.DateTime</value>
-          <value>MDFY_BY,System.String</value>
-          <value>MDFY_DATE,System.DateTime</value>
-          <value>TARF_CODE_DNRM,System.String</value>
-          <value>MOST_DEBT_CLNG_DNRM,System.Int64</value>
-          <value>DEBT_DNRM,System.Int64</value>
-          <value>BUFE_DEBT_DNTM,System.Int64</value>
-          <value>DPST_AMNT_DNRM,System.Int64</value>
-          <value>FGPB_RWNO_DNRM,System.Int64</value>
-          <value>MBSP_RWNO_DNRM,System.Int64</value>
-          <value>MBCO_RWNO_DNRM,System.Int64</value>
-          <value>MBFZ_RWNO_DNRM,System.Int64</value>
-          <value>MBSM_RWNO_DNRM,System.Int64</value>
-          <value>CAMP_RWNO_DNRM,System.Int64</value>
-          <value>TEST_RWNO_DNRM,System.Int64</value>
-          <value>CLCL_RWNO_DNRM,System.Int64</value>
-          <value>HERT_RWNO_DNRM,System.Int64</value>
-          <value>PSFN_RWNO_DNRM,System.Int64</value>
-          <value>EXAM_RWNO_DNRM,System.Int64</value>
-          <value>BDFT_RWNO_DNRM,System.Int64</value>
-          <value>MBSP_STRT_DATE,System.String</value>
-          <value>MBSP_END_DATE,System.String</value>
-          <value>CONF_DATE,System.DateTime</value>
-        </Columns>
-        <CommandTimeout>30</CommandTimeout>
-        <Dictionary isRef="1" />
-        <Name>Fighter</Name>
-        <NameInSource>iScsc</NameInSource>
-        <Parameters isList="true" count="0" />
-        <SqlCommand>select * from Fighter</SqlCommand>
-      </Fighter>
-      <Payment Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+    <DataSources isList="true" count="6">
+      <Payment Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Payment</Alias>
-        <Columns isList="true" count="38">
+        <Columns isList="true" count="39">
           <value>CASH_CODE,System.Int64</value>
           <value>RQST_RQID,System.Int64</value>
           <value>TYPE,System.String</value>
@@ -139,6 +51,7 @@
           <value>PROF_AMNT_DNRM,System.Int64</value>
           <value>DEDU_AMNT_DNRM,System.Int64</value>
           <value>SUM_RCPT_DPST_AMNT,System.Int64</value>
+          <value>RFND_DATE,System.DateTime</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
@@ -149,11 +62,12 @@
 	   (SELECT ISNULL(Sum(pm.Amnt), 0) 
           FROM Payment_Method pm
          WHERE pm.Pymt_Rqst_Rqid = p.Rqst_Rqid AND pm.Rcpt_Mtod = '005') AS SUM_RCPT_DPST_AMNT
-FROM Payment p</SqlCommand>
+FROM Payment p
+WHERE p.Rqst_Rqid = (SELECT Rqid FROM Request WHERE {WhereClause})</SqlCommand>
       </Payment>
-      <Payment_Detail Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+      <Payment_Detail Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Payment_Detail</Alias>
-        <Columns isList="true" count="38">
+        <Columns isList="true" count="48">
           <value>CODE,System.Int64</value>
           <value>PAY_STAT,System.String</value>
           <value>EXPN_PRIC,System.Int64</value>
@@ -192,15 +106,29 @@ FROM Payment p</SqlCommand>
           <value>MBSP_RWNO,System.Int16</value>
           <value>MBSP_RECT_CODE,System.String</value>
           <value>STRD_VAR2,System.String</value>
+          <value>FROM_NUMB,System.Int64</value>
+          <value>TO_NUMB,System.Int64</value>
+          <value>PROF_AMNT_DNRM,System.Int64</value>
+          <value>DEDU_AMNT_DNRM,System.Int64</value>
+          <value>EXTS_CODE,System.Int64</value>
+          <value>EXTS_RSRV_DATE,System.DateTime</value>
+          <value>TOTL_WEGH,System.Single</value>
+          <value>UNIT_NUMB,System.Single</value>
+          <value>UNIT_APBS_CODE,System.Int64</value>
+          <value>CMNT,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
         <Name>Payment_Detail</Name>
         <NameInSource>iScsc</NameInSource>
         <Parameters isList="true" count="0" />
-        <SqlCommand>select *, dbo.GET_STRD_U('&lt;Request type="002" rqid="' + CAST(Pymt_Rqst_Rqid AS VARCHAR(15)) + '" code="' + CAST(Code AS VARCHAR(15)) + '" /&gt;') AS STRD_VAR2 from Payment_Detail</SqlCommand>
+        <SqlCommand>SELECT *, dbo.GET_STRD_U('&lt;Request type="002" rqid="' +
+  CAST(pd.Pymt_Rqst_Rqid AS VARCHAR(15)) + '" code="' +
+  CAST(pd.Code AS VARCHAR(15)) + '" /&gt;') AS STRD_VAR2
+FROM Payment_Detail pd
+WHERE pd.Pymt_Rqst_Rqid = (SELECT Rqid FROM Request WHERE {WhereClause})</SqlCommand>
       </Payment_Detail>
-      <Request Ref="6" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+      <Request Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Request</Alias>
         <Columns isList="true" count="34">
           <value>REGN_PRVN_CNTY_CODE,System.String</value>
@@ -247,7 +175,7 @@ FROM Payment p</SqlCommand>
 FROM Request 
 WHERE {WhereClause}</SqlCommand>
       </Request>
-      <Request_Row Ref="7" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+      <Request_Row Ref="6" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Request_Row</Alias>
         <Columns isList="true" count="13">
           <value>RQST_RQID,System.Int64</value>
@@ -269,9 +197,9 @@ WHERE {WhereClause}</SqlCommand>
         <Name>Request_Row</Name>
         <NameInSource>iScsc</NameInSource>
         <Parameters isList="true" count="0" />
-        <SqlCommand>select * from Request_Row</SqlCommand>
+        <SqlCommand>select * from Request_Row WHERE Rqst_Rqid IN (SELECT Rqid FROM Request WHERE {WhereClause});</SqlCommand>
       </Request_Row>
-      <Club Ref="8" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+      <Club Ref="7" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Club</Alias>
         <Columns isList="true" count="20">
           <value>REGN_PRVN_CNTY_CODE,System.String</value>
@@ -302,93 +230,7 @@ WHERE {WhereClause}</SqlCommand>
         <Parameters isList="true" count="0" />
         <SqlCommand>select * from Club </SqlCommand>
       </Club>
-      <Expense Ref="9" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
-        <Alias>Expense</Alias>
-        <Columns isList="true" count="34">
-          <value>PRIC,System.Int64</value>
-          <value>EXTR_PRCT,System.Int64</value>
-          <value>CODE,System.Int64</value>
-          <value>EXPN_DESC,System.String</value>
-          <value>REGL_YEAR,System.Int64</value>
-          <value>REGL_CODE,System.Int64</value>
-          <value>EXTP_CODE,System.Int64</value>
-          <value>CTGY_CODE,System.Int64</value>
-          <value>MTOD_CODE,System.Int64</value>
-          <value>GROP_CODE,System.Int64</value>
-          <value>EXPN_STAT,System.String</value>
-          <value>ADD_QUTS,System.String</value>
-          <value>COVR_DSCT,System.String</value>
-          <value>EXPN_TYPE,System.String</value>
-          <value>BUY_PRIC,System.Int64</value>
-          <value>BUY_EXTR_PRCT,System.Int64</value>
-          <value>NUMB_OF_STOK,System.Int64</value>
-          <value>NUMB_OF_SALE,System.Int64</value>
-          <value>NUMB_OF_REMN_DNRM,System.Int64</value>
-          <value>ORDR_ITEM,System.Int64</value>
-          <value>COVR_TAX,System.String</value>
-          <value>NUMB_OF_ATTN_MONT,System.Int64</value>
-          <value>NUMB_OF_ATTN_WEEK,System.Int64</value>
-          <value>MODL_NUMB_BAR_CODE,System.String</value>
-          <value>PRVT_COCH_EXPN,System.String</value>
-          <value>MIN_NUMB,System.Int64</value>
-          <value>NUMB_CYCL_DAY,System.Int64</value>
-          <value>NUMB_MONT_OFER,System.Int64</value>
-          <value>MIN_TIME,System.DateTime</value>
-          <value>RELY_CMND,System.String</value>
-          <value>CRET_BY,System.String</value>
-          <value>CRET_DATE,System.DateTime</value>
-          <value>MDFY_BY,System.String</value>
-          <value>MDFY_DATE,System.DateTime</value>
-        </Columns>
-        <CommandTimeout>30</CommandTimeout>
-        <Dictionary isRef="1" />
-        <Name>Expense</Name>
-        <NameInSource>iScsc</NameInSource>
-        <Parameters isList="true" count="0" />
-        <SqlCommand>select * from Expense</SqlCommand>
-      </Expense>
-      <Expense_Item Ref="10" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
-        <Alias>Expense_Item</Alias>
-        <Columns isList="true" count="10">
-          <value>CODE,System.Int64</value>
-          <value>RQTP_CODE,System.String</value>
-          <value>RQTT_CODE,System.String</value>
-          <value>EPIT_DESC,System.String</value>
-          <value>TYPE,System.String</value>
-          <value>AUTO_GNRT,System.String</value>
-          <value>CRET_BY,System.String</value>
-          <value>CRET_DATE,System.DateTime</value>
-          <value>MDFY_BY,System.String</value>
-          <value>MDFY_DATE,System.DateTime</value>
-        </Columns>
-        <CommandTimeout>30</CommandTimeout>
-        <Dictionary isRef="1" />
-        <Name>Expense_Item</Name>
-        <NameInSource>iScsc</NameInSource>
-        <Parameters isList="true" count="0" />
-        <SqlCommand>select * from Expense_Item</SqlCommand>
-      </Expense_Item>
-      <Expense_Type Ref="11" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
-        <Alias>Expense_Type</Alias>
-        <Columns isList="true" count="9">
-          <value>RQRQ_CODE,System.Int64</value>
-          <value>EPIT_CODE,System.Int64</value>
-          <value>CODE,System.Int64</value>
-          <value>EXTP_DESC,System.String</value>
-          <value>CRET_BY,System.String</value>
-          <value>CRET_DATE,System.DateTime</value>
-          <value>MDFY_BY,System.String</value>
-          <value>MDFY_DATE,System.DateTime</value>
-          <value>EXTP_CODE,System.Int64</value>
-        </Columns>
-        <CommandTimeout>30</CommandTimeout>
-        <Dictionary isRef="1" />
-        <Name>Expense_Type</Name>
-        <NameInSource>iScsc</NameInSource>
-        <Parameters isList="true" count="0" />
-        <SqlCommand>select * from Expense_Type</SqlCommand>
-      </Expense_Type>
-      <D_x0024_ATYP Ref="12" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+      <D_x0024_ATYP Ref="8" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>D$ATYP</Alias>
         <Columns isList="true" count="2">
           <value>VALU,System.String</value>
@@ -402,84 +244,28 @@ WHERE {WhereClause}</SqlCommand>
         <SqlCommand>select * from D$ATYP</SqlCommand>
       </D_x0024_ATYP>
     </DataSources>
-    <Relations isList="true" count="11">
-      <RQST_RQRO Ref="13" type="DataRelation" isKey="true">
+    <Relations isList="true" count="5">
+      <RQST_RQRO Ref="9" type="DataRelation" isKey="true">
         <Alias>RQST_RQRO</Alias>
         <ChildColumns isList="true" count="1">
           <value>RQST_RQID</value>
         </ChildColumns>
-        <ChildSource isRef="7" />
+        <ChildSource isRef="6" />
         <Dictionary isRef="1" />
         <Name>RQST_RQRO</Name>
         <NameInSource>Relation</NameInSource>
         <ParentColumns isList="true" count="1">
           <value>RQID</value>
         </ParentColumns>
-        <ParentSource isRef="6" />
+        <ParentSource isRef="5" />
       </RQST_RQRO>
-      <RQRO_FIGH Ref="14" type="DataRelation" isKey="true">
-        <Alias>RQRO_FIGH</Alias>
-        <ChildColumns isList="true" count="1">
-          <value>FILE_NO</value>
-        </ChildColumns>
-        <ChildSource isRef="3" />
-        <Dictionary isRef="1" />
-        <Name>RQRO_FIGH</Name>
-        <NameInSource>Relation2</NameInSource>
-        <ParentColumns isList="true" count="1">
-          <value>FIGH_FILE_NO</value>
-        </ParentColumns>
-        <ParentSource isRef="7" />
-      </RQRO_FIGH>
-      <EPIT_EXTP Ref="15" type="DataRelation" isKey="true">
-        <Alias>EPIT_EXTP</Alias>
-        <ChildColumns isList="true" count="1">
-          <value>EPIT_CODE</value>
-        </ChildColumns>
-        <ChildSource isRef="11" />
-        <Dictionary isRef="1" />
-        <Name>EPIT_EXTP</Name>
-        <NameInSource>Relation4</NameInSource>
-        <ParentColumns isList="true" count="1">
-          <value>CODE</value>
-        </ParentColumns>
-        <ParentSource isRef="10" />
-      </EPIT_EXTP>
-      <EXTP_EXPN Ref="16" type="DataRelation" isKey="true">
-        <Alias>EXTP_EXPN</Alias>
-        <ChildColumns isList="true" count="1">
-          <value>EXTP_CODE</value>
-        </ChildColumns>
-        <ChildSource isRef="9" />
-        <Dictionary isRef="1" />
-        <Name>EXTP_EXPN</Name>
-        <NameInSource>Relation5</NameInSource>
-        <ParentColumns isList="true" count="1">
-          <value>CODE</value>
-        </ParentColumns>
-        <ParentSource isRef="11" />
-      </EXTP_EXPN>
-      <EXPN_PYDT Ref="17" type="DataRelation" isKey="true">
-        <Alias>EXPN_PYDT</Alias>
-        <ChildColumns isList="true" count="1">
-          <value>EXPN_CODE</value>
-        </ChildColumns>
-        <ChildSource isRef="5" />
-        <Dictionary isRef="1" />
-        <Name>EXPN_PYDT</Name>
-        <NameInSource>Relation6</NameInSource>
-        <ParentColumns isList="true" count="1">
-          <value>CODE</value>
-        </ParentColumns>
-        <ParentSource isRef="9" />
-      </EXPN_PYDT>
-      <RQRO_PYDT Ref="18" type="DataRelation" isKey="true">
+      <RQRO_PYDT Ref="10" type="DataRelation" isKey="true">
         <Alias>RQRO_PYDT</Alias>
         <ChildColumns isList="true" count="2">
           <value>PYMT_RQST_RQID</value>
           <value>RQRO_RWNO</value>
         </ChildColumns>
-        <ChildSource isRef="5" />
+        <ChildSource isRef="4" />
         <Dictionary isRef="1" />
         <Name>RQRO_PYDT</Name>
         <NameInSource>Relation7</NameInSource>
@@ -487,29 +273,29 @@ WHERE {WhereClause}</SqlCommand>
           <value>RQST_RQID</value>
           <value>RWNO</value>
         </ParentColumns>
-        <ParentSource isRef="7" />
+        <ParentSource isRef="6" />
       </RQRO_PYDT>
-      <RQST_PYMT Ref="19" type="DataRelation" isKey="true">
+      <RQST_PYMT Ref="11" type="DataRelation" isKey="true">
         <Alias>RQST_PYMT</Alias>
         <ChildColumns isList="true" count="1">
           <value>RQST_RQID</value>
         </ChildColumns>
-        <ChildSource isRef="4" />
+        <ChildSource isRef="3" />
         <Dictionary isRef="1" />
         <Name>RQST_PYMT</Name>
         <NameInSource>Relation8</NameInSource>
         <ParentColumns isList="true" count="1">
           <value>RQID</value>
         </ParentColumns>
-        <ParentSource isRef="6" />
+        <ParentSource isRef="5" />
       </RQST_PYMT>
-      <PYMT_PYDT Ref="20" type="DataRelation" isKey="true">
+      <PYMT_PYDT Ref="12" type="DataRelation" isKey="true">
         <Alias>PYMT_PYDT</Alias>
         <ChildColumns isList="true" count="2">
           <value>PYMT_CASH_CODE</value>
           <value>PYMT_RQST_RQID</value>
         </ChildColumns>
-        <ChildSource isRef="5" />
+        <ChildSource isRef="4" />
         <Dictionary isRef="1" />
         <Name>PYMT_PYDT</Name>
         <NameInSource>Relation9</NameInSource>
@@ -517,49 +303,21 @@ WHERE {WhereClause}</SqlCommand>
           <value>CASH_CODE</value>
           <value>RQST_RQID</value>
         </ParentColumns>
-        <ParentSource isRef="4" />
-      </PYMT_PYDT>
-      <FIGH_RQRO Ref="21" type="DataRelation" isKey="true">
-        <Alias>FIGH_RQRO</Alias>
-        <ChildColumns isList="true" count="1">
-          <value>FIGH_FILE_NO</value>
-        </ChildColumns>
-        <ChildSource isRef="7" />
-        <Dictionary isRef="1" />
-        <Name>FIGH_RQRO</Name>
-        <NameInSource>Relation14</NameInSource>
-        <ParentColumns isList="true" count="1">
-          <value>FILE_NO</value>
-        </ParentColumns>
         <ParentSource isRef="3" />
-      </FIGH_RQRO>
-      <CLUB_FIGH Ref="22" type="DataRelation" isKey="true">
-        <Alias>CLUB_FIGH</Alias>
-        <ChildColumns isList="true" count="1">
-          <value>CLUB_CODE_DNRM</value>
-        </ChildColumns>
-        <ChildSource isRef="3" />
-        <Dictionary isRef="1" />
-        <Name>CLUB_FIGH</Name>
-        <NameInSource>Relation15</NameInSource>
-        <ParentColumns isList="true" count="1">
-          <value>CODE</value>
-        </ParentColumns>
-        <ParentSource isRef="8" />
-      </CLUB_FIGH>
-      <DATYP_PYMT Ref="23" type="DataRelation" isKey="true">
+      </PYMT_PYDT>
+      <DATYP_PYMT Ref="13" type="DataRelation" isKey="true">
         <Alias>DATYP_PYMT</Alias>
         <ChildColumns isList="true" count="1">
           <value>AMNT_UNIT_TYPE_DNRM</value>
         </ChildColumns>
-        <ChildSource isRef="4" />
+        <ChildSource isRef="3" />
         <Dictionary isRef="1" />
         <Name>DATYP_PYMT</Name>
         <NameInSource>DATYP_PYMT</NameInSource>
         <ParentColumns isList="true" count="1">
           <value>VALU</value>
         </ParentColumns>
-        <ParentSource isRef="12" />
+        <ParentSource isRef="8" />
       </DATYP_PYMT>
     </Relations>
     <Report isRef="0" />
@@ -581,15 +339,15 @@ WHERE {WhereClause}</SqlCommand>
   <GlobalizationStrings isList="true" count="0" />
   <MetaTags isList="true" count="0" />
   <Pages isList="true" count="1">
-    <Page1 Ref="24" type="Page" isKey="true">
+    <Page1 Ref="14" type="Page" isKey="true">
       <Border>None;Black;3;Double;False;4;Black</Border>
       <Brush>Transparent</Brush>
       <Components isList="true" count="7">
-        <PageHeaderBand1 Ref="25" type="PageHeaderBand" isKey="true">
+        <PageHeaderBand1 Ref="15" type="PageHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,0.4,6.4,0.8</ClientRectangle>
           <Components isList="true" count="1">
-            <DataClub_CLUB_DESC Ref="26" type="Text" isKey="true">
+            <DataClub_CLUB_DESC Ref="16" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <CanGrow>True</CanGrow>
@@ -599,8 +357,8 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataClub_CLUB_DESC</Name>
-              <Page isRef="24" />
-              <Parent isRef="25" />
+              <Page isRef="14" />
+              <Parent isRef="15" />
               <Text>{Club.CLUB_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
@@ -609,16 +367,16 @@ WHERE {WhereClause}</SqlCommand>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>PageHeaderBand1</Name>
-          <Page isRef="24" />
-          <Parent isRef="24" />
+          <Page isRef="14" />
+          <Parent isRef="14" />
         </PageHeaderBand1>
-        <DataRequest Ref="27" type="DataBand" isKey="true">
+        <DataRequest Ref="17" type="DataBand" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,2,6.4,1.4</ClientRectangle>
           <Components isList="true" count="5">
-            <Text3 Ref="28" type="Text" isKey="true">
+            <Text3 Ref="18" type="Text" isKey="true">
               <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,0,2,0.4</ClientRectangle>
@@ -627,14 +385,14 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text3</Name>
-              <Page isRef="24" />
-              <Parent isRef="27" />
+              <Page isRef="14" />
+              <Parent isRef="17" />
               <Text>{Request.PERS_RQST_DATE}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text3>
-            <Text5 Ref="29" type="Text" isKey="true">
+            <Text5 Ref="19" type="Text" isKey="true">
               <Border>Top, Right, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>2.2,0,1,0.4</ClientRectangle>
@@ -643,17 +401,17 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text5</Name>
-              <Page isRef="24" />
-              <Parent isRef="27" />
+              <Page isRef="14" />
+              <Parent isRef="17" />
               <Text>{Request.MDFY_DATE}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="30" type="TimeFormat" isKey="true">
+              <TextFormat Ref="20" type="TimeFormat" isKey="true">
                 <StringFormat>HH:mm</StringFormat>
               </TextFormat>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text5>
-            <Text6 Ref="31" type="Text" isKey="true">
+            <Text6 Ref="21" type="Text" isKey="true">
               <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>2,0,0.2,0.4</ClientRectangle>
@@ -662,14 +420,14 @@ WHERE {WhereClause}</SqlCommand>
               <Guid>8cbcfa0655f748ba88c3a024015bd3d6</Guid>
               <Margins>0,0,0,0</Margins>
               <Name>Text6</Name>
-              <Page isRef="24" />
-              <Parent isRef="27" />
+              <Page isRef="14" />
+              <Parent isRef="17" />
               <Text>-</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text6>
-            <Text14 Ref="32" type="Text" isKey="true">
+            <Text14 Ref="22" type="Text" isKey="true">
               <Border>Top;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0.4,6.4,1</ClientRectangle>
@@ -679,15 +437,15 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text14</Name>
-              <Page isRef="24" />
-              <Parent isRef="27" />
+              <Page isRef="14" />
+              <Parent isRef="17" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Request.STRD_VAR1}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text14>
-            <Text7 Ref="33" type="Text" isKey="true">
+            <Text7 Ref="23" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>3.2,0,3.2,0.4</ClientRectangle>
@@ -696,8 +454,8 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text7</Name>
-              <Page isRef="24" />
-              <Parent isRef="27" />
+              <Page isRef="14" />
+              <Parent isRef="17" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Request.MDFY_BY}</Text>
               <TextBrush>Black</TextBrush>
@@ -709,11 +467,11 @@ WHERE {WhereClause}</SqlCommand>
           <DataSourceName>Request</DataSourceName>
           <Filters isList="true" count="0" />
           <Name>DataRequest</Name>
-          <Page isRef="24" />
-          <Parent isRef="24" />
+          <Page isRef="14" />
+          <Parent isRef="14" />
           <Sort isList="true" count="0" />
         </DataRequest>
-        <DataRequest_Row Ref="34" type="DataBand" isKey="true">
+        <DataRequest_Row Ref="24" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,4.2,6.4,0</ClientRectangle>
@@ -722,17 +480,17 @@ WHERE {WhereClause}</SqlCommand>
           <DataRelationName>Relation</DataRelationName>
           <DataSourceName>Request_Row</DataSourceName>
           <Filters isList="true" count="0" />
-          <MasterComponent isRef="27" />
+          <MasterComponent isRef="17" />
           <Name>DataRequest_Row</Name>
-          <Page isRef="24" />
-          <Parent isRef="24" />
+          <Page isRef="14" />
+          <Parent isRef="14" />
           <Sort isList="true" count="0" />
         </DataRequest_Row>
-        <HeaderPayment_Detail Ref="35" type="HeaderBand" isKey="true">
+        <HeaderPayment_Detail Ref="25" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,5,6.4,0.4</ClientRectangle>
           <Components isList="true" count="3">
-            <HeaderPayment_Detail_Relation6_Relation5_Relation4_EPIT_DESC Ref="36" type="Text" isKey="true">
+            <HeaderPayment_Detail_Relation6_Relation5_Relation4_EPIT_DESC Ref="26" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>2.6,0,3.8,0.4</ClientRectangle>
@@ -741,15 +499,15 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderPayment_Detail_Relation6_Relation5_Relation4_EPIT_DESC</Name>
-              <Page isRef="24" />
-              <Parent isRef="35" />
+              <Page isRef="14" />
+              <Parent isRef="25" />
               <Text>نام کالا / خدمات</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderPayment_Detail_Relation6_Relation5_Relation4_EPIT_DESC>
-            <HeaderPayment_Detail_QNTY Ref="37" type="Text" isKey="true">
+            <HeaderPayment_Detail_QNTY Ref="27" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,0,1,0.4</ClientRectangle>
@@ -758,15 +516,15 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderPayment_Detail_QNTY</Name>
-              <Page isRef="24" />
-              <Parent isRef="35" />
+              <Page isRef="14" />
+              <Parent isRef="25" />
               <Text>تعداد</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderPayment_Detail_QNTY>
-            <HeaderPayment_Detail_EXPN_PRIC Ref="38" type="Text" isKey="true">
+            <HeaderPayment_Detail_EXPN_PRIC Ref="28" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>1,0,1.6,0.4</ClientRectangle>
@@ -775,8 +533,8 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderPayment_Detail_EXPN_PRIC</Name>
-              <Page isRef="24" />
-              <Parent isRef="35" />
+              <Page isRef="14" />
+              <Parent isRef="25" />
               <Text>مبلغ هزینه</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
@@ -786,15 +544,15 @@ WHERE {WhereClause}</SqlCommand>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>HeaderPayment_Detail</Name>
-          <Page isRef="24" />
-          <Parent isRef="24" />
+          <Page isRef="14" />
+          <Parent isRef="14" />
         </HeaderPayment_Detail>
-        <DataPayment_Detail Ref="39" type="DataBand" isKey="true">
+        <DataPayment_Detail Ref="29" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,6.2,6.4,1.2</ClientRectangle>
           <Components isList="true" count="4">
-            <DataPayment_Detail_QNTY Ref="40" type="Text" isKey="true">
+            <DataPayment_Detail_QNTY Ref="30" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,1,0.6</ClientRectangle>
@@ -803,14 +561,14 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataPayment_Detail_QNTY</Name>
-              <Page isRef="24" />
-              <Parent isRef="39" />
+              <Page isRef="14" />
+              <Parent isRef="29" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Detail.QNTY}</Text>
               <TextBrush>Black</TextBrush>
               <VertAlignment>Center</VertAlignment>
             </DataPayment_Detail_QNTY>
-            <DataPayment_Detail_EXPN_PRIC Ref="41" type="Text" isKey="true">
+            <DataPayment_Detail_EXPN_PRIC Ref="31" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>1,0,1.6,0.6</ClientRectangle>
@@ -819,12 +577,12 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataPayment_Detail_EXPN_PRIC</Name>
-              <Page isRef="24" />
-              <Parent isRef="39" />
+              <Page isRef="14" />
+              <Parent isRef="29" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Detail.EXPN_PRIC}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="42" type="NumberFormat" isKey="true">
+              <TextFormat Ref="32" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -832,7 +590,7 @@ WHERE {WhereClause}</SqlCommand>
               </TextFormat>
               <VertAlignment>Center</VertAlignment>
             </DataPayment_Detail_EXPN_PRIC>
-            <DataPayment_Detail_EXPN_CODE Ref="43" type="Text" isKey="true">
+            <DataPayment_Detail_EXPN_CODE Ref="33" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>2.6,0,3.8,0.6</ClientRectangle>
@@ -841,15 +599,15 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataPayment_Detail_EXPN_CODE</Name>
-              <Page isRef="24" />
-              <Parent isRef="39" />
+              <Page isRef="14" />
+              <Parent isRef="29" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{Payment_Detail.EXPN_PYDT.EXPN_DESC}</Text>
+              <Text>{Payment_Detail.PYDT_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </DataPayment_Detail_EXPN_CODE>
-            <Text11 Ref="44" type="Text" isKey="true">
+            <Text11 Ref="34" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0.6,6.4,0.6</ClientRectangle>
@@ -859,8 +617,8 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text11</Name>
-              <Page isRef="24" />
-              <Parent isRef="39" />
+              <Page isRef="14" />
+              <Parent isRef="29" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Payment_Detail.STRD_VAR2}</Text>
               <TextBrush>Black</TextBrush>
@@ -872,17 +630,17 @@ WHERE {WhereClause}</SqlCommand>
           <DataRelationName>Relation7</DataRelationName>
           <DataSourceName>Payment_Detail</DataSourceName>
           <Filters isList="true" count="0" />
-          <MasterComponent isRef="34" />
+          <MasterComponent isRef="24" />
           <Name>DataPayment_Detail</Name>
-          <Page isRef="24" />
-          <Parent isRef="24" />
+          <Page isRef="14" />
+          <Parent isRef="14" />
           <Sort isList="true" count="0" />
         </DataPayment_Detail>
-        <HeaderBand1 Ref="45" type="HeaderBand" isKey="true">
+        <HeaderBand1 Ref="35" type="HeaderBand" isKey="true">
           <Brush>Transparent</Brush>
           <ClientRectangle>0,8.2,6.4,0.4</ClientRectangle>
           <Components isList="true" count="1">
-            <Text23 Ref="46" type="Text" isKey="true">
+            <Text23 Ref="36" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,0,6.4,0.4</ClientRectangle>
@@ -892,8 +650,8 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text23</Name>
-              <Page isRef="24" />
-              <Parent isRef="45" />
+              <Page isRef="14" />
+              <Parent isRef="35" />
               <Text>مشخصات پرداختی فاکتور</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
@@ -904,15 +662,15 @@ WHERE {WhereClause}</SqlCommand>
           <Conditions isList="true" count="0" />
           <Guid>111f37f0fe8d4c56be775726ad2003f8</Guid>
           <Name>HeaderBand1</Name>
-          <Page isRef="24" />
-          <Parent isRef="24" />
+          <Page isRef="14" />
+          <Parent isRef="14" />
         </HeaderBand1>
-        <DataPayment Ref="47" type="DataBand" isKey="true">
+        <DataPayment Ref="37" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
           <ClientRectangle>0,9.4,6.4,2.4</ClientRectangle>
           <Components isList="true" count="8">
-            <DataPayment_SUM_EXPN_PRIC Ref="48" type="Text" isKey="true">
+            <DataPayment_SUM_EXPN_PRIC Ref="38" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0,2.8,0.6</ClientRectangle>
@@ -921,11 +679,11 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataPayment_SUM_EXPN_PRIC</Name>
-              <Page isRef="24" />
-              <Parent isRef="47" />
+              <Page isRef="14" />
+              <Parent isRef="37" />
               <Text>{Payment.SUM_EXPN_PRIC + Payment.SUM_EXPN_EXTR_PRCT}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="49" type="NumberFormat" isKey="true">
+              <TextFormat Ref="39" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -934,7 +692,7 @@ WHERE {WhereClause}</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataPayment_SUM_EXPN_PRIC>
-            <DataPayment_SUM_RCPT_EXPN_PRIC Ref="50" type="Text" isKey="true">
+            <DataPayment_SUM_RCPT_EXPN_PRIC Ref="40" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>0,1.2,2.8,0.6</ClientRectangle>
@@ -943,11 +701,11 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataPayment_SUM_RCPT_EXPN_PRIC</Name>
-              <Page isRef="24" />
-              <Parent isRef="47" />
+              <Page isRef="14" />
+              <Parent isRef="37" />
               <Text>{Payment.SUM_RCPT_EXPN_PRIC - Payment.SUM_RCPT_DPST_AMNT}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="51" type="NumberFormat" isKey="true">
+              <TextFormat Ref="41" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -956,7 +714,7 @@ WHERE {WhereClause}</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </DataPayment_SUM_RCPT_EXPN_PRIC>
-            <DataPayment_SUM_PYMT_DSCN_DNRM Ref="52" type="Text" isKey="true">
+            <DataPayment_SUM_PYMT_DSCN_DNRM Ref="42" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,0.6,2.8,0.6</ClientRectangle>
@@ -965,11 +723,11 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>DataPayment_SUM_PYMT_DSCN_DNRM</Name>
-              <Page isRef="24" />
-              <Parent isRef="47" />
+              <Page isRef="14" />
+              <Parent isRef="37" />
               <Text>{Payment.SUM_PYMT_DSCN_DNRM}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="53" type="NumberFormat" isKey="true">
+              <TextFormat Ref="43" type="NumberFormat" isKey="true">
                 <DecimalDigits>0</DecimalDigits>
                 <GroupSeparator>,</GroupSeparator>
                 <NegativePattern>1</NegativePattern>
@@ -977,7 +735,7 @@ WHERE {WhereClause}</SqlCommand>
               </TextFormat>
               <VertAlignment>Center</VertAlignment>
             </DataPayment_SUM_PYMT_DSCN_DNRM>
-            <Text8 Ref="54" type="Text" isKey="true">
+            <Text8 Ref="44" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>4,0,2.4,0.6</ClientRectangle>
@@ -987,14 +745,14 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text8</Name>
-              <Page isRef="24" />
-              <Parent isRef="47" />
+              <Page isRef="14" />
+              <Parent isRef="37" />
               <Text>مجموع قیمت</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text8>
-            <Text13 Ref="55" type="Text" isKey="true">
+            <Text13 Ref="45" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>4,0.6,2.4,0.6</ClientRectangle>
@@ -1004,14 +762,14 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text13</Name>
-              <Page isRef="24" />
-              <Parent isRef="47" />
+              <Page isRef="14" />
+              <Parent isRef="37" />
               <Text>مجموع تخفیف</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text13>
-            <Text15 Ref="56" type="Text" isKey="true">
+            <Text15 Ref="46" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
               <ClientRectangle>4,1.2,2.4,0.6</ClientRectangle>
@@ -1021,14 +779,14 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Right</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
-              <Page isRef="24" />
-              <Parent isRef="47" />
+              <Page isRef="14" />
+              <Parent isRef="37" />
               <Text>مجموع پرداختی</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text15>
-            <Text10 Ref="57" type="Text" isKey="true">
+            <Text10 Ref="47" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>0,1.8,6.4,0.6</ClientRectangle>
@@ -1038,8 +796,8 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text10</Name>
-              <Page isRef="24" />
-              <Parent isRef="47" />
+              <Page isRef="14" />
+              <Parent isRef="37" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>مدیریت آرتا از مجموعه نرم افزارهای رله سافت
 09033927103 * 09915666598</Text>
@@ -1047,7 +805,7 @@ WHERE {WhereClause}</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text10>
-            <Text17 Ref="58" type="Text" isKey="true">
+            <Text17 Ref="48" type="Text" isKey="true">
               <Border>Top, Right;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>2.8,0,1.2,1.8</ClientRectangle>
@@ -1057,8 +815,8 @@ WHERE {WhereClause}</SqlCommand>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text17</Name>
-              <Page isRef="24" />
-              <Parent isRef="47" />
+              <Page isRef="14" />
+              <Parent isRef="37" />
               <Text>{Payment.DATYP_PYMT.DOMN_DESC}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
@@ -1069,10 +827,10 @@ WHERE {WhereClause}</SqlCommand>
           <DataRelationName>Relation8</DataRelationName>
           <DataSourceName>Payment</DataSourceName>
           <Filters isList="true" count="0" />
-          <MasterComponent isRef="27" />
+          <MasterComponent isRef="17" />
           <Name>DataPayment</Name>
-          <Page isRef="24" />
-          <Parent isRef="24" />
+          <Page isRef="14" />
+          <Parent isRef="14" />
           <Sort isList="true" count="0" />
         </DataPayment>
       </Components>
@@ -1083,13 +841,13 @@ WHERE {WhereClause}</SqlCommand>
       <PageHeight>17.5</PageHeight>
       <PageWidth>6.9</PageWidth>
       <Report isRef="0" />
-      <Watermark Ref="59" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="49" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>B Titr,10,Bold,Point,False,178</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="60" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="50" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -1101,10 +859,10 @@ WHERE {WhereClause}</SqlCommand>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>6/2/2023 10:55:03 PM</ReportChanged>
+  <ReportChanged>6/15/2024 9:20:07 AM</ReportChanged>
   <ReportCreated>9/26/2011 12:44:57 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\PRT_INCM_013_R.mrt</ReportFile>
-  <ReportGuid>3de2905576c84da89fe293b28845bff9</ReportGuid>
+  <ReportGuid>d8656d60b53248e0ae2b82aa43e18693</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

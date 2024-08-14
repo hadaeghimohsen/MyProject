@@ -232,7 +232,7 @@ namespace System.Scsc.Ui.Admission
                switch (control.CNTL_NAME.ToLower())
                {
                   case "numbattnmon_lb":
-                     NumbAttnMon_Lb.Text = control.LABL_TEXT;
+                     //NumbAttnMon_Lb.Text = control.LABL_TEXT;
                      //NumbAttnMon_Lb.Text = control.LABL_TEXT; // ToolTip
                      //NumbAttnMon_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -603,7 +603,9 @@ namespace System.Scsc.Ui.Admission
             DDytpBs1.DataSource = iScsc.D_DYTPs;
             DRcmtBs1.DataSource = iScsc.D_RCMTs;
             DDsatBs.DataSource = iScsc.D_DSATs;
-            DCetpBs.DataSource = iScsc.D_CETPs;            
+            DCetpBs.DataSource = iScsc.D_CETPs;
+            DCyclBs1.DataSource = iScsc.D_CYCLs;
+            DWkdyBs.DataSource = iScsc.D_WKDies;
 
             PrvnBs1.DataSource = iScsc.Provinces.Where(p => Fga_Uprv_U.Split(',').Contains(p.CODE));
             
@@ -623,6 +625,10 @@ namespace System.Scsc.Ui.Admission
             Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && cbmt.Method.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
          OrgnBs1.DataSource = iScsc.Organs;
+         
+         HldyBs.DataSource =
+            iScsc.Holidays.Where(h => h.HLDY_DATE.Value.Date >= DateTime.Now.Date);
+
          job.Status = StatusType.Successful;
       }
 

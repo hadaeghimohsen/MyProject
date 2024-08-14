@@ -164,6 +164,16 @@ namespace System.Scsc.Ui.Notifications
                   );
                   break;
                case 3:
+                  if(ModifierKeys == Keys.Control)
+                  {
+                     if (_attn.EXIT_TIME != null)
+                     {
+                        if (MessageBox.Show(this, "با پاک کردن ساعت خروج مشتری موافق هستید؟", "پاک کردن ساعت خروج دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                        iScsc.ExecuteCommand(string.Format("UPDATE dbo.Attendance SET Exit_Time = NULL WHERE Code = {0};", _attn.CODE));
+                        requery = true;
+                     }
+                  }
+
                   if (_attn.EXIT_TIME == null)
                   {
                      if (MessageBox.Show(this, "با خروج دستی مشتری موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;

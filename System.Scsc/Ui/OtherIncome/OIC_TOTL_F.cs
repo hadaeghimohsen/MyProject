@@ -1259,8 +1259,9 @@ namespace System.Scsc.Ui.OtherIncome
          }
          finally 
          { 
-            if(requery)
+            if(requery)            
             {
+               requery = false;
                Execute_Query();
                requery = false;
             }
@@ -1715,6 +1716,8 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
+            if (requery) return;
+
             var _pydt = PydtsBs1.Current as Data.Payment_Detail;
             if (_pydt == null) return;
 
@@ -2946,6 +2949,8 @@ namespace System.Scsc.Ui.OtherIncome
             if (requery) { requery = false; return; }
             var pydt = PydtsBs1.Current as Data.Payment_Detail;
             if (pydt == null) return;
+
+            if (e.NewValue == null) return;
 
             //pydt.Club_Method = iScsc.Club_Methods.FirstOrDefault(cm => cm.CODE == (long?)e.NewValue);
             iScsc.UPD_SEXP_P(

@@ -1853,6 +1853,7 @@
          this.colMDFY_BY14 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE15 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colStatistic1 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMBSP_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.Ptyp_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pmst_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PcdtiActn_Butn)).BeginInit();
@@ -3008,7 +3009,8 @@
             this.gridColumn81,
             this.gridColumn82,
             this.colPROF_AMNT_DNRM,
-            this.colDEDU_AMNT_DNRM});
+            this.colDEDU_AMNT_DNRM,
+            this.colMBSP_RWNO});
          this.Pydts_Gv.GridControl = this.gridControl1;
          this.Pydts_Gv.Name = "Pydts_Gv";
          this.Pydts_Gv.OptionsFind.AlwaysVisible = true;
@@ -3036,7 +3038,7 @@
          this.RqtpCode2_Clm.OptionsColumn.ReadOnly = true;
          this.RqtpCode2_Clm.Visible = true;
          this.RqtpCode2_Clm.VisibleIndex = 16;
-         this.RqtpCode2_Clm.Width = 78;
+         this.RqtpCode2_Clm.Width = 96;
          // 
          // FileNo2_Clm
          // 
@@ -3058,7 +3060,7 @@
          this.ExpnCode2_Lb.OptionsColumn.ReadOnly = true;
          this.ExpnCode2_Lb.Visible = true;
          this.ExpnCode2_Lb.VisibleIndex = 10;
-         this.ExpnCode2_Lb.Width = 76;
+         this.ExpnCode2_Lb.Width = 77;
          // 
          // colCODE
          // 
@@ -3073,8 +3075,6 @@
          this.PayStat_Clm.Name = "PayStat_Clm";
          this.PayStat_Clm.OptionsColumn.AllowEdit = false;
          this.PayStat_Clm.OptionsColumn.ReadOnly = true;
-         this.PayStat_Clm.Visible = true;
-         this.PayStat_Clm.VisibleIndex = 0;
          this.PayStat_Clm.Width = 78;
          // 
          // Lov_PayStat
@@ -3109,8 +3109,8 @@
          this.ExpnPric2_Clm.OptionsColumn.AllowEdit = false;
          this.ExpnPric2_Clm.OptionsColumn.ReadOnly = true;
          this.ExpnPric2_Clm.Visible = true;
-         this.ExpnPric2_Clm.VisibleIndex = 5;
-         this.ExpnPric2_Clm.Width = 81;
+         this.ExpnPric2_Clm.VisibleIndex = 4;
+         this.ExpnPric2_Clm.Width = 82;
          // 
          // colEXPN_EXTR_PRCT
          // 
@@ -3137,7 +3137,7 @@
          this.Qnty2_Clm.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum)});
          this.Qnty2_Clm.Visible = true;
-         this.Qnty2_Clm.VisibleIndex = 4;
+         this.Qnty2_Clm.VisibleIndex = 3;
          this.Qnty2_Clm.Width = 37;
          // 
          // colDOCM_NUMB
@@ -3149,15 +3149,15 @@
          // 
          this.IssuDate2_Clm.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.IssuDate2_Clm.AppearanceCell.Options.UseBackColor = true;
-         this.IssuDate2_Clm.Caption = "تاریخ پرداخت";
+         this.IssuDate2_Clm.Caption = "تاریخ اقدام";
          this.IssuDate2_Clm.ColumnEdit = this.persianRepositoryItemDateEdit14;
-         this.IssuDate2_Clm.FieldName = "ISSU_DATE";
+         this.IssuDate2_Clm.FieldName = "Request_Row.Request.SAVE_DATE";
          this.IssuDate2_Clm.Name = "IssuDate2_Clm";
          this.IssuDate2_Clm.OptionsColumn.AllowEdit = false;
          this.IssuDate2_Clm.OptionsColumn.ReadOnly = true;
          this.IssuDate2_Clm.Visible = true;
-         this.IssuDate2_Clm.VisibleIndex = 7;
-         this.IssuDate2_Clm.Width = 76;
+         this.IssuDate2_Clm.VisibleIndex = 6;
+         this.IssuDate2_Clm.Width = 77;
          // 
          // persianRepositoryItemDateEdit14
          // 
@@ -3193,8 +3193,8 @@
          this.PydtDesc_Clm.OptionsColumn.AllowEdit = false;
          this.PydtDesc_Clm.OptionsColumn.ReadOnly = true;
          this.PydtDesc_Clm.Visible = true;
-         this.PydtDesc_Clm.VisibleIndex = 8;
-         this.PydtDesc_Clm.Width = 76;
+         this.PydtDesc_Clm.VisibleIndex = 7;
+         this.PydtDesc_Clm.Width = 124;
          // 
          // colADD_QUTS
          // 
@@ -3212,7 +3212,7 @@
          this.OwnrFileNo2_Clm.OptionsColumn.ReadOnly = true;
          this.OwnrFileNo2_Clm.Visible = true;
          this.OwnrFileNo2_Clm.VisibleIndex = 9;
-         this.OwnrFileNo2_Clm.Width = 76;
+         this.OwnrFileNo2_Clm.Width = 77;
          // 
          // colPRE_EXPN_STAT
          // 
@@ -3282,22 +3282,22 @@
          this.TotlPric_Clm.UnboundExpression = "[EXPN_PRIC] * [QNTY]";
          this.TotlPric_Clm.UnboundType = DevExpress.Data.UnboundColumnType.Object;
          this.TotlPric_Clm.Visible = true;
-         this.TotlPric_Clm.VisibleIndex = 3;
-         this.TotlPric_Clm.Width = 53;
+         this.TotlPric_Clm.VisibleIndex = 2;
+         this.TotlPric_Clm.Width = 54;
          // 
          // IssuTime2_Clm
          // 
          this.IssuTime2_Clm.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.IssuTime2_Clm.AppearanceCell.Options.UseBackColor = true;
-         this.IssuTime2_Clm.Caption = "زمان پرداخت";
+         this.IssuTime2_Clm.Caption = "زمان";
          this.IssuTime2_Clm.ColumnEdit = this.repositoryItemTimeEdit1;
-         this.IssuTime2_Clm.FieldName = "ISSU_DATE";
+         this.IssuTime2_Clm.FieldName = "Request_Row.Request.SAVE_DATE";
          this.IssuTime2_Clm.Name = "IssuTime2_Clm";
          this.IssuTime2_Clm.OptionsColumn.AllowEdit = false;
          this.IssuTime2_Clm.OptionsColumn.ReadOnly = true;
          this.IssuTime2_Clm.Visible = true;
-         this.IssuTime2_Clm.VisibleIndex = 6;
-         this.IssuTime2_Clm.Width = 55;
+         this.IssuTime2_Clm.VisibleIndex = 5;
+         this.IssuTime2_Clm.Width = 56;
          // 
          // repositoryItemTimeEdit1
          // 
@@ -3320,7 +3320,7 @@
          this.SexType2_Clm.OptionsColumn.ReadOnly = true;
          this.SexType2_Clm.Visible = true;
          this.SexType2_Clm.VisibleIndex = 11;
-         this.SexType2_Clm.Width = 55;
+         this.SexType2_Clm.Width = 54;
          // 
          // Sxtp2_Lov
          // 
@@ -3389,7 +3389,8 @@
          this.colPROF_AMNT_DNRM.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "PROF_AMNT_DNRM", "{0:n0}")});
          this.colPROF_AMNT_DNRM.Visible = true;
-         this.colPROF_AMNT_DNRM.VisibleIndex = 1;
+         this.colPROF_AMNT_DNRM.VisibleIndex = 0;
+         this.colPROF_AMNT_DNRM.Width = 76;
          // 
          // colDEDU_AMNT_DNRM
          // 
@@ -3407,7 +3408,8 @@
          this.colDEDU_AMNT_DNRM.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "DEDU_AMNT_DNRM", "{0:n0}")});
          this.colDEDU_AMNT_DNRM.Visible = true;
-         this.colDEDU_AMNT_DNRM.VisibleIndex = 2;
+         this.colDEDU_AMNT_DNRM.VisibleIndex = 1;
+         this.colDEDU_AMNT_DNRM.Width = 76;
          // 
          // Parm2_Gb
          // 
@@ -19819,6 +19821,20 @@
          this.colStatistic1.Visible = true;
          this.colStatistic1.VisibleIndex = 19;
          // 
+         // colMBSP_RWNO
+         // 
+         this.colMBSP_RWNO.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.colMBSP_RWNO.AppearanceCell.Options.UseBackColor = true;
+         this.colMBSP_RWNO.Caption = "#";
+         this.colMBSP_RWNO.FieldName = "MBSP_RWNO";
+         this.colMBSP_RWNO.Name = "colMBSP_RWNO";
+         this.colMBSP_RWNO.OptionsColumn.AllowEdit = false;
+         this.colMBSP_RWNO.OptionsColumn.FixedWidth = true;
+         this.colMBSP_RWNO.OptionsColumn.ReadOnly = true;
+         this.colMBSP_RWNO.Visible = true;
+         this.colMBSP_RWNO.VisibleIndex = 8;
+         this.colMBSP_RWNO.Width = 27;
+         // 
          // RPT_PMMT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -22066,5 +22082,6 @@
       private Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
       private Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn490;
+      private DevExpress.XtraGrid.Columns.GridColumn colMBSP_RWNO;
    }
 }

@@ -89,7 +89,7 @@
          label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          label14.Enabled = false;
          label14.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
-         label14.Location = new System.Drawing.Point(319, 340);
+         label14.Location = new System.Drawing.Point(409, 340);
          label14.Name = "label14";
          label14.Size = new System.Drawing.Size(26, 19);
          label14.TabIndex = 6;
@@ -101,7 +101,7 @@
          this.LastName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.LastName_Lb.AutoSize = true;
          this.LastName_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LastName_Lb.Location = new System.Drawing.Point(489, 170);
+         this.LastName_Lb.Location = new System.Drawing.Point(579, 170);
          this.LastName_Lb.Name = "LastName_Lb";
          this.LastName_Lb.Size = new System.Drawing.Size(93, 26);
          this.LastName_Lb.TabIndex = 56;
@@ -112,7 +112,7 @@
          this.FrstName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FrstName_Lb.AutoSize = true;
          this.FrstName_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.FrstName_Lb.Location = new System.Drawing.Point(489, 134);
+         this.FrstName_Lb.Location = new System.Drawing.Point(579, 134);
          this.FrstName_Lb.Name = "FrstName_Lb";
          this.FrstName_Lb.Size = new System.Drawing.Size(36, 26);
          this.FrstName_Lb.TabIndex = 55;
@@ -123,7 +123,7 @@
          this.Mtod_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Mtod_Lb.AutoSize = true;
          this.Mtod_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Mtod_Lb.Location = new System.Drawing.Point(489, 436);
+         this.Mtod_Lb.Location = new System.Drawing.Point(579, 436);
          this.Mtod_Lb.Name = "Mtod_Lb";
          this.Mtod_Lb.Size = new System.Drawing.Size(45, 26);
          this.Mtod_Lb.TabIndex = 54;
@@ -134,7 +134,7 @@
          this.FngrPrnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FngrPrnt_Lb.AutoSize = true;
          this.FngrPrnt_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.FngrPrnt_Lb.Location = new System.Drawing.Point(489, 265);
+         this.FngrPrnt_Lb.Location = new System.Drawing.Point(579, 265);
          this.FngrPrnt_Lb.Name = "FngrPrnt_Lb";
          this.FngrPrnt_Lb.Size = new System.Drawing.Size(88, 26);
          this.FngrPrnt_Lb.TabIndex = 53;
@@ -145,7 +145,7 @@
          this.SexType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SexType_Lb.AutoSize = true;
          this.SexType_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.SexType_Lb.Location = new System.Drawing.Point(488, 476);
+         this.SexType_Lb.Location = new System.Drawing.Point(578, 476);
          this.SexType_Lb.Name = "SexType_Lb";
          this.SexType_Lb.Size = new System.Drawing.Size(66, 26);
          this.SexType_Lb.TabIndex = 54;
@@ -157,7 +157,7 @@
          this.CardNo_Lb.AutoSize = true;
          this.CardNo_Lb.Enabled = false;
          this.CardNo_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.CardNo_Lb.Location = new System.Drawing.Point(489, 301);
+         this.CardNo_Lb.Location = new System.Drawing.Point(579, 301);
          this.CardNo_Lb.Name = "CardNo_Lb";
          this.CardNo_Lb.Size = new System.Drawing.Size(86, 26);
          this.CardNo_Lb.TabIndex = 53;
@@ -170,7 +170,7 @@
          this.ChatId_Lb.AutoSize = true;
          this.ChatId_Lb.Enabled = false;
          this.ChatId_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ChatId_Lb.Location = new System.Drawing.Point(489, 337);
+         this.ChatId_Lb.Location = new System.Drawing.Point(579, 337);
          this.ChatId_Lb.Name = "ChatId_Lb";
          this.ChatId_Lb.Size = new System.Drawing.Size(72, 26);
          this.ChatId_Lb.TabIndex = 53;
@@ -186,7 +186,7 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(597, 59);
+         this.panel1.Size = new System.Drawing.Size(687, 59);
          this.panel1.TabIndex = 0;
          // 
          // SaveNewCoch_Butn
@@ -217,7 +217,7 @@
          this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.TitlForm_Lb.Location = new System.Drawing.Point(297, 0);
+         this.TitlForm_Lb.Location = new System.Drawing.Point(387, 0);
          this.TitlForm_Lb.Name = "TitlForm_Lb";
          this.TitlForm_Lb.Size = new System.Drawing.Size(239, 59);
          this.TitlForm_Lb.TabIndex = 1;
@@ -230,7 +230,7 @@
          this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1371;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(536, 0);
+         this.Back_Butn.Location = new System.Drawing.Point(626, 0);
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Back_Butn.Name = "Back_Butn";
@@ -263,7 +263,7 @@
          // 
          this.FrstName_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FrstName_Text.EditValue = "";
-         this.FrstName_Text.Location = new System.Drawing.Point(246, 132);
+         this.FrstName_Text.Location = new System.Drawing.Point(336, 132);
          this.FrstName_Text.Name = "FrstName_Text";
          this.FrstName_Text.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.FrstName_Text.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -301,7 +301,7 @@
          this.Desc1_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Desc1_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Desc1_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.Desc1_Lb.Location = new System.Drawing.Point(129, 65);
+         this.Desc1_Lb.Location = new System.Drawing.Point(219, 65);
          this.Desc1_Lb.Name = "Desc1_Lb";
          this.Desc1_Lb.Size = new System.Drawing.Size(452, 46);
          this.Desc1_Lb.TabIndex = 18;
@@ -312,7 +312,7 @@
          // 
          this.LastName_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.LastName_Text.EditValue = "";
-         this.LastName_Text.Location = new System.Drawing.Point(246, 168);
+         this.LastName_Text.Location = new System.Drawing.Point(336, 168);
          this.LastName_Text.Name = "LastName_Text";
          this.LastName_Text.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.LastName_Text.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -343,7 +343,7 @@
          // 
          this.FNGR_PRNT_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FNGR_PRNT_TextEdit.EditValue = "";
-         this.FNGR_PRNT_TextEdit.Location = new System.Drawing.Point(351, 262);
+         this.FNGR_PRNT_TextEdit.Location = new System.Drawing.Point(441, 262);
          this.FNGR_PRNT_TextEdit.Name = "FNGR_PRNT_TextEdit";
          this.FNGR_PRNT_TextEdit.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.FNGR_PRNT_TextEdit.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -373,7 +373,7 @@
          // Mtod_Lov
          // 
          this.Mtod_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Mtod_Lov.Location = new System.Drawing.Point(297, 433);
+         this.Mtod_Lov.Location = new System.Drawing.Point(387, 433);
          this.Mtod_Lov.Name = "Mtod_Lov";
          this.Mtod_Lov.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.Mtod_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -415,7 +415,7 @@
          // SexType_Lov
          // 
          this.SexType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.SexType_Lov.Location = new System.Drawing.Point(297, 473);
+         this.SexType_Lov.Location = new System.Drawing.Point(387, 473);
          this.SexType_Lov.Name = "SexType_Lov";
          this.SexType_Lov.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.SexType_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -460,7 +460,7 @@
          this.GetMaxFngrPrint_Butn.Appearance.Options.UseFont = true;
          this.GetMaxFngrPrint_Butn.Appearance.Options.UseForeColor = true;
          this.GetMaxFngrPrint_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GetMaxFngrPrint_Butn.Location = new System.Drawing.Point(297, 262);
+         this.GetMaxFngrPrint_Butn.Location = new System.Drawing.Point(387, 262);
          this.GetMaxFngrPrint_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GetMaxFngrPrint_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GetMaxFngrPrint_Butn.Name = "GetMaxFngrPrint_Butn";
@@ -482,7 +482,7 @@
          this.Desc2_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Desc2_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Desc2_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.Desc2_Lb.Location = new System.Drawing.Point(195, 204);
+         this.Desc2_Lb.Location = new System.Drawing.Point(285, 204);
          this.Desc2_Lb.Name = "Desc2_Lb";
          this.Desc2_Lb.Size = new System.Drawing.Size(350, 52);
          this.Desc2_Lb.TabIndex = 18;
@@ -501,7 +501,7 @@
          this.Desc3_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Desc3_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Desc3_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.Desc3_Lb.Location = new System.Drawing.Point(129, 375);
+         this.Desc3_Lb.Location = new System.Drawing.Point(219, 375);
          this.Desc3_Lb.Name = "Desc3_Lb";
          this.Desc3_Lb.Size = new System.Drawing.Size(416, 52);
          this.Desc3_Lb.TabIndex = 18;
@@ -513,7 +513,7 @@
          this.CardNum_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CardNum_Txt.EditValue = "";
          this.CardNum_Txt.Enabled = false;
-         this.CardNum_Txt.Location = new System.Drawing.Point(351, 298);
+         this.CardNum_Txt.Location = new System.Drawing.Point(441, 298);
          this.CardNum_Txt.Name = "CardNum_Txt";
          this.CardNum_Txt.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.CardNum_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -546,7 +546,7 @@
          this.Chat_Id_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Chat_Id_TextEdit.EditValue = "";
          this.Chat_Id_TextEdit.Enabled = false;
-         this.Chat_Id_TextEdit.Location = new System.Drawing.Point(351, 334);
+         this.Chat_Id_TextEdit.Location = new System.Drawing.Point(441, 334);
          this.Chat_Id_TextEdit.Name = "Chat_Id_TextEdit";
          this.Chat_Id_TextEdit.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.Chat_Id_TextEdit.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -660,7 +660,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "BAS_ADCH_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(597, 527);
+         this.Size = new System.Drawing.Size(687, 549);
          this.panel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.FrstName_Text.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.LastName_Text.Properties)).EndInit();

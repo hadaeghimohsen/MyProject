@@ -541,15 +541,23 @@ namespace System.Scsc.Ui.Admission
 
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {                  
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "Add User Info"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
-               });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = 
+                           new XElement("DeviceControlFunction", 
+                              new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.1" /* Add Face */ : "5.2.3.8" /* Add Finger */)), 
+                              new XAttribute("funcdesc", "Add User Info"), 
+                              new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                           )
+                     }
+                  })
+            );
          }
-         catch (Exception exc) { }
+         catch { }
       }
 
       private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
@@ -558,15 +566,23 @@ namespace System.Scsc.Ui.Admission
          {
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {                  
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.5"), new XAttribute("funcdesc", "Delete User Info"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
-               });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = 
+                           new XElement("DeviceControlFunction", 
+                              new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.2" /* Delete Face */ : "5.2.3.5" /* Delete Finger */)), 
+                              new XAttribute("funcdesc", "Delete User Info"), 
+                              new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                           )
+                     }
+                  })
+            );
          }
-         catch (Exception exc) { }
+         catch { }
       }
 
       private void RqstBnDuplicateFngrPrnt1_Click(object sender, EventArgs e)
@@ -575,15 +591,22 @@ namespace System.Scsc.Ui.Admission
          {
             if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
 
-            Job _InteractWithScsc =
-            new Job(SendType.External, "Localhost",
-               new List<Job>
-               {                  
-                  new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.7.2"), new XAttribute("funcdesc", "Duplicate User Info Into All Device"), new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text))}
-               });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = new XElement("DeviceControlFunction", 
+                           new XAttribute("functype", "5.2.7.2" /* Duplicate */), 
+                           new XAttribute("funcdesc", "Duplicate User Info Into All Device"), 
+                           new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                        )
+                     }
+                  })
+            );
          }
-         catch (Exception exc) { }
+         catch { }
       }
 
       private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)

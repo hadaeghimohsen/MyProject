@@ -170,7 +170,7 @@
          this.SubmitChange_Butn.Name = "SubmitChange_Butn";
          this.SubmitChange_Butn.Size = new System.Drawing.Size(61, 59);
          this.SubmitChange_Butn.TabIndex = 3;
-         this.SubmitChange_Butn.ToolTip = "بازگشت";
+         this.SubmitChange_Butn.ToolTip = "ذخیره اطلاعات";
          this.SubmitChange_Butn.Click += new System.EventHandler(this.SubmitChange_Butn_Click);
          // 
          // panel1

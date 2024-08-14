@@ -1310,6 +1310,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Meeting_Comment.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Member_Ship.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Member_Ship_Mark.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Member_Ship_Session.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Message_Broadcast.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Method.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Misc_Expense.datasource" />

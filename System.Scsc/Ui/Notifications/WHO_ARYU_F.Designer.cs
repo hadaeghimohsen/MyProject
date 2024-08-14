@@ -38,17 +38,17 @@
          DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition2 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -100,6 +100,8 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
          this.ExitTime_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.AttnType_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit13 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -127,6 +129,8 @@
          this.AttnBn1 = new System.Windows.Forms.BindingNavigator(this.components);
          this.MoveFirstItem_Butn = new System.Windows.Forms.ToolStripButton();
          this.MovePreviousItem_Butn = new System.Windows.Forms.ToolStripButton();
+         this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+         this.AttnRwno_Txt = new System.Windows.Forms.ToolStripTextBox();
          this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
          this.MoveNextItem_Butn = new System.Windows.Forms.ToolStripButton();
          this.MoveLastItem_Butn = new System.Windows.Forms.ToolStripButton();
@@ -426,6 +430,7 @@
          this.Infos_Ro = new System.MaxUi.Rollout();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.DoBkg_Tr = new System.Windows.Forms.Timer(this.components);
+         this.OthrIncome_Butn = new DevExpress.XtraEditors.SimpleButton();
          label13 = new System.Windows.Forms.Label();
          label2 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit13)).BeginInit();
@@ -819,6 +824,8 @@
          this.AttnBn1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MoveFirstItem_Butn,
             this.MovePreviousItem_Butn,
+            this.toolStripSeparator3,
+            this.AttnRwno_Txt,
             this.bindingNavigatorSeparator,
             this.MoveNextItem_Butn,
             this.MoveLastItem_Butn,
@@ -863,6 +870,20 @@
          this.MovePreviousItem_Butn.Size = new System.Drawing.Size(44, 44);
          this.MovePreviousItem_Butn.Text = "Move previous";
          this.MovePreviousItem_Butn.Click += new System.EventHandler(this.MovePreviousItem_Butn_Click);
+         // 
+         // toolStripSeparator3
+         // 
+         this.toolStripSeparator3.Name = "toolStripSeparator3";
+         this.toolStripSeparator3.Size = new System.Drawing.Size(6, 47);
+         // 
+         // AttnRwno_Txt
+         // 
+         this.AttnRwno_Txt.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.AttnRwno_Txt.Name = "AttnRwno_Txt";
+         this.AttnRwno_Txt.ReadOnly = true;
+         this.AttnRwno_Txt.Size = new System.Drawing.Size(50, 47);
+         this.AttnRwno_Txt.Text = "1";
+         this.AttnRwno_Txt.TextBoxTextAlign = System.Windows.Forms.HorizontalAlignment.Center;
          // 
          // bindingNavigatorSeparator
          // 
@@ -1033,6 +1054,7 @@
          // 
          this.panel4.BackColor = System.Drawing.Color.DimGray;
          this.panel4.Controls.Add(this.simpleButton11);
+         this.panel4.Controls.Add(this.OthrIncome_Butn);
          this.panel4.Controls.Add(this.OpenDVip_Butn);
          this.panel4.Controls.Add(this.SetDVip_Butn);
          this.panel4.Controls.Add(this.simpleButton12);
@@ -1086,15 +1108,15 @@
          this.OpenDVip_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.OpenDVip_Butn.Name = "OpenDVip_Butn";
          this.OpenDVip_Butn.Size = new System.Drawing.Size(76, 74);
-         toolTipTitleItem3.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
-         toolTipTitleItem3.Appearance.Options.UseImage = true;
-         toolTipTitleItem3.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem3.Image")));
-         toolTipTitleItem3.Text = "باز کردن کمد";
+         toolTipTitleItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image2")));
+         toolTipTitleItem4.Appearance.Options.UseImage = true;
+         toolTipTitleItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem4.Image")));
+         toolTipTitleItem4.Text = "باز کردن کمد";
          toolTipItem3.LeftIndent = 6;
          toolTipItem3.Text = "شما میتوانید از همین قسمت کمد اختصاص داده شده به مشتری را باز کنید";
-         superToolTip3.Items.Add(toolTipTitleItem3);
-         superToolTip3.Items.Add(toolTipItem3);
-         this.OpenDVip_Butn.SuperTip = superToolTip3;
+         superToolTip4.Items.Add(toolTipTitleItem4);
+         superToolTip4.Items.Add(toolTipItem3);
+         this.OpenDVip_Butn.SuperTip = superToolTip4;
          this.OpenDVip_Butn.TabIndex = 91;
          this.OpenDVip_Butn.Click += new System.EventHandler(this.OpenDVip_Butn_Click);
          // 
@@ -1111,16 +1133,16 @@
          this.SetDVip_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SetDVip_Butn.Name = "SetDVip_Butn";
          this.SetDVip_Butn.Size = new System.Drawing.Size(76, 74);
-         toolTipTitleItem4.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
-         toolTipTitleItem4.Appearance.Options.UseImage = true;
-         toolTipTitleItem4.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem4.Image")));
-         toolTipTitleItem4.Text = "اختصاص کمد به مشتری";
+         toolTipTitleItem5.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image3")));
+         toolTipTitleItem5.Appearance.Options.UseImage = true;
+         toolTipTitleItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem5.Image")));
+         toolTipTitleItem5.Text = "اختصاص کمد به مشتری";
          toolTipItem4.LeftIndent = 6;
          toolTipItem4.Text = "شما میتوانید با گرفتن هزینه کمد اختصاصی یا اجاره ای برای مشتریان کمد اختصاصی قرار" +
     " دهید";
-         superToolTip4.Items.Add(toolTipTitleItem4);
-         superToolTip4.Items.Add(toolTipItem4);
-         this.SetDVip_Butn.SuperTip = superToolTip4;
+         superToolTip5.Items.Add(toolTipTitleItem5);
+         superToolTip5.Items.Add(toolTipItem4);
+         this.SetDVip_Butn.SuperTip = superToolTip5;
          this.SetDVip_Butn.TabIndex = 91;
          this.SetDVip_Butn.Click += new System.EventHandler(this.SetDVip_Butn_Click);
          // 
@@ -1137,16 +1159,16 @@
          this.simpleButton12.LookAndFeel.UseDefaultLookAndFeel = false;
          this.simpleButton12.Name = "simpleButton12";
          this.simpleButton12.Size = new System.Drawing.Size(76, 74);
-         toolTipTitleItem5.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
-         toolTipTitleItem5.Appearance.Options.UseImage = true;
-         toolTipTitleItem5.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem5.Image")));
-         toolTipTitleItem5.Text = "تعریف اثر انگشت";
+         toolTipTitleItem6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image4")));
+         toolTipTitleItem6.Appearance.Options.UseImage = true;
+         toolTipTitleItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem6.Image")));
+         toolTipTitleItem6.Text = "تعریف اثر انگشت";
          toolTipItem5.LeftIndent = 6;
          toolTipItem5.Text = "برای سیستم های اثر انگشت و کمد انلاین میتوانید با این گزینه به دستگاه اصلی پیام ت" +
     "عریف اثر انگشت را ارسال کنید";
-         superToolTip5.Items.Add(toolTipTitleItem5);
-         superToolTip5.Items.Add(toolTipItem5);
-         this.simpleButton12.SuperTip = superToolTip5;
+         superToolTip6.Items.Add(toolTipTitleItem6);
+         superToolTip6.Items.Add(toolTipItem5);
+         this.simpleButton12.SuperTip = superToolTip6;
          this.simpleButton12.TabIndex = 91;
          this.simpleButton12.Click += new System.EventHandler(this.RqstBnEnrollFngrPrnt1_Click);
          // 
@@ -1242,16 +1264,16 @@
          this.SaveAttnDesc_Txt.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SaveAttnDesc_Txt.Name = "SaveAttnDesc_Txt";
          this.SaveAttnDesc_Txt.Size = new System.Drawing.Size(44, 46);
-         toolTipTitleItem6.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
-         toolTipTitleItem6.Appearance.Options.UseImage = true;
-         toolTipTitleItem6.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem6.Image")));
-         toolTipTitleItem6.Text = "تحویل کلید به اعضا";
+         toolTipTitleItem7.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image5")));
+         toolTipTitleItem7.Appearance.Options.UseImage = true;
+         toolTipTitleItem7.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem7.Image")));
+         toolTipTitleItem7.Text = "تحویل کلید به اعضا";
          toolTipItem6.LeftIndent = 6;
          toolTipItem6.Text = "برای اختصاص کلید برای ورودی اعضا شما می توانید ابتدا کلید کمد مربوطه را به اعضا ا" +
     "ختصاص دهید و دکمه ذخیره کردن را فشار دهید";
-         superToolTip6.Items.Add(toolTipTitleItem6);
-         superToolTip6.Items.Add(toolTipItem6);
-         this.SaveAttnDesc_Txt.SuperTip = superToolTip6;
+         superToolTip7.Items.Add(toolTipTitleItem7);
+         superToolTip7.Items.Add(toolTipItem6);
+         this.SaveAttnDesc_Txt.SuperTip = superToolTip7;
          this.SaveAttnDesc_Txt.TabIndex = 81;
          this.SaveAttnDesc_Txt.Visible = false;
          this.SaveAttnDesc_Txt.Click += new System.EventHandler(this.SaveAttnDesc_Txt_Click);
@@ -4326,6 +4348,28 @@
          this.DoBkg_Tr.Interval = 2000;
          this.DoBkg_Tr.Tick += new System.EventHandler(this.DoBkg_Tr_Tick);
          // 
+         // OthrIncome_Butn
+         // 
+         this.OthrIncome_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.OthrIncome_Butn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.OthrIncome_Butn.Appearance.Options.UseBackColor = true;
+         this.OthrIncome_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1669;
+         this.OthrIncome_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.OthrIncome_Butn.Location = new System.Drawing.Point(8, 597);
+         this.OthrIncome_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.OthrIncome_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.OthrIncome_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.OthrIncome_Butn.Name = "OthrIncome_Butn";
+         this.OthrIncome_Butn.Size = new System.Drawing.Size(76, 74);
+         toolTipTitleItem3.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1669;
+         toolTipTitleItem3.Appearance.Options.UseImage = true;
+         toolTipTitleItem3.Image = global::System.Scsc.Properties.Resources.IMAGE_1669;
+         toolTipTitleItem3.Text = "درآمد متفرقه";
+         superToolTip3.Items.Add(toolTipTitleItem3);
+         this.OthrIncome_Butn.SuperTip = superToolTip3;
+         this.OthrIncome_Butn.TabIndex = 91;
+         this.OthrIncome_Butn.Click += new System.EventHandler(this.OthrIncome_Butn_Click);
+         // 
          // WHO_ARYU_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -4776,6 +4820,9 @@
       private Windows.Forms.BindingSource DYsnoBs;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit OldAtnwStat_Lov;
       private DevExpress.XtraTab.XtraTabPage Tp_OldGetWrist;
+      private Windows.Forms.ToolStripTextBox AttnRwno_Txt;
+      private Windows.Forms.ToolStripSeparator toolStripSeparator3;
+      private DevExpress.XtraEditors.SimpleButton OthrIncome_Butn;
       //private DevExpress.XtraTab.XtraTabPage Tp_OldDefWrist;
 
    }

@@ -765,109 +765,83 @@ namespace System.Scsc.Ui.Common
          {
             RqstBnDeleteFngrPrnt1_Click(null, null);
 
-            //if (Tb_Master.SelectedTab == mtp_002)
-            //{
-            //   var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-            //   if (figh == null) return;
-            //   if (figh.FNGR_PRNT_DNRM == "") { return; }
+            var figh = FighBs.Current as Data.Fighter;
+            if (figh == null) return;
+            if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-            //   _DefaultGateway.Gateway(
-            //      new Job(SendType.External, "Localhost",
-            //         new List<Job>
-            //         {                  
-            //            new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "Add User Info"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
-            //         })
-            //   );
-            //}
-            //else if(Tb_Master.SelectedTab == mtp_001)
-            {
-               var figh = FighBs.Current as Data.Fighter;
-               if (figh == null) return;
-               if (figh.FNGR_PRNT_DNRM == "") { return; }
-
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
                      {                  
-                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.8"), new XAttribute("funcdesc", "Add User Info"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
+                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                        {
+                           Input = 
+                              new XElement("DeviceControlFunction", 
+                                 new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.1" /* Add Face */ : "5.2.3.8" /* Add Finger */)), 
+                                 new XAttribute("funcdesc", "Add User Info"), 
+                                 new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM)
+                              )
+                        }
                      })
-               );
+            );
 
-            }
          }
-         catch (Exception exc) { }
+         catch { }
       }
 
       private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
       {
          try
          {
-            //if (Tb_Master.SelectedTab == mtp_002)
-            //{
-            //   var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-            //   if (figh == null) return;
-            //   if (figh.FNGR_PRNT_DNRM == "") { return; }
+            var figh = FighBs.Current as Data.Fighter;
+            if (figh == null) return;
+            if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-            //   _DefaultGateway.Gateway(
-            //      new Job(SendType.External, "Localhost",
-            //         new List<Job>
-            //         {                  
-            //            new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.5"), new XAttribute("funcdesc", "Delete User Info"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
-            //         })
-            //   );
-            //}
-            //else if(Tb_Master.SelectedTab == mtp_001)
-            {
-               var figh = FighBs.Current as Data.Fighter;
-               if (figh == null) return;
-               if (figh.FNGR_PRNT_DNRM == "") { return; }
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = 
+                           new XElement("DeviceControlFunction", 
+                              new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.2" /* Delete Face */ : "5.2.3.5" /* Delete Finger */)), 
+                              new XAttribute("funcdesc", "Delete User Info"), 
+                              new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM)
+                           )
+                     }
+                  })
+            );
 
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
-                     {                  
-                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.3.5"), new XAttribute("funcdesc", "Delete User Info"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
-                     })
-               );
-            }
          }
-         catch (Exception exc) { }
+         catch { }
       }
 
       private void RqstBnDuplicateFngrPrnt1_Click(object sender, EventArgs e)
       {
          try
          {
-            //if (Tb_Master.SelectedTab == mtp_002)
-            //{
-            //   var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-            //   if (figh == null) return;
-            //   if (figh.FNGR_PRNT_DNRM == "") { return; }
+            var figh = FighBs.Current as Data.Fighter;
+            if (figh == null) return;
+            if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-            //   _DefaultGateway.Gateway(
-            //      new Job(SendType.External, "Localhost",
-            //         new List<Job>
-            //         {                  
-            //            new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.7.2"), new XAttribute("funcdesc", "Duplicate User Info Into All Device"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
-            //         })
-            //   );
-            //}
-            //else if(Tb_Master.SelectedTab == mtp_001)
-            {
-               var figh = FighBs.Current as Data.Fighter;
-               if (figh == null) return;
-               if (figh.FNGR_PRNT_DNRM == "") { return; }
-
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
-                     {                  
-                        new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */){Input = new XElement("DeviceControlFunction", new XAttribute("functype", "5.2.7.2"), new XAttribute("funcdesc", "Duplicate User Info Into All Device"), new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM))}
-                     })
-               );
-            }
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                     {
+                        Input = 
+                           new XElement("DeviceControlFunction", 
+                              new XAttribute("functype", "5.2.7.2"), 
+                              new XAttribute("funcdesc", "Duplicate User Info Into All Device"), 
+                              new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM)
+                           )
+                     }
+                  })
+            );
          }
-         catch (Exception exc) { }
+         catch { }
       }
 
       private void RqstBnDeleteFngrNewEnrollPrnt1_Click(object sender, EventArgs e)
@@ -876,50 +850,26 @@ namespace System.Scsc.Ui.Common
          {
             if (MessageBox.Show(this, "آیا با حذف اثر انگشت از مشتری و اختصاص برای کاربر جدید موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            //if (Tb_Master.SelectedTab == mtp_002)
-            //{
-            //   var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-            //   if (figh == null) return;
-            //   if (figh.FNGR_PRNT_DNRM == "") { return; }
+            var figh = FighBs.Current as Data.Fighter;
+            if (figh == null) return;
+            if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-            //   // اثر انگشت را از دستگاه پاک میکنیم
-            //   RqstBnDeleteFngrPrnt1_Click(null, null);
+            // اثر انگشت را از دستگاه پاک میکنیم
+            RqstBnDeleteFngrPrnt1_Click(null, null);
 
-            //   // ابتدا کد انگشتی را از مشتری میگیریم
-            //   ClearFingerPrint_Butn_Click(null, null);
+            // ابتدا کد انگشتی را از مشتری میگیریم
+            ClearFingerPrint_Butn_Click(null, null);
 
-            //   // باز کردن فرم ثبت نام برای مشتری جدید
-            //   _DefaultGateway.Gateway(
-            //      new Job(SendType.External, "Localhost",
-            //         new List<Job>
-            //         {
-            //            new Job(SendType.Self, 123 /* Execute Adm_Figh_F */),
-            //            new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", figh.FNGR_PRNT_DNRM))}
-            //         })
-            //   );
-            //}
-            //else if(Tb_Master.SelectedTab == mtp_001)
-            {
-               var figh = FighBs.Current as Data.Fighter;
-               if (figh == null) return;
-               if (figh.FNGR_PRNT_DNRM == "") { return; }
-
-               // اثر انگشت را از دستگاه پاک میکنیم
-               RqstBnDeleteFngrPrnt1_Click(null, null);
-
-               // ابتدا کد انگشتی را از مشتری میگیریم
-               ClearFingerPrint_Butn_Click(null, null);
-
-               // باز کردن فرم ثبت نام برای مشتری جدید
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost",
-                     new List<Job>
+            // باز کردن فرم ثبت نام برای مشتری جدید
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
                      {
                         new Job(SendType.Self, 123 /* Execute Adm_Figh_F */),
                         new Job(SendType.SelfToUserInterface, "ADM_FIGH_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", figh.FNGR_PRNT_DNRM))}
                      })
-               );
-            }
+            );
+
          }
          catch (Exception exc)
          {

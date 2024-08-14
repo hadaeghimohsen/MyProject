@@ -29,10 +29,10 @@
       private void InitializeComponent()
       {
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsAccount));
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.SubmitChange_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -84,6 +84,7 @@
          this.Ts_PrivacyLockScreenStat = new DevExpress.XtraEditors.ToggleSwitch();
          this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl12 = new DevExpress.XtraEditors.LabelControl();
+         this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl25 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl24 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl23 = new DevExpress.XtraEditors.LabelControl();
@@ -98,7 +99,6 @@
          this.ChangePassword_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
-         this.labelControl32 = new DevExpress.XtraEditors.LabelControl();
          this.panel1.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
          this.Tb_Master.SuspendLayout();
@@ -163,7 +163,7 @@
          this.SubmitChange_Butn.Name = "SubmitChange_Butn";
          this.SubmitChange_Butn.Size = new System.Drawing.Size(61, 59);
          this.SubmitChange_Butn.TabIndex = 3;
-         this.SubmitChange_Butn.ToolTip = "بازگشت";
+         this.SubmitChange_Butn.ToolTip = "ذخیره اطلاعات";
          this.SubmitChange_Butn.Click += new System.EventHandler(this.SubmitChange_Butn_Click);
          // 
          // panel1
@@ -804,7 +804,7 @@
          this.buttonEdit3.Properties.AppearanceFocused.Options.UseFont = true;
          this.buttonEdit3.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit3.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit3.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.buttonEdit3.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.buttonEdit3.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.buttonEdit3.Properties.NullValuePromptShowForEmptyValue = true;
@@ -853,7 +853,7 @@
          this.buttonEdit2.Properties.AppearanceFocused.Options.UseFont = true;
          this.buttonEdit2.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit2.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit2.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.buttonEdit2.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.buttonEdit2.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.buttonEdit2.Properties.NullValuePromptShowForEmptyValue = true;
@@ -886,7 +886,7 @@
          this.buttonEdit1.Properties.AppearanceFocused.Options.UseFont = true;
          this.buttonEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.buttonEdit1.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.buttonEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.buttonEdit1.Properties.NullValuePromptShowForEmptyValue = true;
@@ -919,7 +919,7 @@
          this.UserName_Be.Properties.AppearanceFocused.Options.UseFont = true;
          this.UserName_Be.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
          this.UserName_Be.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("UserName_Be.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("UserName_Be.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.UserName_Be.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.UserName_Be.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.UserName_Be.Properties.NullValuePromptShowForEmptyValue = true;
@@ -1026,6 +1026,22 @@
          this.labelControl12.TabIndex = 15;
          this.labelControl12.Text = "سرویس استفاده از :) سلام انار، برای آن دسته از سیستم هایی می باشد که مجهز به حسگر" +
     " اثر انگشت می باشد که بتوان بر اساس اثر انگشت افراد هویت آنها را تشخیص داد";
+         // 
+         // labelControl32
+         // 
+         this.labelControl32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.labelControl32.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.labelControl32.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.labelControl32.Appearance.ForeColor = System.Drawing.Color.Gray;
+         this.labelControl32.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.labelControl32.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.labelControl32.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
+         this.labelControl32.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
+         this.labelControl32.Location = new System.Drawing.Point(556, 450);
+         this.labelControl32.Name = "labelControl32";
+         this.labelControl32.Size = new System.Drawing.Size(30, 26);
+         this.labelControl32.TabIndex = 15;
+         this.labelControl32.Text = "Voip";
          // 
          // labelControl25
          // 
@@ -1257,22 +1273,6 @@
          this.splitContainerControl1.SplitterPosition = 219;
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
-         // 
-         // labelControl32
-         // 
-         this.labelControl32.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.labelControl32.Appearance.BackColor = System.Drawing.Color.Transparent;
-         this.labelControl32.Appearance.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.labelControl32.Appearance.ForeColor = System.Drawing.Color.Gray;
-         this.labelControl32.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl32.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.labelControl32.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
-         this.labelControl32.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl32.Location = new System.Drawing.Point(556, 450);
-         this.labelControl32.Name = "labelControl32";
-         this.labelControl32.Size = new System.Drawing.Size(30, 26);
-         this.labelControl32.TabIndex = 15;
-         this.labelControl32.Text = "Voip";
          // 
          // SettingsAccount
          // 

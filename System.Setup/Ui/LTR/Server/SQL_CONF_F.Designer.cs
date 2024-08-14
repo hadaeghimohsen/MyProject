@@ -352,22 +352,22 @@
          // WinAuth_Rb
          // 
          this.WinAuth_Rb.AutoSize = true;
+         this.WinAuth_Rb.Checked = true;
          this.WinAuth_Rb.Location = new System.Drawing.Point(148, 80);
          this.WinAuth_Rb.Name = "WinAuth_Rb";
          this.WinAuth_Rb.Size = new System.Drawing.Size(160, 18);
          this.WinAuth_Rb.TabIndex = 5;
+         this.WinAuth_Rb.TabStop = true;
          this.WinAuth_Rb.Text = "Windows Authentication";
          this.WinAuth_Rb.UseVisualStyleBackColor = true;
          // 
          // SqlServerAuth_Rb
          // 
          this.SqlServerAuth_Rb.AutoSize = true;
-         this.SqlServerAuth_Rb.Checked = true;
          this.SqlServerAuth_Rb.Location = new System.Drawing.Point(148, 104);
          this.SqlServerAuth_Rb.Name = "SqlServerAuth_Rb";
          this.SqlServerAuth_Rb.Size = new System.Drawing.Size(171, 18);
          this.SqlServerAuth_Rb.TabIndex = 6;
-         this.SqlServerAuth_Rb.TabStop = true;
          this.SqlServerAuth_Rb.Text = "SQL Server Authentication";
          this.SqlServerAuth_Rb.UseVisualStyleBackColor = true;
          // 
@@ -880,7 +880,7 @@
          this.tabPage2.Location = new System.Drawing.Point(4, 23);
          this.tabPage2.Name = "tabPage2";
          this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(1060, 323);
+         this.tabPage2.Size = new System.Drawing.Size(1128, 391);
          this.tabPage2.TabIndex = 1;
          this.tabPage2.Text = "iRoboTech";
          this.tabPage2.UseVisualStyleBackColor = true;
@@ -890,7 +890,7 @@
          this.tabPage3.Location = new System.Drawing.Point(4, 23);
          this.tabPage3.Name = "tabPage3";
          this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage3.Size = new System.Drawing.Size(1060, 323);
+         this.tabPage3.Size = new System.Drawing.Size(1128, 391);
          this.tabPage3.TabIndex = 2;
          this.tabPage3.Text = "iScsc";
          this.tabPage3.UseVisualStyleBackColor = true;
@@ -900,7 +900,7 @@
          this.tabPage4.Location = new System.Drawing.Point(4, 23);
          this.tabPage4.Name = "tabPage4";
          this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage4.Size = new System.Drawing.Size(1060, 323);
+         this.tabPage4.Size = new System.Drawing.Size(1128, 391);
          this.tabPage4.TabIndex = 3;
          this.tabPage4.Text = "iCRM";
          this.tabPage4.UseVisualStyleBackColor = true;

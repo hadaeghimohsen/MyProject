@@ -29,6 +29,7 @@ namespace System.Scsc.Ui.Notifications
       private string formcaller = "";
       private bool isFirstLoaded = false;
       private string CurrentUser;
+      private Data.Setting _stng;
 
       public void SendRequest(Job job)
       {
@@ -200,10 +201,11 @@ namespace System.Scsc.Ui.Notifications
             else
                break;
          }
-         var attnNotfSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
-         if(attnNotfSetting.ATTN_NOTF_STAT == "002" && attnNotfSetting.ATTN_NOTF_CLOS_TYPE == "002")
+         if(_stng == null)
+            _stng = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
+         if (_stng.ATTN_NOTF_STAT == "002" && _stng.ATTN_NOTF_CLOS_TYPE == "002")
          {
-            Thread.Sleep((int)attnNotfSetting.ATTN_NOTF_CLOS_INTR);
+            Thread.Sleep((int)_stng.ATTN_NOTF_CLOS_INTR);
             if(isPainted)
                RqstBnExit1_Click(null, null);
          }

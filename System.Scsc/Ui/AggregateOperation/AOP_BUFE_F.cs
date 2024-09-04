@@ -489,6 +489,10 @@ namespace System.Scsc.Ui.AggregateOperation
             if (!SaveInfoStat_Rb.Checked) return;
 
             var crnt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            
+            // 1403/06/09 * IF sender object has data object
+            if (sender is Data.Aggregation_Operation_Detail)
+               crnt = sender as Data.Aggregation_Operation_Detail;
 
             if(e.Button.Index == 4)
             {
@@ -957,21 +961,25 @@ namespace System.Scsc.Ui.AggregateOperation
          try
          {
             apdt_gv.PostEditor();
-            var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            var _desk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            
+            // 1403/06/11
+            if (sender is Data.Aggregation_Operation_Detail)
+               _desk = sender as Data.Aggregation_Operation_Detail;
 
-            if (aodt == null) return;
+            if (_desk == null) return;
 
-            if (aodt.STAT == "002") { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); return; }
+            if (_desk.STAT == "002") { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); return; }
 
             //aodt.END_TIME = DateTime.Now.TimeOfDay;
-            aodt.END_TIME = DateTime.Now;
-            aodt.STAT = "003";
+            _desk.END_TIME = DateTime.Now;
+            _desk.STAT = "003";
 
             AodtBs1.EndEdit();
 
             iScsc.SubmitChanges();
 
-            iScsc.CALC_APDT_P(aodt.AGOP_CODE, aodt.RWNO);
+            iScsc.CALC_APDT_P(_desk.AGOP_CODE, _desk.RWNO);
             requery = true;
 
             // ارسال پیام برای خاموش کردن دستگاه چراغ میز برای مشتری
@@ -981,17 +989,29 @@ namespace System.Scsc.Ui.AggregateOperation
                   Input =
                      new XElement("ExpenseGame",
                          new XAttribute("type", "expnextr"),
-                         new XAttribute("expncode", aodt.EXPN_CODE),
+                         new XAttribute("expncode", _desk.EXPN_CODE),
                          new XAttribute("cmndtext", "sp"),
-                         new XAttribute("fngrprnt", aodt.Fighter.FNGR_PRNT_DNRM)
+                         new XAttribute("fngrprnt", _desk.Fighter.FNGR_PRNT_DNRM)
                      )
                }
             );
 
-            if (aodt.END_TIME != null)
+            if (_desk.END_TIME != null)
             {
                //TotlMint_Txt.EditValue = aodt.END_TIME.Value.TimeOfDay.TotalMinutes - aodt.STRT_TIME.Value.TimeOfDay.TotalMinutes;
-               TotlMint_Txt.EditValue = (aodt.END_TIME.Value - aodt.STRT_TIME.Value).TotalMinutes;
+               TotlMint_Txt.EditValue = (_desk.END_TIME.Value - _desk.STRT_TIME.Value).TotalMinutes;
+            }
+
+            // 1403/06/10 * اگر انتخاب شود که بعد از بسته شدن فاکتور تسویه حساب شود می توانید
+            if(FinlRec_Cbx.Checked)
+            {
+               CalcDesk_Butn_Click(null, null);
+               // 1403/06/11 * بدلیل اینکه کاربر میتواند فقط میز های باز رو بررسی کند احتمال ایجاد خطا وجود دارن
+               //AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == _desk.AGOP_CODE && a.RWNO == _desk.RWNO));
+               //_desk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+               _desk = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == _desk.AGOP_CODE && a.RWNO == _desk.RWNO);
+               _desk.CASH_AMNT = _desk.TOTL_AMNT_DNRM - (/*(aodt.CASH_AMNT ?? 0) +*/ (_desk.POS_AMNT ?? 0) + (_desk.PYDS_AMNT ?? 0) + (_desk.DPST_AMNT ?? 0));
+               RecStat_Butn_ButtonClick(_desk, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
             }
          }
          catch { }
@@ -1095,6 +1115,8 @@ namespace System.Scsc.Ui.AggregateOperation
             apdt_gv.PostEditor();
 
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+            if (sender is Data.Aggregation_Operation_Detail)
+               aodt = sender as Data.Aggregation_Operation_Detail;
 
             if (aodt == null) return;
 
@@ -1181,7 +1203,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             AodtBs1.EndEdit();
 
-            iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, aodt.FIGH_FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB, aodt.AODT_DESC, aodt.ATTN_TYPE, aodt.PYDS_AMNT, aodt.DPST_AMNT, aodt.BCDS_CODE, aodt.GROP_APBS_CODE);
+            iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, aodt.FIGH_FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB, aodt.AODT_DESC, aodt.ATTN_TYPE, aodt.PYDS_AMNT, aodt.DPST_AMNT, aodt.BCDS_CODE, aodt.GROP_APBS_CODE, aodt.EXPR_MINT_NUMB);
             requery = true;
 
             if (aodt.END_TIME != null)
@@ -1248,6 +1270,7 @@ namespace System.Scsc.Ui.AggregateOperation
             AodtTrgtBs1.DataSource = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(a => a.RWNO != aodt.RWNO);
 
             // 1401/02/22 * Show Infomation on record
+            AodtInfo_Lb.Text = "";
             if (aodt.GROP_APBS_CODE != null)
                AodtInfo_Lb.Text = "سانس ( " + aodt.App_Base_Define.TITL_DESC + " ) - ";
             AodtInfo_Lb.Text += string.Format("ساعت خروج : " + "{0:HH:mm}", aodt.STRT_TIME.Value.AddMinutes(Convert.ToDouble(EndTimeValu_Txt.EditValue)));
@@ -1267,7 +1290,7 @@ namespace System.Scsc.Ui.AggregateOperation
                return;
             }
 
-            if (agop.FROM_DATE.Value.Date != DateTime.Now.Date && MessageBox.Show(this, "ایا میز مورد نظر در تاریخ دیگری می خواهید باز کنید", "باز شدن میز در تاریخ غیر از امروز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (OpenOnSelfDate_Cbx.Checked && agop.FROM_DATE.Value.Date != DateTime.Now.Date && MessageBox.Show(this, "ایا میز مورد نظر در تاریخ دیگری می خواهید باز کنید", "باز شدن میز در تاریخ غیر از امروز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             if (ExpnDesk_GridLookUpEdit.EditValue == null || ExpnDesk_GridLookUpEdit.EditValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
             var desk = Convert.ToInt64(ExpnDesk_GridLookUpEdit.EditValue);
@@ -1299,7 +1322,7 @@ namespace System.Scsc.Ui.AggregateOperation
             {
                // 1395/12/27 * میز هابه صورت پشت سر هم قرار میگیرند تا تسویه حساب شود
                var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;            
-               iScsc.INS_AODT_P(agop.CODE, 1, aodt.AGOP_CODE, aodt.RWNO , fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null, null);
+               iScsc.INS_AODT_P(agop.CODE, 1, aodt.AGOP_CODE, aodt.RWNO , fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null, null, null);
                
                // 1401/01/05 * برای رکورد هایی که به صورت وابسته باز میکنیم سوال میکنیم که رکورد پدر باید بسته شود یا باز بماند
                if(aodt.STAT == "001" && MessageBox.Show(this, "آیا رکورد فعلی متوقف شود؟", "توقف ساعت رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
@@ -1307,7 +1330,7 @@ namespace System.Scsc.Ui.AggregateOperation
                Indpnd_Rb.Checked = true;
             }
             else
-               iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null, null);
+               iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null, null, null);
 
             Figh_Lov.EditValue = null;
             Indpnd_Rb.Checked = true;
@@ -1398,6 +1421,7 @@ namespace System.Scsc.Ui.AggregateOperation
       }
 
       bool TableCloseOpen = false;
+      Data.Aggregation_Operation_Detail _crntiDesk;
       private void CloseOpenTable_Butn_Click(object sender, EventArgs e)
       {
          try
@@ -1407,13 +1431,23 @@ namespace System.Scsc.Ui.AggregateOperation
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
             if (aodt == null) return;
 
+            // 1403/06/09 * اگر میز بسته شده باشد به هیچ عنوان نمیتوان هیچ عملیاتی روی آن اجرا کرد
+            if (aodt.STAT == "002") return;
+
+            // 1403/06/11 * Save Index in Memory
+            _crntiDesk = aodt;
+
             TableCloseOpen = true;
             DeskClose_Butn_Click(null, null);
+
+            ExpnDesk_GridLookUpEdit.EditValue = null;
             ExpnDesk_GridLookUpEdit.EditValue = aodt.EXPN_CODE;
             Figh_Lov.EditValue = null;
             //Figh_Lov.EditValue = aodt.FIGH_FILE_NO;
-            OpenDesk_Butn_Click(null, null);
+            // 1403/06/08
+            //OpenDesk_Butn_Click(null, null);
             TableCloseOpen = false;
+            _crntiDesk = null;
             requery = true;
          }
          catch { }
@@ -1654,7 +1688,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             AodtBs1.EndEdit();
 
-            iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, aodt.FIGH_FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB, aodt.AODT_DESC, aodt.ATTN_TYPE, aodt.PYDS_AMNT, aodt.DPST_AMNT, aodt.BCDS_CODE, aodt.GROP_APBS_CODE);
+            iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, aodt.FIGH_FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB, aodt.AODT_DESC, aodt.ATTN_TYPE, aodt.PYDS_AMNT, aodt.DPST_AMNT, aodt.BCDS_CODE, aodt.GROP_APBS_CODE, aodt.EXPR_MINT_NUMB);
             requery = true;
 
             if (aodt.END_TIME != null)
@@ -1800,7 +1834,7 @@ namespace System.Scsc.Ui.AggregateOperation
                   agop = AgopBs1.Current as Data.Aggregation_Operation;
                }
 
-               if (agop.FROM_DATE.Value.Date != DateTime.Now.Date && MessageBox.Show(this, "ایا میز مورد نظر در تاریخ دیگری می خواهید باز کنید", "باز شدن میز در تاریخ غیر از امروز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (OpenOnSelfDate_Cbx.Checked && agop.FROM_DATE.Value.Date != DateTime.Now.Date && MessageBox.Show(this, "ایا میز مورد نظر در تاریخ دیگری می خواهید باز کنید", "باز شدن میز در تاریخ غیر از امروز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                //if (e.NewValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
                var desk = Convert.ToInt64(e.NewValue);
@@ -1831,8 +1865,9 @@ namespace System.Scsc.Ui.AggregateOperation
                if (TableCloseOpen)
                {
                   // 1395/12/27 * میز هابه صورت پشت سر هم قرار میگیرند تا تسویه حساب شود
-                  var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-                  iScsc.INS_AODT_P(agop.CODE, 1, aodt.AGOP_CODE, aodt.RWNO, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null, null);
+                  //var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
+                  var aodt = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == _crntiDesk.AGOP_CODE && a.RWNO == _crntiDesk.RWNO);
+                  iScsc.INS_AODT_P(agop.CODE, 1, aodt.AGOP_CODE, aodt.RWNO, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null, null, null);
 
                   // 1401/01/05 * برای رکورد هایی که به صورت وابسته باز میکنیم سوال میکنیم که رکورد پدر باید بسته شود یا باز بماند
                   if (aodt.STAT == "001" && MessageBox.Show(this, "آیا رکورد فعلی متوقف شود؟", "توقف ساعت رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
@@ -1855,7 +1890,7 @@ namespace System.Scsc.Ui.AggregateOperation
                }
                else
                {
-                  iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null, null);
+                  iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null, null, null);
 
                   // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری                              
                   _DefaultGateway.Gateway(
@@ -1928,7 +1963,7 @@ namespace System.Scsc.Ui.AggregateOperation
             }
             else
             {
-               iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, fighs.FirstOrDefault().FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB, aodt.AODT_DESC, aodt.ATTN_TYPE, aodt.PYDS_AMNT, aodt.DPST_AMNT, aodt.BCDS_CODE, aodt.GROP_APBS_CODE);
+               iScsc.UPD_AODT_P(aodt.AGOP_CODE, aodt.RWNO, aodt.AODT_AGOP_CODE, aodt.AODT_RWNO, fighs.FirstOrDefault().FILE_NO, aodt.RQST_RQID, aodt.ATTN_CODE, aodt.COCH_FILE_NO, aodt.REC_STAT, aodt.STAT, aodt.EXPN_CODE, aodt.MIN_MINT_STEP, aodt.STRT_TIME, aodt.END_TIME, aodt.EXPN_PRIC, aodt.EXPN_EXTR_PRCT, aodt.CUST_NAME, aodt.CELL_PHON, aodt.CASH_AMNT, aodt.POS_AMNT, aodt.NUMB, aodt.AODT_DESC, aodt.ATTN_TYPE, aodt.PYDS_AMNT, aodt.DPST_AMNT, aodt.BCDS_CODE, aodt.GROP_APBS_CODE, aodt.EXPR_MINT_NUMB);
             }
 
             requery = true;
@@ -3240,8 +3275,9 @@ namespace System.Scsc.Ui.AggregateOperation
 
             foreach (var desk in desks)
             {
-               AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(d => d.AGOP_CODE == desk.AGOP_CODE && d.RWNO == desk.RWNO));
-               CalcDesk_Butn_Click(null, null);
+               // 1403/06/11 * IF Records for calc
+               //AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(d => d.AGOP_CODE == desk.AGOP_CODE && d.RWNO == desk.RWNO));
+               CalcDesk_Butn_Click(desk, null);
                //CalcDesk_Butn_Click(desk);
                RecalcDesk_Pgb.Value += value;
 
@@ -3249,8 +3285,11 @@ namespace System.Scsc.Ui.AggregateOperation
                {
                   if (evntLogs.Count == 0)
                      evntLogs.Add(DateTime.Now.ToString("HH:mm:ss =>"));
-                  crntdesk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-                  if(crntdesk.TOTL_AMNT_DNRM - (crntdesk.CASH_AMNT + crntdesk.POS_AMNT + crntdesk.PYDS_AMNT + crntdesk.DPST_AMNT) >= 0)
+                  
+                  // 1403/06/11 * Update and select correct record
+                  crntdesk = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == desk.AGOP_CODE && a.RWNO == desk.RWNO);//AodtBs1.Current as Data.Aggregation_Operation_Detail;
+
+                  if ((crntdesk.CASH_AMNT + crntdesk.POS_AMNT + crntdesk.PYDS_AMNT + crntdesk.DPST_AMNT) > 0 && (crntdesk.TOTL_AMNT_DNRM - (crntdesk.CASH_AMNT + crntdesk.POS_AMNT + crntdesk.PYDS_AMNT + crntdesk.DPST_AMNT) >= 0))
                   {
                      if (evntLogs.Count == 1)
                      {
@@ -3260,15 +3299,25 @@ namespace System.Scsc.Ui.AggregateOperation
 
                      if(AutoClos_Cbx.Checked)
                      {
-                        DeskClose_Butn_Click(null, null);
+                        DeskClose_Butn_Click(crntdesk, null);
                         //DeskClose_Butn_Click(desk);
-                        FillEndTime_Butn_Click(null, null);
+                        FillEndTime_Butn_Click(crntdesk, null);
 
                         if(FinlRec_Cbx.Checked)
                         {
-                           RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3]));
+                           RecStat_Butn_ButtonClick(crntdesk, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3]));
                         }
                      }
+                  }
+
+                  // 1403/06/11 * اگر تایم بازی برای مشتری که درخواست کرده تا فلان تایم تمام شده باشد بخواهیم 
+                  if(crntdesk.EXPR_MINT_NUMB > 0 && crntdesk.STRT_TIME.Value.AddMinutes((double)crntdesk.EXPR_MINT_NUMB) <= DateTime.Now)
+                  {
+                     if (evntLogs.Count == 1)
+                     {
+                        new Thread(AlarmShow).Start();
+                     }
+                     evntLogs.Add(string.Format("{{ \"{4}\" ({1}) : \"{0}\" - {5}: [ {2:n0} {7} ] - {6}: [ {3:n0} {7} ] }}", crntdesk.Expense.EXPN_DESC, crntdesk.RWNO, crntdesk.EXPR_MINT_NUMB, crntdesk.END_TIME.Value.Subtract(crntdesk.STRT_TIME.Value).TotalMinutes, "هشدار یادآوری", "درخواست مدت زمان", "مدت زمانی که گذشته", "دقیقه"));
                   }
                }
             }
@@ -3301,7 +3350,7 @@ namespace System.Scsc.Ui.AggregateOperation
                {
                   if (desk.EXPN_PRIC >= desk.Fighter.DPST_AMNT_DNRM)
                   {
-                     AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a == desk));
+                     //AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a == desk));
                      //DeskClose_Butn_Click(null, null);
                      DeskClose_Butn_Click(desk);
                      //var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
@@ -3358,8 +3407,8 @@ namespace System.Scsc.Ui.AggregateOperation
             var desks = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(d => d.STAT != "002");
             foreach (var desk in desks)
             {
-               AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(d => d.AGOP_CODE == desk.AGOP_CODE && d.RWNO == desk.RWNO));
-               DeskClose_Butn_Click(null, null);
+               //AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(d => d.AGOP_CODE == desk.AGOP_CODE && d.RWNO == desk.RWNO));
+               DeskClose_Butn_Click(desk, null);
             }
 
             AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(d => d.AGOP_CODE == crntdesk.AGOP_CODE && d.RWNO == crntdesk.RWNO));
@@ -3988,6 +4037,10 @@ namespace System.Scsc.Ui.AggregateOperation
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
             if (aodt == null) return;
 
+            // 1403/06/11
+            if (sender is Data.Aggregation_Operation_Detail)
+               aodt = sender as Data.Aggregation_Operation_Detail;
+
             aodt.END_TIME = aodt.STRT_TIME.Value.AddMinutes(Convert.ToDouble(EndTimeValu_Txt.EditValue));
 
             var val = ChckCalcEndTime_Cbx.Checked;
@@ -4430,6 +4483,7 @@ namespace System.Scsc.Ui.AggregateOperation
             }
 
             long dynamnt = 0, fixamnt = 0;
+            long cashamnt = 0, posamnt = 0, dsctamnt = 0;
             int cont = 0;
             ShowRsltCalcTreeDesk_Txt.Text = "محاسبه صورتحساب";
 
@@ -4446,6 +4500,10 @@ namespace System.Scsc.Ui.AggregateOperation
                aodt = iScsc.Aggregation_Operation_Details.FirstOrDefault(a => a.AGOP_CODE == desk.AGOP_CODE && a.RWNO == desk.RWNO);
                dynamnt += (long)((aodt.EXPN_PRIC ?? 0) * aodt.NUMB);
                fixamnt += aodt.TOTL_BUFE_AMNT_DNRM ?? 0;
+               // 1403/06/09
+               cashamnt += aodt.CASH_AMNT ?? 0;
+               posamnt += aodt.POS_AMNT ?? 0;
+               dsctamnt += aodt.PYDS_AMNT ?? 0;
                ++cont;
 
                ShowRsltCalcTreeDesk_Txt.Text += Environment.NewLine +
@@ -4457,12 +4515,19 @@ namespace System.Scsc.Ui.AggregateOperation
             ShowRsltCalcTreeDesk_Txt.Text += Environment.NewLine +
                   string.Format("تعداد کل ردیف ها : " + "{0} عدد" , cont) + Environment.NewLine +  
                   string.Format("جمع هزینه محاسبه شده : " + "{0:n0}   ***   جمع هزینه ثابت : " + "{1:n0}", dynamnt, fixamnt) + Environment.NewLine + 
-                  string.Format("جمع کل هزینه : " + "{0:n0}", dynamnt + fixamnt);
+                  string.Format("جمع کل هزینه : " + "{0:n0}", dynamnt + fixamnt) + Environment.NewLine +
+                  string.Format("تخفیف ها : " + "{0:n0}", dsctamnt) + Environment.NewLine + 
+                  string.Format("پرداختی ها : نقدی : " + "{0:n0}" + " کارتخوان : " + "{1:n0}", cashamnt, posamnt);
 
             TotlDeskDynmExpnAmnt_Txt.EditValue = dynamnt;
             TotlDeskFixExpnAmnt_Txt.EditValue = fixamnt;
 
-            PayRmndAmnt_Txt.EditValue = dynamnt + fixamnt - (Convert.ToInt64(PayCashAmnt_Txt.EditValue) + Convert.ToInt64(PayPosAmnt_Txt.EditValue) + Convert.ToInt64(DsctAmnt_Txt.EditValue)); ;
+            // 1403/06/08
+            PayCashAmnt_Txt.EditValue = PayPosAmnt_Txt.EditValue = DsctAmnt_Txt.EditValue = 0;
+
+            PayRmndAmnt_Txt.EditValue = dynamnt + fixamnt - (cashamnt + posamnt + dsctamnt);//(Convert.ToInt64(PayCashAmnt_Txt.EditValue) + Convert.ToInt64(PayPosAmnt_Txt.EditValue) + Convert.ToInt64(DsctAmnt_Txt.EditValue)); ;
+
+            
 
             AodtBs1.Position = crntPos;
             requery = true;
@@ -4538,7 +4603,7 @@ namespace System.Scsc.Ui.AggregateOperation
                   }
                }
 
-               rmndAmnt = desk.TOTL_AMNT_DNRM - ((desk.CASH_AMNT ?? 0) + (desk.PYDS_AMNT ?? 0));
+               rmndAmnt = desk.TOTL_AMNT_DNRM - ((desk.CASH_AMNT ?? 0) + (desk.POS_AMNT ?? 0) + (desk.PYDS_AMNT ?? 0));
                if(rmndAmnt > 0)
                {
                   if(posAmnt > 0)
@@ -4576,9 +4641,9 @@ namespace System.Scsc.Ui.AggregateOperation
             {
                Execute_Query();
 
-               foreach (var desk in _listAodts)
+               foreach (var _desk in _listAodts.Where(t => t.STAT != "002"))
                {
-                  var d = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == desk.AGOP_CODE && a.RWNO == desk.RWNO);
+                  var d = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == _desk.AGOP_CODE && a.RWNO == _desk.RWNO);
                   RecStat_Butn_ButtonClick(d, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3]));
                }
 
@@ -4626,6 +4691,7 @@ namespace System.Scsc.Ui.AggregateOperation
             }
 
             long dynamnt = 0, fixamnt = 0;
+            long cashamnt = 0, posamnt = 0, dsctamnt = 0;
             int cont = 0;
             ShowRsltCalcTreeDesk_Txt.Text = "محاسبه صورتحساب";
 
@@ -4642,6 +4708,10 @@ namespace System.Scsc.Ui.AggregateOperation
                aodt = iScsc.Aggregation_Operation_Details.FirstOrDefault(a => a.AGOP_CODE == desk.AGOP_CODE && a.RWNO == desk.RWNO);
                dynamnt += (long)((aodt.EXPN_PRIC ?? 0) * aodt.NUMB);
                fixamnt += aodt.TOTL_BUFE_AMNT_DNRM ?? 0;
+               // 1403/06/09
+               cashamnt += aodt.CASH_AMNT ?? 0;
+               posamnt += aodt.POS_AMNT ?? 0;
+               dsctamnt += aodt.PYDS_AMNT ?? 0;
                ++cont;
 
                ShowRsltCalcTreeDesk_Txt.Text += Environment.NewLine +
@@ -4653,12 +4723,17 @@ namespace System.Scsc.Ui.AggregateOperation
             ShowRsltCalcTreeDesk_Txt.Text += Environment.NewLine +
                   string.Format("تعداد کل ردیف ها : " + "{0} عدد", cont) + Environment.NewLine +
                   string.Format("جمع هزینه محاسبه شده : " + "{0:n0}   ***   جمع هزینه ثابت : " + "{1:n0}", dynamnt, fixamnt) + Environment.NewLine +
-                  string.Format("جمع کل هزینه : " + "{0:n0}", dynamnt + fixamnt);
+                  string.Format("جمع کل هزینه : " + "{0:n0}", dynamnt + fixamnt) + Environment.NewLine +
+                  string.Format("تخفیف ها : " + "{0:n0}", dsctamnt) + Environment.NewLine +
+                  string.Format("پرداختی ها : نقدی : " + "{0:n0}" + " کارتخوان : " + "{1:n0}", cashamnt, posamnt);
 
             TotlDeskDynmExpnAmnt_Txt.EditValue = dynamnt;
             TotlDeskFixExpnAmnt_Txt.EditValue = fixamnt;
 
-            PayRmndAmnt_Txt.EditValue = dynamnt + fixamnt - (Convert.ToInt64(PayCashAmnt_Txt.EditValue) + Convert.ToInt64(PayPosAmnt_Txt.EditValue) + Convert.ToInt64(DsctAmnt_Txt.EditValue));
+            // 1403/06/08
+            PayCashAmnt_Txt.EditValue = PayPosAmnt_Txt.EditValue = DsctAmnt_Txt.EditValue = 0;
+
+            PayRmndAmnt_Txt.EditValue = dynamnt + fixamnt - (cashamnt + posamnt + dsctamnt);//(Convert.ToInt64(PayCashAmnt_Txt.EditValue) + Convert.ToInt64(PayPosAmnt_Txt.EditValue) + Convert.ToInt64(DsctAmnt_Txt.EditValue));
 
             AodtBs1.Position = crntPos;
             requery = true;
@@ -4687,7 +4762,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            PayCashAmnt_Txt.EditValue = PayPosAmnt_Txt.EditValue = 0;
+            DsctAmnt_Txt.EditValue = PayCashAmnt_Txt.EditValue = PayPosAmnt_Txt.EditValue = 0;
 
             PayPosAmnt_Txt.EditValue = (Convert.ToInt64(TotlDeskDynmExpnAmnt_Txt.EditValue) + Convert.ToInt64(TotlDeskFixExpnAmnt_Txt.EditValue));
          }
@@ -4701,7 +4776,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            PayCashAmnt_Txt.EditValue = PayPosAmnt_Txt.EditValue = 0;
+            DsctAmnt_Txt.EditValue = PayCashAmnt_Txt.EditValue = PayPosAmnt_Txt.EditValue = 0;
 
             PayCashAmnt_Txt.EditValue = (Convert.ToInt64(TotlDeskDynmExpnAmnt_Txt.EditValue) + Convert.ToInt64(TotlDeskFixExpnAmnt_Txt.EditValue));
          }
@@ -5273,6 +5348,20 @@ namespace System.Scsc.Ui.AggregateOperation
       private void CustName_Txt_TextChanged(object sender, EventArgs e)
       {
          TimrStat_PkBt.PickChecked = true;
+      }
+
+      private void SetDsctAmnt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            DsctAmnt_Txt.EditValue = PayCashAmnt_Txt.EditValue = PayPosAmnt_Txt.EditValue = 0;
+
+            DsctAmnt_Txt.EditValue = (Convert.ToInt64(TotlDeskDynmExpnAmnt_Txt.EditValue) + Convert.ToInt64(TotlDeskFixExpnAmnt_Txt.EditValue));
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

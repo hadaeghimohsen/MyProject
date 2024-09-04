@@ -237,6 +237,7 @@
          this.gridColumn82 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colPROF_AMNT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDEDU_AMNT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colMBSP_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Parm2_Gb = new System.Windows.Forms.GroupBox();
          this.Btn_Cbmt2 = new System.Windows.Forms.Button();
          this.textEdit3 = new DevExpress.XtraEditors.TextEdit();
@@ -652,6 +653,8 @@
          this.Rcmt_Lov = new DevExpress.XtraEditors.CheckedComboBoxEdit();
          this.Rqtp_Lov = new DevExpress.XtraEditors.CheckedComboBoxEdit();
          this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+         this.tabControl11 = new System.Windows.Forms.TabControl();
+         this.tabPage18 = new System.Windows.Forms.TabPage();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
          this.GlrdBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.Glrd_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
@@ -680,7 +683,6 @@
          this.gridColumn86 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn252 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn489 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
          this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
          this.rollout4 = new System.MaxUi.Rollout();
          this.FromDate1_Date = new Atf.UI.DateTimeSelector();
@@ -1853,7 +1855,6 @@
          this.colMDFY_BY14 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE15 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colStatistic1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.colMBSP_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.Ptyp_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pmst_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PcdtiActn_Butn)).BeginInit();
@@ -1970,6 +1971,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Rcmt_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Rqtp_Lov.Properties)).BeginInit();
+         this.tabControl11.SuspendLayout();
+         this.tabPage18.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.GlrdBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Glrd_Gv)).BeginInit();
@@ -3410,6 +3413,20 @@
          this.colDEDU_AMNT_DNRM.Visible = true;
          this.colDEDU_AMNT_DNRM.VisibleIndex = 1;
          this.colDEDU_AMNT_DNRM.Width = 76;
+         // 
+         // colMBSP_RWNO
+         // 
+         this.colMBSP_RWNO.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.colMBSP_RWNO.AppearanceCell.Options.UseBackColor = true;
+         this.colMBSP_RWNO.Caption = "#";
+         this.colMBSP_RWNO.FieldName = "MBSP_RWNO";
+         this.colMBSP_RWNO.Name = "colMBSP_RWNO";
+         this.colMBSP_RWNO.OptionsColumn.AllowEdit = false;
+         this.colMBSP_RWNO.OptionsColumn.FixedWidth = true;
+         this.colMBSP_RWNO.OptionsColumn.ReadOnly = true;
+         this.colMBSP_RWNO.Visible = true;
+         this.colMBSP_RWNO.VisibleIndex = 8;
+         this.colMBSP_RWNO.Width = 27;
          // 
          // Parm2_Gb
          // 
@@ -6620,11 +6637,10 @@
          this.splitContainerControl7.Panel1.Controls.Add(this.Parm1_Gb);
          this.splitContainerControl7.Panel1.Controls.Add(this.labelControl10);
          this.splitContainerControl7.Panel1.Text = "Panel1";
-         this.splitContainerControl7.Panel2.Controls.Add(this.gridControl5);
-         this.splitContainerControl7.Panel2.Controls.Add(this.labelControl1);
+         this.splitContainerControl7.Panel2.Controls.Add(this.tabControl11);
          this.splitContainerControl7.Panel2.Text = "Panel2";
          this.splitContainerControl7.Size = new System.Drawing.Size(1218, 583);
-         this.splitContainerControl7.SplitterPosition = 149;
+         this.splitContainerControl7.SplitterPosition = 252;
          this.splitContainerControl7.TabIndex = 1;
          this.splitContainerControl7.Text = "splitContainerControl7";
          // 
@@ -6643,7 +6659,7 @@
             this.repositoryItemLookUpEdit2,
             this.Pmmt_Butn,
             this.repositoryItemTimeEdit3});
-         this.payment_MethodGridControl.Size = new System.Drawing.Size(1218, 403);
+         this.payment_MethodGridControl.Size = new System.Drawing.Size(1218, 300);
          this.payment_MethodGridControl.TabIndex = 0;
          this.payment_MethodGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -7618,11 +7634,33 @@
          this.labelControl10.TabIndex = 42;
          this.labelControl10.Text = "وصولی های مستقیم";
          // 
+         // tabControl11
+         // 
+         this.tabControl11.Controls.Add(this.tabPage18);
+         this.tabControl11.Dock = System.Windows.Forms.DockStyle.Fill;
+         this.tabControl11.Location = new System.Drawing.Point(0, 0);
+         this.tabControl11.Name = "tabControl11";
+         this.tabControl11.RightToLeftLayout = true;
+         this.tabControl11.SelectedIndex = 0;
+         this.tabControl11.Size = new System.Drawing.Size(1218, 252);
+         this.tabControl11.TabIndex = 44;
+         // 
+         // tabPage18
+         // 
+         this.tabPage18.Controls.Add(this.gridControl5);
+         this.tabPage18.Location = new System.Drawing.Point(4, 23);
+         this.tabPage18.Name = "tabPage18";
+         this.tabPage18.Padding = new System.Windows.Forms.Padding(3);
+         this.tabPage18.Size = new System.Drawing.Size(1210, 225);
+         this.tabPage18.TabIndex = 0;
+         this.tabPage18.Text = "وصولی سپرده گذاری";
+         this.tabPage18.UseVisualStyleBackColor = true;
+         // 
          // gridControl5
          // 
          this.gridControl5.DataSource = this.GlrdBs1;
          this.gridControl5.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.gridControl5.Location = new System.Drawing.Point(0, 26);
+         this.gridControl5.Location = new System.Drawing.Point(3, 3);
          this.gridControl5.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.gridControl5.LookAndFeel.UseDefaultLookAndFeel = false;
          this.gridControl5.MainView = this.Glrd_Gv;
@@ -7632,7 +7670,7 @@
             this.repositoryItemLookUpEdit7,
             this.Glrd_Butn,
             this.repositoryItemTimeEdit5});
-         this.gridControl5.Size = new System.Drawing.Size(1218, 123);
+         this.gridControl5.Size = new System.Drawing.Size(1204, 219);
          this.gridControl5.TabIndex = 43;
          this.gridControl5.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Glrd_Gv});
@@ -7980,21 +8018,6 @@
          this.gridColumn489.OptionsColumn.ReadOnly = true;
          this.gridColumn489.Visible = true;
          this.gridColumn489.VisibleIndex = 9;
-         // 
-         // labelControl1
-         // 
-         this.labelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         this.labelControl1.Appearance.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.labelControl1.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.labelControl1.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
-         this.labelControl1.Dock = System.Windows.Forms.DockStyle.Top;
-         this.labelControl1.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.labelControl1.Location = new System.Drawing.Point(0, 0);
-         this.labelControl1.Name = "labelControl1";
-         this.labelControl1.Size = new System.Drawing.Size(1218, 26);
-         this.labelControl1.TabIndex = 42;
-         this.labelControl1.Text = "وصولی سپرده گذاری";
          // 
          // flowLayoutPanel2
          // 
@@ -19821,20 +19844,6 @@
          this.colStatistic1.Visible = true;
          this.colStatistic1.VisibleIndex = 19;
          // 
-         // colMBSP_RWNO
-         // 
-         this.colMBSP_RWNO.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         this.colMBSP_RWNO.AppearanceCell.Options.UseBackColor = true;
-         this.colMBSP_RWNO.Caption = "#";
-         this.colMBSP_RWNO.FieldName = "MBSP_RWNO";
-         this.colMBSP_RWNO.Name = "colMBSP_RWNO";
-         this.colMBSP_RWNO.OptionsColumn.AllowEdit = false;
-         this.colMBSP_RWNO.OptionsColumn.FixedWidth = true;
-         this.colMBSP_RWNO.OptionsColumn.ReadOnly = true;
-         this.colMBSP_RWNO.Visible = true;
-         this.colMBSP_RWNO.VisibleIndex = 8;
-         this.colMBSP_RWNO.Width = 27;
-         // 
          // RPT_PMMT_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -19975,6 +19984,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Rcmt_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Rqtp_Lov.Properties)).EndInit();
+         this.tabControl11.ResumeLayout(false);
+         this.tabPage18.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.gridControl5)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.GlrdBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Glrd_Gv)).EndInit();
@@ -20877,7 +20888,6 @@
       private Windows.Forms.Label label3;
       private DevExpress.XtraEditors.SplitContainerControl splitContainerControl7;
       private DevExpress.XtraEditors.LabelControl labelControl10;
-      private DevExpress.XtraEditors.LabelControl labelControl1;
       private DevExpress.XtraGrid.GridControl gridControl5;
       private DevExpress.XtraGrid.Views.Grid.GridView Glrd_Gv;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit7;
@@ -22083,5 +22093,7 @@
       private Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
       private DevExpress.XtraGrid.Columns.GridColumn gridColumn490;
       private DevExpress.XtraGrid.Columns.GridColumn colMBSP_RWNO;
+      private Windows.Forms.TabControl tabControl11;
+      private Windows.Forms.TabPage tabPage18;
    }
 }

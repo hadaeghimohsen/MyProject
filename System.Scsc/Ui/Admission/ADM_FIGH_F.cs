@@ -2444,6 +2444,7 @@ namespace System.Scsc.Ui.Admission
                var pymt = PymtsBs1.Current as Data.Payment;
                if (pymt == null) return;
 
+               // بدست آوردن مبلغ تخفیف از باقیمانده صورتحساب
                var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
 
                string mesg = "";

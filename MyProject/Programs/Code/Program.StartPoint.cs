@@ -39,6 +39,15 @@ namespace MyProject.Programs.Code
           Application.EnableVisualStyles();
           Application.SetCompatibleTextRenderingDefault(false);
 
+          // 1403/06/12
+          bool _createdNew;
+          Mutex _app = new Mutex(false, "UniTech", out _createdNew);
+          if (!_createdNew)
+          {
+             Application.Exit();
+             return;
+          }
+
           Program _prg = new Program();
           #region Check iProject Dsn Name ODBC
           // 1397/07/24 * بررسی اینکه آیا راه ارتباطی در 

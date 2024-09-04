@@ -393,7 +393,12 @@ namespace System.Scsc.Ui.Regulation
             );
          }
          else
+         {
+            // 1403/06/01 * اگر رکوردی ذخیره نشده وجود دارد بتوانیم تکلیف آن را مشخص کنیم
+            if (ExtpBs.List.OfType<Data.Expense_Type>().Any(et => et.CODE == 0)) return;
+
             ExtpBs.AddNew();
+         }
       }
 
       private void DeleExtp_Butn_Click(object sender, EventArgs e)

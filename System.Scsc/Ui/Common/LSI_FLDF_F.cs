@@ -11,6 +11,8 @@ using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using DevExpress.XtraEditors;
 using System.IO;
+using System.Scsc.ExtCode;
+using System.Threading;
 
 namespace System.Scsc.Ui.Common
 {
@@ -466,14 +468,7 @@ namespace System.Scsc.Ui.Common
       private void vF_Last_Info_FighterResultBindingSource_CurrentChanged(object sender, EventArgs e)
       {
          dynamic figh;
-         //if (Tb_Master.SelectedTab == mtp_001)
-         {
-            figh = FighBs.Current as Data.Fighter;
-         }
-         //else
-         //{
-         //   figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
-         //}
+         figh = FighBs.Current as Data.Fighter;
          if (figh == null) return;
 
          RqstBnFignInfo_Lb.Text = figh.NAME_DNRM;
@@ -505,7 +500,17 @@ namespace System.Scsc.Ui.Common
          catch
          { //Pb_FighImg.Visible = false;
             UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
-         }         
+         }
+
+         // get data from database for has value
+         if(DataMngt_Rt.RolloutStatus)
+         {
+            var _imgFngrHasValu = iScsc.GET_FPFC_U(new XElement("Request", new XAttribute("fileno", fileno), new XAttribute("fetchdata", "001"), new XAttribute("datatype", "001"))) == "002" ? true : false;//!iScsc.Image_Documents.Any(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == fileno && i.Receive_Document.Request_Document.DCMT_DSID == 13980505495708 /* Finger Print */ && (i.IMAG == null || i.IMAG.Length < 100));
+            var _imgFaceHasvalu = iScsc.GET_FPFC_U(new XElement("Request", new XAttribute("fileno", fileno), new XAttribute("fetchdata", "001"), new XAttribute("datatype", "002"))) == "002" ? true : false;//!iScsc.Image_Documents.Any(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == fileno && i.Receive_Document.Request_Document.DCMT_DSID == 14032589693230 /* Face Id */ && (i.IMAG == null || i.IMAG.Length < 100));
+
+            FngrPrntHasValu_Lb.BackColor = _imgFngrHasValu ? Color.Lime : Color.FromArgb(224,224,224);
+            FaceHasValu_Lb.BackColor = _imgFaceHasvalu ? Color.Lime : Color.FromArgb(224, 224, 224);
+         }
       }
 
       private void MbspBs_CurrentChanged(object sender, EventArgs e)
@@ -840,6 +845,11 @@ namespace System.Scsc.Ui.Common
                      }
                   })
             );
+
+            // Save current user's data in db
+            CrntRecd_Rb.Checked = true;
+            Fngr_Cbx.Checked = Face_Cbx.Checked = true;
+            GetDataFromDevice_Butn_Click(null, null);
          }
          catch { }
       }
@@ -2208,6 +2218,488 @@ namespace System.Scsc.Ui.Common
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+
+      private void FngrDevOpr_Tmr_Tick(object sender, EventArgs e)
+      {
+         Monitor.Enter(_locker);
+         try
+         {
+            FngrDevOpr_Tmr.Enabled = false;
+
+            if (ConfDateRecd_Rb.Checked)
+            {
+               FromConfDate_Dt.Value = !FromConfDate_Dt.Value.HasValue ? DateTime.Now : FromConfDate_Dt.Value;
+               ToConfDate_Dt.Value = !ToConfDate_Dt.Value.HasValue ? DateTime.Now : ToConfDate_Dt.Value;
+            }
+            if (MbspDateRecd_Rb.Checked)
+            {
+               FromMbspDate_Dt.Value = !FromMbspDate_Dt.Value.HasValue ? DateTime.Now : FromMbspDate_Dt.Value;
+               ToMbspDate_Dt.Value = !ToMbspDate_Dt.Value.HasValue ? DateTime.Now : ToMbspDate_Dt.Value;
+            }
+
+            var _crntServ = FighBs.Current as Data.Fighter;
+            if (sender is Data.Fighter)
+            {
+               _crntServ = sender as Data.Fighter;
+            }
+
+            if (_crntServ != null)
+            {
+               // در اولین مرحله پیدا کردن اطلاعات مشتریان
+               var _Servs =
+                  FighBs.List.OfType<Data.Fighter>().
+                  Where(s =>
+                     ((Men_Cbx.Checked && s.SEX_TYPE_DNRM == "001") || (Women_Cbx.Checked && s.SEX_TYPE_DNRM == "002")) &&
+                     (
+                      AllRecd_Rb.Checked || (CrntRecd_Rb.Checked && s.FILE_NO == _crntServ.FILE_NO) ||
+                      (ConfDateRecd_Rb.Checked && s.CONF_DATE.Value.Date >= FromConfDate_Dt.Value.Value.Date && s.CONF_DATE.Value.Date <= ToConfDate_Dt.Value.Value.Date) ||
+                      (MbspDateRecd_Rb.Checked && s.MBSP_STRT_DATE >= FromMbspDate_Dt.Value.Value.Date && s.MBSP_STRT_DATE <= ToMbspDate_Dt.Value.Value.Date)
+                     )
+                  );
+
+               // get all records
+               //int _all = _Servs.Count();
+               //int _step = _all / 100;
+               //int _indx = 0;
+               //FngrDev_Pbc.Position = 0;
+
+               #region Crytical Session
+               foreach (var _serv in _Servs)
+               {
+                  if (FngrDevOpr_Tmr.Tag.ToString() == "get")
+                  {
+                     #region GET DATA FROM DEVICE
+                     // Fetch data from device and store in db
+
+                     //++_indx;
+                     if (InvokeRequired)
+                     {
+                        Invoke(new Action(() =>
+                        {
+                           RsltOprDev_Txt.Text = string.Format("پردازش اطلاعات دریافت " + "*{0}*" + "...", _serv.NAME_DNRM);
+                           //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
+                        }));
+                     }
+                     else
+                     {
+                        RsltOprDev_Txt.Text = string.Format("پردازش اطلاعات دریافت " + "*{0}*" + "...", _serv.NAME_DNRM);
+                        //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
+                     }
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {                  
+                              new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                              {
+                                 //Executive = ExecutiveType.Synchronize,
+                                 Input = 
+                                    new XElement("DeviceControlFunction", 
+                                       new XAttribute("functype", "get"), 
+                                       new XAttribute("funcdesc", "Get data finger and face id from device and store in database"), 
+                                       new XAttribute("enrollnumb", _serv.FNGR_PRNT_DNRM)
+                                    ),
+                                 AfterChangedOutput = 
+                                    new Action<object>(
+                                       (output) => 
+                                       {
+                                          var _data = output as List<string>;
+                                          
+                                          if(InvokeRequired)
+                                          {
+                                             Invoke(new Action(() => {
+                                                if (_data == null)
+                                                {
+                                                   RsltOprDev_Txt.Text = string.Format("هیچ داده ای برای مشتری " + "*{0}*" + " پیدا نشد", _serv.NAME_DNRM);
+                                                }
+                                                else
+                                                {
+                                                   var _fngr = _data[0];
+                                                   var _face = _data[1];
+
+                                                   var _imgFngr = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 13980505495708 /* Finger Print */);
+                                                   var _imgFace = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 14032589693230 /* Face ID */);
+
+                                                   FngrPrntImgProc_Lb.BackColor = _fngr != null ? Color.Lime : Color.FromArgb(224, 224, 224);
+                                                   FaceImgProc_Lb.BackColor = _face != null ? Color.Lime : Color.FromArgb(224, 224, 224);
+
+                                                   if(_imgFngr != null || _imgFace != null)
+                                                   { 
+                                                      iScsc.ExecuteCommand(                                                         
+                                                         (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";" ) +                                                         
+                                                         (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";" )
+                                                      );
+
+                                                      RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
+                                                      RsltOprDev_Txt.BackColor = Color.LimeGreen;
+
+                                                   }
+                                                   else
+                                                   { 
+                                                      RsltOprDev_Txt.Text = string.Format("هیچ داده ای برای مشتری " + "*{0}*" + " پیدا نشد", _serv.NAME_DNRM);
+                                                      RsltOprDev_Txt.BackColor = Color.FromArgb(224,224,224);
+                                                   }
+                                                }                                                
+                                             }));
+                                          }
+                                          else
+                                          {
+                                             if (_data == null)
+                                             {
+                                                RsltOprDev_Txt.Text = string.Format("هیچ داده ای برای مشتری " + "*{0}*" + " پیدا نشد", _serv.NAME_DNRM);
+                                             }
+                                             else
+                                             {
+                                                var _fngr = _data[0];
+                                                var _face = _data[1];
+
+                                                var _imgFngr = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 13980505495708 /* Finger Print */);
+                                                var _imgFace = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 14032589693230 /* Face ID */);
+
+                                                FngrPrntImgProc_Lb.BackColor = _fngr != null ? Color.Lime : Color.FromArgb(224, 224, 224);
+                                                FaceImgProc_Lb.BackColor = _face != null ? Color.Lime : Color.FromArgb(224, 224, 224);
+
+                                                if (_imgFngr != null || _imgFace != null)
+                                                {
+                                                   iScsc.ExecuteCommand(
+                                                      (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";") +
+                                                      (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";")
+                                                   );
+
+                                                   RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
+                                                   RsltOprDev_Txt.BackColor = Color.LimeGreen;
+                                                }
+                                                else
+                                                { 
+                                                   RsltOprDev_Txt.Text = string.Format("هیچ داده ای برای مشتری " + "*{0}*" + " پیدا نشد", _serv.NAME_DNRM);
+                                                   RsltOprDev_Txt.BackColor = Color.FromArgb(224, 224, 224);
+                                                }
+                                             }                                             
+                                          }
+                                       })
+                              }
+                           })
+                     );
+                     #endregion
+                  }
+                  else if (FngrDevOpr_Tmr.Tag.ToString() == "set")
+                  {
+                     #region SET DATA ON DEVICE
+                     // Fetch data from db and store in device
+
+                     // Fetch data from database
+                     var _imgFngr = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 13980505495708 /* Finger Print */);
+                     var _imgFace = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 14032589693230 /* Face ID */);
+
+                     //++_indx;
+                     if (InvokeRequired)
+                     {
+                        Invoke(new Action(() =>
+                        {
+                           RsltOprDev_Txt.Text = string.Format("پردازش اطلاعات ارسال " + "*{0}*" + "...", _serv.NAME_DNRM);
+                           FngrPrntImgProc_Lb.BackColor = (_imgFngr != null && (_imgFngr.IMAG != null && _imgFngr.IMAG.Length > 100)) ? Color.Lime : Color.FromArgb(224, 224, 224);
+                           FaceImgProc_Lb.BackColor = (_imgFngr != null && (_imgFngr.IMAG != null && _imgFngr.IMAG.Length > 100)) ? Color.Lime : Color.FromArgb(224, 224, 224);
+                           //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
+                        }));
+                     }
+                     else
+                     {
+                        RsltOprDev_Txt.Text = string.Format("پردازش اطلاعات ارسال " + "*{0}*" + "...", _serv.NAME_DNRM);
+                        //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
+                        FngrPrntImgProc_Lb.BackColor = (_imgFngr != null && (_imgFngr.IMAG != null && _imgFngr.IMAG.Length > 100)) ? Color.Lime : Color.FromArgb(224, 224, 224);
+                        FaceImgProc_Lb.BackColor = (_imgFngr != null && (_imgFngr.IMAG != null && _imgFngr.IMAG.Length > 100)) ? Color.Lime : Color.FromArgb(224, 224, 224);
+                     }
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {                  
+                              new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                              {
+                                 //Executive = ExecutiveType.Synchronize,
+                                 Input = 
+                                    new XElement("DeviceControlFunction", 
+                                       new XAttribute("functype", "set"), 
+                                       new XAttribute("funcdesc", "Set data finger and face id from database and store in device"), 
+                                       new XAttribute("enrollnumb", _serv.FNGR_PRNT_DNRM),
+                                       new XAttribute("fngrprnt", _imgFngr != null ? (_imgFngr.IMAG ?? "") : ""),
+                                       new XAttribute("fngrprntupdate", Fngr_Cbx.Checked ? "002": "001"),
+                                       new XAttribute("face", _imgFace != null ? (_imgFace.IMAG ?? "") : ""),
+                                       new XAttribute("faceupdate", Face_Cbx.Checked ? "002": "001")
+                                    ),
+                                 AfterChangedOutput = 
+                                    new Action<object>(
+                                       (output) => 
+                                       {
+                                          var _data = (bool)output;
+                                          
+                                          if(!InvokeRequired)
+                                          {
+                                             if (!_data)
+                                             {
+                                                RsltOprDev_Txt.Text = string.Format("هیچ داده ای برای مشتری " + "*{0}*" + " پیدا نشد", _serv.NAME_DNRM);
+                                                RsltOprDev_Txt.BackColor = Color.FromArgb(224, 224, 224);
+                                             }
+                                             else
+                                             { 
+                                                RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
+                                                RsltOprDev_Txt.BackColor = Color.LimeGreen;
+                                             }
+                                          }
+                                          else
+                                          {
+                                             Invoke(new Action(() => {
+                                                if (!_data)
+                                                {
+                                                   RsltOprDev_Txt.Text = string.Format("هیچ داده ای برای مشتری " + "*{0}*" + " پیدا نشد", _serv.NAME_DNRM);
+                                                   RsltOprDev_Txt.BackColor = Color.FromArgb(224, 224, 224);
+                                                }
+                                                else
+                                                { 
+                                                   RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
+                                                   RsltOprDev_Txt.BackColor = Color.LimeGreen;
+                                                }
+                                             }));                                             
+                                          }
+                                       })
+                              }
+                           })
+                     );
+                     #endregion
+                  }
+               }
+               #endregion
+
+               //FngrDev_Pbc.Position = 100;
+               if (InvokeRequired)
+                  Invoke(new Action(() => GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = true));
+               else
+                  GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = true;
+            }
+
+            FngrDevOpr_Tmr.Tag = "";
+         }
+         catch { }
+         finally
+         {
+            Monitor.Exit(_locker);
+         }
+      }
+
+      private void GetDataFromDevice_Butn_Click(object sender, EventArgs e)
+      {
+         FngrDevOpr_Tmr.Tag = "get";
+         FngrDevOpr_Tmr.Enabled = true;
+         GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = false;
+      }
+
+      private void SetDataToDevice_Butn_Click(object sender, EventArgs e)
+      {
+         if (MessageBox.Show(this, "آیا با ارسال اطلاعات به دستگاه موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+         FngrDevOpr_Tmr.Tag = "set";
+         FngrDevOpr_Tmr.Enabled = true;
+         GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = false;
+      }
+
+      private static readonly object _locker = new object();
+      bool _runCycl = false;
+      IEnumerable<Data.Fighter> _getServ;
+      private void RunCyclUpdDev_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (SendRecv_Cmbx.SelectedIndex.NotIn(0, 1)) { SendRecv_Cmbx.Focus(); return; }
+
+            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Image_Document SET IMAG = NULL WHERE LEN(IMAG) < 100;"));
+
+            string SuntCode = "";
+            if (SuntCode_Lov.EditValue == null || SuntCode_Lov.Text == "")
+               SuntCode = null;
+            else
+               SuntCode = SuntCode_Lov.EditValue.ToString();
+
+            long? ClubCode = null;
+            if (ClubCode_Lov.EditValue == null || ClubCode_Lov.Text == "")
+               ClubCode = null;
+            else
+               ClubCode = (long?)ClubCode_Lov.EditValue;
+
+            // get data
+            _getServ =
+               //FighBs.List.OfType<Data.Fighter>()
+               iScsc.Fighters
+               .Where(s =>
+                  Fga_Uclb_U.Contains(s.CLUB_CODE_DNRM)
+                  && s.CONF_STAT == "002"
+                  && s.FGPB_TYPE_DNRM != "003"
+                  && s.ACTV_TAG_DNRM == "101"
+                  && (FrstName_Txt.Text == "" || s.FRST_NAME_DNRM.Contains(FrstName_Txt.Text))
+                  && (LastName_Txt.Text == "" || s.LAST_NAME_DNRM.Contains(LastName_Txt.Text))
+                  && (NatlCode_Txt.Text == "" || s.NATL_CODE_DNRM.Contains(NatlCode_Txt.Text))
+                  && (FngrPrnt_Txt.Text == "" || s.FNGR_PRNT_DNRM.Contains(FngrPrnt_Txt.Text))
+                  && (CellPhon_Txt.Text == "" || s.CELL_PHON_DNRM.Contains(CellPhon_Txt.Text))
+                  && (TellPhon_Txt.Text == "" || s.TELL_PHON_DNRM.Contains(TellPhon_Txt.Text))
+                  && (ServNo_Txt.Text == "" || s.SERV_NO_DNRM.Contains(ServNo_Txt.Text))
+                  && (GlobCode_Txt.Text == "" || s.GLOB_CODE_DNRM.Contains(GlobCode_Txt.Text))
+                  && (BothSex_Rb.Checked || (s.SEX_TYPE_DNRM == (Men_Rb.Checked ? "001" : "002")))
+                  && (ClubCode == null || s.CLUB_CODE_DNRM == ClubCode)
+                  && (SuntCode == null || s.SUNT_CODE_DNRM == SuntCode) &&
+                  s.FGPB_TYPE_DNRM == "001" && s.CONF_STAT == "002" &&
+                  (s.FNGR_PRNT_DNRM != null || s.FNGR_PRNT_DNRM.Trim() != "") &&
+                     //((Men_Cbx.Checked && s.SEX_TYPE_DNRM == "001") || (Women_Cbx.Checked && s.SEX_TYPE_DNRM == "002")) &&
+                  (JustForAll_Rb.Checked ||
+                   s.Request_Rows.Any(rr =>
+                     (rr.RQTP_CODE == "001" || rr.RQTP_CODE == "025") &&
+                     rr.Receive_Documents.Any(rd =>
+                        ((Fngr_Cbx.Checked && rd.Request_Document.DCMT_DSID == 13980505495708) /* Finger Print */ || (Face_Cbx.Checked && rd.Request_Document.DCMT_DSID == 14032589693230 /* Face */)) &&
+                        rd.Image_Documents.Any(im => im.IMAG == null /* Image IS Null */ || im.IMAG.Length < 100 /* Image IS NOT VALID */)
+                     )
+                   )
+                  )
+               );
+
+            switch (RunCyclUpdDev_Butn.Tag.ToString())
+            {
+               case "run":
+                  RunCyclUpdDev_Butn.Tag = "stop";
+                  RunCyclUpdDev_Butn.Text = "توقف فرآیند...";
+                  _runCycl = true;
+                  break;
+               case "stop":
+                  RunCyclUpdDev_Butn.Tag = "run";
+                  RunCyclUpdDev_Butn.Text = "اجرای فرآیند...";
+                  _runCycl = false;
+                  break;
+            }
+
+            switch (SendRecv_Cmbx.SelectedIndex)
+            {
+               case 0:
+                  // Receive data from device
+                  FngrDevOpr_Tmr.Tag = "get";
+                  //FngrDevOpr_Tmr.Enabled = true;
+                  GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = false;
+                  break;
+               case 1:
+                  // Send data to device
+                  if (MessageBox.Show(this, "آیا با ارسال اطلاعات به دستگاه موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                  FngrDevOpr_Tmr.Tag = "set";
+                  //FngrDevOpr_Tmr.Enabled = true;
+                  GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = false;
+                  break;
+            }
+
+            //new Thread(() => CyclUpdtDev_Tmr_Tick(null, null)) { IsBackground = true }.Start();
+            CyclUpdtDev_Tmr_Tick(null, null);
+         }
+         catch { }
+      }
+
+      private async void CyclUpdtDev_Tmr_Tick(object sender, EventArgs e)
+      {
+         try
+         {
+            //if (InvokeRequired)
+            //{
+            //   Invoke(new Action(() =>
+            //   {
+                  
+            //   }));
+            //}            
+
+            int _indx = 0;
+            // get all records
+            int _all = _getServ.Count();
+            RsltCont_Lb.Text = string.Format("{0:n0}", _all);
+            FngrDev_Pbc.Position = 0;
+            RsltOprDev_Txt.BackColor = SystemColors.Info;
+
+            foreach (var _serv in _getServ)
+            {
+               ++_indx;
+               if (!_runCycl) break;
+
+               Lbls_Click(YellowGreen_Lbl, e);
+               FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
+               RsltCont_Lb.Text = string.Format("Q: {0:n0} / P: {1:n0}", _all - _indx, _indx);
+               FighBs.Position = FighBs.IndexOf(_serv);
+               FngrPrntProc_Lb.Text = _serv.FNGR_PRNT_DNRM;
+               NameDnrmProc_Lb.Text = _serv.NAME_DNRM;
+
+               switch (SendRecv_Cmbx.SelectedIndex)
+               {
+                  case 0:
+                     // Receive data from device
+                     FngrDevOpr_Tmr.Tag = "get";
+                     break;
+                  case 1:
+                     // Send data to device
+                     FngrDevOpr_Tmr.Tag = "set";
+
+                     break;
+               }
+               GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = false;
+
+               
+               await Task.Run(() => FngrDevOpr_Tmr_Tick(_serv, null));
+
+
+               // IF Take N number of count
+               //if (_indx % ServCont_Nud.Value == 0)
+               //   Threading.Thread.Sleep((int)RestCycl_Nud.Value * 1000);
+            }
+
+            RunCyclUpdDev_Butn.Tag = "run";
+            RunCyclUpdDev_Butn.Text = "اجرای فرآیند...";
+            _runCycl = false;
+            GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = true;
+            RsltOprDev_Txt.BackColor = SystemColors.Info;
+
+            // play Sound for success process
+            _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\SUCCESS.wav";
+            new Thread(AlarmShow).Start();
+         }
+         catch { }
+      }
+
+      WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+      string _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+      Color _evencolor = Color.YellowGreen, _oddcolor = Color.LimeGreen;
+      private void AlarmShow()
+      {
+         if (InvokeRequired)
+         {
+            try
+            {
+               wplayer.URL = _wplayer_url;
+               wplayer.controls.play();
+            }
+            catch { }            
+
+            _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+            _evencolor = Color.YellowGreen; _oddcolor = Color.LimeGreen;
+         }
+      }
+
+      private void SendRecv_Cmbx_SelectedIndexChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            switch (SendRecv_Cmbx.SelectedIndex)
+            {
+               case 0:
+                  OnlyNullsRecds_Rb.Enabled = JustForAll_Rb.Enabled = true;
+                  OnlyNullsRecds_Rb.Checked = true;
+                  break;
+               case 1:
+                  OnlyNullsRecds_Rb.Enabled = JustForAll_Rb.Enabled = false;
+                  JustForAll_Rb.Checked = true;
+                  break;
+            }
+         }
+         catch { }
       }
    }
 }

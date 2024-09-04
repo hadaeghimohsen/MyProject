@@ -314,7 +314,7 @@ namespace System.Scsc.Ui.ReportManager
                   iScsc.Requests
                   .Where(r => 
                      ((!RqstFree_Cbx.Checked && r.RQTT_CODE == "001") ||
-                     (RqstFree_Cbx.Checked && r.RQTT_CODE == "004")) && 
+                     (RqstFree_Cbx.Checked && r.RQTT_CODE == "004" && (r.RQTP_CODE == "001" || r.RQTP_CODE == "009" || r.RQTP_CODE == "016") )) && 
                      r.RQST_STAT == "002" &&
                      r.INVC_DATE.Value.Date >= FromDate14_Date.Value.Value.Date &&
                      r.INVC_DATE.Value.Date <= ToDate14_Date.Value.Value.Date &&

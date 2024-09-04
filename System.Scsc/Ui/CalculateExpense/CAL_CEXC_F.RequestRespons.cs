@@ -181,7 +181,31 @@ namespace System.Scsc.Ui.CalculateExpense
       /// <param name="job"></param>
       private void CheckSecurity(Job job)
       {
-         job.Status = StatusType.Successful;
+         Job _InteractWithJob =
+            new Job(SendType.External, "Localhost",
+               new List<Job>
+               {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> {"<Privilege>128</Privilege><Sub_Sys>5</Sub_Sys>", "DataGuard"},
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              #region Show Error
+                              job.Status = StatusType.Failed;
+                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 128 امنیتی", "خطا دسترسی");
+                              #endregion
+                           })
+                        },
+                        #endregion
+                     })
+                  });
+         _DefaultGateway.Gateway(_InteractWithJob);
+         //job.Status = StatusType.Successful;
       }
 
       /// <summary>

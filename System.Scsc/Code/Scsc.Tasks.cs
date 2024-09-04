@@ -2488,6 +2488,7 @@ namespace System.Scsc.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "cal_cexc_f"},
                   new Job(SendType.SelfToUserInterface, "CAL_CEXC_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "CAL_CEXC_F", 05 /* Execute CheckSecurity */),
                   new Job(SendType.SelfToUserInterface, "CAL_CEXC_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "CAL_CEXC_F", 03 /* Execute Paint */)
                });
@@ -4319,6 +4320,7 @@ namespace System.Scsc.Code
                {
                   new Job(SendType.Self, 01 /* Execute GetUi */){Input = "bas_dfin_f"},
                   new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 02 /* Execute Set */),                  
+                  new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 05 /* Execute CheckSecurity */),                  
                   new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 03 /* Execute Paint */),
                });

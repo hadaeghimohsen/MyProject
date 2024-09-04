@@ -1192,6 +1192,13 @@ namespace System.Scsc.Ui.Common
             var mbsp = MbspBs.Current as Data.Member_Ship;
             if (mbsp == null) return;
 
+            // 1403/06/03 * IF EXISTS Grouping Permission CANNOT Attendance
+            if (iScsc.Fighter_Grouping_Permissions.Any(gp => gp.Fighter_Grouping.FIGH_FILE_NO == mbsp.FIGH_FILE_NO && gp.Fighter_Grouping.GROP_STAT == "002" /* وضعیت */ && gp.PERM_TYPE == "001" /* حضور و غیاب */ && gp.PERM_STAT == "001" /* غیرمجاز */))
+            {
+               MessageBox.Show(this, "خطا - مشتری به دلیل تصمیم مدیریتی مجاز به ورود نمیباشد، لطفا با بخش مدیریت صحبت کنید", "");
+               return;
+            }
+
             Job _InteractWithScsc =
                new Job(SendType.External, "Localhost",
                   new List<Job>
@@ -3080,8 +3087,7 @@ namespace System.Scsc.Ui.Common
 
             if (MessageBox.Show(this, "آیا با حذف گروه برای مشتری موافق هستید؟", "حذف گروه", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
-            iScsc.Fighter_Groupings.DeleteOnSubmit(fgrp);
-            iScsc.SubmitChanges();
+            iScsc.ExecuteCommand(string.Format("EXEC dbo.DEL_FGRP_P @X = N'<Fighter_Grouping code=\"{0}\" />';", fgrp.CODE));
             requery = true;
          }
          catch (Exception exc)
@@ -3100,6 +3106,7 @@ namespace System.Scsc.Ui.Common
          try
          {
             FGrpGv.PostEditor();
+            FgprGv.PostEditor();
 
             iScsc.SubmitChanges();
             requery = true;
@@ -5404,6 +5411,63 @@ namespace System.Scsc.Ui.Common
             if (_pydt == null) return;
 
             PdCbmt_Gv.ActiveFilterString = string.Format("Mtod_Code = {0}", _pydt.MTOD_CODE_DNRM);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void FGropActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _fgrp = FGrpBs.Current as Data.Fighter_Grouping;
+            if (_fgrp == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:                  
+                  iScsc.ExecuteCommand(string.Format("EXEC dbo.UPD_FGRP_P @X = N'<Fighter_Grouping code=\"{0}\" />';", _fgrp.CODE));
+                  _fgrp.GROP_STAT = _fgrp.GROP_STAT == "002" ? "001" : "002";
+                  break;
+               case 1:
+                  iScsc.ExecuteCommand(
+                     string.Format(
+                     "MERGE dbo.Fighter_Grouping_Permission T" + Environment.NewLine + 
+                     "USING (SELECT fg.CODE, d.VALU AS PERM_TYPE FROM dbo.Fighter_Grouping fg, dbo.[D$Prmt] d WHERE fg.CODE = {0} AND d.VALU != '000') S" + Environment.NewLine + 
+                     "ON (T.FGRP_CODE = S.CODE AND T.PERM_TYPE = S.PERM_TYPE)" + Environment.NewLine +
+                     "WHEN NOT MATCHED THEN INSERT (FGRP_CODE, CODE, PERM_TYPE) VALUES (S.CODE, dbo.GNRT_NVID_U(), S.PERM_TYPE);"
+                     ,_fgrp.CODE)
+                  );
+                  SaveFGrp_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PrmsActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _fgpr = FgprBs.Current as Data.Fighter_Grouping_Permission;
+            if (_fgpr == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:                  
+                  iScsc.ExecuteCommand(string.Format("EXEC dbo.UPD_FGPR_P @X = N'<Fighter_Grouping_Permission code=\"{0}\" />';", _fgpr.CODE));
+                  _fgpr.PERM_STAT = _fgpr.PERM_STAT == "002" ? "001" : "002";
+                  break;
+               default:
+                  break;
+            }
          }
          catch (Exception exc)
          {

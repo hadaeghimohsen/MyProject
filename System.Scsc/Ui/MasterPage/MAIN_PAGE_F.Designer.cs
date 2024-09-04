@@ -390,6 +390,7 @@
          this.TstNetFngrDev_Rb = new System.Windows.Forms.RadioButton();
          this.DelEnrl_Rb = new System.Windows.Forms.RadioButton();
          this.StrtCardEnrl_Rb = new System.Windows.Forms.RadioButton();
+         this.RestartFngrDev_Rb = new System.Windows.Forms.RadioButton();
          this.StrtFaceEnrl_Rb = new System.Windows.Forms.RadioButton();
          this.StrtReEnrl_Rb = new System.Windows.Forms.RadioButton();
          this.StrtNewEnrl_Rb = new System.Windows.Forms.RadioButton();
@@ -4861,6 +4862,7 @@
          this.grouper5.Controls.Add(this.TstNetFngrDev_Rb);
          this.grouper5.Controls.Add(this.DelEnrl_Rb);
          this.grouper5.Controls.Add(this.StrtCardEnrl_Rb);
+         this.grouper5.Controls.Add(this.RestartFngrDev_Rb);
          this.grouper5.Controls.Add(this.StrtFaceEnrl_Rb);
          this.grouper5.Controls.Add(this.StrtReEnrl_Rb);
          this.grouper5.Controls.Add(this.StrtNewEnrl_Rb);
@@ -4888,14 +4890,14 @@
          this.DelRecd_Cmx.DropDownWidth = 200;
          this.DelRecd_Cmx.FormattingEnabled = true;
          this.DelRecd_Cmx.Items.AddRange(new object[] {
-            "Please select menu",
+            "Please Select record:",
             "1. Attendance record ",
             "2. Fingerprint template data ",
             "3. None ",
             "4. Operation record ",
             "5. User information When the value of this parameter is 5, all user data in the d" +
                 "evice is deleted."});
-         this.DelRecd_Cmx.Location = new System.Drawing.Point(9, 44);
+         this.DelRecd_Cmx.Location = new System.Drawing.Point(13, 44);
          this.DelRecd_Cmx.Name = "DelRecd_Cmx";
          this.DelRecd_Cmx.Size = new System.Drawing.Size(63, 21);
          this.DelRecd_Cmx.TabIndex = 1;
@@ -4952,7 +4954,7 @@
          // DelRecd_Rb
          // 
          this.DelRecd_Rb.AutoSize = true;
-         this.DelRecd_Rb.Location = new System.Drawing.Point(78, 49);
+         this.DelRecd_Rb.Location = new System.Drawing.Point(82, 49);
          this.DelRecd_Rb.Name = "DelRecd_Rb";
          this.DelRecd_Rb.Size = new System.Drawing.Size(14, 13);
          this.DelRecd_Rb.TabIndex = 70;
@@ -4962,7 +4964,7 @@
          // 
          this.TstNetFngrDev_Rb.AutoSize = true;
          this.TstNetFngrDev_Rb.Checked = true;
-         this.TstNetFngrDev_Rb.Location = new System.Drawing.Point(15, 68);
+         this.TstNetFngrDev_Rb.Location = new System.Drawing.Point(19, 68);
          this.TstNetFngrDev_Rb.Name = "TstNetFngrDev_Rb";
          this.TstNetFngrDev_Rb.Size = new System.Drawing.Size(77, 17);
          this.TstNetFngrDev_Rb.TabIndex = 70;
@@ -4973,7 +4975,7 @@
          // DelEnrl_Rb
          // 
          this.DelEnrl_Rb.AutoSize = true;
-         this.DelEnrl_Rb.Location = new System.Drawing.Point(116, 45);
+         this.DelEnrl_Rb.Location = new System.Drawing.Point(119, 45);
          this.DelEnrl_Rb.Name = "DelEnrl_Rb";
          this.DelEnrl_Rb.Size = new System.Drawing.Size(99, 17);
          this.DelEnrl_Rb.TabIndex = 70;
@@ -4983,17 +4985,27 @@
          // StrtCardEnrl_Rb
          // 
          this.StrtCardEnrl_Rb.AutoSize = true;
-         this.StrtCardEnrl_Rb.Location = new System.Drawing.Point(26, 22);
+         this.StrtCardEnrl_Rb.Location = new System.Drawing.Point(30, 22);
          this.StrtCardEnrl_Rb.Name = "StrtCardEnrl_Rb";
          this.StrtCardEnrl_Rb.Size = new System.Drawing.Size(66, 17);
          this.StrtCardEnrl_Rb.TabIndex = 69;
          this.StrtCardEnrl_Rb.Text = "ثبت کارت";
          this.StrtCardEnrl_Rb.UseVisualStyleBackColor = true;
          // 
+         // RestartFngrDev_Rb
+         // 
+         this.RestartFngrDev_Rb.AutoSize = true;
+         this.RestartFngrDev_Rb.Location = new System.Drawing.Point(122, 91);
+         this.RestartFngrDev_Rb.Name = "RestartFngrDev_Rb";
+         this.RestartFngrDev_Rb.Size = new System.Drawing.Size(96, 17);
+         this.RestartFngrDev_Rb.TabIndex = 69;
+         this.RestartFngrDev_Rb.Text = "راه اندازی مجدد";
+         this.RestartFngrDev_Rb.UseVisualStyleBackColor = true;
+         // 
          // StrtFaceEnrl_Rb
          // 
          this.StrtFaceEnrl_Rb.AutoSize = true;
-         this.StrtFaceEnrl_Rb.Location = new System.Drawing.Point(147, 91);
+         this.StrtFaceEnrl_Rb.Location = new System.Drawing.Point(28, 91);
          this.StrtFaceEnrl_Rb.Name = "StrtFaceEnrl_Rb";
          this.StrtFaceEnrl_Rb.Size = new System.Drawing.Size(68, 17);
          this.StrtFaceEnrl_Rb.TabIndex = 69;
@@ -5003,7 +5015,7 @@
          // StrtReEnrl_Rb
          // 
          this.StrtReEnrl_Rb.AutoSize = true;
-         this.StrtReEnrl_Rb.Location = new System.Drawing.Point(95, 68);
+         this.StrtReEnrl_Rb.Location = new System.Drawing.Point(98, 68);
          this.StrtReEnrl_Rb.Name = "StrtReEnrl_Rb";
          this.StrtReEnrl_Rb.Size = new System.Drawing.Size(120, 17);
          this.StrtReEnrl_Rb.TabIndex = 69;
@@ -5013,7 +5025,7 @@
          // StrtNewEnrl_Rb
          // 
          this.StrtNewEnrl_Rb.AutoSize = true;
-         this.StrtNewEnrl_Rb.Location = new System.Drawing.Point(122, 22);
+         this.StrtNewEnrl_Rb.Location = new System.Drawing.Point(125, 22);
          this.StrtNewEnrl_Rb.Name = "StrtNewEnrl_Rb";
          this.StrtNewEnrl_Rb.Size = new System.Drawing.Size(93, 17);
          this.StrtNewEnrl_Rb.TabIndex = 69;
@@ -7262,6 +7274,7 @@
          this.ActionCenter_Butn.Appearance.Options.UseBorderColor = true;
          this.ActionCenter_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.UltraFlat;
          this.ActionCenter_Butn.Dock = System.Windows.Forms.DockStyle.Right;
+         this.ActionCenter_Butn.Enabled = false;
          this.ActionCenter_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ActionCenter_Butn.Image")));
          this.ActionCenter_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
          this.ActionCenter_Butn.Location = new System.Drawing.Point(1159, 5);
@@ -8267,5 +8280,6 @@
       private MaxUi.Button AtwnAllBack_Butn;
       private Windows.Forms.RadioButton StrtFaceEnrl_Rb;
       private Windows.Forms.RadioButton StrtReEnrl_Rb;
+      private Windows.Forms.RadioButton RestartFngrDev_Rb;
    }
 }

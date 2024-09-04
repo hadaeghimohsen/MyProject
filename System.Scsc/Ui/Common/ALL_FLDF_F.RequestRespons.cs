@@ -1437,6 +1437,8 @@ namespace System.Scsc.Ui.Common
             DCetpBs.DataSource = iScsc.D_CETPs;
             DCxtpBs.DataSource = iScsc.D_CXTPs;
             DLotpBs.DataSource = iScsc.D_LOTPs;
+            DPermBs.DataSource = iScsc.D_PERMs;
+            DPrmtBs.DataSource = iScsc.D_PRMTs;
             RqtpBs.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "016" || rt.CODE == "020");            
 
             VPosBs1.DataSource = iScsc.V_Pos_Devices;

@@ -2364,7 +2364,6 @@ namespace System.Scsc.Ui.MasterPage
                            })
                      );
                   }
-
                }
                else if (AttnType_Lov.EditValue.ToString() == "006")
                {
@@ -2721,6 +2720,13 @@ namespace System.Scsc.Ui.MasterPage
             bool recycleService = false;
 
             FngrPrnt_Txt.Text = EnrollNumber;
+
+            // 1403/06/03 * IF EXISTS Grouping Permission CANNOT Attendance
+            if(iScsc.Fighter_Grouping_Permissions.Any(gp => gp.Fighter_Grouping.Fighter.FNGR_PRNT_DNRM == EnrollNumber && gp.Fighter_Grouping.GROP_STAT == "002" /* وضعیت */ && gp.PERM_TYPE == "001" /* حضور و غیاب */ && gp.PERM_STAT == "001" /* غیرمجاز */))
+            {
+               MessageBox.Show(this, "خطا - مشتری به دلیل تصمیم مدیریتی مجاز به ورود نمیباشد، لطفا با بخش مدیریت صحبت کنید", "");
+               return;
+            }
             
             if (
                !iScsc.Fighters
@@ -3118,7 +3124,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                //axCZKEM1.SSR_DelUserTmpExt(1, enrollid, 6);
                axCZKEM1.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
-               axCZKEM1.ClearSLog(1);
+               axCZKEM1.ClearGLog(1);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
@@ -3130,7 +3136,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                //axCZKEM2.SSR_DelUserTmpExt(1, enrollid, 6);
                axCZKEM2.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
-               axCZKEM2.ClearSLog(1);
+               axCZKEM2.ClearGLog(1);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
@@ -3142,7 +3148,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                //axCZKEM3.SSR_DelUserTmpExt(1, enrollid, 6);
                axCZKEM3.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
-               axCZKEM3.ClearSLog(1);
+               axCZKEM3.ClearGLog(1);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
@@ -3154,7 +3160,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                //axCZKEM3.SSR_DelUserTmpExt(1, enrollid, 6);
                axCZKEM4.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
-               axCZKEM4.ClearSLog(1);
+               axCZKEM4.ClearGLog(1);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
@@ -3166,7 +3172,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                //axCZKEM3.SSR_DelUserTmpExt(1, enrollid, 6);
                axCZKEM5.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
-               axCZKEM5.ClearSLog(1);
+               axCZKEM5.ClearGLog(1);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
@@ -3178,7 +3184,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                //axCZKEM3.SSR_DelUserTmpExt(1, enrollid, 6);
                axCZKEM6.DeleteUserInfoEx(1, Convert.ToInt32(enrollid));
-               axCZKEM6.ClearSLog(1);
+               axCZKEM6.ClearGLog(1);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
@@ -3337,6 +3343,190 @@ namespace System.Scsc.Ui.MasterPage
          }
       }
 
+      private List<string> GetDataFromDev(string enrollid)
+      {
+         List<string> _data = new List<string>();
+         try
+         {
+            string tmpData = "";
+            int tmplen = 0;
+            int flag = 0;
+
+            if (Fp1DevIsConnected)
+            {
+               // Part 1 : Finger Print
+               #region Finger Print
+               var result = axCZKEM1.GetUserTmpExStr(1, enrollid, 6, out flag, out tmpData, out tmplen);
+               axCZKEM1.RefreshData(1);
+               _data.Add(tmpData);
+               #endregion
+
+               // Reset old data
+               tmpData = null;
+
+               // Part 2 : Face User
+               #region Face User
+               // Part 1 : Finger Print            
+               result = axCZKEM1.GetUserFaceStr(1, enrollid, 111, ref tmpData, ref tmplen);
+               axCZKEM1.RefreshData(1);
+               _data.Add(tmpData);
+               #endregion
+            }
+            return _data;
+         }
+         catch { return _data; }
+      }
+
+      private bool SetDataToDev(string enrollid, List<string> _data)
+      {
+         try
+         {
+            // Finger print data
+            string fngrprntupdate = _data[0], faceupdate = _data[2];
+            string tmpData = _data[1];
+            int tmplen = 0;
+            int flag = 0;
+            bool result = false;
+
+            // Part 1 : Finger Print
+            #region Finger Print
+            //var result = axCZKEM1.GetUserTmpExStr(1, enrollid, 6, out flag, out tmpData, out tmplen);
+
+            // 1402/10/14 * اگر این گزینه خروجی هیچ داده ای وجود نداشته باشید
+            if (fngrprntupdate == "002" && tmpData != null && tmpData.Length > 100)
+            {
+               if (Fp1DevIsConnected)
+               {
+                  for (int i = 0; i < 10; i++)
+                  {
+                     axCZKEM1.SSR_DelUserTmpExt(1, enrollid, i);
+                  }
+                  //MessageBox.Show("2nd Device Enrolling");
+                  result = axCZKEM1.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  result = axCZKEM1.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+               }
+               if (Fp2DevIsConnected)
+               {
+                  for (int i = 0; i < 10; i++)
+                  {
+                     axCZKEM2.SSR_DelUserTmpExt(1, enrollid, i);
+                  }
+                  //MessageBox.Show("2nd Device Enrolling");
+                  result = axCZKEM2.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  result = axCZKEM2.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+               }
+               if (Fp3DevIsConnected)
+               {
+                  for (int i = 0; i < 10; i++)
+                  {
+                     axCZKEM3.SSR_DelUserTmpExt(1, enrollid, i);
+                  }
+                  //MessageBox.Show("3rd Device Enrolling");
+                  result = axCZKEM3.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  result = axCZKEM3.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+               }
+               if (Fp4DevIsConnected)
+               {
+                  for (int i = 0; i < 10; i++)
+                  {
+                     axCZKEM4.SSR_DelUserTmpExt(1, enrollid, i);
+                  }
+                  //MessageBox.Show("3rd Device Enrolling");
+                  result = axCZKEM4.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  result = axCZKEM4.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+               }
+               if (Fp5DevIsConnected)
+               {
+                  for (int i = 0; i < 10; i++)
+                  {
+                     axCZKEM5.SSR_DelUserTmpExt(1, enrollid, i);
+                  }
+                  //MessageBox.Show("3rd Device Enrolling");
+                  result = axCZKEM5.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  result = axCZKEM5.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+               }
+               if (Fp6DevIsConnected)
+               {
+                  for (int i = 0; i < 10; i++)
+                  {
+                     axCZKEM6.SSR_DelUserTmpExt(1, enrollid, i);
+                  }
+                  //MessageBox.Show("3rd Device Enrolling");
+                  result = axCZKEM6.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  result = axCZKEM6.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+               }
+            }
+            #endregion
+
+            // Face data
+            tmpData = _data[3];
+
+            // Part 2 : Face User
+            #region Face User
+            // Part 1 : Finger Print
+            //result = axCZKEM1.GetUserFaceStr(1, enrollid, 111, ref tmpData, ref tmplen);
+
+            // 1402/10/14 * اگر این گزینه خروجی هیچ داده ای وجود نداشته باشید
+            if (faceupdate == "002" && tmpData != null && tmpData.Length > 100)
+            {               
+               if (Fp1DevIsConnected)
+               {
+                  axCZKEM1.DelUserFace(1, enrollid, 111);
+                  axCZKEM1.RefreshData(1);//the data in the device should be refreshed
+                  //MessageBox.Show("2nd Device Enrolling");
+                  result = axCZKEM1.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  result = axCZKEM1.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+               }
+               if (Fp2DevIsConnected)
+               {
+                  axCZKEM2.DelUserFace(1, enrollid, 111);
+                  axCZKEM2.RefreshData(1);//the data in the device should be refreshed
+                  //MessageBox.Show("2nd Device Enrolling");
+                  result = axCZKEM2.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  result = axCZKEM2.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+               }
+               if (Fp3DevIsConnected)
+               {
+                  axCZKEM3.DelUserFace(1, enrollid, 111);
+                  axCZKEM3.RefreshData(1);//the data in the device should be refreshed
+                  //MessageBox.Show("3rd Device Enrolling");
+                  result = axCZKEM3.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  result = axCZKEM3.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+               }
+               if (Fp4DevIsConnected)
+               {
+                  axCZKEM4.DelUserFace(1, enrollid, 111);
+                  axCZKEM4.RefreshData(1);//the data in the device should be refreshed
+                  //MessageBox.Show("3rd Device Enrolling");
+                  result = axCZKEM4.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  result = axCZKEM4.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+               }
+               if (Fp5DevIsConnected)
+               {
+                  axCZKEM5.DelUserFace(1, enrollid, 111);
+                  axCZKEM5.RefreshData(1);//the data in the device should be refreshed
+                  //MessageBox.Show("3rd Device Enrolling");
+                  result = axCZKEM5.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  result = axCZKEM5.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+               }
+               if (Fp6DevIsConnected)
+               {
+                  axCZKEM6.DelUserFace(1, enrollid, 111);
+                  axCZKEM6.RefreshData(1);//the data in the device should be refreshed
+                  //MessageBox.Show("3rd Device Enrolling");
+                  result = axCZKEM6.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  result = axCZKEM6.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+               }
+            }
+            #endregion
+            return result;
+         }
+         catch
+         {            
+            return false;
+         }
+      }
+
       private bool SetPassword_Enroll_Finger(string enrollid, string password)
       {
          try
@@ -3487,10 +3677,9 @@ namespace System.Scsc.Ui.MasterPage
 
             return true;
          }
-         catch (Exception exc)
+         catch 
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
-            MessageBox.Show(exc.Message);
             return false;
          }
       }
@@ -7914,9 +8103,28 @@ namespace System.Scsc.Ui.MasterPage
          Job _InteractWithScsc =
            new Job(SendType.External, "Localhost",
               new List<Job>
-              {                  
-                new Job(SendType.Self, 144 /* Execute Bas_Dfin_F */),
-                new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 10 /* Actn_CalF_P */)
+              {
+                 //new Job(SendType.External, "Commons",
+                 //    new List<Job>
+                 //    {
+                 //       #region Access Privilege
+                 //       new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                 //       {
+                 //          Input = new List<string> 
+                 //          {
+                 //             "<Privilege>134</Privilege><Sub_Sys>5</Sub_Sys>", 
+                 //             "DataGuard"
+                 //          },
+                 //          AfterChangedOutput = new Action<object>((output) => {
+                 //             if ((bool)output)
+                 //                return;
+                 //             MessageBox.Show("خطا - عدم دسترسی به ردیف 134 سطوح امینتی", "عدم دسترسی");
+                 //          })
+                 //       },
+                 //       #endregion
+                 //    }),
+                 new Job(SendType.Self, 144 /* Execute Bas_Dfin_F */),
+                 new Job(SendType.SelfToUserInterface, "BAS_DFIN_F", 10 /* Actn_CalF_P */)
               });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
@@ -8008,6 +8216,25 @@ namespace System.Scsc.Ui.MasterPage
             new Job(SendType.External, "Localhost",
                new List<Job>
                {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>260</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 260 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
                   new Job(SendType.Self, 130 /* Execute Adm_Brsr_F */),
                   new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "tp_001"))}
                });
@@ -8057,6 +8284,25 @@ namespace System.Scsc.Ui.MasterPage
             new Job(SendType.External, "Localhost",
                new List<Job>
                {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>190</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 190 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
                   new Job(SendType.Self, 116 /* Execute Msgb_Totl_F */)
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
@@ -8068,6 +8314,25 @@ namespace System.Scsc.Ui.MasterPage
             new Job(SendType.External, "Localhost",
                new List<Job>
                {
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>261</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                                 return;
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 261 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
                   new Job(SendType.Self, 165 /* Execute Adv_Base_F */),
                   new Job(SendType.SelfToUserInterface, "ADV_BASE_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("formcaller", GetType().Name))}
                });
@@ -8352,6 +8617,7 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
+            iScsc.CommandTimeout = int.MaxValue;
             iScsc.ExecuteCommand(
                "DELETE dbo.Payment_Detail WHERE CODE = 0;" + Environment.NewLine + 
                "DELETE dbo.Payment_Method WHERE Pymt_Rqst_Rqid IN (SELECT r.Rqid FROM Request r WHERE r.Rqst_Stat = '003');" + Environment.NewLine + 
@@ -9104,7 +9370,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                //axCZKEM1.SSR_DelUserTmpExt(1, enrollid, 6);
                _dev.DeleteUserInfoEx(1, Convert.ToInt32(FngrPrntOpr_Txt.Text));
-               _dev.ClearSLog(1);
+               _dev.ClearGLog(1);
 
                _dev.SSR_SetUserInfo(1, FngrPrntOpr_Txt.Text, FngrPrntOpr_Txt.Text, "", 0, true);
                if (_dev.StartEnrollEx(FngrPrntOpr_Txt.Text, 6, 0))
@@ -9121,7 +9387,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                //axCZKEM1.SSR_DelUserTmpExt(1, enrollid, 6);
                _dev.DeleteUserInfoEx(1, Convert.ToInt32(FngrPrntOpr_Txt.Text));
-               _dev.ClearSLog(1);
+               _dev.ClearGLog(1);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
@@ -9207,17 +9473,29 @@ namespace System.Scsc.Ui.MasterPage
                   var _serv = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == FngrPrntOpr_Txt.Text);
                   if (_serv == null) return;
 
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost", "MAIN_PAGE_F", 41, SendType.SelfToUserInterface)
-                     {
-                        Input =
-                           new XElement("User",
-                              new XAttribute("enrollnumb", FngrPrntOpr_Txt.Text),
-                              new XAttribute("cardnumb", CardOpr_Txt.Text),
-                              new XAttribute("namednrm", _serv.NAME_DNRM)
-                           )
-                     }
-                  );
+                  //_DefaultGateway.Gateway(
+                  //   new Job(SendType.External, "Localhost", "MAIN_PAGE_F", 41, SendType.SelfToUserInterface)
+                  //   {
+                  //      Input =
+                  //         new XElement("User",
+                  //            new XAttribute("enrollnumb", FngrPrntOpr_Txt.Text),
+                  //            new XAttribute("cardnumb", CardOpr_Txt.Text),
+                  //            new XAttribute("namednrm", _serv.NAME_DNRM)
+                  //         )
+                  //   }
+                  //);
+
+                  _dev.EnableDevice(1, false);
+
+                  _dev.SetStrCardNumber(CardOpr_Txt.Text);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+                  if (axCZKEM1.SSR_SetUserInfo(1, FngrPrntOpr_Txt.Text, _serv.NAME_DNRM, "", 0, true))//upload the user's information(card number included)
+                  {
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                     _dev.RefreshData(1);//the data in the device should be refreshed
+                     _dev.EnableDevice(1, true);
+                  }
+                  else
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
                }
             }
             else if (StrtFaceEnrl_Rb.Checked)
@@ -9229,10 +9507,26 @@ namespace System.Scsc.Ui.MasterPage
                //}
                ////axCZKEM1.SSR_DelUserTmpExt(1, enrollid, 6);
                //_dev.DeleteUserInfoEx(1, Convert.ToInt32(FngrPrntOpr_Txt.Text));
-               //_dev.ClearSLog(1);
+               //_dev.ClearGLog(1);
 
                _dev.SSR_SetUserInfo(1, FngrPrntOpr_Txt.Text, FngrPrntOpr_Txt.Text, "", 0, true);
-               Start_Enroll_Face(FngrPrntOpr_Txt.Text, 111);
+               //Start_Enroll_Face(FngrPrntOpr_Txt.Text, 111);
+               _dev.CancelOperation();
+               _dev.DelUserFace(1, FngrPrntOpr_Txt.Text, 111);
+               _dev.RefreshData(1);//the data in the device should be refreshed
+               if (_dev.StartEnrollEx(FngrPrntOpr_Txt.Text, 111, 0))
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                  //MessageBox.Show("Start to Enroll a new User,UserID=" + sUserID + " Face ID=" + iFingerIndex.ToString() + " Flag=" + iFlag.ToString(), "Start");
+                  _dev.StartIdentify();//After enrolling templates,you should let the device into the 1:N verification condition
+                  _dev.RefreshData(1);//the data in the device should be refreshed
+               }
+               else
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+            }
+            else if(RestartFngrDev_Rb.Checked)
+            {
+               _dev.RestartDevice(1);
             }
          }
          catch (Exception exc)

@@ -1248,6 +1248,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_PERM.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PMST.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PMTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_PRMT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PRST.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PSAT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_PSDT.datasource" />
@@ -1292,6 +1293,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Coupon.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Discount_Card.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Grouping.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Grouping_Permission.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Invite_Friend.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Link_Payment_Contarct_Item.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Public.datasource" />

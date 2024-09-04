@@ -1043,6 +1043,12 @@ namespace System.Scsc.Ui.MasterPage
                   case "5.2.3.8.2":
                      result = Delete_Enroll_Face(xinput.Attribute("enrollnumb").Value);
                      break;
+                  case "get":
+                     job.Output = GetDataFromDev(xinput.Attribute("enrollnumb").Value);
+                     break;
+                  case "set":
+                     job.Output = SetDataToDev(xinput.Attribute("enrollnumb").Value, new List<string> { xinput.Attribute("fngrprntupdate").Value, xinput.Attribute("fngrprnt").Value, xinput.Attribute("faceupdate").Value, xinput.Attribute("face").Value });
+                     break;
                }
 
                //if (result) MessageBox.Show(this, "عملیات با موفقیت انجام شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Information);

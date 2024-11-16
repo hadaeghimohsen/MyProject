@@ -515,7 +515,7 @@ namespace System.Scsc.Ui.Admission
             DDytpBs1.DataSource = iScsc.D_DYTPs;
             DRcmtBs1.DataSource = iScsc.D_RCMTs;
             DAtypBs1.DataSource = iScsc.D_ATYPs;
-            DPydsBs1.DataSource = iScsc.D_PYDS;
+            DPydsBs1.DataSource = iScsc.D_PYDS.Where(d => d.VALU == "002" || d.VALU == "005" || d.VALU == "006");
             DsxtpBs.DataSource = iScsc.D_SXTPs;
             DDsatBs.DataSource = iScsc.D_DSATs;
             DCetpBs.DataSource = iScsc.D_CETPs;

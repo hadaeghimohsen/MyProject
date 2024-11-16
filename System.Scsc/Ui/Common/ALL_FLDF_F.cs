@@ -554,7 +554,7 @@ namespace System.Scsc.Ui.Common
          {
             var figh = iScsc.Fighters.Where(f => f.FILE_NO == fileno).FirstOrDefault();
 
-            iScsc.ExecuteCommand(string.Format("UPDATE Fighter SET Debt_Dnrm = 0 WHERE FILE_NO = {0}", figh.FILE_NO));
+            iScsc.ExecuteCommand(string.Format("UPDATE Fighter SET Debt_Dnrm = dbo.GET_DBTF_U(FILE_NO), DPST_AMNT_DNRM = dbo.GET_DPST_U(FILE_NO) WHERE FILE_NO = {0}", figh.FILE_NO));
             requery = true;
          }
          catch (Exception exc)
@@ -1199,12 +1199,43 @@ namespace System.Scsc.Ui.Common
                return;
             }
 
+            if (figh.TYPE == "003")
+            {
+               bool _acesPerm = true;
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {
+                     new Job(SendType.External, "Commons",
+                        new List<Job>
+                        {
+                           #region Access Privilege
+                           new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                           {
+                              Input = new List<string> {"<Privilege>288</Privilege><Sub_Sys>5</Sub_Sys>", "DataGuard"},
+                              AfterChangedOutput = new Action<object>((output) => {
+                                 if ((bool)output)
+                                    return;
+                                 #region Show Error
+                                 MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 288 امنیتی", "خطا دسترسی");
+                                 _acesPerm = false;
+                                 #endregion                           
+                              })
+                           },
+                           #endregion                        
+                        })                     
+                     })
+               );
+
+               if (!_acesPerm) return;
+            }
+
             Job _InteractWithScsc =
                new Job(SendType.External, "Localhost",
                   new List<Job>
-                  {
+                  {                     
                      new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
-                     new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("mbsprwno", mbsp.RWNO))}
+                     new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("mbsprwno", mbsp.RWNO), new XAttribute("attnsystype", "001"))}
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
 
@@ -1682,8 +1713,8 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            RcmtType_Butn.Text = RcmtType_Butn.Tag.ToString() == "0" ? "POS" : "نقدی";
-            RcmtType_Butn.Tag = RcmtType_Butn.Tag.ToString() == "0" ? "1" : "0";
+            //RcmtType_Butn.Text = RcmtType_Butn.Tag.ToString() == "0" ? "POS" : "نقدی";
+            //RcmtType_Butn.Tag = RcmtType_Butn.Tag.ToString() == "0" ? "1" : "0";
             PymtAmnt_Txt.Focus();
             var pymt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
             if (pymt == null) return;
@@ -1797,28 +1828,21 @@ namespace System.Scsc.Ui.Common
 
             if (PymtAmnt_Txt.EditValue == null || PymtAmnt_Txt.EditValue.ToString() == "" || Convert.ToInt64(PymtAmnt_Txt.EditValue) == 0) return;
 
-            switch (RcmtType_Butn.Tag.ToString())
+            //1403/08/26 * اگر تاریخ پرداخت بیشتر از تاریخ جاری باشد
+            if (PymtDate_DateTime001.Value.HasValue && PymtDate_DateTime001.Value.Value.Date > DateTime.Now.Date)
             {
-               case "0":
-                  iScsc.PAY_MSAV_P(
-                     new XElement("Payment",
-                        new XAttribute("actntype", "InsertUpdate"),
-                        new XElement("Insert",
-                           new XElement("Payment_Method",
-                              new XAttribute("cashcode", pymt.CASH_CODE),
-                              new XAttribute("rqstrqid", pymt.RQID),
-                              new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
-                              new XAttribute("rcptmtod", "001"),
-                              new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
-                           )
-                        )
-                     )
-                  );
-                  break;
-               case "1":
+               MessageBox.Show(this, "پرداختی در گذشته داریم ولی پرداختی در آینده نداریم، اینجاست که باید بگم داش داری اشتباه میزنی");
+               PymtDate_DateTime001.Focus();
+               PymtDate_DateTime001.Value = DateTime.Now;
+               return;
+            }
+
+            switch ((RcmtType_Lov.EditValue ?? "001").ToString())
+            {
+               case "003":
                   if (VPosBs1.List.Count == 0) UsePos_Cb.Checked = false;
 
-                  if (UsePos_Cb.Checked)
+                  if (UsePos_Cb.Checked && (!PymtDate_DateTime001.Value.HasValue || PymtDate_DateTime001.Value.Value.Date == DateTime.Now.Date))
                   {
                      var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
 
@@ -1840,7 +1864,7 @@ namespace System.Scsc.Ui.Common
                      }
 
                      if (regl.AMNT_TYPE == "002")
-                        PymtAmnt_Txt.EditValue = Convert.ToInt64( PymtAmnt_Txt.EditValue) * 10;
+                        PymtAmnt_Txt.EditValue = Convert.ToInt64(PymtAmnt_Txt.EditValue) * 10;
 
                      // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
                      UsePos_Cb.Checked = false;
@@ -1862,7 +1886,10 @@ namespace System.Scsc.Ui.Common
                                              new XAttribute("rqtpcode", ""),
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
-                                             new XAttribute("amnt", Convert.ToInt64( PymtAmnt_Txt.EditValue) )
+                                             new XAttribute("amnt", Convert.ToInt64(PymtAmnt_Txt.EditValue)),
+                                             new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
+                                             new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
+                                             new XAttribute("rcptfilepath", /*RcptFilePath_Txt.EditValue ??*/ "")
                                           )
                                     }
                                  }
@@ -1884,7 +1911,10 @@ namespace System.Scsc.Ui.Common
                                  new XAttribute("rqstrqid", pymt.RQID),
                                  new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
                                  new XAttribute("rcptmtod", "003"),
-                                 new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                                 new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
+                                 new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
+                                 new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
+                                 new XAttribute("rcptfilepath", /*RcptFilePath_Txt.EditValue ??*/ "")
                               )
                            )
                         )
@@ -1892,6 +1922,23 @@ namespace System.Scsc.Ui.Common
                   }
                   break;
                default:
+                  iScsc.PAY_MSAV_P(
+                     new XElement("Payment",
+                        new XAttribute("actntype", "InsertUpdate"),
+                        new XElement("Insert",
+                           new XElement("Payment_Method",
+                              new XAttribute("cashcode", pymt.CASH_CODE),
+                              new XAttribute("rqstrqid", pymt.RQID),
+                              new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
+                              new XAttribute("rcptmtod", RcmtType_Lov.EditValue ?? "001"),
+                              new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
+                              new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
+                              new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
+                              new XAttribute("rcptfilepath", /*RcptFilePath_Txt.EditValue ??*/ "")
+                           )
+                        )
+                     )
+                  );
                   break;
             }
 
@@ -3108,7 +3155,22 @@ namespace System.Scsc.Ui.Common
             FGrpGv.PostEditor();
             FgprGv.PostEditor();
 
-            iScsc.SubmitChanges();
+            var _a = iScsc.GetChangeSet();
+
+            //iScsc.SubmitChanges();
+            FGrpBs.List.OfType<Data.Fighter_Grouping>()
+               .Where(g => g.CODE == 0).ToList()
+               .ForEach(g =>
+               {
+                  iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.Fighter_Grouping(CODE, FIGH_FILE_NO, GROP_CODE, GROP_DESC) VALUES (0, {0}, {1}, N'{2}');", g.FIGH_FILE_NO, g.GROP_CODE, g.GROP_DESC));
+               });
+
+            FGrpBs.List.OfType<Data.Fighter_Grouping>()
+               .Where(g => g.CODE != 0).ToList()
+               .ForEach(g =>
+               {
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Grouping SET GROP_DESC = N'{1}' WHERE CODE = {0};", g.CODE, g.GROP_DESC));
+               });
             requery = true;
          }
          catch (Exception exc)
@@ -4997,7 +5059,7 @@ namespace System.Scsc.Ui.Common
 
             if (MessageBox.Show(this, "ایا با آزاد کردن کمد VIP موافق هستید?", "آزاد کردن کمد VIP", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
-            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Stat = '001', Expr_Date = GETDATE() WHERE Code = {0};", _advip.CODE));
+            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Stat = '001', Expr_Date = GETDATE(), Lock_Stat = '001' WHERE Code = {0};", _advip.CODE));
 
             requery = true;
          }
@@ -5119,6 +5181,9 @@ namespace System.Scsc.Ui.Common
             {
                case 0:
                   DeltPymt_Butn_Click(null, null);
+                  break;
+               case 1:
+                  PymtSave_Butn_Click(null, null);
                   break;
                default:
                   break;
@@ -5473,6 +5538,11 @@ namespace System.Scsc.Ui.Common
          {
             MessageBox.Show(exc.Message);
          }
-      }      
+      }
+
+      private void RcmtType_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         RcmtType_Butn_Click(null, null);
+      }
    }
 }

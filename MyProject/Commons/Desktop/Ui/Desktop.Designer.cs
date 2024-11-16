@@ -30,16 +30,16 @@
       {
          this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Desktop));
-         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
          this.FLP_Desktop = new System.Windows.Forms.FlowLayoutPanel();
          this.LNK_SecurityManagment = new System.Windows.Forms.LinkLabel();
          this.LNK_ServiceDefinition = new System.Windows.Forms.LinkLabel();
@@ -425,17 +425,17 @@
          this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
          this.AdjustDateTime_Butn.Size = new System.Drawing.Size(88, 49);
-         toolTipTitleItem1.Text = "کاربر گرامی";
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
+         toolTipTitleItem5.Text = "کاربر گرامی";
+         toolTipItem3.LeftIndent = 6;
+         toolTipItem3.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem2.LeftIndent = 6;
-         toolTipTitleItem2.Text = "تغییر مد کاربری";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         superToolTip1.Items.Add(toolTipSeparatorItem1);
-         superToolTip1.Items.Add(toolTipTitleItem2);
-         this.AdjustDateTime_Butn.SuperTip = superToolTip1;
+         toolTipTitleItem6.LeftIndent = 6;
+         toolTipTitleItem6.Text = "تغییر مد کاربری";
+         superToolTip3.Items.Add(toolTipTitleItem5);
+         superToolTip3.Items.Add(toolTipItem3);
+         superToolTip3.Items.Add(toolTipSeparatorItem3);
+         superToolTip3.Items.Add(toolTipTitleItem6);
+         this.AdjustDateTime_Butn.SuperTip = superToolTip3;
          this.AdjustDateTime_Butn.TabIndex = 3;
          this.AdjustDateTime_Butn.Tag = "1";
          this.AdjustDateTime_Butn.Text = "15:53 pm\r\n1396/02/03";
@@ -460,17 +460,17 @@
          this.StartMenu_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.StartMenu_Butn.Name = "StartMenu_Butn";
          this.StartMenu_Butn.Size = new System.Drawing.Size(49, 49);
-         toolTipTitleItem3.Text = "کاربر گرامی";
-         toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
+         toolTipTitleItem7.Text = "کاربر گرامی";
+         toolTipItem4.LeftIndent = 6;
+         toolTipItem4.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem4.LeftIndent = 6;
-         toolTipTitleItem4.Text = "تغییر مد کاربری";
-         superToolTip2.Items.Add(toolTipTitleItem3);
-         superToolTip2.Items.Add(toolTipItem2);
-         superToolTip2.Items.Add(toolTipSeparatorItem2);
-         superToolTip2.Items.Add(toolTipTitleItem4);
-         this.StartMenu_Butn.SuperTip = superToolTip2;
+         toolTipTitleItem8.LeftIndent = 6;
+         toolTipTitleItem8.Text = "تغییر مد کاربری";
+         superToolTip4.Items.Add(toolTipTitleItem7);
+         superToolTip4.Items.Add(toolTipItem4);
+         superToolTip4.Items.Add(toolTipSeparatorItem4);
+         superToolTip4.Items.Add(toolTipTitleItem8);
+         this.StartMenu_Butn.SuperTip = superToolTip4;
          this.StartMenu_Butn.TabIndex = 3;
          this.StartMenu_Butn.Tag = "1";
          this.StartMenu_Butn.Click += new System.EventHandler(this.StartMenu_Butn_Click);

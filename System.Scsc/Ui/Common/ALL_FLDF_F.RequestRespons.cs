@@ -1428,7 +1428,7 @@ namespace System.Scsc.Ui.Common
             DRcmtBs.DataSource = iScsc.D_RCMTs;
             DAtypBs.DataSource = iScsc.D_ATYPs;
             SuntBs1.DataSource = iScsc.Sub_Units;
-            DPydsBs1.DataSource = iScsc.D_PYDS;
+            DPydsBs1.DataSource = iScsc.D_PYDS.Where(d => d.VALU == "002" || d.VALU == "005" || d.VALU == "006");
             DPTypBs.DataSource = iScsc.D_PTYPs;
             DPmstBs.DataSource = iScsc.D_PMSTs;
             DPycoBs.DataSource = iScsc.D_PYCOs;

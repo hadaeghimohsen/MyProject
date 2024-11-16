@@ -236,8 +236,8 @@ namespace System.Setup.Ui.LTR.Server
 
             // 1402/04/05 * Set user & password 
             SqlServerAuth_Rb.Checked = true;
-            Username_Txt.Text = "scott";
-            Password_Txt.Text = "abcABC123!@#";
+            Username_Txt.Text = "artauser";
+            Password_Txt.Text = "artasport_anardb";
          }
          catch (Exception exc)
          {

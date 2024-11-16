@@ -465,7 +465,7 @@ namespace System.Scsc.Ui.OtherIncome
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002");
          CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && c.ACTV_TAG_DNRM == "101" && c.CONF_STAT == "002");
          SuntBs1.DataSource = iScsc.Sub_Units;
-         DPydsBs1.DataSource = iScsc.D_PYDS;
+         DPydsBs1.DataSource = iScsc.D_PYDS.Where(d => d.VALU == "002" || d.VALU == "005" || d.VALU == "006");
          DEfdtBs.DataSource = iScsc.D_EFDTs;
          DCetpBs.DataSource = iScsc.D_CETPs;
          DPycoBs.DataSource = iScsc.D_PYCOs;

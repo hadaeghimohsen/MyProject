@@ -8743,4 +8743,8 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.String" />
   </Function>
+  <Function Name="dbo.SET_IMAG_P" Method="SET_IMAG_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

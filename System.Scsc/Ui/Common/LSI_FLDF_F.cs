@@ -475,31 +475,34 @@ namespace System.Scsc.Ui.Common
          PayDebtAmnt_Txt.Text = figh.DEBT_DNRM.ToString();
 
          long fileno = figh.FILE_NO;
-         try
+         if (ServInfo_Rlt.RolloutStatus)
          {
-            // 1401/05/22 * Focused
-            ServProf_Tc.SelectedIndex = 0;            
+            try
+            {
+               // 1401/05/22 * Focused
+               ServProf_Tc.SelectedIndex = 0;
 
-            MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == fileno && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
-            Mbsp_gv.TopRowIndex = 0;
+               MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == fileno && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+               Mbsp_gv.TopRowIndex = 0;
 
-            UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = null;
-            MemoryStream mStream = new MemoryStream();
-            byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO))).ToArray();
-            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-            Bitmap bm = new Bitmap(mStream, false);
-            mStream.Dispose();
+               UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = null;
+               MemoryStream mStream = new MemoryStream();
+               byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO))).ToArray();
+               mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+               Bitmap bm = new Bitmap(mStream, false);
+               mStream.Dispose();
 
-            //Pb_FighImg.Visible = true;            
+               //Pb_FighImg.Visible = true;            
 
-            if (InvokeRequired)
-               Invoke(new Action(() => { UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = bm; }));
-            else
-               UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = bm;
-         }
-         catch
-         { //Pb_FighImg.Visible = false;
-            UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+               if (InvokeRequired)
+                  Invoke(new Action(() => { UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = bm; }));
+               else
+                  UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = bm;
+            }
+            catch
+            { //Pb_FighImg.Visible = false;
+               UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+            }
          }
 
          // get data from database for has value
@@ -2327,10 +2330,31 @@ namespace System.Scsc.Ui.Common
 
                                                    if(_imgFngr != null || _imgFace != null)
                                                    { 
-                                                      iScsc.ExecuteCommand(                                                         
-                                                         (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";" ) +                                                         
-                                                         (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";" )
-                                                      );
+                                                      //iScsc.ExecuteCommand(                                                         
+                                                      //   (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";" ) +                                                         
+                                                      //   (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";" )
+                                                      //);
+
+                                                      if (_fngr != null)
+                                                         iScsc.SET_IMAG_P(
+                                                            new XElement("Image",
+                                                                new XAttribute("desttype", "p"),
+                                                                new XAttribute("actntype", "003"),
+                                                                new XAttribute("fileid", _fngr),
+                                                                new XAttribute("rcdcrcid", _imgFngr.RCDC_RCID),
+                                                                new XAttribute("rwno", _imgFngr.RWNO)
+                                                            )
+                                                         );
+                                                      if (_face != null)
+                                                         iScsc.SET_IMAG_P(
+                                                            new XElement("Image",
+                                                                new XAttribute("desttype", "p"),
+                                                                new XAttribute("actntype", "003"),
+                                                                new XAttribute("fileid", _face),
+                                                                new XAttribute("rcdcrcid", _imgFace.RCDC_RCID),
+                                                                new XAttribute("rwno", _imgFace.RWNO)
+                                                            )
+                                                         );
 
                                                       RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
                                                       RsltOprDev_Txt.BackColor = Color.LimeGreen;
@@ -2363,10 +2387,31 @@ namespace System.Scsc.Ui.Common
 
                                                 if (_imgFngr != null || _imgFace != null)
                                                 {
-                                                   iScsc.ExecuteCommand(
-                                                      (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";") +
-                                                      (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";")
-                                                   );
+                                                   //iScsc.ExecuteCommand(
+                                                   //   (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";") +
+                                                   //   (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";")
+                                                   //);
+
+                                                   if (_fngr != null)
+                                                      iScsc.SET_IMAG_P(
+                                                         new XElement("Image",
+                                                             new XAttribute("desttype", "p"),
+                                                             new XAttribute("actntype", "003"),
+                                                             new XAttribute("fileid", _fngr),
+                                                             new XAttribute("rcdcrcid", _imgFngr.RCDC_RCID),
+                                                             new XAttribute("rwno", _imgFngr.RWNO)
+                                                         )
+                                                      );
+                                                   if (_face != null)
+                                                      iScsc.SET_IMAG_P(
+                                                         new XElement("Image",
+                                                             new XAttribute("desttype", "p"),
+                                                             new XAttribute("actntype", "003"),
+                                                             new XAttribute("fileid", _face),
+                                                             new XAttribute("rcdcrcid", _imgFace.RCDC_RCID),
+                                                             new XAttribute("rwno", _imgFace.RWNO)
+                                                         )
+                                                      );
 
                                                    RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
                                                    RsltOprDev_Txt.BackColor = Color.LimeGreen;
@@ -2601,14 +2646,6 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            //if (InvokeRequired)
-            //{
-            //   Invoke(new Action(() =>
-            //   {
-                  
-            //   }));
-            //}            
-
             int _indx = 0;
             // get all records
             int _all = _getServ.Count();
@@ -2637,18 +2674,13 @@ namespace System.Scsc.Ui.Common
                   case 1:
                      // Send data to device
                      FngrDevOpr_Tmr.Tag = "set";
-
                      break;
                }
+
                GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = false;
 
                
                await Task.Run(() => FngrDevOpr_Tmr_Tick(_serv, null));
-
-
-               // IF Take N number of count
-               //if (_indx % ServCont_Nud.Value == 0)
-               //   Threading.Thread.Sleep((int)RestCycl_Nud.Value * 1000);
             }
 
             RunCyclUpdDev_Butn.Tag = "run";

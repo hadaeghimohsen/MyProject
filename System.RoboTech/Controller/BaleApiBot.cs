@@ -793,12 +793,14 @@ namespace System.RoboTech.Controller
                   text: string.Format(@"Received {0}", e.CallbackQuery.Data)
             );*/
 
-            // Data : [ "!" ] [ "@" | "." ] "/" UserInterfacePaths | UssdCode ";" Command "-" Params
+            // Data : [ "!" ] [ "@" | "." ] "/" UserInterfacePaths | UssdCode ";" Command "-" Params "$" Function "#" ["<<" || ">>" || "<>"]
             // ForceReply ::= "!"
             // UserInterfacePaths ::= Ui {":" Ui}
             // UssdCode ::= "*" [0-9]+ "#"
             // Params ::= Param {"," Param}
-            // e.g. : @/DefaultGateway:Scsc:Mstr_Page_F;Attn-1398655458,1
+            // Function := ["del" | "pay"]
+            // Trigger := ["<<" | ">>" || "<>"]
+            // e.g. : @/DefaultGateway:Scsc:Mstr_Page_F;Attn-1398655458,1$del#<>
             
 
             bool forceReply = false;
@@ -823,7 +825,9 @@ namespace System.RoboTech.Controller
                data = data.Substring(postexecs.Length + 1); // data.Split('#')[1];
                string triggers = data.Split('\0')[0];
                string aftrbfor = "";
-               if (triggers != "" && (triggers.Substring(0, 2) == ">>" || triggers.Substring(0, 2) == "<<"))
+
+
+               if (triggers != "" && (triggers.Substring(0, 2) == ">>" /* After */ || triggers.Substring(0, 2) == "<<" /* Before */ || triggers.Substring(0, 2) == "<>" /* No Action */))
                {
                   aftrbfor = triggers.Substring(0, 2);
                   triggers = triggers.Substring(2);
@@ -831,6 +835,9 @@ namespace System.RoboTech.Controller
                else
                   aftrbfor = ">>";
 
+               // 1403/07/08
+               var iRobotTech = new Data.iRoboTechDataContext(connectionString);
+               var xResult = new XElement("Result", "No Message");
 
                // ⏳ Please wait...
                var waitmesg = 
@@ -880,6 +887,313 @@ namespace System.RoboTech.Controller
                         )
                   }
                );
+
+               await Bot.DeleteMessageAsync(e.CallbackQuery.Message.Chat.Id, waitmesg.MessageId);
+
+               #region Post Execution
+               foreach (var postexec in postexecs.Split(','))
+               {
+                  switch (postexec)
+                  {
+                     case "del":
+                        // اگر لازم به این باشد که پیامی که منوی آن انتخاب شده حذف شود
+                        // چون ممکن است منوهای آن پیام تغییراتی داشته باشند
+                        TryExtension.Try(async () => await Bot.DeleteMessageAsync(chat.Message.Chat.Id, chat.Message.MessageId)).Catch(x => { if (ConsoleOutLog_MemTxt.InvokeRequired) ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text = x.Message + ConsoleOutLog_MemTxt.Text)); else ConsoleOutLog_MemTxt.Text = x.Message + ConsoleOutLog_MemTxt.Text; });
+                        postexecs = postexecs.Replace("del", "");
+                        if (postexecs != "")
+                           postexecs = postexecs.Substring(1);
+                        break;
+                     case "pay":                        
+                        break;
+                     case "withdraw":                        
+                        break;
+                     default:
+                        break;
+                  }
+               }
+               #endregion
+
+               #region Command Run
+               // IF NO COMMAND TO RUN GOTO END
+               if (cmnd != "")
+               {
+                  #region Run Main Command Text
+                  // ⏳ Please wait...
+                  waitmesg =
+                     await Bot.SendTextMessageAsync(
+                        e.CallbackQuery.Message.Chat.Id,
+                        "⏳ لطفا چند لحظه صبر کنید...",
+                        replyMarkup: null
+                     );
+
+                  var xmlmsg = RobotHandle.GetData(
+                     new XElement("Robot",
+                        new XAttribute("token", GetToken()),
+                        new XElement("Message",
+                           new XAttribute("cbq", "002"),
+                           new XAttribute("ussd", chat.UssdCode),
+                           new XAttribute("chatid", e.CallbackQuery.Message.Chat.Id),
+                           new XAttribute("mesgid", e.CallbackQuery.Message.MessageId),
+                           new XElement("Text",
+                              new XAttribute("param", param),
+                              new XAttribute("postexec", postexecs),
+                              new XAttribute("trigger", triggers),
+                              cmnd
+                           )
+                        )
+                     ), connectionString);
+
+                  await Bot.DeleteMessageAsync(e.CallbackQuery.Message.Chat.Id, waitmesg.MessageId);
+
+                  var rmessage = xmlmsg.Descendants("Message").FirstOrDefault().Value;
+                  #endregion
+
+                  #region "Found Menu"
+                  iRobotTech.Proccess_Message_P(
+                     new XElement("Robot",
+                        new XAttribute("token", GetToken()),
+                        new XElement("Message",
+                           new XAttribute("ussd", chat.UssdCode),
+                           new XAttribute("mesgid", chat.Message.MessageId),
+                           new XAttribute("chatid", chat.Message.Chat.Id),
+                           new XElement("Text", chat.UssdCode),
+                           new XElement("From",
+                                 new XAttribute("frstname", chat.Message.From.FirstName ?? ""),
+                                 new XAttribute("lastname", chat.Message.From.LastName ?? ""),
+                                 new XAttribute("username", chat.Message.From.Username ?? ""),
+                                 new XAttribute("id", chat.Message.Chat.Id)
+                           ),
+                           new XElement("Location",
+                              new XAttribute("latitude", chat.Message.Location != null ? chat.Message.Location.Latitude : 0),
+                              new XAttribute("longitude", chat.Message.Location != null ? chat.Message.Location.Longitude : 0)
+                           ),
+                           new XElement("Contact",
+                              new XAttribute("frstname", chat.Message.Contact != null ? chat.Message.Contact.FirstName ?? "" : ""),
+                              new XAttribute("lastname", chat.Message.Contact != null ? chat.Message.Contact.LastName ?? "" : ""),
+                              new XAttribute("id", chat.Message.Chat.Id),
+                              new XAttribute("phonnumb", chat.Message.Contact != null ? chat.Message.Contact.PhoneNumber.Replace(" ", "") ?? "" : "")
+                           )
+                        )
+                     ),
+                     ref xResult
+                  );
+
+                  KeyboardButton[][] keyBoardMarkup = null;
+                  if (xResult != null)
+                     keyBoardMarkup = CreateKeyboardButton(xResult.Descendants("Text")/*.Select(x => x.Value)*/.ToList(), Convert.ToInt32(xResult.Descendants("Row").FirstOrDefault().Value), Convert.ToInt32(xResult.Descendants("Column").FirstOrDefault().Value));
+
+                  // تنظیم کردن متغییرهای لازمه
+                  try
+                  {
+                     chat.UssdCode = xResult.Descendants("UssdCode").FirstOrDefault().Value;
+                     chat.ReadyToFire = xResult.Descendants("ReadyToFire").FirstOrDefault().Value == "002" ? true : false;
+                     chat.CommandRunPlace = xResult.Descendants("CommandRunPlace").FirstOrDefault().Value;
+                  }
+                  catch
+                  {
+                     chat.UssdCode = "";
+                     chat.ReadyToFire = false;
+                     chat.CommandRunPlace = "001";
+                  }
+                  #endregion
+
+                  bool visited = false;
+
+                  // اگر بخواهیم کاری را انجام بدهیم که خروجی تابع اصلی برای ما مهم نیست که نمایش داده شود
+                  // ولی میخواهیم که رخداد ها اجرا شوند
+                  if (aftrbfor != "<>")
+                  {
+                     #region Before Trigger Execute
+                     if (aftrbfor == "<<" && triggers != "")
+                     {
+                        // Do It
+                        foreach (var trigger in triggers.Split(','))
+                        {
+                           #region Trigger Run
+                           string tparam = "";
+                           if (trigger.Contains("^"))
+                              tparam = trigger.Split('^')[1];
+                           string tcmnd = trigger.Split('^')[0];
+                           triggers = triggers.Replace(trigger, "");
+                           if (triggers != "")
+                              triggers = triggers.Substring(1);
+                           var xmlmsgtrgr =
+                              RobotHandle.GetData(
+                                 new XElement("Robot",
+                                    new XAttribute("token", GetToken()),
+                                    new XElement("Message",
+                                       new XAttribute("cbq", "002"),
+                                       new XAttribute("ussd", chat.UssdCode),
+                                       new XAttribute("chatid", e.CallbackQuery.Message.Chat.Id),
+                                       new XAttribute("mesgid", e.CallbackQuery.Message.MessageId),
+                                       new XElement("Text",
+                                          new XAttribute("param", tparam),
+                                          new XAttribute("postexec", postexecs),
+                                          new XAttribute("trigger", triggers),
+                                          tcmnd
+                                       )
+                                    )
+                                 ), connectionString);
+                           var trmessage = xmlmsgtrgr.Descendants("Message").FirstOrDefault().Value;
+
+                           visited = false;
+                           try
+                           {
+                              var tdata = XDocument.Parse(trmessage).Elements().First();
+                              var xdata = xmlmsgtrgr;//XDocument.Parse(message).Elements().First();
+                              await FireEventResultOpration(chat.Message.Chat.Id, keyBoardMarkup, xdata);
+                              visited = true;
+                           }
+                           catch { visited = false; }
+
+                           try
+                           {
+                              if (!visited)
+                                 await MessagePaging(chat.Message.Chat.Id, trmessage, keyBoardMarkup);
+                           }
+                           catch { }
+                           #endregion
+                        }
+                     }
+                     #endregion
+
+                     #region Main Function Execution AND SHOW Result
+                     visited = false;
+                     try
+                     {
+                        var tdata = XDocument.Parse(rmessage).Elements().First();
+                        var xdata = xmlmsg;//XDocument.Parse(message).Elements().First();
+                        await FireEventResultOpration(chat.Message.Chat.Id, keyBoardMarkup, xdata);
+                        visited = true;
+                     }
+                     catch { visited = false; }
+
+                     try
+                     {
+                        if (!visited)
+                           await MessagePaging(chat.Message.Chat.Id, rmessage, keyBoardMarkup);
+                     }
+                     catch { }
+                     #endregion
+
+                     #region After Trigger Execute
+                     if (aftrbfor == ">>" && triggers != "")
+                     {
+                        // Do It
+                        foreach (var trigger in triggers.Split(','))
+                        {
+                           #region Trigger Run
+                           string tparam = "";
+                           if (trigger.Contains("^"))
+                              tparam = trigger.Split('^')[1];
+                           string tcmnd = trigger.Split('^')[0];
+                           triggers = triggers.Replace(trigger, "");
+                           if (triggers != "")
+                              triggers = triggers.Substring(1);
+                           var xmlmsgtrgr =
+                              RobotHandle.GetData(
+                                 new XElement("Robot",
+                                    new XAttribute("token", GetToken()),
+                                    new XElement("Message",
+                                       new XAttribute("cbq", "002"),
+                                       new XAttribute("ussd", chat.UssdCode),
+                                       new XAttribute("chatid", e.CallbackQuery.Message.Chat.Id),
+                                       new XAttribute("mesgid", e.CallbackQuery.Message.MessageId),
+                                       new XElement("Text",
+                                          new XAttribute("param", tparam),
+                                          new XAttribute("postexec", postexecs),
+                                          new XAttribute("trigger", triggers),
+                                          tcmnd
+                                       )
+                                    )
+                                 ), connectionString);
+                           var trmessage = xmlmsgtrgr.Descendants("Message").FirstOrDefault().Value;
+
+                           visited = false;
+                           try
+                           {
+                              var tdata = XDocument.Parse(trmessage).Elements().First();
+                              var xdata = xmlmsgtrgr;//XDocument.Parse(message).Elements().First();
+                              await FireEventResultOpration(chat.Message.Chat.Id, keyBoardMarkup, xdata);
+                              visited = true;
+                           }
+                           catch { visited = false; }
+
+                           try
+                           {
+                              if (!visited)
+                                 await MessagePaging(chat.Message.Chat.Id, trmessage, keyBoardMarkup);
+                           }
+                           catch { }
+                           #endregion
+                        }
+                     }
+                     #endregion
+                  }
+                  else
+                  {
+                     #region Trigger Execute
+                     if (triggers != "")
+                     {
+                        // Do It
+                        foreach (var trigger in triggers.Split(','))
+                        {
+                           #region Trigger Run
+                           string tparam = trigger.Split('^')[1];
+                           string tcmnd = trigger.Split('^')[0];
+                           xmlmsg = RobotHandle.GetData(
+                              new XElement("Robot",
+                                 new XAttribute("token", GetToken()),
+                                 new XElement("Message",
+                                    new XAttribute("cbq", "002"),
+                                    new XAttribute("ussd", chat.UssdCode),
+                                    new XAttribute("chatid", e.CallbackQuery.Message.Chat.Id),
+                                    new XAttribute("mesgid", e.CallbackQuery.Message.MessageId),
+                                    new XElement("Text",
+                                       new XAttribute("param", tparam),
+                                       new XAttribute("postexec", postexecs),
+                                       new XAttribute("trigger", triggers),
+                                       tcmnd
+                                    )
+                                 )
+                              ), connectionString);
+                           var trmessage = xmlmsg.Descendants("Message").FirstOrDefault().Value;
+
+                           visited = false;
+                           try
+                           {
+                              var tdata = XDocument.Parse(trmessage).Elements().First();
+                              var xdata = xmlmsg;//XDocument.Parse(message).Elements().First();
+                              await FireEventResultOpration(chat.Message.Chat.Id, keyBoardMarkup, xdata);
+                              visited = true;
+                           }
+                           catch { visited = false; }
+
+                           try
+                           {
+                              if (!visited)
+                                 await MessagePaging(chat.Message.Chat.Id, trmessage, keyBoardMarkup);
+                           }
+                           catch { }
+                           #endregion
+                        }
+                     }
+                     #endregion
+                  }
+
+                  await
+                     Send_Order(iRobotTech, keyBoardMarkup,
+                        new XElement("Data",
+                              new XAttribute("chatid", chat.Message.Chat.Id),
+                              new XAttribute("frstname", chat.Message.From.FirstName),
+                              new XAttribute("lastname", chat.Message.From.LastName ?? ""),
+                              new XAttribute("username", chat.Message.From.Username ?? "")
+                            )
+                     );
+                  await Send_Replay_Message(GetToken(), chat);
+               }
+               #endregion
+
                #endregion
             }
             else if (target == ".")
@@ -1500,9 +1814,10 @@ namespace System.RoboTech.Controller
 
       private async Task Robot_Interact(MessageEventArgs e)
       {
-         if (!_Strt_Robo_F.Actn4Mesg_Cbx.Checked) return;
+         if (!_Strt_Robo_F.Actn4Mesg_Cbx.Checked || e.Message.Chat.Type != ChatType.Private) return;
 
          if (e.Message.Date.Date < DateTime.Now.Date) return;
+
 
          ChatInfo chat = null;
          try
@@ -5169,7 +5484,12 @@ namespace System.RoboTech.Controller
                                                 resultdesc
                                              ),
                                              replyMarkup:
-                                             null).Wait();
+                                             new ReplyKeyboardMarkup()
+                                             {
+                                                Keyboard = keyBoardMarkup,
+                                                ResizeKeyboard = true,
+                                                Selective = true
+                                             }).Wait();
                                           break;
                                        
                                     }
@@ -5210,10 +5530,16 @@ namespace System.RoboTech.Controller
          }
          catch (Exception exc)
          {
+            //if (ConsoleOutLog_MemTxt.InvokeRequired)
+            //   ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text = string.Format("Robot Id : {3} , DateTime : {4} , Chat Id : {0}, From : {1}, Message Text : {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, exc.Message, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text));
+            //else
+            //   ConsoleOutLog_MemTxt.Text = string.Format("Robot Id : {3} , DateTime : {4} , Chat Id : {0}, From : {1}, Message Text : {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, exc.Message, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text;
+
             if (ConsoleOutLog_MemTxt.InvokeRequired)
-               ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text = string.Format("Robot Id : {3} , DateTime : {4} , Chat Id : {0}, From : {1}, Message Text : {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, exc.Message, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text));
+               ConsoleOutLog_MemTxt.Invoke(new Action(() => ConsoleOutLog_MemTxt.Text = string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, Message Text : {1}\r\n", chat.Message.Chat.Id, exc.Message, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text));
             else
-               ConsoleOutLog_MemTxt.Text = string.Format("Robot Id : {3} , DateTime : {4} , Chat Id : {0}, From : {1}, Message Text : {2}\r\n", chat.Message.Chat.Id, chat.Message.From.FirstName + ", " + chat.Message.From.LastName, exc.Message, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text;
+               ConsoleOutLog_MemTxt.Text = string.Format("Robot Id : {2} , DateTime : {3} , Chat Id : {0}, Message Text : {1}\r\n", chat.Message.Chat.Id, exc.Message, Me.Username, DateTime.Now.ToString()) + ConsoleOutLog_MemTxt.Text;
+
             BotOnStarted(chat);
          }
       }
@@ -6732,7 +7058,8 @@ namespace System.RoboTech.Controller
                          }
                      );
 
-                     await Bot.DeleteMessageAsync(chatid, chosmesg.MessageId);
+                     // 1403/07/01 * نمیدونم واسه چی اینو گذاشتم که دوباره پاکش کنه
+                     //await Bot.DeleteMessageAsync(chatid, chosmesg.MessageId);
                   }
                   catch
                   {

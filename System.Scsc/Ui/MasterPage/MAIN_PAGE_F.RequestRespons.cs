@@ -272,7 +272,8 @@ namespace System.Scsc.Ui.MasterPage
 
                         if ((ExprInstDate.Date - DateTime.Now.Date).Days < 0)
                         {
-                           MessageBox.Show("تاریخ اعتبار شما به پایان رسیده", "خطای انقضای ماهیانه محصول", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                           MessageBox.Show("خطای کد فعال ساز:" + Environment.NewLine + "سیستم شما به دلیل عدم دریافت کد فعال ساز سیستم گیت و کمد آنلاین غیر فعال شده است." + Environment.NewLine + "جهت دریافت کد فعال ساز با شماره 09919004540 تماس بگیرید.", "خطای عدم فعالسازی سخت افزار شرکت نورو", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                           //MessageBox.Show("تاریخ اعتبار شما به پایان رسیده", "خطای انقضای ماهیانه محصول", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                            Application.Exit();
                            Process.GetCurrentProcess().Kill();
@@ -1050,19 +1051,16 @@ namespace System.Scsc.Ui.MasterPage
                      job.Output = SetDataToDev(xinput.Attribute("enrollnumb").Value, new List<string> { xinput.Attribute("fngrprntupdate").Value, xinput.Attribute("fngrprnt").Value, xinput.Attribute("faceupdate").Value, xinput.Attribute("face").Value });
                      break;
                }
-
                //if (result) MessageBox.Show(this, "عملیات با موفقیت انجام شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Information);
                //else
                //{
                //   MessageBox.Show(this, "عملیات با شکست مواجه شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Error);
                //}
-
-               goto L_End;
+               //goto L_End;
             }
-
          }
          catch { }
-         L_End:
+         //L_End:
          job.Status = StatusType.Successful;
       }
 
@@ -1301,6 +1299,111 @@ namespace System.Scsc.Ui.MasterPage
                      new XElement("Output",
                         new XAttribute("resultcode", 10004),
                         new XAttribute("resultdesc", string.Format("درخواست باز شدن قفل کمد شماره {0} انجام شد", param.Split(',')[1])),
+                        new XAttribute("mesgtype", "1"),
+                        new XAttribute("mesgdesc", "Text")
+                     );
+                  break;
+               case "gameclub::slctexpn":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Execute Actn_CalF_F */)
+                           {
+                              Input = 
+                                 new XElement("MainPage",
+                                    new XAttribute("appcmndtype", "gameclub::slctexpn"),
+                                    new XAttribute("epitcode", param.Split(',')[0]),
+                                    new XAttribute("extpcode", param.Split(',')[1]),
+                                    new XAttribute("expncode", param.Split(',')[2])
+                                 )
+                           }
+                        }
+                     )
+                  );
+
+                  job.Output =
+                     new XElement("Output",
+                        new XAttribute("resultcode", 10004),
+                        new XAttribute("resultdesc", string.Format("درخواست باز شدن میز به سیستم ارسال شد")),
+                        new XAttribute("mesgtype", "1"),
+                        new XAttribute("mesgdesc", "Text")
+                     );
+                  break;
+               case "gameclub::closopenexpn":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Execute Actn_CalF_F */)
+                           {
+                              Input = 
+                                 new XElement("MainPage",
+                                    new XAttribute("appcmndtype", "gameclub::closopenexpn"),
+                                    new XAttribute("agopcode", param.Split(',')[0]),
+                                    new XAttribute("rwno", param.Split(',')[1])
+                                 )
+                           }
+                        }
+                     )
+                  );
+
+                  job.Output =
+                     new XElement("Output",
+                        new XAttribute("resultcode", 10004),
+                        new XAttribute("resultdesc", string.Format("درخواست بسته شدن میز به سیستم ارسال شد")),
+                        new XAttribute("mesgtype", "1"),
+                        new XAttribute("mesgdesc", "Text")
+                     );
+                  break;
+               case "gameclub::closcashexpn":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Execute Actn_CalF_F */)
+                           {
+                              Input = 
+                                 new XElement("MainPage",
+                                    new XAttribute("appcmndtype", "gameclub::closcashexpn"),
+                                    new XAttribute("agopcode", param.Split(',')[0]),
+                                    new XAttribute("rwno", param.Split(',')[1])
+                                 )
+                           }
+                        }
+                     )
+                  );
+
+                  job.Output =
+                     new XElement("Output",
+                        new XAttribute("resultcode", 10004),
+                        new XAttribute("resultdesc", string.Format("درخواست تسویه حساب نقدی میز(ها) به سیستم ارسال شد")),
+                        new XAttribute("mesgtype", "1"),
+                        new XAttribute("mesgdesc", "Text")
+                     );
+                  break;
+               case "gameclub::reopenexpn":
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.SelfToUserInterface, "AOP_BUFE_F", 10 /* Execute Actn_CalF_F */)
+                           {
+                              Input = 
+                                 new XElement("MainPage",
+                                    new XAttribute("appcmndtype", "gameclub::reopenexpn"),
+                                    new XAttribute("agopcode", param.Split(',')[0]),
+                                    new XAttribute("rwno", param.Split(',')[1])
+                                 )
+                           }
+                        }
+                     )
+                  );
+
+                  job.Output =
+                     new XElement("Output",
+                        new XAttribute("resultcode", 10004),
+                        new XAttribute("resultdesc", string.Format("درخواست باز و بسته کردن میز به سیستم ارسال شد")),
                         new XAttribute("mesgtype", "1"),
                         new XAttribute("mesgdesc", "Text")
                      );

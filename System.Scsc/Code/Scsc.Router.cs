@@ -915,6 +915,7 @@ namespace System.Scsc.Code
                _Adm_Brsr_F.SendRequest(job);
                break;
             case "AOP_BUFE_F":
+               if (_Aop_Bufe_F == null) { job.Status = StatusType.Failed; return; }
                _Aop_Bufe_F.SendRequest(job);
                break;
             case "ADM_HRSC_F":

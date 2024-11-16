@@ -54,7 +54,8 @@ namespace System.Scsc.Ui.ReportManager
                      (Fga_Uclb_U.Contains(pm.Payment.CLUB_CODE_DNRM)) &&
                      // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
                      (cochfileno == null || pm.Payment.Payment_Details.Any(pd => pd.FIGH_FILE_NO == cochfileno)) &&
-                     (cbmtcode == null || pm.Payment.Payment_Details.Any(pd => pd.CBMT_CODE_DNRM == cbmtcode))
+                     (cbmtcode == null || pm.Payment.Payment_Details.Any(pd => pd.CBMT_CODE_DNRM == cbmtcode)) &&
+                     (!DebtPay_Cbx.Checked || pm.CRET_DATE.Value.Date != pm.Payment.CRET_DATE.Value.Date)
                   );
 
                GlrdBs1.DataSource =

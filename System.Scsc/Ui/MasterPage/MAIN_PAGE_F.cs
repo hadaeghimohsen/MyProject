@@ -3361,6 +3361,10 @@ namespace System.Scsc.Ui.MasterPage
                _data.Add(tmpData);
                #endregion
 
+               //_oddcolor = _evencolor = Color.AliceBlue;
+               //_wplayer_url = "";
+               //new Thread(AlarmShow).Start();
+
                // Reset old data
                tmpData = null;
 
@@ -3371,6 +3375,10 @@ namespace System.Scsc.Ui.MasterPage
                axCZKEM1.RefreshData(1);
                _data.Add(tmpData);
                #endregion
+
+               //_oddcolor = _evencolor = Color.Azure;
+               //_wplayer_url = "";
+               //new Thread(AlarmShow).Start();
             }
             return _data;
          }
@@ -3886,9 +3894,9 @@ namespace System.Scsc.Ui.MasterPage
             #region RelaySoft Company
             #region Device Bilard & CityGame & Reader & Seven Segment & Online LockerS Gym
             // آیا کامپیوتر مورد نظر به عنوان سرور تلقی میشود که باید به بعضی از دستگاه ها پاسخگو باشد
-            if (devs.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "007" || d.DEV_TYPE == "008" || d.DEV_TYPE == "009" || d.DEV_TYPE == "010" || (d.DEV_TYPE == "001" && d.DEV_CON == "002")) && _listIPHost.Contains(d.SERV_IP_ADRS)).Any())
+            if (devs.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "007" || d.DEV_TYPE == "008" || d.DEV_TYPE == "009" || d.DEV_TYPE == "010" || d.DEV_TYPE == "011" || (d.DEV_TYPE == "001" && d.DEV_CON == "002")) && _listIPHost.Contains(d.SERV_IP_ADRS)).Any())
             {
-               var _thisServersListener = devs.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "007" || d.DEV_TYPE == "008" || d.DEV_TYPE == "009" || d.DEV_TYPE == "010" || (d.DEV_TYPE == "001" && d.DEV_CON == "002")) && _listIPHost.Contains(d.SERV_IP_ADRS)).Select(d => new { d.SERV_IP_ADRS, d.PORT_SEND }).Distinct().FirstOrDefault();
+               var _thisServersListener = devs.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "007" || d.DEV_TYPE == "008" || d.DEV_TYPE == "009" || d.DEV_TYPE == "010" || d.DEV_TYPE == "011" || (d.DEV_TYPE == "001" && d.DEV_CON == "002")) && _listIPHost.Contains(d.SERV_IP_ADRS)).Select(d => new { d.SERV_IP_ADRS, d.PORT_SEND }).Distinct().FirstOrDefault();
 
                // اگر سیستم فعلی به عنوان سرور تلقی میشود باید پورت 6450 که به صورت پیش شرکت میباشد شنود شود
                server = new Server(Server.GetLocalIPAddress(), /*13001*/Convert.ToInt32(_thisServersListener.PORT_SEND));
@@ -4768,6 +4776,9 @@ namespace System.Scsc.Ui.MasterPage
       private void Server_ClientDisconnected(object sender, ClientToggleEventArgs e)
       {
          Console.WriteLine("Client Disconnected: " + e.ConnectedClient.ConnectAddress);
+         _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\disconnect.wav";
+         _evencolor = _oddcolor = Color.Red;
+         new Thread(new ThreadStart(() => AlarmShow(BackGrnd_Butn))).Start();
       }
 
       private void Server_MessageReceived(object sender, EventBasedTCP.MessageReceivedEventArgs e)
@@ -4833,28 +4844,55 @@ namespace System.Scsc.Ui.MasterPage
                      }
                      else if (getInfoDev.DEV_TYPE == "011" /* سیستم کنترلگر ریدر با دستبند */)
                      {
-                        #region دستگاه های کنترلگر ریدر های دستبندی
-                        // در اولین گام باید چک کنیم که این دستبند به کسی تعلق دارد یا خیر
-                        if (iScsc.Dresser_Attendances.Any(da => da.Dresser.CMND_SEND == FngrPrnt_Txt.Text && da.LEND_TIME != null && da.TKBK_TIME == null && da.CONF_STAT == "002"))
+                        // 1403/08/02 * نسخه استخر علی عباسی فرزانگان برای کنترل درب ورودی استخر
+                        if (getInfoDev.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */)
                         {
-                           SendCommandDevExpn("in", getInfoDev.DEV_NAME, "");
-
-                           // Save History for enter or exit
-                           iScsc.ExecuteCommand(
-                              string.Format(
-                              "INSERT INTO dbo.Dresser_Attendance (Dres_Code, Figh_File_No, Code, Ders_Numb, Rqst_Rqid, Mbsp_Rwno, Mbsp_Rect_Code, Conf_Stat)" + Environment.NewLine +
-                              "SELECT TOP 1 Dres_Code, Figh_File_No, 0, Ders_Numb, Rqst_Rqid, Mbsp_Rwno, Mbsp_Rect_Code, Conf_Stat FROM dbo.Dresser_Attendance da" + Environment.NewLine +
-                              "WHERE da.Dres_Code IN (SELECT Code FROM dbo.Dresser d WHERE d.Cmnd_Send = '{0}')" + Environment.NewLine +
-                              "  AND da.Tkbk_Time IS NULL AND da.Lend_Time IS NOT NULL AND da.Conf_Stat = '002'" + Environment.NewLine +
-                              "ORDER BY da.CRET_DATE DESC",
-                              FngrPrnt_Txt.Text
-                              )
-                           );
+                           #region چک کردن دستبند یا کارت عضویت برای باز کردن درب گیت ورودی و ارسال فرمان به رله دستگاه
+                           // در اولین گام باید دوره فعال و معتبر مشتری را پیدا کنیم
+                           
+                           if(Serv != null && 
+                              getInfoDev.External_Device_Link_Methods
+                              .Any(edlm => Serv.Member_Ships
+                                 .Any(ms => ms.VALD_TYPE == "002" && 
+                                            ms.RECT_CODE == "004" && 
+                                            ms.FGPB_MTOD_CODE_DNRM == edlm.MTOD_CODE && 
+                                            ms.STRT_DATE.Value.Date <= DateTime.Now.Date && 
+                                            ms.END_DATE.Value.Date >= DateTime.Now.Date)))
+                           {
+                              // send accept and open the door
+                              SendCommandDevExpn("in", getInfoDev.DEV_NAME, "");
+                           }
+                           else
+                           {
+                              // send denay and show alert
+                              SendCommandDevExpn("er", getInfoDev.DEV_NAME, "");
+                           }
+                           #endregion
                         }
                         else
-                           SendCommandDevExpn("er", getInfoDev.DEV_NAME, "");
-                        #endregion
+                        {
+                           #region دستگاه های کنترلگر ریدر های دستبندی
+                           // در اولین گام باید چک کنیم که این دستبند به کسی تعلق دارد یا خیر
+                           if (iScsc.Dresser_Attendances.Any(da => da.Dresser.CMND_SEND == FngrPrnt_Txt.Text && da.LEND_TIME != null && da.TKBK_TIME == null && da.CONF_STAT == "002"))
+                           {
+                              SendCommandDevExpn("in", getInfoDev.DEV_NAME, "");
 
+                              // Save History for enter or exit
+                              iScsc.ExecuteCommand(
+                                 string.Format(
+                                 "INSERT INTO dbo.Dresser_Attendance (Dres_Code, Figh_File_No, Code, Ders_Numb, Rqst_Rqid, Mbsp_Rwno, Mbsp_Rect_Code, Conf_Stat)" + Environment.NewLine +
+                                 "SELECT TOP 1 Dres_Code, Figh_File_No, 0, Ders_Numb, Rqst_Rqid, Mbsp_Rwno, Mbsp_Rect_Code, Conf_Stat FROM dbo.Dresser_Attendance da" + Environment.NewLine +
+                                 "WHERE da.Dres_Code IN (SELECT Code FROM dbo.Dresser d WHERE d.Cmnd_Send = '{0}')" + Environment.NewLine +
+                                 "  AND da.Tkbk_Time IS NULL AND da.Lend_Time IS NOT NULL AND da.Conf_Stat = '002'" + Environment.NewLine +
+                                 "ORDER BY da.CRET_DATE DESC",
+                                 FngrPrnt_Txt.Text
+                                 )
+                              );
+                           }
+                           else
+                              SendCommandDevExpn("er", getInfoDev.DEV_NAME, "");
+                           #endregion
+                        }
                         return;
                      }
 
@@ -7952,14 +7990,6 @@ namespace System.Scsc.Ui.MasterPage
 
       private void tol_closegatebutn_ItemClick(object sender, ItemClickEventArgs e)
       {
-         iScsc.INS_LGOP_P(
-            new XElement("Log",
-               new XAttribute("fileno", ""),
-               new XAttribute("type", "007"),
-               new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه بیرون باز شد")
-            )
-         );
-
          Job _InteractWithScsc =
             new Job(SendType.External, "Localhost",
                new List<Job>
@@ -7977,7 +8007,16 @@ namespace System.Scsc.Ui.MasterPage
                            },
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
+                              {
+                                 iScsc.INS_LGOP_P(
+                                    new XElement("Log",
+                                       new XAttribute("fileno", ""),
+                                       new XAttribute("type", "007"),
+                                       new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه بیرون باز شد")
+                                    )
+                                 );
                                  return;
+                              }
                               MessageBox.Show("خطا - عدم دسترسی به ردیف 276 سطوح امینتی", "عدم دسترسی");
                            })
                         },
@@ -7999,14 +8038,6 @@ namespace System.Scsc.Ui.MasterPage
 
       private void tol_opengatebutn_ItemClick(object sender, ItemClickEventArgs e)
       {
-         iScsc.INS_LGOP_P(
-            new XElement("Log",
-               new XAttribute("fileno", ""),
-               new XAttribute("type", "007"),
-               new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه داخل باز شد")
-            )
-         );
-
          Job _InteractWithScsc =
             new Job(SendType.External, "Localhost",
                new List<Job>
@@ -8024,7 +8055,16 @@ namespace System.Scsc.Ui.MasterPage
                            },
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
+                              {
+                                 iScsc.INS_LGOP_P(
+                                    new XElement("Log",
+                                       new XAttribute("fileno", ""),
+                                       new XAttribute("type", "007"),
+                                       new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه داخل باز شد")
+                                    )
+                                 );
                                  return;
+                              }
                               MessageBox.Show("خطا - عدم دسترسی به ردیف 275 سطوح امینتی", "عدم دسترسی");
                            })
                         },
@@ -8539,19 +8579,41 @@ namespace System.Scsc.Ui.MasterPage
 
       private void tol_opengatebutn_ItemClick(object sender, EventArgs e)
       {
-         iScsc.INS_LGOP_P(
-            new XElement("Log",
-               new XAttribute("fileno", ""),
-               new XAttribute("type", "007"),
-               new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه داخل باز شد")
-            )
-         );
+         
 
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost",
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
                new List<Job>
                {
-                  //new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>275</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                              {
+                                 iScsc.INS_LGOP_P(
+                                    new XElement("Log",
+                                       new XAttribute("fileno", ""),
+                                       new XAttribute("type", "007"),
+                                       new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه داخل باز شد")
+                                    )
+                                 );
+                                 return;
+                              }
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 275 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+                  #region DoWork
                   new Job(SendType.SelfToUserInterface, GetType().Name, 10 /* Execute Actn_CalF_F */)
                   {
                      Input = 
@@ -8560,26 +8622,46 @@ namespace System.Scsc.Ui.MasterPage
                            new XAttribute("gateactn", "open")
                         )
                   }
-               }
-            )
-         );
+                  #endregion
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void tol_closegatebutn_ItemClick(object sender, EventArgs e)
       {
-         iScsc.INS_LGOP_P(
-            new XElement("Log",
-               new XAttribute("fileno", ""),
-               new XAttribute("type", "007"),
-               new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه بیرون باز شد")
-            )
-         );
-
-         _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost",
+         Job _InteractWithScsc =
+            new Job(SendType.External, "Localhost",
                new List<Job>
                {
-                  //new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                  new Job(SendType.External, "Commons",
+                     new List<Job>
+                     {
+                        #region Access Privilege
+                        new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                        {
+                           Input = new List<string> 
+                           {
+                              "<Privilege>276</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "DataGuard"
+                           },
+                           AfterChangedOutput = new Action<object>((output) => {
+                              if ((bool)output)
+                              {
+                                 iScsc.INS_LGOP_P(
+                                    new XElement("Log",
+                                       new XAttribute("fileno", ""),
+                                       new XAttribute("type", "007"),
+                                       new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه بیرون باز شد")
+                                    )
+                                 );
+                                 return;
+                              }
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 276 سطوح امینتی", "عدم دسترسی");
+                           })
+                        },
+                        #endregion
+                     }),
+                  #region DoWork
                   new Job(SendType.SelfToUserInterface, GetType().Name, 10 /* Execute Actn_CalF_F */)
                   {
                      Input = 
@@ -8588,9 +8670,9 @@ namespace System.Scsc.Ui.MasterPage
                            new XAttribute("gateactn", "close")
                         )
                   }
-               }
-            )
-         );
+                  #endregion
+               });
+         _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
       private void ksk_incmbutn_ItemClick(object sender, EventArgs e)
@@ -9459,6 +9541,13 @@ namespace System.Scsc.Ui.MasterPage
                      _evencolor = _oddcolor = Color.Red;
                      new Thread(new ThreadStart(() => AlarmShow(BackGrnd_Butn))).Start();
                   }
+               }
+               else if(ModifierKeys == Keys.Shift)
+               {
+                  _dev.Disconnect();
+                  var _rslt = _dev.Connect_Net((sender as MaxUi.Button).Text.Split('-')[0], 4370);
+                  _dev.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
+                  _dev.OnHIDNum += axCZKEM1_OnHIDNum;
                }
                else
                {

@@ -315,6 +315,41 @@ namespace System.Scsc.Ui.AggregateOperation
          if (xinput.Attribute("expncode") != null)
             expncode = xinput.Attribute("expncode").Value.ToInt64();
 
+         // 1403/07/03 * send signal data from mobile app
+         if (xinput.Attribute("appcmndtype") != null)
+         {
+            // 1403/07/11 * روز بعد از جنگ احماقه ج.ا. به خاک اسرائیل
+            // اگر دفتری باز نباشد ابتدا باز کنیم و بعد از ان 
+            if(AgopBs1.Current == null)
+            {
+               var _agop = AgopBs1.AddNew() as Data.Aggregation_Operation;
+               iScsc.Aggregation_Operations.InsertOnSubmit(_agop);
+               Edit_Butn_Click(null, null);
+            }
+
+            switch (xinput.Attribute("appcmndtype").Value)
+            {
+               case "gameclub::slctexpn":
+                  ExtpDesk_Lov.EditValue = Convert.ToInt64(xinput.Attribute("extpcode").Value);
+                  ExpnDesks_Lov.EditValue = Convert.ToInt64(xinput.Attribute("expncode").Value);
+                  break;
+               case "gameclub::closopenexpn":
+                  DeskClose_Butn_Click(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == Convert.ToInt64(xinput.Attribute("agopcode").Value) && a.RWNO == Convert.ToInt64(xinput.Attribute("rwno").Value)));
+                  break;
+               case "gameclub::closcashexpn":
+                  AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == Convert.ToInt64(xinput.Attribute("agopcode").Value) && a.RWNO == Convert.ToInt64(xinput.Attribute("rwno").Value)));
+                  CalcTreeDesk_Butn_Click(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == Convert.ToInt64(xinput.Attribute("agopcode").Value) && a.RWNO == Convert.ToInt64(xinput.Attribute("rwno").Value)), null);
+                  SetCashAmnt_Butn_Click(null, null);
+                  SaveTotlDesk_Butn_Click(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == Convert.ToInt64(xinput.Attribute("agopcode").Value) && a.RWNO == Convert.ToInt64(xinput.Attribute("rwno").Value)), null);
+                  break;
+               case "gameclub::reopenexpn":
+                  CloseOpenTable_Butn_Click(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == Convert.ToInt64(xinput.Attribute("agopcode").Value) && a.RWNO == Convert.ToInt64(xinput.Attribute("rwno").Value)), null);
+                  break;
+               default:
+                  break;
+            }
+         }
+
          Execute_Query();
 
          // اگر فرم مستقیما توسط منوی اصلی فراخوانی شده باشد دیگر نیاز به اجرای موارد پایین نیست
@@ -449,10 +484,10 @@ namespace System.Scsc.Ui.AggregateOperation
             // بدست آوردن کد هزینه برای درج برای مشتری
             // در ابتدا باید مشخص کنیم که ردیف هزینه متعلق به کدام نوع هزینه می باشد
             bool visited = false;
-            if (fngrprnt != null && ExpnDesk_GridLookUpEdit.Properties.Buttons[1].Tag.ToString() == "auto")
+            if (fngrprnt != null && ExpnDesks_Lov.Properties.Buttons[1].Tag.ToString() == "auto")
             {
                visited = true;
-               ExpnDesk_GridLookUpEdit_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(ExpnDesk_GridLookUpEdit.Properties.Buttons[1]));
+               ExpnDesk_GridLookUpEdit_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(ExpnDesks_Lov.Properties.Buttons[1]));
             }
 
             ExtpDesk_Lov.EditValue = ExtpDeskBs1.List.OfType<Data.Expense_Type>().FirstOrDefault(et => et.Expenses.Any(e => e.CODE == expncode)).CODE;
@@ -460,7 +495,7 @@ namespace System.Scsc.Ui.AggregateOperation
             if (visited)
             {
                visited = false;
-               ExpnDesk_GridLookUpEdit_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(ExpnDesk_GridLookUpEdit.Properties.Buttons[1]));
+               ExpnDesk_GridLookUpEdit_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(ExpnDesks_Lov.Properties.Buttons[1]));
             }
 
             var expn = ExpnDeskBs1.List.OfType<Data.Expense>().FirstOrDefault(e => e.CODE == expncode);
@@ -488,7 +523,7 @@ namespace System.Scsc.Ui.AggregateOperation
                if(stat == "START")
                {
                   // هزینه را درون باکس مربوطه قرار میدهیم و میز را برای مشتری باز میکنیم
-                  ExpnDesk_GridLookUpEdit.EditValue = expn.CODE;
+                  ExpnDesks_Lov.EditValue = expn.CODE;
                   OpenDesk_Butn_Click(null, null);                  
                }
             }
@@ -516,19 +551,19 @@ namespace System.Scsc.Ui.AggregateOperation
                      //else
                      {
                         visited = false;
-                        if (fngrprnt != null && ExpnDesk_GridLookUpEdit.Properties.Buttons[1].Tag.ToString() == "auto")
+                        if (fngrprnt != null && ExpnDesks_Lov.Properties.Buttons[1].Tag.ToString() == "auto")
                         {
                            visited = true;
-                           ExpnDesk_GridLookUpEdit_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(ExpnDesk_GridLookUpEdit.Properties.Buttons[1]));
+                           ExpnDesk_GridLookUpEdit_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(ExpnDesks_Lov.Properties.Buttons[1]));
                         }
 
-                        ExpnDesk_GridLookUpEdit.EditValue = expn.CODE;
+                        ExpnDesks_Lov.EditValue = expn.CODE;
                         OpenDesk_Butn_Click(null, null);
 
                         if(visited)
                         {
                            visited = false;
-                           ExpnDesk_GridLookUpEdit_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(ExpnDesk_GridLookUpEdit.Properties.Buttons[1]));
+                           ExpnDesk_GridLookUpEdit_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(ExpnDesks_Lov.Properties.Buttons[1]));
                         }
                      }
                      break;

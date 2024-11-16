@@ -769,7 +769,7 @@ namespace System.Scsc.Ui.Attendance
                         {
                            Input = new List<string> 
                            {
-                              "<Privilege>134</Privilege><Sub_Sys>5</Sub_Sys>", 
+                              "<Privilege>287</Privilege><Sub_Sys>5</Sub_Sys>", 
                               "DataGuard"
                            },
                            AfterChangedOutput = new Action<object>((output) => {
@@ -778,7 +778,7 @@ namespace System.Scsc.Ui.Attendance
                                  return;
                               #region Show Error
                               job.Status = StatusType.Failed;
-                              MessageBox.Show(this, "خطا - عدم دسترسی به کد 134");
+                              MessageBox.Show(this, "خطا - عدم دسترسی به کد 287");
                               #endregion                           
                            })
                         },

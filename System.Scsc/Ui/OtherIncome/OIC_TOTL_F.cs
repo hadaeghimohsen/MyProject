@@ -1976,120 +1976,21 @@ namespace System.Scsc.Ui.OtherIncome
 
             if (PymtAmnt_Txt.EditValue == null || PymtAmnt_Txt.EditValue.ToString() == "" || Convert.ToInt64(PymtAmnt_Txt.EditValue) == 0) return;
 
-            #region Old Payment Operation
-            //switch (RcmtType_Butn.Tag.ToString())
-            //{
-            //   case "0":
-            //      iScsc.PAY_MSAV_P(
-            //         new XElement("Payment",
-            //            new XAttribute("actntype", "InsertUpdate"),
-            //            new XElement("Insert",
-            //               new XElement("Payment_Method",
-            //                  new XAttribute("cashcode", pymt.CASH_CODE),
-            //                  new XAttribute("rqstrqid", pymt.RQST_RQID),
-            //                  new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
-            //                  new XAttribute("rcptmtod", "001"),
-            //                  new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
-            //                  new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
-            //               )
-            //            )
-            //         )
-            //      );
-
-            //      // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
-            //      PymtVldtType_Cbx.Checked = true;
-            //      break;
-            //   case "1":
-            //      if (VPosBs1.List.Count == 0) UsePos_Cb.Checked = false;
-
-            //      if (UsePos_Cb.Checked)
-            //      {
-            //         var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
-
-            //         long psid;
-            //         if (Pos_Lov.EditValue == null)
-            //         {
-            //            var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
-            //            if (posdflts.Count() == 1)
-            //               Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
-            //            else
-            //            {
-            //               Pos_Lov.Focus();
-            //               return;
-            //            }
-            //         }
-            //         else
-            //         {
-            //            psid = (long)Pos_Lov.EditValue;
-            //         }
-
-            //         if (regl.AMNT_TYPE == "002")
-            //            PymtAmnt_Txt.EditValue = Convert.ToInt64( PymtAmnt_Txt.EditValue ) * 10;
-
-            //         // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
-            //         UsePos_Cb.Checked = false;
-
-            //         _DefaultGateway.Gateway(
-            //            new Job(SendType.External, "localhost",
-            //               new List<Job>
-            //               {
-            //                  new Job(SendType.External, "Commons",
-            //                     new List<Job>
-            //                     {
-            //                        new Job(SendType.Self, 34 /* Execute PosPayment */)
-            //                        {
-            //                           Input = 
-            //                              new XElement("PosRequest",
-            //                                 new XAttribute("psid", psid),
-            //                                 new XAttribute("subsys", 5),
-            //                                 new XAttribute("rqid", pymt.RQST_RQID),
-            //                                 new XAttribute("rqtpcode", ""),
-            //                                 new XAttribute("router", GetType().Name),
-            //                                 new XAttribute("callback", 20),
-            //                                 new XAttribute("amnt", Convert.ToInt64( PymtAmnt_Txt.EditValue) )
-            //                              )
-            //                        }
-            //                     }
-            //                  )
-            //               }
-            //            )
-            //         );
-
-            //         UsePos_Cb.Checked = true;
-            //      }
-            //      else
-            //      {
-            //         iScsc.PAY_MSAV_P(
-            //            new XElement("Payment",
-            //               new XAttribute("actntype", "InsertUpdate"),
-            //               new XElement("Insert",
-            //                  new XElement("Payment_Method",
-            //                     new XAttribute("cashcode", pymt.CASH_CODE),
-            //                     new XAttribute("rqstrqid", pymt.RQST_RQID),
-            //                     new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
-            //                     new XAttribute("rcptmtod", "003"),
-            //                     new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
-            //                     new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
-            //                  )
-            //               )
-            //            )
-            //         );
-
-            //         // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
-            //         PymtVldtType_Cbx.Checked = true;
-            //      }
-            //      break;
-            //   default:
-            //      break;
-            //}
-            #endregion
+            //1403/08/26 * اگر تاریخ پرداخت بیشتر از تاریخ جاری باشد
+            if (PymtDate_DateTime001.Value.HasValue && PymtDate_DateTime001.Value.Value.Date > DateTime.Now.Date)
+            {
+               MessageBox.Show(this, "پرداختی در گذشته داریم ولی پرداختی در آینده نداریم، اینجاست که باید بگم داش داری اشتباه میزنی");
+               PymtDate_DateTime001.Focus();
+               PymtDate_DateTime001.Value = DateTime.Now;
+               return;
+            }
 
             switch ((RcmtType_Lov.EditValue ?? "001").ToString())
             {
                case "003":
                   if (VPosBs1.List.Count == 0) UsePos_Cb.Checked = false;
 
-                  if (UsePos_Cb.Checked)
+                  if (UsePos_Cb.Checked && (!PymtDate_DateTime001.Value.HasValue || PymtDate_DateTime001.Value.Value.Date == DateTime.Now.Date))
                   {
                      var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
 
@@ -2334,6 +2235,14 @@ namespace System.Scsc.Ui.OtherIncome
             {
                var pydt = PydtsBs1.Current as Data.Payment_Detail;
                if (pydt == null) return;
+
+               // 1403/08/13
+               if(ModifierKeys == Keys.Control)            
+               {
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET EXPR_DATE = '{0}' WHERE CODE = {1};", pydt.EXPR_DATE, pydt.CODE));
+                  return;
+               }
+
                if (NumbDay_Txt.Text == "0" && NumbMonth_Txt.Text == "0")
                {
                   pydt.EXPR_DATE = null;
@@ -4975,15 +4884,15 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
+            var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+
             switch (e.Button.Index)
             {
                case 0:
                   // Decriment or delete record
                   if (ModifierKeys.HasFlag(Keys.Control))
-                  {
-                     var _pydt = PydtsBs1.Current as Data.Payment_Detail;
+                  {                     
                      if (_pydt == null) return;
-
                      _pydt.QNTY = 1;
                   }
                   
@@ -4995,7 +4904,13 @@ namespace System.Scsc.Ui.OtherIncome
                   break;
                case 2:
                   // Incriment record
-                  AddItem_ButtonClick(null, null);
+                  //1403/06/23 * error operation in call action
+                  //AddItem_ButtonClick(null, null);
+                  
+                  if (_pydt == null) return;
+                  _pydt.QNTY += 1;
+
+                  SaveExpn_Butn_Click(null, null);
                   break;
                default:
                   break;

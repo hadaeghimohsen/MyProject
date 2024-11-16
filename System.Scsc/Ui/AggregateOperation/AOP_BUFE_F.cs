@@ -1292,8 +1292,8 @@ namespace System.Scsc.Ui.AggregateOperation
 
             if (OpenOnSelfDate_Cbx.Checked && agop.FROM_DATE.Value.Date != DateTime.Now.Date && MessageBox.Show(this, "ایا میز مورد نظر در تاریخ دیگری می خواهید باز کنید", "باز شدن میز در تاریخ غیر از امروز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            if (ExpnDesk_GridLookUpEdit.EditValue == null || ExpnDesk_GridLookUpEdit.EditValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
-            var desk = Convert.ToInt64(ExpnDesk_GridLookUpEdit.EditValue);
+            if (ExpnDesks_Lov.EditValue == null || ExpnDesks_Lov.EditValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
+            var desk = Convert.ToInt64(ExpnDesks_Lov.EditValue);
 
             long? fileno = null;
 
@@ -1431,6 +1431,10 @@ namespace System.Scsc.Ui.AggregateOperation
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
             if (aodt == null) return;
 
+            // 1403/07/09
+            if (sender is Data.Aggregation_Operation_Detail)
+               aodt = sender as Data.Aggregation_Operation_Detail;
+
             // 1403/06/09 * اگر میز بسته شده باشد به هیچ عنوان نمیتوان هیچ عملیاتی روی آن اجرا کرد
             if (aodt.STAT == "002") return;
 
@@ -1438,10 +1442,14 @@ namespace System.Scsc.Ui.AggregateOperation
             _crntiDesk = aodt;
 
             TableCloseOpen = true;
-            DeskClose_Butn_Click(null, null);
+            // 1403/07/09
+            if(sender is Data.Aggregation_Operation_Detail)
+               DeskClose_Butn_Click(aodt);
+            else
+               DeskClose_Butn_Click(aodt, null);
 
-            ExpnDesk_GridLookUpEdit.EditValue = null;
-            ExpnDesk_GridLookUpEdit.EditValue = aodt.EXPN_CODE;
+            ExpnDesks_Lov.EditValue = null;
+            ExpnDesks_Lov.EditValue = aodt.EXPN_CODE;
             Figh_Lov.EditValue = null;
             //Figh_Lov.EditValue = aodt.FIGH_FILE_NO;
             // 1403/06/08
@@ -1727,8 +1735,8 @@ namespace System.Scsc.Ui.AggregateOperation
          else if(e.Button.Index == 6)
          {
             // Trun On Glob
-            if (ExpnDesk_GridLookUpEdit.EditValue == null || ExpnDesk_GridLookUpEdit.EditValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
-            var desk = Convert.ToInt64(ExpnDesk_GridLookUpEdit.EditValue); 
+            if (ExpnDesks_Lov.EditValue == null || ExpnDesks_Lov.EditValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
+            var desk = Convert.ToInt64(ExpnDesks_Lov.EditValue); 
             
             _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",
@@ -1772,8 +1780,8 @@ namespace System.Scsc.Ui.AggregateOperation
          else if(e.Button.Index == 7)
          {
             // Trun Off Glob
-            if (ExpnDesk_GridLookUpEdit.EditValue == null || ExpnDesk_GridLookUpEdit.EditValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
-            var desk = Convert.ToInt64(ExpnDesk_GridLookUpEdit.EditValue); 
+            if (ExpnDesks_Lov.EditValue == null || ExpnDesks_Lov.EditValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
+            var desk = Convert.ToInt64(ExpnDesks_Lov.EditValue); 
                         
             _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",
@@ -1818,7 +1826,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
       private void ExpnDesk_GridLookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
       {
-         if(e.NewValue != null && ExpnDesk_GridLookUpEdit.Properties.Buttons[1].Tag.ToString() == "auto")
+         if(e.NewValue != null && ExpnDesks_Lov.Properties.Buttons[1].Tag.ToString() == "auto")
          {
             //OpenDesk_Butn_Click(null, null);
 
@@ -3474,7 +3482,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
                ).OrderBy(ed => ed.EXPN_DESC);
 
-            ExpnDesk_GridLookUpEdit.EditValue = null;
+            ExpnDesks_Lov.EditValue = null;
             //if (ExpnDeskBs1.List.Count > 0)
             //{
             //   ExpnDeskBs1.MoveFirst();
@@ -3483,7 +3491,7 @@ namespace System.Scsc.Ui.AggregateOperation
             if(ExpnDeskBs1.List.Count == 1)
             {
                ExpnDeskBs1.MoveFirst();
-               ExpnDesk_GridLookUpEdit.EditValue = (ExpnDeskBs1.Current as Data.Expense).CODE;
+               ExpnDesks_Lov.EditValue = (ExpnDeskBs1.Current as Data.Expense).CODE;
             }
          }
          catch (Exception exc)
@@ -4471,6 +4479,10 @@ namespace System.Scsc.Ui.AggregateOperation
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
             if (aodt == null) return;
 
+            // 1403/07/08 * Find focused record;
+            if (sender is Data.Aggregation_Operation_Detail)
+               aodt = sender as Data.Aggregation_Operation_Detail;
+
             int crntPos = AodtBs1.Position;
 
             // Find root records
@@ -4558,6 +4570,10 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
             if (aodt == null) return;
+
+            // 1403/07/08 * Ending and close all records
+            if (sender is Data.Aggregation_Operation_Detail)
+               aodt = sender as Data.Aggregation_Operation_Detail;
 
             int crntPos = AodtBs1.Position;
 
@@ -4866,7 +4882,7 @@ namespace System.Scsc.Ui.AggregateOperation
             RprtParm_Pn.Visible = false;
             OpenDesk_Butn.Enabled = true;
             ExtpDesk_Lov.Enabled = true;
-            ExpnDesk_GridLookUpEdit.Enabled = true;
+            ExpnDesks_Lov.Enabled = true;
             Expn_Cms.Enabled = ExpnBufe_Cms.Enabled = RootMenu_Cms.Enabled = Serv_Cms.Enabled = true;
             FillEndTime_Butn.Enabled = true;
             SetStrtNow_Butn.Enabled = DeskClose_Butn.Enabled = CloseOpenTable_Butn.Enabled = CalcDesk_Butn.Enabled = SaveStrtEndTime_Butn.Enabled = CalcAllDesk_Butn.Enabled = true;
@@ -4886,7 +4902,7 @@ namespace System.Scsc.Ui.AggregateOperation
             RprtParm_Pn.Visible = true;
             OpenDesk_Butn.Enabled = false;
             ExtpDesk_Lov.Enabled = false;
-            ExpnDesk_GridLookUpEdit.Enabled = false;
+            ExpnDesks_Lov.Enabled = false;
             Expn_Cms.Enabled = ExpnBufe_Cms.Enabled = RootMenu_Cms.Enabled = Serv_Cms.Enabled = false;
             FillEndTime_Butn.Enabled = false;
             SetStrtNow_Butn.Enabled = DeskClose_Butn.Enabled = CloseOpenTable_Butn.Enabled = CalcDesk_Butn.Enabled = SaveStrtEndTime_Butn.Enabled = CalcAllDesk_Butn.Enabled = false;

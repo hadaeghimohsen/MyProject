@@ -596,7 +596,7 @@ namespace System.Scsc.Ui.Admission
          try
          {
             RqttBs1.DataSource = iScsc.Requester_Types.Where(rqtt => rqtt.CODE == "001" || rqtt.CODE == "004");
-            DPydsBs1.DataSource = iScsc.D_PYDS;
+            DPydsBs1.DataSource = iScsc.D_PYDS.Where(d => d.VALU == "002" || d.VALU == "005" || d.VALU == "006");
             DAtypBs1.DataSource = iScsc.D_ATYPs;
             DSxtpBs1.DataSource = iScsc.D_SXTPs.Where(d => d.VALU != "003");
             DSxtpBs2.DataSource = iScsc.D_SXTPs;

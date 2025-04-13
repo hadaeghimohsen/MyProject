@@ -30,6 +30,7 @@ namespace System.Scsc.Ui.Notifications
       private bool isFirstLoaded = false;
       private string CurrentUser;
       private Data.Setting _stng;
+      private XElement HostNameInfo;
 
       public void SendRequest(Job job)
       {
@@ -61,6 +62,9 @@ namespace System.Scsc.Ui.Notifications
                break;
             case 10:
                Actn_CalF_P(job);
+               break;
+            case 21:
+               Payg_Oprt_F(job);
                break;
             default:
                break;
@@ -175,6 +179,10 @@ namespace System.Scsc.Ui.Notifications
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
+
+         var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
+         _DefaultGateway.Gateway(GetHostInfo);
+         HostNameInfo = (XElement)GetHostInfo.Output;
 
          job.Status = StatusType.Successful;
       }
@@ -307,9 +315,17 @@ namespace System.Scsc.Ui.Notifications
          if (isFirstLoaded) goto finishcommand;
          isFirstLoaded = true;
 
+         DYsnoBs.DataSource = iScsc.D_YSNOs;
+         DAttpBs.DataSource = iScsc.D_ATTPs;
+         DRcmtBs.DataSource = iScsc.D_RCMTs;
+         VPosBs1.DataSource = iScsc.V_Pos_Devices;
+         if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
+            Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
+
+
          finishcommand:
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(cm => cm.MTOD_STAT == "002");
-         DYsnoBs.DataSource = iScsc.D_YSNOs;
+         
 
          job.Status = StatusType.Successful;
       }
@@ -347,7 +363,7 @@ namespace System.Scsc.Ui.Notifications
                               })
                         );
 
-                        Execute_Query(true);
+                        Execute_Query();
                      }
                   }
                   WristBand_Txt_ButtonClick(WristBand_Txt, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(WristBand_Txt.Properties.Buttons[0]));
@@ -386,7 +402,83 @@ namespace System.Scsc.Ui.Notifications
          catch { }
          finally
          {
-            Execute_Query(true);
+            Execute_Query();
+         }
+         job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 21
+      /// </summary>
+      /// <param name="job"></param>
+      private void Payg_Oprt_F(Job job)
+      {
+         try
+         {
+            XElement RcevXData = job.Input as XElement;
+
+            var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+            var paydebt = Convert.ToInt64(RcevXData.Attribute("amnt").Value);
+            var termno = RcevXData.Attribute("termno").Value;
+            var tranno = RcevXData.Attribute("tranno").Value;
+            var cardno = RcevXData.Attribute("cardno").Value;
+            var flowno = RcevXData.Attribute("flowno").Value;
+            var refno = RcevXData.Attribute("refno").Value;
+            var actndate = RcevXData.Attribute("actndate").Value;
+
+            if (regl.AMNT_TYPE == "002")
+               paydebt /= 10;
+
+            var figh = (AttnBs1.Current as Data.Attendance).Fighter1 as Data.Fighter;
+
+            var vf_SavePayment =
+               iScsc.VF_Save_Payments(null, figh.FILE_NO)
+               .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+
+            foreach (var pymt in vf_SavePayment)
+            {
+               var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+               long amnt = 0;
+
+               if (debt > paydebt)
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  amnt = paydebt;
+               else
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  amnt = debt;
+
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "CheckoutWithPOS"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", pymt.CASH_CODE),
+                           new XAttribute("rqstrqid", pymt.RQID),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("rcptmtod", "003"),
+                           new XAttribute("termno", termno),
+                           new XAttribute("tranno", tranno),
+                           new XAttribute("cardno", cardno),
+                           new XAttribute("flowno", flowno),
+                           new XAttribute("refno", refno),
+                           new XAttribute("actndate", actndate)
+                        )
+                     )
+                  )
+               );
+
+               paydebt -= amnt;
+               if (paydebt == 0) break;
+            }            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            Execute_Query();
          }
          job.Status = StatusType.Successful;
       }

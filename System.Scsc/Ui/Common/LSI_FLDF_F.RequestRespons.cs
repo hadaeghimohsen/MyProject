@@ -51,6 +51,9 @@ namespace System.Scsc.Ui.Common
             case 10:
                Actn_CalF_F(job);
                break;
+            case 20:
+               Pay_Oprt_F(job);
+               break;
             case 21:
                Payg_Oprt_F(job);
                break;
@@ -98,7 +101,7 @@ namespace System.Scsc.Ui.Common
          }
          else if(keyData == Keys.Enter)
          {
-            HL_INVSFILENO_ButtonClick(null, null);
+            //HL_INVSFILENO_ButtonClick(null, null);
          }
          else if (keyData == Keys.F11)
          {
@@ -475,6 +478,7 @@ namespace System.Scsc.Ui.Common
             //isFirstLoaded = true;
 
             DCetpBs.DataSource = iScsc.D_CETPs;
+            DBodyBs.DataSource = iScsc.D_BODies;
 
             //finishcommand:
 
@@ -531,7 +535,143 @@ namespace System.Scsc.Ui.Common
             Search_Butn_Click(null, null);
          }
 
+         // 1404/01/23 * Hold Keys (Ctrl + Shift + Alt)
+         if (x.Attribute("holdkeys") != null)
+         {
+            var _crntFigh = FighBs.Current as Data.Fighter;
+            if (_crntFigh != null)
+            {
+               switch (x.Attribute("holdkeys").Value)
+               {
+                  case "CSA":
+                     // Ctrl + Shift + Alt
+                     // Change Finger Print
+                     iScsc.SCV_PBLC_P(
+                        new XElement("Process",
+                           new XElement("Fighter",
+                              new XAttribute("fileno", _crntFigh.FILE_NO),
+                              new XAttribute("columnname", "FNGR_PRNT"),
+                              new XAttribute("newvalue", x.Attribute("fngrprnt").Value)
+                           )
+                        )
+                     );
 
+                     // Save Order For Expense Card
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                              new List<Job>
+                              {
+                                 new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                                 new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", _crntFigh.FILE_NO)))}
+                              })
+                     );
+                     break;
+                  case "CS":
+                     // Ctrl + Shift
+                     iScsc.SCV_PBLC_P(
+                        new XElement("Process",
+                           new XElement("Fighter",
+                              new XAttribute("fileno", _crntFigh.FILE_NO),
+                              new XAttribute("columnname", "FNGR_PRNT"),
+                              new XAttribute("newvalue", x.Attribute("fngrprnt").Value)
+                           )
+                        )
+                     );
+
+                     // Show Information
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _crntFigh.FILE_NO)) }
+                     );
+                     break;
+                  default:
+                     break;
+               }
+            }
+         }
+
+      }
+
+      /// <summary>
+      /// Code 20
+      /// </summary>
+      /// <param name="job"></param>
+      private void Pay_Oprt_F(Job job)
+      {
+         try
+         {
+            XElement RcevXData = job.Input as XElement;
+
+            var rqst = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
+            if (rqst == null) return;
+
+            var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+            //var rqtpcode = rqst.RQTP_CODE;//RcevXData.Element("PosRespons").Attribute("rqtpcode").Value;
+            var rqid = rqst.RQID;//RcevXData.Element("PosRespons").Attribute("rqid").Value;
+            var fileno = rqst.FIGH_FILE_NO;//RcevXData.Element("PosRespons").Attribute("fileno").Value;
+            var cashcode = rqst.CASH_CODE;//RcevXData.Element("PosRespons").Element("Payment").Attribute("cashcode").Value;
+            var amnt = Convert.ToInt64(RcevXData.Attribute("amnt").Value);
+            var termno = RcevXData.Attribute("termno").Value;
+            var tranno = RcevXData.Attribute("tranno").Value;
+            var cardno = RcevXData.Attribute("cardno").Value;
+            var flowno = RcevXData.Attribute("flowno").Value;
+            var refno = RcevXData.Attribute("refno").Value;
+            var actndate = RcevXData.Attribute("actndate").Value;
+
+            if (regl.AMNT_TYPE == "002")
+               amnt /= 10;
+
+            // این گزینه برای حالتی می باشد که کل مبلغ پرداخت به صورت کامل روی دستگاه پایانه فروش قرار میگیرد
+            //if (UsePos_Cb.Checked)
+            //{
+            //   iScsc.PAY_MSAV_P(
+            //      new XElement("Payment",
+            //         new XAttribute("actntype", "CheckoutWithPOS"),
+            //         new XElement("Insert",
+            //            new XElement("Payment_Method",
+            //               new XAttribute("cashcode", cashcode),
+            //               new XAttribute("rqstrqid", rqid),
+            //               new XAttribute("amnt", amnt),
+            //               new XAttribute("termno", termno),
+            //               new XAttribute("tranno", tranno),
+            //               new XAttribute("cardno", cardno),
+            //               new XAttribute("flowno", flowno),
+            //               new XAttribute("refno", refno),
+            //               new XAttribute("actndate", actndate)
+            //            )
+            //         )
+            //      )
+            //   );
+            //}
+            //// این گزینه برای پرداختی پایانه ای هست که به صورت کامل پرداخت نمی شود
+            //else
+            {
+               iScsc.PAY_MSAV_P(
+                  new XElement("Payment",
+                     new XAttribute("actntype", "InsertUpdate"),
+                     new XElement("Insert",
+                        new XElement("Payment_Method",
+                           new XAttribute("cashcode", cashcode),
+                           new XAttribute("rqstrqid", rqid),
+                           new XAttribute("rcptmtod", "003"),
+                           new XAttribute("amnt", amnt),
+                           new XAttribute("termno", termno),
+                           new XAttribute("tranno", tranno),
+                           new XAttribute("cardno", cardno),
+                           new XAttribute("flowno", flowno),
+                           new XAttribute("refno", refno),
+                           new XAttribute("actndate", actndate)
+                        )
+                     )
+                  )
+               );
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         job.Status = StatusType.Successful;
       }
 
       /// <summary>
@@ -557,7 +697,8 @@ namespace System.Scsc.Ui.Common
             if (regl.AMNT_TYPE == "002")
                paydebt /= 10;
 
-            var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
+            var figh = FighBs.Current as Data.Fighter;
+
             var vf_SavePayment =
                iScsc.VF_Save_Payments(null, figh.FILE_NO)
                .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);

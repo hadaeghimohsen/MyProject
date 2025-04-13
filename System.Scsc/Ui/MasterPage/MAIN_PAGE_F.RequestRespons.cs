@@ -619,8 +619,13 @@ namespace System.Scsc.Ui.MasterPage
          //catch { }
 
          //FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
-         DaeatBs.DataSource = iScsc.D_AEATs;
+         DAeatBs.DataSource = iScsc.D_AEATs;
          DevntBs.DataSource = iScsc.D_EVNTs;
+         DAtsmBs1.DataSource = iScsc.D_ATSMs;
+         DActvBs1.DataSource = iScsc.D_ACTVs;
+         DbcdtBs1.DataSource = iScsc.D_BCDTs;
+         VCompBs.DataSource = iScsc.V_Computers;
+         DysnoBs.DataSource = iScsc.D_YSNOs;
          ANoteBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Note_Tag_Info");
 
          Execute_Query();

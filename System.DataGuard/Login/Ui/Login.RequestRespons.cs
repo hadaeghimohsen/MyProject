@@ -97,6 +97,10 @@ namespace System.DataGuard.Login.Ui
          {
             LastUserLogin_RondButn_Click(null, null);
          }
+         else if(keyData == Keys.F2)
+         {
+            te_username.Focus();
+         }
          job.Status = StatusType.Successful;
       }
       

@@ -462,7 +462,7 @@ namespace System.Scsc.Ui.OtherIncome
          //RQTT_CODE_LookUpEdit.EditValue = "001";
          DYsnoBs1.DataSource = iScsc.D_YSNOs;
          DDytpBs.DataSource = iScsc.D_DYTPs;
-         CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002");
+         CbmtBs1.DataSource = iScsc.Club_Methods.Where(c => c.MTOD_STAT == "002" && c.Method.MTOD_STAT == "002" && c.Fighter.ACTV_TAG_DNRM == "101");
          CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && c.ACTV_TAG_DNRM == "101" && c.CONF_STAT == "002");
          SuntBs1.DataSource = iScsc.Sub_Units;
          DPydsBs1.DataSource = iScsc.D_PYDS.Where(d => d.VALU == "002" || d.VALU == "005" || d.VALU == "006");

@@ -303,6 +303,10 @@ namespace System.Scsc.Ui.Advertising
                        new XAttribute("ismen", Men_Cbx.Checked),
                        new XAttribute("iswomen", Women_Cbx.Checked)
                    ),
+                   new XElement("RecordType",
+                       new XAttribute("isservice", Service_Cbx.Checked),
+                       new XAttribute("isguest", Guest_Cbx.Checked)
+                   ),
                    new XElement("BirthDate",
                        new XAttribute("isfrombd", FromBd_Cbx.Checked),
                        new XAttribute("frombd", FromBd_Dt.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : FromBd_Dt.Value.Value.ToString("yyyy-MM-dd")),
@@ -345,6 +349,14 @@ namespace System.Scsc.Ui.Advertising
                        new XAttribute("sumpymt", SumPymt_Txt.EditValue ?? 0),
                        new XAttribute("isfrompymt", FromPymt_Cbx.Checked),
                        new XAttribute("frompymt", FromPymt_Dt.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : FromPymt_Dt.Value.Value.ToString("yyyy-MM-dd"))
+                   ),
+                   new XElement("OperationRun",
+                       new XAttribute("isoprtrun", OprtRun_Cbx.Checked),
+                       new XAttribute("issendmsgdate", SendMsgDate_Cbx.Checked),
+                       new XAttribute("sendmsgdate", SendMsgDate_Dt.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : SendMsgDate_Dt.Value.Value.ToString("yyyy-MM-dd")),
+                       new XAttribute("issendtestphon", SendTestPhon_Cbx.Checked),
+                       new XAttribute("sendtestphon", SendTestPhon_Txt.EditValue),
+                       new XAttribute("issendsmsbulk", SendSmsBulk_Cbx.Checked)
                    ),
                    _ctgys,
                    _cochs,

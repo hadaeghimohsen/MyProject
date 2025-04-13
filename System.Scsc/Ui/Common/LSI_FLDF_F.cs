@@ -642,14 +642,113 @@ namespace System.Scsc.Ui.Common
             //var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
             //if (figh == null) return;
 
-            var mbsp = MbspBs.Current as Data.Member_Ship;
-            if (mbsp == null) return;
+            var _mbsp = MbspBs.Current as Data.Member_Ship;
+            if (_mbsp == null) return;
 
-            var figh = mbsp.Fighter;
+            var _figh = _mbsp.Fighter;
+            bool _chckAces = true;
 
             switch (e.Button.Index)
             {
                case 0:
+                  // Decrement Session                  
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Desktop",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>290</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       _chckAces = false;
+                                       MessageBox.Show(this, "عدم دسترسی به ردیف 290 امنیتی", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
+                                    })
+                                 }
+                                 #endregion                        
+                              })                     
+                           })
+                  );
+
+                  if (_chckAces)
+                  {
+                     if (_mbsp.NUMB_OF_ATTN_MONT >= 1 && _mbsp.SUM_ATTN_MONT_DNRM < _mbsp.NUMB_OF_ATTN_MONT)
+                     {
+                        _mbsp.SUM_ATTN_MONT_DNRM++;
+                        iScsc.SubmitChanges();
+                        //iScsc.ExecuteCommand(
+                        //   string.Format("UPADTE dbo.Member_Ship SET SUM_ATTN_MONT_DNRM += 1 WHERE FIGH_FILE_NO = {0} AND RECT_CODE = '004' AND RWNO = {1}", _mbsp.FIGH_FILE_NO, _mbsp.RWNO)
+                        //);
+                        iScsc.INS_LGOP_P(
+                           new XElement("Log",
+                               new XAttribute("fileno", _mbsp.FIGH_FILE_NO),
+                               new XAttribute("type", "011"),
+                               new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _figh.NAME_DNRM + " یک جلسه به صورت دستی کم کرد")
+                           )
+                        );
+                        requery = true;
+                     }
+                  }
+                  break;
+               case 1:
+                  // increment Session
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Desktop",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "Commons",
+                              new List<Job>
+                              {
+                                 #region Access Privilege
+                                 new Job(SendType.Self, 07 /* Execute DoWork4AccessPrivilege */)
+                                 {
+                                    Input = new List<string> 
+                                    {
+                                       "<Privilege>289</Privilege><Sub_Sys>5</Sub_Sys>", 
+                                       "DataGuard"
+                                    },
+                                    AfterChangedOutput = new Action<object>((output) => {
+                                       if ((bool)output)
+                                          return;
+                                       _chckAces = false;
+                                       MessageBox.Show(this, "عدم دسترسی به ردیف 289 امنیتی", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
+                                    })
+                                 }
+                                 #endregion                        
+                              })                     
+                           })
+                  );
+
+                  if (_chckAces)
+                  {
+                     if (_mbsp.NUMB_OF_ATTN_MONT >= 1 && _mbsp.SUM_ATTN_MONT_DNRM <= _mbsp.NUMB_OF_ATTN_MONT && _mbsp.SUM_ATTN_MONT_DNRM > 0)
+                     {
+                        _mbsp.SUM_ATTN_MONT_DNRM--;
+                        iScsc.SubmitChanges();
+                        //iScsc.ExecuteCommand(
+                        //   string.Format("UPADTE dbo.Member_Ship SET SUM_ATTN_MONT_DNRM -= 1 WHERE FIGH_FILE_NO = {0} AND RECT_CODE = '004' AND RWNO = {1}", _mbsp.FIGH_FILE_NO, _mbsp.RWNO)
+                        //);
+                        iScsc.INS_LGOP_P(
+                           new XElement("Log",
+                               new XAttribute("fileno", _mbsp.FIGH_FILE_NO),
+                               new XAttribute("type", "012"),
+                               new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _figh.NAME_DNRM + " یک جلسه به صورت دستی برگشت داد")
+                           )
+                        );
+                        requery = true;
+                     }
+                  }
+                  break;
+               case 2:
                   try
                   {
 
@@ -658,12 +757,12 @@ namespace System.Scsc.Ui.Common
                            new List<Job>
                            {
                               new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
-                              new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("mbsprwno", mbsp.RWNO))}
+                              new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", _figh.FNGR_PRNT_DNRM), new XAttribute("mbsprwno", _mbsp.RWNO))}
                            });
                      _DefaultGateway.Gateway(_InteractWithScsc);
 
                      iScsc = new Data.iScscDataContext(ConnectionString);
-                     MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == mbsp.FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+                     MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == _mbsp.FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
                      Mbsp_gv.TopRowIndex = 0;
                   }
                   catch (Exception exc)
@@ -671,12 +770,12 @@ namespace System.Scsc.Ui.Common
                      MessageBox.Show(exc.Message);
                   }
                   break;
-               case 1:
+               case 3:
                   try
                   {
-                     if (figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004") return;
+                     if (_figh.FGPB_TYPE_DNRM == "002" || _figh.FGPB_TYPE_DNRM == "003" || _figh.FGPB_TYPE_DNRM == "004") return;
 
-                     var fp = mbsp.Fighter_Public;
+                     var fp = _mbsp.Fighter_Public;
                      iScsc.ExecuteCommand(string.Format("UPDATE Fighter SET Mtod_Code_Dnrm = {0}, Ctgy_Code_Dnrm = {1}, Cbmt_Code_Dnrm = {2} WHERE File_No = {3};", fp.MTOD_CODE, fp.CTGY_CODE, fp.CBMT_CODE, fp.FIGH_FILE_NO));
 
                      _DefaultGateway.Gateway(
@@ -684,7 +783,7 @@ namespace System.Scsc.Ui.Common
                            new List<Job>
                            {
                               new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
-                              new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("formcaller", GetType().Name))}
+                              new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", _figh.FNGR_PRNT_DNRM), new XAttribute("formcaller", GetType().Name))}
                            })
                      );
                   }
@@ -1405,7 +1504,7 @@ namespace System.Scsc.Ui.Common
                                        new XAttribute("rqid", 0),
                                        new XAttribute("rqtpcode", ""),
                                        new XAttribute("router", GetType().Name),
-                                       new XAttribute("callback", 21),
+                                       new XAttribute("callback", 21 /* Call Payg_Oprt_F */),
                                        new XAttribute("amnt", paydebt )
                                     )
                               }
@@ -1810,7 +1909,7 @@ namespace System.Scsc.Ui.Common
          try
          {            
             if (ExportFile_Sfd.ShowDialog() != DialogResult.OK) return;
-            SelectExportContactFile_Butn.Tag = ExportFile_Sfd.FileName;
+            ExportLabel_Txt.EditValue = SelectExportContactFile_Butn.Tag = ExportFile_Sfd.FileName;
          }
          catch (Exception exc)
          {
@@ -2329,32 +2428,32 @@ namespace System.Scsc.Ui.Common
                                                    FaceImgProc_Lb.BackColor = _face != null ? Color.Lime : Color.FromArgb(224, 224, 224);
 
                                                    if(_imgFngr != null || _imgFace != null)
-                                                   { 
-                                                      //iScsc.ExecuteCommand(                                                         
-                                                      //   (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";" ) +                                                         
-                                                      //   (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";" )
-                                                      //);
+                                                   {
+                                                      iScsc.ExecuteCommand(
+                                                         (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";") +
+                                                         (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";")
+                                                      );
 
-                                                      if (_fngr != null)
-                                                         iScsc.SET_IMAG_P(
-                                                            new XElement("Image",
-                                                                new XAttribute("desttype", "p"),
-                                                                new XAttribute("actntype", "003"),
-                                                                new XAttribute("fileid", _fngr),
-                                                                new XAttribute("rcdcrcid", _imgFngr.RCDC_RCID),
-                                                                new XAttribute("rwno", _imgFngr.RWNO)
-                                                            )
-                                                         );
-                                                      if (_face != null)
-                                                         iScsc.SET_IMAG_P(
-                                                            new XElement("Image",
-                                                                new XAttribute("desttype", "p"),
-                                                                new XAttribute("actntype", "003"),
-                                                                new XAttribute("fileid", _face),
-                                                                new XAttribute("rcdcrcid", _imgFace.RCDC_RCID),
-                                                                new XAttribute("rwno", _imgFace.RWNO)
-                                                            )
-                                                         );
+                                                      //if (_fngr != null)
+                                                      //   iScsc.SET_IMAG_P(
+                                                      //      new XElement("Image",
+                                                      //          new XAttribute("desttype", "p"),
+                                                      //          new XAttribute("actntype", "003"),
+                                                      //          new XAttribute("fileid", _fngr),
+                                                      //          new XAttribute("rcdcrcid", _imgFngr.RCDC_RCID),
+                                                      //          new XAttribute("rwno", _imgFngr.RWNO)
+                                                      //      )
+                                                      //   );
+                                                      //if (_face != null)
+                                                      //   iScsc.SET_IMAG_P(
+                                                      //      new XElement("Image",
+                                                      //          new XAttribute("desttype", "p"),
+                                                      //          new XAttribute("actntype", "003"),
+                                                      //          new XAttribute("fileid", _face),
+                                                      //          new XAttribute("rcdcrcid", _imgFace.RCDC_RCID),
+                                                      //          new XAttribute("rwno", _imgFace.RWNO)
+                                                      //      )
+                                                      //   );
 
                                                       RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
                                                       RsltOprDev_Txt.BackColor = Color.LimeGreen;
@@ -2387,31 +2486,31 @@ namespace System.Scsc.Ui.Common
 
                                                 if (_imgFngr != null || _imgFace != null)
                                                 {
-                                                   //iScsc.ExecuteCommand(
-                                                   //   (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";") +
-                                                   //   (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";")
-                                                   //);
+                                                   iScsc.ExecuteCommand(
+                                                      (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";") +
+                                                      (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";")
+                                                   );
 
-                                                   if (_fngr != null)
-                                                      iScsc.SET_IMAG_P(
-                                                         new XElement("Image",
-                                                             new XAttribute("desttype", "p"),
-                                                             new XAttribute("actntype", "003"),
-                                                             new XAttribute("fileid", _fngr),
-                                                             new XAttribute("rcdcrcid", _imgFngr.RCDC_RCID),
-                                                             new XAttribute("rwno", _imgFngr.RWNO)
-                                                         )
-                                                      );
-                                                   if (_face != null)
-                                                      iScsc.SET_IMAG_P(
-                                                         new XElement("Image",
-                                                             new XAttribute("desttype", "p"),
-                                                             new XAttribute("actntype", "003"),
-                                                             new XAttribute("fileid", _face),
-                                                             new XAttribute("rcdcrcid", _imgFace.RCDC_RCID),
-                                                             new XAttribute("rwno", _imgFace.RWNO)
-                                                         )
-                                                      );
+                                                   //if (_fngr != null)
+                                                   //   iScsc.SET_IMAG_P(
+                                                   //      new XElement("Image",
+                                                   //          new XAttribute("desttype", "p"),
+                                                   //          new XAttribute("actntype", "003"),
+                                                   //          new XAttribute("fileid", _fngr),
+                                                   //          new XAttribute("rcdcrcid", _imgFngr.RCDC_RCID),
+                                                   //          new XAttribute("rwno", _imgFngr.RWNO)
+                                                   //      )
+                                                   //   );
+                                                   //if (_face != null)
+                                                   //   iScsc.SET_IMAG_P(
+                                                   //      new XElement("Image",
+                                                   //          new XAttribute("desttype", "p"),
+                                                   //          new XAttribute("actntype", "003"),
+                                                   //          new XAttribute("fileid", _face),
+                                                   //          new XAttribute("rcdcrcid", _imgFace.RCDC_RCID),
+                                                   //          new XAttribute("rwno", _imgFace.RWNO)
+                                                   //      )
+                                                   //   );
 
                                                    RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
                                                    RsltOprDev_Txt.BackColor = Color.LimeGreen;
@@ -2732,6 +2831,183 @@ namespace System.Scsc.Ui.Common
             }
          }
          catch { }
+      }
+
+      private void ExcpDebtActv_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Data.Fighter figh = null;
+            figh = FighBs.Current as Data.Fighter;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+                  @"MERGE dbo.Exception_Operation T
+                    USING (SELECT {0} AS FILE_NO, '002' AS EXCP_TYPE) S
+                    ON (T.FIGH_FILE_NO = S.FILE_NO AND 
+                        T.EXCP_TYPE = S.EXCP_TYPE)
+                    WHEN NOT MATCHED THEN
+                       INSERT (FIGH_FILE_NO, EXCP_TYPE, STAT, CODE)
+                       VALUES (S.FILE_NO, S.EXCP_TYPE, '002', 0)
+                    WHEN MATCHED THEN
+                       UPDATE SET T.STAT = '002';", figh.FILE_NO
+               )
+            );
+            MessageBox.Show("عملیات استثناء برای بدهی مشتری با موفقیت فعال شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ExcpDebtDact_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Data.Fighter figh = null;
+            figh = FighBs.Current as Data.Fighter;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+                  @"MERGE dbo.Exception_Operation T
+                    USING (SELECT {0} AS FILE_NO, '002' AS EXCP_TYPE) S
+                    ON (T.FIGH_FILE_NO = S.FILE_NO AND 
+                        T.EXCP_TYPE = S.EXCP_TYPE)
+                    WHEN NOT MATCHED THEN
+                       INSERT (FIGH_FILE_NO, EXCP_TYPE, STAT, CODE)
+                       VALUES (S.FILE_NO, S.EXCP_TYPE, '001', 0)
+                    WHEN MATCHED THEN
+                       UPDATE SET T.STAT = '001';", figh.FILE_NO
+               )
+            );
+            MessageBox.Show("عملیات استثناء برای بدهی مشتری با موفقیت غیرفعال شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ExcpLockActv_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Data.Fighter figh = null;
+            figh = FighBs.Current as Data.Fighter;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+                  @"MERGE dbo.Exception_Operation T
+                    USING (SELECT {0} AS FILE_NO, '003' AS EXCP_TYPE) S
+                    ON (T.FIGH_FILE_NO = S.FILE_NO AND 
+                        T.EXCP_TYPE = S.EXCP_TYPE)
+                    WHEN NOT MATCHED THEN
+                       INSERT (FIGH_FILE_NO, EXCP_TYPE, STAT, CODE)
+                       VALUES (S.FILE_NO, S.EXCP_TYPE, '002', 0)
+                    WHEN MATCHED THEN
+                       UPDATE SET T.STAT = '002';", figh.FILE_NO
+               )
+            );
+            MessageBox.Show("عملیات استثناء برای عدم دریافت کمد انلاین با موفقیت فعال شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ExcpLockDact_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Data.Fighter figh = null;
+            figh = FighBs.Current as Data.Fighter;
+
+            iScsc.ExecuteCommand(
+               string.Format(
+                  @"MERGE dbo.Exception_Operation T
+                    USING (SELECT {0} AS FILE_NO, '003' AS EXCP_TYPE) S
+                    ON (T.FIGH_FILE_NO = S.FILE_NO AND 
+                        T.EXCP_TYPE = S.EXCP_TYPE)
+                    WHEN NOT MATCHED THEN
+                       INSERT (FIGH_FILE_NO, EXCP_TYPE, STAT, CODE)
+                       VALUES (S.FILE_NO, S.EXCP_TYPE, '001', 0)
+                    WHEN MATCHED THEN
+                       UPDATE SET T.STAT = '001';", figh.FILE_NO
+               )
+            );
+            MessageBox.Show("عملیات استثناء برای عدم دریافت کمد انلاین با موفقیت غیرفعال شد");
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddFgbm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _figh = FighBs.Current as Data.Fighter;
+            if (_figh == null) return;
+
+            if (FgbmBs.List.OfType<Data.Fighter_Body_Measurement>().Any(i => i.CODE == 0)) return;
+
+            iScsc.CRET_FGBM_P(_figh.FILE_NO);
+            requery = true;
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Search_Butn_Click(null, null);
+         }
+      }
+
+      private void DelFgbm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SaveFgbm_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Fgbm_Gv.PostEditor();
+
+            FgbmBs.List.OfType<Data.Fighter_Body_Measurement>()
+               .ToList()
+               .ForEach(b => 
+                  iScsc.ExecuteCommand(
+                     string.Format("UPDATE dbo.Fighter_Body_Measurement SET MESR_VALU = {0}, CMNT = N'{1}' WHERE CODE = {2};", b.MESR_VALU, (b.CMNT ?? ""), b.CODE)
+                  ));
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Search_Butn_Click(null, null);
+               ServProf_Tc.SelectedTab = tp_007;
+            }
+         }
       }
    }
 }

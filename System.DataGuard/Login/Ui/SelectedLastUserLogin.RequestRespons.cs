@@ -77,6 +77,7 @@ namespace System.DataGuard.Login.Ui
          }
          else if (keyData == Keys.F2)
          {
+            Password_Be.Focus();
             job.Next =
                new Job(SendType.SelfToUserInterface, "Login", 02 /* Execute Set */);
          }
@@ -183,6 +184,7 @@ namespace System.DataGuard.Login.Ui
                   () =>
                   {
                      Password_Be.Text = "";
+                     Password_Be.Focus();
                      User_RondButn.ImageProfile = GetUserImage(SelectedUser);
                      User_Txt.Text = SelectedUser.USERDB;
                      User_RondButn.Tag = SelectedUser;

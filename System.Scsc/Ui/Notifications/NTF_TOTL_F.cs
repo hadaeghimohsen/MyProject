@@ -14,6 +14,7 @@ using System.IO;
 using DevExpress.XtraBars.Docking2010.Views.WindowsUI;
 using System.MaxUi;
 using System.Threading;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.Notifications
 {
@@ -552,7 +553,7 @@ namespace System.Scsc.Ui.Notifications
                          new XAttribute("text", "اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده")
                      )
                   );
-                  throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
+                  throw new Exception("0001: " + "اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
                }
                iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                fileno = Lov_FileName2.EditValue;
@@ -595,7 +596,9 @@ namespace System.Scsc.Ui.Notifications
                //Lov_FileName2.Tag = FighBs2.List.OfType<Data.Fighter>().First(f => f.FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue)).FNGR_PRNT_DNRM;
             }
 
-            if(Lov_FileName2.Tag != null && result == DialogResult.Yes)
+            string _getCode = ex.Message.Split(':')[0];
+
+            if(Lov_FileName2.Tag != null && result == DialogResult.Yes && _getCode.In("0001", "0002", "0004", "0006", "0008", "0009"))
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost",
                      new List<Job>

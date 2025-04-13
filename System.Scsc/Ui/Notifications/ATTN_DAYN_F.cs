@@ -181,6 +181,28 @@ namespace System.Scsc.Ui.Notifications
                      requery = true;
                   }
                   break;
+               case 4:
+                  if (_attn.ATTN_STAT == "002")
+                  {
+                     bool _ctrlHold = ModifierKeys.HasFlag(Keys.Control);
+                     if (MessageBox.Show(this, "با ابطال رکورد مشتری مشتری موافق هستید؟", "ابطال رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                     iScsc.UPD_ATTN_P(
+                        new XElement("Process",
+                           new XElement("Attendance",
+                              new XAttribute("code", _attn.CODE),
+                              new XAttribute("type", "001") // ابطال رکورد مشتری
+                           )
+                        )
+                     );
+
+                     if (_ctrlHold)
+                     {
+                        iScsc.ExecuteCommand("DELETE dbo.Dresser_Attendance WHERE Attn_Code = {0}; DELETE dbo.Attendance WHERE Code = {0};", _attn.CODE);
+                     }
+
+                     requery = true;
+                  }
+                  break;
                default:
                   break;
             }

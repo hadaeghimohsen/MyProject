@@ -397,6 +397,17 @@ namespace System.Scsc.Ui.AggregateOperation
 
             if (crnt == null) return;
 
+            // check admin wallet
+            var _admnwlet = iScsc.V_Admin_Wallets.FirstOrDefault(w => w.WLET_TYPE == "001");
+            if(_admnwlet != null)
+            {
+               if(_admnwlet.AMNT_DNRM <= 10000)
+               {
+                  MessageBox.Show(this, "شارژ کیف پول شما تمام شده، لطفا جهت شارژ کیف پول اقدام کنید", "شارژ کیف پول", MessageBoxButtons.OK);
+                  return;
+               }
+            }
+
             iScsc.INS_AGOP_P(
                new XElement("Process",
                   new XElement("Aggregation_Operation",
@@ -1290,6 +1301,17 @@ namespace System.Scsc.Ui.AggregateOperation
                return;
             }
 
+            // check admin wallet
+            var _admnwlet = iScsc.V_Admin_Wallets.FirstOrDefault(w => w.WLET_TYPE == "001");
+            if (_admnwlet != null)
+            {
+               if (_admnwlet.AMNT_DNRM <= 10000)
+               {
+                  MessageBox.Show(this, "شارژ کیف پول شما تمام شده، لطفا جهت شارژ کیف پول اقدام کنید", "شارژ کیف پول", MessageBoxButtons.OK);
+                  return;
+               }
+            }
+
             if (OpenOnSelfDate_Cbx.Checked && agop.FROM_DATE.Value.Date != DateTime.Now.Date && MessageBox.Show(this, "ایا میز مورد نظر در تاریخ دیگری می خواهید باز کنید", "باز شدن میز در تاریخ غیر از امروز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             if (ExpnDesks_Lov.EditValue == null || ExpnDesks_Lov.EditValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
@@ -1826,6 +1848,17 @@ namespace System.Scsc.Ui.AggregateOperation
 
       private void ExpnDesk_GridLookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
       {
+         // check admin wallet
+         var _admnwlet = iScsc.V_Admin_Wallets.FirstOrDefault(w => w.WLET_TYPE == "001");
+         if (_admnwlet != null)
+         {
+            if (_admnwlet.AMNT_DNRM <= 10000)
+            {
+               MessageBox.Show(this, "شارژ کیف پول شما تمام شده، لطفا جهت شارژ کیف پول اقدام کنید", "شارژ کیف پول", MessageBoxButtons.OK);
+               return;
+            }
+         }
+
          if(e.NewValue != null && ExpnDesks_Lov.Properties.Buttons[1].Tag.ToString() == "auto")
          {
             //OpenDesk_Butn_Click(null, null);

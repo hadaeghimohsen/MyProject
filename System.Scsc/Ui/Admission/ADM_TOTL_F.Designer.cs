@@ -93,17 +93,18 @@
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition3 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition4 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition5 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject29 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject30 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition6 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition7 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition8 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition9 = new DevExpress.XtraGrid.StyleFormatCondition();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition10 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject31 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition11 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition12 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition13 = new DevExpress.XtraGrid.StyleFormatCondition();
+         DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition14 = new DevExpress.XtraGrid.StyleFormatCondition();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject32 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject33 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject34 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -545,6 +546,7 @@
          this.GustSaveRqst_Cbx = new System.Windows.Forms.CheckBox();
          this.SaveAttn_PkBt = new System.MaxUi.NewPickBtn();
          this.grouper2 = new System.MaxUi.Grouper();
+         this.DresType_Lb = new System.Windows.Forms.Label();
          this.GotoProfile_Cbx = new System.Windows.Forms.CheckBox();
          this.tp_002 = new System.Windows.Forms.TabPage();
          this.grouper3 = new System.MaxUi.Grouper();
@@ -736,6 +738,7 @@
          this.CretMbss_Butn = new System.Windows.Forms.ToolStripButton();
          this.DelMbss_Butn = new System.Windows.Forms.ToolStripButton();
          this.SaveMbss_Butn = new System.Windows.Forms.ToolStripButton();
+         this.ADVipBs = new System.Windows.Forms.BindingSource(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit1.CalendarTimeProperties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit10)).BeginInit();
@@ -945,6 +948,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.DWkdyBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MbssBn)).BeginInit();
          this.MbssBn.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.ADVipBs)).BeginInit();
          this.SuspendLayout();
          // 
          // colEXPR_DATE
@@ -5250,11 +5254,20 @@
          styleFormatCondition5.Column = this.colTYPE;
          styleFormatCondition5.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition5.Value1 = "005";
+         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.Navy;
+         styleFormatCondition6.Appearance.ForeColor = System.Drawing.Color.White;
+         styleFormatCondition6.Appearance.Options.UseBackColor = true;
+         styleFormatCondition6.Appearance.Options.UseForeColor = true;
+         styleFormatCondition6.ApplyToRow = true;
+         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Expression;
+         styleFormatCondition6.Expression = "(Today() >= [STRT_DATE] And Today()  <= [END_DATE] And [VALD_TYPE] == \'002\') And " +
+    "([NUMB_OF_ATTN_MONT]  == 0  Or ([NUMB_OF_ATTN_MONT] > 0 And [colATTNRMND] > 0))";
          this.Mbsp_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
             styleFormatCondition2,
             styleFormatCondition3,
             styleFormatCondition4,
-            styleFormatCondition5});
+            styleFormatCondition5,
+            styleFormatCondition6});
          this.Mbsp_Gv.GridControl = this.Mbsp_gc;
          this.Mbsp_Gv.Name = "Mbsp_Gv";
          this.Mbsp_Gv.OptionsDetail.EnableMasterViewMode = false;
@@ -6019,6 +6032,7 @@
          this.grouper2.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper2.BorderColor = System.Drawing.Color.Gray;
          this.grouper2.BorderThickness = 1F;
+         this.grouper2.Controls.Add(this.DresType_Lb);
          this.grouper2.Controls.Add(this.GotoProfile_Cbx);
          this.grouper2.Controls.Add(this.UserProFile_Rb);
          this.grouper2.Controls.Add(this.RqttCode_Lov);
@@ -6044,6 +6058,20 @@
          this.grouper2.ShowBorderTitle = false;
          this.grouper2.Size = new System.Drawing.Size(582, 92);
          this.grouper2.TabIndex = 2;
+         // 
+         // DresType_Lb
+         // 
+         this.DresType_Lb.Anchor = System.Windows.Forms.AnchorStyles.Top;
+         this.DresType_Lb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.DresType_Lb.Image = global::System.Scsc.Properties.Resources.IMAGE_1713;
+         this.DresType_Lb.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.DresType_Lb.Location = new System.Drawing.Point(121, 30);
+         this.DresType_Lb.Name = "DresType_Lb";
+         this.DresType_Lb.Size = new System.Drawing.Size(107, 25);
+         this.DresType_Lb.TabIndex = 107;
+         this.DresType_Lb.Text = "100";
+         this.DresType_Lb.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+         this.DresType_Lb.Visible = false;
          // 
          // GotoProfile_Cbx
          // 
@@ -6175,21 +6203,21 @@
             this.gridColumn25,
             this.gridColumn26,
             this.colVIST_STAT});
-         styleFormatCondition6.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-         styleFormatCondition6.Appearance.Options.UseBackColor = true;
-         styleFormatCondition6.ApplyToRow = true;
-         styleFormatCondition6.Column = this.colVIST_STAT;
-         styleFormatCondition6.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition6.Value1 = "001";
-         styleFormatCondition7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition7.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
          styleFormatCondition7.Appearance.Options.UseBackColor = true;
          styleFormatCondition7.ApplyToRow = true;
          styleFormatCondition7.Column = this.colVIST_STAT;
          styleFormatCondition7.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition7.Value1 = "002";
+         styleFormatCondition7.Value1 = "001";
+         styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         styleFormatCondition8.Appearance.Options.UseBackColor = true;
+         styleFormatCondition8.ApplyToRow = true;
+         styleFormatCondition8.Column = this.colVIST_STAT;
+         styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition8.Value1 = "002";
          this.Note_Gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition6,
-            styleFormatCondition7});
+            styleFormatCondition7,
+            styleFormatCondition8});
          this.Note_Gv.GridControl = this.gridControl6;
          this.Note_Gv.Name = "Note_Gv";
          this.Note_Gv.OptionsBehavior.Editable = false;
@@ -6354,21 +6382,21 @@
             this.colGROP_CODE,
             this.colGROP_DESC,
             this.colGROP_STAT});
-         styleFormatCondition8.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition8.Appearance.Options.UseBackColor = true;
-         styleFormatCondition8.ApplyToRow = true;
-         styleFormatCondition8.Column = this.colGROP_STAT;
-         styleFormatCondition8.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition8.Value1 = "002";
-         styleFormatCondition9.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         styleFormatCondition9.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          styleFormatCondition9.Appearance.Options.UseBackColor = true;
          styleFormatCondition9.ApplyToRow = true;
          styleFormatCondition9.Column = this.colGROP_STAT;
          styleFormatCondition9.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition9.Value1 = "001";
+         styleFormatCondition9.Value1 = "002";
+         styleFormatCondition10.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+         styleFormatCondition10.Appearance.Options.UseBackColor = true;
+         styleFormatCondition10.ApplyToRow = true;
+         styleFormatCondition10.Column = this.colGROP_STAT;
+         styleFormatCondition10.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition10.Value1 = "001";
          this.FGrpGv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition8,
-            styleFormatCondition9});
+            styleFormatCondition9,
+            styleFormatCondition10});
          this.FGrpGv.GridControl = this.gridControl11;
          this.FGrpGv.Name = "FGrpGv";
          this.FGrpGv.OptionsDetail.EnableMasterViewMode = false;
@@ -6498,33 +6526,33 @@
             this.MbspRwno_Clm,
             this.AttnStat_Clm,
             this.RtngNumb_Clm});
-         styleFormatCondition10.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         styleFormatCondition10.Appearance.Options.UseBackColor = true;
-         styleFormatCondition10.Column = this.ExitTime_Clm;
-         styleFormatCondition10.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         styleFormatCondition11.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
          styleFormatCondition11.Appearance.Options.UseBackColor = true;
          styleFormatCondition11.Column = this.ExitTime_Clm;
-         styleFormatCondition11.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
-         styleFormatCondition12.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+         styleFormatCondition11.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition12.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          styleFormatCondition12.Appearance.Options.UseBackColor = true;
-         styleFormatCondition12.ApplyToRow = true;
-         styleFormatCondition12.Column = this.AttnType_Clm;
-         styleFormatCondition12.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition12.Value1 = "002";
-         styleFormatCondition13.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-         styleFormatCondition13.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         styleFormatCondition12.Column = this.ExitTime_Clm;
+         styleFormatCondition12.Condition = DevExpress.XtraGrid.FormatConditionEnum.NotEqual;
+         styleFormatCondition13.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
          styleFormatCondition13.Appearance.Options.UseBackColor = true;
-         styleFormatCondition13.Appearance.Options.UseFont = true;
          styleFormatCondition13.ApplyToRow = true;
-         styleFormatCondition13.Column = this.AttnStat_Clm;
+         styleFormatCondition13.Column = this.AttnType_Clm;
          styleFormatCondition13.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
-         styleFormatCondition13.Value1 = "001";
+         styleFormatCondition13.Value1 = "002";
+         styleFormatCondition14.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         styleFormatCondition14.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Strikeout, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         styleFormatCondition14.Appearance.Options.UseBackColor = true;
+         styleFormatCondition14.Appearance.Options.UseFont = true;
+         styleFormatCondition14.ApplyToRow = true;
+         styleFormatCondition14.Column = this.AttnStat_Clm;
+         styleFormatCondition14.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
+         styleFormatCondition14.Value1 = "001";
          this.Attn_gv.FormatConditions.AddRange(new DevExpress.XtraGrid.StyleFormatCondition[] {
-            styleFormatCondition10,
             styleFormatCondition11,
             styleFormatCondition12,
-            styleFormatCondition13});
+            styleFormatCondition13,
+            styleFormatCondition14});
          this.Attn_gv.GridControl = this.AttnGridControl;
          this.Attn_gv.GroupSummary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
             new DevExpress.XtraGrid.GridGroupSummaryItem(DevExpress.Data.SummaryItemType.Count, "FIGH_FILE_NO", null, "")});
@@ -8361,6 +8389,10 @@
          this.SaveMbss_Butn.Text = "ذخیره کردن";
          this.SaveMbss_Butn.Click += new System.EventHandler(this.SaveMbss_Butn_Click);
          // 
+         // ADVipBs
+         // 
+         this.ADVipBs.DataSource = typeof(System.Scsc.Data.Dresser_Vip_Fighter);
+         // 
          // ADM_TOTL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8597,6 +8629,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.MbssBn)).EndInit();
          this.MbssBn.ResumeLayout(false);
          this.MbssBn.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.ADVipBs)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -9222,5 +9255,7 @@
       private Windows.Forms.ToolStripButton DelMbss_Butn;
       private Windows.Forms.ToolStripButton SaveMbss_Butn;
       private Windows.Forms.Button ShowInfoMbss_Butn;
+      private Windows.Forms.Label DresType_Lb;
+      private Windows.Forms.BindingSource ADVipBs;
    }
 }

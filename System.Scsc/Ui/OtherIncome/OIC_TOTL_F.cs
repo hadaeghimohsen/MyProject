@@ -1637,7 +1637,7 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
                               new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0),
                               new XAttribute("mbsprwno", pd.MBSP_RWNO ?? 0),
-                              new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
+                              new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd HH:mm:ss")),
                               new XAttribute("totlwegh", pd.TOTL_WEGH ?? 0),
                               new XAttribute("unitnumb", pd.UNIT_NUMB ?? 0),
                               new XAttribute("unitapbscode", pd.UNIT_APBS_CODE ?? 0),
@@ -1684,7 +1684,7 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
                               new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0),
                               new XAttribute("mbsprwno", pd.MBSP_RWNO ?? 0),
-                              new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
+                              new XAttribute("exprdate", pd.EXPR_DATE == null ? "" : pd.EXPR_DATE.Value.ToString("yyyy-MM-dd HH:mm:ss")),
                               new XAttribute("fromnumb", pd.FROM_NUMB ?? 0),
                               new XAttribute("tonumb", pd.TO_NUMB ?? 0),
                               new XAttribute("extscode", pd.EXTS_CODE ?? 0),
@@ -2062,7 +2062,8 @@ namespace System.Scsc.Ui.OtherIncome
                                  new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
                                  new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
                                  new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
-                                 new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? "")
+                                 new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? ""),
+                                 new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
                               )
                            )
                         )
@@ -2085,7 +2086,8 @@ namespace System.Scsc.Ui.OtherIncome
                               new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
                               new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
                               new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
-                              new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? "")
+                              new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? ""),
+                              new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
                            )
                         )
                      )
@@ -5673,6 +5675,41 @@ namespace System.Scsc.Ui.OtherIncome
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _OldRqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO)) }
             );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ExprData_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (SelectExportContactFile_Butn.Tag == null)
+            {
+               SelectExportContactFile_Butn_Click(null, null);
+               if (ExportFile_Sfd.FileName == null) return;
+            }
+
+            File.AppendAllText(ExportLabel_Txt.Text,
+               string.Join(Environment.NewLine, OldRqstBs1.List.OfType<Data.Request>().Where(r => r.Request_Rows.Any(rr => rr.Fighter.CELL_PHON_DNRM.Length >= 8)).Select(rr => rr.Request_Rows.FirstOrDefault().Fighter.CELL_PHON_DNRM ))
+            );
+
+            MessageBox.Show(this, "شماره تلفن مشتریان در فایل مربوطه ذخیره شد", "ذخیره سازی اطلاعات", MessageBoxButtons.OK);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SelectExportContactFile_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (ExportFile_Sfd.ShowDialog() != DialogResult.OK) return;
+            ExportLabel_Txt.EditValue = SelectExportContactFile_Butn.Tag = ExportFile_Sfd.FileName;
          }
          catch (Exception exc)
          {

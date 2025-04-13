@@ -82,7 +82,8 @@ namespace System.Scsc.Ui.CalculateExpense
                      new XAttribute("epitcode", Epit_Lov.EditValue ?? ""),
                      new XAttribute("cetpcode", Cetp1_Lov.EditValue ?? ""),
                      new XAttribute("cxtpcode", Cxtp1_Lov.EditValue ?? ""),
-                     new XAttribute("rqtpcode", Rqtp_Lov.EditValue ?? "")
+                     new XAttribute("rqtpcode", Rqtp_Lov.EditValue ?? ""),
+                     new XAttribute("pymtnodebt", PymtNoDebt_Cbx.CheckState == CheckState.Checked ? "002" : PymtNoDebt_Cbx.CheckState == CheckState.Unchecked ? "001" : "003")
                   )
                )
             );

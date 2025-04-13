@@ -1417,6 +1417,9 @@ namespace System.Scsc.Ui.Common
             //DresVipNormType_Butn_Click(DresVipNormType_Butn, null);
             ADVipBs.DataSource = iScsc.Dresser_Vip_Fighters.Where(dv => dv.MBSP_FIGH_FILE_NO == fileno && dv.STAT == "002");
             HDVipBs.DataSource = iScsc.Dresser_Vip_Fighters.Where(dv => dv.MBSP_FIGH_FILE_NO == fileno && dv.STAT == "001");
+
+            // 1403/11/29 * Load 
+            FgbmBs.DataSource = iScsc.Fighter_Body_Measurements.Where(f => f.FIGH_FILE_NO == fileno);
             // 1401/08/08 * Reload data on tabpage control
             tb_master_SelectedIndexChanged(null, null);
 
@@ -1439,6 +1442,7 @@ namespace System.Scsc.Ui.Common
             DLotpBs.DataSource = iScsc.D_LOTPs;
             DPermBs.DataSource = iScsc.D_PERMs;
             DPrmtBs.DataSource = iScsc.D_PRMTs;
+            DBodyBs.DataSource = iScsc.D_BODies;
             RqtpBs.DataSource = iScsc.Request_Types.Where(rt => rt.CODE == "001" || rt.CODE == "016" || rt.CODE == "020");            
 
             VPosBs1.DataSource = iScsc.V_Pos_Devices;
@@ -1593,6 +1597,13 @@ namespace System.Scsc.Ui.Common
 
             if (regl.AMNT_TYPE == "002")
                paydebt /= 10;
+
+            // 1404/01/05 * Fill Payment if empty
+            if(vF_SavePaymentsBs.List.Count == 0)
+            {
+               vF_SavePaymentsBs.DataSource = iScsc.VF_Save_Payments(null, fileno).OrderByDescending(p => p.PYMT_CRET_DATE);
+               ShowCrntReglYear_Butn_Click(null, null);
+            }
 
             foreach (var pymt in vF_SavePaymentsBs.List.OfType<Data.VF_Save_PaymentsResult>().Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date))
             {

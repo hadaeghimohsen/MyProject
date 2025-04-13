@@ -1390,12 +1390,12 @@ namespace System.Scsc.Ui.Attendance
                      else if (EvenOrdr_Rb.Checked)
                      {
                         if (i % 2 == 0)
-                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                           _dresi.DESC = DescOpr_Txt.Text;
                      }
                      else if (OddOrdr_Rb.Checked)
                      {
                         if (i % 2 != 0)
-                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                           _dresi.DESC = DescOpr_Txt.Text;
                      }
                   }
                   else
@@ -1404,16 +1404,16 @@ namespace System.Scsc.Ui.Attendance
                      if (_dresi == null) return;
 
                      if (AllOrdr_Rb.Checked)
-                        _dresi.VIP_STAT = DescOpr_Txt.Text;
+                        _dresi.DESC = DescOpr_Txt.Text;
                      else if (EvenOrdr_Rb.Checked)
                      {
                         if (i % 2 == 0)
-                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                           _dresi.DESC = DescOpr_Txt.Text;
                      }
                      else if (OddOrdr_Rb.Checked)
                      {
                         if (i % 2 != 0)
-                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                           _dresi.DESC = DescOpr_Txt.Text;
                      }
                   }
                }
@@ -1428,16 +1428,16 @@ namespace System.Scsc.Ui.Attendance
                      if (_dresi == null) return;
 
                      if (AllOrdr_Rb.Checked)
-                        _dresi.VIP_STAT = DescOpr_Txt.Text;
+                        _dresi.DESC = DescOpr_Txt.Text;
                      else if (EvenOrdr_Rb.Checked)
                      {
                         if (i % 2 == 0)
-                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                           _dresi.DESC = DescOpr_Txt.Text;
                      }
                      else if (OddOrdr_Rb.Checked)
                      {
                         if (i % 2 != 0)
-                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                           _dresi.DESC = DescOpr_Txt.Text;
                      }
                   }
                   else
@@ -1446,21 +1446,155 @@ namespace System.Scsc.Ui.Attendance
                      if (_dresi == null) return;
 
                      if (AllOrdr_Rb.Checked)
-                        _dresi.VIP_STAT = DescOpr_Txt.Text;
+                        _dresi.DESC = DescOpr_Txt.Text;
                      else if (EvenOrdr_Rb.Checked)
                      {
                         if (i % 2 == 0)
-                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                           _dresi.DESC = DescOpr_Txt.Text;
                      }
                      else if (OddOrdr_Rb.Checked)
                      {
                         if (i % 2 != 0)
-                           _dresi.VIP_STAT = DescOpr_Txt.Text;
+                           _dresi.DESC = DescOpr_Txt.Text;
                      }
                   }
                }
             }
 
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void UpdateHeightOpr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            if (FromNumb_Se.Value <= ToNumb_Se.Value)
+            {
+               for (int i = (int)FromNumb_Se.Value; i <= (int)ToNumb_Se.Value; i++)
+               {
+                  if (LockCntrl_Cbx.Checked)
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                     {
+                        _dresi.FROM_HEIT = (float)FromHeit_Se.Value;
+                        _dresi.TO_HEIT = (float)ToHeit_Se.Value;
+                     }
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                        {
+                           _dresi.FROM_HEIT = (float)FromHeit_Se.Value;
+                           _dresi.TO_HEIT = (float)ToHeit_Se.Value;
+                        }
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                        {
+                           _dresi.FROM_HEIT = (float)FromHeit_Se.Value;
+                           _dresi.TO_HEIT = (float)ToHeit_Se.Value;
+                        }
+                     }
+                  }
+                  else
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                     {
+                        _dresi.FROM_HEIT = (float)FromHeit_Se.Value;
+                        _dresi.TO_HEIT = (float)ToHeit_Se.Value;
+                     }
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                        {
+                           _dresi.FROM_HEIT = (float)FromHeit_Se.Value;
+                           _dresi.TO_HEIT = (float)ToHeit_Se.Value;
+                        }
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                        {
+                           _dresi.FROM_HEIT = (float)FromHeit_Se.Value;
+                           _dresi.TO_HEIT = (float)ToHeit_Se.Value;
+                        }
+                     }
+                  }
+               }
+            }
+            else
+            {
+               for (int i = (int)FromNumb_Se.Value; i >= (int)ToNumb_Se.Value; i--)
+               {
+                  if (LockCntrl_Cbx.Checked)
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                     {
+                        _dresi.FROM_HEIT = (float)FromHeit_Se.Value;
+                        _dresi.TO_HEIT = (float)ToHeit_Se.Value;
+                     }
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                        {
+                           _dresi.FROM_HEIT = (float)FromHeit_Se.Value;
+                           _dresi.TO_HEIT = (float)ToHeit_Se.Value;
+                        }
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                        {
+                           _dresi.FROM_HEIT = (float)FromHeit_Se.Value;
+                           _dresi.TO_HEIT = (float)ToHeit_Se.Value;
+                        }
+                     }
+                  }
+                  else
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                     {
+                        _dresi.FROM_HEIT = (float)FromHeit_Se.Value;
+                        _dresi.TO_HEIT = (float)ToHeit_Se.Value;
+                     }
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                        {
+                           _dresi.FROM_HEIT = (float)FromHeit_Se.Value;
+                           _dresi.TO_HEIT = (float)ToHeit_Se.Value;
+                        }
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                        {
+                           _dresi.FROM_HEIT = (float)FromHeit_Se.Value;
+                           _dresi.TO_HEIT = (float)ToHeit_Se.Value;
+                        }
+                     }
+                  }
+               }
+            }
          }
          catch (Exception exc)
          {

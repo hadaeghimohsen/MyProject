@@ -465,6 +465,13 @@ namespace System.Scsc.Ui.Admission
 
                // 1397/12/18 * نمایش اطلاعات دوره های قبلی مشتری
                MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+               //1403/12/10
+               ADVipBs.DataSource = iScsc.Dresser_Vip_Fighters.Where(d => d.MBSP_FIGH_FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && d.STAT == "002");
+               DresType_Lb.Visible = ADVipBs.List.Count > 0;
+               if(ADVipBs.List.Count > 0)
+               {
+                  DresType_Lb.Text = (ADVipBs.Current as Data.Dresser_Vip_Fighter).Dresser.DRES_NUMB.ToString();
+               }
             }
             else if (!(_rqst.SSTT_MSTT_CODE == 2 && (_rqst.SSTT_CODE == 1 || _rqst.SSTT_CODE == 2 || _rqst.SSTT_CODE == 3)) && _rqst.RQID > 0)
             {
@@ -506,6 +513,13 @@ namespace System.Scsc.Ui.Admission
 
                // 1397/12/18 * نمایش اطلاعات دوره های قبلی مشتری
                MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+               // 1403/12/10
+               ADVipBs.DataSource = iScsc.Dresser_Vip_Fighters.Where(d => d.MBSP_FIGH_FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && d.STAT == "002");
+               DresType_Lb.Visible = ADVipBs.List.Count > 0;
+               if (ADVipBs.List.Count > 0)
+               {
+                  DresType_Lb.Text = (ADVipBs.Current as Data.Dresser_Vip_Fighter).Dresser.DRES_NUMB.ToString();
+               }
             }
             else if (_rqst.RQID == 0)
             {
@@ -525,6 +539,8 @@ namespace System.Scsc.Ui.Admission
                //DPST_AMNT_Txt.EditValue = "";
                //DEBT_AMNT_Txt.EditValue = "";
                SexFltr_Pkb.Visible = false;
+               // 1403/12/10
+               DresType_Lb.Visible = false;
             }
 
             var _mbsp = _rqst.Request_Rows.FirstOrDefault().Member_Ships.FirstOrDefault();
@@ -551,6 +567,8 @@ namespace System.Scsc.Ui.Admission
             //DPST_AMNT_Txt.EditValue = "";
             //DEBT_AMNT_Txt.EditValue = "";
             SexFltr_Pkb.Visible = false;
+            // 1403/12/10
+            DresType_Lb.Visible = false;
          }
       }
 

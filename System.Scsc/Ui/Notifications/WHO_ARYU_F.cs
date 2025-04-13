@@ -40,7 +40,7 @@ namespace System.Scsc.Ui.Notifications
          //    0, 0, Pb_FighImg.Size.Width, Pb_FighImg.Size.Height);
       }
 
-      private void Execute_Query(bool runAllQuery)
+      private void Execute_Query()
       {
          try
          {
@@ -104,6 +104,8 @@ namespace System.Scsc.Ui.Notifications
                AttnBs1.DataSource =
                      iScsc.Attendances.OrderByDescending(a => a.EXIT_TIME);
             }
+
+            requery = false;
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); MessageBox.Show("Execute_Query Error"); }
       }
@@ -174,12 +176,18 @@ namespace System.Scsc.Ui.Notifications
                )
             );
 
+         // 1404/01/05 * Debt amnt button operation
+         PayCash_Butn.Enabled = PayPos_Butn.Enabled = PayCard2Card_Butn.Enabled = PayWallet_Butn.Enabled = PayDsct_Butn.Enabled = false;
+
          // 1395/12/11 * چک کردن وضعیت بدهی مشتری
          //if(attn.Fighter1.DEBT_DNRM > 0)
          if (_attn.Fighter1.DEBT_DNRM > 0)
          {
             DebtAmnt_Pn.Visible = true;
             DebtAmnt_Lb.Text = _attn.Fighter1.DEBT_DNRM.Value.ToString("n0");
+
+            // 1404/01/05
+            PayCash_Butn.Enabled = PayPos_Butn.Enabled = PayCard2Card_Butn.Enabled = PayWallet_Butn.Enabled = PayDsct_Butn.Enabled = true;
 
             if(_attn.EXIT_TIME == null)
             {
@@ -651,7 +659,7 @@ namespace System.Scsc.Ui.Notifications
             if(requery)
             {
                attncode = null;
-               Execute_Query(true);
+               Execute_Query();
                requery = false;
             }
          }
@@ -680,7 +688,7 @@ namespace System.Scsc.Ui.Notifications
          {
             if (requery)
             {
-               Execute_Query(true);
+               Execute_Query();
                requery = false;
             }
          }
@@ -823,7 +831,7 @@ namespace System.Scsc.Ui.Notifications
          finally
          {
             if (requery)
-               Execute_Query(true);
+               Execute_Query();
          }
       }
 
@@ -849,7 +857,7 @@ namespace System.Scsc.Ui.Notifications
          finally
          {
             if (requery)
-               Execute_Query(true);
+               Execute_Query();
          }
       }
 
@@ -875,7 +883,7 @@ namespace System.Scsc.Ui.Notifications
          finally
          {
             if (requery)
-               Execute_Query(true);
+               Execute_Query();
          }
       }
 
@@ -900,7 +908,7 @@ namespace System.Scsc.Ui.Notifications
          finally
          {
             if (requery)
-               Execute_Query(true);
+               Execute_Query();
          }
       }
 
@@ -922,7 +930,7 @@ namespace System.Scsc.Ui.Notifications
          finally
          {
             if (requery)
-               Execute_Query(true);
+               Execute_Query();
          }
       }
 
@@ -1045,6 +1053,8 @@ namespace System.Scsc.Ui.Notifications
       {
          try
          {
+            DoBkg_Tr.Enabled = false;
+
             // First Calculate Current Attendance 
             var _attn = AttnBs1.Current as Data.Attendance;
             if (_attn == null) return;
@@ -1119,15 +1129,19 @@ namespace System.Scsc.Ui.Notifications
                wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Illuminate.mp3";
                PlaySound();
             }
+
+            // 1403/12/08 * Load new data in grid
+            ADVipBs.DataSource = iScsc.Dresser_Vip_Fighters.Where(dvf => dvf.MBSP_FIGH_FILE_NO == _attn.FIGH_FILE_NO && dvf.STAT == "002");
+            AllAttnIndyBs.DataSource = iScsc.Attendances.Where(a => a.ATTN_DATE == DateTime.Now.Date && a.ATTN_STAT == "002" && a.EXIT_TIME == null && a.DERS_NUMB != null && a.CODE != _attn.CODE);
+
+            // 1403/12/09 * اگر مشتری دارای کمد اجاره یا اختصاصی میباشد روی صفحه نمایش ان را نمایش دهیم
+            DresType_Lb.Visible = ADVipBs.List.Count > 0;
+               
          }
          catch (Exception exc)
          {
             //MessageBox.Show(exc.Message);
             //MessageBox.Show("Do Bkg Error");
-         }
-         finally
-         {
-            DoBkg_Tr.Enabled = false;
          }
       }
 
@@ -1253,7 +1267,7 @@ namespace System.Scsc.Ui.Notifications
             var _attn = AttnBs1.Current as Data.Attendance;
             if(_attn == null && _attn.Dresser_Attendances == null)return;
             
-            var _dvipcode = _attn.Dresser_Attendances.FirstOrDefault(d => d.DRAT_CODE == null).CODE;
+            var _dvipcode = _attn.Dresser_Attendances.FirstOrDefault(d => d.DRAT_CODE == null).DRES_CODE;
 
             bool _freelockvip = false;
             var _lockbydvip = iScsc.Dresser_Vip_Fighters.FirstOrDefault(d => d.DRES_CODE == _dvipcode && d.STAT == "002" && d.MBSP_FIGH_FILE_NO != _attn.FIGH_FILE_NO);
@@ -1271,7 +1285,7 @@ namespace System.Scsc.Ui.Notifications
             }
 
             // 1402/10/10 * بررسی اینکه آیا این کمد برای این دوره درست انتخاب شده یا خیر
-            var _edlm = iScsc.External_Device_Link_Methods;
+            var _edlm = iScsc.External_Device_Link_Methods.Where(a => a.STAT == "002" && (a.External_Device.DEV_COMP_TYPE == "003" && a.External_Device.DEV_TYPE == "010" && a.External_Device.STAT == "002"));
             if(_edlm.Any())
             {
                if(!_edlm.Any(i => i.MTOD_CODE == _attn.Member_Ship.FGPB_MTOD_CODE_DNRM && iScsc.Dressers.Any(d => d.CODE == _dvipcode && d.IP_ADRS == i.External_Device.IP_ADRS)))
@@ -1282,7 +1296,7 @@ namespace System.Scsc.Ui.Notifications
             }
 
             if(_freelockvip)
-               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
+               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Lock_Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
             iScsc.ExecuteCommand("INSERT INTO dbo.Dresser_Vip_Fighter (Dres_Code, Mbsp_Figh_File_No, Mbsp_Rwno, Mbsp_Rect_Code, Code, Stat) VALUES ({0}, {1}, {2}, '004', 0, '002');", _dvipcode, _attn.FIGH_FILE_NO, _attn.Member_Ship.RWNO);
 
             _DefaultGateway.Gateway(
@@ -1447,7 +1461,7 @@ namespace System.Scsc.Ui.Notifications
                   break;
                case 1:
                   //var _dvipcode = _attn.Dresser_Attendances.FirstOrDefault(d => d.DRAT_CODE == null).DRES_CODE;
-                  var _mbsp = _attn.Member_Ship;            
+                  var _mbsp = _attn.Member_Ship;
 
                   bool _freelockvip = false;
                   var _lockbydvip = iScsc.Dresser_Vip_Fighters.FirstOrDefault(d => d.DRES_CODE == _dres.CODE && d.STAT == "002" && d.MBSP_FIGH_FILE_NO != _attn.FIGH_FILE_NO);
@@ -1465,7 +1479,7 @@ namespace System.Scsc.Ui.Notifications
                   //}
 
                   // 1402/10/10 * بررسی اینکه آیا این کمد برای این دوره درست انتخاب شده یا خیر
-                  var _edlm = iScsc.External_Device_Link_Methods;
+                  var _edlm = iScsc.External_Device_Link_Methods.Where(a => a.STAT == "002" && (a.External_Device.DEV_COMP_TYPE == "003" && a.External_Device.DEV_TYPE == "010" && a.External_Device.STAT == "002"));
                   if(_edlm.Any())
                   {
                      if(!_edlm.Any(i => i.MTOD_CODE == _mbsp.FGPB_MTOD_CODE_DNRM && iScsc.Dressers.Any(d => d.CODE == _dres.CODE && d.IP_ADRS == i.External_Device.IP_ADRS)))
@@ -1476,7 +1490,7 @@ namespace System.Scsc.Ui.Notifications
                   }
 
                   if(_freelockvip)
-                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
+                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Lock_Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
                   iScsc.ExecuteCommand("INSERT INTO dbo.Dresser_Attendance (Dres_Code, Attn_Code, Figh_File_No, Code, Drat_Code, Ders_Numb, Lend_Time) SELECT {0}, {1}, {2}, 0, {4}, {3}, CAST(GETDATE() AS TIME(0)) WHERE NOT EXISTS (SELECT 0 FROM dbo.Dresser_Attendance WHERE Dres_Code = {0} AND Attn_Code = {1});", _dres.CODE, _attn.CODE, fileno, _dres.DRES_NUMB, _attn.Dresser_Attendances.FirstOrDefault(d => d.DRAT_CODE == null).CODE);
                   break;
                default:
@@ -1491,7 +1505,7 @@ namespace System.Scsc.Ui.Notifications
          finally
          {
             if (requery)
-               Execute_Query(true);
+               Execute_Query();
          }
       }
 
@@ -1563,7 +1577,7 @@ namespace System.Scsc.Ui.Notifications
          finally
          {
             if (requery)
-               Execute_Query(true);
+               Execute_Query();
          }
       }
 
@@ -1641,7 +1655,7 @@ namespace System.Scsc.Ui.Notifications
          finally
          {
             if (requery)
-               Execute_Query(true);
+               Execute_Query();
          }
       }
 
@@ -1755,7 +1769,7 @@ namespace System.Scsc.Ui.Notifications
          finally
          {
             if (requery)
-               Execute_Query(true);
+               Execute_Query();
          }
       }
 
@@ -1778,6 +1792,500 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ActnDVip_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _dvip = ADVipBs.Current as Data.Dresser_Vip_Fighter;
+            if (_dvip == null) return;
+
+            if (MessageBox.Show(this, "ایا با آزاد کردن کمد VIP موافق هستید?", "آزاد کردن کمد VIP", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Lock_Stat = '001', Expr_Date = GETDATE() WHERE Code = {0};", _dvip.CODE));
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AutoDresNumbAttn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _attn = AttnBs1.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            if (_attn.EXIT_TIME != null) return;
+
+            if(_attn.DERS_NUMB != null || _attn.Dresser_Attendances.Any(da => da.TKBK_TIME == null))
+            {
+               if (MessageBox.Show(this, "حضوری فعلی دارای کمد ثبت شده میباشد که باید آن را آزاد کنیم. آیا برای آزاد کردن کمد موافق هستید؟", "آزاد کردن کمد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+               DelDresNumbAttn_Butn_Click(null, null);
+            }
+
+            // 1403/12/09 * درخواست شماره کمد جدید
+            iScsc.SET_ADNA_P(
+               new XElement("Attendance",
+                   new XAttribute("code", _attn.CODE),
+                   new XAttribute("fileno", _attn.FIGH_FILE_NO),
+                   new XAttribute("clubcode", _attn.CLUB_CODE),
+                   new XAttribute("mbsprwno", _attn.MBSP_RWNO_DNRM)
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void ManDresNumbAttn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }         
+      }
+
+      private void SharAttnDresActn_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _crntSharAttn = AllAttnIndyBs.Current as Data.Attendance;
+            if (_crntSharAttn == null) return;
+
+            var _attn = AttnBs1.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            if (_attn.EXIT_TIME != null) return;
+
+            if (_attn.DERS_NUMB != null || _attn.Dresser_Attendances.Any(da => da.TKBK_TIME == null))
+            {
+               if (MessageBox.Show(this, "حضوری فعلی دارای کمد ثبت شده میباشد که باید آن را آزاد کنیم. آیا برای آزاد کردن کمد موافق هستید؟", "آزاد کردن کمد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+               DelDresNumbAttn_Butn_Click(null, null);
+            }
+
+            // 1403/12/09 * درخواست شماره کمد اشتراکی
+            iScsc.SET_SDNA_P(
+               new XElement("Attendance",
+                   new XAttribute("code", _attn.CODE),
+                   new XAttribute("fileno", _attn.FIGH_FILE_NO),
+                   new XAttribute("sharcode", _crntSharAttn.CODE)
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void DelDresNumbAttn_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _attn = AttnBs1.Current as Data.Attendance;
+            if (_attn == null) return;
+
+            if (_attn.EXIT_TIME != null) return;
+
+            if (_attn.DERS_NUMB != null || _attn.Dresser_Attendances.Any(da => da.TKBK_TIME != null))
+            {
+               if (MessageBox.Show(this, "آیا برای آزاد کردن کمد موافق هستید؟", "آزاد کردن کمد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+               iScsc.SET_EDNA_P(
+                  new XElement("Attendance",
+                      new XAttribute("code", _attn.CODE)
+                  )
+               );
+
+               requery = true;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void PosStng_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 33 /* Execute PosSettings */, SendType.Self) { Input = "Pos_Butn" }
+         );
+      }
+
+      private void SavePymt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            PymtDate_Dt.CommitChanges();
+
+            if (PymtAmnt_Txt.EditValue == null || PymtAmnt_Txt.EditValue.ToString() == "" || Convert.ToInt64(PymtAmnt_Txt.EditValue) == 0) return;
+
+            //1403/08/26 * اگر تاریخ پرداخت بیشتر از تاریخ جاری باشد
+            if (PymtDate_Dt.Value.HasValue && PymtDate_Dt.Value.Value.Date > DateTime.Now.Date)
+            {
+               MessageBox.Show(this, "پرداختی در گذشته داریم ولی پرداختی در آینده نداریم، اینجاست که باید بگم داش داری اشتباه میزنی");
+               PymtDate_Dt.Focus();
+               PymtDate_Dt.Value = DateTime.Now;
+               return;
+            }
+
+            var figh = (AttnBs1.Current as Data.Attendance).Fighter1 as Data.Fighter;
+
+            var paydebt = Convert.ToInt64(PymtAmnt_Txt.EditValue);
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            if (paydebt > figh.DEBT_DNRM) return;
+
+            switch ((RcmtType_Lov.EditValue ?? "001").ToString())
+            {
+               case "003":
+                  if (VPosBs1.List.Count == 0) UsePos_Cb.Checked = false;
+
+                  if (UsePos_Cb.Checked && (!PymtDate_Dt.Value.HasValue || PymtDate_Dt.Value.Value.Date == DateTime.Now.Date))
+                  {
+                     var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
+
+                     long psid;
+                     if (Pos_Lov.EditValue == null)
+                     {
+                        var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
+                        if (posdflts.Count() == 1)
+                           Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+                        else
+                        {
+                           Pos_Lov.Focus();
+                           return;
+                        }
+                     }
+                     else
+                     {
+                        psid = (long)Pos_Lov.EditValue;
+                     }
+
+                     if (regl.AMNT_TYPE == "002")
+                        PymtAmnt_Txt.EditValue = Convert.ToInt64(PymtAmnt_Txt.EditValue) * 10;
+
+                     // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
+                     UsePos_Cb.Checked = false;
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.External, "Commons",
+                                 new List<Job>
+                                 {
+                                    new Job(SendType.Self, 34 /* Execute PosPayment */)
+                                    {
+                                       Input = 
+                                          new XElement("PosRequest",
+                                             new XAttribute("psid", psid),
+                                             new XAttribute("subsys", 5),
+                                             new XAttribute("rqid", 0),
+                                             new XAttribute("rqtpcode", ""),
+                                             new XAttribute("router", GetType().Name),
+                                             new XAttribute("callback", 21 /* Call Payg_Oprt_P */),
+                                             new XAttribute("amnt", Convert.ToInt64(PymtAmnt_Txt.EditValue)),
+                                             new XAttribute("rcpttoothracnt", ""),
+                                             new XAttribute("flowno", ""),
+                                             new XAttribute("rcptfilepath", /*RcptFilePath_Txt.EditValue ??*/ "")
+                                          )
+                                    }
+                                 }
+                              )
+                           }
+                        )
+                     );
+
+                     UsePos_Cb.Checked = true;
+                  }
+                  else
+                  {
+                     var vf_SavePayment =
+                        iScsc.VF_Save_Payments(null, fileno.ToInt64())
+                        .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+
+                     foreach (var pymt in vf_SavePayment)
+                     {
+                        var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+                        long amnt = 0;
+
+                        if (debt > paydebt)
+                           // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                           amnt = paydebt;
+                        else
+                           // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                           amnt = debt;
+
+                        iScsc.PAY_MSAV_P(
+                           new XElement("Payment",
+                              new XAttribute("actntype", "InsertUpdate"),
+                              new XElement("Insert",
+                                 new XElement("Payment_Method",
+                                    new XAttribute("cashcode", pymt.CASH_CODE),
+                                    new XAttribute("rqstrqid", pymt.RQID),
+                                    new XAttribute("amnt", amnt),
+                                    new XAttribute("rcptmtod", RcmtType_Lov.EditValue ?? "003"),
+                                    new XAttribute("actndate", PymtDate_Dt.Value.HasValue ? PymtDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                                 )
+                              )
+                           )
+                        );
+
+                        paydebt -= amnt;
+                        if (paydebt == 0) break;
+                     }
+                  }
+                  break;
+               default:
+                  var vf_SavePayment1 =
+                     iScsc.VF_Save_Payments(null, fileno.ToInt64())
+                     .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
+
+                  foreach (var pymt in vf_SavePayment1)
+                  {
+                     var debt = (long)((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM));
+                     long amnt = 0;
+
+                     if (debt > paydebt)
+                        // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                        amnt = paydebt;
+                     else
+                        // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                        amnt = debt;
+
+                     iScsc.PAY_MSAV_P(
+                        new XElement("Payment",
+                           new XAttribute("actntype", "InsertUpdate"),
+                           new XElement("Insert",
+                              new XElement("Payment_Method",
+                                 new XAttribute("cashcode", pymt.CASH_CODE),
+                                 new XAttribute("rqstrqid", pymt.RQID),
+                                 new XAttribute("amnt", amnt),
+                                 new XAttribute("rcptmtod", RcmtType_Lov.EditValue ?? "003"),
+                                 new XAttribute("actndate", PymtDate_Dt.Value.HasValue ? PymtDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd"))
+                              )
+                           )
+                        )
+                     );
+
+                     paydebt -= amnt;
+                     if (paydebt == 0) break;
+                  }
+                  break;
+            }
+
+            PymtAmnt_Txt.EditValue = null;
+            PymtDate_Dt.Value = DateTime.Now;
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+            {
+               Execute_Query();
+            }
+         }
+      }
+
+      private void PayCash_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _figh = (AttnBs1.Current as Data.Attendance).Fighter1 as Data.Fighter;
+            if (_figh == null) return;
+
+            if(_figh.DEBT_DNRM <= 0) return;
+
+            string mesg =
+               string.Format(
+                  ">> مبلغ {0} {1} به صورت >> نقدی << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                  string.Format("{0:n0}", _figh.DEBT_DNRM),
+                  Lbl_AmntType.Text,
+                  "امروز",
+                  CurrentUser);
+
+            if (MessageBox.Show(this, mesg, "پرداخت بدهی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            RcmtType_Lov.EditValue = "001";
+            PymtAmnt_Txt.EditValue = _figh.DEBT_DNRM;
+            PymtDate_Dt.Value = DateTime.Now;
+
+            SavePymt_Butn_Click(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }         
+      }
+
+      private void PayCard2Card_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _figh = (AttnBs1.Current as Data.Attendance).Fighter1 as Data.Fighter;
+            if (_figh == null) return;
+
+            if (_figh.DEBT_DNRM <= 0) return;
+
+            string mesg =
+               string.Format(
+                  ">> مبلغ {0} {1} به صورت >> کارت به کارت << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                  string.Format("{0:n0}", _figh.DEBT_DNRM),
+                  Lbl_AmntType.Text,
+                  "امروز",
+                  CurrentUser);
+
+            if (MessageBox.Show(this, mesg, "پرداخت بدهی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            RcmtType_Lov.EditValue = "009";
+            PymtAmnt_Txt.EditValue = _figh.DEBT_DNRM;
+            PymtDate_Dt.Value = DateTime.Now;
+
+            SavePymt_Butn_Click(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PayPos_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _figh = (AttnBs1.Current as Data.Attendance).Fighter1 as Data.Fighter;
+            if (_figh == null) return;
+
+            if (_figh.DEBT_DNRM <= 0) return;
+
+            string mesg =
+               string.Format(
+                  ">> مبلغ {0} {1} به صورت >> کارتخوان << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                  string.Format("{0:n0}", _figh.DEBT_DNRM),
+                  Lbl_AmntType.Text,
+                  "امروز",
+                  CurrentUser);
+
+            if (MessageBox.Show(this, mesg, "پرداخت بدهی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            RcmtType_Lov.EditValue = "003";
+            PymtAmnt_Txt.EditValue = _figh.DEBT_DNRM;
+            PymtDate_Dt.Value = DateTime.Now;
+
+            SavePymt_Butn_Click(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PayWallet_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _figh = (AttnBs1.Current as Data.Attendance).Fighter1 as Data.Fighter;
+            if (_figh == null) return;
+
+            if (_figh.DEBT_DNRM <= 0) return;
+
+            string mesg =
+               string.Format(
+                  ">> مبلغ {0} {1} به صورت >> کسر از سپرده << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                  string.Format("{0:n0}", _figh.DEBT_DNRM),
+                  Lbl_AmntType.Text,
+                  "امروز",
+                  CurrentUser);
+
+            if (MessageBox.Show(this, mesg, "پرداخت بدهی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            RcmtType_Lov.EditValue = "005";
+            PymtAmnt_Txt.EditValue = _figh.DEBT_DNRM;
+            PymtDate_Dt.Value = DateTime.Now;
+
+            SavePymt_Butn_Click(null, null);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void PayDsct_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _figh = (AttnBs1.Current as Data.Attendance).Fighter1 as Data.Fighter;
+            if (_figh == null) return;
+
+            if (_figh.DEBT_DNRM <= 0) return;
+
+            string mesg =
+               string.Format(
+                  ">> مبلغ {0} {1} به صورت >> کسر از سپرده << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                  string.Format("{0:n0}", _figh.DEBT_DNRM),
+                  Lbl_AmntType.Text,
+                  "امروز",
+                  CurrentUser);
+
+            if (MessageBox.Show(this, mesg, "پرداخت بدهی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            foreach (var pymt in iScsc.VF_Save_Payments(null, fileno.ToInt64()).Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0))
+            {
+               var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+               iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQID, (short?)1, null, debtamnt, "001", "002", "", null, null);
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
    }

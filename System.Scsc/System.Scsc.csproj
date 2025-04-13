@@ -1289,6 +1289,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device_Weekday.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device_Weekday_Timing.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Body_Measurement.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Call.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Coupon.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Discount_Card.datasource" />

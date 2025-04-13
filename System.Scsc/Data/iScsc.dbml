@@ -3577,6 +3577,7 @@
       <Association Name="Fighter_Attendance" Member="Attendances" ThisKey="FILE_NO" OtherKey="COCH_FILE_NO" Type="Attendance" />
       <Association Name="Fighter_Attendance1" Member="Attendances1" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Attendance" />
       <Association Name="Fighter_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Aggregation_Operation_Detail" />
+      <Association Name="Fighter_Fighter_Body_Measurement" Member="Fighter_Body_Measurements" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Fighter_Body_Measurement" />
       <Association Name="Fighter_Fighter" Member="Fighter1" ThisKey="REF_CODE_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Region_Fighter" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Sub_Unit_Fighter" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE_DNRM,SUNT_BUNT_DEPT_CODE_DNRM,SUNT_BUNT_CODE_DNRM,SUNT_CODE_DNRM" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
@@ -4940,8 +4941,8 @@
       <Association Name="Club_Misc_Expense" Member="Misc_Expenses" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Misc_Expense" />
       <Association Name="Club_Payment" Member="Payments" ThisKey="CODE" OtherKey="CLUB_CODE_DNRM" Type="Payment" />
       <Association Name="Club_Club" Member="Clubs" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Club" />
-      <Association Name="Club_Setting" Member="Settings" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Setting" />
       <Association Name="Club_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Attendance" />
+      <Association Name="Club_Setting" Member="Settings" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Setting" />
       <Association Name="Club_Club" Member="Club1" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
       <Association Name="Region_Club" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
     </Type>
@@ -5088,126 +5089,6 @@
       <Argument Parameter="must_Fill_Ownr" Member="MUST_FILL_OWNR" />
     </UpdateFunction>
   </Table>
-  <Table Name="dbo.Settings" Member="Settings">
-    <Type Name="Setting">
-      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="BACK_UP" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="BACK_UP_APP_EXIT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="BACK_UP_IN_TRED" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="BACK_UP_OPTN_PATH" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="BACK_UP_OPTN_PATH_ADRS" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="BACK_UP_ROOT_PATH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="DRES_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="DRES_AUTO" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MORE_FIGH_ONE_DRES" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MORE_ATTN_SESN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="NOTF_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="NOTF_EXP_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="NOTF_VIST_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
-      <Column Name="ATTN_SYST_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="COMM_PORT_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="BAR_CODE_DATA_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ATN3_EVNT_ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="IP_ADDR" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="PORT_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ATTN_COMP_CONCT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="ATN1_EVNT_ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="IP_ADR2" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="PORT_NUM2" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ATTN_COMP_CNC2" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="ATN2_EVNT_ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ATTN_NOTF_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ATTN_NOTF_CLOS_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ATTN_NOTF_CLOS_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DEBT_CLNG_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="MOST_DEBT_CLNG_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="EXPR_DEBT_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="DEBT_CHCK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="PERM_ENTR_DEBT_SERV_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TRY_VALD_SBMT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="GATE_ATTN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="GATE_COMM_PORT_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="GATE_BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GATE_TIME_CLOS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GATE_ENTR_OPEN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="GATE_EXIT_OPEN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="EXPN_EXTR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="EXPN_COMM_PORT_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="EXPN_BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="RUN_QURY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ATTN_PRNT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SHAR_MBSP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="RUN_RBOT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="HLDY_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CLER_ZERO" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="DUPL_NATL_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="DUPL_CELL_PHON" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="INPT_NATL_CODE_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="INPT_CELL_PHON_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="IP_ADR3" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="PORT_NUM3" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ATTN_COMP_CNC3" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="ATN4_EVNT_ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="LEN_FNGR_PRNT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="ATTN_GUST_NUMB_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ATTN_DELY_TIME" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
-      <Column Name="SND1_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="SND2_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="SND3_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="SND4_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="SND5_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="SND6_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="SND7_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="SND8_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="SND9_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
-      <Column Name="REST_ATTN_NUMB_BY_YEAR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ATTN_NOT_INSR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SHOW_RBON_MNUI" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SHOW_SLID_MNUI" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="NEG_DPST_AMNT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="DONT_SHOW_EROR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="SHOW_EROR_LOG" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="DEV4_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="IP_ADR4" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="PORT_NUM4" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ATTN_COMP_CNC4" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="DEV5_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="IP_ADR5" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="PORT_NUM5" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ATTN_COMP_CNC5" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Column Name="DEV6_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="IP_ADR6" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
-      <Column Name="PORT_NUM6" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ATTN_COMP_CNC6" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
-      <Association Name="Club_Setting" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Dresser" Member="Dressers">
-    <Type Name="Dresser">
-      <Column Name="COMA_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DRES_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="[DESC]" Member="DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="REC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ORDR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CMND_SEND" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="COMM_PORT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="VIP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Dresser_Dresser_Vip_Fighter" Member="Dresser_Vip_Fighters" ThisKey="CODE" OtherKey="DRES_CODE" Type="Dresser_Vip_Fighter" />
-      <Association Name="Dresser_Dresser_Attendance" Member="Dresser_Attendances" ThisKey="CODE" OtherKey="DRES_CODE" Type="Dresser_Attendance" />
-      <Association Name="Dresser_Attendance_Wrist" Member="Attendance_Wrists" ThisKey="CODE" OtherKey="DRES_CODE_DNRM" Type="Attendance_Wrist" />
-      <Association Name="Computer_Action_Dresser" Member="Computer_Action" ThisKey="COMA_CODE" OtherKey="CODE" Type="Computer_Action" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
   <Table Name="dbo.Dresser_Vip_Fighter" Member="Dresser_Vip_Fighters">
     <Type Name="Dresser_Vip_Fighter">
       <Column Name="DRES_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
@@ -5219,9 +5100,9 @@
       <Column Name="EXPR_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Dresser_Dresser_Vip_Fighter" Member="Dresser" ThisKey="DRES_CODE" OtherKey="CODE" Type="Dresser" IsForeignKey="true" />
       <Association Name="Fighter_Dresser_Vip_Fighter" Member="Fighter" ThisKey="MBSP_FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Member_Ship_Dresser_Vip_Fighter" Member="Member_Ship" ThisKey="MBSP_FIGH_FILE_NO,MBSP_RWNO,MBSP_RECT_CODE" OtherKey="FIGH_FILE_NO,RWNO,RECT_CODE" Type="Member_Ship" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Dresser_Dresser_Vip_Fighter" Member="Dresser" ThisKey="DRES_CODE" OtherKey="CODE" Type="Dresser" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Dresser_Attendance" Member="Dresser_Attendances">
@@ -5249,12 +5130,12 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Association Name="Dresser_Attendance_Dresser_Attendance" Member="Dresser_Attendances" ThisKey="CODE" OtherKey="DRAT_CODE" Type="Dresser_Attendance" />
       <Association Name="Fighter_Dresser_Attendance" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Dresser_Dresser_Attendance" Member="Dresser" ThisKey="DRES_CODE" OtherKey="CODE" Type="Dresser" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Member_Ship_Dresser_Attendance" Member="Member_Ship" ThisKey="FIGH_FILE_NO,MBSP_RWNO,MBSP_RECT_CODE" OtherKey="FIGH_FILE_NO,RWNO,RECT_CODE" Type="Member_Ship" IsForeignKey="true" />
       <Association Name="Request_Dresser_Attendance" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" DeleteRule="CASCADE" />
       <Association Name="Dresser_Attendance_Dresser_Attendance" Member="Dresser_Attendance1" ThisKey="DRAT_CODE" OtherKey="CODE" Type="Dresser_Attendance" IsForeignKey="true" />
       <Association Name="Attendance_Dresser_Attendance" Member="Attendance" ThisKey="ATTN_CODE" OtherKey="CODE" Type="Attendance" IsForeignKey="true" />
       <Association Name="Aggregation_Operation_Detail_Dresser_Attendance" Member="Aggregation_Operation_Detail" ThisKey="AODT_AGOP_CODE,AODT_RWNO" OtherKey="AGOP_CODE,RWNO" Type="Aggregation_Operation_Detail" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Dresser_Dresser_Attendance" Member="Dresser" ThisKey="DRES_CODE" OtherKey="CODE" Type="Dresser" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Computer_Action" Member="Computer_Actions">
@@ -5700,8 +5581,8 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Fighter_Attendance_Wrist" Member="Fighter" ThisKey="FIGH_FILE_NO_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Fighter_Attendance_Wrist1" Member="Fighter1" ThisKey="ATNW_FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
-      <Association Name="Dresser_Attendance_Wrist" Member="Dresser" ThisKey="DRES_CODE_DNRM" OtherKey="CODE" Type="Dresser" IsForeignKey="true" />
       <Association Name="Attendance_Attendance_Wrist" Member="Attendance" ThisKey="ATTN_CODE" OtherKey="CODE" Type="Attendance" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Dresser_Attendance_Wrist" Member="Dresser" ThisKey="DRES_CODE_DNRM" OtherKey="CODE" Type="Dresser" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Attendance" Member="Attendances">
@@ -5902,6 +5783,143 @@
       <Argument Parameter="agop_Code" Member="AGOP_CODE" />
       <Argument Parameter="rwno" Member="RWNO" />
     </DeleteFunction>
+  </Table>
+  <Table Name="dbo.Dresser" Member="Dressers">
+    <Type Name="Dresser">
+      <Column Name="COMA_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DRES_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="[DESC]" Member="DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORDR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CMND_SEND" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMM_PORT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="VIP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FROM_HEIT" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TO_HEIT" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Dresser_Dresser_Vip_Fighter" Member="Dresser_Vip_Fighters" ThisKey="CODE" OtherKey="DRES_CODE" Type="Dresser_Vip_Fighter" />
+      <Association Name="Dresser_Dresser_Attendance" Member="Dresser_Attendances" ThisKey="CODE" OtherKey="DRES_CODE" Type="Dresser_Attendance" />
+      <Association Name="Dresser_Attendance_Wrist" Member="Attendance_Wrists" ThisKey="CODE" OtherKey="DRES_CODE_DNRM" Type="Attendance_Wrist" />
+      <Association Name="Computer_Action_Dresser" Member="Computer_Action" ThisKey="COMA_CODE" OtherKey="CODE" Type="Computer_Action" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Fighter_Body_Measurement" Member="Fighter_Body_Measurements">
+    <Type Name="Fighter_Body_Measurement">
+      <Column Name="FIGH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BODY_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MESR_VALU" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CMNT" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Fighter_Fighter_Body_Measurement" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings" Member="Settings">
+    <Type Name="Setting">
+      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BACK_UP" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BACK_UP_APP_EXIT" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BACK_UP_IN_TRED" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BACK_UP_OPTN_PATH" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="BACK_UP_OPTN_PATH_ADRS" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="BACK_UP_ROOT_PATH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DRES_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="DRES_AUTO" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MORE_FIGH_ONE_DRES" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MORE_ATTN_SESN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="NOTF_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="NOTF_EXP_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NOTF_VIST_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ATTN_SYST_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="COMM_PORT_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BAR_CODE_DATA_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ATN3_EVNT_ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IP_ADDR" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="PORT_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ATTN_COMP_CONCT" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ATN1_EVNT_ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IP_ADR2" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="PORT_NUM2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ATTN_COMP_CNC2" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ATN2_EVNT_ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ATTN_NOTF_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ATTN_NOTF_CLOS_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ATTN_NOTF_CLOS_INTR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEBT_CLNG_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MOST_DEBT_CLNG_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="EXPR_DEBT_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DEBT_CHCK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PERM_ENTR_DEBT_SERV_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TRY_VALD_SBMT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="GATE_ATTN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="GATE_COMM_PORT_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="GATE_BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GATE_TIME_CLOS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GATE_ENTR_OPEN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="GATE_EXIT_OPEN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="EXPN_EXTR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="EXPN_COMM_PORT_NAME" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="EXPN_BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RUN_QURY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ATTN_PRNT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SHAR_MBSP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RUN_RBOT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="HLDY_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CLER_ZERO" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="DUPL_NATL_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="DUPL_CELL_PHON" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="INPT_NATL_CODE_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="INPT_CELL_PHON_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IP_ADR3" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="PORT_NUM3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ATTN_COMP_CNC3" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="ATN4_EVNT_ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LEN_FNGR_PRNT" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ATTN_GUST_NUMB_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ATTN_DELY_TIME" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SND1_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="SND2_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="SND3_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="SND4_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="SND5_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="SND6_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="SND7_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="SND8_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="SND9_PATH" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="REST_ATTN_NUMB_BY_YEAR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ATTN_NOT_INSR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SHOW_RBON_MNUI" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SHOW_SLID_MNUI" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="NEG_DPST_AMNT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="DONT_SHOW_EROR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SHOW_EROR_LOG" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="DEV4_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IP_ADR4" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="PORT_NUM4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ATTN_COMP_CNC4" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="DEV5_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IP_ADR5" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="PORT_NUM5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ATTN_COMP_CNC5" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="DEV6_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IP_ADR6" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="PORT_NUM6" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ATTN_COMP_CNC6" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="LIMT_CALC_ATTN_INDY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Association Name="Club_Setting" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
   </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">
     <Parameter Name="Rqid" Parameter="rqid" Type="System.Int64" DbType="BigInt" />
@@ -8744,6 +8762,26 @@
     <Return Type="System.String" />
   </Function>
   <Function Name="dbo.SET_IMAG_P" Method="SET_IMAG_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CRET_FGBM_P" Method="CRET_FGBM_P">
+    <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SET_ADNA_P" Method="SET_ADNA_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SET_EDNA_P" Method="SET_EDNA_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.SET_SDNA_P" Method="SET_SDNA_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.MBSP_SORT_P" Method="MBSP_SORT_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>

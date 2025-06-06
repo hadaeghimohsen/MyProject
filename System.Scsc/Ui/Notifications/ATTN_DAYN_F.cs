@@ -281,13 +281,24 @@ namespace System.Scsc.Ui.Notifications
             }
 
             Back_Butn_Click(null, null);
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
                  new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date BETWEEN '{0}' AND '{1}'", FromAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd")))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+                 {
+                    new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
+                    {
+                       Input = 
+                           new XElement("Print", 
+                              new XAttribute("type", "Default"), 
+                              new XAttribute("modual", GetType().Name), 
+                              new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), 
+                              string.Format("Attn_Date BETWEEN '{0}' AND '{1}' AND {2}", 
+                                 FromAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
+                                 ToAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd"),
+                                 All_Rb.Checked ? "1=1" : (ServOnly_Rb.Checked ? "FGPB_TYPE_DNRM = '001'" : "FGPB_TYPE_DNRM = '003'")))
+                    }
+                 })   
+            );
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
@@ -297,13 +308,24 @@ namespace System.Scsc.Ui.Notifications
          try
          {
             Back_Butn_Click(null, null);
-            Job _InteractWithScsc =
-                 new Job(SendType.External, "Localhost",
-                    new List<Job>
-                    {
-                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("Attn_Date BETWEEN '{0}' AND '{1}'", FromAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd")))}
-                    });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                   new List<Job>
+                   {
+                      new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
+                      {
+                         Input = 
+                           new XElement("Print", 
+                               new XAttribute("type", "Selection"), 
+                               new XAttribute("modual", GetType().Name), 
+                               new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), 
+                               string.Format("Attn_Date BETWEEN '{0}' AND '{1}' AND {2}", 
+                                 FromAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
+                                 ToAttnDate_Date.Value.Value.Date.ToString("yyyy-MM-dd"),
+                                 All_Rb.Checked ? "1=1" : (ServOnly_Rb.Checked ? "FGPB_TYPE_DNRM = '001'" : "FGPB_TYPE_DNRM = '003'")))
+                      }
+                   })
+            );
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }
@@ -311,14 +333,21 @@ namespace System.Scsc.Ui.Notifications
       private void PrintSetting_Butn_Click(object sender, EventArgs e)
       {
          Back_Butn_Click(null, null);
-         Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
-                 new List<Job>
-                  {
-                     new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
-                     new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))}
-                  });
-         _DefaultGateway.Gateway(_InteractWithScsc);
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+                new List<Job>
+                {
+                   new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                   new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */)
+                   {
+                      Input = 
+                        new XElement("Request", 
+                            new XAttribute("type", "ModualReport"), 
+                            new XAttribute("modul", GetType().Name), 
+                            new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"))
+                   }
+                })
+         );
       }
 
       private void ClearCbmt_Butn_Click(object sender, EventArgs e)

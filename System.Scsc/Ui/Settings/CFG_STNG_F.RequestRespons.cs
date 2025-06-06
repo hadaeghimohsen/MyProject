@@ -54,7 +54,10 @@ namespace System.Scsc.Ui.Settings
                LoadDataSource(job);
                break;
             case 10:
-               Actn_CalF_P(job);
+               if (InvokeRequired)
+                  Invoke(new Action(() => Actn_CalF_P(job)));
+               else
+                  Actn_CalF_P(job);
                break;
             default:
                break;

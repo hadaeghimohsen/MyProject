@@ -239,6 +239,35 @@ namespace System.Scsc.Ui.OtherIncome
             Scsc.Data.Request Rqst = RqstBs1.Current as Scsc.Data.Request;
             Scsc.Data.Fighter Figh = FighBs1.Current as Scsc.Data.Fighter;
 
+            // 1404/01/31 * Check Wallet Amnt
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Param", 
+                              new XAttribute("type", "getwletamnt")
+                           ),
+                        AfterChangedOutput = 
+                           new Action<object>(
+                              (obj) =>
+                              {
+                                 var _wletamnt = (decimal)obj;
+                                 var _amntType = iScsc.Regulations.FirstOrDefault(rg => rg.TYPE == "001" && rg.REGL_STAT == "002");
+
+                                 if (_amntType.AMNT_TYPE == "001") _wletamnt /= 10;
+
+                                 if(_wletamnt <= 100000)
+                                 {
+                                    MessageBox.Show(this, "مبلغ شارژ کیف پول شما به کمتر از 100 هزار تومان رسیده، لطفا جهت شارژ کیف پول به شماره کارت 6219861083425040 نزد بانک سامان محسن حدایقی واریز فرمایید", "هشدار اتمام شارژ کیف پول", MessageBoxButtons.OK);
+                                 }
+                              })
+                     }
+                  })
+            );
+
             iScsc.OIC_ERQT_F(
                new XElement("Process",
                   new XElement("Request",
@@ -5710,6 +5739,27 @@ namespace System.Scsc.Ui.OtherIncome
          {
             if (ExportFile_Sfd.ShowDialog() != DialogResult.OK) return;
             ExportLabel_Txt.EditValue = SelectExportContactFile_Butn.Tag = ExportFile_Sfd.FileName;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void RcmtType_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 0:
+                  break;
+               case 1:
+                  RcmtType_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
          }
          catch (Exception exc)
          {

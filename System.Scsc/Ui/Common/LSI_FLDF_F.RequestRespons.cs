@@ -473,6 +473,8 @@ namespace System.Scsc.Ui.Common
             CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && c.Club_Methods.Any(cm => cm.MTOD_STAT == "002"));
             SuntBs1.DataSource = iScsc.Sub_Units;
             ClubBs.DataSource = iScsc.Clubs.Where(c => Fga_Uclb_U.Contains(c.CODE));
+            MtodBs.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
+            TmplBs.DataSource = iScsc.Templates;
 
             UserProFile_Rb.ImageVisiable = true;
             //isFirstLoaded = true;

@@ -381,6 +381,9 @@
          this.persianRepositoryItemDateEdit1 = new dxExample.PersianRepositoryItemDateEdit();
          this.colEND_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFGPB_CBMT_CODE_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.All_Rb = new System.Windows.Forms.RadioButton();
+         this.ServOnly_Rb = new System.Windows.Forms.RadioButton();
+         this.PersOnly_Rb = new System.Windows.Forms.RadioButton();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit13)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit14)).BeginInit();
@@ -1140,6 +1143,9 @@
          this.splitContainerControl1.IsSplitterFixed = true;
          this.splitContainerControl1.Location = new System.Drawing.Point(0, 0);
          this.splitContainerControl1.Name = "splitContainerControl1";
+         this.splitContainerControl1.Panel1.Controls.Add(this.PersOnly_Rb);
+         this.splitContainerControl1.Panel1.Controls.Add(this.ServOnly_Rb);
+         this.splitContainerControl1.Panel1.Controls.Add(this.All_Rb);
          this.splitContainerControl1.Panel1.Controls.Add(this.LoadInfo_Cbx);
          this.splitContainerControl1.Panel1.Controls.Add(this.ServProFile_Rb);
          this.splitContainerControl1.Panel1.Controls.Add(this.CochProFile_Rb);
@@ -3768,6 +3774,41 @@
          this.colFGPB_CBMT_CODE_DNRM.OptionsColumn.AllowEdit = false;
          this.colFGPB_CBMT_CODE_DNRM.OptionsColumn.ReadOnly = true;
          // 
+         // All_Rb
+         // 
+         this.All_Rb.AutoSize = true;
+         this.All_Rb.Checked = true;
+         this.All_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.All_Rb.Location = new System.Drawing.Point(270, 3);
+         this.All_Rb.Name = "All_Rb";
+         this.All_Rb.Size = new System.Drawing.Size(98, 18);
+         this.All_Rb.TabIndex = 100;
+         this.All_Rb.TabStop = true;
+         this.All_Rb.Text = "همه مشترکین";
+         this.All_Rb.UseVisualStyleBackColor = true;
+         // 
+         // ServOnly_Rb
+         // 
+         this.ServOnly_Rb.AutoSize = true;
+         this.ServOnly_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.ServOnly_Rb.Location = new System.Drawing.Point(297, 27);
+         this.ServOnly_Rb.Name = "ServOnly_Rb";
+         this.ServOnly_Rb.Size = new System.Drawing.Size(71, 18);
+         this.ServOnly_Rb.TabIndex = 100;
+         this.ServOnly_Rb.Text = "فقط اعضا";
+         this.ServOnly_Rb.UseVisualStyleBackColor = true;
+         // 
+         // PersOnly_Rb
+         // 
+         this.PersOnly_Rb.AutoSize = true;
+         this.PersOnly_Rb.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.PersOnly_Rb.Location = new System.Drawing.Point(283, 51);
+         this.PersOnly_Rb.Name = "PersOnly_Rb";
+         this.PersOnly_Rb.Size = new System.Drawing.Size(85, 18);
+         this.PersOnly_Rb.TabIndex = 100;
+         this.PersOnly_Rb.Text = "فقط  پرسنل";
+         this.PersOnly_Rb.UseVisualStyleBackColor = true;
+         // 
          // ATTN_DAYN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -4171,5 +4212,8 @@
       private Windows.Forms.BindingSource OldDefWristBs;
       private MaxUi.CheckButton LoadInfo_Cbx;
       private DevExpress.XtraGrid.Columns.GridColumn colRWNO1;
+      private Windows.Forms.RadioButton PersOnly_Rb;
+      private Windows.Forms.RadioButton ServOnly_Rb;
+      private Windows.Forms.RadioButton All_Rb;
    }
 }

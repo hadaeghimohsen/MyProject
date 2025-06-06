@@ -430,35 +430,38 @@ namespace System.Scsc.Ui.Common
                   else
                      ClubCode = (long?)ClubCode_Lov.EditValue;
 
-                  //if (Tb_Master.SelectedTab == mtp_001)
-                  {
-                     FighBs.DataSource =
-                        iScsc.Fighters.
-                        Where(f =>
-                           Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM)
-                        && f.CONF_STAT == "002"
-                        && f.FGPB_TYPE_DNRM != "003"
-                        && f.ACTV_TAG_DNRM == "101"
-                        && (FrstName_Txt.Text == "" || f.FRST_NAME_DNRM.Contains(FrstName_Txt.Text))
-                        && (LastName_Txt.Text == "" || f.LAST_NAME_DNRM.Contains(LastName_Txt.Text))
-                        && (NatlCode_Txt.Text == "" || f.NATL_CODE_DNRM.Contains(NatlCode_Txt.Text))
-                        && (FngrPrnt_Txt.Text == "" || f.FNGR_PRNT_DNRM.Contains(FngrPrnt_Txt.Text))
-                        && (CellPhon_Txt.Text == "" || f.CELL_PHON_DNRM.Contains(CellPhon_Txt.Text))
-                        && (TellPhon_Txt.Text == "" || f.TELL_PHON_DNRM.Contains(TellPhon_Txt.Text))
-                        && (ServNo_Txt.Text == "" || f.SERV_NO_DNRM.Contains(ServNo_Txt.Text))
-                        && (GlobCode_Txt.Text == "" || f.GLOB_CODE_DNRM.Contains(GlobCode_Txt.Text))
-                        && (BothSex_Rb.Checked || (f.SEX_TYPE_DNRM == (Men_Rb.Checked ? "001" : "002")))
-                        && (ClubCode == null || f.CLUB_CODE_DNRM == ClubCode)
-                        && (SuntCode == null || f.SUNT_CODE_DNRM == SuntCode)
-                        ).OrderByDescending(f => f.MBSP_END_DATE)
-                        .Take((int)FtchRows_Nud.Value);
-                  }
-                  //else if (Tb_Master.SelectedTab == mtp_002)
-                  //{
-                  //   vF_Fighs.DataSource = iScsc.VF_Last_Info_Fighter(null, FrstName_Txt.Text, LastName_Txt.Text, NatlCode_Txt.Text, FngrPrnt_Txt.Text, CellPhon_Txt.Text, TellPhon_Txt.Text, (Men_Rb.Checked ? "001" : Women_Rb.Checked ? "002" : null), ServNo_Txt.Text, GlobCode_Txt.Text, null, null, null, null, SuntCode).Where(f => f.CLUB_CODE == (ClubCode ?? f.CLUB_CODE)).OrderByDescending(s => s.END_DATE).Take((int)FtchRows_Nud.Value);
-                  //   vF_Last_Info_FighterResultGridControl.Focus();
-                  //}
+                  FighBs.DataSource =
+                     iScsc.Fighters.
+                     Where(f =>
+                        Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM)
+                     && f.CONF_STAT == "002"
+                     && f.FGPB_TYPE_DNRM != "003"
+                     && f.ACTV_TAG_DNRM == "101"
+                     && (FrstName_Txt.Text == "" || f.FRST_NAME_DNRM.Contains(FrstName_Txt.Text))
+                     && (LastName_Txt.Text == "" || f.LAST_NAME_DNRM.Contains(LastName_Txt.Text))
+                     && (NatlCode_Txt.Text == "" || f.NATL_CODE_DNRM.Contains(NatlCode_Txt.Text))
+                     && (FngrPrnt_Txt.Text == "" || f.FNGR_PRNT_DNRM.Contains(FngrPrnt_Txt.Text))
+                     && (CellPhon_Txt.Text == "" || f.CELL_PHON_DNRM.Contains(CellPhon_Txt.Text))
+                     && (TellPhon_Txt.Text == "" || f.TELL_PHON_DNRM.Contains(TellPhon_Txt.Text))
+                     && (ServNo_Txt.Text == "" || f.SERV_NO_DNRM.Contains(ServNo_Txt.Text))
+                     && (GlobCode_Txt.Text == "" || f.GLOB_CODE_DNRM.Contains(GlobCode_Txt.Text))
+                     && (BothSex_Rb.Checked || (f.SEX_TYPE_DNRM == (Men_Rb.Checked ? "001" : "002")))
+                     && (ClubCode == null || f.CLUB_CODE_DNRM == ClubCode)
+                     && (SuntCode == null || f.SUNT_CODE_DNRM == SuntCode)
+                     ).OrderByDescending(f => f.MBSP_END_DATE)
+                     .Take((int)FtchRows_Nud.Value);
 
+                  // 1404/03/04
+                  if (DataMngt_Rt.RolloutStatus)
+                  {
+                     RsltFngrPrnt_Lb.Text =
+                        string.Format(
+                           "شناسه دار : " + "{0}" + Environment.NewLine +
+                           "غیر شناسه دار : " + "{1}",
+                           FighBs.List.OfType<Data.Fighter>().Where(f => f.FNGR_PRNT_DNRM != "" && f.FNGR_PRNT_DNRM != null).Count(),
+                           FighBs.List.OfType<Data.Fighter>().Where(f => f.FNGR_PRNT_DNRM == "" || f.FNGR_PRNT_DNRM == null).Count()
+                        );
+                  }
                   requery = false;
                   Search_Butn.Enabled = true;
                })
@@ -2691,14 +2694,13 @@ namespace System.Scsc.Ui.Common
                   && (ClubCode == null || s.CLUB_CODE_DNRM == ClubCode)
                   && (SuntCode == null || s.SUNT_CODE_DNRM == SuntCode) &&
                   s.FGPB_TYPE_DNRM == "001" && s.CONF_STAT == "002" &&
-                  (s.FNGR_PRNT_DNRM != null || s.FNGR_PRNT_DNRM.Trim() != "") &&
+                  (s.FNGR_PRNT_DNRM != null && s.FNGR_PRNT_DNRM.Trim() != "") &&
                      //((Men_Cbx.Checked && s.SEX_TYPE_DNRM == "001") || (Women_Cbx.Checked && s.SEX_TYPE_DNRM == "002")) &&
                   (JustForAll_Rb.Checked ||
                    s.Request_Rows.Any(rr =>
                      (rr.RQTP_CODE == "001" || rr.RQTP_CODE == "025") &&
                      rr.Receive_Documents.Any(rd =>
-                        ((Fngr_Cbx.Checked && rd.Request_Document.DCMT_DSID == 13980505495708) /* Finger Print */ || (Face_Cbx.Checked && rd.Request_Document.DCMT_DSID == 14032589693230 /* Face */)) &&
-                        rd.Image_Documents.Any(im => im.IMAG == null /* Image IS Null */ || im.IMAG.Length < 100 /* Image IS NOT VALID */)
+                        rd.Image_Documents.Any(im => (im.IMAG == null /* Image IS Null */ || im.IMAG.Length < 100 /* Image IS NOT VALID */) && ((Fngr_Cbx.Checked && rd.Request_Document.DCMT_DSID == 13980505495708) /* Finger Print */ || (Face_Cbx.Checked && rd.Request_Document.DCMT_DSID == 14032589693230 /* Face */)))
                      )
                    )
                   )
@@ -3006,6 +3008,188 @@ namespace System.Scsc.Ui.Common
             {
                Search_Butn_Click(null, null);
                ServProf_Tc.SelectedTab = tp_007;
+            }
+         }
+      }
+
+      private void EditGropMbsp_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if(CurrentUser != "ARTAUSER")
+            {
+               MessageBox.Show(this, "این گزینه فقط توسط نیرو پشتیبان شرکت انجام میشود، شرمنده برو بسلامت", "خطا - برو دست خدای مهربون", MessageBoxButtons.OK);
+               return;
+            }
+
+            MbspStrtDate_Dt.CommitChanges();
+            MbspEndDate_Dt.CommitChanges();
+
+            if (!MbspStrtDate_Dt.Value.HasValue) { MbspStrtDate_Dt.Focus(); return; }
+            if (!MbspEndDate_Dt.Value.HasValue) { MbspEndDate_Dt.Focus(); return; }
+
+            var _mtods = new List<long>();
+            foreach (var i in Mtod_Gv.GetSelectedRows())
+            {
+               var _item = Mtod_Gv.GetRow(i) as Data.Method;
+               _mtods.Add(_item.CODE);
+            }
+
+            iScsc.ExecuteCommand(
+               string.Format(
+                  "UPDATE ms SET ms.END_DATE = '{0}' FROM Member_Ship ms, Fighter f WHERE f.FILE_NO = ms.FIGH_FILE_NO AND ms.RECT_CODE = '004' AND ms.MTOD_CODE_DNRM IN ({1}) AND CAST(ms.STRT_DATE AS DATE) >= '{2}' AND F.SEX_TYPE_DNRM IN ('{3}', '{4}');",                   
+                  MbspEndDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd"), string.Join(",", _mtods), MbspStrtDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd"),
+                  MbspMen_Cbx.Checked ? "001" : "000", MbspWomen_Cbx.Checked ? "002" : "000"
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Search_Butn_Click(null, null);
+         }
+      }
+
+      private void ClerTxtSms_Butn_Click(object sender, EventArgs e)
+      {
+         RsltTxtSms_Txt.Text = "";
+      }
+
+      private void TmplActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _tmpl = TmplBs.Current as Data.Template;
+            if (_tmpl == null) return;
+
+            var _figh = FighBs.Current as Data.Fighter;
+            var _mbsp = MbspBs.Current as Data.Member_Ship;
+
+            if (RsltTxtSms_Txt.Text.Length > 0) RsltTxtSms_Txt.Text += Environment.NewLine;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  if (ProcOnTxt_Cbx.Checked)
+                     RsltTxtSms_Txt.Text +=
+                        iScsc.GET_TEXT_F(
+                           new XElement("TemplateToText",
+                               new XAttribute("fileno", _figh.FILE_NO),
+                               new XAttribute("tmid", _tmpl.TMID),
+                               new XAttribute("mbsprwno", _mbsp.RWNO)
+                           )
+                        ).Value;
+                  else
+                     RsltTxtSms_Txt.Text +=
+                        _tmpl.TEMP_TEXT;
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SendTextSms_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _figh = FighBs.Current as Data.Fighter;
+            if(_figh == null)return;
+
+            var crnt = iScsc.Message_Broadcasts.FirstOrDefault(mb => mb.MSGB_TYPE == "005");
+            if (crnt == null) return;
+
+            if (MessageBox.Show(this, "آیا با ارسال پیامک موافق هستین؟", "مجوز ارسال پیامک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+
+            // Process for send sms
+            if (RsltTxtSms_Txt.Text == "") return;
+
+            var phonnumbs = new List<string>();
+
+            if (SelfPhon_Cbx.Checked && _figh.CELL_PHON_DNRM.Length >= 10)
+               phonnumbs.Add(_figh.CELL_PHON_DNRM);
+            if (DadPhon_Cbx.Checked && _figh.DAD_CELL_PHON_DNRM.Length >= 10)
+               phonnumbs.Add(_figh.DAD_CELL_PHON_DNRM);
+            if(MomPhon_Cbx.Checked && _figh.MOM_CELL_PHON_DNRM.Length >= 10)
+               phonnumbs.Add(_figh.MOM_CELL_PHON_DNRM);
+
+            iScsc.MSG_SEND_P(
+               new XElement("Process",
+                  new XElement("Contacts",
+                     new XAttribute("subsys", 5),
+                     new XAttribute("linetype", crnt.LINE_TYPE),
+                     phonnumbs.Select(pn =>
+                        new XElement("Contact",
+                           new XAttribute("phonnumb", pn),
+                           new XElement("Message",
+                              new XAttribute("type", crnt.MSGB_TYPE),
+                              new XAttribute("scdldate", (crnt.SCDL_DATE == null ? DateTime.Now : (crnt.SCDL_DATE.Value.Date < DateTime.Now.Date ? DateTime.Now : (DateTime)crnt.SCDL_DATE))),
+                              new XAttribute("btchnumb", crnt.BTCH_NUMB ?? 0),
+                              new XAttribute("stepmin", crnt.STEP_MIN ?? 0),
+                           //new XAttribute("actndate", GetActnDate(ref i, (crnt.SCDL_DATE == null ? DateTime.Now : (crnt.SCDL_DATE.Value.Date < DateTime.Now.Date ? DateTime.Now : (DateTime)crnt.SCDL_DATE)), (int)crnt.BTCH_NUMB, (int)crnt.STEP_MIN)),
+                              new XAttribute("sendtype", "002"), // Bulk Send
+                              string.Format("{0}{1}", RsltTxtSms_Txt.Text, crnt.CLUB_NAME)
+                           )
+                        )
+                     )
+                  )
+               )
+            );
+
+            RsltTxtSms_Txt.Text = "";
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ProcSortFngr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (CurrentUser != "ARTAUSER")
+            {
+               MessageBox.Show(this, "این گزینه فقط توسط نیرو پشتیبان شرکت انجام میشود، شرمنده برو بسلامت", "خطا - برو دست خدای مهربون", MessageBoxButtons.OK);
+               return;
+            }
+
+            if(MessageBox.Show(this, "آیا با انجام عملیات مرتب سازی کد شناسایی مشترکین خود مطمئن هستید؟", "مرتب سازی کد شناسایی مشترکین", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes)return;
+
+            LastMbspEndDate_Dt.CommitChanges();
+
+            if (LastMbspEndDate_Rb.Checked && !LastMbspEndDate_Dt.Value.HasValue) { LastMbspEndDate_Dt.Focus(); return; }
+
+            iScsc.FNGR_SORT_P(
+               new XElement("Process",
+                   new XAttribute("checklastmbspenddate", LastMbspEndDate_Rb.Checked ? "002" : "001"),
+                   new XAttribute("lastmbspenddate", LastMbspEndDate_Rb.Checked ? LastMbspEndDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd") : ""),
+                   new XAttribute("checklastmbspendday", LastMbspEndDay_Rb.Checked ? "002" : "001"),
+                   new XAttribute("lastmbspendday", LastMbspEndDay_Rb.Checked ? LastMbspEndDay_Nud.Value : 0)
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if(requery)
+            {
+               Search_Butn_Click(null, null);
             }
          }
       }

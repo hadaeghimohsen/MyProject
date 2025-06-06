@@ -120,6 +120,41 @@ namespace System.Scsc.Ui.Admission
             var Rqst = RqstBs1.Current as Data.Request;
             rqstindex = RqstBs1.Position;
 
+            // 1404/01/31 * Check Wallet Amnt
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Param", 
+                              new XAttribute("type", "getwletamnt")
+                           ),
+                        AfterChangedOutput = 
+                           new Action<object>(
+                              (obj) =>
+                              {
+                                 var _wletamnt = (decimal)obj;
+                                 var _amntType = iScsc.Regulations.FirstOrDefault(rg => rg.TYPE == "001" && rg.REGL_STAT == "002");
+
+                                 if (_amntType.AMNT_TYPE == "001") _wletamnt /= 10;
+
+                                 if(_wletamnt <= 100000)
+                                 {
+                                    MessageBox.Show(this, "مبلغ شارژ کیف پول شما به کمتر از 100 هزار تومان رسیده، لطفا جهت شارژ کیف پول به شماره کارت 6219861083425040 نزد بانک سامان محسن حدایقی واریز فرمایید", "هشدار اتمام شارژ کیف پول", MessageBoxButtons.OK);
+                                 }
+                              })
+                     }
+                  })
+            );
+
+            // 1404/01/24 * Duplicate checking (CellPhon, NatlCode)
+            CELL_PHON_TextEdit_ButtonClick(null, null);
+            if (FighsBs1.Count > 0) return;
+            NATL_CODE_TextEdit_ButtonClick(null, null);
+            if (FighsBs1.Count > 0) return;
+
             if (FNGR_PRNT_TextEdit.Text == "") { 
                if(MessageBox.Show(this, "کد شناسایی خالی میباشد آیا مایل به ایجاد کد پیش فرض هستید؟", "هشدار کد شناسایی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes) 
                   MaxF_Butn001_Click(null, null); 
@@ -167,7 +202,7 @@ namespace System.Scsc.Ui.Admission
                   {
                      NumbOfAttnMont_TextEdit001.Focus();
                      return;
-                  }
+                  }                  
 
                   if (Rqst == null || Rqst.RQST_STAT == null || Rqst.RQST_STAT == "001")
                      iScsc.ADM_TRQT_F(
@@ -1603,20 +1638,6 @@ namespace System.Scsc.Ui.Admission
          catch{}
       }
 
-      private void RcmtType_Butn_Click(object sender, EventArgs e)
-      {
-         try
-         {
-            RcmtType_Butn.Text = RcmtType_Butn.Tag.ToString() == "0" ? "POS" : "نقدی";
-            RcmtType_Butn.Tag = RcmtType_Butn.Tag.ToString() == "0" ? "1" : "0";
-            PymtAmnt_Txt.Focus();
-            var pymt = PymtsBs1.Current as Data.Payment;
-            if(pymt == null)return;
-            PymtAmnt_Txt.EditValue = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
-         }
-         catch { }
-      }
-
       private void SavePyds_Butn_Click(object sender, EventArgs e)
       {
          try
@@ -2017,6 +2038,18 @@ namespace System.Scsc.Ui.Admission
          }
       }
 
+      private void RcmtType_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            PymtAmnt_Txt.Focus();
+            var pymt = PymtsBs1.Current as Data.Payment;
+            if (pymt == null) return;
+            PymtAmnt_Txt.EditValue = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+         }
+         catch { }
+      }
+
       private void RcmtType_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
       {
          RcmtType_Butn_Click(null, null);
@@ -2395,19 +2428,24 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
+            FighsBs1.List.Clear();
+
             if(CELL_PHON_TextEdit.EditValue == null || CELL_PHON_TextEdit.Text == ""){ CELL_PHON_TextEdit.Focus(); return; }
 
             FighsBs1.DataSource = 
                iScsc.Fighters
                   .Where(
                      f => f.CELL_PHON_DNRM.Contains(CELL_PHON_TextEdit.Text) && 
-                          f.CONF_STAT == "002" &&                        
+                          f.CONF_STAT == "002" &&
+                          f.FGPB_TYPE_DNRM == "001" &&
                           (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || 
                               (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && 
                           Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101
                   );
 
-            if (FighsBs1.Count > 0)
+            if(FighsBs1.Count == 1)
+               HL_INVSFILENO_ButtonClick(null, null);
+            else if (FighsBs1.Count > 1)
             {
                Adm_Tc.SelectedTab = More_Tp;
                More_Tc.SelectedTab = tp_009;
@@ -2423,6 +2461,8 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
+            FighsBs1.List.Clear();
+
             if (NATL_CODE_TextEdit.EditValue == null || NATL_CODE_TextEdit.Text == "") { NATL_CODE_TextEdit.Focus(); return; }
 
             FighsBs1.DataSource =
@@ -2430,12 +2470,15 @@ namespace System.Scsc.Ui.Admission
                   .Where(
                      f => f.NATL_CODE_DNRM.Contains(NATL_CODE_TextEdit.Text) &&
                           f.CONF_STAT == "002" &&
+                          f.FGPB_TYPE_DNRM == "001" &&
                           (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) ||
                               (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&
                           Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101
                   );
 
-            if (FighsBs1.Count > 0)
+            if (FighsBs1.Count == 1)
+               HL_INVSFILENO_ButtonClick(null, null);
+            else if (FighsBs1.Count > 1)
             {
                Adm_Tc.SelectedTab = More_Tp;
                More_Tc.SelectedTab = tp_009;
@@ -2679,6 +2722,27 @@ namespace System.Scsc.Ui.Admission
          {
             MessageBox.Show(exc.Message);
          }         
+      }
+
+      private void RcmtType_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 0:
+                  break;
+               case 1:
+                  RcmtType_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

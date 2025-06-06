@@ -1260,14 +1260,14 @@ namespace System.Scsc.Ui.Common
                if (!_acesPerm) return;
             }
 
-            Job _InteractWithScsc =
+            _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",
-                  new List<Job>
-                  {                     
-                     new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
-                     new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", _figh.FNGR_PRNT_DNRM), new XAttribute("mbsprwno", mbsp.RWNO), new XAttribute("attnsystype", "001"))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
+                   new List<Job>
+                   {                     
+                      new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
+                      new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", _figh.FNGR_PRNT_DNRM), new XAttribute("mbsprwno", mbsp.RWNO), new XAttribute("attnsystype", "001"))}
+                   })
+            );
 
             //Refresh_Butn_Click(null, null);
          }
@@ -1586,6 +1586,17 @@ namespace System.Scsc.Ui.Common
                   })
             );
          }
+         else if (tb_master.SelectedTab == tp_006)
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                 new List<Job>
+                 {
+                    new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                    new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_006_F"))}
+                 })
+            );
+         }         
          else if(tb_master.SelectedTab == tp_007)
          {
             _DefaultGateway.Gateway(
@@ -1612,6 +1623,32 @@ namespace System.Scsc.Ui.Common
                     {
                        new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("File_No = {0}", fileno))}
                     })
+               );
+            }
+            else if (tb_master.SelectedTab == tp_006)
+            {
+               FromAttnDate_Dt.CommitChanges();
+               ToAttnDate_Dt.CommitChanges();
+
+               var _figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                    new List<Job>
+                 {
+                    new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
+                    {
+                       Input = 
+                           new XElement("Print", 
+                              new XAttribute("type", "Selection"), 
+                              new XAttribute("modual", GetType().Name), 
+                              new XAttribute("section", GetType().Name.Substring(0,3) + "_006_F"), 
+                              string.Format("FIGH_FILE_NO = {0} AND FGPB_TYPE_DNRM = '{1}' ", fileno, _figh.TYPE) + 
+                              (FromAttnDate_Dt.Value.HasValue ? string.Format("AND Attn_Date >= '{0}' ",  FromAttnDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd"))  : "") + 
+                              (ToAttnDate_Dt.Value.HasValue ? string.Format("AND Attn_Date <= '{0}' ", ToAttnDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd"))  : "") 
+                           )
+                    }
+                 })
                );
             }
             else if(tb_master.SelectedTab == tp_007)
@@ -1652,6 +1689,32 @@ namespace System.Scsc.Ui.Common
                     })
                );
             }
+            else if (tb_master.SelectedTab == tp_006)
+            {
+               FromAttnDate_Dt.CommitChanges();
+               ToAttnDate_Dt.CommitChanges();
+
+               var _figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                    new List<Job>
+                 {
+                    new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */)
+                    {
+                       Input = 
+                           new XElement("Print", 
+                               new XAttribute("type", "Default"), 
+                               new XAttribute("modual", GetType().Name), 
+                               new XAttribute("section", GetType().Name.Substring(0,3) + "_006_F"), 
+                               string.Format("FIGH_FILE_NO = {0} AND FGPB_TYPE_DNRM = '{1}' ", fileno, _figh.TYPE) + 
+                               (FromAttnDate_Dt.Value.HasValue ? string.Format("AND Attn_Date >= '{0}' ",  FromAttnDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd"))  : "") + 
+                               (ToAttnDate_Dt.Value.HasValue ? string.Format("AND Attn_Date <= '{0}' ", ToAttnDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd"))  : "") 
+                           )
+                    }
+                 })
+               );
+            }            
             else if (tb_master.SelectedTab == tp_007)
             {
                _DefaultGateway.Gateway(
@@ -3910,44 +3973,51 @@ namespace System.Scsc.Ui.Common
 
       private void RqstBnSettingPrint_Click(object sender, EventArgs e)
       {
-         
-         Job _InteractWithScsc =
-           new Job(SendType.External, "Localhost",
-              new List<Job>
+         if (tb_master.SelectedTab == tp_003)
+         {
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
                   {
                      new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
                      new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"))}
                   });
-         _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }         
       }
 
       private void RqstBnPrint_Click(object sender, EventArgs e)
       {
-         if (vF_SavePaymentsBs.Current == null) return;
-         var crnt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
+         if (tb_master.SelectedTab == tp_003)
+         {
+            if (vF_SavePaymentsBs.Current == null) return;
+            var crnt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
 
-         Job _InteractWithScsc =
-           new Job(SendType.External, "Localhost",
-              new List<Job>
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
                   {
                      new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
                   });
-         _DefaultGateway.Gateway(_InteractWithScsc);
-
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }         
       }
 
       private void RqstBnDefaultPrint_Click(object sender, EventArgs e)
       {
-         if (vF_SavePaymentsBs.Current == null) return;
-         var crnt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
+         if (tb_master.SelectedTab == tp_003)
+         {
+            if (vF_SavePaymentsBs.Current == null) return;
+            var crnt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
 
-         Job _InteractWithScsc =
-           new Job(SendType.External, "Localhost",
-              new List<Job>
+            Job _InteractWithScsc =
+              new Job(SendType.External, "Localhost",
+                 new List<Job>
                   {
                      new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
                   });
-         _DefaultGateway.Gateway(_InteractWithScsc);
+            _DefaultGateway.Gateway(_InteractWithScsc);
+         }         
       }
 
       private void SaveRqpm_Butn_Click(object sender, EventArgs e)
@@ -5868,6 +5938,27 @@ namespace System.Scsc.Ui.Common
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void RcmtType_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 0:
+                  break;
+               case 1:
+                  RcmtType_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

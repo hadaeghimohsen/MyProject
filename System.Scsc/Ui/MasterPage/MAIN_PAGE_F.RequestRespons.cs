@@ -215,11 +215,21 @@ namespace System.Scsc.Ui.MasterPage
                            }
 
                            if ((licndate.Date - DateTime.Now.Date).Days >= 15)
-                              CertificateLogo_Pb.Image = System.Scsc.Properties.Resources.IMAGE_1656;
+                              //CertificateLogo_Pb.Image = System.Scsc.Properties.Resources.IMAGE_1656;
+                           {
+                              CertificateLogo_Pb.NormalColorA = CertificateLogo_Pb.NormalColorB = Color.YellowGreen;
+                           }
+
                            else if ((licndate.Date - DateTime.Now.Date).Days <= 15 && (licndate.Date - DateTime.Now.Date).Days >= 0)
-                              CertificateLogo_Pb.Image = System.Scsc.Properties.Resources.IMAGE_1658;
+                           {
+                              //CertificateLogo_Pb.Image = System.Scsc.Properties.Resources.IMAGE_1658;
+                              CertificateLogo_Pb.NormalColorA = CertificateLogo_Pb.NormalColorB = Color.Gray;
+                           }
                            else
-                              CertificateLogo_Pb.Image = System.Scsc.Properties.Resources.IMAGE_1657;
+                           {
+                              //CertificateLogo_Pb.Image = System.Scsc.Properties.Resources.IMAGE_1657;
+                              CertificateLogo_Pb.NormalColorA = CertificateLogo_Pb.NormalColorB = Color.Red;
+                           }
                         }
                      )
                }
@@ -564,6 +574,9 @@ namespace System.Scsc.Ui.MasterPage
          // 1403/02/21
          Main_Pnl.Controls.OfType<MaxUi.Rollout>().ToList().ForEach(r => r.RolloutStatus = (r.Tag == null) ? false : true);
 
+         // 1404/01/24 * Get subsystem version
+         SubVerNo_Txt.EditValue = iScsc.V_SubSies.FirstOrDefault().VERS_NO;
+
          job.Status = StatusType.Successful;
       }
 
@@ -627,6 +640,7 @@ namespace System.Scsc.Ui.MasterPage
          VCompBs.DataSource = iScsc.V_Computers;
          DysnoBs.DataSource = iScsc.D_YSNOs;
          ANoteBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Note_Tag_Info");
+         VPosBs1.DataSource = iScsc.V_Pos_Devices;
 
          Execute_Query();
          FormHandle = this.Handle;
@@ -834,6 +848,15 @@ namespace System.Scsc.Ui.MasterPage
             EdevFngr_Rlt.RolloutStatus = true;
             FngrPrntOpr_Txt.Text = xinput.Attribute("fngrprnt").Value;
             FngrPrntOpr_Txt.Focus();
+         }
+         else if (xinput != null && xinput.Attribute("type").Value == "getwletamnt")
+         {
+            CWlet_Pb_Click(null, null);
+
+            if(CWlet_Pb.Visible)
+            {
+               job.Output = CWlet_Txt.EditValue;
+            }
          }
          job.Status = StatusType.Successful;
       }

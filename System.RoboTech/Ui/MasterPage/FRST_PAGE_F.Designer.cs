@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FRST_PAGE_F));
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
@@ -130,7 +129,8 @@
          this.OrdrShip_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_logout = new DevExpress.XtraEditors.SimpleButton();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
+         this.Tm_ShowTime = new System.Windows.Forms.Timer();
+         this.Exit_Butn = new C1.Win.C1Ribbon.RibbonButton();
          ((System.ComponentModel.ISupportInitialize)(this.c1Ribbon1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pnl_Desktop)).BeginInit();
          this.Pnl_Desktop.SuspendLayout();
@@ -291,6 +291,7 @@
          // ribbonGroup10
          // 
          this.ribbonGroup10.Items.Add(this.InstallAndConfig);
+         this.ribbonGroup10.Items.Add(this.Exit_Butn);
          this.ribbonGroup10.Name = "ribbonGroup10";
          // 
          // InstallAndConfig
@@ -1070,6 +1071,14 @@
          this.Tm_ShowTime.Interval = 1000;
          this.Tm_ShowTime.Tick += new System.EventHandler(this.Tm_ShowTime_Tick);
          // 
+         // Exit_Butn
+         // 
+         this.Exit_Butn.LargeImage = ((System.Drawing.Image)(resources.GetObject("Exit_Butn.LargeImage")));
+         this.Exit_Butn.Name = "Exit_Butn";
+         this.Exit_Butn.SmallImage = ((System.Drawing.Image)(resources.GetObject("Exit_Butn.SmallImage")));
+         this.Exit_Butn.Text = "بازگشت";
+         this.Exit_Butn.Click += new System.EventHandler(this.Exit_Butn_Click);
+         // 
          // FRST_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1168,5 +1177,6 @@
       private C1.Win.C1Ribbon.RibbonButton MngrShop_Butn;
       private C1.Win.C1Ribbon.RibbonGroup ribbonGroup15;
       private C1.Win.C1Ribbon.RibbonButton MngrRqst036_Butn;
+      private C1.Win.C1Ribbon.RibbonButton Exit_Butn;
    }
 }

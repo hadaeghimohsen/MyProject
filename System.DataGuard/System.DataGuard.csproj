@@ -125,11 +125,19 @@
     <Reference Include="PcPosClassLibrary.XmlSerializers">
       <HintPath>..\..\..\Utility\Tools\POS\Pasargad\Dll_PC-POS\نسخه dll مخصوص پایانه های کستل (فناپ)\Dll\PCPOS Library-5-0-10-24\PcPosClassLibrary.XmlSerializers.dll</HintPath>
     </Reference>
+    <Reference Include="PcPosNotification, Version=5.3.531.1632, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\PcPosNotification.dll</HintPath>
+    </Reference>
     <Reference Include="PosInterface">
       <HintPath>..\..\..\Utility\Tools\POS\Asan Pardakht\Ver_1.0.0.3\Ver_1.0.0.3\PosInterface.dll</HintPath>
     </Reference>
     <Reference Include="POS_PC">
       <HintPath>..\..\..\Utility\Tools\POS\Melat\Simulator &amp; DLL\Simulator\POS_PC.dll</HintPath>
+    </Reference>
+    <Reference Include="Sadad.PcPos.Core, Version=5.3.531.1632, Culture=neutral, PublicKeyToken=dad9b7f82dee0171, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\Sadad.PcPos.Core.dll</HintPath>
     </Reference>
     <Reference Include="SSP1126.PcPos.Net2, Version=1.4.9.1, Culture=neutral, PublicKeyToken=9c64f87e106a396b, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

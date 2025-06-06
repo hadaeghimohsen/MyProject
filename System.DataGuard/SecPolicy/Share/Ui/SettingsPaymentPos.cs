@@ -24,6 +24,8 @@ using PcPosClassLibrary;
 using System.Net.Sockets;
 using System.Net;
 using Newtonsoft.Json;
+using Sadad;
+using Sadad.PcPos.Core;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
 {
@@ -160,6 +162,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             case "006":
                PasargadPcPos();
                break;
+            case "007":
+               SadadPcPos();
+               break;
          }
       }
 
@@ -203,7 +208,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       #region Saman Pos Bank
       #region Variable
       private PcPosFactory _PcPosFactory;
-      private TransactionType _TranType;
+      private TransactionType _TranType = TransactionType.Purchase;
       #endregion
       private void SamanPcPos()
       {
@@ -233,7 +238,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             _PcPosFactory.Initialization(ResponseLanguage.Persian, 0, AsyncType.Sync);
 
-            PosResult posResult = _PcPosFactory.PosStarterPurchaseInit();
+            SSP1126.PcPos.Infrastructure.PosResult posResult = _PcPosFactory.PosStarterPurchaseInit();
             if (posResult != null)
                SamanPosClient_CardSwiped(posResult);
          }
@@ -244,7 +249,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
       }
 
-      private void SamanPosClient_CardSwiped(PosResult posResult)
+      private void SamanPosClient_CardSwiped(SSP1126.PcPos.Infrastructure.PosResult posResult)
       {
          try
          {
@@ -291,7 +296,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
       }
 
-      private void SamanPosClient_PosResultReceived(PosResult posResult)
+      private void SamanPosClient_PosResultReceived(SSP1126.PcPos.Infrastructure.PosResult posResult)
       {
          try
          {
@@ -316,7 +321,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
       }
 
-      private long? SamanPcPos_SaveTransactionLog(PosResult posResult)
+      private long? SamanPcPos_SaveTransactionLog(SSP1126.PcPos.Infrastructure.PosResult posResult)
       {
          try
          {
@@ -362,7 +367,6 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             var pos = PosBs.Current as Data.Pos_Device;
             if (pos == null) return;
-
             
             _Btlv = new BTLV();            
 
@@ -834,6 +838,137 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("serlno", posResult.SequenceNumber ?? ""),
                      new XAttribute("flowno", posResult.Stan ?? ""),
                      new XAttribute("refno", posResult.ReferenceNumber ?? "")
+                  );
+            iProject.SaveTransactionLog(ref xPcPos);
+
+            Tlid = Convert.ToInt64(xPcPos.Attribute("tlid").Value);
+            return Tlid;
+         }
+         catch (Exception exc)
+         {
+            throw exc;
+         }
+      }
+      #endregion
+
+      #region Sadad
+      #region Variable
+      PcPosBusiness _SadadPcPos;
+      #endregion
+      private void SadadPcPos()
+      {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return;
+
+            switch (pos.POS_CNCT_TYPE)
+            {
+               case "001":
+                  _SadadPcPos = new PcPosBusiness() { ConnectionType = PcPosConnectionType.Serial, ComPortName = pos.COMM_PORT, Port = (int)pos.BAND_RATE};
+                  break;
+               case "002":
+                  _SadadPcPos = new PcPosBusiness() { ConnectionType = PcPosConnectionType.Lan,  Ip = pos.IP_ADRS, Port = (int)pos.BAND_RATE};
+                  break;
+               default:
+                  break;
+            }
+
+            Tlid = SadadPcPos_SaveTransactionLog(new Sadad.PcPos.Core.PosResult());
+
+            _SadadPcPos.OnSaleResult += _SadadPcPos_OnSaleResult;
+            _SadadPcPos.Amount = Amnt_Txt.EditValue.ToString();
+            _SadadPcPos.DeviceType = DeviceType.BlueBird;
+
+            if (pos.ACTN_TYPE == "001")
+            {
+               // حساب شخصی
+               //Threading.Thread.Sleep(1000);
+
+               //_SadadPcPos.SyncSaleTransaction();
+            }
+            else
+            {
+               // حساب دولتی
+               if (pos.BILL_FIND_TYPE == "001")
+               {
+                  // شناسه مشترک
+                  //Threading.Thread.Sleep(1000);
+
+                  //posResult = _PcPosFactory.PosStarterPurchase(Amnt_Txt.EditValue.ToString(), null, "", "", 0, "", pos.BILL_NO, null, -1, null, -1);
+                  _SadadPcPos.SetSaleId(pos.BILL_NO);
+               }
+               else
+               {
+                  // شناسه متفاوت
+                  var useraccesspos = iProject.User_Access_Pos.FirstOrDefault(uap => uap.User.USERDB.ToUpper() == CurrentUser.ToUpper() && uap.POSD_PSID == pos.PSID);
+                  if ((useraccesspos.BILL_NO ?? "") == "")
+                     useraccesspos.BILL_NO = pos.BILL_NO;
+                  Threading.Thread.Sleep(1000);
+                  //posResult = _PcPosFactory.PosStarterPurchase(Amnt_Txt.EditValue.ToString(), null, "", "", 0);
+                  //posResult = _PcPosFactory.PosStarterPurchase(Amnt_Txt.EditValue.ToString(), null, "", "", 0, "", useraccesspos.BILL_NO, null, -1, null, -1);
+                  _SadadPcPos.SetSaleId(useraccesspos.BILL_NO);
+               }
+            }
+
+            _SadadPcPos.SyncSaleTransaction();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+            _SadadPcPos.Dispose();
+         }
+      }
+
+      private void _SadadPcPos_OnSaleResult(object sender, Sadad.PcPos.Core.PosResult posResult)
+      {
+         try
+         {
+            if (posResult == null) return;
+
+            Tlid = SadadPcPos_SaveTransactionLog(posResult);
+
+            switch (posResult.ResponseCode)
+            {
+               case "00":
+                  PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+                  SendCallBack2Router();
+                  break;
+               default:
+                  PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+                  break;
+            }
+         }
+         catch (Exception)
+         {
+            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+         }
+      }
+
+      private long? SadadPcPos_SaveTransactionLog(Sadad.PcPos.Core.PosResult posResult)
+      {
+         try
+         {
+            var pos = PosBs.Current as Data.Pos_Device;
+            if (pos == null) return null;
+
+            XElement xPcPos =
+                  new XElement("PosRequest",
+                     new XAttribute("psid", pos.PSID),
+                     new XAttribute("subsys", subsys ?? 0),
+                     new XAttribute("gtwymacadrs", gtwymacadrs),
+                     new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("tlid", Tlid),
+                     new XAttribute("amnt", Amnt_Txt.EditValue),
+                     new XAttribute("respcode", posResult.ResponseCode ?? ""),
+                     new XAttribute("respdesc", posResult.ResponseCodeMessage ?? ""),
+                     new XAttribute("cardno", posResult.CardNo ?? ""),
+                     new XAttribute("termno", posResult.TerminalId ?? ""),
+                     new XAttribute("serlno", posResult.MerchantId ?? ""),
+                     new XAttribute("flowno", posResult.TransactionNo ?? ""),
+                     new XAttribute("refno", posResult.Rrn ?? "")
                   );
             iProject.SaveTransactionLog(ref xPcPos);
 

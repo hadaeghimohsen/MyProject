@@ -54,11 +54,11 @@ ORDER BY 5 DESC</SqlCommand>
       <Components isList="true" count="4">
         <ReportTitleBand1 Ref="5" type="ReportTitleBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,0.4,19,0.8</ClientRectangle>
+          <ClientRectangle>0,0.4,6.4,0.8</ClientRectangle>
           <Components isList="true" count="1">
             <Text1 Ref="6" type="Text" isKey="true">
-              <Brush>White</Brush>
-              <ClientRectangle>7,0,5.6,0.8</ClientRectangle>
+              <Brush>[223:167:166]</Brush>
+              <ClientRectangle>0,0,6.4,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,10,Bold</Font>
               <HorAlignment>Center</HorAlignment>
@@ -66,7 +66,7 @@ ORDER BY 5 DESC</SqlCommand>
               <Name>Text1</Name>
               <Page isRef="4" />
               <Parent isRef="5" />
-              <Text>گزارش حضور و غیاب اعضا</Text>
+              <Text>گزارش تردد</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
@@ -79,21 +79,21 @@ ORDER BY 5 DESC</SqlCommand>
         </ReportTitleBand1>
         <Attn_Gb Ref="7" type="GroupHeaderBand" isKey="true">
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,2,19,0.8</ClientRectangle>
+          <ClientRectangle>0,2,6.4,1.2</ClientRectangle>
           <Components isList="true" count="7">
             <Text2 Ref="8" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>16.6,0,2.4,0.8</ClientRectangle>
+              <ClientRectangle>4.4,0,2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
+              <Font>B Koodak,8</Font>
               <Guid>79f8a955326b4e1e8a27634930697eef</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>Text2</Name>
               <Page isRef="4" />
               <Parent isRef="7" />
-              <Text>تاریخ</Text>
+              <Text>نام و خانوادگی</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -102,8 +102,7 @@ ORDER BY 5 DESC</SqlCommand>
             <Text3 Ref="9" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>13,0,3.6,0.8</ClientRectangle>
+              <ClientRectangle>0,0,4.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,10</Font>
               <Guid>368d91a135364b7f88258921afc344fd</Guid>
@@ -112,8 +111,7 @@ ORDER BY 5 DESC</SqlCommand>
               <Name>Text3</Name>
               <Page isRef="4" />
               <Parent isRef="7" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{V_Attendance_Action.ATTN_DATE_DNRM}</Text>
+              <Text>{V_Attendance_Action.NAME_DNRM}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
@@ -121,9 +119,9 @@ ORDER BY 5 DESC</SqlCommand>
             <Text10 Ref="10" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>10.8,0,2.2,0.8</ClientRectangle>
+              <ClientRectangle>0.8,0.6,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
+              <Font>B Koodak,8</Font>
               <Guid>fb1618403aee484987579d3abfc1a86e</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -140,7 +138,7 @@ ORDER BY 5 DESC</SqlCommand>
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>8.4,0,2.4,0.8</ClientRectangle>
+              <ClientRectangle>0,0.6,0.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,10</Font>
               <Guid>b43c43130f7645b9b422a5078b74f0ee</Guid>
@@ -158,9 +156,9 @@ ORDER BY 5 DESC</SqlCommand>
             <Text16 Ref="12" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>6,0,2.4,0.8</ClientRectangle>
+              <ClientRectangle>4.4,0.6,2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
+              <Font>B Koodak,8</Font>
               <Guid>b3422509d7d54a29951af9f47041644c</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
@@ -177,7 +175,7 @@ ORDER BY 5 DESC</SqlCommand>
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>5.2,0,0.8,0.8</ClientRectangle>
+              <ClientRectangle>3.4,0.6,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,10</Font>
               <Guid>5796837924bf42a3bf77127f88ed61ec</Guid>
@@ -198,90 +196,103 @@ ORDER BY 5 DESC</SqlCommand>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </Text17>
-            <Text18 Ref="15" type="Text" isKey="true">
+            <Text20 Ref="15" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
-              <ClientRectangle>4.4,0,0.8,0.8</ClientRectangle>
+              <ClientRectangle>2.4,0.6,1,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,10</Font>
-              <Guid>9a4c7b87b99f47af931aa626a7ea4f7a</Guid>
+              <Guid>111f59e7821342d891e616bdf501dea5</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>Text18</Name>
+              <Name>Text20</Name>
               <Page isRef="4" />
               <Parent isRef="7" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
               <Text>{Sum(Attn_Gb,V_Attendance_Action.M) % 60}</Text>
               <TextBrush>Black</TextBrush>
-              <TextFormat Ref="16" type="NumberFormat" isKey="true">
-                <DecimalDigits>0</DecimalDigits>
-                <GroupSeparator>,</GroupSeparator>
-                <NegativePattern>1</NegativePattern>
-                <UseLocalSetting>False</UseLocalSetting>
-              </TextFormat>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </Text18>
+            </Text20>
           </Components>
-          <Condition>{V_Attendance_Action.ATTN_DATE}</Condition>
+          <Condition>{V_Attendance_Action.FIGH_FILE_NO}</Condition>
           <Conditions isList="true" count="0" />
           <Name>Attn_Gb</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
-          <SortDirection>Descending</SortDirection>
         </Attn_Gb>
-        <HeaderV_Attendance_Action Ref="17" type="HeaderBand" isKey="true">
+        <HeaderV_Attendance_Action Ref="16" type="HeaderBand" isKey="true">
           <Border>All;Black;1;Solid;False;4;Black</Border>
           <Brush>Transparent</Brush>
-          <ClientRectangle>0,3.6,19,0.8</ClientRectangle>
-          <Components isList="true" count="10">
-            <HeaderV_Attendance_Action_NAME_DNRM Ref="18" type="Text" isKey="true">
+          <ClientRectangle>0,4,6.4,0.6</ClientRectangle>
+          <Components isList="true" count="5">
+            <Text12 Ref="17" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>16.6,0,2.4,0.8</ClientRectangle>
+              <ClientRectangle>0.8,0,0.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
+              <Font>B Koodak,8</Font>
+              <Guid>aabe82eea7cc4f5eb6e3ff2ecb502a3f</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>HeaderV_Attendance_Action_NAME_DNRM</Name>
+              <Name>Text12</Name>
               <Page isRef="4" />
-              <Parent isRef="17" />
-              <Text>نام و فامیلی</Text>
+              <Parent isRef="16" />
+              <Text>ساعت</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </HeaderV_Attendance_Action_NAME_DNRM>
-            <HeaderV_Attendance_Action_PYMT_DESC Ref="19" type="Text" isKey="true">
+            </Text12>
+            <Text13 Ref="18" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>10.8,0,2.2,0.8</ClientRectangle>
+              <ClientRectangle>0,0,0.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
+              <Font>B Koodak,8</Font>
+              <Guid>11833dcd04dd4850a33d06ce800c6f0d</Guid>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
-              <Name>HeaderV_Attendance_Action_PYMT_DESC</Name>
+              <Name>Text13</Name>
               <Page isRef="4" />
-              <Parent isRef="17" />
-              <Text>کد اعضا</Text>
+              <Parent isRef="16" />
+              <Text>دقیقه</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
-            </HeaderV_Attendance_Action_PYMT_DESC>
+            </Text13>
+            <Text18 Ref="19" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>[216:216:216]</Brush>
+              <ClientRectangle>4.4,0,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,8</Font>
+              <Guid>d809ea426ea44a0a96596e6066ad4f78</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text18</Name>
+              <Page isRef="4" />
+              <Parent isRef="16" />
+              <Text>تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text18>
             <HeaderV_Attendance_Action_ENTR_TIME Ref="20" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>8.4,0,2.4,0.8</ClientRectangle>
+              <ClientRectangle>3,0,1.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
+              <Font>B Koodak,8</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderV_Attendance_Action_ENTR_TIME</Name>
               <Page isRef="4" />
-              <Parent isRef="17" />
-              <Text>ساعت ورود</Text>
+              <Parent isRef="16" />
+              <Text>ورود</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
@@ -290,285 +301,35 @@ ORDER BY 5 DESC</SqlCommand>
             <HeaderV_Attendance_Action_EXIT_TIME Ref="21" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>[216:216:216]</Brush>
-              <ClientRectangle>6,0,2.4,0.8</ClientRectangle>
+              <ClientRectangle>1.6,0,1.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
+              <Font>B Koodak,8</Font>
               <HorAlignment>Center</HorAlignment>
               <Margins>0,0,0,0</Margins>
               <Name>HeaderV_Attendance_Action_EXIT_TIME</Name>
               <Page isRef="4" />
-              <Parent isRef="17" />
-              <Text>ساعت خروج</Text>
+              <Parent isRef="16" />
+              <Text>خروج</Text>
               <TextBrush>Black</TextBrush>
               <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
             </HeaderV_Attendance_Action_EXIT_TIME>
-            <HeaderV_Attendance_Action_ATTN_DESCS Ref="22" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[216:216:216]</Brush>
-              <ClientRectangle>0,0,2.2,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>HeaderV_Attendance_Action_ATTN_DESCS</Name>
-              <Page isRef="4" />
-              <Parent isRef="17" />
-              <Text>شرح</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </HeaderV_Attendance_Action_ATTN_DESCS>
-            <Text4 Ref="23" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[216:216:216]</Brush>
-              <ClientRectangle>14.8,0,1.8,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
-              <Guid>8a607f8f990346d1b891686b92d19d59</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text4</Name>
-              <Page isRef="4" />
-              <Parent isRef="17" />
-              <Text>سمت</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text4>
-            <Text6 Ref="24" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[216:216:216]</Brush>
-              <ClientRectangle>13,0,1.8,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
-              <Guid>966bf1b948a94dd98a7822d72c1d3a15</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text6</Name>
-              <Page isRef="4" />
-              <Parent isRef="17" />
-              <Text>گروه</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text6>
-            <Text8 Ref="25" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[216:216:216]</Brush>
-              <ClientRectangle>2.2,0,2.2,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
-              <Guid>b1ba081e60c14559a5767d45a9e471b9</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text8</Name>
-              <Page isRef="4" />
-              <Parent isRef="17" />
-              <Text>امضا</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text8>
-            <Text12 Ref="26" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[216:216:216]</Brush>
-              <ClientRectangle>5.2,0,0.8,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
-              <Guid>aabe82eea7cc4f5eb6e3ff2ecb502a3f</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text12</Name>
-              <Page isRef="4" />
-              <Parent isRef="17" />
-              <Text>ساعت</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text12>
-            <Text13 Ref="27" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>[216:216:216]</Brush>
-              <ClientRectangle>4.4,0,0.8,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,9</Font>
-              <Guid>11833dcd04dd4850a33d06ce800c6f0d</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text13</Name>
-              <Page isRef="4" />
-              <Parent isRef="17" />
-              <Text>دقیقه</Text>
-              <TextBrush>Black</TextBrush>
-              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text13>
           </Components>
           <Conditions isList="true" count="0" />
           <Name>HeaderV_Attendance_Action</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
         </HeaderV_Attendance_Action>
-        <DataV_x0023_Attendance_Action Ref="28" type="DataBand" isKey="true">
-          <Border>All;Black;1;Solid;False;4;Black</Border>
+        <DataV_x0023_Attendance_Action Ref="22" type="DataBand" isKey="true">
           <Brush>Transparent</Brush>
           <BusinessObjectGuid isNull="true" />
-          <ClientRectangle>0,5.2,19,0.8</ClientRectangle>
-          <Components isList="true" count="10">
-            <DataV_Attendance_Action_NAME_DNRM Ref="29" type="Text" isKey="true">
+          <ClientRectangle>0,5.4,6.4,0.6</ClientRectangle>
+          <Components isList="true" count="5">
+            <Text14 Ref="23" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>16.6,0,2.4,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>DataV_Attendance_Action_NAME_DNRM</Name>
-              <Page isRef="4" />
-              <Parent isRef="28" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{V_Attendance_Action.NAME_DNRM}</Text>
-              <TextBrush>Black</TextBrush>
-              <VertAlignment>Center</VertAlignment>
-            </DataV_Attendance_Action_NAME_DNRM>
-            <DataV_Attendance_Action_ENTR_TIME Ref="30" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>8.4,0,2.4,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>DataV_Attendance_Action_ENTR_TIME</Name>
-              <Page isRef="4" />
-              <Parent isRef="28" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{V_Attendance_Action.ENTR_TIME}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>Expression</Type>
-              <VertAlignment>Center</VertAlignment>
-            </DataV_Attendance_Action_ENTR_TIME>
-            <DataV_Attendance_Action_EXIT_TIME Ref="31" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>6,0,2.4,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>DataV_Attendance_Action_EXIT_TIME</Name>
-              <Page isRef="4" />
-              <Parent isRef="28" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{V_Attendance_Action.EXIT_TIME}</Text>
-              <TextBrush>Black</TextBrush>
-              <VertAlignment>Center</VertAlignment>
-            </DataV_Attendance_Action_EXIT_TIME>
-            <DataV_Attendance_Action_ATTN_DESCS Ref="32" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>0,0,2.2,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>DataV_Attendance_Action_ATTN_DESCS</Name>
-              <Page isRef="4" />
-              <Parent isRef="28" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <TextBrush>Black</TextBrush>
-              <VertAlignment>Center</VertAlignment>
-            </DataV_Attendance_Action_ATTN_DESCS>
-            <DataV_Attendance_Action_DREN_NUMBS Ref="33" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>10.8,0,2.2,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>DataV_Attendance_Action_DREN_NUMBS</Name>
-              <Page isRef="4" />
-              <Parent isRef="28" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{V_Attendance_Action.FNGR_PRNT_DNRM}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </DataV_Attendance_Action_DREN_NUMBS>
-            <Text5 Ref="34" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>14.8,0,1.8,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
-              <Guid>055dd8f4f3724645af06c0dbc760b279</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text5</Name>
-              <Page isRef="4" />
-              <Parent isRef="28" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{V_Attendance_Action.SUNT_DESC}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text5>
-            <Text7 Ref="35" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>13,0,1.8,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
-              <Guid>460939bf96cb480b875ec1552168f644</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text7</Name>
-              <Page isRef="4" />
-              <Parent isRef="28" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{V_Attendance_Action.MTOD_DESC}</Text>
-              <TextBrush>Black</TextBrush>
-              <Type>DataColumn</Type>
-              <VertAlignment>Center</VertAlignment>
-            </Text7>
-            <Text9 Ref="36" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>2.2,0,2.2,0.8</ClientRectangle>
-              <Conditions isList="true" count="0" />
-              <Font>B Koodak,10</Font>
-              <Guid>132018c36af9468dac75863c40f45c65</Guid>
-              <HorAlignment>Center</HorAlignment>
-              <Margins>0,0,0,0</Margins>
-              <Name>Text9</Name>
-              <Page isRef="4" />
-              <Parent isRef="28" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
-              <TextBrush>Black</TextBrush>
-              <VertAlignment>Center</VertAlignment>
-            </Text9>
-            <Text14 Ref="37" type="Text" isKey="true">
-              <Border>All;Black;1;Solid;False;4;Black</Border>
-              <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>5.2,0,0.8,0.8</ClientRectangle>
+              <ClientRectangle>0.8,0,0.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,10</Font>
               <Guid>4d6226b7333d4486989f844d21815259</Guid>
@@ -576,18 +337,16 @@ ORDER BY 5 DESC</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text14</Name>
               <Page isRef="4" />
-              <Parent isRef="28" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Parent isRef="22" />
               <Text>{V_Attendance_Action.H}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text14>
-            <Text15 Ref="38" type="Text" isKey="true">
+            <Text15 Ref="24" type="Text" isKey="true">
               <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
-              <CanGrow>True</CanGrow>
-              <ClientRectangle>4.4,0,0.8,0.8</ClientRectangle>
+              <ClientRectangle>0,0,0.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
               <Font>B Koodak,10</Font>
               <Guid>91e52b78f900480b89f8c596de4f459f</Guid>
@@ -595,37 +354,90 @@ ORDER BY 5 DESC</SqlCommand>
               <Margins>0,0,0,0</Margins>
               <Name>Text15</Name>
               <Page isRef="4" />
-              <Parent isRef="28" />
-              <ShrinkFontToFit>True</ShrinkFontToFit>
+              <Parent isRef="22" />
               <Text>{V_Attendance_Action.M}</Text>
               <TextBrush>Black</TextBrush>
               <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text15>
+            <Text19 Ref="25" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>4.4,0,2,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10</Font>
+              <Guid>9385083581d04dd5bad9480f3d0dcd91</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text19</Name>
+              <Page isRef="4" />
+              <Parent isRef="22" />
+              <Text>{V_Attendance_Action.ATTN_DATE_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text19>
+            <DataV_Attendance_Action_ENTR_TIME Ref="26" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Attendance_Action_ENTR_TIME</Name>
+              <Page isRef="4" />
+              <Parent isRef="22" />
+              <Text>{Format("{0:HH:mm}", V_Attendance_Action.ENTR_TIME)}</Text>
+              <TextBrush>Black</TextBrush>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Attendance_Action_ENTR_TIME>
+            <DataV_Attendance_Action_EXIT_TIME Ref="27" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>1.6,0,1.4,0.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataV_Attendance_Action_EXIT_TIME</Name>
+              <Page isRef="4" />
+              <Parent isRef="22" />
+              <Text>{V_Attendance_Action.EXIT_TIME}</Text>
+              <TextBrush>Black</TextBrush>
+              <VertAlignment>Center</VertAlignment>
+            </DataV_Attendance_Action_EXIT_TIME>
           </Components>
           <Conditions isList="true" count="0" />
+          <DataRelationName isNull="true" />
           <DataSourceName>V#Attendance_Action</DataSourceName>
           <Filters isList="true" count="0" />
           <Name>DataV#Attendance_Action</Name>
           <Page isRef="4" />
           <Parent isRef="4" />
-          <Sort isList="true" count="0" />
+          <Sort isList="true" count="4">
+            <value>DESC</value>
+            <value>ATTN_DATE_DNRM</value>
+            <value>DESC</value>
+            <value>ENTR_TIME</value>
+          </Sort>
         </DataV_x0023_Attendance_Action>
       </Components>
       <Conditions isList="true" count="0" />
       <Guid>e9d8c3dec06b450cab9bb46ea7ca9c67</Guid>
-      <Margins>1,1,1,1</Margins>
+      <Margins>0.4,0.1,0.1,0.1</Margins>
       <Name>Page1</Name>
       <PageHeight>29.7</PageHeight>
-      <PageWidth>21</PageWidth>
+      <PageWidth>6.9</PageWidth>
       <Report isRef="0" />
-      <Watermark Ref="39" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+      <Watermark Ref="28" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
         <Font>Arial,100</Font>
         <TextBrush>[50:0:0:0]</TextBrush>
       </Watermark>
     </Page1>
   </Pages>
-  <PrinterSettings Ref="40" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <PrinterSettings Ref="29" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
   <ReferencedAssemblies isList="true" count="8">
     <value>System.Dll</value>
     <value>System.Drawing.Dll</value>
@@ -637,10 +449,10 @@ ORDER BY 5 DESC</SqlCommand>
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>4/22/2025 1:21:21 PM</ReportChanged>
+  <ReportChanged>4/22/2025 9:52:57 PM</ReportChanged>
   <ReportCreated>10/8/2017 5:47:32 PM</ReportCreated>
-  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_ATTN_008_R.mrt</ReportFile>
-  <ReportGuid>7c5274f1832e476c8e70b5fc2e13fecc</ReportGuid>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_ATTN_010_R.mrt</ReportFile>
+  <ReportGuid>c03067206ff5458090695df3f61a966b</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

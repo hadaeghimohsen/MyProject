@@ -49,7 +49,7 @@ namespace System.Scsc.Ui.ReportManager
                      (pm.ACTN_DATE.Value.Date <= ToDate1_Date.Value.Value.Date ) &&
                      (rqtps.Count == 0 || rqtps.Contains(pm.Request_Row.RQTP_CODE)) &&
                      (rcmts.Count == 0 || rcmts.Contains(pm.RCPT_MTOD)) &&
-                     (users.Count == 0 || (users.Contains(pm.CRET_BY) || users.Contains(pm.MDFY_BY))) &&
+                     (users.Count == 0 || (users.Contains(pm.CRET_BY) /*|| users.Contains(pm.MDFY_BY)*/)) &&
                      (pm.Request_Row.FIGH_FILE_NO == (fileno ?? pm.Request_Row.FIGH_FILE_NO)) &&
                      (Fga_Uclb_U.Contains(pm.Payment.CLUB_CODE_DNRM)) &&
                      // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
@@ -89,7 +89,7 @@ namespace System.Scsc.Ui.ReportManager
                      
                      pd.Request_Row.Request.RQST_STAT == "002" &&
                      (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
-                     (users.Count == 0 || (users.Contains(pd.CRET_BY) || users.Contains(pd.MDFY_BY))) &&                     
+                     (users.Count == 0 || (users.Contains(pd.CRET_BY) /*|| users.Contains(pd.MDFY_BY)*/)) &&                     
                      //(pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
                      (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
                      // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
@@ -119,7 +119,7 @@ namespace System.Scsc.Ui.ReportManager
                      pd.Request_Row.Request.RQST_STAT == "002" &&
                      pd.Payment.PYMT_STAT != "002" &&
                      (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
-                     (users.Count == 0 || (users.Contains(pd.CRET_BY) || users.Contains(pd.MDFY_BY))) &&
+                     (users.Count == 0 || (users.Contains(pd.CRET_BY) /*|| users.Contains(pd.MDFY_BY)*/)) &&
                      (pd.STAT == "002") &&
                      //(pd.AMNT_TYPE != "004" /* به جز ملبغ های مابه التفاوت */) &&
                      (pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&

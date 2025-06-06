@@ -308,6 +308,35 @@ namespace System.Scsc.Ui.Admission
             var Rqst = RqstBs3.Current as Data.Request;
             rqstindex = RqstBs3.Position;
 
+            // 1404/01/31 * Check Wallet Amnt
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Actn_CalF_P */)
+                     {
+                        Input = 
+                           new XElement("Param", 
+                              new XAttribute("type", "getwletamnt")
+                           ),
+                        AfterChangedOutput = 
+                           new Action<object>(
+                              (obj) =>
+                              {
+                                 var _wletamnt = (decimal)obj;
+                                 var _amntType = iScsc.Regulations.FirstOrDefault(rg => rg.TYPE == "001" && rg.REGL_STAT == "002");
+
+                                 if (_amntType.AMNT_TYPE == "001") _wletamnt /= 10;
+
+                                 if(_wletamnt <= 100000)
+                                 {
+                                    MessageBox.Show(this, "مبلغ شارژ کیف پول شما به کمتر از 100 هزار تومان رسیده، لطفا جهت شارژ کیف پول به شماره کارت 6219861083425040 نزد بانک سامان محسن حدایقی واریز فرمایید", "هشدار اتمام شارژ کیف پول", MessageBoxButtons.OK);
+                                 }
+                              })
+                     }
+                  })
+            );
+
             StrtDate_DateTime003.CommitChanges();
             EndDate_DateTime003.CommitChanges();
 
@@ -1843,8 +1872,6 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            RcmtType_Butn.Text = RcmtType_Butn.Tag.ToString() == "0" ? "POS" : "نقدی";
-            RcmtType_Butn.Tag = RcmtType_Butn.Tag.ToString() == "0" ? "1" : "0";
             PymtAmnt_Txt.Focus();
             var pymt = PymtsBs3.Current as Data.Payment;
             if (pymt == null) return;
@@ -3064,6 +3091,27 @@ namespace System.Scsc.Ui.Admission
          {
             MessageBox.Show(exc.Message);
          }  
+      }
+
+      private void RcmtType_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 0:
+                  break;
+               case 1:
+                  RcmtType_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
    }
 }

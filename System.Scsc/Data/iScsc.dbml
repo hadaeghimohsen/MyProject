@@ -1888,19 +1888,6 @@
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
-  <Table Name="dbo.V#Pos_Device" Member="V_Pos_Devices">
-    <Type Name="V_Pos_Device">
-      <Column Name="PSID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="BANK_NAME" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
-      <Column Name="BANK_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="BNKB_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
-      <Column Name="BNKA_ACNT_NUMB" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
-      <Column Name="SHBA_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Column Name="POS_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="POS_DFLT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.V#User_Localization_Form" Member="V_User_Localization_Forms">
     <Type Name="V_User_Localization_Form">
       <Column Name="REGN_LANG" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
@@ -5102,7 +5089,7 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Fighter_Dresser_Vip_Fighter" Member="Fighter" ThisKey="MBSP_FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Member_Ship_Dresser_Vip_Fighter" Member="Member_Ship" ThisKey="MBSP_FIGH_FILE_NO,MBSP_RWNO,MBSP_RECT_CODE" OtherKey="FIGH_FILE_NO,RWNO,RECT_CODE" Type="Member_Ship" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="Dresser_Dresser_Vip_Fighter" Member="Dresser" ThisKey="DRES_CODE" OtherKey="CODE" Type="Dresser" IsForeignKey="true" />
+      <Association Name="Dresser_Dresser_Vip_Fighter" Member="Dresser" ThisKey="DRES_CODE" OtherKey="CODE" Type="Dresser" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
   <Table Name="dbo.Dresser_Attendance" Member="Dresser_Attendances">
@@ -5784,31 +5771,6 @@
       <Argument Parameter="rwno" Member="RWNO" />
     </DeleteFunction>
   </Table>
-  <Table Name="dbo.Dresser" Member="Dressers">
-    <Type Name="Dresser">
-      <Column Name="COMA_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DRES_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="[DESC]" Member="DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="REC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ORDR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CMND_SEND" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="COMM_PORT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="VIP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FROM_HEIT" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TO_HEIT" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Dresser_Dresser_Vip_Fighter" Member="Dresser_Vip_Fighters" ThisKey="CODE" OtherKey="DRES_CODE" Type="Dresser_Vip_Fighter" />
-      <Association Name="Dresser_Dresser_Attendance" Member="Dresser_Attendances" ThisKey="CODE" OtherKey="DRES_CODE" Type="Dresser_Attendance" />
-      <Association Name="Dresser_Attendance_Wrist" Member="Attendance_Wrists" ThisKey="CODE" OtherKey="DRES_CODE_DNRM" Type="Attendance_Wrist" />
-      <Association Name="Computer_Action_Dresser" Member="Computer_Action" ThisKey="COMA_CODE" OtherKey="CODE" Type="Computer_Action" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
   <Table Name="dbo.Fighter_Body_Measurement" Member="Fighter_Body_Measurements">
     <Type Name="Fighter_Body_Measurement">
       <Column Name="FIGH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
@@ -5919,6 +5881,47 @@
       <Column Name="ATTN_COMP_CNC6" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
       <Column Name="LIMT_CALC_ATTN_INDY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
       <Association Name="Club_Setting" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Dresser" Member="Dressers">
+    <Type Name="Dresser">
+      <Column Name="COMA_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DRES_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="[DESC]" Member="DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ORDR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CMND_SEND" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="COMM_PORT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="VIP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FROM_HEIT" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TO_HEIT" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_SGNL_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="INTR_SGNL_LONG" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Dresser_Dresser_Vip_Fighter" Member="Dresser_Vip_Fighters" ThisKey="CODE" OtherKey="DRES_CODE" Type="Dresser_Vip_Fighter" />
+      <Association Name="Dresser_Dresser_Attendance" Member="Dresser_Attendances" ThisKey="CODE" OtherKey="DRES_CODE" Type="Dresser_Attendance" />
+      <Association Name="Dresser_Attendance_Wrist" Member="Attendance_Wrists" ThisKey="CODE" OtherKey="DRES_CODE_DNRM" Type="Attendance_Wrist" />
+      <Association Name="Computer_Action_Dresser" Member="Computer_Action" ThisKey="COMA_CODE" OtherKey="CODE" Type="Computer_Action" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V#Pos_Device" Member="V_Pos_Devices">
+    <Type Name="V_Pos_Device">
+      <Column Name="PSID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="BANK_NAME" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="BANK_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="BNKB_CODE" Type="System.String" DbType="VarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="BNKA_ACNT_NUMB" Type="System.String" DbType="VarChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="SHBA_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="POS_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="POS_DFLT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">
@@ -8782,6 +8785,10 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.MBSP_SORT_P" Method="MBSP_SORT_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.FNGR_SORT_P" Method="FNGR_SORT_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>

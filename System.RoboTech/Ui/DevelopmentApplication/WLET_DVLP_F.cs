@@ -773,6 +773,74 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                          )
                      );
                   break;
+               case "5M":
+                  _param =
+                     new XElement("Robot",
+                         new XAttribute("token", _robot.TKON_CODE),
+                         new XElement("Message",
+                             new XAttribute("cbq", "002"),
+                             new XAttribute("ussd", "*6*0*3#"),
+                             new XAttribute("chatid", _admin.CHAT_ID),
+                             new XElement("Text",
+                                 new XAttribute("param", "howinccreditwlet,50000000"),
+                                 new XAttribute("postexec", "lessaddwlet"),
+                                 new XAttribute("trigger", ""),
+                                 "addamntwlet"
+                             )
+                         )
+                     );
+                  break;
+               case "10M":
+                  _param =
+                     new XElement("Robot",
+                         new XAttribute("token", _robot.TKON_CODE),
+                         new XElement("Message",
+                             new XAttribute("cbq", "002"),
+                             new XAttribute("ussd", "*6*0*3#"),
+                             new XAttribute("chatid", _admin.CHAT_ID),
+                             new XElement("Text",
+                                 new XAttribute("param", "howinccreditwlet,100000000"),
+                                 new XAttribute("postexec", "lessaddwlet"),
+                                 new XAttribute("trigger", ""),
+                                 "addamntwlet"
+                             )
+                         )
+                     );
+                  break;
+               case "15M":
+                  _param =
+                     new XElement("Robot",
+                         new XAttribute("token", _robot.TKON_CODE),
+                         new XElement("Message",
+                             new XAttribute("cbq", "002"),
+                             new XAttribute("ussd", "*6*0*3#"),
+                             new XAttribute("chatid", _admin.CHAT_ID),
+                             new XElement("Text",
+                                 new XAttribute("param", "howinccreditwlet,150000000"),
+                                 new XAttribute("postexec", "lessaddwlet"),
+                                 new XAttribute("trigger", ""),
+                                 "addamntwlet"
+                             )
+                         )
+                     );
+                  break;
+               case "20M":
+                  _param =
+                     new XElement("Robot",
+                         new XAttribute("token", _robot.TKON_CODE),
+                         new XElement("Message",
+                             new XAttribute("cbq", "002"),
+                             new XAttribute("ussd", "*6*0*3#"),
+                             new XAttribute("chatid", _admin.CHAT_ID),
+                             new XElement("Text",
+                                 new XAttribute("param", "howinccreditwlet,200000000"),
+                                 new XAttribute("postexec", "lessaddwlet"),
+                                 new XAttribute("trigger", ""),
+                                 "addamntwlet"
+                             )
+                         )
+                     );
+                  break;
             }
 
             XElement _result = null;

@@ -1601,5 +1601,139 @@ namespace System.Scsc.Ui.Attendance
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void UpdateSSCOpr_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _dres = DresBs1.Current as Data.Dresser;
+            if (_dres == null) return;
+
+            if (FromNumb_Se.Value <= ToNumb_Se.Value)
+            {
+               for (int i = (int)FromNumb_Se.Value; i <= (int)ToNumb_Se.Value; i++)
+               {
+                  if (LockCntrl_Cbx.Checked)
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                     {
+                        _dresi.SEND_SGNL_CONT = (int)SendSgnlCont_Se.Value;
+                        _dresi.INTR_SGNL_LONG = (int)IntrSgnlLong_Se.Value;
+                     }
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                        {
+                           _dresi.SEND_SGNL_CONT = (int)SendSgnlCont_Se.Value;
+                           _dresi.INTR_SGNL_LONG = (int)IntrSgnlLong_Se.Value;
+                        }
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                        {
+                           _dresi.SEND_SGNL_CONT = (int)SendSgnlCont_Se.Value;
+                           _dresi.INTR_SGNL_LONG = (int)IntrSgnlLong_Se.Value;
+                        }
+                     }
+                  }
+                  else
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                     {
+                        _dresi.SEND_SGNL_CONT = (int)SendSgnlCont_Se.Value;
+                        _dresi.INTR_SGNL_LONG = (int)IntrSgnlLong_Se.Value;
+                     }
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                        {
+                           _dresi.SEND_SGNL_CONT = (int)SendSgnlCont_Se.Value;
+                           _dresi.INTR_SGNL_LONG = (int)IntrSgnlLong_Se.Value;
+                        }
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                        {
+                           _dresi.SEND_SGNL_CONT = (int)SendSgnlCont_Se.Value;
+                           _dresi.INTR_SGNL_LONG = (int)IntrSgnlLong_Se.Value;
+                        }
+                     }
+                  }
+               }
+            }
+            else
+            {
+               for (int i = (int)FromNumb_Se.Value; i >= (int)ToNumb_Se.Value; i--)
+               {
+                  if (LockCntrl_Cbx.Checked)
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i && d.IP_ADRS == _dres.IP_ADRS);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                     {
+                        _dresi.SEND_SGNL_CONT = (int)SendSgnlCont_Se.Value;
+                        _dresi.INTR_SGNL_LONG = (int)IntrSgnlLong_Se.Value;
+                     }
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                        {
+                           _dresi.SEND_SGNL_CONT = (int)SendSgnlCont_Se.Value;
+                           _dresi.INTR_SGNL_LONG = (int)IntrSgnlLong_Se.Value;
+                        }
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                        {
+                           _dresi.SEND_SGNL_CONT = (int)SendSgnlCont_Se.Value;
+                           _dresi.INTR_SGNL_LONG = (int)IntrSgnlLong_Se.Value;
+                        }
+                     }
+                  }
+                  else
+                  {
+                     var _dresi = DresBs1.List.OfType<Data.Dresser>().FirstOrDefault(d => d.DRES_NUMB == i);
+                     if (_dresi == null) return;
+
+                     if (AllOrdr_Rb.Checked)
+                     {
+                        _dresi.SEND_SGNL_CONT = (int)SendSgnlCont_Se.Value;
+                        _dresi.INTR_SGNL_LONG = (int)IntrSgnlLong_Se.Value;
+                     }
+                     else if (EvenOrdr_Rb.Checked)
+                     {
+                        if (i % 2 == 0)
+                        {
+                           _dresi.SEND_SGNL_CONT = (int)SendSgnlCont_Se.Value;
+                           _dresi.INTR_SGNL_LONG = (int)IntrSgnlLong_Se.Value;
+                        }
+                     }
+                     else if (OddOrdr_Rb.Checked)
+                     {
+                        if (i % 2 != 0)
+                        {
+                           _dresi.SEND_SGNL_CONT = (int)SendSgnlCont_Se.Value;
+                           _dresi.INTR_SGNL_LONG = (int)IntrSgnlLong_Se.Value;
+                        }
+                     }
+                  }
+               }
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

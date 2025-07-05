@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -57,8 +56,8 @@
          this.Back_Butn = new C1.Win.C1Input.C1Button();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
          this.panel3 = new System.Windows.Forms.Panel();
-         this.RoboBs = new System.Windows.Forms.BindingSource(this.components);
-         this.OrgnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RoboBs = new System.Windows.Forms.BindingSource();
+         this.OrgnBs = new System.Windows.Forms.BindingSource();
          this.splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
          this.Master_Tc = new System.Windows.Forms.TabControl();
          this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -68,18 +67,18 @@
          this.splitContainerControl9 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl10 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
-         this.SrsaASBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SrsaASBs = new System.Windows.Forms.BindingSource();
          this.gridView6 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn22 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit6 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DElmtTBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DElmtTBs = new System.Windows.Forms.BindingSource();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
-         this.SdadASBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SdadASBs = new System.Windows.Forms.BindingSource();
          this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn23 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn25 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit8 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DOdstBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DOdstBs = new System.Windows.Forms.BindingSource();
          this.gridColumn26 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit3 = new dxExample.PersianRepositoryItemDateEdit();
          this.gridColumn27 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -102,8 +101,8 @@
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl4 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.Ordt012Bs = new System.Windows.Forms.BindingSource(this.components);
-         this.Ordr012Bs = new System.Windows.Forms.BindingSource(this.components);
+         this.Ordt012Bs = new System.Windows.Forms.BindingSource();
+         this.Ordr012Bs = new System.Windows.Forms.BindingSource();
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colRWNO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colELMN_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -135,12 +134,12 @@
          this.splitContainerControl6 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl7 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.SrsaSSBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SrsaSSBs = new System.Windows.Forms.BindingSource();
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPAKT_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit3 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-         this.SdadSSBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SdadSSBs = new System.Windows.Forms.BindingSource();
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSDAD_ID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSEND_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -162,7 +161,7 @@
          this.button3 = new System.MaxUi.Button();
          this.button4 = new System.MaxUi.Button();
          this.gridControl9 = new DevExpress.XtraGrid.GridControl();
-         this.SrbtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SrbtBs = new System.Windows.Forms.BindingSource();
          this.gridView14 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSERV_FILE_NO1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colROBO_RBID6 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -868,6 +867,7 @@
          this.rollout6.Controls.Add(this.button5);
          this.rollout6.Controls.Add(this.button6);
          this.rollout6.CustomRolloutColor = System.Drawing.Color.Silver;
+         this.rollout6.ForeColor = System.Drawing.Color.Black;
          this.rollout6.FrameOnMouseOverOnly = false;
          this.rollout6.GroupImage = null;
          this.rollout6.Location = new System.Drawing.Point(4, 3);
@@ -900,6 +900,7 @@
          this.grouper3.Controls.Add(this.radioButton6);
          this.grouper3.Controls.Add(this.timeEdit3);
          this.grouper3.CustomGroupBoxColor = System.Drawing.Color.Silver;
+         this.grouper3.ForeColor = System.Drawing.Color.Black;
          this.grouper3.GroupImage = null;
          this.grouper3.GroupTitle = "زمانبندی ارسال پیام";
          this.grouper3.Location = new System.Drawing.Point(7, 94);
@@ -910,6 +911,7 @@
          this.grouper3.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper3.ShadowControl = true;
          this.grouper3.ShadowThickness = 2;
+         this.grouper3.ShowBorderTitle = false;
          this.grouper3.Size = new System.Drawing.Size(224, 95);
          this.grouper3.TabIndex = 4;
          // 
@@ -1339,6 +1341,7 @@
          this.rollout4.Controls.Add(this.button2);
          this.rollout4.Controls.Add(this.button1);
          this.rollout4.CustomRolloutColor = System.Drawing.Color.Silver;
+         this.rollout4.ForeColor = System.Drawing.Color.Black;
          this.rollout4.FrameOnMouseOverOnly = false;
          this.rollout4.GroupImage = null;
          this.rollout4.Location = new System.Drawing.Point(4, 3);
@@ -1371,6 +1374,7 @@
          this.grouper1.Controls.Add(this.radioButton1);
          this.grouper1.Controls.Add(this.timeEdit2);
          this.grouper1.CustomGroupBoxColor = System.Drawing.Color.Silver;
+         this.grouper1.ForeColor = System.Drawing.Color.Black;
          this.grouper1.GroupImage = null;
          this.grouper1.GroupTitle = "زمانبندی ارسال پیام";
          this.grouper1.Location = new System.Drawing.Point(7, 94);
@@ -1381,6 +1385,7 @@
          this.grouper1.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper1.ShadowControl = true;
          this.grouper1.ShadowThickness = 2;
+         this.grouper1.ShowBorderTitle = false;
          this.grouper1.Size = new System.Drawing.Size(224, 95);
          this.grouper1.TabIndex = 4;
          // 
@@ -1766,6 +1771,7 @@
          this.rollout5.Controls.Add(this.button3);
          this.rollout5.Controls.Add(this.button4);
          this.rollout5.CustomRolloutColor = System.Drawing.Color.Silver;
+         this.rollout5.ForeColor = System.Drawing.Color.Black;
          this.rollout5.FrameOnMouseOverOnly = false;
          this.rollout5.GroupImage = null;
          this.rollout5.Location = new System.Drawing.Point(4, 3);
@@ -1798,6 +1804,7 @@
          this.grouper2.Controls.Add(this.radioButton4);
          this.grouper2.Controls.Add(this.timeEdit1);
          this.grouper2.CustomGroupBoxColor = System.Drawing.Color.Silver;
+         this.grouper2.ForeColor = System.Drawing.Color.Black;
          this.grouper2.GroupImage = null;
          this.grouper2.GroupTitle = "زمانبندی ارسال پیام";
          this.grouper2.Location = new System.Drawing.Point(7, 94);
@@ -1808,6 +1815,7 @@
          this.grouper2.ShadowColor = System.Drawing.Color.DarkGray;
          this.grouper2.ShadowControl = true;
          this.grouper2.ShadowThickness = 2;
+         this.grouper2.ShowBorderTitle = false;
          this.grouper2.Size = new System.Drawing.Size(224, 95);
          this.grouper2.TabIndex = 4;
          // 
@@ -2344,6 +2352,7 @@
          this.rollout1.BorderThickness = 1F;
          this.rollout1.Controls.Add(this.gridControl25);
          this.rollout1.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout1.ForeColor = System.Drawing.Color.Black;
          this.rollout1.FrameOnMouseOverOnly = false;
          this.rollout1.GroupImage = null;
          this.rollout1.Location = new System.Drawing.Point(20, 3);
@@ -2595,6 +2604,7 @@
          this.rollout2.BorderThickness = 1F;
          this.rollout2.Controls.Add(this.gridControl26);
          this.rollout2.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout2.ForeColor = System.Drawing.Color.Black;
          this.rollout2.FrameOnMouseOverOnly = false;
          this.rollout2.GroupImage = null;
          this.rollout2.Location = new System.Drawing.Point(20, 31);
@@ -2805,6 +2815,7 @@
          this.rollout3.BorderThickness = 1F;
          this.rollout3.Controls.Add(this.DupTarfIdty_Cbtn);
          this.rollout3.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout3.ForeColor = System.Drawing.Color.Black;
          this.rollout3.FrameOnMouseOverOnly = false;
          this.rollout3.GroupImage = null;
          this.rollout3.Location = new System.Drawing.Point(20, 181);

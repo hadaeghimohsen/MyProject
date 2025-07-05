@@ -185,6 +185,15 @@ namespace System.Scsc.Ui.Settings
             if (BackupType != "RESTORE")
                MessageBox.Show("عملیات پشتیبانی با موفقیت انجام شد");
             BackupType = "NORMAL";
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "002"))
+               }
+            );
          }
          catch (Exception ex)
          {

@@ -1028,6 +1028,7 @@
          this.toolStripMenuItem65 = new System.Windows.Forms.ToolStripMenuItem();
          this.ExportFile_Sfd = new System.Windows.Forms.SaveFileDialog();
          this.FngrDevOpr_Tmr = new System.Windows.Forms.Timer(this.components);
+         this.tp_009 = new System.Windows.Forms.TabPage();
          ((System.ComponentModel.ISupportInitialize)(this.AttnMbsp_Butn)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Ptyp_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pmst_Lov)).BeginInit();
@@ -2261,7 +2262,7 @@
          this.rollout6.ForeColor = System.Drawing.Color.Black;
          this.rollout6.FrameOnMouseOverOnly = false;
          this.rollout6.GroupImage = null;
-         this.rollout6.Location = new System.Drawing.Point(5, 3);
+         this.rollout6.Location = new System.Drawing.Point(22, 3);
          this.rollout6.MaxHeight = 153;
          this.rollout6.Name = "rollout6";
          this.rollout6.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -2360,7 +2361,7 @@
          this.ServInfo_Rlt.ForeColor = System.Drawing.Color.Black;
          this.ServInfo_Rlt.FrameOnMouseOverOnly = false;
          this.ServInfo_Rlt.GroupImage = null;
-         this.ServInfo_Rlt.Location = new System.Drawing.Point(5, 162);
+         this.ServInfo_Rlt.Location = new System.Drawing.Point(22, 162);
          this.ServInfo_Rlt.MaxHeight = 739;
          this.ServInfo_Rlt.Name = "ServInfo_Rlt";
          this.ServInfo_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -2394,6 +2395,7 @@
          // 
          // ServProf_Tc
          // 
+         this.ServProf_Tc.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
          this.ServProf_Tc.Controls.Add(this.tp_001);
          this.ServProf_Tc.Controls.Add(this.tp_002);
          this.ServProf_Tc.Controls.Add(this.tp_003);
@@ -2402,6 +2404,7 @@
          this.ServProf_Tc.Controls.Add(this.tp_006);
          this.ServProf_Tc.Controls.Add(this.tp_007);
          this.ServProf_Tc.Controls.Add(this.tp_008);
+         this.ServProf_Tc.Controls.Add(this.tp_009);
          this.ServProf_Tc.Dock = System.Windows.Forms.DockStyle.Fill;
          this.ServProf_Tc.ImageList = this.imageList2;
          this.ServProf_Tc.Location = new System.Drawing.Point(3, 193);
@@ -2418,10 +2421,10 @@
          this.tp_001.Controls.Add(this.splitContainerControl4);
          this.tp_001.Controls.Add(this.panel1);
          this.tp_001.ImageIndex = 9;
-         this.tp_001.Location = new System.Drawing.Point(4, 50);
+         this.tp_001.Location = new System.Drawing.Point(4, 59);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(647, 456);
+         this.tp_001.Size = new System.Drawing.Size(647, 447);
          this.tp_001.TabIndex = 0;
          this.tp_001.Text = "اطلاعات دوره";
          this.tp_001.UseVisualStyleBackColor = true;
@@ -2436,7 +2439,7 @@
          this.splitContainerControl4.Panel1.Text = "Panel1";
          this.splitContainerControl4.Panel2.Controls.Add(this.gridControl12);
          this.splitContainerControl4.Panel2.Text = "Panel2";
-         this.splitContainerControl4.Size = new System.Drawing.Size(641, 378);
+         this.splitContainerControl4.Size = new System.Drawing.Size(641, 369);
          this.splitContainerControl4.SplitterPosition = 286;
          this.splitContainerControl4.TabIndex = 12;
          this.splitContainerControl4.Text = "splitContainerControl4";
@@ -2706,7 +2709,7 @@
             this.repositoryItemLookUpEdit11,
             this.repositoryItemButtonEdit3,
             this.persianRepositoryItemDateEdit10});
-         this.gridControl12.Size = new System.Drawing.Size(641, 87);
+         this.gridControl12.Size = new System.Drawing.Size(641, 78);
          this.gridControl12.TabIndex = 11;
          this.gridControl12.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView5});
@@ -3221,10 +3224,10 @@
          // 
          this.tp_002.Controls.Add(this.vF_PaymentsResultGridControl);
          this.tp_002.ImageIndex = 2;
-         this.tp_002.Location = new System.Drawing.Point(4, 188);
+         this.tp_002.Location = new System.Drawing.Point(4, 30);
          this.tp_002.Name = "tp_002";
          this.tp_002.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_002.Size = new System.Drawing.Size(647, 0);
+         this.tp_002.Size = new System.Drawing.Size(647, 476);
          this.tp_002.TabIndex = 1;
          this.tp_002.Text = "صورتحساب ها";
          this.tp_002.UseVisualStyleBackColor = true;
@@ -3245,7 +3248,7 @@
             this.Ptyp_Lov,
             this.Pmst_Lov,
             this.repositoryItemTimeEdit2});
-         this.vF_PaymentsResultGridControl.Size = new System.Drawing.Size(641, 0);
+         this.vF_PaymentsResultGridControl.Size = new System.Drawing.Size(641, 470);
          this.vF_PaymentsResultGridControl.TabIndex = 1;
          this.vF_PaymentsResultGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.SavePayment_Gv});
@@ -3618,9 +3621,9 @@
          // 
          this.tp_003.Controls.Add(this.gridControl17);
          this.tp_003.ImageIndex = 13;
-         this.tp_003.Location = new System.Drawing.Point(4, 188);
+         this.tp_003.Location = new System.Drawing.Point(4, 30);
          this.tp_003.Name = "tp_003";
-         this.tp_003.Size = new System.Drawing.Size(647, 0);
+         this.tp_003.Size = new System.Drawing.Size(647, 476);
          this.tp_003.TabIndex = 2;
          this.tp_003.Text = "کد تخفیف";
          this.tp_003.UseVisualStyleBackColor = true;
@@ -3640,7 +3643,7 @@
             this.repositoryItemLookUpEdit16,
             this.persianRepositoryItemDateEdit15,
             this.repositoryItemLookUpEdit21});
-         this.gridControl17.Size = new System.Drawing.Size(647, 0);
+         this.gridControl17.Size = new System.Drawing.Size(647, 476);
          this.gridControl17.TabIndex = 10;
          this.gridControl17.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Fgdc_gv});
@@ -3872,10 +3875,10 @@
          // 
          this.tp_005.Controls.Add(this.AttnGridControl);
          this.tp_005.ImageIndex = 6;
-         this.tp_005.Location = new System.Drawing.Point(4, 188);
+         this.tp_005.Location = new System.Drawing.Point(4, 30);
          this.tp_005.Name = "tp_005";
          this.tp_005.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_005.Size = new System.Drawing.Size(647, 0);
+         this.tp_005.Size = new System.Drawing.Size(647, 476);
          this.tp_005.TabIndex = 4;
          this.tp_005.Text = "حضور و غیاب";
          this.tp_005.UseVisualStyleBackColor = true;
@@ -3894,7 +3897,7 @@
             this.ActnAttn_Butn,
             this.repositoryItemLookUpEdit13,
             this.repositoryItemLookUpEdit14});
-         this.AttnGridControl.Size = new System.Drawing.Size(641, 0);
+         this.AttnGridControl.Size = new System.Drawing.Size(641, 470);
          this.AttnGridControl.TabIndex = 1;
          this.AttnGridControl.UseEmbeddedNavigator = true;
          this.AttnGridControl.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
@@ -4137,10 +4140,10 @@
          // 
          this.tp_004.Controls.Add(this.splitContainerControl8);
          this.tp_004.ImageIndex = 14;
-         this.tp_004.Location = new System.Drawing.Point(4, 188);
+         this.tp_004.Location = new System.Drawing.Point(4, 30);
          this.tp_004.Name = "tp_004";
          this.tp_004.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_004.Size = new System.Drawing.Size(647, 0);
+         this.tp_004.Size = new System.Drawing.Size(647, 476);
          this.tp_004.TabIndex = 5;
          this.tp_004.Text = "پیامکهای ارسالی";
          this.tp_004.UseVisualStyleBackColor = true;
@@ -4155,7 +4158,7 @@
          this.splitContainerControl8.Panel1.Text = "Panel1";
          this.splitContainerControl8.Panel2.Controls.Add(this.TextSms_Txt);
          this.splitContainerControl8.Panel2.Text = "Panel2";
-         this.splitContainerControl8.Size = new System.Drawing.Size(641, 0);
+         this.splitContainerControl8.Size = new System.Drawing.Size(641, 470);
          this.splitContainerControl8.SplitterPosition = 161;
          this.splitContainerControl8.TabIndex = 14;
          this.splitContainerControl8.Text = "splitContainerControl8";
@@ -4174,7 +4177,7 @@
             this.repositoryItemLookUpEdit5,
             this.repositoryItemLookUpEdit9,
             this.repositoryItemTimeEdit1});
-         this.gridControl3.Size = new System.Drawing.Size(0, 0);
+         this.gridControl3.Size = new System.Drawing.Size(641, 161);
          this.gridControl3.TabIndex = 13;
          this.gridControl3.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView4,
@@ -4525,7 +4528,7 @@
          this.TextSms_Txt.Location = new System.Drawing.Point(0, 0);
          this.TextSms_Txt.Name = "TextSms_Txt";
          this.TextSms_Txt.ReadOnly = true;
-         this.TextSms_Txt.Size = new System.Drawing.Size(0, 0);
+         this.TextSms_Txt.Size = new System.Drawing.Size(641, 304);
          this.TextSms_Txt.TabIndex = 17;
          this.TextSms_Txt.Text = "";
          // 
@@ -4547,10 +4550,10 @@
          this.tp_006.Controls.Add(this.label14);
          this.tp_006.Controls.Add(this.label13);
          this.tp_006.ImageIndex = 15;
-         this.tp_006.Location = new System.Drawing.Point(4, 188);
+         this.tp_006.Location = new System.Drawing.Point(4, 59);
          this.tp_006.Name = "tp_006";
          this.tp_006.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_006.Size = new System.Drawing.Size(647, 0);
+         this.tp_006.Size = new System.Drawing.Size(647, 447);
          this.tp_006.TabIndex = 6;
          this.tp_006.Text = "شبکه سازمانی";
          this.tp_006.UseVisualStyleBackColor = true;
@@ -5342,10 +5345,10 @@
          this.tp_007.Controls.Add(this.gridControl1);
          this.tp_007.Controls.Add(this.FgbmBn);
          this.tp_007.ImageIndex = 1;
-         this.tp_007.Location = new System.Drawing.Point(4, 188);
+         this.tp_007.Location = new System.Drawing.Point(4, 59);
          this.tp_007.Name = "tp_007";
          this.tp_007.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_007.Size = new System.Drawing.Size(647, 0);
+         this.tp_007.Size = new System.Drawing.Size(647, 447);
          this.tp_007.TabIndex = 7;
          this.tp_007.Text = "اطلاعات اناتومی ";
          this.tp_007.UseVisualStyleBackColor = true;
@@ -5362,7 +5365,7 @@
          this.gridControl1.Name = "gridControl1";
          this.gridControl1.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2});
-         this.gridControl1.Size = new System.Drawing.Size(641, 0);
+         this.gridControl1.Size = new System.Drawing.Size(641, 416);
          this.gridControl1.TabIndex = 11;
          this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Fgbm_Gv});
@@ -5634,10 +5637,10 @@
          this.tp_008.Controls.Add(this.splitContainerControl1);
          this.tp_008.Controls.Add(this.panel2);
          this.tp_008.ImageIndex = 8;
-         this.tp_008.Location = new System.Drawing.Point(4, 188);
+         this.tp_008.Location = new System.Drawing.Point(4, 59);
          this.tp_008.Name = "tp_008";
          this.tp_008.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_008.Size = new System.Drawing.Size(647, 0);
+         this.tp_008.Size = new System.Drawing.Size(647, 447);
          this.tp_008.TabIndex = 8;
          this.tp_008.Text = "اطلاع رسانی سریع";
          this.tp_008.UseVisualStyleBackColor = true;
@@ -5651,7 +5654,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.gridControl4);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(641, 0);
+         this.splitContainerControl1.Size = new System.Drawing.Size(641, 411);
          this.splitContainerControl1.SplitterPosition = 504;
          this.splitContainerControl1.TabIndex = 1;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -5667,7 +5670,7 @@
          this.splitContainerControl3.Panel2.Controls.Add(this.RsltTxtSms_Txt);
          this.splitContainerControl3.Panel2.Controls.Add(this.panel3);
          this.splitContainerControl3.Panel2.Text = "Panel2";
-         this.splitContainerControl3.Size = new System.Drawing.Size(504, 0);
+         this.splitContainerControl3.Size = new System.Drawing.Size(504, 411);
          this.splitContainerControl3.SplitterPosition = 128;
          this.splitContainerControl3.TabIndex = 0;
          this.splitContainerControl3.Text = "splitContainerControl3";
@@ -5680,7 +5683,7 @@
          this.richTextBox1.Location = new System.Drawing.Point(0, 0);
          this.richTextBox1.Name = "richTextBox1";
          this.richTextBox1.ReadOnly = true;
-         this.richTextBox1.Size = new System.Drawing.Size(0, 0);
+         this.richTextBox1.Size = new System.Drawing.Size(504, 128);
          this.richTextBox1.TabIndex = 18;
          this.richTextBox1.Text = "";
          // 
@@ -5694,7 +5697,7 @@
          this.RsltTxtSms_Txt.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.RsltTxtSms_Txt.Location = new System.Drawing.Point(0, 0);
          this.RsltTxtSms_Txt.Name = "RsltTxtSms_Txt";
-         this.RsltTxtSms_Txt.Size = new System.Drawing.Size(0, 0);
+         this.RsltTxtSms_Txt.Size = new System.Drawing.Size(504, 245);
          this.RsltTxtSms_Txt.TabIndex = 18;
          this.RsltTxtSms_Txt.Text = "";
          // 
@@ -5703,9 +5706,9 @@
          this.panel3.Controls.Add(this.SendTextSms_Butn);
          this.panel3.Controls.Add(this.ClerTxtSms_Butn);
          this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.panel3.Location = new System.Drawing.Point(0, -33);
+         this.panel3.Location = new System.Drawing.Point(0, 245);
          this.panel3.Name = "panel3";
-         this.panel3.Size = new System.Drawing.Size(0, 33);
+         this.panel3.Size = new System.Drawing.Size(504, 33);
          this.panel3.TabIndex = 19;
          // 
          // SendTextSms_Butn
@@ -5717,7 +5720,7 @@
          this.SendTextSms_Butn.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
          this.SendTextSms_Butn.Image = ((System.Drawing.Image)(resources.GetObject("SendTextSms_Butn.Image")));
          this.SendTextSms_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.SendTextSms_Butn.Location = new System.Drawing.Point(-215, 6);
+         this.SendTextSms_Butn.Location = new System.Drawing.Point(289, 6);
          this.SendTextSms_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.SendTextSms_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
          this.SendTextSms_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -5736,7 +5739,7 @@
          this.ClerTxtSms_Butn.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
          this.ClerTxtSms_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ClerTxtSms_Butn.Image")));
          this.ClerTxtSms_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.ClerTxtSms_Butn.Location = new System.Drawing.Point(-99, 6);
+         this.ClerTxtSms_Butn.Location = new System.Drawing.Point(405, 6);
          this.ClerTxtSms_Butn.LookAndFeel.SkinName = "Office 2010 Silver";
          this.ClerTxtSms_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
          this.ClerTxtSms_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -5758,7 +5761,7 @@
          this.gridControl4.Name = "gridControl4";
          this.gridControl4.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.TmplActn_Butn});
-         this.gridControl4.Size = new System.Drawing.Size(132, 0);
+         this.gridControl4.Size = new System.Drawing.Size(132, 411);
          this.gridControl4.TabIndex = 12;
          this.gridControl4.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView6});
@@ -5953,6 +5956,7 @@
          this.imageList2.Images.SetKeyName(14, "IMAGE_1154.png");
          this.imageList2.Images.SetKeyName(15, "IMAGE_1582.png");
          this.imageList2.Images.SetKeyName(16, "IMAGE_1756.png");
+         this.imageList2.Images.SetKeyName(17, "IMAGE_1593.png");
          // 
          // ServInfo_Pn
          // 
@@ -6693,21 +6697,21 @@
          this.DataMngt_Rt.ForeColor = System.Drawing.Color.Black;
          this.DataMngt_Rt.FrameOnMouseOverOnly = false;
          this.DataMngt_Rt.GroupImage = null;
-         this.DataMngt_Rt.Location = new System.Drawing.Point(5, 907);
+         this.DataMngt_Rt.Location = new System.Drawing.Point(22, 907);
          this.DataMngt_Rt.MaxHeight = 840;
          this.DataMngt_Rt.Name = "DataMngt_Rt";
          this.DataMngt_Rt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.DataMngt_Rt.PaintRollout = true;
          this.DataMngt_Rt.RolloutBorderColor = System.Drawing.Color.Gray;
          this.DataMngt_Rt.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.DataMngt_Rt.RolloutStatus = true;
+         this.DataMngt_Rt.RolloutStatus = false;
          this.DataMngt_Rt.RolloutTitle = "مدیریت اطلاعات و دادها";
          this.DataMngt_Rt.RoundCorners = 2;
          this.DataMngt_Rt.ShadowColor = System.Drawing.Color.DarkGray;
          this.DataMngt_Rt.ShadowControl = false;
          this.DataMngt_Rt.ShadowThickness = 3;
          this.DataMngt_Rt.ShowFocusFrame = false;
-         this.DataMngt_Rt.Size = new System.Drawing.Size(668, 840);
+         this.DataMngt_Rt.Size = new System.Drawing.Size(668, 22);
          this.DataMngt_Rt.TabIndex = 33;
          this.DataMngt_Rt.TitleBorderColor = System.Drawing.Color.Gray;
          // 
@@ -10240,6 +10244,17 @@
          this.FngrDevOpr_Tmr.Interval = 1000;
          this.FngrDevOpr_Tmr.Tick += new System.EventHandler(this.FngrDevOpr_Tmr_Tick);
          // 
+         // tp_009
+         // 
+         this.tp_009.ImageIndex = 17;
+         this.tp_009.Location = new System.Drawing.Point(4, 59);
+         this.tp_009.Name = "tp_009";
+         this.tp_009.Padding = new System.Windows.Forms.Padding(3);
+         this.tp_009.Size = new System.Drawing.Size(647, 447);
+         this.tp_009.TabIndex = 9;
+         this.tp_009.Text = "فرزندان شما";
+         this.tp_009.UseVisualStyleBackColor = true;
+         // 
          // LSI_FLDF_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -11271,5 +11286,6 @@
       private Windows.Forms.Label label22;
       private MaxUi.Button ProcSortFngr_Butn;
       private Windows.Forms.Label RsltFngrPrnt_Lb;
+      private Windows.Forms.TabPage tp_009;
    }
 }

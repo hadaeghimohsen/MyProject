@@ -481,7 +481,7 @@ namespace System.Scsc.Ui.Common
                      //MbfzEndDate_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "grop4_gb":
-                     Grop4_Gb.Text = control.LABL_TEXT;
+                     //Grop4_Gb.Text = control.LABL_TEXT;
                      //Grop4_Gb.Text = control.LABL_TEXT; // ToolTip
                      //Grop4_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -501,7 +501,7 @@ namespace System.Scsc.Ui.Common
                      //FighStat_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "grop5_gb":
-                     Grop5_Gb.Text = control.LABL_TEXT;
+                     //Grop5_Gb.Text = control.LABL_TEXT;
                      //Grop5_Gb.Text = control.LABL_TEXT; // ToolTip
                      //Grop5_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -516,7 +516,7 @@ namespace System.Scsc.Ui.Common
                      //TellPhon_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "grop6_gb":
-                     Grop6_Gb.Text = control.LABL_TEXT;
+                     //Grop6_Gb.Text = control.LABL_TEXT;
                      //Grop6_Gb.Text = control.LABL_TEXT; // ToolTip
                      //Grop6_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -1311,11 +1311,11 @@ namespace System.Scsc.Ui.Common
                RServBs.DataSource = iScsc.Fighters.Where(s => s.FILE_NO == crntinfo.REF_CODE_DNRM);
                if(RServBs.List.Count == 0)
                {
-                  RefCode_Gb.Visible = false;
+                  RefCode_Rlt.Visible = false;
                }
                else
                {
-                  RefCode_Gb.Visible = true;
+                  RefCode_Rlt.Visible = true;
                   RefCont_Txt.Text = iScsc.Fighters.Where(s => s.REF_CODE_DNRM == crntinfo.REF_CODE_DNRM).Count().ToString();
                   try
                   {
@@ -1339,7 +1339,7 @@ namespace System.Scsc.Ui.Common
             }
             else
             {
-               RefCode_Gb.Visible = false;
+               RefCode_Rlt.Visible = false;
             }
 
 
@@ -1420,6 +1420,8 @@ namespace System.Scsc.Ui.Common
 
             // 1403/11/29 * Load 
             FgbmBs.DataSource = iScsc.Fighter_Body_Measurements.Where(f => f.FIGH_FILE_NO == fileno);
+            // 1404/04/03 * Load Last Rqst
+            LastRqstBs.DataSource = iScsc.VF_Request_Changing(fileno).Where(r => r.RQTP_CODE != "011").OrderByDescending(r => r.SAVE_DATE).Take(1);
             // 1401/08/08 * Reload data on tabpage control
             tb_master_SelectedIndexChanged(null, null);
 

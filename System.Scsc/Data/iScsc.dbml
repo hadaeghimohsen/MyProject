@@ -5924,6 +5924,35 @@
       <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.D$SOND" Member="D_SONDs">
+    <Type Name="D_SOND">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Schema_Profile" Member="Schema_Profiles">
+    <Type Name="Schema_Profile">
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SCHM_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SCHM_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Schema_Profile_Sound" Member="Sounds" ThisKey="CODE" OtherKey="SCHM_CODE" Type="Sound" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sound" Member="Sounds">
+    <Type Name="Sound">
+      <Column Name="SCHM_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SOND_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SOND_PATH" Type="System.String" DbType="VarChar(2000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Schema_Profile_Sound" Member="Schema_Profile" ThisKey="SCHM_CODE" OtherKey="CODE" Type="Schema_Profile" IsForeignKey="true" />
+    </Type>
+  </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">
     <Parameter Name="Rqid" Parameter="rqid" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="RqtpCode" Parameter="rqtpCode" Type="System.String" DbType="VarChar(3)" />
@@ -8789,6 +8818,14 @@
     <Return Type="System.Int32" />
   </Function>
   <Function Name="dbo.FNGR_SORT_P" Method="FNGR_SORT_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CRET_USCP_P" Method="CRET_USCP_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.DEL_USCP_P" Method="DEL_USCP_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int32" />
   </Function>

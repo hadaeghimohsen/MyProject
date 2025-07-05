@@ -95,7 +95,23 @@
    AND CAST(ms.STRT_DATE AS DATE) BETWEEN ra.FROM_DATE AND ra.TO_DATE
    AND (ra.COCH_FILE_NO IS NULL OR ms.FGPB_COCH_FILE_NO = ra.COCH_FILE_NO)
    AND (ra.CBMT_CODE IS NULL OR ms.FGPB_CBMT_CODE_DNRM = ra.CBMT_CODE)
-   AND (ra.ORGN_CODE_DNRM IS NULL OR f.ORGN_CODE_DNRM = ra.ORGN_CODE_DNRM);</SqlCommand>
+   AND (ra.ORGN_CODE_DNRM IS NULL OR f.ORGN_CODE_DNRM = ra.ORGN_CODE_DNRM)
+
+UNION ALL
+
+SELECT r.RQID, r.RQTP_CODE, r.RQTT_CODE, r.RQST_NUMB, 
+	   dbo.GET_MTOS_U(r.SAVE_DATE) AS PERS_SAVE_DATE, CAST(r.SAVE_DATE AS TIME(0)) AS PERS_SAVE_TIME,
+       r.CRET_BY,
+       r.PYMT_NO, r.PYMT_PYMT_NO, r.SUM_EXPN_PRIC, r.SUM_RCPT_EXPN_PRIC, r.SUM_PYMT_DSCN_DNRM, r.AMNT_UNIT_TYPE_DNRM, r.PROF_AMNT_DNRM, r.DEDU_AMNT_DNRM, r.AMNT_TYPE_DESC,
+       f.FILE_NO, f.NAME_DNRM, f.FNGR_PRNT_DNRM, f.SEX_TYPE_DNRM, dbo.GET_MTOS_U(f.BRTH_DATE_DNRM) AS PERS_BRTH_DATE, DATEDIFF(YEAR, f.BRTH_DATE_DNRM, GETDATE()) + 1 AS AGE, 
+       f.CELL_PHON_DNRM, f.NATL_CODE_DNRM, f.INSR_NUMB_DNRM, dbo.GET_MTOS_U(f.INSR_DATE_DNRM) AS PERS_INSR_DATE, r.SUM_EXPN_PRIC - (r.SUM_RCPT_EXPN_PRIC + r.SUM_PYMT_DSCN_DNRM) AS DEBT_DNRM /*f.DEBT_DNRM*/, 
+       f.DPST_AMNT_DNRM, f.ORGN_CODE_DNRM, f.SUNT_DESC, f.SEX_DESC, f.SERV_NO_DNRM, f.GLOB_CODE_DNRM,
+       NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,N'درآمد متفرقه',NULL,NULL,N'درآمد های متفرقه'
+  FROM dbo.V#Request r, dbo.V#Fighter f, dbo.V#Report_Action_Parameter ra 
+ WHERE r.FIGH_FILE_NO = f.FILE_NO
+   AND r.RQTT_CODE = '001'
+   AND r.RQTP_CODE = '016'   
+   AND CAST(r.SAVE_DATE AS DATE) BETWEEN ra.FROM_DATE AND ra.TO_DATE;  </SqlCommand>
       </MQL>
       <V_x0023_Report_Action_Parameter Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>V#Report_Action_Parameter</Alias>
@@ -1804,10 +1820,10 @@
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>3/18/2024 3:42:09 PM</ReportChanged>
+  <ReportChanged>6/23/2025 6:14:19 PM</ReportChanged>
   <ReportCreated>11/17/2022 1:34:43 PM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_STAT_002.mrt</ReportFile>
-  <ReportGuid>0171dce2dea84c19959d4115aa0f0a56</ReportGuid>
+  <ReportGuid>1474b261bd6d42daa5e116b495c1d0bf</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Inches</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

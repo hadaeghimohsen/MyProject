@@ -150,7 +150,7 @@ namespace System.Scsc.Ui.Admission
             );
 
             // 1404/01/24 * Duplicate checking (CellPhon, NatlCode)
-            CELL_PHON_TextEdit_ButtonClick(null, null);
+            WhoCellPhon_ButtonClick(null, null);
             if (FighsBs1.Count > 0) return;
             NATL_CODE_TextEdit_ButtonClick(null, null);
             if (FighsBs1.Count > 0) return;
@@ -223,6 +223,8 @@ namespace System.Scsc.Ui.Admission
                                     new XElement("Brth_Date", BRTH_DATE_PersianDateEdit.Value == null ? "" : BRTH_DATE_PersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
                                     new XElement("Cell_Phon", CELL_PHON_TextEdit.Text.Trim()),
                                     new XElement("Tell_Phon", TELL_PHON_TextEdit.Text.Trim()),
+                                    new XElement("Dad_Cell_Phon", DadCellPhon_Txt.Text.Trim()),
+                                    new XElement("Mom_Cell_Phon", MomCellPhon_Txt.Text.Trim()),
                                     new XElement("Type", RQTT_CODE_LookUpEdit1.EditValue),
                                     new XElement("Post_Adrs", POST_ADRS_TextEdit.Text),
                                     new XElement("Emal_Adrs", ""),
@@ -2424,24 +2426,58 @@ namespace System.Scsc.Ui.Admission
          }
       }
 
-      private void CELL_PHON_TextEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      private void WhoCellPhon_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
          try
          {
             FighsBs1.List.Clear();
+            var _txtBtn = sender as ButtonEdit;
+            if (_txtBtn == null) return;
 
-            if(CELL_PHON_TextEdit.EditValue == null || CELL_PHON_TextEdit.Text == ""){ CELL_PHON_TextEdit.Focus(); return; }
+            if (_txtBtn.EditValue == null || _txtBtn.Text == "") { _txtBtn.Focus(); return; }
 
-            FighsBs1.DataSource = 
-               iScsc.Fighters
-                  .Where(
-                     f => f.CELL_PHON_DNRM.Contains(CELL_PHON_TextEdit.Text) && 
-                          f.CONF_STAT == "002" &&
-                          f.FGPB_TYPE_DNRM == "001" &&
-                          (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || 
-                              (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && 
-                          Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101
-                  );
+            switch (_txtBtn.Tag.ToString())
+            {
+               case "self":
+                  FighsBs1.DataSource =
+                     iScsc.Fighters
+                        .Where(
+                           f => f.CELL_PHON_DNRM.Contains(_txtBtn.Text) &&
+                                f.CONF_STAT == "002" &&
+                                f.FGPB_TYPE_DNRM == "001" &&
+                                (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) ||
+                                    (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&
+                                Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101
+                        );
+                  break;
+               case "dad":
+                  FighsBs1.DataSource =
+                     iScsc.Fighters
+                        .Where(
+                           f => f.DAD_CELL_PHON_DNRM.Contains(_txtBtn.Text) &&
+                                f.CONF_STAT == "002" &&
+                                f.FGPB_TYPE_DNRM == "001" &&
+                                (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) ||
+                                    (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&
+                                Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101
+                        );
+                  break;
+               case "mom":
+                  FighsBs1.DataSource =
+                     iScsc.Fighters
+                        .Where(
+                           f => f.MOM_CELL_PHON_DNRM.Contains(_txtBtn.Text) &&
+                                f.CONF_STAT == "002" &&
+                                f.FGPB_TYPE_DNRM == "001" &&
+                                (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) ||
+                                    (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&
+                                Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101
+                        );
+                  break;
+               default:
+                  break;
+            }
+            
 
             if(FighsBs1.Count == 1)
                HL_INVSFILENO_ButtonClick(null, null);

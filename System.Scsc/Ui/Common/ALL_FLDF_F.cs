@@ -287,6 +287,15 @@ namespace System.Scsc.Ui.Common
 
                      iScsc = new Data.iScscDataContext(ConnectionString);
                      AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
+
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "026"))
+                        }
+                     );
                   }
                   break;
                case 3:
@@ -460,6 +469,15 @@ namespace System.Scsc.Ui.Common
                )
             );
             requery = true;
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", _fngrprnt == "" ? "026" : "027"))
+               }
+            );
          }
          catch(Exception exc)
          {
@@ -871,6 +889,15 @@ namespace System.Scsc.Ui.Common
                         )
                      );
                      requery = true;
+
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "021"))
+                        }
+                     );
                   }
                   break;
                case 1:
@@ -965,6 +992,15 @@ namespace System.Scsc.Ui.Common
                         )
                      );
                      requery = true;
+
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "022"))
+                        }
+                     );
                   }
                   break;
                case 1:
@@ -1473,6 +1509,15 @@ namespace System.Scsc.Ui.Common
                if (MessageBox.Show(this, "آیا با غیرفعال کردن دوره موافق هستید؟", "غیرفعال کردن دوره", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
                iScsc.ExecuteCommand(string.Format("UPDATE Member_Ship SET Vald_Type = '001' WHERE Rqro_Rqst_Rqid = {0};", mbsp.RQRO_RQST_RQID));
+
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "018"))
+                  }
+               );
             }
             else if(mbsp.VALD_TYPE == "001")
             {
@@ -1485,6 +1530,15 @@ namespace System.Scsc.Ui.Common
                if (MessageBox.Show(this, "آیا با فعال کردن دوره موافق هستید؟", "فعال کردن دوره", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
                iScsc.ExecuteCommand(string.Format("UPDATE Member_Ship SET Vald_Type = '002' WHERE Rqro_Rqst_Rqid = {0};", mbsp.RQRO_RQST_RQID));
+
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "017"))
+                  }
+               );
             }
 
             requery = true;
@@ -1916,6 +1970,15 @@ namespace System.Scsc.Ui.Common
             iScsc.DEL_PYDS_P(pyds.PYMT_CASH_CODE, pyds.PYMT_RQST_RQID, pyds.RQRO_RWNO, pyds.RWNO);
 
             requery = true;
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "023"))
+               }
+            );
          }
          catch (Exception exc)
          {
@@ -2090,6 +2153,15 @@ namespace System.Scsc.Ui.Common
             );
 
             requery = true;
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "024"))
+               }
+            );
          }
          catch (Exception exc)
          {
@@ -3181,6 +3253,15 @@ namespace System.Scsc.Ui.Common
                new XElement("Fighter",
                    new XAttribute("fileno", fileno)
                )
+            );
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "011"))
+               }
             );
 
             requery = true;
@@ -4800,6 +4881,15 @@ namespace System.Scsc.Ui.Common
                            )
                         );
                         requery = true;
+
+                        // Play Enter Sound
+                        // 1404/03/30 ** New version for play sound
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                           {
+                              Input = new XElement("Sound", new XAttribute("type", "020"))
+                           }
+                        );
                      }
                   }
                   break;
@@ -4849,6 +4939,15 @@ namespace System.Scsc.Ui.Common
                            )
                         );
                         requery = true;
+
+                        // Play Enter Sound
+                        // 1404/03/30 ** New version for play sound
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                           {
+                              Input = new XElement("Sound", new XAttribute("type", "019"))
+                           }
+                        );
                      }
                   }
                   break;
@@ -5182,6 +5281,15 @@ namespace System.Scsc.Ui.Common
                         )
                      );
                      requery = true;
+
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "025"))
+                        }
+                     );
                   }
                   break;
                case 1:

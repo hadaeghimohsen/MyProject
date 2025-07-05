@@ -411,6 +411,12 @@ namespace System.Scsc.Data
     partial void InsertDresser(Dresser instance);
     partial void UpdateDresser(Dresser instance);
     partial void DeleteDresser(Dresser instance);
+    partial void InsertSchema_Profile(Schema_Profile instance);
+    partial void UpdateSchema_Profile(Schema_Profile instance);
+    partial void DeleteSchema_Profile(Schema_Profile instance);
+    partial void InsertSound(Sound instance);
+    partial void UpdateSound(Sound instance);
+    partial void DeleteSound(Sound instance);
     #endregion
 		
 		public iScscDataContext() : 
@@ -2752,6 +2758,30 @@ namespace System.Scsc.Data
 			get
 			{
 				return this.GetTable<V_Pos_Device>();
+			}
+		}
+		
+		public System.Data.Linq.Table<D_SOND> D_SONDs
+		{
+			get
+			{
+				return this.GetTable<D_SOND>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Schema_Profile> Schema_Profiles
+		{
+			get
+			{
+				return this.GetTable<Schema_Profile>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Sound> Sounds
+		{
+			get
+			{
+				return this.GetTable<Sound>();
 			}
 		}
 		
@@ -5722,6 +5752,20 @@ namespace System.Scsc.Data
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.FNGR_SORT_P")]
 		public int FNGR_SORT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.CRET_USCP_P")]
+		public int CRET_USCP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_USCP_P")]
+		public int DEL_USCP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
 			return ((int)(result.ReturnValue));
@@ -112371,6 +112415,508 @@ namespace System.Scsc.Data
 				{
 					this._IP_ADRS = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$SOND")]
+	public partial class D_SOND
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_SOND()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Schema_Profile")]
+	public partial class Schema_Profile : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _CODE;
+		
+		private string _SCHM_NAME;
+		
+		private string _DFLT_STAT;
+		
+		private string _SCHM_BY;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private EntitySet<Sound> _Sounds;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnSCHM_NAMEChanging(string value);
+    partial void OnSCHM_NAMEChanged();
+    partial void OnDFLT_STATChanging(string value);
+    partial void OnDFLT_STATChanged();
+    partial void OnSCHM_BYChanging(string value);
+    partial void OnSCHM_BYChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    #endregion
+		
+		public Schema_Profile()
+		{
+			this._Sounds = new EntitySet<Sound>(new Action<Sound>(this.attach_Sounds), new Action<Sound>(this.detach_Sounds));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SCHM_NAME", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string SCHM_NAME
+		{
+			get
+			{
+				return this._SCHM_NAME;
+			}
+			set
+			{
+				if ((this._SCHM_NAME != value))
+				{
+					this.OnSCHM_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._SCHM_NAME = value;
+					this.SendPropertyChanged("SCHM_NAME");
+					this.OnSCHM_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DFLT_STAT
+		{
+			get
+			{
+				return this._DFLT_STAT;
+			}
+			set
+			{
+				if ((this._DFLT_STAT != value))
+				{
+					this.OnDFLT_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DFLT_STAT = value;
+					this.SendPropertyChanged("DFLT_STAT");
+					this.OnDFLT_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SCHM_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string SCHM_BY
+		{
+			get
+			{
+				return this._SCHM_BY;
+			}
+			set
+			{
+				if ((this._SCHM_BY != value))
+				{
+					this.OnSCHM_BYChanging(value);
+					this.SendPropertyChanging();
+					this._SCHM_BY = value;
+					this.SendPropertyChanged("SCHM_BY");
+					this.OnSCHM_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Schema_Profile_Sound", Storage="_Sounds", ThisKey="CODE", OtherKey="SCHM_CODE")]
+		public EntitySet<Sound> Sounds
+		{
+			get
+			{
+				return this._Sounds;
+			}
+			set
+			{
+				this._Sounds.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Sounds(Sound entity)
+		{
+			this.SendPropertyChanging();
+			entity.Schema_Profile = this;
+		}
+		
+		private void detach_Sounds(Sound entity)
+		{
+			this.SendPropertyChanging();
+			entity.Schema_Profile = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Sound")]
+	public partial class Sound : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _SCHM_CODE;
+		
+		private long _CODE;
+		
+		private string _SOND_TYPE;
+		
+		private string _SOND_PATH;
+		
+		private string _STAT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private EntityRef<Schema_Profile> _Schema_Profile;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnSCHM_CODEChanging(System.Nullable<long> value);
+    partial void OnSCHM_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnSOND_TYPEChanging(string value);
+    partial void OnSOND_TYPEChanged();
+    partial void OnSOND_PATHChanging(string value);
+    partial void OnSOND_PATHChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    #endregion
+		
+		public Sound()
+		{
+			this._Schema_Profile = default(EntityRef<Schema_Profile>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SCHM_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> SCHM_CODE
+		{
+			get
+			{
+				return this._SCHM_CODE;
+			}
+			set
+			{
+				if ((this._SCHM_CODE != value))
+				{
+					if (this._Schema_Profile.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnSCHM_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._SCHM_CODE = value;
+					this.SendPropertyChanged("SCHM_CODE");
+					this.OnSCHM_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SOND_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string SOND_TYPE
+		{
+			get
+			{
+				return this._SOND_TYPE;
+			}
+			set
+			{
+				if ((this._SOND_TYPE != value))
+				{
+					this.OnSOND_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._SOND_TYPE = value;
+					this.SendPropertyChanged("SOND_TYPE");
+					this.OnSOND_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SOND_PATH", DbType="VarChar(2000)", UpdateCheck=UpdateCheck.Never)]
+		public string SOND_PATH
+		{
+			get
+			{
+				return this._SOND_PATH;
+			}
+			set
+			{
+				if ((this._SOND_PATH != value))
+				{
+					this.OnSOND_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._SOND_PATH = value;
+					this.SendPropertyChanged("SOND_PATH");
+					this.OnSOND_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Schema_Profile_Sound", Storage="_Schema_Profile", ThisKey="SCHM_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Schema_Profile Schema_Profile
+		{
+			get
+			{
+				return this._Schema_Profile.Entity;
+			}
+			set
+			{
+				Schema_Profile previousValue = this._Schema_Profile.Entity;
+				if (((previousValue != value) 
+							|| (this._Schema_Profile.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Schema_Profile.Entity = null;
+						previousValue.Sounds.Remove(this);
+					}
+					this._Schema_Profile.Entity = value;
+					if ((value != null))
+					{
+						value.Sounds.Add(this);
+						this._SCHM_CODE = value.CODE;
+					}
+					else
+					{
+						this._SCHM_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Schema_Profile");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

@@ -23,6 +23,7 @@ namespace System.Scsc.Ui.MasterPage
       private string CurrentUser;
       private string RegnLang = "054";
       private DateTime ExprInstDate, CrntDate = DateTime.Now;
+      private bool isFirstLoaded = false;
 
       //private bool requery = default(bool);
 
@@ -72,6 +73,9 @@ namespace System.Scsc.Ui.MasterPage
                break;
             case 43:
                DeviceControlFunction(job);
+               break;
+            case 44:
+               PlaySystemSound(job);
                break;
             case 1000:
                if (InvokeRequired)
@@ -572,7 +576,8 @@ namespace System.Scsc.Ui.MasterPage
          #endregion
 
          // 1403/02/21
-         Main_Pnl.Controls.OfType<MaxUi.Rollout>().ToList().ForEach(r => r.RolloutStatus = (r.Tag == null) ? false : true);
+         Main_Pnl.Controls.OfType<MaxUi.Rollout>().ToList().ForEach(r => r.RolloutStatus = (r.Tag == null || r.Tag.ToString() == "") ? false : true);
+         Stng_Pnl.Controls.OfType<MaxUi.Rollout>().ToList().ForEach(r => r.RolloutStatus = (r.Tag == null || r.Tag.ToString() == "") ? false : true);
 
          // 1404/01/24 * Get subsystem version
          SubVerNo_Txt.EditValue = iScsc.V_SubSies.FirstOrDefault().VERS_NO;
@@ -630,18 +635,34 @@ namespace System.Scsc.Ui.MasterPage
          // 1401/12/18 * Remove Wallpaper for Arta System
          //try { spc_desktopnew.Panel1.BackgroundImage = Image.FromFile(@".\Media\SubSys\Scsc\Desktop\Wallpaper\Wallpaper.jpg"); }
          //catch { }
-
+         
          //FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+         if (isFirstLoaded) goto finishcommand;
+         isFirstLoaded = true;
+
+         // Play Enter Sound
+         // 1404/03/30 ** New version for play sound
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+            {
+               Input = new XElement("Sound", new XAttribute("type", "001"))
+            }
+         );
+
          DAeatBs.DataSource = iScsc.D_AEATs;
          DevntBs.DataSource = iScsc.D_EVNTs;
          DAtsmBs1.DataSource = iScsc.D_ATSMs;
          DActvBs1.DataSource = iScsc.D_ACTVs;
-         DbcdtBs1.DataSource = iScsc.D_BCDTs;
+         DbcdtBs1.DataSource = iScsc.D_BCDTs;         
+         DysnoBs.DataSource = iScsc.D_YSNOs;         
+         DSondBs.DataSource = iScsc.D_SONDs;
+         
+
+         finishcommand:
          VCompBs.DataSource = iScsc.V_Computers;
-         DysnoBs.DataSource = iScsc.D_YSNOs;
          ANoteBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Note_Tag_Info");
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
-
+         UserBs.DataSource = iScsc.V_Users;
          Execute_Query();
          FormHandle = this.Handle;
          job.Status = StatusType.Successful;
@@ -1050,6 +1071,15 @@ namespace System.Scsc.Ui.MasterPage
                      if (Fp4DevIsConnected) result = axCZKEM4.ClearAdministrators(iMachineNumber);
                      if (Fp5DevIsConnected) result = axCZKEM5.ClearAdministrators(iMachineNumber);
                      if (Fp6DevIsConnected) result = axCZKEM6.ClearAdministrators(iMachineNumber);
+
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "026"))
+                        }
+                     );
                      break;
                   case "5.2.3.5":
                      result = Delete_Enroll_Finger(xinput.Attribute("enrollnumb").Value);
@@ -1090,6 +1120,42 @@ namespace System.Scsc.Ui.MasterPage
          catch { }
          //L_End:
          job.Status = StatusType.Successful;
+      }
+
+      /// <summary>
+      /// Code 44
+      /// </summary>
+      /// <param name="job"></param>
+      private void PlaySystemSound(Job job)
+      {         
+         try
+         {
+            job.Status = StatusType.Successful;
+            ///
+            /// <Sound type="001"/>
+            ///
+            var _sondType = ((XElement)job.Input).Attribute("type").Value;
+
+            // Find sound file should be to play with os
+            // 1st find schema profile
+            var _schp = iScsc.Schema_Profiles.Where(sp => sp.SCHM_BY == CurrentUser || sp.DFLT_STAT == "002").OrderByDescending(sp => sp.CRET_DATE).FirstOrDefault();
+            if (_schp == null) return;
+            
+            // 2nd find sound type
+            var _sond = _schp.Sounds.FirstOrDefault(s => s.SOND_TYPE == _sondType);
+            if (_sond == null) return;
+
+            // 3rd if sound must be active and set file path
+            if (_sond.STAT == "001" || _sond.SOND_PATH == null || _sond.SOND_PATH == "") return;
+
+            // At last play sound
+            _wplayer_url = _sond.SOND_PATH;
+            new Thread(AlarmShow).Start();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
 
       /// <summary>

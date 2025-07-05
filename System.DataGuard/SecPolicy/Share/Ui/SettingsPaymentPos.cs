@@ -876,7 +876,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             Tlid = SadadPcPos_SaveTransactionLog(new Sadad.PcPos.Core.PosResult());
 
-            _SadadPcPos.OnSaleResult += _SadadPcPos_OnSaleResult;
+            //_SadadPcPos.OnSaleResult += _SadadPcPos_OnSaleResult;
             _SadadPcPos.Amount = Amnt_Txt.EditValue.ToString();
             _SadadPcPos.DeviceType = DeviceType.BlueBird;
 
@@ -911,7 +911,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                }
             }
 
-            _SadadPcPos.SyncSaleTransaction();
+            _SadadPcPos_OnSaleResult(null, _SadadPcPos.SyncSaleTransaction());
          }
          catch (Exception exc)
          {

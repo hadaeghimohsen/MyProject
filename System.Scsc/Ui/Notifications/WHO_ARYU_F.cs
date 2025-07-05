@@ -482,6 +482,20 @@ namespace System.Scsc.Ui.Notifications
          TotlNumbAttn_Lb.Text = _attn.SUM_ATTN_MONT_DNRM.ToString();
          DayRmnd_Lb.Text = (_attn.MBSP_END_DATE_DNRM.Value.Date - DateTime.Now.Date).Days.ToString();
 
+         // 1404/04/06 * به درخواست جناب صلاحی اگر مشتری تایم رو به اتمام داشته باشد نرم افار یک جلسه قبل به مشتری اعلام کند
+         if((_attn.NUMB_OF_ATTN_MONT > 0 && (_attn.NUMB_OF_ATTN_MONT - _attn.SUM_ATTN_MONT_DNRM) == 1) ||
+            (_attn.NUMB_OF_ATTN_MONT == 0 && (_attn.MBSP_END_DATE_DNRM.Value.Date - DateTime.Now.Date).Days <= 2))
+         {
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "007"))
+               }
+            );
+         }
+
          // 1400/09/17 * مشخص شدن آیتم های درآمدی اعتباری
          var pydts = iScsc.Payment_Details.Where(pd => pd.EXPR_DATE != null && pd.Request_Row.FIGH_FILE_NO == _attn.FIGH_FILE_NO && pd.Request_Row.Request.RQST_STAT == "002");
          PivBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date >= DateTime.Now && pd.EXPR_DATE.Value.Date != pd.CRET_DATE.Value.Date);
@@ -494,8 +508,17 @@ namespace System.Scsc.Ui.Notifications
          if(_attn.EXIT_TIME != null && _attn.Attendance_Wrists.Any(aw => aw.STAT == "001"))
          {
             Info_Tb.SelectedTabPage = Tp_DefWrst;
-            wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Illuminate.mp3";
-            PlaySound();
+            //wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Illuminate.mp3";
+            //PlaySound();
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "032"))
+               }
+            );
          }
 
          DoBkg_Tr.Enabled = true;
@@ -1126,8 +1149,17 @@ namespace System.Scsc.Ui.Notifications
             {
                Tb_WristInfo.SelectedTabPage = Tp_OldGetWrist;
                OldAttnGetWrstBs.DataSource = AllCyclAttnBs1.List.OfType<Data.Attendance>().Any(a => a.CODE != _attn.CODE && a.Attendance_Wrists.Any(aw => aw.STAT == "001"));
-               wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Illuminate.mp3";
-               PlaySound();
+               //wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Illuminate.mp3";
+               //PlaySound();
+
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "032"))
+                  }
+               );
             }
 
             // 1403/12/08 * Load new data in grid

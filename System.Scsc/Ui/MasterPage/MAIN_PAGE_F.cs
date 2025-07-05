@@ -56,6 +56,8 @@ namespace System.Scsc.Ui.MasterPage
          int _stng = StngBs1.Position;
          int _lockdres = LockDresBs.Position;
          int _gust = GustBs.Position;
+         int _scmp = ScmpBs.Position;
+         int _sond = SondBs.Position;
 
          CompaBs.DataSource = iScsc.Computer_Actions.Where(c => c.Dressers.Any());
          NoteBs.DataSource = iScsc.Notes;
@@ -72,6 +74,7 @@ namespace System.Scsc.Ui.MasterPage
                (AllGust_Rb.Checked || (MenGust_Rb.Checked && f.SEX_TYPE_DNRM == "001") || (WomenGust_Rb.Checked && f.SEX_TYPE_DNRM == "002")) &&
                !f.Attendances1.Any(a => a.EXIT_TIME == null && a.ATTN_STAT == "002")
             );
+         ScmpBs.DataSource = iScsc.Schema_Profiles;
 
          CompaBs.Position = _compa;
          NoteBs.Position = _note;
@@ -80,6 +83,8 @@ namespace System.Scsc.Ui.MasterPage
          StngBs1.Position = _stng;
          LockDresBs.Position = _lockdres;
          GustBs.Position = _gust;
+         ScmpBs.Position = _scmp;
+         SondBs.Position = _sond;
 
          requery = false;
       }
@@ -264,7 +269,15 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            new Thread(AlarmShow).Start();
+            //new Thread(AlarmShow).Start();
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "028"))
+               }
+            );
             iScsc = new Data.iScscDataContext(ConnectionString);
             var barCodeSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).FirstOrDefault();
             var enrollNumber = Sp_Barcode.ReadLine();
@@ -636,8 +649,18 @@ namespace System.Scsc.Ui.MasterPage
             try
             {
                //GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
-               System.Media.SoundPlayer opengatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
-               opengatesound.Play();
+               // 1404/03/30 ** لعنت به ج.ا. انسان کش، اسرائیل بزن که خوب میزنی، من به شخصه از کشتن این حرومی ها لذت میبرم بزن عزیزم بزن دمت گرم
+               //System.Media.SoundPlayer opengatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
+               //opengatesound.Play();
+
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "004"))
+                  }
+               );
             }
             catch { }
          }
@@ -796,8 +819,18 @@ namespace System.Scsc.Ui.MasterPage
             try
             {
                //GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
-               System.Media.SoundPlayer closegatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
-               closegatesound.Play();
+               // 1404/03/30 ** لعنت به ج.ا. انسان کش، اسرائیل بزن که خوب میزنی، من به شخصه از کشتن این حرومی ها لذت میبرم بزن عزیزم بزن دمت گرم
+               //System.Media.SoundPlayer closegatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
+               //closegatesound.Play();
+
+               // Play Exit Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "005"))
+                  }
+               );
             }
             catch { }
          }
@@ -935,8 +968,18 @@ namespace System.Scsc.Ui.MasterPage
             try
             {
                //GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
-               System.Media.SoundPlayer errorgatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\BuzzError.wav");
-               errorgatesound.Play();
+               // 1404/03/30 ** لعنت به ج.ا. انسان کش، اسرائیل بزن که خوب میزنی، من به شخصه از کشتن این حرومی ها لذت میبرم بزن عزیزم بزن دمت گرم
+               //System.Media.SoundPlayer errorgatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\BuzzError.wav");
+               //errorgatesound.Play();
+
+               // Play Error Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "006"))
+                  }
+               );
             }
             catch { }
          }
@@ -2616,8 +2659,16 @@ namespace System.Scsc.Ui.MasterPage
                {
                   if (!iScsc.Request_Duplicates.Any(rd => rd.STAT == "002" && rd.CRET_BY == CurrentUser))
                   {
-                     _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\disconnect.wav";
-                     new Thread(AlarmShow).Start();
+                     //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\disconnect.wav";
+                     //new Thread(AlarmShow).Start();
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "031"))
+                        }
+                     );
                   }
                   else
                   {
@@ -2627,8 +2678,17 @@ namespace System.Scsc.Ui.MasterPage
                             new XAttribute("fngrprnt", FngrPrnt_Txt.Text)
                         )
                      );
-                     _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\expert.wav";
-                     new Thread(AlarmShow).Start();
+                     //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\expert.wav";
+                     //new Thread(AlarmShow).Start();
+
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "029"))
+                        }
+                     );
 
                      CardNumb_Text.EditValue = null;
                   }
@@ -2653,8 +2713,16 @@ namespace System.Scsc.Ui.MasterPage
                      FngrPrnt_Txt.Text = "";
                      CardNumb_Text.Text = (CardNumb_Text.Text.ToInt32() + 1).ToString();
 
-                     _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\expert.wav";
-                     new Thread(AlarmShow).Start();
+                     //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\expert.wav";
+                     //new Thread(AlarmShow).Start();
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "029"))
+                        }
+                     );
                   }
                   else if (iScsc.Dressers.Any(d => d.CMND_SEND != FngrPrnt_Txt.Text && d.DRES_NUMB == CardNumb_Text.Text.ToInt32() && d.Computer_Action.COMP_NAME == xHost.Attribute("name").Value))
                   {
@@ -2664,8 +2732,16 @@ namespace System.Scsc.Ui.MasterPage
 
                      FngrPrnt_Txt.Text = "";
 
-                     _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\expert.wav";
-                     new Thread(AlarmShow).Start();
+                     //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\expert.wav";
+                     //new Thread(AlarmShow).Start();
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "029"))
+                        }
+                     );
                   }
                   #endregion
                }
@@ -2779,8 +2855,16 @@ namespace System.Scsc.Ui.MasterPage
                   )
                );
 
-               _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Windows\Windows Recycle.wav";
-               new Thread(AlarmShow).Start();
+               //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Windows\Windows Recycle.wav";
+               //new Thread(AlarmShow).Start();
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "026"))
+                  }
+               );
 
                // اگر هدف فقط خام کردن کارت عضویت مشتری باشه
                if (ModifierKeys.HasFlag(Keys.Shift)) return;
@@ -2878,8 +2962,16 @@ namespace System.Scsc.Ui.MasterPage
                   var host = iScsc.Computer_Actions.FirstOrDefault(mb => mb.COMP_NAME == xHost.Attribute("name").Value);
                   if (host.CHCK_ATTN_ALRM == "001")
                   {
-                     _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Windows\Windows Proximity Notification.wav";
-                     new Thread(AlarmShow).Start();
+                     //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Windows\Windows Proximity Notification.wav";
+                     //new Thread(AlarmShow).Start();
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "030"))
+                        }
+                     );
 
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "Localhost",
@@ -2924,8 +3016,17 @@ namespace System.Scsc.Ui.MasterPage
                var figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == EnrollNumber);
                if(figh == null)
                {
-                  _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\note.mp3";
-                  new Thread(AlarmShow).Start();
+                  //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\note.mp3";
+                  //new Thread(AlarmShow).Start();
+
+                  // Play Enter Sound
+                  // 1404/03/30 ** New version for play sound
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                     {
+                        Input = new XElement("Sound", new XAttribute("type", "030"))
+                     }
+                  );
 
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "Localhost",
@@ -3060,8 +3161,17 @@ namespace System.Scsc.Ui.MasterPage
 
                if (mbsp.Count() >= 2)
                {
-                  _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
-                  new Thread(AlarmShow).Start();
+                  //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+                  //new Thread(AlarmShow).Start();
+
+                  // Play Enter Sound
+                  // 1404/03/30 ** New version for play sound
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                     {
+                        Input = new XElement("Sound", new XAttribute("type", "032"))
+                     }
+                  );
 
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
@@ -3269,6 +3379,15 @@ namespace System.Scsc.Ui.MasterPage
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "0026"))
+               }
+            );
             return true;
          }
          catch (Exception exc)
@@ -3319,6 +3438,15 @@ namespace System.Scsc.Ui.MasterPage
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "011"))
+               }
+            );
             return true;
          }
          catch (Exception exc)
@@ -3526,6 +3654,15 @@ namespace System.Scsc.Ui.MasterPage
                }
             }
             #endregion
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "013"))
+               }
+            );
             return true;
          }
          catch(Exception exc)
@@ -3604,6 +3741,15 @@ namespace System.Scsc.Ui.MasterPage
                //_wplayer_url = "";
                //new Thread(AlarmShow).Start();
             }
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "014"))
+               }
+            );
             return _data;
          }
          catch { return _data; }
@@ -3751,6 +3897,15 @@ namespace System.Scsc.Ui.MasterPage
                }
             }
             #endregion
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "015"))
+               }
+            );
             return result;
          }
          catch
@@ -3841,6 +3996,16 @@ namespace System.Scsc.Ui.MasterPage
                }
                return result;
             }
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "013"))
+               }
+            );
+
             return true;
          }
          catch (Exception exc)
@@ -3864,6 +4029,15 @@ namespace System.Scsc.Ui.MasterPage
 
             if (Fp1DevIsConnected)
             {
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "012"))
+                  }
+               );
+
                axCZKEM1.CancelOperation();
                axCZKEM1.DelUserFace(iMachineNumber, sUserID, iFingerIndex);
                axCZKEM1.RefreshData(1);//the data in the device should be refreshed
@@ -3879,6 +4053,15 @@ namespace System.Scsc.Ui.MasterPage
 
             if (Fp2DevIsConnected)
             {
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "012"))
+                  }
+               );
+
                axCZKEM2.CancelOperation();
                axCZKEM2.DelUserFace(iMachineNumber, sUserID, iFingerIndex);
                axCZKEM2.RefreshData(1);//the data in the device should be refreshed
@@ -3894,6 +4077,15 @@ namespace System.Scsc.Ui.MasterPage
 
             if (Fp3DevIsConnected)
             {
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "012"))
+                  }
+               );
+
                axCZKEM3.CancelOperation();
                axCZKEM3.DelUserFace(iMachineNumber, sUserID, iFingerIndex);
                axCZKEM3.RefreshData(1);//the data in the device should be refreshed
@@ -3905,7 +4097,7 @@ namespace System.Scsc.Ui.MasterPage
                   axCZKEM3.RefreshData(1);//the data in the device should be refreshed
                   return true;
                }
-            }
+            }            
 
             return true;
          }
@@ -3968,6 +4160,16 @@ namespace System.Scsc.Ui.MasterPage
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "026"))
+               }
+            );
+
             return true;
          }
          catch (Exception exc)
@@ -4089,7 +4291,17 @@ namespace System.Scsc.Ui.MasterPage
                      var lsgate = new TcpListenerX((int)gate.PORT_RECV);
 
                      // 1399/12/11 * اضافه شدن گزینه ای اطلاع رسانی بابت اتصال گیت به سرور
-                     new Thread(AlarmShow).Start();
+                     //new Thread(AlarmShow).Start();
+                     
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "008"))
+                        }
+                     );
+
                      if (!GameHours_Butn.ToolTip.Contains(gate.IP_ADRS))
                      {
                         GameHours_Butn.ToolTip +=
@@ -4457,7 +4669,16 @@ namespace System.Scsc.Ui.MasterPage
                }
 
                // Alarm 
-               new Thread(AlarmShow).Start();
+               //new Thread(AlarmShow).Start();
+
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "028"))
+                  }
+               );
 
                iScsc = new Data.iScscDataContext(ConnectionString);
 
@@ -4686,29 +4907,32 @@ namespace System.Scsc.Ui.MasterPage
       Color _evencolor = Color.YellowGreen, _oddcolor = Color.LimeGreen;
       private void AlarmShow()
       {
-         if (InvokeRequired)
+         lock (_wplayer_url)
          {
-            try
+            if (InvokeRequired)
             {
-               wplayer.URL = _wplayer_url;
-               wplayer.controls.play();
+               try
+               {
+                  wplayer.URL = _wplayer_url;
+                  wplayer.controls.play();
+               }
+               catch { }
+
+               var tempcolor = BackGrnd_Butn.NormalColorA;
+               for (int i = 0; i < 5; i++)
+               {
+                  if (i % 2 == 0)
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = _evencolor;//Color.YellowGreen;
+                  else
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = _oddcolor;//Color.LimeGreen;
+
+                  Thread.Sleep(100);
+               }
+               BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = tempcolor;
+
+               _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
+               _evencolor = Color.YellowGreen; _oddcolor = Color.LimeGreen;
             }
-            catch { }
-
-            var tempcolor = BackGrnd_Butn.NormalColorA;
-            for (int i = 0; i < 5; i++)
-            {
-               if (i % 2 == 0)
-                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = _evencolor;//Color.YellowGreen;
-               else
-                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = _oddcolor;//Color.LimeGreen;
-
-               Thread.Sleep(100);
-            }
-            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = tempcolor;
-
-            _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
-            _evencolor = Color.YellowGreen; _oddcolor = Color.LimeGreen;
          }
       }
 
@@ -5367,7 +5591,17 @@ namespace System.Scsc.Ui.MasterPage
          //Console.WriteLine("Client Connected: " + e.ConnectedClient.ConnectAddress);
          try
          {
-            new Thread(AlarmShow).Start();
+            //new Thread(AlarmShow).Start();
+            
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "008"))
+               }
+            );
+
             if (!GameHours_Butn.ToolTip.Contains(e.ConnectedClient.ConnectAddress))
             {
                GameHours_Butn.ToolTip +=
@@ -7584,8 +7818,17 @@ namespace System.Scsc.Ui.MasterPage
                   })
             );
 
-            _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\tick.wav";
-            new Thread(AlarmShow).Start();
+            //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\tick.wav";
+            //new Thread(AlarmShow).Start();
+            
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "033"))
+               }
+            );
          }
       }
 
@@ -7725,8 +7968,17 @@ namespace System.Scsc.Ui.MasterPage
                );
                SrvrPing_Butn.Tag = GetServer.Output.ToString();
 
-               _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\connect.wav";
-               new Thread(AlarmShow).Start();
+               //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\connect.wav";
+               //new Thread(AlarmShow).Start();
+               
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "008"))
+                  }
+               );
             }
 
             Ping ping = new Ping();
@@ -7744,8 +7996,17 @@ namespace System.Scsc.Ui.MasterPage
                SrvrPing_Butn.Appearance.BackColor = Color.Pink;
                SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} Network disconnected.", SrvrPing_Butn.Tag);
 
-               _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\disconnect.wav";
-               new Thread(AlarmShow).Start();
+               //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\disconnect.wav";
+               //new Thread(AlarmShow).Start();
+               
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "010"))
+                  }
+               );
             }            
 
             // اگر چک کردن تست ارتباط فعال باشد
@@ -7760,8 +8021,18 @@ namespace System.Scsc.Ui.MasterPage
                   if (!dev.IsALive() && dev.DeviceType.NotIn("FngrPrnt"))
                   {
                      ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " not a lived." + Environment.NewLine;
-                     _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\alert2.wav";
-                     new Thread(AlarmShow).Start(); 
+                     //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\alert2.wav";
+                     //new Thread(AlarmShow).Start(); 
+                     
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "010"))
+                        }
+                     );
+
                      dev.PingStatus = false;
                   }                  
                   // اگر دستگاه غیرفعال بوده
@@ -7790,8 +8061,17 @@ namespace System.Scsc.Ui.MasterPage
                         //);
                         ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " connected." + Environment.NewLine;
 
-                        _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\connect.wav";
-                        new Thread(AlarmShow).Start();
+                        //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\connect.wav";
+                        //new Thread(AlarmShow).Start();
+                        
+                        // Play Enter Sound
+                        // 1404/03/30 ** New version for play sound
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                           {
+                              Input = new XElement("Sound", new XAttribute("type", "008"))
+                           }
+                        );
                      }
                      else
                      {
@@ -7811,8 +8091,17 @@ namespace System.Scsc.Ui.MasterPage
 
                         ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " disconnected." + Environment.NewLine;
 
-                        _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\disconnect.wav";
-                        new Thread(AlarmShow).Start();
+                        //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\disconnect.wav";
+                        //new Thread(AlarmShow).Start();
+
+                        // Play Enter Sound
+                        // 1404/03/30 ** New version for play sound
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                           {
+                              Input = new XElement("Sound", new XAttribute("type", "010"))
+                           }
+                        );
                      }
                   }
                   else
@@ -7826,7 +8115,17 @@ namespace System.Scsc.Ui.MasterPage
                {
                   if(!Sp_Barcode.IsOpen)
                   {
-                     new Thread(AlarmShow).Start();
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "010"))
+                        }
+                     );
+
+                     //new Thread(AlarmShow).Start();
+
                      Sp_Barcode.Close();
                      Sp_Barcode.Open();
                   }
@@ -7835,7 +8134,17 @@ namespace System.Scsc.Ui.MasterPage
                {
                   if (!Sp_GateAttn.IsOpen)
                   {
-                     new Thread(AlarmShow).Start();
+                     // Play Enter Sound
+                     // 1404/03/30 ** New version for play sound
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("Sound", new XAttribute("type", "010"))
+                        }
+                     );
+
+                     //new Thread(AlarmShow).Start();
+
                      Sp_GateAttn.Close();
                      Sp_GateAttn.Open();
                   }
@@ -7878,8 +8187,18 @@ namespace System.Scsc.Ui.MasterPage
                      )
                   );
 
-               _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\alert2.wav";
-               new Thread(AlarmShow).Start();
+               //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\alert2.wav";
+               //new Thread(AlarmShow).Start();
+
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "031"))
+                  }
+               );
+
                return;
             }
             else
@@ -8712,8 +9031,17 @@ namespace System.Scsc.Ui.MasterPage
          else
             spc_desktopnew.SplitterPosition = 0;
 
-         _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\tick.wav";
-         new Thread(AlarmShow).Start();
+         //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\tick.wav";
+         //new Thread(AlarmShow).Start();
+
+         // Play Enter Sound
+         // 1404/03/30 ** New version for play sound
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+            {
+               Input = new XElement("Sound", new XAttribute("type", "033"))
+            }
+         );
       }
 
       private void tol_ibutn_ItemClick(object sender, EventArgs e)
@@ -8932,8 +9260,17 @@ namespace System.Scsc.Ui.MasterPage
       {
          MainRbonMenu_Rbnc.Visible = !MainRbonMenu_Rbnc.Visible;
 
-         _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\tick.wav";
-         new Thread(AlarmShow).Start();
+         //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\tick.wav";
+         //new Thread(AlarmShow).Start();
+
+         // Play Enter Sound
+         // 1404/03/30 ** New version for play sound
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+            {
+               Input = new XElement("Sound", new XAttribute("type", "033"))
+            }
+         );
       }
 
       private void bbi_clenupbutn_Click(object sender, EventArgs e)
@@ -8950,8 +9287,16 @@ namespace System.Scsc.Ui.MasterPage
                      "DELETE dbo.Request WHERE RQST_STAT = '003';"
                   );
 
-                  _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\timeout.wav";
-                  new Thread(AlarmShow).Start();
+                  //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\timeout.wav";
+                  //new Thread(AlarmShow).Start();
+                  // Play Enter Sound
+                  // 1404/03/30 ** New version for play sound
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                     {
+                        Input = new XElement("Sound", new XAttribute("type", "003"))
+                     }
+                  );
 
                });
          }
@@ -9916,8 +10261,17 @@ namespace System.Scsc.Ui.MasterPage
             }
 
             // play Sound for success process
-            _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\SUCCESS.wav";
-            new Thread(AlarmShow).Start();
+            //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\SUCCESS.wav";
+            //new Thread(AlarmShow).Start();
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "029"))
+               }
+            );
          }
          catch { }
       }
@@ -10050,8 +10404,17 @@ namespace System.Scsc.Ui.MasterPage
                      }
                   }                  
 
-                  _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Windows\Windows Recycle.wav";
-                  new Thread(AlarmShow).Start();
+                  //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Windows\Windows Recycle.wav";
+                  //new Thread(AlarmShow).Start();
+
+                  // Play Enter Sound
+                  // 1404/03/30 ** New version for play sound
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                     {
+                        Input = new XElement("Sound", new XAttribute("type", "026"))
+                     }
+                  );
                   break;
                default:
                   break;
@@ -10459,8 +10822,18 @@ namespace System.Scsc.Ui.MasterPage
          {
             if (ModifierKeys.HasFlag(Keys.Control))
             {
-               _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\radar.mp3";
-               new Thread(AlarmShow).Start();
+               //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\radar.mp3";
+               //new Thread(AlarmShow).Start();
+
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "034"))
+                  }
+               );
+
                DeviceOnNetworks.OfType<Device_On_Network>().ToList().ForEach(d => { d.PingStatus = false; });
                Tm_ShowTime_Tick(null, null);
             }
@@ -11126,8 +11499,33 @@ namespace System.Scsc.Ui.MasterPage
                                new Job(SendType.External, "RoboTech",
                                    new List<Job>{
                                        new Job(SendType.Self, 02 /* Execute Frst_Page_F */),
-                                       new Job(SendType.Self, 27 /* Execute Wlet_Dvlp_F */),
-                                       new Job(SendType.SelfToUserInterface, "WLET_DVLP_F", 10 /* Execute Actn_CalF_P */)
+                                       new Job(SendType.SelfToUserInterface, "FRST_PAGE_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                                       //new Job(SendType.Self, 27 /* Execute Wlet_Dvlp_F */),
+                                       //new Job(SendType.SelfToUserInterface, "WLET_DVLP_F", 10 /* Execute Actn_CalF_P */),
+                                       
+                                       new Job(SendType.Self, 11 /* Execute Strt_Robo_F */),
+                                       new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 00 /* Execute ProcessCmdKey */){Input = Keys.Escape},
+                                       new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                                       {
+                                          Input = 
+                                             new XElement("Robot", 
+                                                new XAttribute("runrobot", "start"),
+                                                new XAttribute("actntype", "sendmesg"),
+                                                new XAttribute("chatid", 1847807509),
+                                                new XAttribute("command", "textmesg"),
+                                                new XAttribute("rbid", 391),
+                                                //new XAttribute("mesg", "✅ رسید ارسالی مورد تایید واقع شد")
+                                                new XElement("Respons",
+                                                    new XElement("Message",
+                                                        new XAttribute("order", 1),
+                                                        new XElement("Texts", 
+                                                            new XAttribute("order", 1),
+                                                            "لطفا سیستم ما رو شارژ کنید"
+                                                        )
+                                                    )
+                                                )
+                                             )
+                                       }
                                    }
                                )
                                #endregion
@@ -11393,6 +11791,287 @@ namespace System.Scsc.Ui.MasterPage
                      new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "accesscontrol"), new XAttribute("fngrprnt", _lockDresAttn.FNGR_PRNT_DNRM), new XAttribute("attnsystype", "001"))}
                   })
             );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SondSave_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            SondGv.PostEditor();
+
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void UserScmp_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _user = UserScmp_Lov.EditValue;
+            if (_user == null || _user.ToString() == "") return;
+
+            switch (e.Button.Index)
+            {
+               case 1:
+                  iScsc.CRET_USCP_P(
+                     new XElement("User", new XAttribute("id", _user))
+                  );
+                  break;
+               case 2:
+                  if (ModifierKeys.HasFlag(Keys.Control))
+                     if (ScmpBs.List.OfType<Data.Schema_Profile>().Any(sp => sp.SCHM_BY == UserBs.List.OfType<Data.V_User>().FirstOrDefault(u => u.ID == (long)_user).USER_DB))
+                     {
+                        if (MessageBox.Show(this, "آیا با حذف پروفایل کاربری که انتخاب کردین موافق هستید؟", "حذف پروفایل کاربری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                        iScsc.DEL_USCP_P(
+                           new XElement("User",
+                               new XAttribute("id", _user)
+                           )
+                        );
+                     }
+                     else
+                        UserScmp_Lov.EditValue = null;
+                  break;
+               default:
+                  break;
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SondPath_BTxt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _sond = SondBs.Current as Data.Sound;
+            if (_sond == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  BrwsFile_Ofd.Filter = "Audio Files (*.mp3;*.wav;*.wma)|*.mp3;*.wav;*.wma|All Files (*.*)|*.*";
+                  if (BrwsFile_Ofd.InitialDirectory == null) BrwsFile_Ofd.InitialDirectory = Environment.CurrentDirectory;
+                  if (BrwsFile_Ofd.ShowDialog() != DialogResult.OK) return;
+                  _sond.SOND_PATH = BrwsFile_Ofd.FileName;
+                  break;
+               case 1:
+                  // At last play sound
+                  switch (SondPath_BTxt.Tag.ToString())
+	               {
+                     case "stop":
+                        SondPath_BTxt.Tag = "play";
+                        _wplayer_url = _sond.SOND_PATH;
+                        new Thread(AlarmShow).Start();
+                        break;
+                     case "play":
+                        SondPath_BTxt.Tag = "stop";
+                        wplayer.controls.stop();
+                        break;
+                     default:
+                        break;
+	               }                  
+                  break;
+               case 2:
+                  _sond.SOND_PATH = "";
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Sond_ABtn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _sond = SondBs.Current as Data.Sound;
+            if (_sond == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  _sond.STAT = _sond.STAT == "002" ? "001" : "002";
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DebtPath_BTxt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _stng = StngBs1.Current as Data.Setting;
+            if (_stng == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  BrwsFile_Ofd.Filter = "Audio Files (*.mp3;*.wav;*.wma)|*.mp3;*.wav;*.wma|All Files (*.*)|*.*";
+                  if (BrwsFile_Ofd.InitialDirectory == null) BrwsFile_Ofd.InitialDirectory = Environment.CurrentDirectory;
+                  if (BrwsFile_Ofd.ShowDialog() != DialogResult.OK) return;
+                  _stng.SND9_PATH = BrwsFile_Ofd.FileName;
+                  break;
+               case 1:
+                  // At last play sound
+                  switch (DebtPath_BTxt.Tag.ToString())
+	               {
+                     case "stop":
+                        DebtPath_BTxt.Tag = "play";
+                        _wplayer_url = _stng.SND9_PATH;
+                        new Thread(AlarmShow).Start();
+                        break;
+                     case "play":
+                        DebtPath_BTxt.Tag = "stop";
+                        wplayer.controls.stop();
+                        break;
+                     default:
+                        break;
+	               }
+                  
+                  break;
+               case 2:
+                  _stng.SND9_PATH = "";
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void BrthDayPath_BTxt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _stng = StngBs1.Current as Data.Setting;
+            if (_stng == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  BrwsFile_Ofd.Filter = "Audio Files (*.mp3;*.wav;*.wma)|*.mp3;*.wav;*.wma|All Files (*.*)|*.*";
+                  if (BrwsFile_Ofd.InitialDirectory == null) BrwsFile_Ofd.InitialDirectory = Environment.CurrentDirectory;
+                  if (BrwsFile_Ofd.ShowDialog() != DialogResult.OK) return;
+                  _stng.SND7_PATH = BrwsFile_Ofd.FileName;
+                  break;
+               case 1:
+                  // At last play sound
+                  switch (BrthDayPath_BTxt.Tag.ToString())
+	               {
+                     case "stop":
+                        BrthDayPath_BTxt.Tag = "play";
+                        _wplayer_url = _stng.SND7_PATH;
+                        new Thread(AlarmShow).Start();
+                        break;
+                     case "play":
+                        BrthDayPath_BTxt.Tag = "stop";
+                        wplayer.controls.stop();
+                        break;
+                     default:
+                        break;
+	               }
+                  
+                  break;
+               case 2:
+                  _stng.SND7_PATH = "";
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SondLoad_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            string _filepath = @".\Media\SubSys\Kernel\Desktop\Sounds\app\";
+            _filepath += SondFa_Rb.Checked ? @"fa\" : @"en\";
+            _filepath += SondMan_Rb.Checked ? @"man\" : @"woman\";
+
+            var _schmprof = ScmpBs.Current as Data.Schema_Profile;
+            if (_schmprof == null) return;
+
+            if(CrntSchmProf_Rb.Checked)
+            {
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     @"UPDATE dbo.Sound SET SOND_PATH = N'{1}' WHERE SCHM_CODE = {0} AND SOND_TYPE = '004';" +
+                     @"UPDATE dbo.Sound SET SOND_PATH = N'{2}' WHERE SCHM_CODE = {0} AND SOND_TYPE = '005';" + 
+                     @"UPDATE dbo.Sound SET SOND_PATH = N'{3}' WHERE SCHM_CODE = {0} AND SOND_TYPE = '006';" +
+                     @"UPDATE dbo.Sound SET SOND_PATH = N'{4}' WHERE SCHM_CODE = {0} AND SOND_TYPE = '007';" ,
+                     _schmprof.CODE,
+                     _filepath + string.Format("Welcome_{0}.wav", SondMan_Rb.Checked ? "man" : "woman"),
+                     _filepath + string.Format("Goodbye_{0}.wav", SondMan_Rb.Checked ? "man" : "woman"),
+                     _filepath + string.Format("Recycled_{0}.wav", SondMan_Rb.Checked ? "man" : "woman"),
+                     _filepath + string.Format("LimitToEndCycl_{0}.wav", SondMan_Rb.Checked ? "man" : "woman")
+                  )
+               );
+            }
+            else
+            {
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     @"UPDATE dbo.Sound SET SOND_PATH = N'{1}' WHERE SOND_TYPE = '004';" +
+                     @"UPDATE dbo.Sound SET SOND_PATH = N'{2}' WHERE SOND_TYPE = '005';" +
+                     @"UPDATE dbo.Sound SET SOND_PATH = N'{3}' WHERE SOND_TYPE = '006';" +
+                     @"UPDATE dbo.Sound SET SOND_PATH = N'{4}' WHERE SOND_TYPE = '007';",
+                     _schmprof.CODE,
+                     _filepath + string.Format("Welcome_{0}.wav", SondMan_Rb.Checked ? "man" : "woman"),
+                     _filepath + string.Format("Goodbye_{0}.wav", SondMan_Rb.Checked ? "man" : "woman"),
+                     _filepath + string.Format("Recycled_{0}.wav", SondMan_Rb.Checked ? "man" : "woman"),
+                     _filepath + string.Format("LimitToEndCycl_{0}.wav", SondMan_Rb.Checked ? "man" : "woman")
+                  )
+               );
+            }
+
             requery = true;
          }
          catch (Exception exc)

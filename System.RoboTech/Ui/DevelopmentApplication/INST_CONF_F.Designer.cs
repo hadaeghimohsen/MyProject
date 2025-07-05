@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -73,8 +72,8 @@
          this.Back_Butn = new C1.Win.C1Input.C1Button();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
          this.panel3 = new System.Windows.Forms.Panel();
-         this.RoboBs = new System.Windows.Forms.BindingSource(this.components);
-         this.OrgnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RoboBs = new System.Windows.Forms.BindingSource();
+         this.OrgnBs = new System.Windows.Forms.BindingSource();
          this.countryGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -114,7 +113,7 @@
          this.Followers_Tp = new DevExpress.XtraTab.XtraTabPage();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.IflrBs = new System.Windows.Forms.BindingSource(this.components);
+         this.IflrBs = new System.Windows.Forms.BindingSource();
          this.IflrGv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn19 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn20 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -152,7 +151,7 @@
          this.rollout7 = new System.MaxUi.Rollout();
          this.grouper9 = new System.MaxUi.Grouper();
          this.gridLookUpEdit1 = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.SrbtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SrbtBs = new System.Windows.Forms.BindingSource();
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn70 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn71 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -213,7 +212,7 @@
          this.button3 = new System.MaxUi.Button();
          this.FollowersSelectOption_Fb = new System.MaxUi.FlyoutButton();
          this.FlwrPlacHldr_Lov = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.TmpiBs = new System.Windows.Forms.BindingSource(this.components);
+         this.TmpiBs = new System.Windows.Forms.BindingSource();
          this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn107 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn108 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -237,7 +236,7 @@
          this.grouper16 = new System.MaxUi.Grouper();
          this.label50 = new System.Windows.Forms.Label();
          this.memoEdit3 = new DevExpress.XtraEditors.MemoEdit();
-         this.IdfrBs = new System.Windows.Forms.BindingSource(this.components);
+         this.IdfrBs = new System.Windows.Forms.BindingSource();
          this.label51 = new System.Windows.Forms.Label();
          this.textEdit30 = new DevExpress.XtraEditors.TimeEdit();
          this.grouper14 = new System.MaxUi.Grouper();
@@ -253,7 +252,7 @@
          this.colINST_PKID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMESG_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DelmtBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DelmtBs = new System.Windows.Forms.BindingSource();
          this.colMESG_TEXT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colLINK = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colFILE_PATH = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -262,7 +261,7 @@
          this.colCITY_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSEND_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit2 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DsdtpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DsdtpBs = new System.Windows.Forms.BindingSource();
          this.colCRET_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY3 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -271,7 +270,7 @@
          this.Following_Tp = new DevExpress.XtraTab.XtraTabPage();
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-         this.IflnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.IflnBs = new System.Windows.Forms.BindingSource();
          this.IflnGv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -392,7 +391,7 @@
          this.grouper20 = new System.MaxUi.Grouper();
          this.label59 = new System.Windows.Forms.Label();
          this.memoEdit5 = new DevExpress.XtraEditors.MemoEdit();
-         this.IdfnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.IdfnBs = new System.Windows.Forms.BindingSource();
          this.label60 = new System.Windows.Forms.Label();
          this.timeEdit3 = new DevExpress.XtraEditors.TimeEdit();
          this.grouper21 = new System.MaxUi.Grouper();
@@ -432,18 +431,18 @@
          this.label53 = new System.Windows.Forms.Label();
          this.label34 = new System.Windows.Forms.Label();
          this.timeEdit2 = new DevExpress.XtraEditors.SpinEdit();
-         this.InstBs = new System.Windows.Forms.BindingSource(this.components);
+         this.InstBs = new System.Windows.Forms.BindingSource();
          this.spinEdit2 = new DevExpress.XtraEditors.SpinEdit();
          this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
          this.gridLookUpEdit4 = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.HostBs = new System.Windows.Forms.BindingSource(this.components);
+         this.HostBs = new System.Windows.Forms.BindingSource();
          this.gridView10 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colIP_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCPU_SRNO_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCOMP_NAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colNAME_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridLookUpEdit3 = new DevExpress.XtraEditors.GridLookUpEdit();
-         this.TmplBs = new System.Windows.Forms.BindingSource(this.components);
+         this.TmplBs = new System.Windows.Forms.BindingSource();
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colROBO_RBID3 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colTMID1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -500,7 +499,7 @@
          this.textEdit15 = new DevExpress.XtraEditors.TextEdit();
          this.label1 = new System.Windows.Forms.Label();
          this.textEdit4 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DsxtpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DsxtpBs = new System.Windows.Forms.BindingSource();
          this.textEdit8 = new DevExpress.XtraEditors.MemoEdit();
          this.DelPage_Butn = new System.MaxUi.Button();
          this.SaveInfoPage_Butn = new System.MaxUi.Button();
@@ -570,7 +569,7 @@
          this.textEdit34 = new DevExpress.XtraEditors.TextEdit();
          this.label49 = new System.Windows.Forms.Label();
          this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DtmtpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DtmtpBs = new System.Windows.Forms.BindingSource();
          this.MesgText_Txt = new DevExpress.XtraEditors.MemoEdit();
          this.SlctTmpl_Butn = new System.MaxUi.Button();
          this.DelTmpl_Butn = new System.MaxUi.Button();
@@ -591,8 +590,8 @@
          this.colMDFY_BY2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRobot2 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.SbflBs = new System.Windows.Forms.BindingSource(this.components);
-         this.SbfrBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SbflBs = new System.Windows.Forms.BindingSource();
+         this.SbfrBs = new System.Windows.Forms.BindingSource();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
@@ -1516,6 +1515,7 @@
          this.rollout6.Controls.Add(this.grouper5);
          this.rollout6.Controls.Add(this.grouper6);
          this.rollout6.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout6.ForeColor = System.Drawing.Color.Black;
          this.rollout6.FrameOnMouseOverOnly = false;
          this.rollout6.GroupImage = null;
          this.rollout6.Location = new System.Drawing.Point(3, 3);
@@ -1545,6 +1545,7 @@
          this.grouper5.BorderThickness = 1F;
          this.grouper5.Controls.Add(this.GetUpdateFollowerInfo_Butn);
          this.grouper5.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper5.ForeColor = System.Drawing.Color.Black;
          this.grouper5.GroupImage = null;
          this.grouper5.GroupTitle = "عملیات";
          this.grouper5.Location = new System.Drawing.Point(7, 367);
@@ -1604,6 +1605,7 @@
          this.grouper6.Controls.Add(this.memoEdit2);
          this.grouper6.CustomGroupBoxColor = System.Drawing.Color.LightGray;
          this.grouper6.Enabled = false;
+         this.grouper6.ForeColor = System.Drawing.Color.Black;
          this.grouper6.GroupImage = null;
          this.grouper6.GroupTitle = "اطلاعات کاربری اینستاگرام";
          this.grouper6.Location = new System.Drawing.Point(7, 33);
@@ -1840,6 +1842,7 @@
          this.rollout7.Controls.Add(this.grouper9);
          this.rollout7.Controls.Add(this.button5);
          this.rollout7.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout7.ForeColor = System.Drawing.Color.Black;
          this.rollout7.FrameOnMouseOverOnly = false;
          this.rollout7.GroupImage = null;
          this.rollout7.Location = new System.Drawing.Point(3, 453);
@@ -1876,6 +1879,7 @@
          this.grouper9.Controls.Add(this.label31);
          this.grouper9.Controls.Add(this.label32);
          this.grouper9.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper9.ForeColor = System.Drawing.Color.Black;
          this.grouper9.GroupImage = null;
          this.grouper9.GroupTitle = "اطلاعات کاربران فروشگاه";
          this.grouper9.Location = new System.Drawing.Point(7, 33);
@@ -2302,6 +2306,7 @@
          this.rollout1.Controls.Add(this.grouper11);
          this.rollout1.Controls.Add(this.grouper10);
          this.rollout1.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout1.ForeColor = System.Drawing.Color.Black;
          this.rollout1.FrameOnMouseOverOnly = false;
          this.rollout1.GroupImage = null;
          this.rollout1.Location = new System.Drawing.Point(3, 678);
@@ -2332,6 +2337,7 @@
          this.grouper11.Controls.Add(this.SendMesgToFollowers_Butn);
          this.grouper11.Controls.Add(this.FlwrProcNumb_Lb);
          this.grouper11.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper11.ForeColor = System.Drawing.Color.Black;
          this.grouper11.GroupImage = null;
          this.grouper11.GroupTitle = "عملیات";
          this.grouper11.Location = new System.Drawing.Point(7, 501);
@@ -2400,6 +2406,7 @@
          this.grouper10.Controls.Add(this.label33);
          this.grouper10.Controls.Add(this.FlwrMesgText_Txt);
          this.grouper10.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper10.ForeColor = System.Drawing.Color.Black;
          this.grouper10.GroupImage = null;
          this.grouper10.GroupTitle = "محتوا و زمان بندی ارسال";
          this.grouper10.Location = new System.Drawing.Point(7, 33);
@@ -2764,10 +2771,11 @@
          this.rollout8.Controls.Add(this.grouper14);
          this.rollout8.Controls.Add(this.grouper15);
          this.rollout8.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout8.ForeColor = System.Drawing.Color.Black;
          this.rollout8.FrameOnMouseOverOnly = false;
          this.rollout8.GroupImage = null;
          this.rollout8.Location = new System.Drawing.Point(3, 1292);
-         this.rollout8.MaxHeight = 288;
+         this.rollout8.MaxHeight = 729;
          this.rollout8.Name = "rollout8";
          this.rollout8.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout8.PaintRollout = true;
@@ -2796,6 +2804,7 @@
          this.grouper16.Controls.Add(this.label51);
          this.grouper16.Controls.Add(this.textEdit30);
          this.grouper16.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper16.ForeColor = System.Drawing.Color.Black;
          this.grouper16.GroupImage = null;
          this.grouper16.GroupTitle = "جزئیات پیام";
          this.grouper16.Location = new System.Drawing.Point(7, 285);
@@ -2893,6 +2902,7 @@
          this.grouper14.Controls.Add(this.button2);
          this.grouper14.Controls.Add(this.label47);
          this.grouper14.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper14.ForeColor = System.Drawing.Color.Black;
          this.grouper14.GroupImage = null;
          this.grouper14.GroupTitle = "عملیات";
          this.grouper14.Location = new System.Drawing.Point(7, 624);
@@ -2946,6 +2956,7 @@
          this.grouper15.BorderThickness = 1F;
          this.grouper15.Controls.Add(this.gridControl6);
          this.grouper15.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper15.ForeColor = System.Drawing.Color.Black;
          this.grouper15.GroupImage = null;
          this.grouper15.GroupTitle = "لیست پیام ها";
          this.grouper15.Location = new System.Drawing.Point(7, 33);
@@ -3359,6 +3370,7 @@
          this.rollout4.Controls.Add(this.grouper8);
          this.rollout4.Controls.Add(this.grouper3);
          this.rollout4.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout4.ForeColor = System.Drawing.Color.Black;
          this.rollout4.FrameOnMouseOverOnly = false;
          this.rollout4.GroupImage = null;
          this.rollout4.Location = new System.Drawing.Point(4, 3);
@@ -3388,6 +3400,7 @@
          this.grouper8.BorderThickness = 1F;
          this.grouper8.Controls.Add(this.GetUpdateFollowingInfo_Butn);
          this.grouper8.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper8.ForeColor = System.Drawing.Color.Black;
          this.grouper8.GroupImage = null;
          this.grouper8.GroupTitle = "عملیات";
          this.grouper8.Location = new System.Drawing.Point(7, 367);
@@ -3447,6 +3460,7 @@
          this.grouper3.Controls.Add(this.memoEdit1);
          this.grouper3.CustomGroupBoxColor = System.Drawing.Color.LightGray;
          this.grouper3.Enabled = false;
+         this.grouper3.ForeColor = System.Drawing.Color.Black;
          this.grouper3.GroupImage = null;
          this.grouper3.GroupTitle = "اطلاعات کاربری اینستاگرام";
          this.grouper3.Location = new System.Drawing.Point(7, 33);
@@ -3683,6 +3697,7 @@
          this.rollout5.Controls.Add(this.grouper4);
          this.rollout5.Controls.Add(this.button1);
          this.rollout5.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout5.ForeColor = System.Drawing.Color.Black;
          this.rollout5.FrameOnMouseOverOnly = false;
          this.rollout5.GroupImage = null;
          this.rollout5.Location = new System.Drawing.Point(4, 453);
@@ -3719,6 +3734,7 @@
          this.grouper4.Controls.Add(this.label23);
          this.grouper4.Controls.Add(this.label24);
          this.grouper4.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper4.ForeColor = System.Drawing.Color.Black;
          this.grouper4.GroupImage = null;
          this.grouper4.GroupTitle = "اطلاعات کاربران فروشگاه";
          this.grouper4.Location = new System.Drawing.Point(7, 33);
@@ -4141,6 +4157,7 @@
          this.rollout9.Controls.Add(this.grouper18);
          this.rollout9.Controls.Add(this.grouper19);
          this.rollout9.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout9.ForeColor = System.Drawing.Color.Black;
          this.rollout9.FrameOnMouseOverOnly = false;
          this.rollout9.GroupImage = null;
          this.rollout9.Location = new System.Drawing.Point(4, 678);
@@ -4171,6 +4188,7 @@
          this.grouper18.Controls.Add(this.SendMesgToFollowing_Butn);
          this.grouper18.Controls.Add(this.FlwnProcNumb_Lb);
          this.grouper18.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper18.ForeColor = System.Drawing.Color.Black;
          this.grouper18.GroupImage = null;
          this.grouper18.GroupTitle = "عملیات";
          this.grouper18.Location = new System.Drawing.Point(7, 501);
@@ -4239,6 +4257,7 @@
          this.grouper19.Controls.Add(this.label58);
          this.grouper19.Controls.Add(this.FlwnMesgText_Txt);
          this.grouper19.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper19.ForeColor = System.Drawing.Color.Black;
          this.grouper19.GroupImage = null;
          this.grouper19.GroupTitle = "محتوا و زمان بندی ارسال";
          this.grouper19.Location = new System.Drawing.Point(7, 33);
@@ -4599,6 +4618,7 @@
          this.rollout10.Controls.Add(this.grouper21);
          this.rollout10.Controls.Add(this.grouper22);
          this.rollout10.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout10.ForeColor = System.Drawing.Color.Black;
          this.rollout10.FrameOnMouseOverOnly = false;
          this.rollout10.GroupImage = null;
          this.rollout10.Location = new System.Drawing.Point(4, 1292);
@@ -4631,6 +4651,7 @@
          this.grouper20.Controls.Add(this.label60);
          this.grouper20.Controls.Add(this.timeEdit3);
          this.grouper20.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper20.ForeColor = System.Drawing.Color.Black;
          this.grouper20.GroupImage = null;
          this.grouper20.GroupTitle = "جزئیات پیام";
          this.grouper20.Location = new System.Drawing.Point(7, 285);
@@ -4728,6 +4749,7 @@
          this.grouper21.Controls.Add(this.button14);
          this.grouper21.Controls.Add(this.label61);
          this.grouper21.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper21.ForeColor = System.Drawing.Color.Black;
          this.grouper21.GroupImage = null;
          this.grouper21.GroupTitle = "عملیات";
          this.grouper21.Location = new System.Drawing.Point(7, 624);
@@ -4781,6 +4803,7 @@
          this.grouper22.BorderThickness = 1F;
          this.grouper22.Controls.Add(this.gridControl7);
          this.grouper22.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper22.ForeColor = System.Drawing.Color.Black;
          this.grouper22.GroupImage = null;
          this.grouper22.GroupTitle = "لیست پیام ها";
          this.grouper22.Location = new System.Drawing.Point(7, 33);
@@ -5016,6 +5039,7 @@
          this.Orgn_Ro.BorderThickness = 1F;
          this.Orgn_Ro.Controls.Add(this.countryGridControl);
          this.Orgn_Ro.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.Orgn_Ro.ForeColor = System.Drawing.Color.Black;
          this.Orgn_Ro.FrameOnMouseOverOnly = false;
          this.Orgn_Ro.GroupImage = null;
          this.Orgn_Ro.Location = new System.Drawing.Point(4, 3);
@@ -5044,6 +5068,7 @@
          this.Robo_Ro.BorderThickness = 1F;
          this.Robo_Ro.Controls.Add(this.gridControl1);
          this.Robo_Ro.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.Robo_Ro.ForeColor = System.Drawing.Color.Black;
          this.Robo_Ro.FrameOnMouseOverOnly = false;
          this.Robo_Ro.GroupImage = null;
          this.Robo_Ro.Location = new System.Drawing.Point(4, 31);
@@ -5078,6 +5103,7 @@
          this.rollout3.Controls.Add(this.AddNewPage_Butn);
          this.rollout3.Controls.Add(this.grouper1);
          this.rollout3.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout3.ForeColor = System.Drawing.Color.Black;
          this.rollout3.FrameOnMouseOverOnly = false;
          this.rollout3.GroupImage = null;
          this.rollout3.Location = new System.Drawing.Point(4, 59);
@@ -5120,6 +5146,7 @@
          this.grouper17.Controls.Add(this.label54);
          this.grouper17.Controls.Add(this.label35);
          this.grouper17.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper17.ForeColor = System.Drawing.Color.Black;
          this.grouper17.GroupImage = null;
          this.grouper17.GroupTitle = "زمان بندی ارسال پیام";
          this.grouper17.Location = new System.Drawing.Point(7, 768);
@@ -5541,6 +5568,7 @@
          this.grouper7.Controls.Add(this.SaveMembers_Pbc);
          this.grouper7.Controls.Add(this.FolwPageNumb_Se);
          this.grouper7.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper7.ForeColor = System.Drawing.Color.Black;
          this.grouper7.GroupImage = null;
          this.grouper7.GroupTitle = "عملیات";
          this.grouper7.Location = new System.Drawing.Point(7, 1008);
@@ -5742,6 +5770,7 @@
          this.grouper2.Controls.Add(this.textEdit4);
          this.grouper2.Controls.Add(this.textEdit8);
          this.grouper2.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper2.ForeColor = System.Drawing.Color.Black;
          this.grouper2.GroupImage = null;
          this.grouper2.GroupTitle = "اطلاعات پیج اینستاگرام";
          this.grouper2.Location = new System.Drawing.Point(7, 230);
@@ -6275,6 +6304,7 @@
          this.grouper1.BorderThickness = 1F;
          this.grouper1.Controls.Add(this.gridControl2);
          this.grouper1.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper1.ForeColor = System.Drawing.Color.Black;
          this.grouper1.GroupImage = null;
          this.grouper1.GroupTitle = "لیست پیج های اینستاگرام";
          this.grouper1.Location = new System.Drawing.Point(7, 33);
@@ -6546,6 +6576,7 @@
          this.rollout2.Controls.Add(this.AddNewTmpl_Butn);
          this.rollout2.Controls.Add(this.grouper12);
          this.rollout2.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout2.ForeColor = System.Drawing.Color.Black;
          this.rollout2.FrameOnMouseOverOnly = false;
          this.rollout2.GroupImage = null;
          this.rollout2.Location = new System.Drawing.Point(4, 1312);
@@ -6589,6 +6620,7 @@
          this.grouper13.Controls.Add(this.lookUpEdit1);
          this.grouper13.Controls.Add(this.MesgText_Txt);
          this.grouper13.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper13.ForeColor = System.Drawing.Color.Black;
          this.grouper13.GroupImage = null;
          this.grouper13.GroupTitle = "اطلاعات قالب";
          this.grouper13.Location = new System.Drawing.Point(7, 291);
@@ -7049,6 +7081,7 @@
          this.grouper12.BorderThickness = 1F;
          this.grouper12.Controls.Add(this.gridControl5);
          this.grouper12.CustomGroupBoxColor = System.Drawing.Color.LightGray;
+         this.grouper12.ForeColor = System.Drawing.Color.Black;
          this.grouper12.GroupImage = null;
          this.grouper12.GroupTitle = "لیست قالب ها";
          this.grouper12.Location = new System.Drawing.Point(7, 33);

@@ -28,7 +28,6 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.XtraGrid.StyleFormatCondition styleFormatCondition1 = new DevExpress.XtraGrid.StyleFormatCondition();
@@ -67,8 +66,8 @@
          this.Back_Butn = new C1.Win.C1Input.C1Button();
          this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
          this.panel3 = new System.Windows.Forms.Panel();
-         this.RoboBs = new System.Windows.Forms.BindingSource(this.components);
-         this.OrgnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RoboBs = new System.Windows.Forms.BindingSource();
+         this.OrgnBs = new System.Windows.Forms.BindingSource();
          this.countryGridControl = new DevExpress.XtraGrid.GridControl();
          this.gridView1 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -108,7 +107,7 @@
          this.tabPage1 = new System.Windows.Forms.TabPage();
          this.splitContainerControl2 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.InspBs = new System.Windows.Forms.BindingSource(this.components);
+         this.InspBs = new System.Windows.Forms.BindingSource();
          this.Srbt_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSERV_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colROBO_RBID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -192,7 +191,7 @@
          this.textEdit12 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit13 = new DevExpress.XtraEditors.TextEdit();
          this.label14 = new System.Windows.Forms.Label();
-         this.InspBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.InspBn = new System.Windows.Forms.BindingNavigator();
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
@@ -209,8 +208,8 @@
          this.splitContainerControl3 = new DevExpress.XtraEditors.SplitContainerControl();
          this.splitContainerControl4 = new DevExpress.XtraEditors.SplitContainerControl();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
-         this.SlerShopBs = new System.Windows.Forms.BindingSource(this.components);
-         this.SlerBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SlerShopBs = new System.Windows.Forms.BindingSource();
+         this.SlerBs = new System.Windows.Forms.BindingSource();
          this.SlerShop_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSRBT_SERV_FILE_NO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSRBT_ROBO_RBID = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -242,7 +241,7 @@
          this.tabControl3 = new System.Windows.Forms.TabControl();
          this.tabPage8 = new System.Windows.Forms.TabPage();
          this.SaveSlerShop_Butn = new System.MaxUi.Button();
-         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+         this.imageList1 = new System.Windows.Forms.ImageList();
          this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
          this.label27 = new System.Windows.Forms.Label();
          this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
@@ -311,7 +310,7 @@
          this.gridColumn51 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn52 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn53 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.SlerBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.SlerBn = new System.Windows.Forms.BindingNavigator();
          this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
          this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
          this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
@@ -330,8 +329,8 @@
          this.rollout10 = new System.MaxUi.Rollout();
          this.grouper16 = new System.MaxUi.Grouper();
          this.textEdit36 = new DevExpress.XtraEditors.TextEdit();
-         this.SrsiuBs = new System.Windows.Forms.BindingSource(this.components);
-         this.Ordr036Bs = new System.Windows.Forms.BindingSource(this.components);
+         this.SrsiuBs = new System.Windows.Forms.BindingSource();
+         this.Ordr036Bs = new System.Windows.Forms.BindingSource();
          this.label39 = new System.Windows.Forms.Label();
          this.label41 = new System.Windows.Forms.Label();
          this.label40 = new System.Windows.Forms.Label();
@@ -359,9 +358,9 @@
          this.textEdit30 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit31 = new DevExpress.XtraEditors.MemoEdit();
          this.textEdit34 = new DevExpress.XtraEditors.LookUpEdit();
-         this.PrvnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.PrvnBs = new System.Windows.Forms.BindingSource();
          this.textEdit35 = new DevExpress.XtraEditors.LookUpEdit();
-         this.RegnBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RegnBs = new System.Windows.Forms.BindingSource();
          this.grouper12 = new System.MaxUi.Grouper();
          this.dateTimeSelector5 = new Atf.UI.DateTimeSelector();
          this.timeEdit2 = new DevExpress.XtraEditors.TimeEdit();
@@ -378,7 +377,7 @@
          this.rollout7 = new System.MaxUi.Rollout();
          this.grouper19 = new System.MaxUi.Grouper();
          this.gridControl7 = new DevExpress.XtraGrid.GridControl();
-         this.SrsiuiBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SrsiuiBs = new System.Windows.Forms.BindingSource();
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSRSI_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSRBT_SERV_FILE_NO2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -396,7 +395,7 @@
          this.persianRepositoryItemDateEdit7 = new dxExample.PersianRepositoryItemDateEdit();
          this.grouper18 = new System.MaxUi.Grouper();
          this.gridControl6 = new DevExpress.XtraGrid.GridControl();
-         this.OTagBs = new System.Windows.Forms.BindingSource(this.components);
+         this.OTagBs = new System.Windows.Forms.BindingSource();
          this.gridView4 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colORDR_CODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colORDR_TAG_APBS_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -490,14 +489,14 @@
          this.colService_Robot2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit8 = new dxExample.PersianRepositoryItemDateEdit();
          this.gridControl10 = new DevExpress.XtraGrid.GridControl();
-         this.OdshBs = new System.Windows.Forms.BindingSource(this.components);
+         this.OdshBs = new System.Windows.Forms.BindingSource();
          this.gridView8 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colORDR_CODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCODE5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRWNO1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colORDR_STAT1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DOdstBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DOdstBs = new System.Windows.Forms.BindingSource();
          this.colSTAT_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.persianRepositoryItemDateEdit9 = new dxExample.PersianRepositoryItemDateEdit();
          this.colCRET_BY6 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -538,7 +537,7 @@
          this.grouper9 = new System.MaxUi.Grouper();
          this.OTag_Cbx = new System.Windows.Forms.CheckBox();
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
-         this.DAOdTgBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DAOdTgBs = new System.Windows.Forms.BindingSource();
          this.OTag_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colRWNO = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -587,8 +586,8 @@
          this.ToOrdrDate_Dt = new Atf.UI.DateTimeSelector();
          this.FromOrdrDate_Dt = new Atf.UI.DateTimeSelector();
          this.Find_Butn = new System.MaxUi.Button();
-         this.ShopBs = new System.Windows.Forms.BindingSource(this.components);
-         this.ShopSlerBs = new System.Windows.Forms.BindingSource(this.components);
+         this.ShopBs = new System.Windows.Forms.BindingSource();
+         this.ShopSlerBs = new System.Windows.Forms.BindingSource();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Actv_Lov2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();

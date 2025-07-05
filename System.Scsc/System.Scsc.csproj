@@ -1269,6 +1269,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_SALE.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SMTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SNTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_SOND.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_STOK.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SUB.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SXTP.datasource" />
@@ -1366,9 +1367,11 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Request_Requester.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Request_Row.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Request_Type.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Schema_Profile.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Session.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Session_Meeting.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Setting.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Sound.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Statistic.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Statistic_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Statistic_Detail_Request.datasource" />

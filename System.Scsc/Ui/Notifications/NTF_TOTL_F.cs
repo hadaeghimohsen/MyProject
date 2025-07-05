@@ -614,6 +614,23 @@ namespace System.Scsc.Ui.Notifications
                         }
                      })
                );
+
+            // 1404/04/06 * اجرای صداهای مربوط به خطای رخداده شده
+            switch (_getCode)
+            {
+               case "0013":
+                  // Play Enter Sound
+                  // 1404/03/30 ** New version for play sound
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                     {
+                        Input = new XElement("Sound", new XAttribute("type", "035"))
+                     }
+                  );
+                  break;
+               default:
+                  break;
+            }
          }
          finally
          {

@@ -261,6 +261,35 @@ namespace System.Scsc.Ui.OtherIncome
 
                                  if(_wletamnt <= 100000)
                                  {
+                                    #region Send message to admin
+                                    _DefaultGateway.Gateway(
+                                       new Job(SendType.External, "localhost",
+                                           new List<Job>
+                                           {
+                                              new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 45 /* SendMessageToExternalSystem */)
+                                              {
+                                                 Input = 
+                                                   new XElement("Message",
+                                                       new XAttribute("soclmdia", "001"),
+                                                       new XAttribute("soclmdiadesc", "BALE"),
+                                                       new XAttribute("chatid", iScsc.V_Admin_Wallets.FirstOrDefault(w => w.WLET_TYPE == "001").CHAT_ID),
+                                                       new XAttribute("mesg", 
+                                                           "*هشدار اتمام یافتن شارژ سیستم*" + Environment.NewLine + 
+                                                           Environment.NewLine + 
+                                                           "مبلغ شارژ کیف پول شما به کمتر از *100 هزار تومان* رسیده، لطفا جهت شارژ کیف پول به شماره کارت زیر نزد *بانک سامان محسن حدایقی* واریز فرمایید" + Environment.NewLine + 
+                                                           Environment.NewLine + 
+                                                           "6219  -  8610  -  8342  -  5040" + Environment.NewLine + 
+                                                           "*محسن حدایقی*" + Environment.NewLine +
+                                                           "*بانک سامان*" + Environment.NewLine +
+                                                           Environment.NewLine + 
+                                                           "بعد از واریزی کردن مبلغ، از *منشی* بخواهید که دکمه *دریافت اطلاعات وصولی بانکی* را فشار دهد تا بانک بر اساس وصولی شما کیف پول را شارژ کند"
+                                                       )
+                                                   )
+                                              }
+                                           }
+                                       )
+                                    );
+                                    #endregion
                                     MessageBox.Show(this, "مبلغ شارژ کیف پول شما به کمتر از 100 هزار تومان رسیده، لطفا جهت شارژ کیف پول به شماره کارت 6219861083425040 نزد بانک سامان محسن حدایقی واریز فرمایید", "هشدار اتمام شارژ کیف پول", MessageBoxButtons.OK);
                                  }
                               })
@@ -4178,6 +4207,39 @@ namespace System.Scsc.Ui.OtherIncome
                   );
             }
 
+            if(HistServ_Rlt.RolloutStatus)
+            {
+               HistServBs.DataSource =
+                  iScsc.Fighters
+                  .Where(s => 
+                     iScsc.Payment_Details
+                     .Any(pd =>
+                        pd.Request_Row.FIGH_FILE_NO == s.FILE_NO &&
+                        pd.Request_Row.Request.RQTP_CODE == "016" &&
+                        pd.Request_Row.Request.RQST_STAT == "002" &&
+                        (!CrntUser_Cbx.Checked || pd.CRET_BY == CurrentUser) &&
+                        (!FromRqstDate_Cbx.Checked || _fromrqstdate == null || pd.CRET_DATE.Value.Date >= (_fromrqstdate ?? pd.CRET_DATE.Value.Date)) &&
+                        (!ToRqstDate_Cbx.Checked || _torqstdate == null || pd.CRET_DATE.Value.Date <= (_torqstdate ?? pd.CRET_DATE.Value.Date)) &&
+                        (!CrntServ_Cbx.Checked || _fighfileno == null || pd.Request_Row.FIGH_FILE_NO == (_fighfileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
+                        (!CrntCoch_Cbx.Checked || _cochfileno == null || pd.FIGH_FILE_NO == (_cochfileno ?? pd.FIGH_FILE_NO)) &&
+                        (!CrntExpn_Cbx.Checked || _expncode == null || pd.EXPN_CODE == (_expncode ?? pd.EXPN_CODE)) &&
+                        (!HasDebt_Cbx.Checked || pd.Payment.SUM_EXPN_PRIC - (pd.Payment.SUM_RCPT_EXPN_PRIC + pd.Payment.SUM_PYMT_DSCN_DNRM) > 0) &&
+                        (!HasPmmt_Cbx.Checked || pd.Payment.Payment_Methods.Any(pm => pm.RCPT_MTOD == _rcptmtod)) &&
+                        (!HasPyds_Cbx.Checked || pd.Payment.Payment_Discounts.Any(ps => ps.AMNT_TYPE == _pydstype)) &&
+                        (!WhoCellPhon_Cbx.Checked || _cellphon == null || pd.Request_Row.Fighter.CELL_PHON_DNRM.Contains(_cellphon)) &&
+                        (!WhoFngrPrnt_Cbx.Checked || _fngrprnt == null || pd.Request_Row.Fighter.FNGR_PRNT_DNRM.Contains(_fngrprnt)) &&
+                        pd.FIGH_FILE_NO != null
+                     )
+                  );
+
+               HistPydt_Gv.ActiveFilterString = "1 = 1 ";
+
+               if (CrntCoch_Cbx.Checked)
+                  HistPydt_Gv.ActiveFilterString += string.Format("AND FIGH_FILE_NO = {0}", _cochfileno);
+               if(CrntExpn_Cbx.Checked)
+                  HistPydt_Gv.ActiveFilterString += string.Format("AND EXPN_CODE = {0}", _expncode);
+            }
+
          }
          catch (Exception exc)
          {
@@ -5722,7 +5784,7 @@ namespace System.Scsc.Ui.OtherIncome
             }
 
             File.AppendAllText(ExportLabel_Txt.Text,
-               string.Join(Environment.NewLine, OldRqstBs1.List.OfType<Data.Request>().Where(r => r.Request_Rows.Any(rr => rr.Fighter.CELL_PHON_DNRM.Length >= 8)).Select(rr => rr.Request_Rows.FirstOrDefault().Fighter.CELL_PHON_DNRM ))
+               string.Join(Environment.NewLine, OldRqstBs1.List.OfType<Data.Request>().Where(r => r.Request_Rows.Any(rr => rr.Fighter.CELL_PHON_DNRM != null && rr.Fighter.CELL_PHON_DNRM.Length >= 8)).Select(rr => rr.Request_Rows.FirstOrDefault().Fighter.CELL_PHON_DNRM ))
             );
 
             MessageBox.Show(this, "شماره تلفن مشتریان در فایل مربوطه ذخیره شد", "ذخیره سازی اطلاعات", MessageBoxButtons.OK);
@@ -5730,6 +5792,10 @@ namespace System.Scsc.Ui.OtherIncome
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            ExportLabel_Txt.EditValue = SelectExportContactFile_Butn.Tag = null;
          }
       }
 
@@ -5760,6 +5826,66 @@ namespace System.Scsc.Ui.OtherIncome
                default:
                   break;
             }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void HistServShowProfile_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _HistServ = HistServBs.Current as Data.Fighter;
+            if (_HistServ == null) return;
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _HistServ.Request_Rows.FirstOrDefault().FIGH_FILE_NO)) }
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ExportDataHistServ_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (SelectExportContactFile_Butn.Tag == null)
+            {
+               SelectExportContactFile_Butn_Click(null, null);
+               if (ExportFile_Sfd.FileName == null) return;
+            }
+
+            File.AppendAllText(ExportLabel_Txt.Text,
+               string.Join(Environment.NewLine, HistServBs.List.OfType<Data.Fighter>().Where(s => s.CELL_PHON_DNRM != null && s.CELL_PHON_DNRM.Length >= 8).Select(s => s.CELL_PHON_DNRM))
+            );
+
+            MessageBox.Show(this, "شماره تلفن مشتریان در فایل مربوطه ذخیره شد", "ذخیره سازی اطلاعات", MessageBoxButtons.OK);            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            ExportLabel_Txt.EditValue = SelectExportContactFile_Butn.Tag = null;
+         }
+
+      }      
+
+      private void HistServBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _serv = HistServBs.Current as Data.Fighter;
+            if (_serv == null) return;
+
+            HistPydtBs1.DataSource =
+               iScsc.Payment_Details.Where(pd => pd.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && pd.Request_Row.Request.RQST_STAT == "002");
          }
          catch (Exception exc)
          {

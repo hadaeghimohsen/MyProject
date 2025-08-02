@@ -608,7 +608,16 @@ namespace System.Scsc.Ui.MasterPage
             }
 
             if(_readersDevice == null)
-               _readersDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "002" && d.DEV_TYPE == "001" && d.DEV_CON == "002" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002");
+               _readersDevice = 
+                  iScsc.External_Devices
+                  .Where(d => 
+                     d.DEV_COMP_TYPE == "002" && 
+                     d.DEV_TYPE == "001" && 
+                     d.DEV_CON == "002" && 
+                     _listIPHost.Contains(d.SERV_IP_ADRS) && 
+                     d.STAT == "002" &&
+                     lastDataRead.Last().MacAdrs == d.IP_ADRS);
+
             if (_readersDevice != null && _readersDevice.Any())
             {
                //var enddate = Convert.ToDateTime(xinput.Attribute("enddate").Value);
@@ -779,7 +788,16 @@ namespace System.Scsc.Ui.MasterPage
             //}
 
             if (_readersDevice == null)
-               _readersDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "002" && d.DEV_TYPE == "001" && d.DEV_CON == "002"  && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002");
+               _readersDevice = 
+                  iScsc.External_Devices
+                  .Where(d => 
+                     d.DEV_COMP_TYPE == "002" && 
+                     d.DEV_TYPE == "001" && 
+                     d.DEV_CON == "002"  && 
+                     _listIPHost.Contains(d.SERV_IP_ADRS) && 
+                     d.STAT == "002" &&
+                     lastDataRead.Last().MacAdrs == d.IP_ADRS);
+
             if (_readersDevice != null && _readersDevice.Any())
             {
                //var enddate = Convert.ToDateTime(xinput.Attribute("enddate").Value);
@@ -944,7 +962,16 @@ namespace System.Scsc.Ui.MasterPage
             //}
 
             if (_readersDevice == null)
-               _readersDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "002" && d.DEV_TYPE == "001"  && d.DEV_CON == "002" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002");
+               _readersDevice = 
+                  iScsc.External_Devices
+                  .Where(d => 
+                     d.DEV_COMP_TYPE == "002" && 
+                     d.DEV_TYPE == "001"  && 
+                     d.DEV_CON == "002" && 
+                     _listIPHost.Contains(d.SERV_IP_ADRS) && 
+                     d.STAT == "002" &&
+                     lastDataRead.Last().MacAdrs == d.IP_ADRS);
+
             if (_readersDevice != null && _readersDevice.Any())
             {
                _readersDevice.ToList()
@@ -1368,6 +1395,9 @@ namespace System.Scsc.Ui.MasterPage
 
             if (TlgrmBotSetting.RUN_RBOT == "001") { TlgrmBot_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196; return; }
 
+            // 1404/04/17 * Run Wallet
+            CWlet_Tm_Tick(null, null);
+
             // Check Telegram Bot
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", 
@@ -1382,7 +1412,29 @@ namespace System.Scsc.Ui.MasterPage
                                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "strt_robo_f"},
                                  new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 02 /* Execute Set */),
                                  new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 07 /* Execute Load_Data */),
-                                 new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Robot", new XAttribute("runrobot", "start"))}
+                                 new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Robot", new XAttribute("runrobot", "start"))},
+                                 new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                                 {
+                                    Input = 
+                                       new XElement("Robot", 
+                                          new XAttribute("runrobot", "start"),
+                                          new XAttribute("actntype", "sendmesg"),
+                                          new XAttribute("chatid", 1847807509),
+                                          new XAttribute("command", "textmesg"),
+                                          new XAttribute("rbid", 391),
+                                          //new XAttribute("mesg", "✅ رسید ارسالی مورد تایید واقع شد")
+                                          new XElement("Respons",
+                                                new XElement("Message",
+                                                   new XAttribute("order", 1),
+                                                   new XElement("Texts", 
+                                                      new XAttribute("order", 1),
+                                                         "سیستم انلاین شد " + 
+                                                         (Wlet_Rlt.Visible ? "میزان شارژ کیف پول " + CWlet_Txt.Text + " میباشد" : "")
+                                                   )
+                                                )
+                                          )
+                                       )
+                                 }
                               }
                            )
                         }
@@ -2050,6 +2102,18 @@ namespace System.Scsc.Ui.MasterPage
                                                 host
                                              )
                                           );
+
+                                       if (InvokeRequired)
+                                          Invoke(
+                                             new Action(() =>
+                                             {
+                                                Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", fingerPrintSetting.IP_ADDR, fingerPrintSetting.PORT_NUMB, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                                             })
+                                          );
+                                       else
+                                          Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", fingerPrintSetting.IP_ADDR, fingerPrintSetting.PORT_NUMB, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+
+                                       
                                     });
                               DeviceOnNetworks.Add(dev);
 
@@ -2092,6 +2156,16 @@ namespace System.Scsc.Ui.MasterPage
                                           host
                                        )
                                     );
+
+                                 if (InvokeRequired)
+                                    Invoke(
+                                       new Action(() =>
+                                       {
+                                          Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", fingerPrintSetting.IP_ADDR, fingerPrintSetting.PORT_NUMB, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                                       })
+                                    );
+                                 else
+                                    Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", fingerPrintSetting.IP_ADDR, fingerPrintSetting.PORT_NUMB, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
                               }
                            }
                         }
@@ -2156,6 +2230,17 @@ namespace System.Scsc.Ui.MasterPage
                                                 host
                                              )
                                           );
+
+                                       if (InvokeRequired)
+                                          Invoke(
+                                             new Action(() =>
+                                             {
+                                                Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", fingerPrintSetting.IP_ADR2, fingerPrintSetting.PORT_NUM2, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                                             })
+                                          );
+                                       else
+                                          Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", fingerPrintSetting.IP_ADR2, fingerPrintSetting.PORT_NUM2, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                                       
                                     });
                               DeviceOnNetworks.Add(dev);
 
@@ -2198,6 +2283,17 @@ namespace System.Scsc.Ui.MasterPage
                                           host
                                        )
                                     );
+
+                                 if (InvokeRequired)
+                                    Invoke(
+                                       new Action(() =>
+                                       {
+                                          Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", fingerPrintSetting.IP_ADR2, fingerPrintSetting.PORT_NUM2, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                                       })
+                                    );
+                                 else
+                                    Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", fingerPrintSetting.IP_ADR2, fingerPrintSetting.PORT_NUM2, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                                 
                               }
                            }
                         }
@@ -2265,6 +2361,17 @@ namespace System.Scsc.Ui.MasterPage
                                                 host
                                              )
                                           );
+
+                                       if (InvokeRequired)
+                                          Invoke(
+                                             new Action(() =>
+                                             {
+                                                Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", fingerPrintSetting.IP_ADDR, fingerPrintSetting.PORT_NUMB, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                                             })
+                                          );
+                                       else
+                                          Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", fingerPrintSetting.IP_ADDR, fingerPrintSetting.PORT_NUMB, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                                       
                                     });
                               DeviceOnNetworks.Add(dev);
 
@@ -2305,6 +2412,16 @@ namespace System.Scsc.Ui.MasterPage
                                           host
                                        )
                                     );
+
+                                 if (InvokeRequired)
+                                    Invoke(
+                                       new Action(() =>
+                                       {
+                                          Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", fingerPrintSetting.IP_ADDR, fingerPrintSetting.PORT_NUMB, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                                       })
+                                    );
+                                 else
+                                    Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", fingerPrintSetting.IP_ADDR, fingerPrintSetting.PORT_NUMB, DateTime.Now.ToShortTimeString()) + Environment.NewLine;                                 
                               }
                            }
                         }
@@ -2987,21 +3104,21 @@ namespace System.Scsc.Ui.MasterPage
                      // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
                      //1404/03/02
                      // فعلا پاکش کنم
-                     //_DefaultGateway.Gateway(
-                     //   new Job(SendType.External, "localhost",
-                     //      new List<Job>
-                     //      {
-                     //         new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_P */)
-                     //         {
-                     //            Input = 
-                     //               new XElement("Request",
-                     //                  new XAttribute("type", "gatecontrol"),
-                     //                  new XAttribute("gateactn", "error")
-                     //               )
-                     //         }
-                     //      }
-                     //   )
-                     //);
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_P */)
+                              {
+                                 Input = 
+                                    new XElement("Request",
+                                       new XAttribute("type", "gatecontrol"),
+                                       new XAttribute("gateactn", "error")
+                                    )
+                              }
+                           }
+                        )
+                     );
                      return;
                   }
                }
@@ -4307,6 +4424,16 @@ namespace System.Scsc.Ui.MasterPage
                         GameHours_Butn.ToolTip +=
                            Environment.NewLine +
                            string.Format("Host Server : {0}, Port Recv : {1}, Gate Control : {2}, Port Send : {3}", gate.SERV_IP_ADRS, gate.PORT_RECV, gate.IP_ADRS, gate.PORT_SEND);
+
+                        if (InvokeRequired)
+                           Invoke(
+                              new Action(() =>
+                              {
+                                 Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", gate.IP_ADRS, gate.PORT_SEND, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                              })
+                           );
+                        else
+                           Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", gate.IP_ADRS, gate.PORT_SEND, DateTime.Now.ToShortTimeString()) + Environment.NewLine;                        
                      }
 
                      // Init Send Instance                  
@@ -4941,12 +5068,12 @@ namespace System.Scsc.Ui.MasterPage
          if (InvokeRequired)
          {
             //_obj.Visible = true;
-            try
-            {
-               wplayer.URL = _wplayer_url;
-               wplayer.controls.play();
-            }
-            catch { }
+            //try
+            //{
+            //   wplayer.URL = _wplayer_url;
+            //   wplayer.controls.play();
+            //}
+            //catch { }
 
             var tempcolorA = _obj.NormalColorA;
             var tempcolorB = _obj.NormalColorB;
@@ -5292,7 +5419,7 @@ namespace System.Scsc.Ui.MasterPage
                      // بدست آوردن آیین نامه اصلی
                      var regl = iScsc.Regulations.FirstOrDefault(rg => rg.REGL_STAT == "002" && rg.TYPE == "001");
 
-                     if(getInfoDev.DEV_TYPE == "001")
+                     if(getInfoDev.DEV_TYPE == "001" /* اگر دستگاه ریدر کارتخوان عادی باشد */)
                      {
                         axCZKEM1_OnAttTransactionEx(FngrPrnt_Txt.Text, 1, 1, 1, 2016, 05, 10, 09, 31, 50, 20);
                         return;
@@ -5607,7 +5734,7 @@ namespace System.Scsc.Ui.MasterPage
                GameHours_Butn.ToolTip +=
                   Environment.NewLine +
                   string.Format("{2} - Device : {0}:{1}", e.ConnectedClient.ConnectAddress, e.ConnectedClient.Port, server.ConnectedClients.Count);
-            }
+            }            
 
             //server.ConnectedClients.Where(c => c.ConnectAddress == e.ConnectedClient.ConnectAddress && c.Port != e.ConnectedClient.Port ).ToList().ForEach(c => server.ConnectedClients.Remove(c));
 
@@ -5630,8 +5757,27 @@ namespace System.Scsc.Ui.MasterPage
                //   "df:" + "WellCome".PadLeft(13, ' ') +
                //   "&" + "Genetic Gym".PadLeft(16, ' '), devName, ""
                //);
-               AttnType_Lov.EditValue = getInfoDev.ACTN_TYPE;
-               this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
+               
+               // 1404/05/01 
+               if (InvokeRequired)
+               {
+                  Invoke(new Action(() => 
+                  {
+                     // 1404/05/01 * در مورد اینکه چه دستگاه هایی قابلیت تغییر وضعیت سیستم پردازش اطلاعات ورودی دستگاه ها رو داشته باشه
+                     AttnType_Lov.EditValue = getInfoDev.ACTN_TYPE.NotIn("003", "004", "005", "006", "007", "010", "011", "012", "013") ? getInfoDev.ACTN_TYPE : AttnType_Lov.EditValue ;
+                     this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
+                     // 1404/05/01 * Save data in logs                     
+                     Logs_Txt.Text += string.Format("{3}\n\r {2} - Device : {0}:{1}", e.ConnectedClient.ConnectAddress, e.ConnectedClient.Port, server.ConnectedClients.Count, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                  }));
+               }
+               else
+               {
+                  // 1404/05/01 * در مورد اینکه چه دستگاه هایی قابلیت تغییر وضعیت سیستم پردازش اطلاعات ورودی دستگاه ها رو داشته باشه
+                  AttnType_Lov.EditValue = getInfoDev.ACTN_TYPE.NotIn("003", "004", "005", "006", "007", "010", "011", "012", "013") ? getInfoDev.ACTN_TYPE : AttnType_Lov.EditValue;
+                  this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
+                  // 1404/05/01 * Save data in logs
+                  Logs_Txt.Text += string.Format("{3}\n\r {2} - Device : {0}:{1}", e.ConnectedClient.ConnectAddress, e.ConnectedClient.Port, server.ConnectedClients.Count, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+               }
             }
          }
          catch { }
@@ -7979,6 +8125,16 @@ namespace System.Scsc.Ui.MasterPage
                      Input = new XElement("Sound", new XAttribute("type", "008"))
                   }
                );
+
+               if (InvokeRequired)
+                  Invoke(
+                     new Action(() =>
+                     {
+                        Logs_Txt.Text += string.Format("{1}\n\r - Server Connected : {0}", SrvrPing_Butn.Tag, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                     })
+                  );
+               else
+                  Logs_Txt.Text += string.Format("{1}\n\r - Server Connected : {0}", SrvrPing_Butn.Tag, DateTime.Now.ToShortTimeString()) + Environment.NewLine;               
             }
 
             Ping ping = new Ping();
@@ -7988,7 +8144,7 @@ namespace System.Scsc.Ui.MasterPage
             {
                SrvrPing_Butn.Image = Properties.Resources.IMAGE_1408;
                SrvrPing_Butn.Appearance.BackColor = Color.LightGreen;
-               SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} Network connected.", SrvrPing_Butn.Tag);               
+               SrvrPing_Butn.ToolTip = string.Format("Server IP : {0} Network connected.", SrvrPing_Butn.Tag);
             }
             else
             {
@@ -8007,6 +8163,16 @@ namespace System.Scsc.Ui.MasterPage
                      Input = new XElement("Sound", new XAttribute("type", "010"))
                   }
                );
+
+               if (InvokeRequired)
+                  Invoke(
+                     new Action(() =>
+                     {
+                        Logs_Txt.Text += string.Format("{1}\n\r - Server Disconnected : {0}", SrvrPing_Butn.Tag, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                     })
+                  );
+               else
+                  Logs_Txt.Text += string.Format("{1}\n\r - Server Disconnected : {0}", SrvrPing_Butn.Tag, DateTime.Now.ToShortTimeString()) + Environment.NewLine;               
             }            
 
             // اگر چک کردن تست ارتباط فعال باشد
@@ -8023,7 +8189,17 @@ namespace System.Scsc.Ui.MasterPage
                      ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " not a lived." + Environment.NewLine;
                      //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\alert2.wav";
                      //new Thread(AlarmShow).Start(); 
-                     
+
+                     if (InvokeRequired)
+                        Invoke(
+                           new Action(() =>
+                           {
+                              Logs_Txt.Text += string.Format("{1}\n\r - Device not live : {0}}", dev.IPAddress, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                           })
+                        );
+                     else
+                        Logs_Txt.Text += string.Format("{1}\n\r - Device not live : {0}}", dev.IPAddress, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+
                      // Play Enter Sound
                      // 1404/03/30 ** New version for play sound
                      _DefaultGateway.Gateway(
@@ -8061,6 +8237,16 @@ namespace System.Scsc.Ui.MasterPage
                         //);
                         ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " connected." + Environment.NewLine;
 
+                        if (InvokeRequired)
+                           Invoke(
+                              new Action(() =>
+                              {
+                                 Logs_Txt.Text += string.Format("{1}\n\r - Device it's connected : {0}", dev.IPAddress, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                              })
+                           );
+                        else
+                           Logs_Txt.Text += string.Format("{1}\n\r - Device it's connected : {0}", dev.IPAddress, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                        
                         //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\connect.wav";
                         //new Thread(AlarmShow).Start();
                         
@@ -8090,6 +8276,16 @@ namespace System.Scsc.Ui.MasterPage
                         //);
 
                         ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " disconnected." + Environment.NewLine;
+
+                        if (InvokeRequired)
+                           Invoke(
+                              new Action(() => 
+                              {
+                                 Logs_Txt.Text += string.Format("{1}\n\r - Device it's disconnected : {0}", dev.IPAddress, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
+                              })
+                           );
+                        else
+                           Logs_Txt.Text += string.Format("{1}\n\r - Device it's disconnected : {0}", dev.IPAddress, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
 
                         //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\disconnect.wav";
                         //new Thread(AlarmShow).Start();

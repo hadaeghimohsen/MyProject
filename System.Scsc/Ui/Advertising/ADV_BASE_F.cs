@@ -350,14 +350,14 @@ namespace System.Scsc.Ui.Advertising
                        new XAttribute("isfrompymt", FromPymt_Cbx.Checked),
                        new XAttribute("frompymt", FromPymt_Dt.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : FromPymt_Dt.Value.Value.ToString("yyyy-MM-dd"))
                    ),
-                   new XElement("OperationRun",
-                       new XAttribute("isoprtrun", OprtRun_Cbx.Checked),
-                       new XAttribute("issendmsgdate", SendMsgDate_Cbx.Checked),
-                       new XAttribute("sendmsgdate", SendMsgDate_Dt.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : SendMsgDate_Dt.Value.Value.ToString("yyyy-MM-dd")),
-                       new XAttribute("issendtestphon", SendTestPhon_Cbx.Checked),
-                       new XAttribute("sendtestphon", SendTestPhon_Txt.EditValue),
-                       new XAttribute("issendsmsbulk", SendSmsBulk_Cbx.Checked)
-                   ),
+                   //new XElement("OperationRun",
+                   //    new XAttribute("isoprtrun", OprtRun_Cbx.Checked),
+                   //    new XAttribute("issendmsgdate", SendMsgDate_Cbx.Checked),
+                   //    new XAttribute("sendmsgdate", SendMsgDate_Dt.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : SendMsgDate_Dt.Value.Value.ToString("yyyy-MM-dd")),
+                   //    new XAttribute("issendtestphon", SendTestPhon_Cbx.Checked),
+                   //    new XAttribute("sendtestphon", SendTestPhon_Txt.EditValue ?? ""),
+                   //    new XAttribute("issendsmsbulk", SendSmsBulk_Cbx.Checked)
+                   //),
                    _ctgys,
                    _cochs,
                    _orgns,
@@ -466,7 +466,15 @@ namespace System.Scsc.Ui.Advertising
                    new XAttribute("code", _advp.CODE),
                    new XAttribute("tmid", TempDsct_Lov.EditValue ?? ""),
                    new XAttribute("sendsmsstat", SendSms_Cbx.Checked),
-                   new XAttribute("sendappstat", SendApp_Cbx.Checked)
+                   new XAttribute("sendappstat", SendApp_Cbx.Checked),
+                   new XElement("OperationRun",
+                       new XAttribute("isoprtrun", OprtRun_Cbx.Checked),
+                       new XAttribute("issendmsgdate", SendMsgDate_Cbx.Checked),
+                       new XAttribute("sendmsgdate", SendMsgDate_Dt.Value == null ? DateTime.Now.ToString("yyyy-MM-dd") : SendMsgDate_Dt.Value.Value.ToString("yyyy-MM-dd")),
+                       new XAttribute("issendtestphon", SendTestPhon_Cbx.Checked),
+                       new XAttribute("sendtestphon", SendTestPhon_Txt.EditValue ?? ""),
+                       new XAttribute("issendsmsbulk", SendSmsBulk_Cbx.Checked)
+                   )
                )
             );
 

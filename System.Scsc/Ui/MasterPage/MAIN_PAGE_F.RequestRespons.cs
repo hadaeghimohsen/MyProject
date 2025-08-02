@@ -77,6 +77,9 @@ namespace System.Scsc.Ui.MasterPage
             case 44:
                PlaySystemSound(job);
                break;
+            case 45:
+               SendMessageToExternalSystem(job);
+               break;
             case 1000:
                if (InvokeRequired)
                   Invoke(new Action(() => Call_SystemService_P(job)));
@@ -1156,6 +1159,77 @@ namespace System.Scsc.Ui.MasterPage
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      /// <summary>
+      /// Code 45
+      /// </summary>
+      /// <param name="job"></param>
+      private void SendMessageToExternalSystem(Job job)
+      {         
+         try
+         {
+            var _xinput = job.Input as XElement;
+
+            var _soclmdia = _xinput.Attribute("soclmdia").Value;
+
+            // Bale
+            if (_soclmdia == "001")
+            {
+               var _chatid = _xinput.Attribute("chatid").Value;
+               var _mesg = _xinput.Attribute("mesg").Value;
+
+               // Check Telegram Bot
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost",
+                     new List<Job>
+                  {
+                     new Job(SendType.External, "DefaultGateway",
+                        new List<Job>
+                        {
+                           new Job(SendType.External, "RoboTech",
+                              new List<Job>
+                              {
+                                 //new Job(SendType.Self, 01 /* Execute GetUi */){Input = "strt_robo_f"},
+                                 //new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 02 /* Execute Set */),
+                                 //new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 07 /* Execute Load_Data */),
+                                 //new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Robot", new XAttribute("runrobot", "start"))},
+                                 new Job(SendType.SelfToUserInterface, "STRT_ROBO_F", 10 /* Execute Actn_CalF_P */)
+                                 {
+                                    Input = 
+                                       new XElement("Robot", 
+                                          new XAttribute("runrobot", "start"),
+                                          new XAttribute("actntype", "sendmesg"),
+                                          new XAttribute("chatid", _chatid),
+                                          new XAttribute("command", "textmesg"),
+                                          new XAttribute("rbid", 391),
+                                          //new XAttribute("mesg", "✅ رسید ارسالی مورد تایید واقع شد")
+                                          new XElement("Respons",
+                                                new XElement("Message",
+                                                   new XAttribute("order", 1),
+                                                   new XElement("Texts", 
+                                                      new XAttribute("order", 1),
+                                                         _mesg
+                                                   )
+                                                )
+                                          )
+                                       )
+                                 }
+                              }
+                           )
+                        }
+                     )
+                  }
+                  )
+               );
+            }
+
+         }
+         catch
+         {
+            
+         }
+         
       }
 
       /// <summary>

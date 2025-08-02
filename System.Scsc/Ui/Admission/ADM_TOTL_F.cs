@@ -330,6 +330,35 @@ namespace System.Scsc.Ui.Admission
 
                                  if(_wletamnt <= 100000)
                                  {
+                                    #region Send message to admin
+                                    _DefaultGateway.Gateway(
+                                       new Job(SendType.External, "localhost",
+                                           new List<Job>
+                                           {
+                                              new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 45 /* SendMessageToExternalSystem */)
+                                              {
+                                                 Input = 
+                                                   new XElement("Message",
+                                                       new XAttribute("soclmdia", "001"),
+                                                       new XAttribute("soclmdiadesc", "BALE"),
+                                                       new XAttribute("chatid", iScsc.V_Admin_Wallets.FirstOrDefault(w => w.WLET_TYPE == "001").CHAT_ID),
+                                                       new XAttribute("mesg", 
+                                                           "*هشدار اتمام یافتن شارژ سیستم*" + Environment.NewLine + 
+                                                           Environment.NewLine + 
+                                                           "مبلغ شارژ کیف پول شما به کمتر از *100 هزار تومان* رسیده، لطفا جهت شارژ کیف پول به شماره کارت زیر نزد *بانک سامان محسن حدایقی* واریز فرمایید" + Environment.NewLine + 
+                                                           Environment.NewLine + 
+                                                           "6219  -  8610  -  8342  -  5040" + Environment.NewLine + 
+                                                           "*محسن حدایقی*" + Environment.NewLine +
+                                                           "*بانک سامان*" + Environment.NewLine +
+                                                           Environment.NewLine + 
+                                                           "بعد از واریزی کردن مبلغ، از *منشی* بخواهید که دکمه *دریافت اطلاعات وصولی بانکی* را فشار دهد تا بانک بر اساس وصولی شما کیف پول را شارژ کند"
+                                                       )
+                                                   )
+                                              }
+                                           }
+                                       )
+                                    );
+                                    #endregion
                                     MessageBox.Show(this, "مبلغ شارژ کیف پول شما به کمتر از 100 هزار تومان رسیده، لطفا جهت شارژ کیف پول به شماره کارت 6219861083425040 نزد بانک سامان محسن حدایقی واریز فرمایید", "هشدار اتمام شارژ کیف پول", MessageBoxButtons.OK);
                                  }
                               })

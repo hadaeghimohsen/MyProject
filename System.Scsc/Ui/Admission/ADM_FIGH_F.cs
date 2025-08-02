@@ -142,6 +142,35 @@ namespace System.Scsc.Ui.Admission
 
                                  if(_wletamnt <= 100000)
                                  {
+                                    #region Send message to admin
+                                    _DefaultGateway.Gateway(
+                                       new Job(SendType.External, "localhost",
+                                           new List<Job>
+                                           {
+                                              new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 45 /* SendMessageToExternalSystem */)
+                                              {
+                                                 Input = 
+                                                   new XElement("Message",
+                                                       new XAttribute("soclmdia", "001"),
+                                                       new XAttribute("soclmdiadesc", "BALE"),
+                                                       new XAttribute("chatid", iScsc.V_Admin_Wallets.FirstOrDefault(w => w.WLET_TYPE == "001").CHAT_ID),
+                                                       new XAttribute("mesg", 
+                                                           "*هشدار اتمام یافتن شارژ سیستم*" + Environment.NewLine + 
+                                                           Environment.NewLine + 
+                                                           "مبلغ شارژ کیف پول شما به کمتر از *100 هزار تومان* رسیده، لطفا جهت شارژ کیف پول به شماره کارت زیر نزد *بانک سامان محسن حدایقی* واریز فرمایید" + Environment.NewLine + 
+                                                           Environment.NewLine + 
+                                                           "6219  -  8610  -  8342  -  5040" + Environment.NewLine + 
+                                                           "*محسن حدایقی*" + Environment.NewLine +
+                                                           "*بانک سامان*" + Environment.NewLine +
+                                                           Environment.NewLine + 
+                                                           "بعد از واریزی کردن مبلغ، از *منشی* بخواهید که دکمه *دریافت اطلاعات وصولی بانکی* را فشار دهد تا بانک بر اساس وصولی شما کیف پول را شارژ کند"
+                                                       )
+                                                   )
+                                              }
+                                           }                                           
+                                       )
+                                    );
+                                    #endregion
                                     MessageBox.Show(this, "مبلغ شارژ کیف پول شما به کمتر از 100 هزار تومان رسیده، لطفا جهت شارژ کیف پول به شماره کارت 6219861083425040 نزد بانک سامان محسن حدایقی واریز فرمایید", "هشدار اتمام شارژ کیف پول", MessageBoxButtons.OK);
                                  }
                               })
@@ -238,7 +267,7 @@ namespace System.Scsc.Ui.Admission
                                     new XElement("Sunt_Bunt_Dept_Orgn_Code", SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue ?? ""),
                                     new XElement("Sunt_Bunt_Dept_Code", SUNT_BUNT_DEPT_CODELookUpEdit.EditValue ?? ""),
                                     new XElement("Sunt_Bunt_Code", SUNT_BUNT_CODELookUpEdit.EditValue ?? ""),
-                                    new XElement("Sunt_Code", SUNT_CODELookUpEdit.EditValue ?? ""),
+                                    new XElement("Sunt_Code", SuntCode_Lov.EditValue ?? ""),
                                     new XElement("Cord_X", ""),
                                     new XElement("Cord_Y", ""),
                                     new XElement("Glob_Code", (Glob_Code_TextEdit.EditValue ?? "").ToString().Trim()),
@@ -2770,6 +2799,39 @@ namespace System.Scsc.Ui.Admission
                   break;
                case 1:
                   RcmtType_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void SuntCode_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            switch (e.Button.Index)
+            {
+               case 1:
+                  if (SuntCode_Lov.EditValue.ToString() != "0000")
+                  {
+                     LAST_NAME_TextEdit.Text = "پرسنل";
+                     FRST_NAME_TextEdit.Text = SuntCode_Lov.Text;//SuntBs1.List.OfType<Data.Sub_Unit>().FirstOrDefault(s => s.CODE == SuntCode_Lov.EditValue)
+                     NatlCodeVald_Cbx.Checked = false;
+                     RqstDupl_Pbtn.PickChecked = true;
+                     CbmtCode_Lov.Focus();
+                  }
+                  else
+                  {
+                     NatlCodeVald_Cbx.Checked = true;
+                     RqstDupl_Pbtn.PickChecked = false;
+                     FRST_NAME_TextEdit.EditValue = LAST_NAME_TextEdit.EditValue = null;
+                     FRST_NAME_TextEdit.Focus();
+                  }
                   break;
                default:
                   break;

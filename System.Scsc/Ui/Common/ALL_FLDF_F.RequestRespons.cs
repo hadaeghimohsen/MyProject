@@ -1411,7 +1411,7 @@ namespace System.Scsc.Ui.Common
             DAPcdtiBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "PaymentContractItemColor_INFO");
             DMexdBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Misc_Expense_Discount_INFO");
             DMexcBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Misc_Expense_Cost_INFO");
-
+            APaycBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Payment_Comment");
             //1402/10/07 * Relaod Dresser VIP
             //LstDVipBs.DataSource = iScsc.Dressers.Where(d => d.VIP_STAT == "002");
             //DresVipNormType_Butn_Click(DresVipNormType_Butn, null);

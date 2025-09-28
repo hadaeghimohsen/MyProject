@@ -393,9 +393,9 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            Scsc.Data.Request Rqst = RqstBs1.Current as Scsc.Data.Request;
+            Scsc.Data.Request _rqst = RqstBs1.Current as Scsc.Data.Request;
             Scsc.Data.Fighter Figh = FighBs1.Current as Scsc.Data.Fighter;
-            if (Rqst == null) return;
+            if (_rqst == null) return;
 
             // 1402/08/29 * اگر دستبندی که به مشتری داده میشود تایید نشده باید آنها را تایید کنیم
             if (AdatnBs.List.OfType<Data.Dresser_Attendance>().Any(da => da.CONF_STAT == "001"))
@@ -406,8 +406,8 @@ namespace System.Scsc.Ui.OtherIncome
             iScsc.OIC_ESAV_F(
                new XElement("Process",
                   new XElement("Request",
-                     new XAttribute("rqid", Rqst.RQID),
-                     Rqst.Request_Rows
+                     new XAttribute("rqid", _rqst.RQID),
+                     _rqst.Request_Rows
                      .Select(r =>
                         new XElement("Request_Row",
                            new XAttribute("rwno", r.RWNO),
@@ -425,12 +425,12 @@ namespace System.Scsc.Ui.OtherIncome
             //  برای اینکار ما بایستی گزینه ای طراحی کنیم که اگر فعال باشد بتوانیم مشخص کنیم که اگر هنرجو مهمان هست دوباره درخواست دیگیری برای ان ثبت شود
             if(GustSaveRqst_PickButn.PickChecked)
             {
-               if(FighsBs1.List.OfType<Data.Fighter>().Any(f => f.FILE_NO ==  Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && f.FGPB_TYPE_DNRM == "005"))
+               if(FighsBs1.List.OfType<Data.Fighter>().Any(f => f.FILE_NO ==  _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && f.FGPB_TYPE_DNRM == "005"))
                {
                   if (RqstBs1.Count > 0)
                      RqstBs1.AddNew();
 
-                  FILE_NO_LookUpEdit.EditValue = Rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO;
+                  FILE_NO_LookUpEdit.EditValue = _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO;
 
                   Btn_RqstBnARqt1_Click(null, null);
                }
@@ -438,7 +438,7 @@ namespace System.Scsc.Ui.OtherIncome
             else if (GotoProfile_Cbx.Checked)
             {
                _DefaultGateway.Gateway(
-                  new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)) }
+                  new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _rqst.Fighters.FirstOrDefault().FILE_NO)) }
                );
             }
 
@@ -458,9 +458,9 @@ namespace System.Scsc.Ui.OtherIncome
                                        Input = 
                                           new XElement("Request", 
                                              new XAttribute("type", "newrequest"), 
-                                             new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO),
+                                             new XAttribute("fileno", _rqst.Fighters.FirstOrDefault().FILE_NO),
                                              new XAttribute("followups", followups.Substring(followups.IndexOf(";") + 1)),
-                                             new XAttribute("rqstrqid", Rqst.RQID),
+                                             new XAttribute("rqstrqid", _rqst.RQID),
                                              new XAttribute("formcaller", formCaller)
                                           )
                                     }
@@ -473,6 +473,32 @@ namespace System.Scsc.Ui.OtherIncome
                }
                followups = "";
                rqstRqid = 0;
+            }
+
+            // 1404/06/31 * اگر درخواست پرداخت جریمه باشد باید بعد از اتمام درخواست در گیت برای مشتری باز شود
+            if(_rqst.Card_Link_Operations1.Any())
+            {
+               // اگر رفت و امد بدون جریمه میباشد باید در گیت مورد نظر باز شود
+               _rqst.Card_Link_Operations1.FirstOrDefault().External_Device.External_Device_Link_External_Devices.Where(el => el.STAT == "002").ToList()
+                  .ForEach(ed =>
+                     // در این مرحله باز کردن گیت رو فرمان میدیم
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_P */)
+                              {
+                                 Input = 
+                                    new XElement("Request",
+                                       new XAttribute("type", "gatecontrol"),
+                                       new XAttribute("gateactn", "close"),
+                                       new XAttribute("trgtedevcode", ed.CODE)
+                                    )
+                              }
+                           }
+                        )
+                     )
+                  );
             }
 
             requery = true;

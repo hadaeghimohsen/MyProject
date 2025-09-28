@@ -18,6 +18,7 @@ using SSP1126.PcPos.BaseClasses;
 using SSP1126.PcPos.Infrastructure;
 using Intek.PcPosLibrary;
 using POS_PC;
+using POS_PC_v3;
 using VPCPOS;
 using PosInterface;
 using PcPosClassLibrary;
@@ -479,58 +480,92 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             //} while (Globals.POSPC_CommunicationType.ToUpper() == "TCP/IP" && !_MellatPcPos.IS_FATAL_ERROR(retCode));
             #endregion
 
-            TcpClient client = null;
-            ServicePointManager.Expect100Continue = false;
-            byte[] resvCommand = new byte[10025];
+            #region Old Version
+            //TcpClient client = null;
+            //ServicePointManager.Expect100Continue = false;
+            //byte[] resvCommand = new byte[10025];
+            //switch (pos.POS_CNCT_TYPE)
+            //{
+            //   case "001":
+            //      client = new System.Net.Sockets.TcpClient("127.0.0.1", (int)pos.BAND_RATE); // Create a new connection  
+            //      break;
+            //   case "002":
+            //      client = new System.Net.Sockets.TcpClient(pos.IP_ADRS, (int)pos.BAND_RATE); // Create a new connection  
+            //      break;
+            //}
+            //if(!client.Connected)
+            //{
+            //   throw new Exception("Please Check Service Port");
+            //}
+
+            //Tlid = MellatPcPos_SaveTransactionLog(null);
+            //NetworkStream stream = client.GetStream();
+            //string str_comm = "" + "{\"ServiceCode\" : \"" + "1";
+            //if (Convert.ToInt64( Amnt_Txt.EditValue ) > 0)
+            //   str_comm += "\" ,\"Amount\" : \"" + Amnt_Txt.EditValue.ToString();
+            ////if (txtDebitPayerId.Text.Length > 0)
+            ////   str_comm += "\",\"PayerId\":\"" + txtDebitPayerId.Text;
+            ////if (txtDebitMsg.Text.Length > 0)
+            ////   str_comm += "\",\"MerchantMsg\":\"" + txtDebitMsg.Text;
+            ////if (txtDebitPcID.Text.Length > 0)
+            ////   str_comm += "\",\"PcID\":\"" + txtDebitPcID.Text;
+            //str_comm += "\"}";
+
+            ////string str_comm = "" + "{\"ServiceCode\" :\"" + "1" + "\",\"Amount\":\"" + txtDebitAmount.Text + "\",\"PayerId\":\"" + txtDebitPayerId.Text + "\",\"MerchantMsg\":\"" + txtDebitMsg.Text + "\",\"PcID\":\"" + txtDebitPcID.Text + "\"}";
+            //byte[] sendCommand = System.Text.Encoding.ASCII.GetBytes(str_comm);
+            //stream.Write(sendCommand, 0, sendCommand.Length);
+            //stream.ReadTimeout = 180000;
+            //int recvSize = stream.Read(resvCommand, 0, resvCommand.Length);
+
+            //string jsonStr = Encoding.UTF8.GetString(resvCommand);
+            //Dictionary<String, String> posResult = JsonConvert.DeserializeObject<Dictionary<String, String>>(jsonStr);
+            
+            //Tlid = MellatPcPos_SaveTransactionLog(posResult);
+
+            //if (posResult.FirstOrDefault(p => p.Key == "ReturnCode").Value == "100")
+            //{
+            //   PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+            //   SendCallBack2Router();
+            //}
+            //else
+            //{
+            //   PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+            //}
+
+            //client.Close();
+            #endregion
+
+            Transaction.Connection connection = new Transaction.Connection();
             switch (pos.POS_CNCT_TYPE)
             {
                case "001":
-                  client = new System.Net.Sockets.TcpClient("127.0.0.1", (int)pos.BAND_RATE); // Create a new connection  
                   break;
                case "002":
-                  client = new System.Net.Sockets.TcpClient(pos.IP_ADRS, (int)pos.BAND_RATE); // Create a new connection  
+                  connection.CommunicationType = "tcp/ip";
+                  connection.POS_PORTtcp = (int)pos.BAND_RATE;
+                  connection.POS_IP = pos.IP_ADRS;
+                  connection.POSPC_TCPCOMMU_SocketRecTimeout = 180000;
+                  break;
+               default:
                   break;
             }
-            if(!client.Connected)
-            {
-               throw new Exception("Please Check Service Port");
-            }
-
-            Tlid = MellatPcPos_SaveTransactionLog(null);
-            NetworkStream stream = client.GetStream();
-            string str_comm = "" + "{\"ServiceCode\" : \"" + "1";
-            if (Convert.ToInt64( Amnt_Txt.EditValue ) > 0)
-               str_comm += "\" ,\"Amount\" : \"" + Amnt_Txt.EditValue.ToString();
-            //if (txtDebitPayerId.Text.Length > 0)
-            //   str_comm += "\",\"PayerId\":\"" + txtDebitPayerId.Text;
-            //if (txtDebitMsg.Text.Length > 0)
-            //   str_comm += "\",\"MerchantMsg\":\"" + txtDebitMsg.Text;
-            //if (txtDebitPcID.Text.Length > 0)
-            //   str_comm += "\",\"PcID\":\"" + txtDebitPcID.Text;
-            str_comm += "\"}";
-
-            //string str_comm = "" + "{\"ServiceCode\" :\"" + "1" + "\",\"Amount\":\"" + txtDebitAmount.Text + "\",\"PayerId\":\"" + txtDebitPayerId.Text + "\",\"MerchantMsg\":\"" + txtDebitMsg.Text + "\",\"PcID\":\"" + txtDebitPcID.Text + "\"}";
-            byte[] sendCommand = System.Text.Encoding.ASCII.GetBytes(str_comm);
-            stream.Write(sendCommand, 0, sendCommand.Length);
-            stream.ReadTimeout = 180000;
-            int recvSize = stream.Read(resvCommand, 0, resvCommand.Length);
-
-            string jsonStr = Encoding.UTF8.GetString(resvCommand);
-            Dictionary<String, String> posResult = JsonConvert.DeserializeObject<Dictionary<String, String>>(jsonStr);
             
+
+            Transaction TXN = new Transaction(connection);
+            var posResult = TXN.Debits_Goods_And_Service(rqid.ToString(), "1", Amnt_Txt.EditValue.ToString(), "", "", "", false);
             Tlid = MellatPcPos_SaveTransactionLog(posResult);
 
-            if (posResult.FirstOrDefault(p => p.Key == "ReturnCode").Value == "100")
+            switch (posResult.ReturnCode)
             {
-               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
-               SendCallBack2Router();
-            }
-            else
-            {
-               PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+               case 100:
+                  PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1603;
+                  SendCallBack2Router();
+                  break;
+               default:
+                  PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+                  break;
             }
 
-            client.Close();
          }
          catch (Exception exc)
          {
@@ -539,7 +574,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
       }
 
-      private long? MellatPcPos_SaveTransactionLog(Dictionary<string, string> posResult)
+      private long? MellatPcPos_SaveTransactionLog(Result posResult)
       {
          try
          {
@@ -555,12 +590,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
-                     new XAttribute("respcode", posResult == null ? "" : posResult.FirstOrDefault(p => p.Key == "ReturnCode").Value ?? ""),
+                     new XAttribute("respcode", posResult == null ? "" : posResult.ReturnCode.ToString()),
                      new XAttribute("respdesc", ""),
-                     new XAttribute("cardno", posResult == null ? "" : posResult.FirstOrDefault(p => p.Key == "PAN").Value ?? ""),
-                     new XAttribute("termno", posResult == null ? "" : posResult.FirstOrDefault(p => p.Key == "TerminalNo").Value ?? ""),
-                     new XAttribute("serlno", posResult == null ? "" : posResult.FirstOrDefault(p => p.Key == "SerialTransaction").Value ?? ""),
-                     new XAttribute("flowno", posResult == null ? "" : posResult.FirstOrDefault(p => p.Key == "TraceNumber").Value ?? ""),
+                     new XAttribute("cardno", posResult == null ? "" : posResult.PAN),
+                     new XAttribute("termno", posResult == null ? "" : posResult.TerminalNo),
+                     new XAttribute("serlno", posResult == null ? "" : posResult.SerialTransaction),
+                     new XAttribute("flowno", posResult == null ? "" : posResult.TraceNumber),
                      new XAttribute("refno", "")
                   );
             iProject.SaveTransactionLog(ref xPcPos);

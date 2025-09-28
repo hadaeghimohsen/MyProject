@@ -1,0 +1,810 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<StiSerializer version="1.02" type="Net" application="StiReport">
+  <Dictionary Ref="1" type="Dictionary" isKey="true">
+    <BusinessObjects isList="true" count="0" />
+    <Databases isList="true" count="1">
+      <iScsc Ref="2" type="Stimulsoft.Report.Dictionary.StiSqlDatabase" isKey="true">
+        <Alias>iScsc</Alias>
+        <ConnectionString>Integrated Security=False;Data Source=.;Initial Catalog=iScsc;Password=1;Persist Security Info=True;User ID=sa</ConnectionString>
+        <Name>iScsc</Name>
+      </iScsc>
+    </Databases>
+    <DataSources isList="true" count="4">
+      <Audit Ref="3" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Audit</Alias>
+        <Columns isList="true" count="18">
+          <value>CODE,System.Int64</value>
+          <value>RWNO,System.Int64</value>
+          <value>AUDT_DATE,System.DateTime</value>
+          <value>EXPN_AMNT,System.Int64</value>
+          <value>FEE_AMNT,System.Int64</value>
+          <value>EXTR_PRCT_AMNT,System.Int64</value>
+          <value>SUM_AMNT_DNRM,System.Int64</value>
+          <value>FBAC_CODE,System.Int64</value>
+          <value>PAYC_CODE,System.Int64</value>
+          <value>PAYC_CMNT,System.String</value>
+          <value>LETT_NO,System.String</value>
+          <value>CMNT,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>FIGH_FILE_NO,System.Int64</value>
+          <value>PERS_AUDT_DATE,System.String</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Audit</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select *, dbo.GET_MTOS_U(Audt_Date) AS PERS_AUDT_DATE from Audit WHERE {WhereClause}</SqlCommand>
+      </Audit>
+      <Fighter_Bank_Account Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Fighter_Bank_Account</Alias>
+        <Columns isList="true" count="14">
+          <value>CODE,System.Int64</value>
+          <value>RWNO,System.Int64</value>
+          <value>BANK_NAME,System.String</value>
+          <value>ACNT_NUMB,System.String</value>
+          <value>CARD_NUMB,System.String</value>
+          <value>CARD_NUMB_DNRM,System.String</value>
+          <value>SHBA_NUMB,System.String</value>
+          <value>SHBA_NUMB_DNRM,System.String</value>
+          <value>CMNT,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>FIGH_FILE_NO,System.Int64</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Fighter_Bank_Account</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Fighter_Bank_Account</SqlCommand>
+      </Fighter_Bank_Account>
+      <Fighter Ref="5" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>Fighter</Alias>
+        <Columns isList="true" count="82">
+          <value>CONF_STAT,System.String</value>
+          <value>REGN_PRVN_CNTY_CODE,System.String</value>
+          <value>REGN_PRVN_CODE,System.String</value>
+          <value>REGN_CODE,System.String</value>
+          <value>FILE_NO,System.Int64</value>
+          <value>FIGH_STAT,System.String</value>
+          <value>RQST_RQID,System.Int64</value>
+          <value>NAME_DNRM,System.String</value>
+          <value>FRST_NAME_DNRM,System.String</value>
+          <value>LAST_NAME_DNRM,System.String</value>
+          <value>FATH_NAME_DNRM,System.String</value>
+          <value>POST_ADRS_DNRM,System.String</value>
+          <value>SEX_TYPE_DNRM,System.String</value>
+          <value>BRTH_DATE_DNRM,System.DateTime</value>
+          <value>CELL_PHON_DNRM,System.String</value>
+          <value>TELL_PHON_DNRM,System.String</value>
+          <value>FGPB_TYPE_DNRM,System.String</value>
+          <value>INSR_NUMB_DNRM,System.String</value>
+          <value>INSR_DATE_DNRM,System.DateTime</value>
+          <value>TEST_DATE_DNRM,System.DateTime</value>
+          <value>CAMP_DATE_DNRM,System.DateTime</value>
+          <value>CTGY_CODE_DNRM,System.Int64</value>
+          <value>MTOD_CODE_DNRM,System.Int64</value>
+          <value>CLUB_CODE_DNRM,System.Int64</value>
+          <value>COCH_FILE_NO_DNRM,System.Int64</value>
+          <value>COCH_CRTF_YEAR_DNRM,System.Int64</value>
+          <value>CBMT_CODE_DNRM,System.Int64</value>
+          <value>DAY_TYPE_DNRM,System.String</value>
+          <value>ATTN_TIME_DNRM,System.String</value>
+          <value>ACTV_TAG_DNRM,System.String</value>
+          <value>BLOD_GROP_DNRM,System.String</value>
+          <value>IMAG_RCDC_RCID_DNRM,System.Int64</value>
+          <value>IMAG_RWNO_DNRM,System.Int64</value>
+          <value>CARD_NUMB_DNRM,System.String</value>
+          <value>FNGR_PRNT_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_ORGN_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_DEPT_CODE_DNRM,System.String</value>
+          <value>SUNT_BUNT_CODE_DNRM,System.String</value>
+          <value>SUNT_CODE_DNRM,System.String</value>
+          <value>ORGN_CODE_DNRM,System.String</value>
+          <value>CORD_X_DNRM,System.Double</value>
+          <value>CORD_Y_DNRM,System.Double</value>
+          <value>SERV_NO_DNRM,System.String</value>
+          <value>NATL_CODE_DNRM,System.String</value>
+          <value>GLOB_CODE_DNRM,System.String</value>
+          <value>CHAT_ID_DNRM,System.Int64</value>
+          <value>MOM_CELL_PHON_DNRM,System.String</value>
+          <value>MOM_TELL_PHON_DNRM,System.String</value>
+          <value>MOM_CHAT_ID_DNRM,System.Int64</value>
+          <value>DAD_CELL_PHON_DNRM,System.String</value>
+          <value>DAD_TELL_PHON_DNRM,System.String</value>
+          <value>DAD_CHAT_ID_DNRM,System.Int64</value>
+          <value>DPST_ACNT_SLRY_BANK_DNRM,System.String</value>
+          <value>DPST_ACNT_SLRY_DNRM,System.String</value>
+          <value>RTNG_NUMB_DNRM,System.Int64</value>
+          <value>REF_CODE_DNRM,System.Int64</value>
+          <value>LEFT_FILE_NO,System.Int64</value>
+          <value>RIGH_FILE_NO,System.Int64</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+          <value>TARF_CODE_DNRM,System.String</value>
+          <value>MOST_DEBT_CLNG_DNRM,System.Int64</value>
+          <value>DEBT_DNRM,System.Int64</value>
+          <value>BUFE_DEBT_DNTM,System.Int64</value>
+          <value>DPST_AMNT_DNRM,System.Int64</value>
+          <value>FGPB_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_RWNO_DNRM,System.Int64</value>
+          <value>MBCO_RWNO_DNRM,System.Int64</value>
+          <value>MBFZ_RWNO_DNRM,System.Int64</value>
+          <value>MBSM_RWNO_DNRM,System.Int64</value>
+          <value>CAMP_RWNO_DNRM,System.Int64</value>
+          <value>TEST_RWNO_DNRM,System.Int64</value>
+          <value>CLCL_RWNO_DNRM,System.Int64</value>
+          <value>HERT_RWNO_DNRM,System.Int64</value>
+          <value>PSFN_RWNO_DNRM,System.Int64</value>
+          <value>EXAM_RWNO_DNRM,System.Int64</value>
+          <value>BDFT_RWNO_DNRM,System.Int64</value>
+          <value>MBSP_STRT_DATE,System.String</value>
+          <value>MBSP_END_DATE,System.String</value>
+          <value>CONF_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>Fighter</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from Fighter</SqlCommand>
+      </Fighter>
+      <App_Base_Define Ref="6" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
+        <Alias>App_Base_Define</Alias>
+        <Columns isList="true" count="21">
+          <value>CODE,System.Int64</value>
+          <value>RWNO,System.Int64</value>
+          <value>TITL_DESC,System.String</value>
+          <value>ENTY_NAME,System.String</value>
+          <value>REF_CODE,System.Int64</value>
+          <value>LVRG_VALU,System.Double</value>
+          <value>NUMB,System.Double</value>
+          <value>UNIT,System.Int64</value>
+          <value>PRT1_TIME,System.DateTime</value>
+          <value>PRT2_TIME,System.DateTime</value>
+          <value>PRT3_TIME,System.DateTime</value>
+          <value>PRT4_TIME,System.DateTime</value>
+          <value>PRT5_TIME,System.DateTime</value>
+          <value>PRT6_TIME,System.DateTime</value>
+          <value>SEX_TYPE,System.String</value>
+          <value>COLR,System.Int64</value>
+          <value>STAT,System.String</value>
+          <value>CRET_BY,System.String</value>
+          <value>CRET_DATE,System.DateTime</value>
+          <value>MDFY_BY,System.String</value>
+          <value>MDFY_DATE,System.DateTime</value>
+        </Columns>
+        <CommandTimeout>30</CommandTimeout>
+        <Dictionary isRef="1" />
+        <Name>App_Base_Define</Name>
+        <NameInSource>iScsc</NameInSource>
+        <Parameters isList="true" count="0" />
+        <SqlCommand>select * from App_Base_Define</SqlCommand>
+      </App_Base_Define>
+    </DataSources>
+    <Relations isList="true" count="3">
+      <FK_AUDT_FIGH Ref="7" type="DataRelation" isKey="true">
+        <Alias>FK_AUDT_FIGH</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>FIGH_FILE_NO</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>FK_AUDT_FIGH</Name>
+        <NameInSource>FK_AUDT_FIGH</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>FILE_NO</value>
+        </ParentColumns>
+        <ParentSource isRef="5" />
+      </FK_AUDT_FIGH>
+      <FK_AUDT_FBAC Ref="8" type="DataRelation" isKey="true">
+        <Alias>FK_AUDT_FBAC</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>FBAC_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>FK_AUDT_FBAC</Name>
+        <NameInSource>FK_AUDT_FBAC</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="4" />
+      </FK_AUDT_FBAC>
+      <FK_AUDT_PAYC Ref="9" type="DataRelation" isKey="true">
+        <Alias>FK_AUDT_PAYC</Alias>
+        <ChildColumns isList="true" count="1">
+          <value>PAYC_CODE</value>
+        </ChildColumns>
+        <ChildSource isRef="3" />
+        <Dictionary isRef="1" />
+        <Name>FK_AUDT_PAYC</Name>
+        <NameInSource>FK_AUDT_PAYC</NameInSource>
+        <ParentColumns isList="true" count="1">
+          <value>CODE</value>
+        </ParentColumns>
+        <ParentSource isRef="6" />
+      </FK_AUDT_PAYC>
+    </Relations>
+    <Report isRef="0" />
+    <Variables isList="true" count="0" />
+  </Dictionary>
+  <EngineVersion>EngineV2</EngineVersion>
+  <GlobalizationStrings isList="true" count="0" />
+  <MetaTags isList="true" count="0" />
+  <Pages isList="true" count="1">
+    <Page1 Ref="10" type="Page" isKey="true">
+      <Border>None;Black;2;Solid;False;4;Black</Border>
+      <Brush>Transparent</Brush>
+      <Components isList="true" count="3">
+        <HeaderAudit Ref="11" type="HeaderBand" isKey="true">
+          <Border>All;Black;1;Double;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,0.2,5,0.3</ClientRectangle>
+          <Components isList="true" count="2">
+            <Text1 Ref="12" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>2.1,0,1.1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <Guid>2811744a2c2f4503b3e766599af778aa</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text1</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <Text>فرم ممیزی اسناد مالی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text1>
+            <Text2 Ref="13" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.7,0,1.3,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,7</Font>
+              <Guid>944638fb4b604d58a5712874a7834837</Guid>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>Text2</Name>
+              <Page isRef="10" />
+              <Parent isRef="11" />
+              <Text>سازمان نظام مهندسی ساختمان استان فارس</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </Text2>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>HeaderAudit</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+        </HeaderAudit>
+        <DataAudit Ref="14" type="DataBand" isKey="true">
+          <Border>All;Black;1;Double;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <BusinessObjectGuid isNull="true" />
+          <ClientRectangle>0,0.9,5,5.9</ClientRectangle>
+          <Components isList="true" count="23">
+            <DataAudit_PERS_AUDT_DATE Ref="15" type="Text" isKey="true">
+              <Border>Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0,3.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAudit_PERS_AUDT_DATE</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>{Audit.PERS_AUDT_DATE}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAudit_PERS_AUDT_DATE>
+            <DataAudit_EXPN_AMNT Ref="16" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.3,3.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAudit_EXPN_AMNT</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>{Audit.EXPN_AMNT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="17" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAudit_EXPN_AMNT>
+            <DataAudit_FEE_AMNT Ref="18" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.6,3.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAudit_FEE_AMNT</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>{Audit.FEE_AMNT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="19" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAudit_FEE_AMNT>
+            <DataAudit_EXTR_PRCT_AMNT Ref="20" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,0.9,3.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAudit_EXTR_PRCT_AMNT</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>{Audit.EXTR_PRCT_AMNT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="21" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAudit_EXTR_PRCT_AMNT>
+            <DataAudit_SUM_AMNT_DNRM Ref="22" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,1.2,3.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAudit_SUM_AMNT_DNRM</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>{Audit.SUM_AMNT_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextFormat Ref="23" type="NumberFormat" isKey="true">
+                <DecimalDigits>0</DecimalDigits>
+                <GroupSeparator>,</GroupSeparator>
+                <NegativePattern>1</NegativePattern>
+                <UseLocalSetting>False</UseLocalSetting>
+              </TextFormat>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAudit_SUM_AMNT_DNRM>
+            <DataAudit_FK_AUDT_FBAC_SHBA_NUMB_DNRM Ref="24" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,1.5,3.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAudit_FK_AUDT_FBAC_SHBA_NUMB_DNRM</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>{Audit.FK_AUDT_FBAC.SHBA_NUMB_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAudit_FK_AUDT_FBAC_SHBA_NUMB_DNRM>
+            <DataAudit_FK_AUDT_FIGH_NAME_DNRM Ref="25" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,1.8,3.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAudit_FK_AUDT_FIGH_NAME_DNRM</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>{Audit.FK_AUDT_FIGH.NAME_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAudit_FK_AUDT_FIGH_NAME_DNRM>
+            <DataAudit_FK_AUDT_FIGH_CELL_PHON_DNRM Ref="26" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,2.1,3.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAudit_FK_AUDT_FIGH_CELL_PHON_DNRM</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>{Audit.FK_AUDT_FIGH.CELL_PHON_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAudit_FK_AUDT_FIGH_CELL_PHON_DNRM>
+            <DataAudit_FK_AUDT_FIGH_NATL_CODE_DNRM Ref="27" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,2.4,3.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAudit_FK_AUDT_FIGH_NATL_CODE_DNRM</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>{Audit.FK_AUDT_FIGH.NATL_CODE_DNRM}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAudit_FK_AUDT_FIGH_NATL_CODE_DNRM>
+            <DataAudit_FK_AUDT_PAYC_TITL_DESC Ref="28" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,2.7,3.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAudit_FK_AUDT_PAYC_TITL_DESC</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>{Audit.FK_AUDT_PAYC.TITL_DESC} - {Audit.PAYC_CMNT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </DataAudit_FK_AUDT_PAYC_TITL_DESC>
+            <DataAudit_LETT_NO Ref="29" type="Text" isKey="true">
+              <Border>Top, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,3,3.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Koodak,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAudit_LETT_NO</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>{Audit.LETT_NO}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <VertAlignment>Center</VertAlignment>
+            </DataAudit_LETT_NO>
+            <DataAudit_CMNT Ref="30" type="Text" isKey="true">
+              <Border>Top;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <CanGrow>True</CanGrow>
+              <ClientRectangle>0,3.3,5,2.6</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>DataAudit_CMNT</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>توضیحات : {Audit.CMNT}</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+            </DataAudit_CMNT>
+            <HeaderAudit_PERS_AUDT_DATE Ref="31" type="Text" isKey="true">
+              <Border>Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.5,0,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAudit_PERS_AUDT_DATE</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>تاریخ</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAudit_PERS_AUDT_DATE>
+            <HeaderAudit_EXPN_AMNT Ref="32" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.5,0.3,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAudit_EXPN_AMNT</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>مبلغ هزینه کرد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAudit_EXPN_AMNT>
+            <HeaderAudit_FEE_AMNT Ref="33" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.5,0.6,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAudit_FEE_AMNT</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>کارمزد</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAudit_FEE_AMNT>
+            <HeaderAudit_EXTR_PRCT_AMNT Ref="34" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.5,0.9,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAudit_EXTR_PRCT_AMNT</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>ارزش افزوده</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAudit_EXTR_PRCT_AMNT>
+            <HeaderAudit_SUM_AMNT_DNRM Ref="35" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.5,1.2,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAudit_SUM_AMNT_DNRM</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>مبلغ قابل پرداخت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAudit_SUM_AMNT_DNRM>
+            <HeaderAudit_FK_AUDT_FBAC_SHBA_NUMB_DNRM Ref="36" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.5,1.5,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAudit_FK_AUDT_FBAC_SHBA_NUMB_DNRM</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>شماره حساب / شبا</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAudit_FK_AUDT_FBAC_SHBA_NUMB_DNRM>
+            <HeaderAudit_FK_AUDT_FIGH_NAME_DNRM Ref="37" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.5,1.8,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAudit_FK_AUDT_FIGH_NAME_DNRM</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>نام شخص حقیقی / حقوقی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAudit_FK_AUDT_FIGH_NAME_DNRM>
+            <HeaderAudit_FK_AUDT_FIGH_CELL_PHON_DNRM Ref="38" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.5,2.1,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAudit_FK_AUDT_FIGH_CELL_PHON_DNRM</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>شماره موبایل</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAudit_FK_AUDT_FIGH_CELL_PHON_DNRM>
+            <HeaderAudit_FK_AUDT_FIGH_NATL_CODE_DNRM Ref="39" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.5,2.4,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAudit_FK_AUDT_FIGH_NATL_CODE_DNRM</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>کد/شناسه ملی/اقتصادی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAudit_FK_AUDT_FIGH_NATL_CODE_DNRM>
+            <HeaderAudit_FK_AUDT_PAYC_TITL_DESC Ref="40" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.5,2.7,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAudit_FK_AUDT_PAYC_TITL_DESC</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>شرح پرداخت</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAudit_FK_AUDT_PAYC_TITL_DESC>
+            <HeaderAudit_LETT_NO Ref="41" type="Text" isKey="true">
+              <Border>Top, Left, Bottom;Black;1;Solid;False;4;Black</Border>
+              <Brush>Transparent</Brush>
+              <ClientRectangle>3.5,3,1.5,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Right</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>HeaderAudit_LETT_NO</Name>
+              <Page isRef="10" />
+              <Parent isRef="14" />
+              <Text>شماره نامه</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </HeaderAudit_LETT_NO>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <DataSourceName>Audit</DataSourceName>
+          <Filters isList="true" count="0" />
+          <Name>DataAudit</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+          <Sort isList="true" count="0" />
+        </DataAudit>
+        <FooterAudit Ref="42" type="FooterBand" isKey="true">
+          <Border>All;Black;1;Double;False;4;Black</Border>
+          <Brush>Transparent</Brush>
+          <ClientRectangle>0,7.2,5,0.3</ClientRectangle>
+          <Components isList="true" count="1">
+            <FooterAudit_PERS_AUDT_DATE Ref="43" type="Text" isKey="true">
+              <Brush>Transparent</Brush>
+              <ClientRectangle>0,0,1,0.3</ClientRectangle>
+              <Conditions isList="true" count="0" />
+              <Font>B Mitra,10,Bold</Font>
+              <HorAlignment>Center</HorAlignment>
+              <Margins>0,0,0,0</Margins>
+              <Name>FooterAudit_PERS_AUDT_DATE</Name>
+              <Page isRef="10" />
+              <Parent isRef="42" />
+              <Text>ممیز اسناد مالی</Text>
+              <TextBrush>Black</TextBrush>
+              <TextOptions>HotkeyPrefix=None, LineLimit=False, RightToLeft=False, Trimming=None, WordWrap=True, Angle=0, FirstTabOffset=40, DistanceBetweenTabs=20,</TextOptions>
+              <Type>Expression</Type>
+              <VertAlignment>Center</VertAlignment>
+            </FooterAudit_PERS_AUDT_DATE>
+          </Components>
+          <Conditions isList="true" count="0" />
+          <Name>FooterAudit</Name>
+          <Page isRef="10" />
+          <Parent isRef="10" />
+        </FooterAudit>
+      </Components>
+      <Conditions isList="true" count="0" />
+      <Guid>15b6c47f71ad406aab6df072f5be31d3</Guid>
+      <Margins>0.39,0.39,0.39,0.39</Margins>
+      <Name>Page1</Name>
+      <PageHeight>8.27</PageHeight>
+      <PageWidth>5.78</PageWidth>
+      <PaperSize>A5</PaperSize>
+      <Report isRef="0" />
+      <Watermark Ref="44" type="Stimulsoft.Report.Components.StiWatermark" isKey="true">
+        <Font>Arial,100</Font>
+        <TextBrush>[50:0:0:0]</TextBrush>
+      </Watermark>
+    </Page1>
+  </Pages>
+  <PrinterSettings Ref="45" type="Stimulsoft.Report.Print.StiPrinterSettings" isKey="true" />
+  <ReferencedAssemblies isList="true" count="8">
+    <value>System.Dll</value>
+    <value>System.Drawing.Dll</value>
+    <value>System.Windows.Forms.Dll</value>
+    <value>System.Data.Dll</value>
+    <value>System.Xml.Dll</value>
+    <value>Stimulsoft.Controls.Dll</value>
+    <value>Stimulsoft.Base.Dll</value>
+    <value>Stimulsoft.Report.Dll</value>
+  </ReferencedAssemblies>
+  <ReportAlias>Report</ReportAlias>
+  <ReportChanged>9/29/2025 2:42:44 AM</ReportChanged>
+  <ReportCreated>9/29/2025 1:57:05 AM</ReportCreated>
+  <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_AUDT_01.mrt</ReportFile>
+  <ReportGuid>23da0a7daba04515b4fd25b23d06a2df</ReportGuid>
+  <ReportName>Report</ReportName>
+  <ReportUnit>Inches</ReportUnit>
+  <ReportVersion>2012.2.1304</ReportVersion>
+  <Script>using System;
+using System.Drawing;
+using System.Windows.Forms;
+using System.Data;
+using Stimulsoft.Controls;
+using Stimulsoft.Base.Drawing;
+using Stimulsoft.Report;
+using Stimulsoft.Report.Dialogs;
+using Stimulsoft.Report.Components;
+
+namespace Reports
+{
+    public class Report : Stimulsoft.Report.StiReport
+    {
+        public Report()        {
+            this.InitializeComponent();
+        }
+
+        #region StiReport Designer generated code - do not modify
+        #endregion StiReport Designer generated code - do not modify
+    }
+}
+</Script>
+  <ScriptLanguage>CSharp</ScriptLanguage>
+  <Styles isList="true" count="0" />
+</StiSerializer>

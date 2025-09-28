@@ -23,6 +23,7 @@ namespace System.Scsc.Ui.OtherIncome
       private string formCaller = "";
       private long rqstRqid = 0;
       string fileno = "";
+      string fngrPrnt = "";
       private string CurrentUser;
 
       public void SendRequest(Job job)
@@ -504,13 +505,51 @@ namespace System.Scsc.Ui.OtherIncome
       private void Actn_CalF_P(Job job)
       {
          var xinput = job.Input as XElement;
+         
          if (xinput.Element("Request_Row") != null)
             fileno = xinput.Element("Request_Row").Attribute("fileno").Value;
          else
             fileno = "";
 
+         if (xinput.Element("CardLinkOprt") != null)
+         {
+            fngrPrnt = xinput.Element("CardLinkOprt").Attribute("fngrprnt").Value;
+            fileno = xinput.Element("CardLinkOprt").Attribute("fileno").Value;
+         }
+         else
+         {
+            fngrPrnt = "";
+         }
+
          switch (xinput.Attribute("type").Value)
          {
+            case "02":
+               // در این قسمت برای دریافت اطلاعات کد کارت برای ست کردن کارت برای درخواست خدمات زمان دار
+               var _rqst = RqstBs1.Current as Data.Request;
+               if (_rqst == null) return;
+
+               var _timingPydts = _rqst.Payments.FirstOrDefault().Payment_Details.Where(pd => pd.Expense.MIN_TIME.Value.TimeOfDay.TotalMinutes > 1 );
+               if(_timingPydts.Count() > 0)
+               {
+                  var _cardLinkOprts = _rqst.Card_Link_Operations;
+                  if(_cardLinkOprts.Count() < _timingPydts.Sum(pd => pd.QNTY))
+                  {
+                     if(!_cardLinkOprts.Any(c => c.CARD_FNGR_PRNT_DNRM == fngrPrnt))
+                     {
+                        // پیدا کردن رکورد حضوری در جدول حضور و غیاب برای مشتری که اخرین بار حضوری زده
+                        iScsc.LNK_CRDO_P(
+                           new XElement("Card_Link_Operation",
+                               new XAttribute("oprttype", "002"),
+                               new XAttribute("rqid", _rqst.RQID),
+                               new XAttribute("cardfngrprnt", fngrPrnt),
+                               new XAttribute("cardfileno", fileno)
+                           )
+                        );
+                        Execute_Query();
+                     }
+                  }
+               }
+               break;
             case "01":
                var figh = iScsc.Fighters.Where(f => f.FILE_NO == Convert.ToInt64(fileno)).First();
                

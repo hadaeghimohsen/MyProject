@@ -1146,6 +1146,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.App_Base_Define.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Attendance.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Attendance_Wrist.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Audit.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Base_Calculate_Expense.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Base_Unit.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Basic_Body_Fitness_Movement.datasource" />
@@ -1161,6 +1162,8 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Cando_Block.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Cando_Block_Unit.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Card_Datasource.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Card_Link_Operation.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Card_Link_Operation_Detail.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Cash.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Category_Belt.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Change_Body_Fitness.datasource" />
@@ -1267,6 +1270,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_RQST.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_RSLT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SALE.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_SCDT.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SMTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SNTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_SOND.datasource" />
@@ -1286,10 +1290,12 @@
     <None Include="Properties\DataSources\System.Scsc.Data.Expense_Type.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Expense_Type_Step.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.External_Device_DataRead.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device_Link_Method.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device_Weekday.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.External_Device_Weekday_Timing.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Bank_Account.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Body_Measurement.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Call.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Fighter_Coupon.datasource" />

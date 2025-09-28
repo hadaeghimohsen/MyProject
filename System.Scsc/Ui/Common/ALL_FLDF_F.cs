@@ -1579,9 +1579,13 @@ namespace System.Scsc.Ui.Common
                   }
                   break;
                case 4:
-                  vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(fileno); ;
+                  AudtBs.DataSource = iScsc.Audits.Where(a => a.FIGH_FILE_NO == fileno);
+                  FbacBs.DataSource = iScsc.Fighter_Bank_Accounts.Where(a => a.FIGH_FILE_NO == fileno);
                   break;
                case 5:
+                  vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(fileno); ;
+                  break;
+               case 6:
                   vF_Request_ChangingBs.DataSource = iScsc.VF_Request_Changing(fileno).OrderBy(r => r.RQST_DATE);
                   LOptBs.DataSource =
                      iScsc.Log_Operations
@@ -1589,10 +1593,10 @@ namespace System.Scsc.Ui.Common
                         lo.FIGH_FILE_NO == fileno
                      );
                   break;
-               case 6:
+               case 7:
                   AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
                   break;
-               case 9:
+               case 10:
                   int _rqst = RqstBs.Position;
                   int _rqpm = RqpmBs.Position;
                   int _rqpv = RqpvBs.Position;
@@ -1608,7 +1612,7 @@ namespace System.Scsc.Ui.Common
                   RqpmBs.Position = _rqpm;
                   RqpvBs.Position = _rqpv;
                   break;
-               case 10:
+               case 11:
                   int _pmct = PmctBs1.Position;
                   PmctBs1.DataSource =
                      iScsc.Payment_Contracts
@@ -4052,53 +4056,137 @@ namespace System.Scsc.Ui.Common
          }
       }
 
-      private void RqstBnSettingPrint_Click(object sender, EventArgs e)
+      private void SettingPrint_Click(object sender, EventArgs e)
       {
          if (tb_master.SelectedTab == tp_003)
          {
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
                  new List<Job>
                   {
                      new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
                      new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }         
+                  })
+            );
+         }
+         else if (tb_master.SelectedTab == tp_012)
+         {
+            if (Tc_Audit.SelectedTab == Tp_Audt_01)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                    new List<Job>
+                    {
+                       new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                       new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_112_F"))}
+                    })
+               );
+            }
+            else if(Tc_Audit.SelectedTab == Tp_Audt_02)
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                    new List<Job>
+                    {
+                       new Job(SendType.Self, 81 /* Execute Cfg_Stng_F */),
+                       new Job(SendType.SelfToUserInterface, "CFG_STNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "ModualReport"), new XAttribute("modul", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_212_F"))}
+                    })
+               );
+            }
+         }
       }
 
-      private void RqstBnPrint_Click(object sender, EventArgs e)
+      private void SelectPrint_Click(object sender, EventArgs e)
       {
          if (tb_master.SelectedTab == tp_003)
          {
             if (vF_SavePaymentsBs.Current == null) return;
             var crnt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
                  new List<Job>
-                  {
-                     new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }         
+                 {
+                    new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
+                 })
+            );
+         }
+         else if(tb_master.SelectedTab == tp_012)
+         {
+            if(Tc_Audit.SelectedTab == Tp_Audt_01)
+            {
+               var _audt = AudtBs.Current as Data.Audit;
+               if (_audt == null) return;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                    new List<Job>
+                    {
+                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_112_F"), string.Format("Audit.Code = {0}", _audt.CODE))}
+                    })
+               );
+            }
+            else if(Tc_Audit.SelectedTab == Tp_Audt_02)
+            {
+               var _fbac = FbacBs.Current as Data.Fighter_Bank_Account;
+               if (_fbac == null) return;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                    new List<Job>
+                    {
+                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_112_F"), string.Format("Fighter_Bank_Account.Code = {0}", _fbac.CODE))}
+                    })
+               );
+
+            }
+         }
       }
 
-      private void RqstBnDefaultPrint_Click(object sender, EventArgs e)
+      private void DefaultPrint_Click(object sender, EventArgs e)
       {
          if (tb_master.SelectedTab == tp_003)
          {
             if (vF_SavePaymentsBs.Current == null) return;
             var crnt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
 
-            Job _InteractWithScsc =
-              new Job(SendType.External, "Localhost",
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
                  new List<Job>
                   {
                      new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_002_F"), string.Format("Request.Rqid = {0}", crnt.RQID))}
-                  });
-            _DefaultGateway.Gateway(_InteractWithScsc);
-         }         
+                  })
+            );
+         }
+         else if(tb_master.SelectedTab == tp_012)
+         {
+            if(Tc_Audit.SelectedTab == Tp_Audt_01)
+            {
+               var _audt = AudtBs.Current as Data.Audit;
+               if (_audt == null) return;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                    new List<Job>
+                     {
+                        new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_112_F"), string.Format("Audit.Code = {0}", _audt.CODE))}
+                     })
+               );
+            }
+            else if(Tc_Audit.SelectedTab == Tp_Audt_02)
+            {
+               var _fbac = FbacBs.Current as Data.Fighter_Bank_Account;
+               if (_fbac == null) return;
+
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                    new List<Job>
+                     {
+                        new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_112_F"), string.Format("Fighter_Bank_Account.Code = {0}", _fbac.CODE))}
+                     })
+               );
+            }
+         }
       }
 
       private void SaveRqpm_Butn_Click(object sender, EventArgs e)
@@ -6068,6 +6156,184 @@ namespace System.Scsc.Ui.Common
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void AddFbac_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (FbacBs.List.OfType<Data.Fighter_Bank_Account>().Any(a => a.CODE == 0)) return;
+
+            var _fbac = FbacBs.AddNew() as Data.Fighter_Bank_Account;
+            _fbac.FIGH_FILE_NO = fileno;
+            iScsc.Fighter_Bank_Accounts.InsertOnSubmit(_fbac);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }         
+      }
+
+      private void DelFbac_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _fbac = FbacBs.Current as Data.Fighter_Bank_Account;
+            if (_fbac == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            iScsc.DEL_FBAC_P(_fbac.CODE);
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveFbac_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            FBAC_GV.PostEditor();
+
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void AddAudt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (AudtBs.List.OfType<Data.Audit>().Any(a => a.CODE == 0)) return;
+
+            var _audt = AudtBs.AddNew() as Data.Audit;
+            _audt.FIGH_FILE_NO = fileno;
+            iScsc.Audits.InsertOnSubmit(_audt);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DelAudt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _audt = AudtBs.Current as Data.Audit;
+            if (_audt == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            iScsc.DEL_AUDT_P(_audt.CODE);
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void SaveAudt_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Audt_Gv.PostEditor();
+            AudtBs.EndEdit();
+
+            iScsc.SubmitChanges();
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void Payc_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _audt = AudtBs.Current as Data.Audit;
+            if (_audt == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 1:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost",
+                        new List<Job>
+                        {
+                           new Job(SendType.Self, 154 /* Execute Apbs_Dfin_F */),
+                           new Job(SendType.SelfToUserInterface, "APBS_DFIN_F", 10 /* Execute Actn_CalF_F */)
+                           {
+                              Input = 
+                                 new XElement("App_Base",
+                                    new XAttribute("tablename", "Payment_Comment"),
+                                    new XAttribute("formcaller", GetType().Name)
+                                 )
+                           }
+                        }
+                     )
+                  );
+                  break;
+               case 2:
+                  Refresh_Butn_Click(null, null);
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void Payc_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         try
+         {
+            var _audt = AudtBs.Current as Data.Audit;
+            if (_audt == null) return;
+
+            _audt.App_Base_Define = APaycBs.List.OfType<Data.App_Base_Define>().FirstOrDefault(p => p.CODE == (long)e.NewValue);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }         
       }
    }
 }

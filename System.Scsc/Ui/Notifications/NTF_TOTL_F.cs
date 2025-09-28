@@ -565,6 +565,11 @@ namespace System.Scsc.Ui.Notifications
          {
             // 1396/08/01 * 16:02
             // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
+            // 1404/05/28 * IF LAST Attendance has Exists WE Must closing gate for exit customer
+            var _attn = iScsc.Attendances.FirstOrDefault(a => a.FIGH_FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue) && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null);
+            if (_attn != null)
+               iScsc.ExecuteCommand("UPDATE dbo.Attendance SET EXIT_TIME = GETDATE() WHERE CODE = {0};", _attn.CODE);
+            
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost",
                   new List<Job>
@@ -574,7 +579,7 @@ namespace System.Scsc.Ui.Notifications
                         Input = 
                            new XElement("Request",
                               new XAttribute("type", "gatecontrol"),
-                              new XAttribute("gateactn", "error")
+                              new XAttribute("gateactn", _attn != null ? "close" : "error")
                            )
                      }
                   }
@@ -598,7 +603,7 @@ namespace System.Scsc.Ui.Notifications
 
             string _getCode = ex.Message.Split(':')[0];
 
-            if(Lov_FileName2.Tag != null && result == DialogResult.Yes && _getCode.In("0001", "0002", "0004", "0006", "0008", "0009"))
+            if(Lov_FileName2.Tag != null && result == DialogResult.Yes && _getCode.In("0001", "0002", "0004", "0006", "0008", "0009") && _attn == null)
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost",
                      new List<Job>

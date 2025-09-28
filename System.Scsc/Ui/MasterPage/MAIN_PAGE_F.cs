@@ -569,6 +569,12 @@ namespace System.Scsc.Ui.MasterPage
             }
             else // اگر گیت به صورت اتومات باز شود مشتری حضور و غیاب کرده باشد
             {
+               // 1404/06/31 * اگر سیستم برای دستگاه خاصی هدف قرار داده شده باشد
+               if (xinput.Attribute("trgtedevcode") != null)
+               {
+                  _gatesDevice = iScsc.External_Devices.Where(ed => ed.CODE == xinput.Attribute("trgtedevcode").Value.ToInt64());
+               }
+
                // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
                // 1400/01/11
                // در اینجا باید مشخص کنیم که ایا گیت ها بر اساس رشته های مختلف باید واکنش نشان دهند یا خیر               
@@ -615,8 +621,7 @@ namespace System.Scsc.Ui.MasterPage
                      d.DEV_TYPE == "001" && 
                      d.DEV_CON == "002" && 
                      _listIPHost.Contains(d.SERV_IP_ADRS) && 
-                     d.STAT == "002" &&
-                     lastDataRead.Last().MacAdrs == d.IP_ADRS);
+                     d.STAT == "002");
 
             if (_readersDevice != null && _readersDevice.Any())
             {
@@ -629,7 +634,8 @@ namespace System.Scsc.Ui.MasterPage
                _readersDevice.ToList()
                   .ForEach(r =>
                   {
-                     SendCommandDevExpn("in", r.DEV_NAME, "");
+                     if (((lastDataRead == null || lastDataRead.Count == 0) || lastDataRead.Last().MacAdrs == r.IP_ADRS) && (r.SEND_CMND_TYPE == null || r.SEND_CMND_TYPE.In("000", "001", "003")))
+                        SendCommandDevExpn("in", r.DEV_NAME, "");
                      //var pc = new PersianCalendar();
                      //if(numbattnmont != 0)
                      //{
@@ -730,6 +736,12 @@ namespace System.Scsc.Ui.MasterPage
             }
             else // اگر گیت به صورت اتومات باز شود مشتری حضور و غیاب کرده باشد
             {
+               // 1404/06/31 * اگر سیستم برای دستگاه خاصی هدف قرار داده شده باشد
+               if(xinput.Attribute("trgtedevcode") != null )
+               {
+                  _gatesDevice = iScsc.External_Devices.Where(ed => ed.CODE == xinput.Attribute("trgtedevcode").Value.ToInt64());
+               }
+
                // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
                // 1400/01/11
                // در اینجا باید مشخص کنیم که ایا گیت ها بر اساس رشته های مختلف باید واکنش نشان دهند یا خیر               
@@ -795,8 +807,7 @@ namespace System.Scsc.Ui.MasterPage
                      d.DEV_TYPE == "001" && 
                      d.DEV_CON == "002"  && 
                      _listIPHost.Contains(d.SERV_IP_ADRS) && 
-                     d.STAT == "002" &&
-                     lastDataRead.Last().MacAdrs == d.IP_ADRS);
+                     d.STAT == "002");
 
             if (_readersDevice != null && _readersDevice.Any())
             {
@@ -809,7 +820,8 @@ namespace System.Scsc.Ui.MasterPage
                _readersDevice.ToList()
                   .ForEach(r =>
                   {
-                     SendCommandDevExpn("out", r.DEV_NAME, "");
+                     if (((lastDataRead == null || lastDataRead.Count == 0) || lastDataRead.Last().MacAdrs == r.IP_ADRS) && (r.SEND_CMND_TYPE == null || r.SEND_CMND_TYPE.In("000", "002", "003")))
+                        SendCommandDevExpn("out", r.DEV_NAME, "");
                      //var pc = new PersianCalendar();
                      //if (numbattnmont != 0)
                      //{
@@ -904,6 +916,12 @@ namespace System.Scsc.Ui.MasterPage
             }
             else // اگر گیت به صورت اتومات باز شود مشتری حضور و غیاب کرده باشد
             {
+               // 1404/06/31 * اگر سیستم برای دستگاه خاصی هدف قرار داده شده باشد
+               if (xinput.Attribute("trgtedevcode") != null)
+               {
+                  _gatesDevice = iScsc.External_Devices.Where(ed => ed.CODE == xinput.Attribute("trgtedevcode").Value.ToInt64());
+               }
+
                // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
                // 1400/01/11
                // در اینجا باید مشخص کنیم که ایا گیت ها بر اساس رشته های مختلف باید واکنش نشان دهند یا خیر               
@@ -969,15 +987,17 @@ namespace System.Scsc.Ui.MasterPage
                      d.DEV_TYPE == "001"  && 
                      d.DEV_CON == "002" && 
                      _listIPHost.Contains(d.SERV_IP_ADRS) && 
-                     d.STAT == "002" &&
-                     lastDataRead.Last().MacAdrs == d.IP_ADRS);
+                     d.STAT == "002");
 
             if (_readersDevice != null && _readersDevice.Any())
             {
                _readersDevice.ToList()
                   .ForEach(r =>
-                  {                     
-                     SendCommandDevExpn("er" , r.DEV_NAME, FngrPrnt_Txt.Text);
+                  {
+                     if (((lastDataRead == null || lastDataRead.Count == 0) || lastDataRead.Last().MacAdrs == r.IP_ADRS))
+                     {
+                        SendCommandDevExpn("er", r.DEV_NAME, FngrPrnt_Txt.Text);
+                     }
 
                      //SendCommandDevExpn(
                      //   "df:" + "WellCome".PadLeft(13, ' ') +
@@ -1096,7 +1116,7 @@ namespace System.Scsc.Ui.MasterPage
 
             // اگر داده ای درون سیستم از سمت کارتخوان آمده باشد باید تا پاسخ دهی به دستگاه هیچ ورودی دیگری قابل پردازش نیست
             // اگر داده قبلی بر اساس 10 ثانیه هنوز درون بافر باشد باید از لیست حذف شود
-            if (lastDataRead.Any(d => d.MacAdrs == devName && d.EnrollNumber == fngrPrnt && DateTime.Now.Subtract(d.LastTimeRead).TotalSeconds >= 10))
+            if (lastDataRead.Any(d => d.MacAdrs == devName && d.EnrollNumber == fngrPrnt && DateTime.Now.Subtract(d.LastTimeRead).TotalSeconds >= 3))
             {
                lastDataRead.Remove(lastDataRead.FirstOrDefault(d => d.MacAdrs == devName && d.EnrollNumber == fngrPrnt));
                //System.Diagnostics.Debug.WriteLine("Remove Last Time Read");
@@ -4672,7 +4692,7 @@ namespace System.Scsc.Ui.MasterPage
          var recieveStr = BitConverter.ToString(recieve).Split('-');
          //CrntValuGetData_Butn.EditValue = recieveStr;
          //CardOpr_Txt.EditValue = recieveStr;
-         string enrollNumber = "";
+         string _fngrPrnt = "";
 
          #region Data recieved from saela and Nuoro gate control
          var gate = iScsc.External_Devices.Where(ed => (ed.DEV_COMP_TYPE == "001" || ed.DEV_COMP_TYPE == "003") && ed.DEV_TYPE == "006" && ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
@@ -4750,7 +4770,7 @@ namespace System.Scsc.Ui.MasterPage
                {
                   for (int i = recieveStr.Count() - 6; i < recieveStr.Count() - 2; i++)
                   {
-                     enrollNumber += recieveStr[i];
+                     _fngrPrnt += recieveStr[i];
                   }
                }
                // Nuoro gate control
@@ -4768,7 +4788,7 @@ namespace System.Scsc.Ui.MasterPage
                   // RO
                   else if (gate.CARD_READ_TYPE == "002")
                   {
-                     enrollNumber =
+                     _fngrPrnt =
                         Convert.ToInt32(
                            ConvertHex2Ascii(
                               string.Join("", /*recieveStr.Reverse().Where(i => i != "00").Take(4)*/ recieveStr.Skip(4).Take(6))
@@ -4781,17 +4801,17 @@ namespace System.Scsc.Ui.MasterPage
 
                // 1402/11/16 * Send Signal to receive data
                if(InvokeRequired)
-                  Invoke(new Action(() => GetValuDataFromExtrDev(gate, enrollNumber)));
+                  Invoke(new Action(() => GetValuDataFromExtrDev(gate, _fngrPrnt)));
                else
-                  GetValuDataFromExtrDev(gate, enrollNumber);
+                  GetValuDataFromExtrDev(gate, _fngrPrnt);
 
                // IF NOT VALID ENROLCODE
-               if (enrollNumber.In("0004000", "00040000", "00010000", "00000000")) return;
+               if (_fngrPrnt.In("0004000", "00040000", "00010000", "00000000")) return;
 
                // 1402/11/02 * اگر نیاز باشه برای کپی برداری از این آیتم استفاده کنیم
                if (AttnType_Lov.EditValue != null && AttnType_Lov.EditValue.ToString() == "011")
                {
-                  OnAttTransactionEx(enrollNumber);
+                  OnAttTransactionEx(_fngrPrnt);
                   return;
                }
 
@@ -4813,20 +4833,20 @@ namespace System.Scsc.Ui.MasterPage
                   Invoke(new Action(() =>
                   {
                      // اگر کارت قبلا خوانده شده
-                     if (FngrPrnt_Txt.Text == enrollNumber) return;
-                     FngrPrnt_Txt.Text = enrollNumber;
+                     if (FngrPrnt_Txt.Text == _fngrPrnt) return;
+                     FngrPrnt_Txt.Text = _fngrPrnt;
                   }));
                else
                {
                   // اگر کارت قبلا خوانده شده
-                  if (FngrPrnt_Txt.Text == enrollNumber) return;
-                  FngrPrnt_Txt.Text = enrollNumber;
+                  if (FngrPrnt_Txt.Text == _fngrPrnt) return;
+                  FngrPrnt_Txt.Text = _fngrPrnt;
                }
 
                //var gate = iScsc.External_Devices.Where(ed => ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
 
                // IF NOT EXISTS ANY SERVICE RETURN AND STOPED!!
-               if (!iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == enrollNumber))
+               if (!iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == _fngrPrnt))
                {
                   // Error 
                   if (gate.DEV_COMP_TYPE == "001")
@@ -4846,12 +4866,12 @@ namespace System.Scsc.Ui.MasterPage
                var _gateMtods = gate.External_Device_Link_Methods.Where(gm => gm.STAT == "002").Select(gm => gm.MTOD_CODE);
 
                // بررسی اینکه برای پرسنل هایی که داریم نیازی به بررسی تردد نداریم
-               if (iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == enrollNumber && f.FGPB_TYPE_DNRM == "003"))
+               if (iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == _fngrPrnt && f.FGPB_TYPE_DNRM == "003"))
                {
                   mbsp =
                   iScsc.Member_Ships
                   .Where(ms =>
-                     ms.Fighter.FNGR_PRNT_DNRM == enrollNumber &&
+                     ms.Fighter.FNGR_PRNT_DNRM == _fngrPrnt &&
                      ms.VALD_TYPE == "002" &&
                      ms.RECT_CODE == "004" &&
                      DateTime.Now.IsBetween(ms.STRT_DATE.Value.Date, ms.END_DATE.Value.Date)
@@ -4862,7 +4882,7 @@ namespace System.Scsc.Ui.MasterPage
                   mbsp =
                      iScsc.Member_Ships
                      .Where(ms =>
-                        ms.Fighter.FNGR_PRNT_DNRM == enrollNumber &&
+                        ms.Fighter.FNGR_PRNT_DNRM == _fngrPrnt &&
                            //ms.Fighter_Public.MTOD_CODE == gate.MTOD_CODE &&
                         _gateMtods.Contains(ms.Fighter_Public.MTOD_CODE) &&
                         ms.VALD_TYPE == "002" &&
@@ -4877,7 +4897,7 @@ namespace System.Scsc.Ui.MasterPage
                if (mbsp == null)
                {
                   // 1398/12/23 * اگرمشتری اخرین جلسه وارد شده و بخواهد که خارج شود
-                  var lastinputattn = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == enrollNumber && /*a.MTOD_CODE_DNRM == gate.MTOD_CODE*/_gateMtods.Contains(a.MTOD_CODE_DNRM) && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null);
+                  var lastinputattn = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == _fngrPrnt && /*a.MTOD_CODE_DNRM == gate.MTOD_CODE*/_gateMtods.Contains(a.MTOD_CODE_DNRM) && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null);
                   if (lastinputattn != null && lastinputattn.Count() >= 1)
                   {
                      // Send [Close] command to Gate
@@ -4972,7 +4992,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          #endregion
          #region Data recieved from Nuoro online locker
-         var nuorodevs = iScsc.External_Devices.Where(ed => ed.DEV_COMP_TYPE == "003" /* Nuoro */ && (ed.DEV_TYPE == "001" /* Card Reader */ || ed.DEV_TYPE == "010" /* Online Locker */) && ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
+         var nuorodevs = iScsc.External_Devices.Where(ed => ed.DEV_COMP_TYPE == "003" /* Nuoro */ && (ed.DEV_TYPE == "001" /* Card Reader */ || ed.DEV_TYPE == "010" /* Online Locker */ || ed.DEV_TYPE == "006" /* Gate */) && ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
          if (nuorodevs != null)
          {
             if (nuorodevs.CARD_READ_TYPE == "001")
@@ -4982,7 +5002,7 @@ namespace System.Scsc.Ui.MasterPage
             // RO
             else if (nuorodevs.CARD_READ_TYPE == "002")
             {
-               enrollNumber =
+               _fngrPrnt =
                   Convert.ToInt32(
                      ConvertHex2Ascii(
                         string.Join("", /*recieveStr.Reverse().Where(i => i != "00").Take(4)*/ recieveStr.Skip(4).Take(6))
@@ -4992,13 +5012,13 @@ namespace System.Scsc.Ui.MasterPage
                //return;
             }
             // 1402/10/28 * if enrollnumber is not valid
-            if (enrollNumber == "0") return;
+            if (_fngrPrnt == "0") return;
 
             // 1402/11/16 * Send Signal to receive data
             if (InvokeRequired)
-               Invoke(new Action(() => GetValuDataFromExtrDev(nuorodevs, enrollNumber)));
+               Invoke(new Action(() => GetValuDataFromExtrDev(nuorodevs, _fngrPrnt)));
             else
-               GetValuDataFromExtrDev(nuorodevs, enrollNumber);
+               GetValuDataFromExtrDev(nuorodevs, _fngrPrnt);
 
             // Alarm 
             //new Thread(AlarmShow).Start();
@@ -5009,11 +5029,49 @@ namespace System.Scsc.Ui.MasterPage
                var _tmp = AttnType_Lov.EditValue;
                AttnType_Lov.EditValue = nuorodevs.ACTN_TYPE;
                if (InvokeRequired)
-                  Invoke(new Action(() => OnAttTransactionEx(enrollNumber)));
+                  Invoke(new Action(() => OnAttTransactionEx(_fngrPrnt)));
                else
-                  OnAttTransactionEx(enrollNumber);
+                  OnAttTransactionEx(_fngrPrnt);
                AttnType_Lov.EditValue = _tmp;
                return;
+            }
+            // Nuoro Gate
+            else if (nuorodevs.DEV_TYPE == "006")
+            {
+               if(nuorodevs.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */)
+               {
+                  var _actvCardLinkOprt =
+                     iScsc.Card_Link_Operations.FirstOrDefault(c => c.CARD_FNGR_PRNT_DNRM == _fngrPrnt && c.VALD_TYPE == "002");
+                  if(_actvCardLinkOprt != null)
+                  {
+                     //if(_actvCardLinkOprt.STRT_TIME == null)
+                     //{
+                     //   iScsc.ExecuteCommand(
+                     //      string.Format(
+                     //         "UPDATE dbo.Card_Link_Operation SET STRT_TIME = GETDATE() WHERE CODE = {0} AND STRT_TIME IS NULL;", _actvCardLinkOprt.CODE)
+                     //   );
+                     //}
+                     
+                     iScsc.ExecuteCommand(
+                        string.Format(
+                           "UPDATE dbo.Card_Link_Operation SET STRT_TIME = GETDATE() WHERE CODE = {0} AND STRT_TIME IS NULL;" + 
+                           "INSERT INTO dbo.Card_Link_Operation_Detail (CLOP_CODE, CODE, CLOP_TYPE) VALUES({0}, 0, '001');", _actvCardLinkOprt.CODE
+                        )
+                     );
+                     // در این مرحله باز کردن گیت رو فرمان میدیم
+                     OprtExtDev(
+                        new XElement("MainPage",
+                           new XAttribute("type", "extdev"),
+                           new XAttribute("devtype", "006"),
+                           new XAttribute("contype", "002"),
+                           new XAttribute("cmdtype", "open"),
+                           new XAttribute("cmdsend", ""),
+                           new XAttribute("ip", nuorodevs.IP_ADRS),
+                           new XAttribute("sendport", nuorodevs.PORT_SEND)
+                        )
+                     );
+                  }
+               }
             }
             // Nuoro for online locker for action with managment locker room with card reader
             else if (nuorodevs.DEV_TYPE == "010" && nuorodevs.ACTN_TYPE == "013")
@@ -5021,9 +5079,9 @@ namespace System.Scsc.Ui.MasterPage
                //MessageBox.Show(enrollNumber);
                //if (enrollNumber.In("0004000", "00040000", "00010000", "00000000", "AABBCCDD")) { return; }
                if (InvokeRequired)
-                  Invoke(new Action(() => OnOpenDresserWithWrist(enrollNumber)));
+                  Invoke(new Action(() => OnOpenDresserWithWrist(_fngrPrnt)));
                else
-                  OnOpenDresserWithWrist(enrollNumber);
+                  OnOpenDresserWithWrist(_fngrPrnt);
             }
          }
          #endregion
@@ -5369,8 +5427,8 @@ namespace System.Scsc.Ui.MasterPage
          {
             iScsc = new Data.iScscDataContext(ConnectionString);
             // input data e.g : {device code} "-" {Card Code}            
-            var devName = e.Client.ConnectAddress;
-            var fngrPrnt = e.Message;
+            var _devName = e.Client.ConnectAddress;
+            var _fngrPrnt = e.Message;
 
             //System.Diagnostics.Debug.WriteLine(enrollNumber);
             //new Thread(AlarmShow).Start();
@@ -5378,17 +5436,17 @@ namespace System.Scsc.Ui.MasterPage
 
             // اگر داده ای درون سیستم از سمت کارتخوان آمده باشد باید تا پاسخ دهی به دستگاه هیچ ورودی دیگری قابل پردازش نیست
             // اگر داده قبلی بر اساس 10 ثانیه هنوز درون بافر باشد باید از لیست حذف شود
-            if (lastDataRead.Any(d => d.MacAdrs == devName && d.EnrollNumber == fngrPrnt && DateTime.Now.Subtract(d.LastTimeRead).TotalSeconds >= 10))
+            if (lastDataRead.Any(d => d.MacAdrs == _devName && d.EnrollNumber == _fngrPrnt && DateTime.Now.Subtract(d.LastTimeRead).TotalSeconds >= 3))
             {
-               lastDataRead.Remove(lastDataRead.FirstOrDefault(d => d.MacAdrs == devName && d.EnrollNumber == fngrPrnt));
+               lastDataRead.Remove(lastDataRead.FirstOrDefault(d => d.MacAdrs == _devName && d.EnrollNumber == _fngrPrnt));
                //System.Diagnostics.Debug.WriteLine("Remove Last Time Read");
             }
 
             // اگر داده ای از کارتخوان و شماره کارت وجود داشته باشد ورودی جدید را رد میکنیم
-            if (lastDataRead.Any(d => d.MacAdrs == devName && d.EnrollNumber == fngrPrnt)) { /*System.Diagnostics.Debug.WriteLine("Reject New Read Data");*/ return; }
+            if (lastDataRead.Any(d => d.MacAdrs == _devName && d.EnrollNumber == _fngrPrnt)) { /*System.Diagnostics.Debug.WriteLine("Reject New Read Data");*/ return; }
 
             // اگر اطلاعاتی از کارتخوان و کارت عضویت وجود نداشته باشد برای اولین بار آن را ثبت میکنیم
-            lastDataRead.Add(new DataReadFromCardReader() { MacAdrs = devName, EnrollNumber = fngrPrnt, LastTimeRead = DateTime.Now });
+            lastDataRead.Add(new DataReadFromCardReader() { MacAdrs = _devName, EnrollNumber = _fngrPrnt, LastTimeRead = DateTime.Now });
             //System.Diagnostics.Debug.WriteLine("Add New Data Read");
 
             //System.Diagnostics.Debug.WriteLine(enrollNumber);
@@ -5404,36 +5462,151 @@ namespace System.Scsc.Ui.MasterPage
                      // 1 - بازی های زمان متغییر مانند بیلیارد
                      // 2 - بازی های زمان ثابت مانند شهربازی
                      //devName = Regex.Replace(devName, "[^0-9]", "");
-                     var getInfoDev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == devName && d.STAT == "002");
-                     if (getInfoDev == null) { System.Diagnostics.Debug.WriteLine("Reject because can't found device" + devName); return; }
+                     var _getDev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == _devName && d.STAT == "002");
+                     if (_getDev == null) { System.Diagnostics.Debug.WriteLine("Reject because can't found device" + _devName); return; }
 
-                     // set Finger Print Data on Text Box
-                     FngrPrnt_Txt.Text = fngrPrnt;
+                     // 1404/06/24 * Save last finger print in memory
+                     string _storLastFngrPrnt = FngrPrnt_Txt.Text;
+                     // set Finger Print Data on Text Box                     
+                     FngrPrnt_Txt.Text = _fngrPrnt;                     
 
                      // 1402/11/16 * Send Signal to receive data
-                     GetValuDataFromExtrDev(getInfoDev, fngrPrnt);
+                     GetValuDataFromExtrDev(_getDev, _fngrPrnt);
 
                      // Check Exists Service and Valid Card
-                     var Serv = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == fngrPrnt);
+                     var Serv = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == _fngrPrnt);
+
+                     // 1404/05/28 اگر مشتری تعریف شده باشد باید کد کارتشو درون پایگاه داده ذخیره کرد برای اینکه بخواهیم جلسه اضافه کم کنیم
+                     if (Serv != null)
+                     {
+                        // 1404/06/24 * #MahsaAmini
+                        // عملیات برای مشتریان اشتراکی
+                        // برای استفاده کردن از کارت استخر بارانا که بتوانیم ورود و خروج ساعت را داشته باشیم برای مشتریان اشتراکی
+                        if (ModifierKeys.HasFlag(Keys.Control | Keys.Shift))
+                        {
+                           // در این قسمت
+                           FngrPrnt_Txt.Text = _storLastFngrPrnt;
+                           
+                           // پیدا کردن رکورد حضوری در جدول حضور و غیاب برای مشتری که اخرین بار حضوری زده
+                           iScsc.LNK_CRDO_P(
+                              new XElement("Card_Link_Operation",
+                                  new XAttribute("oprttype", "001"),
+                                  new XAttribute("fngrprnt", FngrPrnt_Txt.Text),
+                                  new XAttribute("cardfngrprnt", _fngrPrnt),
+                                  new XAttribute("cardfileno", Serv.FILE_NO)
+                              )
+                           );
+
+                           return;
+                        }
+                        // مشتریان مهمان
+                        else if (ModifierKeys.HasFlag(Keys.Control | Keys.Alt))
+                        {
+                           FngrPrnt_Txt.Text = _storLastFngrPrnt;
+
+                           // در این قسمت ابتدا باید به فرم درامد متفرقه رفته و درخواست جاری رو پیدا میکنیم و بعد از ان عملیات درج رکورد در جدول را انجام میدهیم
+                           _DefaultGateway.Gateway(
+                              new Job(SendType.External, "Localhost",
+                                   new List<Job>
+                                    {                  
+                                       //new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                                       new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */)
+                                       {
+                                          Input = 
+                                             new XElement("Request", new XAttribute("type", "02"), 
+                                                new XElement("CardLinkOprt", 
+                                                   new XAttribute("fngrprnt", _fngrPrnt), 
+                                                   new XAttribute("fileno", Serv.FILE_NO)
+                                                )
+                                             )
+                                       }
+                                    })
+                           );
+
+                           return;
+                        }
+                        else if(_getDev.DEV_TYPE == "001" /* Card Reader */ && _getDev.ACTN_TYPE == "010" /* بلیط فروشی الکترونیک */ && _getDev.SEND_CMND_TYPE.In("002") /* Close */ && _getDev.EXPN_CODE != null /* Fine Amount */)
+                        {
+                           // 1404/06/29 * برای سیستم های محاسبه زمانی باید چک کنیم که مشتری به موقع از سیستم خارج شده یا خیر
+                           // پیدا کردن رکورد حضوری در جدول حضور و غیاب برای مشتری که اخرین بار حضوری زده
+                           iScsc.LNK_CRDO_P(
+                              new XElement("Card_Link_Operation",
+                                  new XAttribute("oprttype", "003"),
+                                  new XAttribute("cardfngrprnt", FngrPrnt_Txt.Text),
+                                  new XAttribute("cardfileno", Serv.FILE_NO),
+                                  new XAttribute("edevcode", _getDev.CODE)
+                              )
+                           );
+
+                           // در این قسمت باید چک کنیم که ایا این خروج باید جریمه پرداخت کند یا خیر
+                           // اگر شامل جریمه میشود باید فرم درامد متفرقه را باز کند
+                           var _cardLinkOprt = iScsc.Card_Link_Operations.FirstOrDefault(c => c.CARD_FILE_NO == Serv.FILE_NO && c.VALD_TYPE == "002");
+                           if(_cardLinkOprt != null && _cardLinkOprt.FINE_RQST_RQID != null)
+                           {
+                              _DefaultGateway.Gateway(
+                                 new Job(SendType.External, "localhost",
+                                    new List<Job>
+                                    {
+                                       new Job(SendType.Self, 92 /* Execute OIC_TOTL_F */),
+                                       new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_Calf_F */)
+                                       {
+                                          Input = 
+                                             new XElement("Request",
+                                                new XAttribute("type", "rqidfocus"),
+                                                new XAttribute("rqid", _cardLinkOprt.FINE_RQST_RQID)
+                                             )
+                                       }
+                                    }
+                                 )
+                              );
+                           }
+                           else
+                           {
+                              // اگر رفت و امد بدون جریمه میباشد باید در گیت مورد نظر باز شود
+                              //if(_cardLinkOprt.External_Device.External_Device_Link_External_Devices.Any(el => ))
+                              _getDev.External_Device_Link_External_Devices.Where(el => el.STAT == "002").ToList()
+                                 .ForEach(ed =>
+                                    // در این مرحله باز کردن گیت رو فرمان میدیم
+                                    OprtExtDev(
+                                       new XElement("MainPage",
+                                          new XAttribute("type", "extdev"),
+                                          new XAttribute("devtype", ed.External_Device1.DEV_TYPE),
+                                          new XAttribute("contype", "002"),
+                                          new XAttribute("cmdtype", "open"),
+                                          new XAttribute("cmdsend", ""),
+                                          new XAttribute("ip", ed.External_Device1.IP_ADRS),
+                                          new XAttribute("sendport", ed.External_Device1.PORT_SEND)
+                                       )
+                                    )
+                                 );
+                           }
+                           return;
+                        }
+                        else
+                        {
+                           // انالیز کارت گذاشتن روی دستگاه برای اینکه بخواهیم جلسه بیشتری از مشتری کم کنیم
+                           iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.External_Device_DataRead (EDEV_CODE, FNGR_PRNT, CODE) VALUES ({0}, '{1}', 0);", _getDev.CODE, _fngrPrnt));
+                        }
+                     }
 
                      // بدست آوردن آیین نامه اصلی
                      var regl = iScsc.Regulations.FirstOrDefault(rg => rg.REGL_STAT == "002" && rg.TYPE == "001");
 
-                     if(getInfoDev.DEV_TYPE == "001" /* اگر دستگاه ریدر کارتخوان عادی باشد */)
+                     if(_getDev.DEV_TYPE == "001" /* اگر دستگاه ریدر کارتخوان عادی باشد */)
                      {
                         axCZKEM1_OnAttTransactionEx(FngrPrnt_Txt.Text, 1, 1, 1, 2016, 05, 10, 09, 31, 50, 20);
                         return;
                      }
-                     else if (getInfoDev.DEV_TYPE == "011" /* سیستم کنترلگر ریدر با دستبند */)
+                     else if (_getDev.DEV_TYPE == "011" /* سیستم کنترلگر ریدر با دستبند */)
                      {
                         // 1403/08/02 * نسخه استخر علی عباسی فرزانگان برای کنترل درب ورودی استخر
-                        if (getInfoDev.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */)
+                        if (_getDev.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */)
                         {
                            #region چک کردن دستبند یا کارت عضویت برای باز کردن درب گیت ورودی و ارسال فرمان به رله دستگاه
                            // در اولین گام باید دوره فعال و معتبر مشتری را پیدا کنیم
                            
                            if(Serv != null && 
-                              getInfoDev.External_Device_Link_Methods
+                              _getDev.External_Device_Link_Methods
                               .Any(edlm => Serv.Member_Ships
                                  .Any(ms => ms.VALD_TYPE == "002" && 
                                             ms.RECT_CODE == "004" && 
@@ -5442,12 +5615,12 @@ namespace System.Scsc.Ui.MasterPage
                                             ms.END_DATE.Value.Date >= DateTime.Now.Date)))
                            {
                               // send accept and open the door
-                              SendCommandDevExpn("in", getInfoDev.DEV_NAME, "");
+                              SendCommandDevExpn("in", _getDev.DEV_NAME, "");
                            }
                            else
                            {
                               // send denay and show alert
-                              SendCommandDevExpn("er", getInfoDev.DEV_NAME, "");
+                              SendCommandDevExpn("er", _getDev.DEV_NAME, "");
                            }
                            #endregion
                         }
@@ -5457,7 +5630,7 @@ namespace System.Scsc.Ui.MasterPage
                            // در اولین گام باید چک کنیم که این دستبند به کسی تعلق دارد یا خیر
                            if (iScsc.Dresser_Attendances.Any(da => da.Dresser.CMND_SEND == FngrPrnt_Txt.Text && da.LEND_TIME != null && da.TKBK_TIME == null && da.CONF_STAT == "002"))
                            {
-                              SendCommandDevExpn("in", getInfoDev.DEV_NAME, "");
+                              SendCommandDevExpn("in", _getDev.DEV_NAME, "");
 
                               // Save History for enter or exit
                               iScsc.ExecuteCommand(
@@ -5472,7 +5645,7 @@ namespace System.Scsc.Ui.MasterPage
                               );
                            }
                            else
-                              SendCommandDevExpn("er", getInfoDev.DEV_NAME, "");
+                              SendCommandDevExpn("er", _getDev.DEV_NAME, "");
                            #endregion
                         }
                         return;
@@ -5485,16 +5658,16 @@ namespace System.Scsc.Ui.MasterPage
                         // اگر کارت عضویت خام باشد
                         if (Serv == null)
                         {
-                           if(getInfoDev.DEV_TYPE == "007")
-                              SendCommandDevExpn("er", devName, fngrPrnt);
-                           else if (getInfoDev.DEV_TYPE.In("008" /* مدیریت مجتمع */))
+                           if(_getDev.DEV_TYPE == "007")
+                              SendCommandDevExpn("er", _devName, _fngrPrnt);
+                           else if (_getDev.DEV_TYPE.In("008" /* مدیریت مجتمع */))
                            {
-                              var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == getInfoDev.EXPN_CODE);
+                              var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == _getDev.EXPN_CODE);
 
                               SendCommandDevExpn(
                                  "er:" + "0".PadLeft(10, ' ') +
                                  "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
-                                 ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), devName, fngrPrnt);
+                                 ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), _devName, _fngrPrnt);
                            }
 
                            // باز کردن فرم ثبت نام مشتری
@@ -5503,47 +5676,47 @@ namespace System.Scsc.Ui.MasterPage
                                  new List<Job>
                                     {
                                        new Job(SendType.Self, 130 /* Execute Adm_Brsr_F */),
-                                       new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", fngrPrnt))}
+                                       new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", _fngrPrnt))}
                                     });
                            _DefaultGateway.Gateway(_InteractWithScsc);
                         }
 
-                        if(getInfoDev.DEV_TYPE == "007")
-                           SendCommandDevExpn("er", devName, fngrPrnt);
+                        if(_getDev.DEV_TYPE == "007")
+                           SendCommandDevExpn("er", _devName, _fngrPrnt);
                         else
                            if (Serv != null)
                            {
-                              var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == getInfoDev.EXPN_CODE);
+                              var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == _getDev.EXPN_CODE);
                               // مجوز اجرای بازی
                               SendCommandDevExpn(
                                  "er:" + (Serv.DPST_AMNT_DNRM.Value).ToString("n0").PadLeft(10, ' ') +
                                  "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
-                                 ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), devName, fngrPrnt);
+                                 ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), _devName, _fngrPrnt);
                            }
                            else
                            {
-                              var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == getInfoDev.EXPN_CODE);
+                              var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == _getDev.EXPN_CODE);
                               // مجوز اجرای بازی
                               if (devExpn != null)
                               {
                                  SendCommandDevExpn(
                                     "er:" + "0".PadLeft(10, ' ') +
                                     "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
-                                    ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), devName, fngrPrnt);
+                                    ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), _devName, _fngrPrnt);
                               }
                               else
                               {
                                  SendCommandDevExpn(
                                     "er:" + "0".PadLeft(10, ' ') +
                                     "&" + "  " +
-                                    ":" + "         ", devName, fngrPrnt);
+                                    ":" + "         ", _devName, _fngrPrnt);
                               }
                            }
                         return;
                         #endregion
                      }
 
-                     if (getInfoDev.DEV_TYPE == "007" /* بازی های زمان متغییر مانند بیلیارد */)
+                     if (_getDev.DEV_TYPE == "007" /* بازی های زمان متغییر مانند بیلیارد */)
                      {
                         #region بارگذاری فرم مربوط به رزرو میز
                         Job _GetAopBufeF =
@@ -5570,9 +5743,9 @@ namespace System.Scsc.Ui.MasterPage
                                              Input = 
                                                 new XElement("Request", 
                                                    new XAttribute("type", "tp_001"),
-                                                   new XAttribute("fngrprnt", fngrPrnt),
-                                                   new XAttribute("macadrs", devName),
-                                                   new XAttribute("expncode", getInfoDev.EXPN_CODE ?? 0)
+                                                   new XAttribute("fngrprnt", _fngrPrnt),
+                                                   new XAttribute("macadrs", _devName),
+                                                   new XAttribute("expncode", _getDev.EXPN_CODE ?? 0)
                                                 )
                                           }
                                        }
@@ -5593,9 +5766,9 @@ namespace System.Scsc.Ui.MasterPage
                                              Input = 
                                                 new XElement("Request", 
                                                    new XAttribute("type", "tp_001"),
-                                                   new XAttribute("fngrprnt", fngrPrnt),
-                                                   new XAttribute("macadrs", devName),
-                                                   new XAttribute("expncode", getInfoDev.EXPN_CODE ?? 0)
+                                                   new XAttribute("fngrprnt", _fngrPrnt),
+                                                   new XAttribute("macadrs", _devName),
+                                                   new XAttribute("expncode", _getDev.EXPN_CODE ?? 0)
                                                 )
                                           }
                                        }
@@ -5606,17 +5779,17 @@ namespace System.Scsc.Ui.MasterPage
                         }
                         #endregion
                      }
-                     else if (getInfoDev.DEV_TYPE == "008" /* بازی های زمان ثابت مانند شهربازی */)
+                     else if (_getDev.DEV_TYPE == "008" /* بازی های زمان ثابت مانند شهربازی */)
                      {
                         #region فعالیت های مربوط به دستگاه های بازی با زمان ثابت
-                        var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == getInfoDev.EXPN_CODE);
+                        var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == _getDev.EXPN_CODE);
                         // اگر مبلغ بازی از میزان اعتبار مشتری بیشتر باشد
                         if (Serv.DPST_AMNT_DNRM < devExpn.PRIC)
                         {
                            SendCommandDevExpn(
                               "er:" + (Serv.DPST_AMNT_DNRM.Value).ToString("n0").PadLeft(10, ' ') +
                               "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
-                              ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), devName, fngrPrnt);
+                              ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), _devName, _fngrPrnt);
                            return;
                         }
 
@@ -5634,7 +5807,7 @@ namespace System.Scsc.Ui.MasterPage
                               SendCommandDevExpn(
                                  "st:" + (Serv.DPST_AMNT_DNRM.Value - devExpn.PRIC).ToString("n0").PadLeft(10, ' ') +
                                  "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
-                                 ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), devName, fngrPrnt);
+                                 ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), _devName, _fngrPrnt);
 
                               var xRet = new XElement("Result");
                               // ثبت درخواست و کسر اعتبار از مشتری
@@ -5644,8 +5817,8 @@ namespace System.Scsc.Ui.MasterPage
                                      new XAttribute("cmndcode", 100),
                                      new XAttribute("refsubsys", 5),
                                      new XAttribute("refcode", new Random().Next()),
-                                     new XAttribute("refnumb", fngrPrnt),
-                                     new XAttribute("fngrprnt", fngrPrnt),
+                                     new XAttribute("refnumb", _fngrPrnt),
+                                     new XAttribute("fngrprnt", _fngrPrnt),
                                      new XAttribute("amnt", devExpn.PRIC),
                                      new XAttribute("pymtdate", DateTime.Now.ToString("yyyy-MM-dd")),
                                      new XAttribute("pymtmtod", "005"),
@@ -5667,7 +5840,7 @@ namespace System.Scsc.Ui.MasterPage
                               SendCommandDevExpn(
                                  "df:" + (Serv.DPST_AMNT_DNRM.Value).ToString("n0").PadLeft(10, ' ') +
                                  "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
-                                 ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), devName, fngrPrnt);
+                                 ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), _devName, _fngrPrnt);
                            }
                         }
                         else
@@ -5676,7 +5849,7 @@ namespace System.Scsc.Ui.MasterPage
                            SendCommandDevExpn(
                               "st:" + (Serv.DPST_AMNT_DNRM.Value - devExpn.PRIC).ToString("n0").PadLeft(10, ' ') +
                               "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') + 
-                              ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' ') , devName, fngrPrnt);
+                              ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' ') , _devName, _fngrPrnt);
 
                            var xRet = new XElement("Result");
                            // ثبت درخواست و کسر اعتبار از مشتری
@@ -5686,8 +5859,8 @@ namespace System.Scsc.Ui.MasterPage
                                   new XAttribute("cmndcode", 100),
                                   new XAttribute("refsubsys", 5),
                                   new XAttribute("refcode", new Random().Next()),
-                                  new XAttribute("refnumb", fngrPrnt),
-                                  new XAttribute("fngrprnt", fngrPrnt),
+                                  new XAttribute("refnumb", _fngrPrnt),
+                                  new XAttribute("fngrprnt", _fngrPrnt),
                                   new XAttribute("amnt", devExpn.PRIC),
                                   new XAttribute("pymtdate", DateTime.Now.ToString("yyyy-MM-dd")),
                                   new XAttribute("pymtmtod", "005"),

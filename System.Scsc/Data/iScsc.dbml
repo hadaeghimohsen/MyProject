@@ -2715,20 +2715,6 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.External_Device_Link_Method" Member="External_Device_Link_Methods">
-    <Type Name="External_Device_Link_Method">
-      <Column Name="EDEV_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Method_External_Device_Link_Method" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="CASCADE" />
-      <Association Name="External_Device_External_Device_Link_Method" Member="External_Device" ThisKey="EDEV_CODE" OtherKey="CODE" Type="External_Device" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
   <Table Name="dbo.Statistic" Member="Statistics">
     <Type Name="Statistic">
       <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -3565,6 +3551,9 @@
       <Association Name="Fighter_Attendance1" Member="Attendances1" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Attendance" />
       <Association Name="Fighter_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Aggregation_Operation_Detail" />
       <Association Name="Fighter_Fighter_Body_Measurement" Member="Fighter_Body_Measurements" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Fighter_Body_Measurement" />
+      <Association Name="Fighter_Card_Link_Operation" Member="Card_Link_Operations" ThisKey="FILE_NO" OtherKey="CARD_FILE_NO" Type="Card_Link_Operation" />
+      <Association Name="Fighter_Audit" Member="Audits" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Audit" />
+      <Association Name="Fighter_Fighter_Bank_Account" Member="Fighter_Bank_Accounts" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Fighter_Bank_Account" />
       <Association Name="Fighter_Fighter" Member="Fighter1" ThisKey="REF_CODE_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Region_Fighter" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Sub_Unit_Fighter" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE_DNRM,SUNT_BUNT_DEPT_CODE_DNRM,SUNT_BUNT_CODE_DNRM,SUNT_CODE_DNRM" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
@@ -3991,7 +3980,6 @@
       <Association Name="Method_Base_Calculate_Expense" Member="Base_Calculate_Expenses" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Base_Calculate_Expense" />
       <Association Name="Method_Misc_Expense_Detail" Member="Misc_Expense_Details" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Misc_Expense_Detail" />
       <Association Name="Method_Aggregation_Operation" Member="Aggregation_Operations" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Aggregation_Operation" />
-      <Association Name="Method_External_Device_Link_Method" Member="External_Device_Link_Methods" ThisKey="CODE" OtherKey="MTOD_CODE" Type="External_Device_Link_Method" />
       <Association Name="Method_Fighter_Discount_Card" Member="Fighter_Discount_Cards" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Fighter_Discount_Card" />
       <Association Name="Method_Fighter_Public" Member="Fighter_Publics" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Fighter_Public" />
       <Association Name="Method_Calculate_Expense_Coach" Member="Calculate_Expense_Coaches" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Calculate_Expense_Coach" />
@@ -4008,6 +3996,7 @@
       <Association Name="Method_Category_Belt" Member="Category_Belts" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Category_Belt" />
       <Association Name="Method_Payment_Detail" Member="Payment_Details" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Payment_Detail" />
       <Association Name="Method_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Attendance" />
+      <Association Name="Method_External_Device_Link_Method" Member="External_Device_Link_Methods" ThisKey="CODE" OtherKey="MTOD_CODE" Type="External_Device_Link_Method" />
       <Association Name="Method_Method" Member="Method1" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId79">
@@ -4194,6 +4183,7 @@
       <Association Name="App_Base_Define_Note" Member="Notes" ThisKey="CODE" OtherKey="NTAG_APBS_CODE" Type="Note" />
       <Association Name="App_Base_Define_Gain_Loss_Rail_Detail" Member="Gain_Loss_Rail_Details" ThisKey="CODE" OtherKey="RCPT_TO_OTHR_ACNT" Type="Gain_Loss_Rail_Detail" />
       <Association Name="App_Base_Define_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="CODE" OtherKey="GROP_APBS_CODE" Type="Aggregation_Operation_Detail" />
+      <Association Name="App_Base_Define_Audit" Member="Audits" ThisKey="CODE" OtherKey="PAYC_CODE" Type="Audit" />
       <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Define1" ThisKey="REF_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId82">
@@ -4496,6 +4486,8 @@
       <Association Name="Request_Payment" Member="Payments" ThisKey="RQID" OtherKey="RQST_RQID" Type="Payment" />
       <Association Name="Request_Dresser_Attendance" Member="Dresser_Attendances" ThisKey="RQID" OtherKey="RQST_RQID" Type="Dresser_Attendance" />
       <Association Name="Request_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="RQID" OtherKey="RQST_RQID" Type="Aggregation_Operation_Detail" />
+      <Association Name="Request_Card_Link_Operation" Member="Card_Link_Operations" ThisKey="RQID" OtherKey="RQST_RQID" Type="Card_Link_Operation" />
+      <Association Name="Request_Card_Link_Operation1" Member="Card_Link_Operations1" ThisKey="RQID" OtherKey="FINE_RQST_RQID" Type="Card_Link_Operation" />
       <Association Name="Month_Base_Request" Member="Month_Base" ThisKey="CYCL" OtherKey="CYCL" Type="Month_Base" IsForeignKey="true" />
       <Association Name="Region_Request" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
       <Association Name="Request_Request" Member="Request1" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
@@ -5253,36 +5245,6 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.External_Device" Member="External_Devices">
-    <Type Name="External_Device">
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DEV_COMP_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DEV_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DEV_CON" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CYCL_READ" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="DEV_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PORT_NAME" Type="System.String" DbType="VarChar(10)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PORT_SEND" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="PORT_RECV" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SERV_IP_ADRS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="EXPN_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CMNT" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CARD_READ_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="External_Device_External_Device_Link_Method" Member="External_Device_Link_Methods" ThisKey="CODE" OtherKey="EDEV_CODE" Type="External_Device_Link_Method" />
-      <Association Name="External_Device_External_Device_Link_External_Device" Member="External_Device_Link_External_Devices" ThisKey="CODE" OtherKey="EDEV_CODE" Type="External_Device_Link_External_Device" />
-      <Association Name="External_Device_External_Device_Link_External_Device1" Member="External_Device_Link_External_Devices1" ThisKey="CODE" OtherKey="LINK_EDEV_CODE" Type="External_Device_Link_External_Device" />
-      <Association Name="External_Device_External_Device_Weekday" Member="External_Device_Weekdays" ThisKey="CODE" OtherKey="EDEV_CODE" Type="External_Device_Weekday" />
-    </Type>
-  </Table>
   <Table Name="dbo.External_Device_Weekday" Member="External_Device_Weekdays">
     <Type Name="External_Device_Weekday">
       <Column Name="EDEV_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
@@ -5627,6 +5589,7 @@
       <Association Name="Attendance_Attendance_Wrist" Member="Attendance_Wrists" ThisKey="CODE" OtherKey="ATTN_CODE" Type="Attendance_Wrist" />
       <Association Name="Attendance_Member_Ship_Session" Member="Member_Ship_Sessions" ThisKey="CODE" OtherKey="ATTN_CODE" Type="Member_Ship_Session" />
       <Association Name="Attendance_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="CODE" OtherKey="ATTN_CODE" Type="Aggregation_Operation_Detail" />
+      <Association Name="Attendance_Card_Link_Operation" Member="Card_Link_Operations" ThisKey="CODE" OtherKey="ATTN_CODE" Type="Card_Link_Operation" />
       <Association Name="Club_Method_Attendance" Member="Club_Method" ThisKey="CBMT_CODE_DNRM" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
       <Association Name="Club_Attendance" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
       <Association Name="Fighter_Attendance" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
@@ -5952,6 +5915,215 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Association Name="Schema_Profile_Sound" Member="Schema_Profile" ThisKey="SCHM_CODE" OtherKey="CODE" Type="Schema_Profile" IsForeignKey="true" />
     </Type>
+  </Table>
+  <Table Name="dbo.D$SCDT" Member="D_SCDTs">
+    <Type Name="D_SCDT">
+      <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.External_Device_Link_Method" Member="External_Device_Link_Methods">
+    <Type Name="External_Device_Link_Method">
+      <Column Name="EDEV_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="NUMB_OF_ATTN" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Method_External_Device_Link_Method" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="External_Device_External_Device_Link_Method" Member="External_Device" ThisKey="EDEV_CODE" OtherKey="CODE" Type="External_Device" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.External_Device_DataRead" Member="External_Device_DataReads">
+    <Type Name="External_Device_DataRead">
+      <Column Name="EDEV_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="FNGR_PRNT" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="READ_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="External_Device_External_Device_DataRead" Member="External_Device" ThisKey="EDEV_CODE" OtherKey="CODE" Type="External_Device" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.External_Device" Member="External_Devices">
+    <Type Name="External_Device">
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DEV_COMP_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DEV_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DEV_CON" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CYCL_READ" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="DEV_NAME" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PORT_NAME" Type="System.String" DbType="VarChar(10)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PORT_SEND" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PORT_RECV" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SERV_IP_ADRS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXPN_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CMNT" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CARD_READ_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SEND_CMND_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AUTO_EXIT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="External_Device_External_Device_Link_External_Device" Member="External_Device_Link_External_Devices" ThisKey="CODE" OtherKey="EDEV_CODE" Type="External_Device_Link_External_Device" />
+      <Association Name="External_Device_External_Device_Link_External_Device1" Member="External_Device_Link_External_Devices1" ThisKey="CODE" OtherKey="LINK_EDEV_CODE" Type="External_Device_Link_External_Device" />
+      <Association Name="External_Device_External_Device_Weekday" Member="External_Device_Weekdays" ThisKey="CODE" OtherKey="EDEV_CODE" Type="External_Device_Weekday" />
+      <Association Name="External_Device_External_Device_Link_Method" Member="External_Device_Link_Methods" ThisKey="CODE" OtherKey="EDEV_CODE" Type="External_Device_Link_Method" />
+      <Association Name="External_Device_External_Device_DataRead" Member="External_Device_DataReads" ThisKey="CODE" OtherKey="EDEV_CODE" Type="External_Device_DataRead" />
+      <Association Name="External_Device_Card_Link_Operation" Member="Card_Link_Operations" ThisKey="CODE" OtherKey="EDEV_CODE" Type="Card_Link_Operation" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Card_Link_Operation_Detail" Member="Card_Link_Operation_Details">
+    <Type Name="Card_Link_Operation_Detail">
+      <Column Name="CLOP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CLOP_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CLOP_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Card_Link_Operation_Card_Link_Operation_Detail" Member="Card_Link_Operation" ThisKey="CLOP_CODE" OtherKey="CODE" Type="Card_Link_Operation" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Card_Link_Operation" Member="Card_Link_Operations">
+    <Type Name="Card_Link_Operation">
+      <Column Name="CARD_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ATTN_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CARD_FNGR_PRNT_DNRM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FIGH_FNGR_PRNT_DNRM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TOTL_USE_MINT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="STRT_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="END_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TOTL_MINT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TOTL_EXPN_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXPN_NUMB_ATTN_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXPN_1ATN_AMNT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXPN_1MIN_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FINE_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FINE_MINT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FINE_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FINE_RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="VALD_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TOTL_OPEN_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TOTL_CLOS_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EDEV_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_HOST_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_HOST_BY" Type="System.String" DbType="VarChar(50)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Card_Link_Operation_Card_Link_Operation_Detail" Member="Card_Link_Operation_Details" ThisKey="CODE" OtherKey="CLOP_CODE" Type="Card_Link_Operation_Detail" />
+      <Association Name="Attendance_Card_Link_Operation" Member="Attendance" ThisKey="ATTN_CODE" OtherKey="CODE" Type="Attendance" IsForeignKey="true" />
+      <Association Name="External_Device_Card_Link_Operation" Member="External_Device" ThisKey="EDEV_CODE" OtherKey="CODE" Type="External_Device" IsForeignKey="true" />
+      <Association Name="Fighter_Card_Link_Operation" Member="Fighter" ThisKey="CARD_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Request_Card_Link_Operation" Member="Request" ThisKey="RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
+      <Association Name="Request_Card_Link_Operation1" Member="Request1" ThisKey="FINE_RQST_RQID" OtherKey="RQID" Type="Request" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Audit" Member="Audits">
+    <Type Name="Audit">
+      <Column Name="FIGH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AUDT_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXPN_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FEE_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXTR_PRCT_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUM_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FBAC_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PAYC_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PAYC_CMNT" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="LETT_NO" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CMNT" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="App_Base_Define_Audit" Member="App_Base_Define" ThisKey="PAYC_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
+      <Association Name="Fighter_Audit" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
+      <Association Name="Fighter_Bank_Account_Audit" Member="Fighter_Bank_Account" ThisKey="FBAC_CODE" OtherKey="CODE" Type="Fighter_Bank_Account" IsForeignKey="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId103">
+      <Argument Parameter="fIGH_FILE_NO" Member="FIGH_FILE_NO" />
+      <Argument Parameter="aUDT_DATE" Member="AUDT_DATE" />
+      <Argument Parameter="eXPN_AMNT" Member="EXPN_AMNT" />
+      <Argument Parameter="fEE_AMNT" Member="FEE_AMNT" />
+      <Argument Parameter="eXTR_PRCT_AMNT" Member="EXTR_PRCT_AMNT" />
+      <Argument Parameter="sUM_AMNT_DNRM" Member="SUM_AMNT_DNRM" />
+      <Argument Parameter="fBAC_CODE" Member="FBAC_CODE" />
+      <Argument Parameter="pAYC_CODE" Member="PAYC_CODE" />
+      <Argument Parameter="pAYC_CMNT" Member="PAYC_CMNT" />
+      <Argument Parameter="lETT_NO" Member="LETT_NO" />
+      <Argument Parameter="cMNT" Member="CMNT" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId104">
+      <Argument Parameter="cODE" Member="CODE" />
+      <Argument Parameter="aUDT_DATE" Member="AUDT_DATE" />
+      <Argument Parameter="eXPN_AMNT" Member="EXPN_AMNT" />
+      <Argument Parameter="fEE_AMNT" Member="FEE_AMNT" />
+      <Argument Parameter="eXTR_PRCT_AMNT" Member="EXTR_PRCT_AMNT" />
+      <Argument Parameter="sUM_AMNT_DNRM" Member="SUM_AMNT_DNRM" />
+      <Argument Parameter="fBAC_CODE" Member="FBAC_CODE" />
+      <Argument Parameter="pAYC_CODE" Member="PAYC_CODE" />
+      <Argument Parameter="pAYC_CMNT" Member="PAYC_CMNT" />
+      <Argument Parameter="lETT_NO" Member="LETT_NO" />
+      <Argument Parameter="cMNT" Member="CMNT" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId105">
+      <Argument Parameter="cODE" Member="CODE" />
+    </DeleteFunction>
+  </Table>
+  <Table Name="dbo.Fighter_Bank_Account" Member="Fighter_Bank_Accounts">
+    <Type Name="Fighter_Bank_Account">
+      <Column Name="FIGH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="BANK_NAME" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ACNT_NUMB" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CARD_NUMB" Type="System.String" DbType="VarChar(16)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CARD_NUMB_DNRM" Type="System.String" DbType="VarChar(19)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHBA_NUMB" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SHBA_NUMB_DNRM" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CMNT" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Fighter_Bank_Account_Audit" Member="Audits" ThisKey="CODE" OtherKey="FBAC_CODE" Type="Audit" />
+      <Association Name="Fighter_Fighter_Bank_Account" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
+    </Type>
+    <InsertFunction FunctionId="FunctionId106">
+      <Argument Parameter="fIGH_FILE_NO" Member="FIGH_FILE_NO" />
+      <Argument Parameter="aCNT_NUMB" Member="ACNT_NUMB" />
+      <Argument Parameter="cARD_NUMB" Member="CARD_NUMB" />
+      <Argument Parameter="sHBA_NUMB" Member="SHBA_NUMB" />
+      <Argument Parameter="cMNT" Member="CMNT" />
+    </InsertFunction>
+    <UpdateFunction FunctionId="FunctionId107">
+      <Argument Parameter="cODE" Member="CODE" />
+      <Argument Parameter="fIGH_FILE_NO" Member="FIGH_FILE_NO" />
+      <Argument Parameter="aCNT_NUMB" Member="ACNT_NUMB" />
+      <Argument Parameter="cARD_NUMB" Member="CARD_NUMB" />
+      <Argument Parameter="sHBA_NUMB" Member="SHBA_NUMB" />
+      <Argument Parameter="cMNT" Member="CMNT" />
+    </UpdateFunction>
+    <DeleteFunction FunctionId="FunctionId108">
+      <Argument Parameter="cODE" Member="CODE" />
+    </DeleteFunction>
   </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">
     <Parameter Name="Rqid" Parameter="rqid" Type="System.Int64" DbType="BigInt" />
@@ -8827,6 +8999,63 @@
   </Function>
   <Function Name="dbo.DEL_USCP_P" Method="DEL_USCP_P">
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.LNK_CRDO_P" Method="LNK_CRDO_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId108" Name="dbo.DEL_FBAC_P" Method="DEL_FBAC_P">
+    <Parameter Name="CODE" Parameter="cODE" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId106" Name="dbo.INS_FBAC_P" Method="INS_FBAC_P">
+    <Parameter Name="FIGH_FILE_NO" Parameter="fIGH_FILE_NO" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ACNT_NUMB" Parameter="aCNT_NUMB" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CARD_NUMB" Parameter="cARD_NUMB" Type="System.String" DbType="VarChar(16)" />
+    <Parameter Name="SHBA_NUMB" Parameter="sHBA_NUMB" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CMNT" Parameter="cMNT" Type="System.String" DbType="NVarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId107" Name="dbo.UPD_FBAC_P" Method="UPD_FBAC_P">
+    <Parameter Name="CODE" Parameter="cODE" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FIGH_FILE_NO" Parameter="fIGH_FILE_NO" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="ACNT_NUMB" Parameter="aCNT_NUMB" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CARD_NUMB" Parameter="cARD_NUMB" Type="System.String" DbType="VarChar(16)" />
+    <Parameter Name="SHBA_NUMB" Parameter="sHBA_NUMB" Type="System.String" DbType="VarChar(100)" />
+    <Parameter Name="CMNT" Parameter="cMNT" Type="System.String" DbType="NVarChar(500)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId105" Name="dbo.DEL_AUDT_P" Method="DEL_AUDT_P">
+    <Parameter Name="CODE" Parameter="cODE" Type="System.Int64" DbType="BigInt" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId103" Name="dbo.INS_AUDT_P" Method="INS_AUDT_P">
+    <Parameter Name="FIGH_FILE_NO" Parameter="fIGH_FILE_NO" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="AUDT_DATE" Parameter="aUDT_DATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EXPN_AMNT" Parameter="eXPN_AMNT" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FEE_AMNT" Parameter="fEE_AMNT" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="EXTR_PRCT_AMNT" Parameter="eXTR_PRCT_AMNT" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="SUM_AMNT_DNRM" Parameter="sUM_AMNT_DNRM" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FBAC_CODE" Parameter="fBAC_CODE" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="PAYC_CODE" Parameter="pAYC_CODE" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="PAYC_CMNT" Parameter="pAYC_CMNT" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="LETT_NO" Parameter="lETT_NO" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="CMNT" Parameter="cMNT" Type="System.String" DbType="NVarChar(2000)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Id="FunctionId104" Name="dbo.UPD_AUDT_P" Method="UPD_AUDT_P">
+    <Parameter Name="CODE" Parameter="cODE" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="AUDT_DATE" Parameter="aUDT_DATE" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="EXPN_AMNT" Parameter="eXPN_AMNT" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FEE_AMNT" Parameter="fEE_AMNT" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="EXTR_PRCT_AMNT" Parameter="eXTR_PRCT_AMNT" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="SUM_AMNT_DNRM" Parameter="sUM_AMNT_DNRM" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="FBAC_CODE" Parameter="fBAC_CODE" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="PAYC_CODE" Parameter="pAYC_CODE" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="PAYC_CMNT" Parameter="pAYC_CMNT" Type="System.String" DbType="NVarChar(500)" />
+    <Parameter Name="LETT_NO" Parameter="lETT_NO" Type="System.String" DbType="VarChar(15)" />
+    <Parameter Name="CMNT" Parameter="cMNT" Type="System.String" DbType="NVarChar(2000)" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

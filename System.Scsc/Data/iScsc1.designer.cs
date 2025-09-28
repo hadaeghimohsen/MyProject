@@ -191,9 +191,6 @@ namespace System.Scsc.Data
     partial void InsertGroup_Expense(Group_Expense instance);
     partial void UpdateGroup_Expense(Group_Expense instance);
     partial void DeleteGroup_Expense(Group_Expense instance);
-    partial void InsertExternal_Device_Link_Method(External_Device_Link_Method instance);
-    partial void UpdateExternal_Device_Link_Method(External_Device_Link_Method instance);
-    partial void DeleteExternal_Device_Link_Method(External_Device_Link_Method instance);
     partial void InsertStatistic(Statistic instance);
     partial void UpdateStatistic(Statistic instance);
     partial void DeleteStatistic(Statistic instance);
@@ -377,9 +374,6 @@ namespace System.Scsc.Data
     partial void InsertGain_Loss_Rail_Detail(Gain_Loss_Rail_Detail instance);
     partial void UpdateGain_Loss_Rail_Detail(Gain_Loss_Rail_Detail instance);
     partial void DeleteGain_Loss_Rail_Detail(Gain_Loss_Rail_Detail instance);
-    partial void InsertExternal_Device(External_Device instance);
-    partial void UpdateExternal_Device(External_Device instance);
-    partial void DeleteExternal_Device(External_Device instance);
     partial void InsertExternal_Device_Weekday(External_Device_Weekday instance);
     partial void UpdateExternal_Device_Weekday(External_Device_Weekday instance);
     partial void DeleteExternal_Device_Weekday(External_Device_Weekday instance);
@@ -417,6 +411,21 @@ namespace System.Scsc.Data
     partial void InsertSound(Sound instance);
     partial void UpdateSound(Sound instance);
     partial void DeleteSound(Sound instance);
+    partial void InsertExternal_Device_Link_Method(External_Device_Link_Method instance);
+    partial void UpdateExternal_Device_Link_Method(External_Device_Link_Method instance);
+    partial void DeleteExternal_Device_Link_Method(External_Device_Link_Method instance);
+    partial void InsertExternal_Device_DataRead(External_Device_DataRead instance);
+    partial void UpdateExternal_Device_DataRead(External_Device_DataRead instance);
+    partial void DeleteExternal_Device_DataRead(External_Device_DataRead instance);
+    partial void InsertExternal_Device(External_Device instance);
+    partial void UpdateExternal_Device(External_Device instance);
+    partial void DeleteExternal_Device(External_Device instance);
+    partial void InsertCard_Link_Operation_Detail(Card_Link_Operation_Detail instance);
+    partial void UpdateCard_Link_Operation_Detail(Card_Link_Operation_Detail instance);
+    partial void DeleteCard_Link_Operation_Detail(Card_Link_Operation_Detail instance);
+    partial void InsertCard_Link_Operation(Card_Link_Operation instance);
+    partial void UpdateCard_Link_Operation(Card_Link_Operation instance);
+    partial void DeleteCard_Link_Operation(Card_Link_Operation instance);
     #endregion
 		
 		public iScscDataContext() : 
@@ -1913,14 +1922,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<External_Device_Link_Method> External_Device_Link_Methods
-		{
-			get
-			{
-				return this.GetTable<External_Device_Link_Method>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Statistic> Statistics
 		{
 			get
@@ -2633,14 +2634,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<External_Device> External_Devices
-		{
-			get
-			{
-				return this.GetTable<External_Device>();
-			}
-		}
-		
 		public System.Data.Linq.Table<External_Device_Weekday> External_Device_Weekdays
 		{
 			get
@@ -2782,6 +2775,70 @@ namespace System.Scsc.Data
 			get
 			{
 				return this.GetTable<Sound>();
+			}
+		}
+		
+		public System.Data.Linq.Table<D_SCDT> D_SCDTs
+		{
+			get
+			{
+				return this.GetTable<D_SCDT>();
+			}
+		}
+		
+		public System.Data.Linq.Table<External_Device_Link_Method> External_Device_Link_Methods
+		{
+			get
+			{
+				return this.GetTable<External_Device_Link_Method>();
+			}
+		}
+		
+		public System.Data.Linq.Table<External_Device_DataRead> External_Device_DataReads
+		{
+			get
+			{
+				return this.GetTable<External_Device_DataRead>();
+			}
+		}
+		
+		public System.Data.Linq.Table<External_Device> External_Devices
+		{
+			get
+			{
+				return this.GetTable<External_Device>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Card_Link_Operation_Detail> Card_Link_Operation_Details
+		{
+			get
+			{
+				return this.GetTable<Card_Link_Operation_Detail>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Card_Link_Operation> Card_Link_Operations
+		{
+			get
+			{
+				return this.GetTable<Card_Link_Operation>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Audit> Audits
+		{
+			get
+			{
+				return this.GetTable<Audit>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Fighter_Bank_Account> Fighter_Bank_Accounts
+		{
+			get
+			{
+				return this.GetTable<Fighter_Bank_Account>();
 			}
 		}
 		
@@ -3295,6 +3352,36 @@ namespace System.Scsc.Data
 		private void DeleteAggregation_Operation_Detail(Aggregation_Operation_Detail obj)
 		{
 			this.DEL_AODT_P(((System.Nullable<long>)(obj.AGOP_CODE)), ((System.Nullable<int>)(obj.RWNO)));
+		}
+		
+		private void InsertAudit(Audit obj)
+		{
+			this.INS_AUDT_P(((System.Nullable<long>)(obj.FIGH_FILE_NO)), ((System.Nullable<System.DateTime>)(obj.AUDT_DATE)), ((System.Nullable<long>)(obj.EXPN_AMNT)), ((System.Nullable<long>)(obj.FEE_AMNT)), ((System.Nullable<long>)(obj.EXTR_PRCT_AMNT)), ((System.Nullable<long>)(obj.SUM_AMNT_DNRM)), ((System.Nullable<long>)(obj.FBAC_CODE)), ((System.Nullable<long>)(obj.PAYC_CODE)), obj.PAYC_CMNT, obj.LETT_NO, obj.CMNT);
+		}
+		
+		private void UpdateAudit(Audit obj)
+		{
+			this.UPD_AUDT_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<System.DateTime>)(obj.AUDT_DATE)), ((System.Nullable<long>)(obj.EXPN_AMNT)), ((System.Nullable<long>)(obj.FEE_AMNT)), ((System.Nullable<long>)(obj.EXTR_PRCT_AMNT)), ((System.Nullable<long>)(obj.SUM_AMNT_DNRM)), ((System.Nullable<long>)(obj.FBAC_CODE)), ((System.Nullable<long>)(obj.PAYC_CODE)), obj.PAYC_CMNT, obj.LETT_NO, obj.CMNT);
+		}
+		
+		private void DeleteAudit(Audit obj)
+		{
+			this.DEL_AUDT_P(((System.Nullable<long>)(obj.CODE)));
+		}
+		
+		private void InsertFighter_Bank_Account(Fighter_Bank_Account obj)
+		{
+			this.INS_FBAC_P(((System.Nullable<long>)(obj.FIGH_FILE_NO)), obj.ACNT_NUMB, obj.CARD_NUMB, obj.SHBA_NUMB, obj.CMNT);
+		}
+		
+		private void UpdateFighter_Bank_Account(Fighter_Bank_Account obj)
+		{
+			this.UPD_FBAC_P(((System.Nullable<long>)(obj.CODE)), ((System.Nullable<long>)(obj.FIGH_FILE_NO)), obj.ACNT_NUMB, obj.CARD_NUMB, obj.SHBA_NUMB, obj.CMNT);
+		}
+		
+		private void DeleteFighter_Bank_Account(Fighter_Bank_Account obj)
+		{
+			this.DEL_FBAC_P(((System.Nullable<long>)(obj.CODE)));
 		}
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.VF$Saved_Request", IsComposable=true)]
@@ -5768,6 +5855,55 @@ namespace System.Scsc.Data
 		public int DEL_USCP_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.LNK_CRDO_P")]
+		public int LNK_CRDO_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_FBAC_P")]
+		public int DEL_FBAC_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODE", DbType="BigInt")] System.Nullable<long> cODE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cODE);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_FBAC_P")]
+		public int INS_FBAC_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIGH_FILE_NO", DbType="BigInt")] System.Nullable<long> fIGH_FILE_NO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACNT_NUMB", DbType="VarChar(100)")] string aCNT_NUMB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CARD_NUMB", DbType="VarChar(16)")] string cARD_NUMB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SHBA_NUMB", DbType="VarChar(100)")] string sHBA_NUMB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CMNT", DbType="NVarChar(500)")] string cMNT)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fIGH_FILE_NO, aCNT_NUMB, cARD_NUMB, sHBA_NUMB, cMNT);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_FBAC_P")]
+		public int UPD_FBAC_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODE", DbType="BigInt")] System.Nullable<long> cODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIGH_FILE_NO", DbType="BigInt")] System.Nullable<long> fIGH_FILE_NO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ACNT_NUMB", DbType="VarChar(100)")] string aCNT_NUMB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CARD_NUMB", DbType="VarChar(16)")] string cARD_NUMB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SHBA_NUMB", DbType="VarChar(100)")] string sHBA_NUMB, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CMNT", DbType="NVarChar(500)")] string cMNT)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cODE, fIGH_FILE_NO, aCNT_NUMB, cARD_NUMB, sHBA_NUMB, cMNT);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.DEL_AUDT_P")]
+		public int DEL_AUDT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODE", DbType="BigInt")] System.Nullable<long> cODE)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cODE);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.INS_AUDT_P")]
+		public int INS_AUDT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="FIGH_FILE_NO", DbType="BigInt")] System.Nullable<long> fIGH_FILE_NO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AUDT_DATE", DbType="DateTime")] System.Nullable<System.DateTime> aUDT_DATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EXPN_AMNT", DbType="BigInt")] System.Nullable<long> eXPN_AMNT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FEE_AMNT", DbType="BigInt")] System.Nullable<long> fEE_AMNT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EXTR_PRCT_AMNT", DbType="BigInt")] System.Nullable<long> eXTR_PRCT_AMNT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SUM_AMNT_DNRM", DbType="BigInt")] System.Nullable<long> sUM_AMNT_DNRM, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FBAC_CODE", DbType="BigInt")] System.Nullable<long> fBAC_CODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAYC_CODE", DbType="BigInt")] System.Nullable<long> pAYC_CODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAYC_CMNT", DbType="NVarChar(500)")] string pAYC_CMNT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LETT_NO", DbType="VarChar(15)")] string lETT_NO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CMNT", DbType="NVarChar(2000)")] string cMNT)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), fIGH_FILE_NO, aUDT_DATE, eXPN_AMNT, fEE_AMNT, eXTR_PRCT_AMNT, sUM_AMNT_DNRM, fBAC_CODE, pAYC_CODE, pAYC_CMNT, lETT_NO, cMNT);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.UPD_AUDT_P")]
+		public int UPD_AUDT_P([global::System.Data.Linq.Mapping.ParameterAttribute(Name="CODE", DbType="BigInt")] System.Nullable<long> cODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="AUDT_DATE", DbType="DateTime")] System.Nullable<System.DateTime> aUDT_DATE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EXPN_AMNT", DbType="BigInt")] System.Nullable<long> eXPN_AMNT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FEE_AMNT", DbType="BigInt")] System.Nullable<long> fEE_AMNT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EXTR_PRCT_AMNT", DbType="BigInt")] System.Nullable<long> eXTR_PRCT_AMNT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SUM_AMNT_DNRM", DbType="BigInt")] System.Nullable<long> sUM_AMNT_DNRM, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="FBAC_CODE", DbType="BigInt")] System.Nullable<long> fBAC_CODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAYC_CODE", DbType="BigInt")] System.Nullable<long> pAYC_CODE, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="PAYC_CMNT", DbType="NVarChar(500)")] string pAYC_CMNT, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="LETT_NO", DbType="VarChar(15)")] string lETT_NO, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="CMNT", DbType="NVarChar(2000)")] string cMNT)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cODE, aUDT_DATE, eXPN_AMNT, fEE_AMNT, eXTR_PRCT_AMNT, sUM_AMNT_DNRM, fBAC_CODE, pAYC_CODE, pAYC_CMNT, lETT_NO, cMNT);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -48827,318 +48963,6 @@ namespace System.Scsc.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.External_Device_Link_Method")]
-	public partial class External_Device_Link_Method : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Nullable<long> _EDEV_CODE;
-		
-		private System.Nullable<long> _MTOD_CODE;
-		
-		private long _CODE;
-		
-		private string _STAT;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntityRef<Method> _Method;
-		
-		private EntityRef<External_Device> _External_Device;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnEDEV_CODEChanging(System.Nullable<long> value);
-    partial void OnEDEV_CODEChanged();
-    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
-    partial void OnMTOD_CODEChanged();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnSTATChanging(string value);
-    partial void OnSTATChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public External_Device_Link_Method()
-		{
-			this._Method = default(EntityRef<Method>);
-			this._External_Device = default(EntityRef<External_Device>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EDEV_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> EDEV_CODE
-		{
-			get
-			{
-				return this._EDEV_CODE;
-			}
-			set
-			{
-				if ((this._EDEV_CODE != value))
-				{
-					if (this._External_Device.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnEDEV_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._EDEV_CODE = value;
-					this.SendPropertyChanged("EDEV_CODE");
-					this.OnEDEV_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> MTOD_CODE
-		{
-			get
-			{
-				return this._MTOD_CODE;
-			}
-			set
-			{
-				if ((this._MTOD_CODE != value))
-				{
-					if (this._Method.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnMTOD_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._MTOD_CODE = value;
-					this.SendPropertyChanged("MTOD_CODE");
-					this.OnMTOD_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string STAT
-		{
-			get
-			{
-				return this._STAT;
-			}
-			set
-			{
-				if ((this._STAT != value))
-				{
-					this.OnSTATChanging(value);
-					this.SendPropertyChanging();
-					this._STAT = value;
-					this.SendPropertyChanged("STAT");
-					this.OnSTATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_External_Device_Link_Method", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Method Method
-		{
-			get
-			{
-				return this._Method.Entity;
-			}
-			set
-			{
-				Method previousValue = this._Method.Entity;
-				if (((previousValue != value) 
-							|| (this._Method.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Method.Entity = null;
-						previousValue.External_Device_Link_Methods.Remove(this);
-					}
-					this._Method.Entity = value;
-					if ((value != null))
-					{
-						value.External_Device_Link_Methods.Add(this);
-						this._MTOD_CODE = value.CODE;
-					}
-					else
-					{
-						this._MTOD_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Method");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_Method", Storage="_External_Device", ThisKey="EDEV_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
-		public External_Device External_Device
-		{
-			get
-			{
-				return this._External_Device.Entity;
-			}
-			set
-			{
-				External_Device previousValue = this._External_Device.Entity;
-				if (((previousValue != value) 
-							|| (this._External_Device.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._External_Device.Entity = null;
-						previousValue.External_Device_Link_Methods.Remove(this);
-					}
-					this._External_Device.Entity = value;
-					if ((value != null))
-					{
-						value.External_Device_Link_Methods.Add(this);
-						this._EDEV_CODE = value.CODE;
-					}
-					else
-					{
-						this._EDEV_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("External_Device");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Statistic")]
 	public partial class Statistic : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -63783,6 +63607,12 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Fighter_Body_Measurement> _Fighter_Body_Measurements;
 		
+		private EntitySet<Card_Link_Operation> _Card_Link_Operations;
+		
+		private EntitySet<Audit> _Audits;
+		
+		private EntitySet<Fighter_Bank_Account> _Fighter_Bank_Accounts;
+		
 		private EntityRef<Fighter> _Fighter1;
 		
 		private EntityRef<Region> _Region;
@@ -64018,6 +63848,9 @@ namespace System.Scsc.Data
 			this._Attendances1 = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances1), new Action<Attendance>(this.detach_Attendances1));
 			this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
 			this._Fighter_Body_Measurements = new EntitySet<Fighter_Body_Measurement>(new Action<Fighter_Body_Measurement>(this.attach_Fighter_Body_Measurements), new Action<Fighter_Body_Measurement>(this.detach_Fighter_Body_Measurements));
+			this._Card_Link_Operations = new EntitySet<Card_Link_Operation>(new Action<Card_Link_Operation>(this.attach_Card_Link_Operations), new Action<Card_Link_Operation>(this.detach_Card_Link_Operations));
+			this._Audits = new EntitySet<Audit>(new Action<Audit>(this.attach_Audits), new Action<Audit>(this.detach_Audits));
+			this._Fighter_Bank_Accounts = new EntitySet<Fighter_Bank_Account>(new Action<Fighter_Bank_Account>(this.attach_Fighter_Bank_Accounts), new Action<Fighter_Bank_Account>(this.detach_Fighter_Bank_Accounts));
 			this._Fighter1 = default(EntityRef<Fighter>);
 			this._Region = default(EntityRef<Region>);
 			this._Sub_Unit = default(EntityRef<Sub_Unit>);
@@ -66353,6 +66186,45 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Card_Link_Operation", Storage="_Card_Link_Operations", ThisKey="FILE_NO", OtherKey="CARD_FILE_NO")]
+		public EntitySet<Card_Link_Operation> Card_Link_Operations
+		{
+			get
+			{
+				return this._Card_Link_Operations;
+			}
+			set
+			{
+				this._Card_Link_Operations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Audit", Storage="_Audits", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Audit> Audits
+		{
+			get
+			{
+				return this._Audits;
+			}
+			set
+			{
+				this._Audits.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Bank_Account", Storage="_Fighter_Bank_Accounts", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO")]
+		public EntitySet<Fighter_Bank_Account> Fighter_Bank_Accounts
+		{
+			get
+			{
+				return this._Fighter_Bank_Accounts;
+			}
+			set
+			{
+				this._Fighter_Bank_Accounts.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter", Storage="_Fighter1", ThisKey="REF_CODE_DNRM", OtherKey="FILE_NO", IsForeignKey=true)]
 		public Fighter Fighter1
 		{
@@ -67205,6 +67077,42 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Fighter_Body_Measurements(Fighter_Body_Measurement entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Card_Link_Operations(Card_Link_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Card_Link_Operations(Card_Link_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Audits(Audit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Audits(Audit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Fighter_Bank_Accounts(Fighter_Bank_Account entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Fighter_Bank_Accounts(Fighter_Bank_Account entity)
 		{
 			this.SendPropertyChanging();
 			entity.Fighter = null;
@@ -74046,8 +73954,6 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Aggregation_Operation> _Aggregation_Operations;
 		
-		private EntitySet<External_Device_Link_Method> _External_Device_Link_Methods;
-		
 		private EntitySet<Fighter_Discount_Card> _Fighter_Discount_Cards;
 		
 		private EntitySet<Fighter_Public> _Fighter_Publics;
@@ -74079,6 +73985,8 @@ namespace System.Scsc.Data
 		private EntitySet<Payment_Detail> _Payment_Details;
 		
 		private EntitySet<Attendance> _Attendances;
+		
+		private EntitySet<External_Device_Link_Method> _External_Device_Link_Methods;
 		
 		private EntityRef<Method> _Method1;
 		
@@ -74124,7 +74032,6 @@ namespace System.Scsc.Data
 			this._Base_Calculate_Expenses = new EntitySet<Base_Calculate_Expense>(new Action<Base_Calculate_Expense>(this.attach_Base_Calculate_Expenses), new Action<Base_Calculate_Expense>(this.detach_Base_Calculate_Expenses));
 			this._Misc_Expense_Details = new EntitySet<Misc_Expense_Detail>(new Action<Misc_Expense_Detail>(this.attach_Misc_Expense_Details), new Action<Misc_Expense_Detail>(this.detach_Misc_Expense_Details));
 			this._Aggregation_Operations = new EntitySet<Aggregation_Operation>(new Action<Aggregation_Operation>(this.attach_Aggregation_Operations), new Action<Aggregation_Operation>(this.detach_Aggregation_Operations));
-			this._External_Device_Link_Methods = new EntitySet<External_Device_Link_Method>(new Action<External_Device_Link_Method>(this.attach_External_Device_Link_Methods), new Action<External_Device_Link_Method>(this.detach_External_Device_Link_Methods));
 			this._Fighter_Discount_Cards = new EntitySet<Fighter_Discount_Card>(new Action<Fighter_Discount_Card>(this.attach_Fighter_Discount_Cards), new Action<Fighter_Discount_Card>(this.detach_Fighter_Discount_Cards));
 			this._Fighter_Publics = new EntitySet<Fighter_Public>(new Action<Fighter_Public>(this.attach_Fighter_Publics), new Action<Fighter_Public>(this.detach_Fighter_Publics));
 			this._Calculate_Expense_Coaches = new EntitySet<Calculate_Expense_Coach>(new Action<Calculate_Expense_Coach>(this.attach_Calculate_Expense_Coaches), new Action<Calculate_Expense_Coach>(this.detach_Calculate_Expense_Coaches));
@@ -74141,6 +74048,7 @@ namespace System.Scsc.Data
 			this._Category_Belts = new EntitySet<Category_Belt>(new Action<Category_Belt>(this.attach_Category_Belts), new Action<Category_Belt>(this.detach_Category_Belts));
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
 			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
+			this._External_Device_Link_Methods = new EntitySet<External_Device_Link_Method>(new Action<External_Device_Link_Method>(this.attach_External_Device_Link_Methods), new Action<External_Device_Link_Method>(this.detach_External_Device_Link_Methods));
 			this._Method1 = default(EntityRef<Method>);
 			OnCreated();
 		}
@@ -74507,19 +74415,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_External_Device_Link_Method", Storage="_External_Device_Link_Methods", ThisKey="CODE", OtherKey="MTOD_CODE")]
-		public EntitySet<External_Device_Link_Method> External_Device_Link_Methods
-		{
-			get
-			{
-				return this._External_Device_Link_Methods;
-			}
-			set
-			{
-				this._External_Device_Link_Methods.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Fighter_Discount_Card", Storage="_Fighter_Discount_Cards", ThisKey="CODE", OtherKey="MTOD_CODE")]
 		public EntitySet<Fighter_Discount_Card> Fighter_Discount_Cards
 		{
@@ -74728,6 +74623,19 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_External_Device_Link_Method", Storage="_External_Device_Link_Methods", ThisKey="CODE", OtherKey="MTOD_CODE")]
+		public EntitySet<External_Device_Link_Method> External_Device_Link_Methods
+		{
+			get
+			{
+				return this._External_Device_Link_Methods;
+			}
+			set
+			{
+				this._External_Device_Link_Methods.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_Method", Storage="_Method1", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public Method Method1
 		{
@@ -74849,18 +74757,6 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Aggregation_Operations(Aggregation_Operation entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = null;
-		}
-		
-		private void attach_External_Device_Link_Methods(External_Device_Link_Method entity)
-		{
-			this.SendPropertyChanging();
-			entity.Method = this;
-		}
-		
-		private void detach_External_Device_Link_Methods(External_Device_Link_Method entity)
 		{
 			this.SendPropertyChanging();
 			entity.Method = null;
@@ -75053,6 +74949,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Attendances(Attendance entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = null;
+		}
+		
+		private void attach_External_Device_Link_Methods(External_Device_Link_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.Method = this;
+		}
+		
+		private void detach_External_Device_Link_Methods(External_Device_Link_Method entity)
 		{
 			this.SendPropertyChanging();
 			entity.Method = null;
@@ -77284,6 +77192,8 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Aggregation_Operation_Detail> _Aggregation_Operation_Details;
 		
+		private EntitySet<Audit> _Audits;
+		
 		private EntityRef<App_Base_Define> _App_Base_Define1;
 		
     #region Extensibility Method Definitions
@@ -77367,6 +77277,7 @@ namespace System.Scsc.Data
 			this._Notes = new EntitySet<Note>(new Action<Note>(this.attach_Notes), new Action<Note>(this.detach_Notes));
 			this._Gain_Loss_Rail_Details = new EntitySet<Gain_Loss_Rail_Detail>(new Action<Gain_Loss_Rail_Detail>(this.attach_Gain_Loss_Rail_Details), new Action<Gain_Loss_Rail_Detail>(this.detach_Gain_Loss_Rail_Details));
 			this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
+			this._Audits = new EntitySet<Audit>(new Action<Audit>(this.attach_Audits), new Action<Audit>(this.detach_Audits));
 			this._App_Base_Define1 = default(EntityRef<App_Base_Define>);
 			OnCreated();
 		}
@@ -78198,6 +78109,19 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="App_Base_Define_Audit", Storage="_Audits", ThisKey="CODE", OtherKey="PAYC_CODE")]
+		public EntitySet<Audit> Audits
+		{
+			get
+			{
+				return this._Audits;
+			}
+			set
+			{
+				this._Audits.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="App_Base_Define_App_Base_Define", Storage="_App_Base_Define1", ThisKey="REF_CODE", OtherKey="CODE", IsForeignKey=true)]
 		public App_Base_Define App_Base_Define1
 		{
@@ -78619,6 +78543,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Aggregation_Operation_Details(Aggregation_Operation_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.App_Base_Define = null;
+		}
+		
+		private void attach_Audits(Audit entity)
+		{
+			this.SendPropertyChanging();
+			entity.App_Base_Define = this;
+		}
+		
+		private void detach_Audits(Audit entity)
 		{
 			this.SendPropertyChanging();
 			entity.App_Base_Define = null;
@@ -83571,6 +83507,10 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Aggregation_Operation_Detail> _Aggregation_Operation_Details;
 		
+		private EntitySet<Card_Link_Operation> _Card_Link_Operations;
+		
+		private EntitySet<Card_Link_Operation> _Card_Link_Operations1;
+		
 		private EntityRef<Month_Base> _Month_Base;
 		
 		private EntityRef<Region> _Region;
@@ -83675,6 +83615,8 @@ namespace System.Scsc.Data
 			this._Payments = new EntitySet<Payment>(new Action<Payment>(this.attach_Payments), new Action<Payment>(this.detach_Payments));
 			this._Dresser_Attendances = new EntitySet<Dresser_Attendance>(new Action<Dresser_Attendance>(this.attach_Dresser_Attendances), new Action<Dresser_Attendance>(this.detach_Dresser_Attendances));
 			this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
+			this._Card_Link_Operations = new EntitySet<Card_Link_Operation>(new Action<Card_Link_Operation>(this.attach_Card_Link_Operations), new Action<Card_Link_Operation>(this.detach_Card_Link_Operations));
+			this._Card_Link_Operations1 = new EntitySet<Card_Link_Operation>(new Action<Card_Link_Operation>(this.attach_Card_Link_Operations1), new Action<Card_Link_Operation>(this.detach_Card_Link_Operations1));
 			this._Month_Base = default(EntityRef<Month_Base>);
 			this._Region = default(EntityRef<Region>);
 			this._Request1 = default(EntityRef<Request>);
@@ -84618,6 +84560,32 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Card_Link_Operation", Storage="_Card_Link_Operations", ThisKey="RQID", OtherKey="RQST_RQID")]
+		public EntitySet<Card_Link_Operation> Card_Link_Operations
+		{
+			get
+			{
+				return this._Card_Link_Operations;
+			}
+			set
+			{
+				this._Card_Link_Operations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Card_Link_Operation1", Storage="_Card_Link_Operations1", ThisKey="RQID", OtherKey="FINE_RQST_RQID")]
+		public EntitySet<Card_Link_Operation> Card_Link_Operations1
+		{
+			get
+			{
+				return this._Card_Link_Operations1;
+			}
+			set
+			{
+				this._Card_Link_Operations1.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Month_Base_Request", Storage="_Month_Base", ThisKey="CYCL", OtherKey="CYCL", IsForeignKey=true)]
 		public Month_Base Month_Base
 		{
@@ -85064,6 +85032,30 @@ namespace System.Scsc.Data
 		{
 			this.SendPropertyChanging();
 			entity.Request = null;
+		}
+		
+		private void attach_Card_Link_Operations(Card_Link_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request = this;
+		}
+		
+		private void detach_Card_Link_Operations(Card_Link_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request = null;
+		}
+		
+		private void attach_Card_Link_Operations1(Card_Link_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request1 = this;
+		}
+		
+		private void detach_Card_Link_Operations1(Card_Link_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Request1 = null;
 		}
 	}
 	
@@ -99663,684 +99655,6 @@ namespace System.Scsc.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.External_Device")]
-	public partial class External_Device : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private long _CODE;
-		
-		private string _DEV_COMP_TYPE;
-		
-		private string _DEV_TYPE;
-		
-		private string _DEV_CON;
-		
-		private string _CYCL_READ;
-		
-		private string _DEV_NAME;
-		
-		private string _PORT_NAME;
-		
-		private System.Nullable<int> _BAND_RATE;
-		
-		private string _IP_ADRS;
-		
-		private System.Nullable<long> _PORT_SEND;
-		
-		private System.Nullable<long> _PORT_RECV;
-		
-		private string _SERV_IP_ADRS;
-		
-		private System.Nullable<long> _MTOD_CODE;
-		
-		private string _STAT;
-		
-		private string _ACTN_TYPE;
-		
-		private System.Nullable<long> _EXPN_CODE;
-		
-		private string _CMNT;
-		
-		private string _CARD_READ_TYPE;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntitySet<External_Device_Link_Method> _External_Device_Link_Methods;
-		
-		private EntitySet<External_Device_Link_External_Device> _External_Device_Link_External_Devices;
-		
-		private EntitySet<External_Device_Link_External_Device> _External_Device_Link_External_Devices1;
-		
-		private EntitySet<External_Device_Weekday> _External_Device_Weekdays;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnDEV_COMP_TYPEChanging(string value);
-    partial void OnDEV_COMP_TYPEChanged();
-    partial void OnDEV_TYPEChanging(string value);
-    partial void OnDEV_TYPEChanged();
-    partial void OnDEV_CONChanging(string value);
-    partial void OnDEV_CONChanged();
-    partial void OnCYCL_READChanging(string value);
-    partial void OnCYCL_READChanged();
-    partial void OnDEV_NAMEChanging(string value);
-    partial void OnDEV_NAMEChanged();
-    partial void OnPORT_NAMEChanging(string value);
-    partial void OnPORT_NAMEChanged();
-    partial void OnBAND_RATEChanging(System.Nullable<int> value);
-    partial void OnBAND_RATEChanged();
-    partial void OnIP_ADRSChanging(string value);
-    partial void OnIP_ADRSChanged();
-    partial void OnPORT_SENDChanging(System.Nullable<long> value);
-    partial void OnPORT_SENDChanged();
-    partial void OnPORT_RECVChanging(System.Nullable<long> value);
-    partial void OnPORT_RECVChanged();
-    partial void OnSERV_IP_ADRSChanging(string value);
-    partial void OnSERV_IP_ADRSChanged();
-    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
-    partial void OnMTOD_CODEChanged();
-    partial void OnSTATChanging(string value);
-    partial void OnSTATChanged();
-    partial void OnACTN_TYPEChanging(string value);
-    partial void OnACTN_TYPEChanged();
-    partial void OnEXPN_CODEChanging(System.Nullable<long> value);
-    partial void OnEXPN_CODEChanged();
-    partial void OnCMNTChanging(string value);
-    partial void OnCMNTChanged();
-    partial void OnCARD_READ_TYPEChanging(string value);
-    partial void OnCARD_READ_TYPEChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public External_Device()
-		{
-			this._External_Device_Link_Methods = new EntitySet<External_Device_Link_Method>(new Action<External_Device_Link_Method>(this.attach_External_Device_Link_Methods), new Action<External_Device_Link_Method>(this.detach_External_Device_Link_Methods));
-			this._External_Device_Link_External_Devices = new EntitySet<External_Device_Link_External_Device>(new Action<External_Device_Link_External_Device>(this.attach_External_Device_Link_External_Devices), new Action<External_Device_Link_External_Device>(this.detach_External_Device_Link_External_Devices));
-			this._External_Device_Link_External_Devices1 = new EntitySet<External_Device_Link_External_Device>(new Action<External_Device_Link_External_Device>(this.attach_External_Device_Link_External_Devices1), new Action<External_Device_Link_External_Device>(this.detach_External_Device_Link_External_Devices1));
-			this._External_Device_Weekdays = new EntitySet<External_Device_Weekday>(new Action<External_Device_Weekday>(this.attach_External_Device_Weekdays), new Action<External_Device_Weekday>(this.detach_External_Device_Weekdays));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_COMP_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string DEV_COMP_TYPE
-		{
-			get
-			{
-				return this._DEV_COMP_TYPE;
-			}
-			set
-			{
-				if ((this._DEV_COMP_TYPE != value))
-				{
-					this.OnDEV_COMP_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._DEV_COMP_TYPE = value;
-					this.SendPropertyChanged("DEV_COMP_TYPE");
-					this.OnDEV_COMP_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string DEV_TYPE
-		{
-			get
-			{
-				return this._DEV_TYPE;
-			}
-			set
-			{
-				if ((this._DEV_TYPE != value))
-				{
-					this.OnDEV_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._DEV_TYPE = value;
-					this.SendPropertyChanged("DEV_TYPE");
-					this.OnDEV_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_CON", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string DEV_CON
-		{
-			get
-			{
-				return this._DEV_CON;
-			}
-			set
-			{
-				if ((this._DEV_CON != value))
-				{
-					this.OnDEV_CONChanging(value);
-					this.SendPropertyChanging();
-					this._DEV_CON = value;
-					this.SendPropertyChanged("DEV_CON");
-					this.OnDEV_CONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CYCL_READ", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string CYCL_READ
-		{
-			get
-			{
-				return this._CYCL_READ;
-			}
-			set
-			{
-				if ((this._CYCL_READ != value))
-				{
-					this.OnCYCL_READChanging(value);
-					this.SendPropertyChanging();
-					this._CYCL_READ = value;
-					this.SendPropertyChanged("CYCL_READ");
-					this.OnCYCL_READChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_NAME", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string DEV_NAME
-		{
-			get
-			{
-				return this._DEV_NAME;
-			}
-			set
-			{
-				if ((this._DEV_NAME != value))
-				{
-					this.OnDEV_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._DEV_NAME = value;
-					this.SendPropertyChanged("DEV_NAME");
-					this.OnDEV_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NAME", DbType="VarChar(10)", UpdateCheck=UpdateCheck.Never)]
-		public string PORT_NAME
-		{
-			get
-			{
-				return this._PORT_NAME;
-			}
-			set
-			{
-				if ((this._PORT_NAME != value))
-				{
-					this.OnPORT_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._PORT_NAME = value;
-					this.SendPropertyChanged("PORT_NAME");
-					this.OnPORT_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAND_RATE", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> BAND_RATE
-		{
-			get
-			{
-				return this._BAND_RATE;
-			}
-			set
-			{
-				if ((this._BAND_RATE != value))
-				{
-					this.OnBAND_RATEChanging(value);
-					this.SendPropertyChanging();
-					this._BAND_RATE = value;
-					this.SendPropertyChanged("BAND_RATE");
-					this.OnBAND_RATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADRS", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string IP_ADRS
-		{
-			get
-			{
-				return this._IP_ADRS;
-			}
-			set
-			{
-				if ((this._IP_ADRS != value))
-				{
-					this.OnIP_ADRSChanging(value);
-					this.SendPropertyChanging();
-					this._IP_ADRS = value;
-					this.SendPropertyChanged("IP_ADRS");
-					this.OnIP_ADRSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_SEND", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> PORT_SEND
-		{
-			get
-			{
-				return this._PORT_SEND;
-			}
-			set
-			{
-				if ((this._PORT_SEND != value))
-				{
-					this.OnPORT_SENDChanging(value);
-					this.SendPropertyChanging();
-					this._PORT_SEND = value;
-					this.SendPropertyChanged("PORT_SEND");
-					this.OnPORT_SENDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_RECV", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> PORT_RECV
-		{
-			get
-			{
-				return this._PORT_RECV;
-			}
-			set
-			{
-				if ((this._PORT_RECV != value))
-				{
-					this.OnPORT_RECVChanging(value);
-					this.SendPropertyChanging();
-					this._PORT_RECV = value;
-					this.SendPropertyChanged("PORT_RECV");
-					this.OnPORT_RECVChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_IP_ADRS", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
-		public string SERV_IP_ADRS
-		{
-			get
-			{
-				return this._SERV_IP_ADRS;
-			}
-			set
-			{
-				if ((this._SERV_IP_ADRS != value))
-				{
-					this.OnSERV_IP_ADRSChanging(value);
-					this.SendPropertyChanging();
-					this._SERV_IP_ADRS = value;
-					this.SendPropertyChanged("SERV_IP_ADRS");
-					this.OnSERV_IP_ADRSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> MTOD_CODE
-		{
-			get
-			{
-				return this._MTOD_CODE;
-			}
-			set
-			{
-				if ((this._MTOD_CODE != value))
-				{
-					this.OnMTOD_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._MTOD_CODE = value;
-					this.SendPropertyChanged("MTOD_CODE");
-					this.OnMTOD_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string STAT
-		{
-			get
-			{
-				return this._STAT;
-			}
-			set
-			{
-				if ((this._STAT != value))
-				{
-					this.OnSTATChanging(value);
-					this.SendPropertyChanging();
-					this._STAT = value;
-					this.SendPropertyChanged("STAT");
-					this.OnSTATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string ACTN_TYPE
-		{
-			get
-			{
-				return this._ACTN_TYPE;
-			}
-			set
-			{
-				if ((this._ACTN_TYPE != value))
-				{
-					this.OnACTN_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._ACTN_TYPE = value;
-					this.SendPropertyChanged("ACTN_TYPE");
-					this.OnACTN_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> EXPN_CODE
-		{
-			get
-			{
-				return this._EXPN_CODE;
-			}
-			set
-			{
-				if ((this._EXPN_CODE != value))
-				{
-					this.OnEXPN_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._EXPN_CODE = value;
-					this.SendPropertyChanged("EXPN_CODE");
-					this.OnEXPN_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
-		public string CMNT
-		{
-			get
-			{
-				return this._CMNT;
-			}
-			set
-			{
-				if ((this._CMNT != value))
-				{
-					this.OnCMNTChanging(value);
-					this.SendPropertyChanging();
-					this._CMNT = value;
-					this.SendPropertyChanged("CMNT");
-					this.OnCMNTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CARD_READ_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string CARD_READ_TYPE
-		{
-			get
-			{
-				return this._CARD_READ_TYPE;
-			}
-			set
-			{
-				if ((this._CARD_READ_TYPE != value))
-				{
-					this.OnCARD_READ_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._CARD_READ_TYPE = value;
-					this.SendPropertyChanged("CARD_READ_TYPE");
-					this.OnCARD_READ_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_Method", Storage="_External_Device_Link_Methods", ThisKey="CODE", OtherKey="EDEV_CODE")]
-		public EntitySet<External_Device_Link_Method> External_Device_Link_Methods
-		{
-			get
-			{
-				return this._External_Device_Link_Methods;
-			}
-			set
-			{
-				this._External_Device_Link_Methods.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_External_Device", Storage="_External_Device_Link_External_Devices", ThisKey="CODE", OtherKey="EDEV_CODE")]
-		public EntitySet<External_Device_Link_External_Device> External_Device_Link_External_Devices
-		{
-			get
-			{
-				return this._External_Device_Link_External_Devices;
-			}
-			set
-			{
-				this._External_Device_Link_External_Devices.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_External_Device1", Storage="_External_Device_Link_External_Devices1", ThisKey="CODE", OtherKey="LINK_EDEV_CODE")]
-		public EntitySet<External_Device_Link_External_Device> External_Device_Link_External_Devices1
-		{
-			get
-			{
-				return this._External_Device_Link_External_Devices1;
-			}
-			set
-			{
-				this._External_Device_Link_External_Devices1.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Weekday", Storage="_External_Device_Weekdays", ThisKey="CODE", OtherKey="EDEV_CODE")]
-		public EntitySet<External_Device_Weekday> External_Device_Weekdays
-		{
-			get
-			{
-				return this._External_Device_Weekdays;
-			}
-			set
-			{
-				this._External_Device_Weekdays.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_External_Device_Link_Methods(External_Device_Link_Method entity)
-		{
-			this.SendPropertyChanging();
-			entity.External_Device = this;
-		}
-		
-		private void detach_External_Device_Link_Methods(External_Device_Link_Method entity)
-		{
-			this.SendPropertyChanging();
-			entity.External_Device = null;
-		}
-		
-		private void attach_External_Device_Link_External_Devices(External_Device_Link_External_Device entity)
-		{
-			this.SendPropertyChanging();
-			entity.External_Device = this;
-		}
-		
-		private void detach_External_Device_Link_External_Devices(External_Device_Link_External_Device entity)
-		{
-			this.SendPropertyChanging();
-			entity.External_Device = null;
-		}
-		
-		private void attach_External_Device_Link_External_Devices1(External_Device_Link_External_Device entity)
-		{
-			this.SendPropertyChanging();
-			entity.External_Device1 = this;
-		}
-		
-		private void detach_External_Device_Link_External_Devices1(External_Device_Link_External_Device entity)
-		{
-			this.SendPropertyChanging();
-			entity.External_Device1 = null;
-		}
-		
-		private void attach_External_Device_Weekdays(External_Device_Weekday entity)
-		{
-			this.SendPropertyChanging();
-			entity.External_Device = this;
-		}
-		
-		private void detach_External_Device_Weekdays(External_Device_Weekday entity)
-		{
-			this.SendPropertyChanging();
-			entity.External_Device = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.External_Device_Weekday")]
 	public partial class External_Device_Weekday : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -105084,6 +104398,8 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Aggregation_Operation_Detail> _Aggregation_Operation_Details;
 		
+		private EntitySet<Card_Link_Operation> _Card_Link_Operations;
+		
 		private EntityRef<Club_Method> _Club_Method;
 		
 		private EntityRef<Club> _Club;
@@ -105210,6 +104526,7 @@ namespace System.Scsc.Data
 			this._Attendance_Wrists = new EntitySet<Attendance_Wrist>(new Action<Attendance_Wrist>(this.attach_Attendance_Wrists), new Action<Attendance_Wrist>(this.detach_Attendance_Wrists));
 			this._Member_Ship_Sessions = new EntitySet<Member_Ship_Session>(new Action<Member_Ship_Session>(this.attach_Member_Ship_Sessions), new Action<Member_Ship_Session>(this.detach_Member_Ship_Sessions));
 			this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
+			this._Card_Link_Operations = new EntitySet<Card_Link_Operation>(new Action<Card_Link_Operation>(this.attach_Card_Link_Operations), new Action<Card_Link_Operation>(this.detach_Card_Link_Operations));
 			this._Club_Method = default(EntityRef<Club_Method>);
 			this._Club = default(EntityRef<Club>);
 			this._Fighter = default(EntityRef<Fighter>);
@@ -106289,6 +105606,19 @@ namespace System.Scsc.Data
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Attendance_Card_Link_Operation", Storage="_Card_Link_Operations", ThisKey="CODE", OtherKey="ATTN_CODE")]
+		public EntitySet<Card_Link_Operation> Card_Link_Operations
+		{
+			get
+			{
+				return this._Card_Link_Operations;
+			}
+			set
+			{
+				this._Card_Link_Operations.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Method_Attendance", Storage="_Club_Method", ThisKey="CBMT_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
 		public Club_Method Club_Method
 		{
@@ -106628,6 +105958,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Aggregation_Operation_Details(Aggregation_Operation_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Attendance = null;
+		}
+		
+		private void attach_Card_Link_Operations(Card_Link_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Attendance = this;
+		}
+		
+		private void detach_Card_Link_Operations(Card_Link_Operation entity)
 		{
 			this.SendPropertyChanging();
 			entity.Attendance = null;
@@ -112918,6 +112260,3642 @@ namespace System.Scsc.Data
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.D$SCDT")]
+	public partial class D_SCDT
+	{
+		
+		private string _VALU;
+		
+		private string _DOMN_DESC;
+		
+		public D_SCDT()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALU", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string VALU
+		{
+			get
+			{
+				return this._VALU;
+			}
+			set
+			{
+				if ((this._VALU != value))
+				{
+					this._VALU = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DOMN_DESC", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
+		public string DOMN_DESC
+		{
+			get
+			{
+				return this._DOMN_DESC;
+			}
+			set
+			{
+				if ((this._DOMN_DESC != value))
+				{
+					this._DOMN_DESC = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.External_Device_Link_Method")]
+	public partial class External_Device_Link_Method : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _EDEV_CODE;
+		
+		private System.Nullable<long> _MTOD_CODE;
+		
+		private long _CODE;
+		
+		private string _STAT;
+		
+		private System.Nullable<int> _NUMB_OF_ATTN;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<Method> _Method;
+		
+		private EntityRef<External_Device> _External_Device;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEDEV_CODEChanging(System.Nullable<long> value);
+    partial void OnEDEV_CODEChanged();
+    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
+    partial void OnMTOD_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnNUMB_OF_ATTNChanging(System.Nullable<int> value);
+    partial void OnNUMB_OF_ATTNChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public External_Device_Link_Method()
+		{
+			this._Method = default(EntityRef<Method>);
+			this._External_Device = default(EntityRef<External_Device>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EDEV_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> EDEV_CODE
+		{
+			get
+			{
+				return this._EDEV_CODE;
+			}
+			set
+			{
+				if ((this._EDEV_CODE != value))
+				{
+					if (this._External_Device.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEDEV_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._EDEV_CODE = value;
+					this.SendPropertyChanged("EDEV_CODE");
+					this.OnEDEV_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> MTOD_CODE
+		{
+			get
+			{
+				return this._MTOD_CODE;
+			}
+			set
+			{
+				if ((this._MTOD_CODE != value))
+				{
+					if (this._Method.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnMTOD_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._MTOD_CODE = value;
+					this.SendPropertyChanged("MTOD_CODE");
+					this.OnMTOD_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NUMB_OF_ATTN", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> NUMB_OF_ATTN
+		{
+			get
+			{
+				return this._NUMB_OF_ATTN;
+			}
+			set
+			{
+				if ((this._NUMB_OF_ATTN != value))
+				{
+					this.OnNUMB_OF_ATTNChanging(value);
+					this.SendPropertyChanging();
+					this._NUMB_OF_ATTN = value;
+					this.SendPropertyChanged("NUMB_OF_ATTN");
+					this.OnNUMB_OF_ATTNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Method_External_Device_Link_Method", Storage="_Method", ThisKey="MTOD_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Method Method
+		{
+			get
+			{
+				return this._Method.Entity;
+			}
+			set
+			{
+				Method previousValue = this._Method.Entity;
+				if (((previousValue != value) 
+							|| (this._Method.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Method.Entity = null;
+						previousValue.External_Device_Link_Methods.Remove(this);
+					}
+					this._Method.Entity = value;
+					if ((value != null))
+					{
+						value.External_Device_Link_Methods.Add(this);
+						this._MTOD_CODE = value.CODE;
+					}
+					else
+					{
+						this._MTOD_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Method");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_Method", Storage="_External_Device", ThisKey="EDEV_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public External_Device External_Device
+		{
+			get
+			{
+				return this._External_Device.Entity;
+			}
+			set
+			{
+				External_Device previousValue = this._External_Device.Entity;
+				if (((previousValue != value) 
+							|| (this._External_Device.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._External_Device.Entity = null;
+						previousValue.External_Device_Link_Methods.Remove(this);
+					}
+					this._External_Device.Entity = value;
+					if ((value != null))
+					{
+						value.External_Device_Link_Methods.Add(this);
+						this._EDEV_CODE = value.CODE;
+					}
+					else
+					{
+						this._EDEV_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("External_Device");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.External_Device_DataRead")]
+	public partial class External_Device_DataRead : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _EDEV_CODE;
+		
+		private long _CODE;
+		
+		private string _FNGR_PRNT;
+		
+		private System.Nullable<System.DateTime> _READ_DATE;
+		
+		private string _STAT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private EntityRef<External_Device> _External_Device;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnEDEV_CODEChanging(System.Nullable<long> value);
+    partial void OnEDEV_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnFNGR_PRNTChanging(string value);
+    partial void OnFNGR_PRNTChanged();
+    partial void OnREAD_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnREAD_DATEChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    #endregion
+		
+		public External_Device_DataRead()
+		{
+			this._External_Device = default(EntityRef<External_Device>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EDEV_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> EDEV_CODE
+		{
+			get
+			{
+				return this._EDEV_CODE;
+			}
+			set
+			{
+				if ((this._EDEV_CODE != value))
+				{
+					if (this._External_Device.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEDEV_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._EDEV_CODE = value;
+					this.SendPropertyChanged("EDEV_CODE");
+					this.OnEDEV_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FNGR_PRNT", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string FNGR_PRNT
+		{
+			get
+			{
+				return this._FNGR_PRNT;
+			}
+			set
+			{
+				if ((this._FNGR_PRNT != value))
+				{
+					this.OnFNGR_PRNTChanging(value);
+					this.SendPropertyChanging();
+					this._FNGR_PRNT = value;
+					this.SendPropertyChanged("FNGR_PRNT");
+					this.OnFNGR_PRNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_READ_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> READ_DATE
+		{
+			get
+			{
+				return this._READ_DATE;
+			}
+			set
+			{
+				if ((this._READ_DATE != value))
+				{
+					this.OnREAD_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._READ_DATE = value;
+					this.SendPropertyChanged("READ_DATE");
+					this.OnREAD_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_DataRead", Storage="_External_Device", ThisKey="EDEV_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public External_Device External_Device
+		{
+			get
+			{
+				return this._External_Device.Entity;
+			}
+			set
+			{
+				External_Device previousValue = this._External_Device.Entity;
+				if (((previousValue != value) 
+							|| (this._External_Device.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._External_Device.Entity = null;
+						previousValue.External_Device_DataReads.Remove(this);
+					}
+					this._External_Device.Entity = value;
+					if ((value != null))
+					{
+						value.External_Device_DataReads.Add(this);
+						this._EDEV_CODE = value.CODE;
+					}
+					else
+					{
+						this._EDEV_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("External_Device");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.External_Device")]
+	public partial class External_Device : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private long _CODE;
+		
+		private string _DEV_COMP_TYPE;
+		
+		private string _DEV_TYPE;
+		
+		private string _DEV_CON;
+		
+		private string _CYCL_READ;
+		
+		private string _DEV_NAME;
+		
+		private string _PORT_NAME;
+		
+		private System.Nullable<int> _BAND_RATE;
+		
+		private string _IP_ADRS;
+		
+		private System.Nullable<long> _PORT_SEND;
+		
+		private System.Nullable<long> _PORT_RECV;
+		
+		private string _SERV_IP_ADRS;
+		
+		private System.Nullable<long> _MTOD_CODE;
+		
+		private string _STAT;
+		
+		private string _ACTN_TYPE;
+		
+		private System.Nullable<long> _EXPN_CODE;
+		
+		private string _CMNT;
+		
+		private string _CARD_READ_TYPE;
+		
+		private string _SEND_CMND_TYPE;
+		
+		private string _AUTO_EXIT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<External_Device_Link_External_Device> _External_Device_Link_External_Devices;
+		
+		private EntitySet<External_Device_Link_External_Device> _External_Device_Link_External_Devices1;
+		
+		private EntitySet<External_Device_Weekday> _External_Device_Weekdays;
+		
+		private EntitySet<External_Device_Link_Method> _External_Device_Link_Methods;
+		
+		private EntitySet<External_Device_DataRead> _External_Device_DataReads;
+		
+		private EntitySet<Card_Link_Operation> _Card_Link_Operations;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnDEV_COMP_TYPEChanging(string value);
+    partial void OnDEV_COMP_TYPEChanged();
+    partial void OnDEV_TYPEChanging(string value);
+    partial void OnDEV_TYPEChanged();
+    partial void OnDEV_CONChanging(string value);
+    partial void OnDEV_CONChanged();
+    partial void OnCYCL_READChanging(string value);
+    partial void OnCYCL_READChanged();
+    partial void OnDEV_NAMEChanging(string value);
+    partial void OnDEV_NAMEChanged();
+    partial void OnPORT_NAMEChanging(string value);
+    partial void OnPORT_NAMEChanged();
+    partial void OnBAND_RATEChanging(System.Nullable<int> value);
+    partial void OnBAND_RATEChanged();
+    partial void OnIP_ADRSChanging(string value);
+    partial void OnIP_ADRSChanged();
+    partial void OnPORT_SENDChanging(System.Nullable<long> value);
+    partial void OnPORT_SENDChanged();
+    partial void OnPORT_RECVChanging(System.Nullable<long> value);
+    partial void OnPORT_RECVChanged();
+    partial void OnSERV_IP_ADRSChanging(string value);
+    partial void OnSERV_IP_ADRSChanged();
+    partial void OnMTOD_CODEChanging(System.Nullable<long> value);
+    partial void OnMTOD_CODEChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnACTN_TYPEChanging(string value);
+    partial void OnACTN_TYPEChanged();
+    partial void OnEXPN_CODEChanging(System.Nullable<long> value);
+    partial void OnEXPN_CODEChanged();
+    partial void OnCMNTChanging(string value);
+    partial void OnCMNTChanged();
+    partial void OnCARD_READ_TYPEChanging(string value);
+    partial void OnCARD_READ_TYPEChanged();
+    partial void OnSEND_CMND_TYPEChanging(string value);
+    partial void OnSEND_CMND_TYPEChanged();
+    partial void OnAUTO_EXITChanging(string value);
+    partial void OnAUTO_EXITChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public External_Device()
+		{
+			this._External_Device_Link_External_Devices = new EntitySet<External_Device_Link_External_Device>(new Action<External_Device_Link_External_Device>(this.attach_External_Device_Link_External_Devices), new Action<External_Device_Link_External_Device>(this.detach_External_Device_Link_External_Devices));
+			this._External_Device_Link_External_Devices1 = new EntitySet<External_Device_Link_External_Device>(new Action<External_Device_Link_External_Device>(this.attach_External_Device_Link_External_Devices1), new Action<External_Device_Link_External_Device>(this.detach_External_Device_Link_External_Devices1));
+			this._External_Device_Weekdays = new EntitySet<External_Device_Weekday>(new Action<External_Device_Weekday>(this.attach_External_Device_Weekdays), new Action<External_Device_Weekday>(this.detach_External_Device_Weekdays));
+			this._External_Device_Link_Methods = new EntitySet<External_Device_Link_Method>(new Action<External_Device_Link_Method>(this.attach_External_Device_Link_Methods), new Action<External_Device_Link_Method>(this.detach_External_Device_Link_Methods));
+			this._External_Device_DataReads = new EntitySet<External_Device_DataRead>(new Action<External_Device_DataRead>(this.attach_External_Device_DataReads), new Action<External_Device_DataRead>(this.detach_External_Device_DataReads));
+			this._Card_Link_Operations = new EntitySet<Card_Link_Operation>(new Action<Card_Link_Operation>(this.attach_Card_Link_Operations), new Action<Card_Link_Operation>(this.detach_Card_Link_Operations));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_COMP_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DEV_COMP_TYPE
+		{
+			get
+			{
+				return this._DEV_COMP_TYPE;
+			}
+			set
+			{
+				if ((this._DEV_COMP_TYPE != value))
+				{
+					this.OnDEV_COMP_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._DEV_COMP_TYPE = value;
+					this.SendPropertyChanged("DEV_COMP_TYPE");
+					this.OnDEV_COMP_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DEV_TYPE
+		{
+			get
+			{
+				return this._DEV_TYPE;
+			}
+			set
+			{
+				if ((this._DEV_TYPE != value))
+				{
+					this.OnDEV_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._DEV_TYPE = value;
+					this.SendPropertyChanged("DEV_TYPE");
+					this.OnDEV_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_CON", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DEV_CON
+		{
+			get
+			{
+				return this._DEV_CON;
+			}
+			set
+			{
+				if ((this._DEV_CON != value))
+				{
+					this.OnDEV_CONChanging(value);
+					this.SendPropertyChanging();
+					this._DEV_CON = value;
+					this.SendPropertyChanged("DEV_CON");
+					this.OnDEV_CONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CYCL_READ", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string CYCL_READ
+		{
+			get
+			{
+				return this._CYCL_READ;
+			}
+			set
+			{
+				if ((this._CYCL_READ != value))
+				{
+					this.OnCYCL_READChanging(value);
+					this.SendPropertyChanging();
+					this._CYCL_READ = value;
+					this.SendPropertyChanged("CYCL_READ");
+					this.OnCYCL_READChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV_NAME", DbType="NVarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string DEV_NAME
+		{
+			get
+			{
+				return this._DEV_NAME;
+			}
+			set
+			{
+				if ((this._DEV_NAME != value))
+				{
+					this.OnDEV_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._DEV_NAME = value;
+					this.SendPropertyChanged("DEV_NAME");
+					this.OnDEV_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NAME", DbType="VarChar(10)", UpdateCheck=UpdateCheck.Never)]
+		public string PORT_NAME
+		{
+			get
+			{
+				return this._PORT_NAME;
+			}
+			set
+			{
+				if ((this._PORT_NAME != value))
+				{
+					this.OnPORT_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._PORT_NAME = value;
+					this.SendPropertyChanged("PORT_NAME");
+					this.OnPORT_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAND_RATE", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> BAND_RATE
+		{
+			get
+			{
+				return this._BAND_RATE;
+			}
+			set
+			{
+				if ((this._BAND_RATE != value))
+				{
+					this.OnBAND_RATEChanging(value);
+					this.SendPropertyChanging();
+					this._BAND_RATE = value;
+					this.SendPropertyChanged("BAND_RATE");
+					this.OnBAND_RATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADRS", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string IP_ADRS
+		{
+			get
+			{
+				return this._IP_ADRS;
+			}
+			set
+			{
+				if ((this._IP_ADRS != value))
+				{
+					this.OnIP_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._IP_ADRS = value;
+					this.SendPropertyChanged("IP_ADRS");
+					this.OnIP_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_SEND", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> PORT_SEND
+		{
+			get
+			{
+				return this._PORT_SEND;
+			}
+			set
+			{
+				if ((this._PORT_SEND != value))
+				{
+					this.OnPORT_SENDChanging(value);
+					this.SendPropertyChanging();
+					this._PORT_SEND = value;
+					this.SendPropertyChanged("PORT_SEND");
+					this.OnPORT_SENDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_RECV", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> PORT_RECV
+		{
+			get
+			{
+				return this._PORT_RECV;
+			}
+			set
+			{
+				if ((this._PORT_RECV != value))
+				{
+					this.OnPORT_RECVChanging(value);
+					this.SendPropertyChanging();
+					this._PORT_RECV = value;
+					this.SendPropertyChanged("PORT_RECV");
+					this.OnPORT_RECVChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_IP_ADRS", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string SERV_IP_ADRS
+		{
+			get
+			{
+				return this._SERV_IP_ADRS;
+			}
+			set
+			{
+				if ((this._SERV_IP_ADRS != value))
+				{
+					this.OnSERV_IP_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._SERV_IP_ADRS = value;
+					this.SendPropertyChanged("SERV_IP_ADRS");
+					this.OnSERV_IP_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MTOD_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> MTOD_CODE
+		{
+			get
+			{
+				return this._MTOD_CODE;
+			}
+			set
+			{
+				if ((this._MTOD_CODE != value))
+				{
+					this.OnMTOD_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._MTOD_CODE = value;
+					this.SendPropertyChanged("MTOD_CODE");
+					this.OnMTOD_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACTN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string ACTN_TYPE
+		{
+			get
+			{
+				return this._ACTN_TYPE;
+			}
+			set
+			{
+				if ((this._ACTN_TYPE != value))
+				{
+					this.OnACTN_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._ACTN_TYPE = value;
+					this.SendPropertyChanged("ACTN_TYPE");
+					this.OnACTN_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> EXPN_CODE
+		{
+			get
+			{
+				return this._EXPN_CODE;
+			}
+			set
+			{
+				if ((this._EXPN_CODE != value))
+				{
+					this.OnEXPN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._EXPN_CODE = value;
+					this.SendPropertyChanged("EXPN_CODE");
+					this.OnEXPN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string CMNT
+		{
+			get
+			{
+				return this._CMNT;
+			}
+			set
+			{
+				if ((this._CMNT != value))
+				{
+					this.OnCMNTChanging(value);
+					this.SendPropertyChanging();
+					this._CMNT = value;
+					this.SendPropertyChanged("CMNT");
+					this.OnCMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CARD_READ_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string CARD_READ_TYPE
+		{
+			get
+			{
+				return this._CARD_READ_TYPE;
+			}
+			set
+			{
+				if ((this._CARD_READ_TYPE != value))
+				{
+					this.OnCARD_READ_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._CARD_READ_TYPE = value;
+					this.SendPropertyChanged("CARD_READ_TYPE");
+					this.OnCARD_READ_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SEND_CMND_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string SEND_CMND_TYPE
+		{
+			get
+			{
+				return this._SEND_CMND_TYPE;
+			}
+			set
+			{
+				if ((this._SEND_CMND_TYPE != value))
+				{
+					this.OnSEND_CMND_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._SEND_CMND_TYPE = value;
+					this.SendPropertyChanged("SEND_CMND_TYPE");
+					this.OnSEND_CMND_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUTO_EXIT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string AUTO_EXIT
+		{
+			get
+			{
+				return this._AUTO_EXIT;
+			}
+			set
+			{
+				if ((this._AUTO_EXIT != value))
+				{
+					this.OnAUTO_EXITChanging(value);
+					this.SendPropertyChanging();
+					this._AUTO_EXIT = value;
+					this.SendPropertyChanged("AUTO_EXIT");
+					this.OnAUTO_EXITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_External_Device", Storage="_External_Device_Link_External_Devices", ThisKey="CODE", OtherKey="EDEV_CODE")]
+		public EntitySet<External_Device_Link_External_Device> External_Device_Link_External_Devices
+		{
+			get
+			{
+				return this._External_Device_Link_External_Devices;
+			}
+			set
+			{
+				this._External_Device_Link_External_Devices.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_External_Device1", Storage="_External_Device_Link_External_Devices1", ThisKey="CODE", OtherKey="LINK_EDEV_CODE")]
+		public EntitySet<External_Device_Link_External_Device> External_Device_Link_External_Devices1
+		{
+			get
+			{
+				return this._External_Device_Link_External_Devices1;
+			}
+			set
+			{
+				this._External_Device_Link_External_Devices1.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Weekday", Storage="_External_Device_Weekdays", ThisKey="CODE", OtherKey="EDEV_CODE")]
+		public EntitySet<External_Device_Weekday> External_Device_Weekdays
+		{
+			get
+			{
+				return this._External_Device_Weekdays;
+			}
+			set
+			{
+				this._External_Device_Weekdays.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_Link_Method", Storage="_External_Device_Link_Methods", ThisKey="CODE", OtherKey="EDEV_CODE")]
+		public EntitySet<External_Device_Link_Method> External_Device_Link_Methods
+		{
+			get
+			{
+				return this._External_Device_Link_Methods;
+			}
+			set
+			{
+				this._External_Device_Link_Methods.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_External_Device_DataRead", Storage="_External_Device_DataReads", ThisKey="CODE", OtherKey="EDEV_CODE")]
+		public EntitySet<External_Device_DataRead> External_Device_DataReads
+		{
+			get
+			{
+				return this._External_Device_DataReads;
+			}
+			set
+			{
+				this._External_Device_DataReads.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_Card_Link_Operation", Storage="_Card_Link_Operations", ThisKey="CODE", OtherKey="EDEV_CODE")]
+		public EntitySet<Card_Link_Operation> Card_Link_Operations
+		{
+			get
+			{
+				return this._Card_Link_Operations;
+			}
+			set
+			{
+				this._Card_Link_Operations.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_External_Device_Link_External_Devices(External_Device_Link_External_Device entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = this;
+		}
+		
+		private void detach_External_Device_Link_External_Devices(External_Device_Link_External_Device entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = null;
+		}
+		
+		private void attach_External_Device_Link_External_Devices1(External_Device_Link_External_Device entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device1 = this;
+		}
+		
+		private void detach_External_Device_Link_External_Devices1(External_Device_Link_External_Device entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device1 = null;
+		}
+		
+		private void attach_External_Device_Weekdays(External_Device_Weekday entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = this;
+		}
+		
+		private void detach_External_Device_Weekdays(External_Device_Weekday entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = null;
+		}
+		
+		private void attach_External_Device_Link_Methods(External_Device_Link_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = this;
+		}
+		
+		private void detach_External_Device_Link_Methods(External_Device_Link_Method entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = null;
+		}
+		
+		private void attach_External_Device_DataReads(External_Device_DataRead entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = this;
+		}
+		
+		private void detach_External_Device_DataReads(External_Device_DataRead entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = null;
+		}
+		
+		private void attach_Card_Link_Operations(Card_Link_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = this;
+		}
+		
+		private void detach_Card_Link_Operations(Card_Link_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.External_Device = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Card_Link_Operation_Detail")]
+	public partial class Card_Link_Operation_Detail : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _CLOP_CODE;
+		
+		private long _CODE;
+		
+		private string _CLOP_TYPE;
+		
+		private System.Nullable<System.DateTime> _CLOP_DATE;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<Card_Link_Operation> _Card_Link_Operation;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCLOP_CODEChanging(System.Nullable<long> value);
+    partial void OnCLOP_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnCLOP_TYPEChanging(string value);
+    partial void OnCLOP_TYPEChanged();
+    partial void OnCLOP_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCLOP_DATEChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Card_Link_Operation_Detail()
+		{
+			this._Card_Link_Operation = default(EntityRef<Card_Link_Operation>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLOP_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> CLOP_CODE
+		{
+			get
+			{
+				return this._CLOP_CODE;
+			}
+			set
+			{
+				if ((this._CLOP_CODE != value))
+				{
+					if (this._Card_Link_Operation.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCLOP_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._CLOP_CODE = value;
+					this.SendPropertyChanged("CLOP_CODE");
+					this.OnCLOP_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLOP_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string CLOP_TYPE
+		{
+			get
+			{
+				return this._CLOP_TYPE;
+			}
+			set
+			{
+				if ((this._CLOP_TYPE != value))
+				{
+					this.OnCLOP_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._CLOP_TYPE = value;
+					this.SendPropertyChanged("CLOP_TYPE");
+					this.OnCLOP_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLOP_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CLOP_DATE
+		{
+			get
+			{
+				return this._CLOP_DATE;
+			}
+			set
+			{
+				if ((this._CLOP_DATE != value))
+				{
+					this.OnCLOP_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CLOP_DATE = value;
+					this.SendPropertyChanged("CLOP_DATE");
+					this.OnCLOP_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Card_Link_Operation_Card_Link_Operation_Detail", Storage="_Card_Link_Operation", ThisKey="CLOP_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Card_Link_Operation Card_Link_Operation
+		{
+			get
+			{
+				return this._Card_Link_Operation.Entity;
+			}
+			set
+			{
+				Card_Link_Operation previousValue = this._Card_Link_Operation.Entity;
+				if (((previousValue != value) 
+							|| (this._Card_Link_Operation.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Card_Link_Operation.Entity = null;
+						previousValue.Card_Link_Operation_Details.Remove(this);
+					}
+					this._Card_Link_Operation.Entity = value;
+					if ((value != null))
+					{
+						value.Card_Link_Operation_Details.Add(this);
+						this._CLOP_CODE = value.CODE;
+					}
+					else
+					{
+						this._CLOP_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Card_Link_Operation");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Card_Link_Operation")]
+	public partial class Card_Link_Operation : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _CARD_FILE_NO;
+		
+		private System.Nullable<long> _ATTN_CODE;
+		
+		private System.Nullable<long> _RQST_RQID;
+		
+		private long _CODE;
+		
+		private string _CARD_FNGR_PRNT_DNRM;
+		
+		private string _FIGH_FNGR_PRNT_DNRM;
+		
+		private System.Nullable<int> _TOTL_USE_MINT_DNRM;
+		
+		private System.Nullable<System.DateTime> _STRT_TIME;
+		
+		private System.Nullable<System.DateTime> _END_TIME;
+		
+		private System.Nullable<int> _TOTL_MINT_DNRM;
+		
+		private System.Nullable<long> _TOTL_EXPN_AMNT_DNRM;
+		
+		private System.Nullable<int> _EXPN_NUMB_ATTN_DNRM;
+		
+		private System.Nullable<int> _EXPN_1ATN_AMNT_DNRM;
+		
+		private System.Nullable<long> _EXPN_1MIN_AMNT_DNRM;
+		
+		private string _FINE_STAT;
+		
+		private System.Nullable<int> _FINE_MINT_DNRM;
+		
+		private System.Nullable<long> _FINE_AMNT_DNRM;
+		
+		private System.Nullable<long> _FINE_RQST_RQID;
+		
+		private string _VALD_TYPE;
+		
+		private System.Nullable<int> _TOTL_OPEN_DNRM;
+		
+		private System.Nullable<int> _TOTL_CLOS_DNRM;
+		
+		private System.Nullable<long> _EDEV_CODE;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _CRET_HOST_BY;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private string _MDFY_HOST_BY;
+		
+		private EntitySet<Card_Link_Operation_Detail> _Card_Link_Operation_Details;
+		
+		private EntityRef<Attendance> _Attendance;
+		
+		private EntityRef<External_Device> _External_Device;
+		
+		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Request> _Request;
+		
+		private EntityRef<Request> _Request1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCARD_FILE_NOChanging(System.Nullable<long> value);
+    partial void OnCARD_FILE_NOChanged();
+    partial void OnATTN_CODEChanging(System.Nullable<long> value);
+    partial void OnATTN_CODEChanged();
+    partial void OnRQST_RQIDChanging(System.Nullable<long> value);
+    partial void OnRQST_RQIDChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnCARD_FNGR_PRNT_DNRMChanging(string value);
+    partial void OnCARD_FNGR_PRNT_DNRMChanged();
+    partial void OnFIGH_FNGR_PRNT_DNRMChanging(string value);
+    partial void OnFIGH_FNGR_PRNT_DNRMChanged();
+    partial void OnTOTL_USE_MINT_DNRMChanging(System.Nullable<int> value);
+    partial void OnTOTL_USE_MINT_DNRMChanged();
+    partial void OnSTRT_TIMEChanging(System.Nullable<System.DateTime> value);
+    partial void OnSTRT_TIMEChanged();
+    partial void OnEND_TIMEChanging(System.Nullable<System.DateTime> value);
+    partial void OnEND_TIMEChanged();
+    partial void OnTOTL_MINT_DNRMChanging(System.Nullable<int> value);
+    partial void OnTOTL_MINT_DNRMChanged();
+    partial void OnTOTL_EXPN_AMNT_DNRMChanging(System.Nullable<long> value);
+    partial void OnTOTL_EXPN_AMNT_DNRMChanged();
+    partial void OnEXPN_NUMB_ATTN_DNRMChanging(System.Nullable<int> value);
+    partial void OnEXPN_NUMB_ATTN_DNRMChanged();
+    partial void OnEXPN_1ATN_AMNT_DNRMChanging(System.Nullable<int> value);
+    partial void OnEXPN_1ATN_AMNT_DNRMChanged();
+    partial void OnEXPN_1MIN_AMNT_DNRMChanging(System.Nullable<long> value);
+    partial void OnEXPN_1MIN_AMNT_DNRMChanged();
+    partial void OnFINE_STATChanging(string value);
+    partial void OnFINE_STATChanged();
+    partial void OnFINE_MINT_DNRMChanging(System.Nullable<int> value);
+    partial void OnFINE_MINT_DNRMChanged();
+    partial void OnFINE_AMNT_DNRMChanging(System.Nullable<long> value);
+    partial void OnFINE_AMNT_DNRMChanged();
+    partial void OnFINE_RQST_RQIDChanging(System.Nullable<long> value);
+    partial void OnFINE_RQST_RQIDChanged();
+    partial void OnVALD_TYPEChanging(string value);
+    partial void OnVALD_TYPEChanged();
+    partial void OnTOTL_OPEN_DNRMChanging(System.Nullable<int> value);
+    partial void OnTOTL_OPEN_DNRMChanged();
+    partial void OnTOTL_CLOS_DNRMChanging(System.Nullable<int> value);
+    partial void OnTOTL_CLOS_DNRMChanged();
+    partial void OnEDEV_CODEChanging(System.Nullable<long> value);
+    partial void OnEDEV_CODEChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnCRET_HOST_BYChanging(string value);
+    partial void OnCRET_HOST_BYChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    partial void OnMDFY_HOST_BYChanging(string value);
+    partial void OnMDFY_HOST_BYChanged();
+    #endregion
+		
+		public Card_Link_Operation()
+		{
+			this._Card_Link_Operation_Details = new EntitySet<Card_Link_Operation_Detail>(new Action<Card_Link_Operation_Detail>(this.attach_Card_Link_Operation_Details), new Action<Card_Link_Operation_Detail>(this.detach_Card_Link_Operation_Details));
+			this._Attendance = default(EntityRef<Attendance>);
+			this._External_Device = default(EntityRef<External_Device>);
+			this._Fighter = default(EntityRef<Fighter>);
+			this._Request = default(EntityRef<Request>);
+			this._Request1 = default(EntityRef<Request>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CARD_FILE_NO", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> CARD_FILE_NO
+		{
+			get
+			{
+				return this._CARD_FILE_NO;
+			}
+			set
+			{
+				if ((this._CARD_FILE_NO != value))
+				{
+					if (this._Fighter.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCARD_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._CARD_FILE_NO = value;
+					this.SendPropertyChanged("CARD_FILE_NO");
+					this.OnCARD_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> ATTN_CODE
+		{
+			get
+			{
+				return this._ATTN_CODE;
+			}
+			set
+			{
+				if ((this._ATTN_CODE != value))
+				{
+					if (this._Attendance.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnATTN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_CODE = value;
+					this.SendPropertyChanged("ATTN_CODE");
+					this.OnATTN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RQST_RQID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> RQST_RQID
+		{
+			get
+			{
+				return this._RQST_RQID;
+			}
+			set
+			{
+				if ((this._RQST_RQID != value))
+				{
+					if (this._Request.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnRQST_RQIDChanging(value);
+					this.SendPropertyChanging();
+					this._RQST_RQID = value;
+					this.SendPropertyChanged("RQST_RQID");
+					this.OnRQST_RQIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CARD_FNGR_PRNT_DNRM", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string CARD_FNGR_PRNT_DNRM
+		{
+			get
+			{
+				return this._CARD_FNGR_PRNT_DNRM;
+			}
+			set
+			{
+				if ((this._CARD_FNGR_PRNT_DNRM != value))
+				{
+					this.OnCARD_FNGR_PRNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CARD_FNGR_PRNT_DNRM = value;
+					this.SendPropertyChanged("CARD_FNGR_PRNT_DNRM");
+					this.OnCARD_FNGR_PRNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_FNGR_PRNT_DNRM", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string FIGH_FNGR_PRNT_DNRM
+		{
+			get
+			{
+				return this._FIGH_FNGR_PRNT_DNRM;
+			}
+			set
+			{
+				if ((this._FIGH_FNGR_PRNT_DNRM != value))
+				{
+					this.OnFIGH_FNGR_PRNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._FIGH_FNGR_PRNT_DNRM = value;
+					this.SendPropertyChanged("FIGH_FNGR_PRNT_DNRM");
+					this.OnFIGH_FNGR_PRNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_USE_MINT_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> TOTL_USE_MINT_DNRM
+		{
+			get
+			{
+				return this._TOTL_USE_MINT_DNRM;
+			}
+			set
+			{
+				if ((this._TOTL_USE_MINT_DNRM != value))
+				{
+					this.OnTOTL_USE_MINT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._TOTL_USE_MINT_DNRM = value;
+					this.SendPropertyChanged("TOTL_USE_MINT_DNRM");
+					this.OnTOTL_USE_MINT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STRT_TIME", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> STRT_TIME
+		{
+			get
+			{
+				return this._STRT_TIME;
+			}
+			set
+			{
+				if ((this._STRT_TIME != value))
+				{
+					this.OnSTRT_TIMEChanging(value);
+					this.SendPropertyChanging();
+					this._STRT_TIME = value;
+					this.SendPropertyChanged("STRT_TIME");
+					this.OnSTRT_TIMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_END_TIME", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> END_TIME
+		{
+			get
+			{
+				return this._END_TIME;
+			}
+			set
+			{
+				if ((this._END_TIME != value))
+				{
+					this.OnEND_TIMEChanging(value);
+					this.SendPropertyChanging();
+					this._END_TIME = value;
+					this.SendPropertyChanged("END_TIME");
+					this.OnEND_TIMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_MINT_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> TOTL_MINT_DNRM
+		{
+			get
+			{
+				return this._TOTL_MINT_DNRM;
+			}
+			set
+			{
+				if ((this._TOTL_MINT_DNRM != value))
+				{
+					this.OnTOTL_MINT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._TOTL_MINT_DNRM = value;
+					this.SendPropertyChanged("TOTL_MINT_DNRM");
+					this.OnTOTL_MINT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_EXPN_AMNT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> TOTL_EXPN_AMNT_DNRM
+		{
+			get
+			{
+				return this._TOTL_EXPN_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._TOTL_EXPN_AMNT_DNRM != value))
+				{
+					this.OnTOTL_EXPN_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._TOTL_EXPN_AMNT_DNRM = value;
+					this.SendPropertyChanged("TOTL_EXPN_AMNT_DNRM");
+					this.OnTOTL_EXPN_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_NUMB_ATTN_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> EXPN_NUMB_ATTN_DNRM
+		{
+			get
+			{
+				return this._EXPN_NUMB_ATTN_DNRM;
+			}
+			set
+			{
+				if ((this._EXPN_NUMB_ATTN_DNRM != value))
+				{
+					this.OnEXPN_NUMB_ATTN_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._EXPN_NUMB_ATTN_DNRM = value;
+					this.SendPropertyChanged("EXPN_NUMB_ATTN_DNRM");
+					this.OnEXPN_NUMB_ATTN_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_1ATN_AMNT_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> EXPN_1ATN_AMNT_DNRM
+		{
+			get
+			{
+				return this._EXPN_1ATN_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._EXPN_1ATN_AMNT_DNRM != value))
+				{
+					this.OnEXPN_1ATN_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._EXPN_1ATN_AMNT_DNRM = value;
+					this.SendPropertyChanged("EXPN_1ATN_AMNT_DNRM");
+					this.OnEXPN_1ATN_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_1MIN_AMNT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> EXPN_1MIN_AMNT_DNRM
+		{
+			get
+			{
+				return this._EXPN_1MIN_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._EXPN_1MIN_AMNT_DNRM != value))
+				{
+					this.OnEXPN_1MIN_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._EXPN_1MIN_AMNT_DNRM = value;
+					this.SendPropertyChanged("EXPN_1MIN_AMNT_DNRM");
+					this.OnEXPN_1MIN_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FINE_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string FINE_STAT
+		{
+			get
+			{
+				return this._FINE_STAT;
+			}
+			set
+			{
+				if ((this._FINE_STAT != value))
+				{
+					this.OnFINE_STATChanging(value);
+					this.SendPropertyChanging();
+					this._FINE_STAT = value;
+					this.SendPropertyChanged("FINE_STAT");
+					this.OnFINE_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FINE_MINT_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> FINE_MINT_DNRM
+		{
+			get
+			{
+				return this._FINE_MINT_DNRM;
+			}
+			set
+			{
+				if ((this._FINE_MINT_DNRM != value))
+				{
+					this.OnFINE_MINT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._FINE_MINT_DNRM = value;
+					this.SendPropertyChanged("FINE_MINT_DNRM");
+					this.OnFINE_MINT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FINE_AMNT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> FINE_AMNT_DNRM
+		{
+			get
+			{
+				return this._FINE_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._FINE_AMNT_DNRM != value))
+				{
+					this.OnFINE_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._FINE_AMNT_DNRM = value;
+					this.SendPropertyChanged("FINE_AMNT_DNRM");
+					this.OnFINE_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FINE_RQST_RQID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> FINE_RQST_RQID
+		{
+			get
+			{
+				return this._FINE_RQST_RQID;
+			}
+			set
+			{
+				if ((this._FINE_RQST_RQID != value))
+				{
+					if (this._Request1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFINE_RQST_RQIDChanging(value);
+					this.SendPropertyChanging();
+					this._FINE_RQST_RQID = value;
+					this.SendPropertyChanged("FINE_RQST_RQID");
+					this.OnFINE_RQST_RQIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALD_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string VALD_TYPE
+		{
+			get
+			{
+				return this._VALD_TYPE;
+			}
+			set
+			{
+				if ((this._VALD_TYPE != value))
+				{
+					this.OnVALD_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._VALD_TYPE = value;
+					this.SendPropertyChanged("VALD_TYPE");
+					this.OnVALD_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_OPEN_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> TOTL_OPEN_DNRM
+		{
+			get
+			{
+				return this._TOTL_OPEN_DNRM;
+			}
+			set
+			{
+				if ((this._TOTL_OPEN_DNRM != value))
+				{
+					this.OnTOTL_OPEN_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._TOTL_OPEN_DNRM = value;
+					this.SendPropertyChanged("TOTL_OPEN_DNRM");
+					this.OnTOTL_OPEN_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_CLOS_DNRM", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> TOTL_CLOS_DNRM
+		{
+			get
+			{
+				return this._TOTL_CLOS_DNRM;
+			}
+			set
+			{
+				if ((this._TOTL_CLOS_DNRM != value))
+				{
+					this.OnTOTL_CLOS_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._TOTL_CLOS_DNRM = value;
+					this.SendPropertyChanged("TOTL_CLOS_DNRM");
+					this.OnTOTL_CLOS_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EDEV_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> EDEV_CODE
+		{
+			get
+			{
+				return this._EDEV_CODE;
+			}
+			set
+			{
+				if ((this._EDEV_CODE != value))
+				{
+					if (this._External_Device.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnEDEV_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._EDEV_CODE = value;
+					this.SendPropertyChanged("EDEV_CODE");
+					this.OnEDEV_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_HOST_BY", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_HOST_BY
+		{
+			get
+			{
+				return this._CRET_HOST_BY;
+			}
+			set
+			{
+				if ((this._CRET_HOST_BY != value))
+				{
+					this.OnCRET_HOST_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_HOST_BY = value;
+					this.SendPropertyChanged("CRET_HOST_BY");
+					this.OnCRET_HOST_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_HOST_BY", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_HOST_BY
+		{
+			get
+			{
+				return this._MDFY_HOST_BY;
+			}
+			set
+			{
+				if ((this._MDFY_HOST_BY != value))
+				{
+					this.OnMDFY_HOST_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_HOST_BY = value;
+					this.SendPropertyChanged("MDFY_HOST_BY");
+					this.OnMDFY_HOST_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Card_Link_Operation_Card_Link_Operation_Detail", Storage="_Card_Link_Operation_Details", ThisKey="CODE", OtherKey="CLOP_CODE")]
+		public EntitySet<Card_Link_Operation_Detail> Card_Link_Operation_Details
+		{
+			get
+			{
+				return this._Card_Link_Operation_Details;
+			}
+			set
+			{
+				this._Card_Link_Operation_Details.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Attendance_Card_Link_Operation", Storage="_Attendance", ThisKey="ATTN_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Attendance Attendance
+		{
+			get
+			{
+				return this._Attendance.Entity;
+			}
+			set
+			{
+				Attendance previousValue = this._Attendance.Entity;
+				if (((previousValue != value) 
+							|| (this._Attendance.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Attendance.Entity = null;
+						previousValue.Card_Link_Operations.Remove(this);
+					}
+					this._Attendance.Entity = value;
+					if ((value != null))
+					{
+						value.Card_Link_Operations.Add(this);
+						this._ATTN_CODE = value.CODE;
+					}
+					else
+					{
+						this._ATTN_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Attendance");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="External_Device_Card_Link_Operation", Storage="_External_Device", ThisKey="EDEV_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public External_Device External_Device
+		{
+			get
+			{
+				return this._External_Device.Entity;
+			}
+			set
+			{
+				External_Device previousValue = this._External_Device.Entity;
+				if (((previousValue != value) 
+							|| (this._External_Device.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._External_Device.Entity = null;
+						previousValue.Card_Link_Operations.Remove(this);
+					}
+					this._External_Device.Entity = value;
+					if ((value != null))
+					{
+						value.Card_Link_Operations.Add(this);
+						this._EDEV_CODE = value.CODE;
+					}
+					else
+					{
+						this._EDEV_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("External_Device");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Card_Link_Operation", Storage="_Fighter", ThisKey="CARD_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Card_Link_Operations.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Card_Link_Operations.Add(this);
+						this._CARD_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._CARD_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Card_Link_Operation", Storage="_Request", ThisKey="RQST_RQID", OtherKey="RQID", IsForeignKey=true)]
+		public Request Request
+		{
+			get
+			{
+				return this._Request.Entity;
+			}
+			set
+			{
+				Request previousValue = this._Request.Entity;
+				if (((previousValue != value) 
+							|| (this._Request.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request.Entity = null;
+						previousValue.Card_Link_Operations.Remove(this);
+					}
+					this._Request.Entity = value;
+					if ((value != null))
+					{
+						value.Card_Link_Operations.Add(this);
+						this._RQST_RQID = value.RQID;
+					}
+					else
+					{
+						this._RQST_RQID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Request");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Request_Card_Link_Operation1", Storage="_Request1", ThisKey="FINE_RQST_RQID", OtherKey="RQID", IsForeignKey=true)]
+		public Request Request1
+		{
+			get
+			{
+				return this._Request1.Entity;
+			}
+			set
+			{
+				Request previousValue = this._Request1.Entity;
+				if (((previousValue != value) 
+							|| (this._Request1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Request1.Entity = null;
+						previousValue.Card_Link_Operations1.Remove(this);
+					}
+					this._Request1.Entity = value;
+					if ((value != null))
+					{
+						value.Card_Link_Operations1.Add(this);
+						this._FINE_RQST_RQID = value.RQID;
+					}
+					else
+					{
+						this._FINE_RQST_RQID = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Request1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Card_Link_Operation_Details(Card_Link_Operation_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Card_Link_Operation = this;
+		}
+		
+		private void detach_Card_Link_Operation_Details(Card_Link_Operation_Detail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Card_Link_Operation = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Audit")]
+	public partial class Audit : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _FIGH_FILE_NO;
+		
+		private long _CODE;
+		
+		private System.Nullable<int> _RWNO;
+		
+		private System.Nullable<System.DateTime> _AUDT_DATE;
+		
+		private System.Nullable<long> _EXPN_AMNT;
+		
+		private System.Nullable<long> _FEE_AMNT;
+		
+		private System.Nullable<long> _EXTR_PRCT_AMNT;
+		
+		private System.Nullable<long> _SUM_AMNT_DNRM;
+		
+		private System.Nullable<long> _FBAC_CODE;
+		
+		private System.Nullable<long> _PAYC_CODE;
+		
+		private string _PAYC_CMNT;
+		
+		private string _LETT_NO;
+		
+		private string _CMNT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<App_Base_Define> _App_Base_Define;
+		
+		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Fighter_Bank_Account> _Fighter_Bank_Account;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFIGH_FILE_NOChanging(System.Nullable<long> value);
+    partial void OnFIGH_FILE_NOChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnRWNOChanging(System.Nullable<int> value);
+    partial void OnRWNOChanged();
+    partial void OnAUDT_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnAUDT_DATEChanged();
+    partial void OnEXPN_AMNTChanging(System.Nullable<long> value);
+    partial void OnEXPN_AMNTChanged();
+    partial void OnFEE_AMNTChanging(System.Nullable<long> value);
+    partial void OnFEE_AMNTChanged();
+    partial void OnEXTR_PRCT_AMNTChanging(System.Nullable<long> value);
+    partial void OnEXTR_PRCT_AMNTChanged();
+    partial void OnSUM_AMNT_DNRMChanging(System.Nullable<long> value);
+    partial void OnSUM_AMNT_DNRMChanged();
+    partial void OnFBAC_CODEChanging(System.Nullable<long> value);
+    partial void OnFBAC_CODEChanged();
+    partial void OnPAYC_CODEChanging(System.Nullable<long> value);
+    partial void OnPAYC_CODEChanged();
+    partial void OnPAYC_CMNTChanging(string value);
+    partial void OnPAYC_CMNTChanged();
+    partial void OnLETT_NOChanging(string value);
+    partial void OnLETT_NOChanged();
+    partial void OnCMNTChanging(string value);
+    partial void OnCMNTChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Audit()
+		{
+			this._App_Base_Define = default(EntityRef<App_Base_Define>);
+			this._Fighter = default(EntityRef<Fighter>);
+			this._Fighter_Bank_Account = default(EntityRef<Fighter_Bank_Account>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_FILE_NO", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> FIGH_FILE_NO
+		{
+			get
+			{
+				return this._FIGH_FILE_NO;
+			}
+			set
+			{
+				if ((this._FIGH_FILE_NO != value))
+				{
+					if (this._Fighter.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFIGH_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._FIGH_FILE_NO = value;
+					this.SendPropertyChanged("FIGH_FILE_NO");
+					this.OnFIGH_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> RWNO
+		{
+			get
+			{
+				return this._RWNO;
+			}
+			set
+			{
+				if ((this._RWNO != value))
+				{
+					this.OnRWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RWNO = value;
+					this.SendPropertyChanged("RWNO");
+					this.OnRWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AUDT_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> AUDT_DATE
+		{
+			get
+			{
+				return this._AUDT_DATE;
+			}
+			set
+			{
+				if ((this._AUDT_DATE != value))
+				{
+					this.OnAUDT_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._AUDT_DATE = value;
+					this.SendPropertyChanged("AUDT_DATE");
+					this.OnAUDT_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> EXPN_AMNT
+		{
+			get
+			{
+				return this._EXPN_AMNT;
+			}
+			set
+			{
+				if ((this._EXPN_AMNT != value))
+				{
+					this.OnEXPN_AMNTChanging(value);
+					this.SendPropertyChanging();
+					this._EXPN_AMNT = value;
+					this.SendPropertyChanged("EXPN_AMNT");
+					this.OnEXPN_AMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FEE_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> FEE_AMNT
+		{
+			get
+			{
+				return this._FEE_AMNT;
+			}
+			set
+			{
+				if ((this._FEE_AMNT != value))
+				{
+					this.OnFEE_AMNTChanging(value);
+					this.SendPropertyChanging();
+					this._FEE_AMNT = value;
+					this.SendPropertyChanged("FEE_AMNT");
+					this.OnFEE_AMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXTR_PRCT_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> EXTR_PRCT_AMNT
+		{
+			get
+			{
+				return this._EXTR_PRCT_AMNT;
+			}
+			set
+			{
+				if ((this._EXTR_PRCT_AMNT != value))
+				{
+					this.OnEXTR_PRCT_AMNTChanging(value);
+					this.SendPropertyChanging();
+					this._EXTR_PRCT_AMNT = value;
+					this.SendPropertyChanged("EXTR_PRCT_AMNT");
+					this.OnEXTR_PRCT_AMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SUM_AMNT_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> SUM_AMNT_DNRM
+		{
+			get
+			{
+				return this._SUM_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._SUM_AMNT_DNRM != value))
+				{
+					this.OnSUM_AMNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._SUM_AMNT_DNRM = value;
+					this.SendPropertyChanged("SUM_AMNT_DNRM");
+					this.OnSUM_AMNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FBAC_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> FBAC_CODE
+		{
+			get
+			{
+				return this._FBAC_CODE;
+			}
+			set
+			{
+				if ((this._FBAC_CODE != value))
+				{
+					if (this._Fighter_Bank_Account.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFBAC_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._FBAC_CODE = value;
+					this.SendPropertyChanged("FBAC_CODE");
+					this.OnFBAC_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAYC_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> PAYC_CODE
+		{
+			get
+			{
+				return this._PAYC_CODE;
+			}
+			set
+			{
+				if ((this._PAYC_CODE != value))
+				{
+					if (this._App_Base_Define.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnPAYC_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._PAYC_CODE = value;
+					this.SendPropertyChanged("PAYC_CODE");
+					this.OnPAYC_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PAYC_CMNT", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string PAYC_CMNT
+		{
+			get
+			{
+				return this._PAYC_CMNT;
+			}
+			set
+			{
+				if ((this._PAYC_CMNT != value))
+				{
+					this.OnPAYC_CMNTChanging(value);
+					this.SendPropertyChanging();
+					this._PAYC_CMNT = value;
+					this.SendPropertyChanged("PAYC_CMNT");
+					this.OnPAYC_CMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LETT_NO", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		public string LETT_NO
+		{
+			get
+			{
+				return this._LETT_NO;
+			}
+			set
+			{
+				if ((this._LETT_NO != value))
+				{
+					this.OnLETT_NOChanging(value);
+					this.SendPropertyChanging();
+					this._LETT_NO = value;
+					this.SendPropertyChanged("LETT_NO");
+					this.OnLETT_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(2000)", UpdateCheck=UpdateCheck.Never)]
+		public string CMNT
+		{
+			get
+			{
+				return this._CMNT;
+			}
+			set
+			{
+				if ((this._CMNT != value))
+				{
+					this.OnCMNTChanging(value);
+					this.SendPropertyChanging();
+					this._CMNT = value;
+					this.SendPropertyChanged("CMNT");
+					this.OnCMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="App_Base_Define_Audit", Storage="_App_Base_Define", ThisKey="PAYC_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public App_Base_Define App_Base_Define
+		{
+			get
+			{
+				return this._App_Base_Define.Entity;
+			}
+			set
+			{
+				App_Base_Define previousValue = this._App_Base_Define.Entity;
+				if (((previousValue != value) 
+							|| (this._App_Base_Define.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._App_Base_Define.Entity = null;
+						previousValue.Audits.Remove(this);
+					}
+					this._App_Base_Define.Entity = value;
+					if ((value != null))
+					{
+						value.Audits.Add(this);
+						this._PAYC_CODE = value.CODE;
+					}
+					else
+					{
+						this._PAYC_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("App_Base_Define");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Audit", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Audits.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Audits.Add(this);
+						this._FIGH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._FIGH_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Bank_Account_Audit", Storage="_Fighter_Bank_Account", ThisKey="FBAC_CODE", OtherKey="CODE", IsForeignKey=true)]
+		public Fighter_Bank_Account Fighter_Bank_Account
+		{
+			get
+			{
+				return this._Fighter_Bank_Account.Entity;
+			}
+			set
+			{
+				Fighter_Bank_Account previousValue = this._Fighter_Bank_Account.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter_Bank_Account.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter_Bank_Account.Entity = null;
+						previousValue.Audits.Remove(this);
+					}
+					this._Fighter_Bank_Account.Entity = value;
+					if ((value != null))
+					{
+						value.Audits.Add(this);
+						this._FBAC_CODE = value.CODE;
+					}
+					else
+					{
+						this._FBAC_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter_Bank_Account");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Fighter_Bank_Account")]
+	public partial class Fighter_Bank_Account : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _FIGH_FILE_NO;
+		
+		private long _CODE;
+		
+		private System.Nullable<int> _RWNO;
+		
+		private string _BANK_NAME;
+		
+		private string _ACNT_NUMB;
+		
+		private string _CARD_NUMB;
+		
+		private string _CARD_NUMB_DNRM;
+		
+		private string _SHBA_NUMB;
+		
+		private string _SHBA_NUMB_DNRM;
+		
+		private string _CMNT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntitySet<Audit> _Audits;
+		
+		private EntityRef<Fighter> _Fighter;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnFIGH_FILE_NOChanging(System.Nullable<long> value);
+    partial void OnFIGH_FILE_NOChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnRWNOChanging(System.Nullable<int> value);
+    partial void OnRWNOChanged();
+    partial void OnBANK_NAMEChanging(string value);
+    partial void OnBANK_NAMEChanged();
+    partial void OnACNT_NUMBChanging(string value);
+    partial void OnACNT_NUMBChanged();
+    partial void OnCARD_NUMBChanging(string value);
+    partial void OnCARD_NUMBChanged();
+    partial void OnCARD_NUMB_DNRMChanging(string value);
+    partial void OnCARD_NUMB_DNRMChanged();
+    partial void OnSHBA_NUMBChanging(string value);
+    partial void OnSHBA_NUMBChanged();
+    partial void OnSHBA_NUMB_DNRMChanging(string value);
+    partial void OnSHBA_NUMB_DNRMChanged();
+    partial void OnCMNTChanging(string value);
+    partial void OnCMNTChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Fighter_Bank_Account()
+		{
+			this._Audits = new EntitySet<Audit>(new Action<Audit>(this.attach_Audits), new Action<Audit>(this.detach_Audits));
+			this._Fighter = default(EntityRef<Fighter>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_FILE_NO", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> FIGH_FILE_NO
+		{
+			get
+			{
+				return this._FIGH_FILE_NO;
+			}
+			set
+			{
+				if ((this._FIGH_FILE_NO != value))
+				{
+					if (this._Fighter.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFIGH_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._FIGH_FILE_NO = value;
+					this.SendPropertyChanged("FIGH_FILE_NO");
+					this.OnFIGH_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> RWNO
+		{
+			get
+			{
+				return this._RWNO;
+			}
+			set
+			{
+				if ((this._RWNO != value))
+				{
+					this.OnRWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RWNO = value;
+					this.SendPropertyChanged("RWNO");
+					this.OnRWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_NAME", DbType="NVarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string BANK_NAME
+		{
+			get
+			{
+				return this._BANK_NAME;
+			}
+			set
+			{
+				if ((this._BANK_NAME != value))
+				{
+					this.OnBANK_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._BANK_NAME = value;
+					this.SendPropertyChanged("BANK_NAME");
+					this.OnBANK_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ACNT_NUMB", DbType="VarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string ACNT_NUMB
+		{
+			get
+			{
+				return this._ACNT_NUMB;
+			}
+			set
+			{
+				if ((this._ACNT_NUMB != value))
+				{
+					this.OnACNT_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._ACNT_NUMB = value;
+					this.SendPropertyChanged("ACNT_NUMB");
+					this.OnACNT_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CARD_NUMB", DbType="VarChar(16)", UpdateCheck=UpdateCheck.Never)]
+		public string CARD_NUMB
+		{
+			get
+			{
+				return this._CARD_NUMB;
+			}
+			set
+			{
+				if ((this._CARD_NUMB != value))
+				{
+					this.OnCARD_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._CARD_NUMB = value;
+					this.SendPropertyChanged("CARD_NUMB");
+					this.OnCARD_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CARD_NUMB_DNRM", DbType="VarChar(19)", UpdateCheck=UpdateCheck.Never)]
+		public string CARD_NUMB_DNRM
+		{
+			get
+			{
+				return this._CARD_NUMB_DNRM;
+			}
+			set
+			{
+				if ((this._CARD_NUMB_DNRM != value))
+				{
+					this.OnCARD_NUMB_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._CARD_NUMB_DNRM = value;
+					this.SendPropertyChanged("CARD_NUMB_DNRM");
+					this.OnCARD_NUMB_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHBA_NUMB", DbType="VarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string SHBA_NUMB
+		{
+			get
+			{
+				return this._SHBA_NUMB;
+			}
+			set
+			{
+				if ((this._SHBA_NUMB != value))
+				{
+					this.OnSHBA_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._SHBA_NUMB = value;
+					this.SendPropertyChanged("SHBA_NUMB");
+					this.OnSHBA_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHBA_NUMB_DNRM", DbType="VarChar(100)", UpdateCheck=UpdateCheck.Never)]
+		public string SHBA_NUMB_DNRM
+		{
+			get
+			{
+				return this._SHBA_NUMB_DNRM;
+			}
+			set
+			{
+				if ((this._SHBA_NUMB_DNRM != value))
+				{
+					this.OnSHBA_NUMB_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._SHBA_NUMB_DNRM = value;
+					this.SendPropertyChanged("SHBA_NUMB_DNRM");
+					this.OnSHBA_NUMB_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CMNT", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		public string CMNT
+		{
+			get
+			{
+				return this._CMNT;
+			}
+			set
+			{
+				if ((this._CMNT != value))
+				{
+					this.OnCMNTChanging(value);
+					this.SendPropertyChanging();
+					this._CMNT = value;
+					this.SendPropertyChanged("CMNT");
+					this.OnCMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Bank_Account_Audit", Storage="_Audits", ThisKey="CODE", OtherKey="FBAC_CODE")]
+		public EntitySet<Audit> Audits
+		{
+			get
+			{
+				return this._Audits;
+			}
+			set
+			{
+				this._Audits.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Fighter_Bank_Account", Storage="_Fighter", ThisKey="FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Fighter_Bank_Accounts.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Fighter_Bank_Accounts.Add(this);
+						this._FIGH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._FIGH_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_Audits(Audit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter_Bank_Account = this;
+		}
+		
+		private void detach_Audits(Audit entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter_Bank_Account = null;
 		}
 	}
 	

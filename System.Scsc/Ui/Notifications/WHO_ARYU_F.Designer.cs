@@ -1233,7 +1233,7 @@
          this.AttnDesc_Txt.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs1, "ATTN_DESC", true));
          this.AttnDesc_Txt.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.AttnDesc_Txt.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.AttnDesc_Txt.Location = new System.Drawing.Point(0, 1061);
+         this.AttnDesc_Txt.Location = new System.Drawing.Point(0, 994);
          this.AttnDesc_Txt.Name = "AttnDesc_Txt";
          this.AttnDesc_Txt.Size = new System.Drawing.Size(1081, 46);
          this.AttnDesc_Txt.TabIndex = 29;
@@ -1282,7 +1282,7 @@
          this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
          this.panel4.Location = new System.Drawing.Point(1081, 47);
          this.panel4.Name = "panel4";
-         this.panel4.Size = new System.Drawing.Size(92, 1060);
+         this.panel4.Size = new System.Drawing.Size(92, 993);
          this.panel4.TabIndex = 87;
          // 
          // simpleButton11
@@ -1496,7 +1496,7 @@
          this.SaveAttnDesc_Txt.Appearance.Options.UseBackColor = true;
          this.SaveAttnDesc_Txt.Image = ((System.Drawing.Image)(resources.GetObject("SaveAttnDesc_Txt.Image")));
          this.SaveAttnDesc_Txt.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.SaveAttnDesc_Txt.Location = new System.Drawing.Point(24, 1011);
+         this.SaveAttnDesc_Txt.Location = new System.Drawing.Point(24, 944);
          this.SaveAttnDesc_Txt.LookAndFeel.SkinName = "Office 2013";
          this.SaveAttnDesc_Txt.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SaveAttnDesc_Txt.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -2046,7 +2046,7 @@
          this.xtraTabPage10.Controls.Add(this.PosStng_Butn);
          this.xtraTabPage10.Name = "xtraTabPage10";
          this.xtraTabPage10.Size = new System.Drawing.Size(718, 291);
-         this.xtraTabPage10.Text = "تنظیمات پرداخت";
+         this.xtraTabPage10.Text = "پرداخت بدهی";
          // 
          // Pos_Lov
          // 
@@ -5399,7 +5399,7 @@
          this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-         this.flowLayoutPanel2.Size = new System.Drawing.Size(764, 1014);
+         this.flowLayoutPanel2.Size = new System.Drawing.Size(764, 947);
          this.flowLayoutPanel2.TabIndex = 102;
          // 
          // panel5
@@ -5500,7 +5500,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.flowLayoutPanel2);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(1081, 1014);
+         this.splitContainerControl1.Size = new System.Drawing.Size(1081, 947);
          this.splitContainerControl1.SplitterPosition = 312;
          this.splitContainerControl1.TabIndex = 103;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -5522,7 +5522,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "WHO_ARYU_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1173, 1107);
+         this.Size = new System.Drawing.Size(1173, 1040);
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit13)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DAttpBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit14)).EndInit();

@@ -1595,6 +1595,7 @@ namespace System.Scsc.Ui.Common
                   break;
                case 7:
                   AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
+                  ClobBs.DataSource = iScsc.Card_Link_Operations.Where(c => c.CARD_FILE_NO == fileno);
                   break;
                case 10:
                   int _rqst = RqstBs.Position;

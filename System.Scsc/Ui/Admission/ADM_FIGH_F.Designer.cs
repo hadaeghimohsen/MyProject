@@ -4990,7 +4990,7 @@
          styleFormatCondition3.Column = this.DayType_Clm;
          styleFormatCondition3.Condition = DevExpress.XtraGrid.FormatConditionEnum.Equal;
          styleFormatCondition3.Value1 = "001";
-         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         styleFormatCondition4.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
          styleFormatCondition4.Appearance.Options.UseBackColor = true;
          styleFormatCondition4.ApplyToRow = true;
          styleFormatCondition4.Column = this.DayType_Clm;

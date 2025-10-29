@@ -226,17 +226,17 @@ namespace System.Scsc.Ui.Admission
          {
             Btn_RqstBnRqt_Click(null, null);
 
-            var Rqst = RqstBs1.Current as Data.Request;
-            if (Rqst != null && Rqst.RQST_STAT == "001")
+            var _rqst = RqstBs1.Current as Data.Request;
+            if (_rqst != null && _rqst.RQST_STAT == "001")
             {
                iScsc.PBL_SAVE_F(
                   new XElement("Process",
                      new XElement("Request",
-                        new XAttribute("rqid", Rqst.RQID),
-                        new XAttribute("prvncode", Rqst.REGN_PRVN_CODE),
-                        new XAttribute("regncode", Rqst.REGN_CODE),
+                        new XAttribute("rqid", _rqst.RQID),
+                        new XAttribute("prvncode", _rqst.REGN_PRVN_CODE),
+                        new XAttribute("regncode", _rqst.REGN_CODE),
                         new XElement("Request_Row",
-                           new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
+                           new XAttribute("fileno", _rqst.Fighters.FirstOrDefault().FILE_NO)
                         )
                      )
                   )
@@ -259,10 +259,21 @@ namespace System.Scsc.Ui.Admission
 
                CardNumb_Text.Text = "";
 
+               // 1404/07/17 * اگر نرم افزار الزام به گرفتن هزینه کارت باشه باید درامد متفرقه حتما باز شود               
+               if(OthrExpnInfo_Ckbx.Checked == false)
+               {
+                  if (iScsc.Settings.Any(s => s.CARD_EXPN_STAT == "002"))
+                  {
+                     var _figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == _rqst.Fighters.FirstOrDefault().FILE_NO);
+                     if (_figh.FNGR_PRNT_DNRM != FNGR_PRNT_TextEdit.Text)
+                        OthrExpnInfo_Ckbx.Checked = true;
+                  }
+               }
+
                if (OthrExpnInfo_Ckbx.Checked && followups == "")
                {
                   followups += "OIC_TOTL_F;";
-                  rqstRqid = Rqst.RQID;
+                  rqstRqid = _rqst.RQID;
                }
 
                if (followups != "")
@@ -281,10 +292,11 @@ namespace System.Scsc.Ui.Admission
                                           new XElement("Request", 
                                              new XAttribute("type", "01"), 
                                              new XElement("Request_Row", 
-                                                new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)),
+                                                new XAttribute("fileno", _rqst.Fighters.FirstOrDefault().FILE_NO)),
                                              new XAttribute("followups", followups.Substring(followups.IndexOf(";") + 1)),
                                              new XAttribute("rqstrqid", rqstRqid),
-                                             new XAttribute("formcaller", GetType().Name)
+                                             new XAttribute("formcaller", GetType().Name),
+                                             new XAttribute("dfltexpncode", iScsc.Settings.Where(s => s.CARD_EXPN_STAT == "002").FirstOrDefault().CARD_EXPN_CODE ?? 0)
                                           )
                                     }
                                  })

@@ -666,6 +666,13 @@ namespace System.Scsc.Ui.MasterPage
          ANoteBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Note_Tag_Info");
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          UserBs.DataSource = iScsc.V_Users;
+         ExpnBs.DataSource =
+            iScsc.Expenses.Where(ex =>
+               ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+               ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+                  //ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
+               ex.EXPN_STAT == "002" /* هزینه های فعال */
+            );
          Execute_Query();
          FormHandle = this.Handle;
          job.Status = StatusType.Successful;
@@ -881,6 +888,10 @@ namespace System.Scsc.Ui.MasterPage
             {
                job.Output = CWlet_Txt.EditValue;
             }
+         }
+         else if (xinput != null && xinput.Attribute("type").Value == "setfngrprnt")
+         {
+            FngrPrnt_Txt.Text = xinput.Attribute("fngrprnt").Value;
          }
          job.Status = StatusType.Successful;
       }

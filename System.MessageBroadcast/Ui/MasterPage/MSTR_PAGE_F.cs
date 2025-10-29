@@ -54,6 +54,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
       private SmsService.Sms SmsClient;
       private iNotiSmsService.iNotiSMS iNotiSmsClient;
       private System.MessageBroadcast.Code.Msgb.FarazSms FarazSmsClient;
+      private System.MessageBroadcast.Code.Msgb.IPPanelEdgeClient iPPanelEdgeClient; // Web Service IP Panel
 
       private void Btn_SmsServerRefresh_Click(object sender, EventArgs e)
       {
@@ -86,6 +87,12 @@ namespace System.MessageBroadcast.Ui.MasterPage
                      // Faraz SMS
                      if (FarazSmsClient == null)
                         FarazSmsClient = new Code.Msgb.FarazSms(smsConf.USER_NAME, smsConf.PASS_WORD);
+                  }
+                  else if(smsConf.SERV_TYPE == "004")
+                  {
+                     // IPPanel
+                     if (iPPanelEdgeClient == null)
+                        iPPanelEdgeClient = new Code.Msgb.IPPanelEdgeClient(smsConf.USER_NAME, smsConf.PASS_WORD);
                   }
 
                   // 1398/07/05 * بررسی وضعیت اتصال اینترنت
@@ -181,6 +188,15 @@ namespace System.MessageBroadcast.Ui.MasterPage
                            new XDocument(
                               new XElement("iNotiSms",
                                  new XElement("SendCredit", FarazSmsClient.GetCredit())
+                              )
+                           );
+                     }
+                     else if(smsConf.SERV_TYPE == "004")
+                     {
+                        xmsRespons =
+                           new XDocument(
+                              new XElement("iNotiSms",
+                                 new XElement("SendCredit", iPPanelEdgeClient.GetCredit())
                               )
                            );
                      }

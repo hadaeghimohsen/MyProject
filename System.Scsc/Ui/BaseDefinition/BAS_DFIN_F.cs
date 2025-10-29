@@ -164,6 +164,14 @@ namespace System.Scsc.Ui.BaseDefinition
          else if (Tb_Master.SelectedTab == tp_009)
          {
             ClubBs3.DataSource = iScsc.Clubs;
+
+            ExpnBs.DataSource =
+               iScsc.Expenses.Where(ex =>
+                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+                  ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+                     //ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
+                  ex.EXPN_STAT == "002" /* هزینه های فعال */
+               );
          }
          else if (Tb_Master.SelectedTab == tp_010)
          {
@@ -177,12 +185,12 @@ namespace System.Scsc.Ui.BaseDefinition
             MtodBs1.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
 
             ExpnBs.DataSource =
-            iScsc.Expenses.Where(ex =>
-               ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-               ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
-                  //ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-               ex.EXPN_STAT == "002" /* هزینه های فعال */
-            );
+               iScsc.Expenses.Where(ex =>
+                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+                  ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+                     //ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
+                  ex.EXPN_STAT == "002" /* هزینه های فعال */
+               );
          }
          else if (Tb_Master.SelectedTab == tp_011)
          {
@@ -2851,7 +2859,12 @@ namespace System.Scsc.Ui.BaseDefinition
 
                      new XAttribute("negdpstamnt", Stng.NEG_DPST_AMNT ?? "001"),
                      new XAttribute("dontshoweror", Stng.DONT_SHOW_EROR ?? "001"),
-                     new XAttribute("showerorlog", Stng.SHOW_EROR_LOG ?? "001")
+                     new XAttribute("showerorlog", Stng.SHOW_EROR_LOG ?? "001"),
+
+                     new XAttribute("limtcalcattnindy", Stng.LIMT_CALC_ATTN_INDY ?? "001"),
+
+                     new XAttribute("cardexpnstat", Stng.CARD_EXPN_STAT ?? "001"),
+                     new XAttribute("cardexpncode", Stng.CARD_EXPN_CODE ?? 0)
                   )
                )
             );

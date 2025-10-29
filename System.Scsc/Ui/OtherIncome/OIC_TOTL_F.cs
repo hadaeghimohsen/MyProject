@@ -403,6 +403,20 @@ namespace System.Scsc.Ui.OtherIncome
                ConfDasr_Butn_Click(null, null);
             }
 
+            // 1404/07/10 * چک کردن سیستم استخر علی محمدی برای اینکه اگر درخواست زماندار بخواهند ثبت کنند و کارت مورد نظر را تنظیم نکرده باشند سیستم باید خطا صادر کند
+            if (iScsc.External_Devices.Any(ex => ex.DEV_TYPE == "001" /* Card Reader */ && ex.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */ && ex.SEND_CMND_TYPE == "002" /* Close */ && ex.EXPN_CODE != null /* Fine Amount */))
+            {
+               var _timingPydts = _rqst.Payments.FirstOrDefault().Payment_Details.Where(pd => pd.Expense.MIN_TIME.Value.TimeOfDay.TotalMinutes > 1);
+               if (_timingPydts.Count() > 0)
+               {
+                  var _cardLinkOprts = _rqst.Card_Link_Operations;
+                  if (_cardLinkOprts.Count() < _timingPydts.Sum(pd => pd.QNTY))
+                  {
+                     throw new Exception("برای فاکتور ثبت شده، کارت ورود مجموعه به تعداد ذخیره نشده");
+                  }
+               }
+            }
+
             iScsc.OIC_ESAV_F(
                new XElement("Process",
                   new XElement("Request",
@@ -492,13 +506,24 @@ namespace System.Scsc.Ui.OtherIncome
                                     new XElement("Request",
                                        new XAttribute("type", "gatecontrol"),
                                        new XAttribute("gateactn", "close"),
-                                       new XAttribute("trgtedevcode", ed.CODE)
+                                       new XAttribute("trgtedevcode", ed.LINK_EDEV_CODE)
                                     )
                               }
                            }
                         )
                      )
-                  );
+                  );               
+            }
+            else
+            {
+               // Play Enter Sound
+               // 1404/03/30 ** New version for play sound
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                  {
+                     Input = new XElement("Sound", new XAttribute("type", "004"))
+                  }
+               );
             }
 
             requery = true;
@@ -5917,6 +5942,181 @@ namespace System.Scsc.Ui.OtherIncome
          {
             MessageBox.Show(exc.Message);
          }
-      }      
+      }
+
+      private void ClnoActn_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _clon = ClnoBs.Current as Data.Card_Link_Operation;
+            if (_clon == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  iScsc.ExecuteCommand(string.Format("DELETE dbo.Card_Link_Operation WHERE CODE = {0};", _clon.CODE));
+                  Execute_Query();
+                  break;
+               case 1:
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _clon.CARD_FILE_NO)) }
+                  );
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void FindClno_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            FromStrtDate_Dt.CommitChanges();
+            ToStrtDate_Dt.CommitChanges();
+            FromEndDate_Dt.CommitChanges();
+            ToEndDate_Dt.CommitChanges();
+
+            DateTime? _fromStrtDate = null, _toStrtDate = null, _fromEndDate = null, _toEndDate = null;
+            if (FromStrtDate_Cbx.Checked && !FromStrtDate_Dt.Value.HasValue) { FromStrtDate_Dt.Focus(); return; }
+            if (FromStrtDate_Cbx.Checked && FromStrtDate_Dt.Value.HasValue) { _fromStrtDate = FromStrtDate_Dt.Value.Value.Date; }
+            if (ToStrtDate_Cbx.Checked && !ToStrtDate_Dt.Value.HasValue) { ToStrtDate_Dt.Focus(); return; }
+            if (ToStrtDate_Cbx.Checked && ToStrtDate_Dt.Value.HasValue) { _toStrtDate = ToStrtDate_Dt.Value.Value.Date; }
+
+            if (FromEndDate_Cbx.Checked && !FromEndDate_Dt.Value.HasValue) { FromEndDate_Dt.Focus(); return; }
+            if (FromEndDate_Cbx.Checked && FromEndDate_Dt.Value.HasValue) { _fromEndDate = FromEndDate_Dt.Value.Value.Date; }
+            if (ToEndDate_Cbx.Checked && !ToEndDate_Dt.Value.HasValue) { ToEndDate_Dt.Focus(); return; }
+            if (ToEndDate_Cbx.Checked && ToEndDate_Dt.Value.HasValue) { _toEndDate = ToEndDate_Dt.Value.Value.Date; }
+
+            TimeSpan? _fromStrtTime = null, _toStrtTime = null, _fromEndTime = null, _toEndTime = null;
+            if (FromStrtTime_Cbx.Checked && (FromStrtTime_Tm.EditValue == null || string.IsNullOrWhiteSpace(FromStrtTime_Tm.Text))) { FromStrtTime_Tm.Focus(); return; }
+            if (FromStrtTime_Cbx.Checked && !(FromStrtTime_Tm.EditValue == null || string.IsNullOrWhiteSpace(FromStrtTime_Tm.Text))) { _fromStrtTime = FromStrtTime_Tm.Time.TimeOfDay; }
+            if (ToStrtTime_Cbx.Checked && (ToStrtTime_Tm.EditValue == null || string.IsNullOrWhiteSpace(ToStrtTime_Tm.Text))) { ToStrtTime_Tm.Focus(); return; }
+            if (ToStrtTime_Cbx.Checked && !(ToStrtTime_Tm.EditValue == null || string.IsNullOrWhiteSpace(ToStrtTime_Tm.Text))) { _toStrtTime = ToStrtTime_Tm.Time.TimeOfDay; }
+
+            if (FromEndTime_Cbx.Checked && (FromEndTime_Tm.EditValue == null || string.IsNullOrWhiteSpace(FromEndTime_Tm.Text))) { FromEndTime_Tm.Focus(); return; }
+            if (FromEndTime_Cbx.Checked && !(FromEndTime_Tm.EditValue == null || string.IsNullOrWhiteSpace(FromEndTime_Tm.Text))) { _fromEndTime = FromEndTime_Tm.Time.TimeOfDay; }
+            if (ToEndTime_Cbx.Checked && (ToEndTime_Tm.EditValue == null || string.IsNullOrWhiteSpace(ToEndTime_Tm.Text))) { ToEndTime_Tm.Focus(); return; }
+            if (ToEndTime_Cbx.Checked && !(ToEndTime_Tm.EditValue == null || string.IsNullOrWhiteSpace(ToEndTime_Tm.Text))) { _toEndTime = ToEndTime_Tm.Time.TimeOfDay; }
+
+            // 1404/08/01 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
+            if (!checkValidateDate(_fromStrtDate.HasValue ? _fromStrtDate.Value : DateTime.Now.AddDays(-1))) return;
+            if (!checkValidateDate(_fromEndDate.HasValue ? _fromEndDate.Value : DateTime.Now.AddDays(-1))) return;
+
+            // --- تبدیل ورودی‌ها قبل از Query ---
+            int? fromUseMint = FromUseMint_Cbx.Checked ? (int?) FromUseMint_Txt.Text.ToInt32() : null;
+            int? toUseMint = ToUseMint_Cbx.Checked ? (int?) ToUseMint_Txt.Text.ToInt32() : null;
+            int? fromCrntMint = FromCrntMint_Cbx.Checked ? (int?) FromCrntMint_Txt.Text.ToInt32() : null;
+            int? toCrntMint = ToCrntMint_Cbx.Checked ? (int?) ToCrntMint_Txt.Text.ToInt32() : null;
+            int? fromFineMint = FromFineMint_Cbx.Checked ? (int?) FromFineMint_Txt.Text.ToInt32() : null;
+            int? toFineMint = ToFineMint_Cbx.Checked ? (int?) ToFineMint_Txt.Text.ToInt32() : null;
+            int? fromFineAmnt = FromFineAmnt_Cbx.Checked ? (int?) FromFineAmnt_Txt.Text.ToInt32() : null;
+            int? toFineAmnt = ToFineAmnt_Cbx.Checked ? (int?) ToFineAmnt_Txt.Text.ToInt32() : null;
+
+            // --- جمع‌آوری جنسیت و سرویس ---
+            var sexTypes = new List<string>();
+            if (Men_Cbx.Checked) sexTypes.Add("001");
+            if (Women_Cbx.Checked) sexTypes.Add("002");
+
+            var servTypes = new List<string>();
+            if (Serv_Cbx.Checked) servTypes.Add("001");
+            if (Gust_Cbx.Checked) servTypes.Add("005");
+
+            var _quryStr = "SELECT * FROM v$Card_Link_Operation a WHERE 1=1 ";
+
+            // فیلتر بر اساس کاربر
+            if (CrntUser1_Cbx.Checked)
+               _quryStr += string.Format("AND a.CRET_BY = '{0}'", CurrentUser);//_quryStr.Where(a => a.CRET_BY == CurrentUser);
+
+            // فیلتر نوع اعتبار
+            if(ValdType_Cbx.CheckState != CheckState.Indeterminate)
+               _quryStr += string.Format("AND a.VALD_TYPE = '{0}'", (ValdType_Cbx.Checked ? "002" : "001"));//_quryStr.Where(a => a.VALD_TYPE == (ValdType_Cbx.Checked ? "002" : "001"));
+
+            // فیلتر وضعیت جریمه
+            if (FineStat_Cbx.CheckState != CheckState.Indeterminate)
+            _quryStr += string.Format("AND a.FINE_STAT = '{0}'", (FineStat_Cbx.Checked ? "002" : "001"));//_quryStr.Where(a => a.FINE_STAT == (FineStat_Cbx.Checked ? "002" : "001"));
+
+            // فیلتر پرداخت جریمه
+            if (FinePay_Cbx.Checked)
+                _quryStr += string.Format("AND EXISTS(SELECT * FROM Payment_Method pm WHERE a.FINE_RQST_RQID = pm.RQRO_RQST_RQID)");//_quryStr.Where(a => iScsc.Payment_Methods.Any(pm => pm.RQRO_RQST_RQID == a.FINE_RQST_RQID));
+
+            // فیلتر جنسیت و نوع سرویس
+            if (sexTypes.Any())
+                _quryStr += string.Format("AND a.SERV_SEX_TYPE IN ('{0}')", string.Join(",", sexTypes));//_quryStr.Where(a => sexTypes.Contains(a.SERV_SEX_TYPE));
+
+            if (servTypes.Any())
+                _quryStr += string.Format("AND a.SERV_TYPE IN ('{0}')", string.Join(",", servTypes));//_quryStr.Where(a => servTypes.Contains(a.SERV_TYPE));
+
+            // فیلتر نام سرویس و شماره تلفن
+            if (ServName_Cbx.Checked && !string.IsNullOrWhiteSpace(ServName_Txt.Text))
+                _quryStr += string.Format("AND a.SERV_NAME_DNRM LIKE N'%{0}%'", ServName_Txt.Text.Replace(' ', '%'));//_quryStr.Where(a => a.SERV_NAME_DNRM.Contains(ServName_Txt.Text));
+
+            if (ServCellPhon_Cbx.Checked && !string.IsNullOrWhiteSpace(ServCellPhon_Txt.Text))
+               _quryStr += string.Format("AND a.SERV_CELL_PHON_DNRM LIKE N'%{0}%'", ServCellPhon_Txt); ;//_quryStr.Where(a => a.SERV_CELL_PHON_DNRM.Contains(ServCellPhon_Txt.Text));
+
+            // فیلتر مقادیر Nullable int/decimal
+            if (fromUseMint.HasValue)
+               _quryStr += string.Format("AND a.TOTL_USE_MINT_DNRM >= {0}", fromUseMint);//_quryStr.Where(a => a.TOTL_USE_MINT_DNRM >= fromUseMint);
+
+            if (toUseMint.HasValue)
+               _quryStr += string.Format("AND a.TOTL_USE_MINT_DNRM <= {0}", toUseMint);//_quryStr.Where(a => a.TOTL_USE_MINT_DNRM <= toUseMint);
+
+            if (fromCrntMint.HasValue)
+               _quryStr += string.Format("AND a.CRNT_MINT_NOW >= {0}", fromCrntMint);//_quryStr.Where(a => a.CRNT_MINT_NOW >= fromCrntMint);
+
+            if (toCrntMint.HasValue)
+               _quryStr += string.Format("AND a.CRNT_MINT_NOW <= {0}", toCrntMint);//_quryStr.Where(a => a.CRNT_MINT_NOW <= toCrntMint);
+
+            if (fromFineMint.HasValue)
+               _quryStr += string.Format("AND a.FINE_MINT_NOW >= {0}", fromFineMint);//_quryStr.Where(a => a.FINE_MINT_DNRM >= fromFineMint);
+
+            if (toFineMint.HasValue)
+               _quryStr += string.Format("AND a.FINE_MINT_NOW <= {0}", toFineMint);//_quryStr.Where(a => a.FINE_MINT_DNRM <= toFineMint);
+
+            if (fromFineAmnt.HasValue)
+               _quryStr += string.Format("AND a.FINE_AMNT_NOW >= {0}", fromFineAmnt);//_quryStr.Where(a => a.FINE_AMNT_DNRM >= fromFineAmnt);
+
+            if (toFineAmnt.HasValue)
+               _quryStr += string.Format("AND a.FINE_AMNT_NOW <= {0}", toFineAmnt);//_quryStr.Where(a => a.FINE_AMNT_DNRM <= toFineAmnt);
+
+            // فیلتر تاریخ با DbFunctions برای EF
+            if (_fromStrtDate.HasValue)
+               _quryStr += string.Format("AND CAST(a.STRT_TIME AS DATE) >= '{0}'", _fromStrtDate.Value.ToString("yyyy-MM-dd"));                
+
+            if (_toStrtDate.HasValue)
+               _quryStr += string.Format("AND CAST(a.STRT_TIME AS DATE) <= '{0}'", _toStrtDate.Value.ToString("yyyy-MM-dd"));
+
+            if (_fromEndDate.HasValue)
+               _quryStr += string.Format("AND CAST(a.END_TIME AS DATE) >= '{0}'", _fromEndDate.Value.ToString("yyyy-MM-dd"));
+
+            if (_toEndDate.HasValue)
+               _quryStr += string.Format("AND CAST(a.END_TIME AS DATE) <= '{0}'", _toEndDate.Value.ToString("yyyy-MM-dd"));
+
+            // فیلتر زمان (TimeOfDay) – چون EF نمی‌تواند مستقیم ترجمه کند، از AsEnumerable استفاده می‌کنیم
+            if (_fromStrtTime.HasValue)
+               _quryStr += string.Format("AND CAST(a.STRT_TIME AS TIME(0)) >= '{0}'", _fromStrtTime.Value.ToString(@"hh\:mm"));
+
+            if (_toStrtTime.HasValue)
+               _quryStr += string.Format("AND CAST(a.STRT_TIME AS TIME(0)) <= '{0}'", _toStrtTime.Value.ToString(@"hh\:mm"));
+
+            if (_fromEndTime.HasValue)
+               _quryStr += string.Format("AND CAST(a.END_TIME AS TIME(0)) >= '{0}'", _fromEndTime.Value.ToString(@"hh\:mm"));
+
+            if (_toEndTime.HasValue)
+               _quryStr += string.Format("AND CAST(a.END_TIME AS TIME(0)) <= '{0}'", _toEndTime.Value.ToString(@"hh\:mm"));
+
+            // خروجی به DataSource
+            var _rslt = iScsc.ExecuteQuery<Data.V_Card_Link_Operation>(_quryStr).ToList();
+            VClnoBs.DataSource = _rslt.Any() ? _rslt : null;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

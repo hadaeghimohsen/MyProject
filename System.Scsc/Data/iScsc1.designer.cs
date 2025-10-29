@@ -399,9 +399,6 @@ namespace System.Scsc.Data
     partial void InsertFighter_Body_Measurement(Fighter_Body_Measurement instance);
     partial void UpdateFighter_Body_Measurement(Fighter_Body_Measurement instance);
     partial void DeleteFighter_Body_Measurement(Fighter_Body_Measurement instance);
-    partial void InsertSetting(Setting instance);
-    partial void UpdateSetting(Setting instance);
-    partial void DeleteSetting(Setting instance);
     partial void InsertDresser(Dresser instance);
     partial void UpdateDresser(Dresser instance);
     partial void DeleteDresser(Dresser instance);
@@ -426,6 +423,9 @@ namespace System.Scsc.Data
     partial void InsertCard_Link_Operation(Card_Link_Operation instance);
     partial void UpdateCard_Link_Operation(Card_Link_Operation instance);
     partial void DeleteCard_Link_Operation(Card_Link_Operation instance);
+    partial void InsertSetting(Setting instance);
+    partial void UpdateSetting(Setting instance);
+    partial void DeleteSetting(Setting instance);
     #endregion
 		
 		public iScscDataContext() : 
@@ -2730,27 +2730,11 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Setting> Settings
-		{
-			get
-			{
-				return this.GetTable<Setting>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Dresser> Dressers
 		{
 			get
 			{
 				return this.GetTable<Dresser>();
-			}
-		}
-		
-		public System.Data.Linq.Table<V_Pos_Device> V_Pos_Devices
-		{
-			get
-			{
-				return this.GetTable<V_Pos_Device>();
 			}
 		}
 		
@@ -2839,6 +2823,30 @@ namespace System.Scsc.Data
 			get
 			{
 				return this.GetTable<Fighter_Bank_Account>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Setting> Settings
+		{
+			get
+			{
+				return this.GetTable<Setting>();
+			}
+		}
+		
+		public System.Data.Linq.Table<V_Pos_Device> V_Pos_Devices
+		{
+			get
+			{
+				return this.GetTable<V_Pos_Device>();
+			}
+		}
+		
+		public System.Data.Linq.Table<V_Card_Link_Operation> V_Card_Link_Operations
+		{
+			get
+			{
+				return this.GetTable<V_Card_Link_Operation>();
 			}
 		}
 		
@@ -108642,2317 +108650,6 @@ namespace System.Scsc.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Settings")]
-	public partial class Setting : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Nullable<long> _CLUB_CODE;
-		
-		private long _CODE;
-		
-		private string _DFLT_STAT;
-		
-		private System.Nullable<bool> _BACK_UP;
-		
-		private System.Nullable<bool> _BACK_UP_APP_EXIT;
-		
-		private System.Nullable<bool> _BACK_UP_IN_TRED;
-		
-		private System.Nullable<bool> _BACK_UP_OPTN_PATH;
-		
-		private string _BACK_UP_OPTN_PATH_ADRS;
-		
-		private string _BACK_UP_ROOT_PATH;
-		
-		private string _DRES_STAT;
-		
-		private string _DRES_AUTO;
-		
-		private string _MORE_FIGH_ONE_DRES;
-		
-		private string _MORE_ATTN_SESN;
-		
-		private string _NOTF_STAT;
-		
-		private System.Nullable<int> _NOTF_EXP_DAY;
-		
-		private System.Nullable<System.DateTime> _NOTF_VIST_DATE;
-		
-		private string _ATTN_SYST_TYPE;
-		
-		private string _COMM_PORT_NAME;
-		
-		private System.Nullable<int> _BAND_RATE;
-		
-		private string _BAR_CODE_DATA_TYPE;
-		
-		private string _ATN3_EVNT_ACTN_TYPE;
-		
-		private string _IP_ADDR;
-		
-		private System.Nullable<int> _PORT_NUMB;
-		
-		private string _ATTN_COMP_CONCT;
-		
-		private string _ATN1_EVNT_ACTN_TYPE;
-		
-		private string _IP_ADR2;
-		
-		private System.Nullable<int> _PORT_NUM2;
-		
-		private string _ATTN_COMP_CNC2;
-		
-		private string _ATN2_EVNT_ACTN_TYPE;
-		
-		private string _ATTN_NOTF_STAT;
-		
-		private string _ATTN_NOTF_CLOS_TYPE;
-		
-		private System.Nullable<int> _ATTN_NOTF_CLOS_INTR;
-		
-		private string _DEBT_CLNG_STAT;
-		
-		private System.Nullable<long> _MOST_DEBT_CLNG_AMNT;
-		
-		private System.Nullable<int> _EXPR_DEBT_DAY;
-		
-		private string _DEBT_CHCK_STAT;
-		
-		private System.Nullable<int> _PERM_ENTR_DEBT_SERV_NUMB;
-		
-		private string _TRY_VALD_SBMT;
-		
-		private string _GATE_ATTN_STAT;
-		
-		private string _GATE_COMM_PORT_NAME;
-		
-		private System.Nullable<int> _GATE_BAND_RATE;
-		
-		private System.Nullable<int> _GATE_TIME_CLOS;
-		
-		private string _GATE_ENTR_OPEN;
-		
-		private string _GATE_EXIT_OPEN;
-		
-		private string _EXPN_EXTR_STAT;
-		
-		private string _EXPN_COMM_PORT_NAME;
-		
-		private System.Nullable<int> _EXPN_BAND_RATE;
-		
-		private string _RUN_QURY;
-		
-		private string _ATTN_PRNT_STAT;
-		
-		private string _SHAR_MBSP_STAT;
-		
-		private string _RUN_RBOT;
-		
-		private System.Nullable<int> _HLDY_CONT;
-		
-		private string _CLER_ZERO;
-		
-		private string _DUPL_NATL_CODE;
-		
-		private string _DUPL_CELL_PHON;
-		
-		private string _INPT_NATL_CODE_STAT;
-		
-		private string _INPT_CELL_PHON_STAT;
-		
-		private string _IP_ADR3;
-		
-		private System.Nullable<int> _PORT_NUM3;
-		
-		private string _ATTN_COMP_CNC3;
-		
-		private string _ATN4_EVNT_ACTN_TYPE;
-		
-		private System.Nullable<short> _LEN_FNGR_PRNT;
-		
-		private string _ATTN_GUST_NUMB_TYPE;
-		
-		private System.Nullable<short> _ATTN_DELY_TIME;
-		
-		private string _SND1_PATH;
-		
-		private string _SND2_PATH;
-		
-		private string _SND3_PATH;
-		
-		private string _SND4_PATH;
-		
-		private string _SND5_PATH;
-		
-		private string _SND6_PATH;
-		
-		private string _SND7_PATH;
-		
-		private string _SND8_PATH;
-		
-		private string _SND9_PATH;
-		
-		private string _REST_ATTN_NUMB_BY_YEAR;
-		
-		private string _ATTN_NOT_INSR_STAT;
-		
-		private string _SHOW_RBON_MNUI;
-		
-		private string _SHOW_SLID_MNUI;
-		
-		private string _NEG_DPST_AMNT;
-		
-		private string _DONT_SHOW_EROR;
-		
-		private string _SHOW_EROR_LOG;
-		
-		private string _DEV4_STAT;
-		
-		private string _IP_ADR4;
-		
-		private System.Nullable<int> _PORT_NUM4;
-		
-		private string _ATTN_COMP_CNC4;
-		
-		private string _DEV5_STAT;
-		
-		private string _IP_ADR5;
-		
-		private System.Nullable<int> _PORT_NUM5;
-		
-		private string _ATTN_COMP_CNC5;
-		
-		private string _DEV6_STAT;
-		
-		private string _IP_ADR6;
-		
-		private System.Nullable<int> _PORT_NUM6;
-		
-		private string _ATTN_COMP_CNC6;
-		
-		private string _LIMT_CALC_ATTN_INDY;
-		
-		private EntityRef<Club> _Club;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnCLUB_CODEChanging(System.Nullable<long> value);
-    partial void OnCLUB_CODEChanged();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnDFLT_STATChanging(string value);
-    partial void OnDFLT_STATChanged();
-    partial void OnBACK_UPChanging(System.Nullable<bool> value);
-    partial void OnBACK_UPChanged();
-    partial void OnBACK_UP_APP_EXITChanging(System.Nullable<bool> value);
-    partial void OnBACK_UP_APP_EXITChanged();
-    partial void OnBACK_UP_IN_TREDChanging(System.Nullable<bool> value);
-    partial void OnBACK_UP_IN_TREDChanged();
-    partial void OnBACK_UP_OPTN_PATHChanging(System.Nullable<bool> value);
-    partial void OnBACK_UP_OPTN_PATHChanged();
-    partial void OnBACK_UP_OPTN_PATH_ADRSChanging(string value);
-    partial void OnBACK_UP_OPTN_PATH_ADRSChanged();
-    partial void OnBACK_UP_ROOT_PATHChanging(string value);
-    partial void OnBACK_UP_ROOT_PATHChanged();
-    partial void OnDRES_STATChanging(string value);
-    partial void OnDRES_STATChanged();
-    partial void OnDRES_AUTOChanging(string value);
-    partial void OnDRES_AUTOChanged();
-    partial void OnMORE_FIGH_ONE_DRESChanging(string value);
-    partial void OnMORE_FIGH_ONE_DRESChanged();
-    partial void OnMORE_ATTN_SESNChanging(string value);
-    partial void OnMORE_ATTN_SESNChanged();
-    partial void OnNOTF_STATChanging(string value);
-    partial void OnNOTF_STATChanged();
-    partial void OnNOTF_EXP_DAYChanging(System.Nullable<int> value);
-    partial void OnNOTF_EXP_DAYChanged();
-    partial void OnNOTF_VIST_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnNOTF_VIST_DATEChanged();
-    partial void OnATTN_SYST_TYPEChanging(string value);
-    partial void OnATTN_SYST_TYPEChanged();
-    partial void OnCOMM_PORT_NAMEChanging(string value);
-    partial void OnCOMM_PORT_NAMEChanged();
-    partial void OnBAND_RATEChanging(System.Nullable<int> value);
-    partial void OnBAND_RATEChanged();
-    partial void OnBAR_CODE_DATA_TYPEChanging(string value);
-    partial void OnBAR_CODE_DATA_TYPEChanged();
-    partial void OnATN3_EVNT_ACTN_TYPEChanging(string value);
-    partial void OnATN3_EVNT_ACTN_TYPEChanged();
-    partial void OnIP_ADDRChanging(string value);
-    partial void OnIP_ADDRChanged();
-    partial void OnPORT_NUMBChanging(System.Nullable<int> value);
-    partial void OnPORT_NUMBChanged();
-    partial void OnATTN_COMP_CONCTChanging(string value);
-    partial void OnATTN_COMP_CONCTChanged();
-    partial void OnATN1_EVNT_ACTN_TYPEChanging(string value);
-    partial void OnATN1_EVNT_ACTN_TYPEChanged();
-    partial void OnIP_ADR2Changing(string value);
-    partial void OnIP_ADR2Changed();
-    partial void OnPORT_NUM2Changing(System.Nullable<int> value);
-    partial void OnPORT_NUM2Changed();
-    partial void OnATTN_COMP_CNC2Changing(string value);
-    partial void OnATTN_COMP_CNC2Changed();
-    partial void OnATN2_EVNT_ACTN_TYPEChanging(string value);
-    partial void OnATN2_EVNT_ACTN_TYPEChanged();
-    partial void OnATTN_NOTF_STATChanging(string value);
-    partial void OnATTN_NOTF_STATChanged();
-    partial void OnATTN_NOTF_CLOS_TYPEChanging(string value);
-    partial void OnATTN_NOTF_CLOS_TYPEChanged();
-    partial void OnATTN_NOTF_CLOS_INTRChanging(System.Nullable<int> value);
-    partial void OnATTN_NOTF_CLOS_INTRChanged();
-    partial void OnDEBT_CLNG_STATChanging(string value);
-    partial void OnDEBT_CLNG_STATChanged();
-    partial void OnMOST_DEBT_CLNG_AMNTChanging(System.Nullable<long> value);
-    partial void OnMOST_DEBT_CLNG_AMNTChanged();
-    partial void OnEXPR_DEBT_DAYChanging(System.Nullable<int> value);
-    partial void OnEXPR_DEBT_DAYChanged();
-    partial void OnDEBT_CHCK_STATChanging(string value);
-    partial void OnDEBT_CHCK_STATChanged();
-    partial void OnPERM_ENTR_DEBT_SERV_NUMBChanging(System.Nullable<int> value);
-    partial void OnPERM_ENTR_DEBT_SERV_NUMBChanged();
-    partial void OnTRY_VALD_SBMTChanging(string value);
-    partial void OnTRY_VALD_SBMTChanged();
-    partial void OnGATE_ATTN_STATChanging(string value);
-    partial void OnGATE_ATTN_STATChanged();
-    partial void OnGATE_COMM_PORT_NAMEChanging(string value);
-    partial void OnGATE_COMM_PORT_NAMEChanged();
-    partial void OnGATE_BAND_RATEChanging(System.Nullable<int> value);
-    partial void OnGATE_BAND_RATEChanged();
-    partial void OnGATE_TIME_CLOSChanging(System.Nullable<int> value);
-    partial void OnGATE_TIME_CLOSChanged();
-    partial void OnGATE_ENTR_OPENChanging(string value);
-    partial void OnGATE_ENTR_OPENChanged();
-    partial void OnGATE_EXIT_OPENChanging(string value);
-    partial void OnGATE_EXIT_OPENChanged();
-    partial void OnEXPN_EXTR_STATChanging(string value);
-    partial void OnEXPN_EXTR_STATChanged();
-    partial void OnEXPN_COMM_PORT_NAMEChanging(string value);
-    partial void OnEXPN_COMM_PORT_NAMEChanged();
-    partial void OnEXPN_BAND_RATEChanging(System.Nullable<int> value);
-    partial void OnEXPN_BAND_RATEChanged();
-    partial void OnRUN_QURYChanging(string value);
-    partial void OnRUN_QURYChanged();
-    partial void OnATTN_PRNT_STATChanging(string value);
-    partial void OnATTN_PRNT_STATChanged();
-    partial void OnSHAR_MBSP_STATChanging(string value);
-    partial void OnSHAR_MBSP_STATChanged();
-    partial void OnRUN_RBOTChanging(string value);
-    partial void OnRUN_RBOTChanged();
-    partial void OnHLDY_CONTChanging(System.Nullable<int> value);
-    partial void OnHLDY_CONTChanged();
-    partial void OnCLER_ZEROChanging(string value);
-    partial void OnCLER_ZEROChanged();
-    partial void OnDUPL_NATL_CODEChanging(string value);
-    partial void OnDUPL_NATL_CODEChanged();
-    partial void OnDUPL_CELL_PHONChanging(string value);
-    partial void OnDUPL_CELL_PHONChanged();
-    partial void OnINPT_NATL_CODE_STATChanging(string value);
-    partial void OnINPT_NATL_CODE_STATChanged();
-    partial void OnINPT_CELL_PHON_STATChanging(string value);
-    partial void OnINPT_CELL_PHON_STATChanged();
-    partial void OnIP_ADR3Changing(string value);
-    partial void OnIP_ADR3Changed();
-    partial void OnPORT_NUM3Changing(System.Nullable<int> value);
-    partial void OnPORT_NUM3Changed();
-    partial void OnATTN_COMP_CNC3Changing(string value);
-    partial void OnATTN_COMP_CNC3Changed();
-    partial void OnATN4_EVNT_ACTN_TYPEChanging(string value);
-    partial void OnATN4_EVNT_ACTN_TYPEChanged();
-    partial void OnLEN_FNGR_PRNTChanging(System.Nullable<short> value);
-    partial void OnLEN_FNGR_PRNTChanged();
-    partial void OnATTN_GUST_NUMB_TYPEChanging(string value);
-    partial void OnATTN_GUST_NUMB_TYPEChanged();
-    partial void OnATTN_DELY_TIMEChanging(System.Nullable<short> value);
-    partial void OnATTN_DELY_TIMEChanged();
-    partial void OnSND1_PATHChanging(string value);
-    partial void OnSND1_PATHChanged();
-    partial void OnSND2_PATHChanging(string value);
-    partial void OnSND2_PATHChanged();
-    partial void OnSND3_PATHChanging(string value);
-    partial void OnSND3_PATHChanged();
-    partial void OnSND4_PATHChanging(string value);
-    partial void OnSND4_PATHChanged();
-    partial void OnSND5_PATHChanging(string value);
-    partial void OnSND5_PATHChanged();
-    partial void OnSND6_PATHChanging(string value);
-    partial void OnSND6_PATHChanged();
-    partial void OnSND7_PATHChanging(string value);
-    partial void OnSND7_PATHChanged();
-    partial void OnSND8_PATHChanging(string value);
-    partial void OnSND8_PATHChanged();
-    partial void OnSND9_PATHChanging(string value);
-    partial void OnSND9_PATHChanged();
-    partial void OnREST_ATTN_NUMB_BY_YEARChanging(string value);
-    partial void OnREST_ATTN_NUMB_BY_YEARChanged();
-    partial void OnATTN_NOT_INSR_STATChanging(string value);
-    partial void OnATTN_NOT_INSR_STATChanged();
-    partial void OnSHOW_RBON_MNUIChanging(string value);
-    partial void OnSHOW_RBON_MNUIChanged();
-    partial void OnSHOW_SLID_MNUIChanging(string value);
-    partial void OnSHOW_SLID_MNUIChanged();
-    partial void OnNEG_DPST_AMNTChanging(string value);
-    partial void OnNEG_DPST_AMNTChanged();
-    partial void OnDONT_SHOW_ERORChanging(string value);
-    partial void OnDONT_SHOW_ERORChanged();
-    partial void OnSHOW_EROR_LOGChanging(string value);
-    partial void OnSHOW_EROR_LOGChanged();
-    partial void OnDEV4_STATChanging(string value);
-    partial void OnDEV4_STATChanged();
-    partial void OnIP_ADR4Changing(string value);
-    partial void OnIP_ADR4Changed();
-    partial void OnPORT_NUM4Changing(System.Nullable<int> value);
-    partial void OnPORT_NUM4Changed();
-    partial void OnATTN_COMP_CNC4Changing(string value);
-    partial void OnATTN_COMP_CNC4Changed();
-    partial void OnDEV5_STATChanging(string value);
-    partial void OnDEV5_STATChanged();
-    partial void OnIP_ADR5Changing(string value);
-    partial void OnIP_ADR5Changed();
-    partial void OnPORT_NUM5Changing(System.Nullable<int> value);
-    partial void OnPORT_NUM5Changed();
-    partial void OnATTN_COMP_CNC5Changing(string value);
-    partial void OnATTN_COMP_CNC5Changed();
-    partial void OnDEV6_STATChanging(string value);
-    partial void OnDEV6_STATChanged();
-    partial void OnIP_ADR6Changing(string value);
-    partial void OnIP_ADR6Changed();
-    partial void OnPORT_NUM6Changing(System.Nullable<int> value);
-    partial void OnPORT_NUM6Changed();
-    partial void OnATTN_COMP_CNC6Changing(string value);
-    partial void OnATTN_COMP_CNC6Changed();
-    partial void OnLIMT_CALC_ATTN_INDYChanging(string value);
-    partial void OnLIMT_CALC_ATTN_INDYChanged();
-    #endregion
-		
-		public Setting()
-		{
-			this._Club = default(EntityRef<Club>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_CODE", DbType="BigInt")]
-		public System.Nullable<long> CLUB_CODE
-		{
-			get
-			{
-				return this._CLUB_CODE;
-			}
-			set
-			{
-				if ((this._CLUB_CODE != value))
-				{
-					if (this._Club.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnCLUB_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._CLUB_CODE = value;
-					this.SendPropertyChanged("CLUB_CODE");
-					this.OnCLUB_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)")]
-		public string DFLT_STAT
-		{
-			get
-			{
-				return this._DFLT_STAT;
-			}
-			set
-			{
-				if ((this._DFLT_STAT != value))
-				{
-					this.OnDFLT_STATChanging(value);
-					this.SendPropertyChanging();
-					this._DFLT_STAT = value;
-					this.SendPropertyChanged("DFLT_STAT");
-					this.OnDFLT_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP", DbType="Bit")]
-		public System.Nullable<bool> BACK_UP
-		{
-			get
-			{
-				return this._BACK_UP;
-			}
-			set
-			{
-				if ((this._BACK_UP != value))
-				{
-					this.OnBACK_UPChanging(value);
-					this.SendPropertyChanging();
-					this._BACK_UP = value;
-					this.SendPropertyChanged("BACK_UP");
-					this.OnBACK_UPChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_APP_EXIT", DbType="Bit")]
-		public System.Nullable<bool> BACK_UP_APP_EXIT
-		{
-			get
-			{
-				return this._BACK_UP_APP_EXIT;
-			}
-			set
-			{
-				if ((this._BACK_UP_APP_EXIT != value))
-				{
-					this.OnBACK_UP_APP_EXITChanging(value);
-					this.SendPropertyChanging();
-					this._BACK_UP_APP_EXIT = value;
-					this.SendPropertyChanged("BACK_UP_APP_EXIT");
-					this.OnBACK_UP_APP_EXITChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_IN_TRED", DbType="Bit")]
-		public System.Nullable<bool> BACK_UP_IN_TRED
-		{
-			get
-			{
-				return this._BACK_UP_IN_TRED;
-			}
-			set
-			{
-				if ((this._BACK_UP_IN_TRED != value))
-				{
-					this.OnBACK_UP_IN_TREDChanging(value);
-					this.SendPropertyChanging();
-					this._BACK_UP_IN_TRED = value;
-					this.SendPropertyChanged("BACK_UP_IN_TRED");
-					this.OnBACK_UP_IN_TREDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_OPTN_PATH", DbType="Bit")]
-		public System.Nullable<bool> BACK_UP_OPTN_PATH
-		{
-			get
-			{
-				return this._BACK_UP_OPTN_PATH;
-			}
-			set
-			{
-				if ((this._BACK_UP_OPTN_PATH != value))
-				{
-					this.OnBACK_UP_OPTN_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._BACK_UP_OPTN_PATH = value;
-					this.SendPropertyChanged("BACK_UP_OPTN_PATH");
-					this.OnBACK_UP_OPTN_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_OPTN_PATH_ADRS", DbType="NVarChar(MAX)")]
-		public string BACK_UP_OPTN_PATH_ADRS
-		{
-			get
-			{
-				return this._BACK_UP_OPTN_PATH_ADRS;
-			}
-			set
-			{
-				if ((this._BACK_UP_OPTN_PATH_ADRS != value))
-				{
-					this.OnBACK_UP_OPTN_PATH_ADRSChanging(value);
-					this.SendPropertyChanging();
-					this._BACK_UP_OPTN_PATH_ADRS = value;
-					this.SendPropertyChanged("BACK_UP_OPTN_PATH_ADRS");
-					this.OnBACK_UP_OPTN_PATH_ADRSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_ROOT_PATH", DbType="NVarChar(MAX)")]
-		public string BACK_UP_ROOT_PATH
-		{
-			get
-			{
-				return this._BACK_UP_ROOT_PATH;
-			}
-			set
-			{
-				if ((this._BACK_UP_ROOT_PATH != value))
-				{
-					this.OnBACK_UP_ROOT_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._BACK_UP_ROOT_PATH = value;
-					this.SendPropertyChanged("BACK_UP_ROOT_PATH");
-					this.OnBACK_UP_ROOT_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRES_STAT", DbType="VarChar(3)")]
-		public string DRES_STAT
-		{
-			get
-			{
-				return this._DRES_STAT;
-			}
-			set
-			{
-				if ((this._DRES_STAT != value))
-				{
-					this.OnDRES_STATChanging(value);
-					this.SendPropertyChanging();
-					this._DRES_STAT = value;
-					this.SendPropertyChanged("DRES_STAT");
-					this.OnDRES_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRES_AUTO", DbType="VarChar(3)")]
-		public string DRES_AUTO
-		{
-			get
-			{
-				return this._DRES_AUTO;
-			}
-			set
-			{
-				if ((this._DRES_AUTO != value))
-				{
-					this.OnDRES_AUTOChanging(value);
-					this.SendPropertyChanging();
-					this._DRES_AUTO = value;
-					this.SendPropertyChanged("DRES_AUTO");
-					this.OnDRES_AUTOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MORE_FIGH_ONE_DRES", DbType="VarChar(3)")]
-		public string MORE_FIGH_ONE_DRES
-		{
-			get
-			{
-				return this._MORE_FIGH_ONE_DRES;
-			}
-			set
-			{
-				if ((this._MORE_FIGH_ONE_DRES != value))
-				{
-					this.OnMORE_FIGH_ONE_DRESChanging(value);
-					this.SendPropertyChanging();
-					this._MORE_FIGH_ONE_DRES = value;
-					this.SendPropertyChanged("MORE_FIGH_ONE_DRES");
-					this.OnMORE_FIGH_ONE_DRESChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MORE_ATTN_SESN", DbType="VarChar(3)")]
-		public string MORE_ATTN_SESN
-		{
-			get
-			{
-				return this._MORE_ATTN_SESN;
-			}
-			set
-			{
-				if ((this._MORE_ATTN_SESN != value))
-				{
-					this.OnMORE_ATTN_SESNChanging(value);
-					this.SendPropertyChanging();
-					this._MORE_ATTN_SESN = value;
-					this.SendPropertyChanged("MORE_ATTN_SESN");
-					this.OnMORE_ATTN_SESNChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTF_STAT", DbType="VarChar(3)")]
-		public string NOTF_STAT
-		{
-			get
-			{
-				return this._NOTF_STAT;
-			}
-			set
-			{
-				if ((this._NOTF_STAT != value))
-				{
-					this.OnNOTF_STATChanging(value);
-					this.SendPropertyChanging();
-					this._NOTF_STAT = value;
-					this.SendPropertyChanged("NOTF_STAT");
-					this.OnNOTF_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTF_EXP_DAY", DbType="Int")]
-		public System.Nullable<int> NOTF_EXP_DAY
-		{
-			get
-			{
-				return this._NOTF_EXP_DAY;
-			}
-			set
-			{
-				if ((this._NOTF_EXP_DAY != value))
-				{
-					this.OnNOTF_EXP_DAYChanging(value);
-					this.SendPropertyChanging();
-					this._NOTF_EXP_DAY = value;
-					this.SendPropertyChanged("NOTF_EXP_DAY");
-					this.OnNOTF_EXP_DAYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTF_VIST_DATE", DbType="Date")]
-		public System.Nullable<System.DateTime> NOTF_VIST_DATE
-		{
-			get
-			{
-				return this._NOTF_VIST_DATE;
-			}
-			set
-			{
-				if ((this._NOTF_VIST_DATE != value))
-				{
-					this.OnNOTF_VIST_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._NOTF_VIST_DATE = value;
-					this.SendPropertyChanged("NOTF_VIST_DATE");
-					this.OnNOTF_VIST_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_SYST_TYPE", DbType="VarChar(3)")]
-		public string ATTN_SYST_TYPE
-		{
-			get
-			{
-				return this._ATTN_SYST_TYPE;
-			}
-			set
-			{
-				if ((this._ATTN_SYST_TYPE != value))
-				{
-					this.OnATTN_SYST_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._ATTN_SYST_TYPE = value;
-					this.SendPropertyChanged("ATTN_SYST_TYPE");
-					this.OnATTN_SYST_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMM_PORT_NAME", DbType="VarChar(30)")]
-		public string COMM_PORT_NAME
-		{
-			get
-			{
-				return this._COMM_PORT_NAME;
-			}
-			set
-			{
-				if ((this._COMM_PORT_NAME != value))
-				{
-					this.OnCOMM_PORT_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._COMM_PORT_NAME = value;
-					this.SendPropertyChanged("COMM_PORT_NAME");
-					this.OnCOMM_PORT_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAND_RATE", DbType="Int")]
-		public System.Nullable<int> BAND_RATE
-		{
-			get
-			{
-				return this._BAND_RATE;
-			}
-			set
-			{
-				if ((this._BAND_RATE != value))
-				{
-					this.OnBAND_RATEChanging(value);
-					this.SendPropertyChanging();
-					this._BAND_RATE = value;
-					this.SendPropertyChanged("BAND_RATE");
-					this.OnBAND_RATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAR_CODE_DATA_TYPE", DbType="VarChar(3)")]
-		public string BAR_CODE_DATA_TYPE
-		{
-			get
-			{
-				return this._BAR_CODE_DATA_TYPE;
-			}
-			set
-			{
-				if ((this._BAR_CODE_DATA_TYPE != value))
-				{
-					this.OnBAR_CODE_DATA_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._BAR_CODE_DATA_TYPE = value;
-					this.SendPropertyChanged("BAR_CODE_DATA_TYPE");
-					this.OnBAR_CODE_DATA_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN3_EVNT_ACTN_TYPE", DbType="VarChar(3)")]
-		public string ATN3_EVNT_ACTN_TYPE
-		{
-			get
-			{
-				return this._ATN3_EVNT_ACTN_TYPE;
-			}
-			set
-			{
-				if ((this._ATN3_EVNT_ACTN_TYPE != value))
-				{
-					this.OnATN3_EVNT_ACTN_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._ATN3_EVNT_ACTN_TYPE = value;
-					this.SendPropertyChanged("ATN3_EVNT_ACTN_TYPE");
-					this.OnATN3_EVNT_ACTN_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADDR", DbType="VarChar(15)")]
-		public string IP_ADDR
-		{
-			get
-			{
-				return this._IP_ADDR;
-			}
-			set
-			{
-				if ((this._IP_ADDR != value))
-				{
-					this.OnIP_ADDRChanging(value);
-					this.SendPropertyChanging();
-					this._IP_ADDR = value;
-					this.SendPropertyChanged("IP_ADDR");
-					this.OnIP_ADDRChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUMB", DbType="Int")]
-		public System.Nullable<int> PORT_NUMB
-		{
-			get
-			{
-				return this._PORT_NUMB;
-			}
-			set
-			{
-				if ((this._PORT_NUMB != value))
-				{
-					this.OnPORT_NUMBChanging(value);
-					this.SendPropertyChanging();
-					this._PORT_NUMB = value;
-					this.SendPropertyChanged("PORT_NUMB");
-					this.OnPORT_NUMBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CONCT", DbType="VarChar(30)")]
-		public string ATTN_COMP_CONCT
-		{
-			get
-			{
-				return this._ATTN_COMP_CONCT;
-			}
-			set
-			{
-				if ((this._ATTN_COMP_CONCT != value))
-				{
-					this.OnATTN_COMP_CONCTChanging(value);
-					this.SendPropertyChanging();
-					this._ATTN_COMP_CONCT = value;
-					this.SendPropertyChanged("ATTN_COMP_CONCT");
-					this.OnATTN_COMP_CONCTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN1_EVNT_ACTN_TYPE", DbType="VarChar(3)")]
-		public string ATN1_EVNT_ACTN_TYPE
-		{
-			get
-			{
-				return this._ATN1_EVNT_ACTN_TYPE;
-			}
-			set
-			{
-				if ((this._ATN1_EVNT_ACTN_TYPE != value))
-				{
-					this.OnATN1_EVNT_ACTN_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._ATN1_EVNT_ACTN_TYPE = value;
-					this.SendPropertyChanged("ATN1_EVNT_ACTN_TYPE");
-					this.OnATN1_EVNT_ACTN_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR2", DbType="VarChar(15)")]
-		public string IP_ADR2
-		{
-			get
-			{
-				return this._IP_ADR2;
-			}
-			set
-			{
-				if ((this._IP_ADR2 != value))
-				{
-					this.OnIP_ADR2Changing(value);
-					this.SendPropertyChanging();
-					this._IP_ADR2 = value;
-					this.SendPropertyChanged("IP_ADR2");
-					this.OnIP_ADR2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM2", DbType="Int")]
-		public System.Nullable<int> PORT_NUM2
-		{
-			get
-			{
-				return this._PORT_NUM2;
-			}
-			set
-			{
-				if ((this._PORT_NUM2 != value))
-				{
-					this.OnPORT_NUM2Changing(value);
-					this.SendPropertyChanging();
-					this._PORT_NUM2 = value;
-					this.SendPropertyChanged("PORT_NUM2");
-					this.OnPORT_NUM2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC2", DbType="VarChar(30)")]
-		public string ATTN_COMP_CNC2
-		{
-			get
-			{
-				return this._ATTN_COMP_CNC2;
-			}
-			set
-			{
-				if ((this._ATTN_COMP_CNC2 != value))
-				{
-					this.OnATTN_COMP_CNC2Changing(value);
-					this.SendPropertyChanging();
-					this._ATTN_COMP_CNC2 = value;
-					this.SendPropertyChanged("ATTN_COMP_CNC2");
-					this.OnATTN_COMP_CNC2Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN2_EVNT_ACTN_TYPE", DbType="VarChar(3)")]
-		public string ATN2_EVNT_ACTN_TYPE
-		{
-			get
-			{
-				return this._ATN2_EVNT_ACTN_TYPE;
-			}
-			set
-			{
-				if ((this._ATN2_EVNT_ACTN_TYPE != value))
-				{
-					this.OnATN2_EVNT_ACTN_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._ATN2_EVNT_ACTN_TYPE = value;
-					this.SendPropertyChanged("ATN2_EVNT_ACTN_TYPE");
-					this.OnATN2_EVNT_ACTN_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOTF_STAT", DbType="VarChar(3)")]
-		public string ATTN_NOTF_STAT
-		{
-			get
-			{
-				return this._ATTN_NOTF_STAT;
-			}
-			set
-			{
-				if ((this._ATTN_NOTF_STAT != value))
-				{
-					this.OnATTN_NOTF_STATChanging(value);
-					this.SendPropertyChanging();
-					this._ATTN_NOTF_STAT = value;
-					this.SendPropertyChanged("ATTN_NOTF_STAT");
-					this.OnATTN_NOTF_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOTF_CLOS_TYPE", DbType="VarChar(3)")]
-		public string ATTN_NOTF_CLOS_TYPE
-		{
-			get
-			{
-				return this._ATTN_NOTF_CLOS_TYPE;
-			}
-			set
-			{
-				if ((this._ATTN_NOTF_CLOS_TYPE != value))
-				{
-					this.OnATTN_NOTF_CLOS_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._ATTN_NOTF_CLOS_TYPE = value;
-					this.SendPropertyChanged("ATTN_NOTF_CLOS_TYPE");
-					this.OnATTN_NOTF_CLOS_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOTF_CLOS_INTR", DbType="Int")]
-		public System.Nullable<int> ATTN_NOTF_CLOS_INTR
-		{
-			get
-			{
-				return this._ATTN_NOTF_CLOS_INTR;
-			}
-			set
-			{
-				if ((this._ATTN_NOTF_CLOS_INTR != value))
-				{
-					this.OnATTN_NOTF_CLOS_INTRChanging(value);
-					this.SendPropertyChanging();
-					this._ATTN_NOTF_CLOS_INTR = value;
-					this.SendPropertyChanged("ATTN_NOTF_CLOS_INTR");
-					this.OnATTN_NOTF_CLOS_INTRChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_CLNG_STAT", DbType="VarChar(3)")]
-		public string DEBT_CLNG_STAT
-		{
-			get
-			{
-				return this._DEBT_CLNG_STAT;
-			}
-			set
-			{
-				if ((this._DEBT_CLNG_STAT != value))
-				{
-					this.OnDEBT_CLNG_STATChanging(value);
-					this.SendPropertyChanging();
-					this._DEBT_CLNG_STAT = value;
-					this.SendPropertyChanged("DEBT_CLNG_STAT");
-					this.OnDEBT_CLNG_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOST_DEBT_CLNG_AMNT", DbType="BigInt")]
-		public System.Nullable<long> MOST_DEBT_CLNG_AMNT
-		{
-			get
-			{
-				return this._MOST_DEBT_CLNG_AMNT;
-			}
-			set
-			{
-				if ((this._MOST_DEBT_CLNG_AMNT != value))
-				{
-					this.OnMOST_DEBT_CLNG_AMNTChanging(value);
-					this.SendPropertyChanging();
-					this._MOST_DEBT_CLNG_AMNT = value;
-					this.SendPropertyChanged("MOST_DEBT_CLNG_AMNT");
-					this.OnMOST_DEBT_CLNG_AMNTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_DEBT_DAY", DbType="Int")]
-		public System.Nullable<int> EXPR_DEBT_DAY
-		{
-			get
-			{
-				return this._EXPR_DEBT_DAY;
-			}
-			set
-			{
-				if ((this._EXPR_DEBT_DAY != value))
-				{
-					this.OnEXPR_DEBT_DAYChanging(value);
-					this.SendPropertyChanging();
-					this._EXPR_DEBT_DAY = value;
-					this.SendPropertyChanged("EXPR_DEBT_DAY");
-					this.OnEXPR_DEBT_DAYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_CHCK_STAT", DbType="VarChar(3)")]
-		public string DEBT_CHCK_STAT
-		{
-			get
-			{
-				return this._DEBT_CHCK_STAT;
-			}
-			set
-			{
-				if ((this._DEBT_CHCK_STAT != value))
-				{
-					this.OnDEBT_CHCK_STATChanging(value);
-					this.SendPropertyChanging();
-					this._DEBT_CHCK_STAT = value;
-					this.SendPropertyChanged("DEBT_CHCK_STAT");
-					this.OnDEBT_CHCK_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERM_ENTR_DEBT_SERV_NUMB", DbType="Int")]
-		public System.Nullable<int> PERM_ENTR_DEBT_SERV_NUMB
-		{
-			get
-			{
-				return this._PERM_ENTR_DEBT_SERV_NUMB;
-			}
-			set
-			{
-				if ((this._PERM_ENTR_DEBT_SERV_NUMB != value))
-				{
-					this.OnPERM_ENTR_DEBT_SERV_NUMBChanging(value);
-					this.SendPropertyChanging();
-					this._PERM_ENTR_DEBT_SERV_NUMB = value;
-					this.SendPropertyChanged("PERM_ENTR_DEBT_SERV_NUMB");
-					this.OnPERM_ENTR_DEBT_SERV_NUMBChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRY_VALD_SBMT", DbType="VarChar(3)")]
-		public string TRY_VALD_SBMT
-		{
-			get
-			{
-				return this._TRY_VALD_SBMT;
-			}
-			set
-			{
-				if ((this._TRY_VALD_SBMT != value))
-				{
-					this.OnTRY_VALD_SBMTChanging(value);
-					this.SendPropertyChanging();
-					this._TRY_VALD_SBMT = value;
-					this.SendPropertyChanged("TRY_VALD_SBMT");
-					this.OnTRY_VALD_SBMTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_ATTN_STAT", DbType="VarChar(3)")]
-		public string GATE_ATTN_STAT
-		{
-			get
-			{
-				return this._GATE_ATTN_STAT;
-			}
-			set
-			{
-				if ((this._GATE_ATTN_STAT != value))
-				{
-					this.OnGATE_ATTN_STATChanging(value);
-					this.SendPropertyChanging();
-					this._GATE_ATTN_STAT = value;
-					this.SendPropertyChanged("GATE_ATTN_STAT");
-					this.OnGATE_ATTN_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_COMM_PORT_NAME", DbType="VarChar(30)")]
-		public string GATE_COMM_PORT_NAME
-		{
-			get
-			{
-				return this._GATE_COMM_PORT_NAME;
-			}
-			set
-			{
-				if ((this._GATE_COMM_PORT_NAME != value))
-				{
-					this.OnGATE_COMM_PORT_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._GATE_COMM_PORT_NAME = value;
-					this.SendPropertyChanged("GATE_COMM_PORT_NAME");
-					this.OnGATE_COMM_PORT_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_BAND_RATE", DbType="Int")]
-		public System.Nullable<int> GATE_BAND_RATE
-		{
-			get
-			{
-				return this._GATE_BAND_RATE;
-			}
-			set
-			{
-				if ((this._GATE_BAND_RATE != value))
-				{
-					this.OnGATE_BAND_RATEChanging(value);
-					this.SendPropertyChanging();
-					this._GATE_BAND_RATE = value;
-					this.SendPropertyChanged("GATE_BAND_RATE");
-					this.OnGATE_BAND_RATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_TIME_CLOS", DbType="Int")]
-		public System.Nullable<int> GATE_TIME_CLOS
-		{
-			get
-			{
-				return this._GATE_TIME_CLOS;
-			}
-			set
-			{
-				if ((this._GATE_TIME_CLOS != value))
-				{
-					this.OnGATE_TIME_CLOSChanging(value);
-					this.SendPropertyChanging();
-					this._GATE_TIME_CLOS = value;
-					this.SendPropertyChanged("GATE_TIME_CLOS");
-					this.OnGATE_TIME_CLOSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_ENTR_OPEN", DbType="VarChar(3)")]
-		public string GATE_ENTR_OPEN
-		{
-			get
-			{
-				return this._GATE_ENTR_OPEN;
-			}
-			set
-			{
-				if ((this._GATE_ENTR_OPEN != value))
-				{
-					this.OnGATE_ENTR_OPENChanging(value);
-					this.SendPropertyChanging();
-					this._GATE_ENTR_OPEN = value;
-					this.SendPropertyChanged("GATE_ENTR_OPEN");
-					this.OnGATE_ENTR_OPENChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_EXIT_OPEN", DbType="VarChar(3)")]
-		public string GATE_EXIT_OPEN
-		{
-			get
-			{
-				return this._GATE_EXIT_OPEN;
-			}
-			set
-			{
-				if ((this._GATE_EXIT_OPEN != value))
-				{
-					this.OnGATE_EXIT_OPENChanging(value);
-					this.SendPropertyChanging();
-					this._GATE_EXIT_OPEN = value;
-					this.SendPropertyChanged("GATE_EXIT_OPEN");
-					this.OnGATE_EXIT_OPENChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_EXTR_STAT", DbType="VarChar(3)")]
-		public string EXPN_EXTR_STAT
-		{
-			get
-			{
-				return this._EXPN_EXTR_STAT;
-			}
-			set
-			{
-				if ((this._EXPN_EXTR_STAT != value))
-				{
-					this.OnEXPN_EXTR_STATChanging(value);
-					this.SendPropertyChanging();
-					this._EXPN_EXTR_STAT = value;
-					this.SendPropertyChanged("EXPN_EXTR_STAT");
-					this.OnEXPN_EXTR_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_COMM_PORT_NAME", DbType="VarChar(30)")]
-		public string EXPN_COMM_PORT_NAME
-		{
-			get
-			{
-				return this._EXPN_COMM_PORT_NAME;
-			}
-			set
-			{
-				if ((this._EXPN_COMM_PORT_NAME != value))
-				{
-					this.OnEXPN_COMM_PORT_NAMEChanging(value);
-					this.SendPropertyChanging();
-					this._EXPN_COMM_PORT_NAME = value;
-					this.SendPropertyChanged("EXPN_COMM_PORT_NAME");
-					this.OnEXPN_COMM_PORT_NAMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_BAND_RATE", DbType="Int")]
-		public System.Nullable<int> EXPN_BAND_RATE
-		{
-			get
-			{
-				return this._EXPN_BAND_RATE;
-			}
-			set
-			{
-				if ((this._EXPN_BAND_RATE != value))
-				{
-					this.OnEXPN_BAND_RATEChanging(value);
-					this.SendPropertyChanging();
-					this._EXPN_BAND_RATE = value;
-					this.SendPropertyChanged("EXPN_BAND_RATE");
-					this.OnEXPN_BAND_RATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RUN_QURY", DbType="VarChar(3)")]
-		public string RUN_QURY
-		{
-			get
-			{
-				return this._RUN_QURY;
-			}
-			set
-			{
-				if ((this._RUN_QURY != value))
-				{
-					this.OnRUN_QURYChanging(value);
-					this.SendPropertyChanging();
-					this._RUN_QURY = value;
-					this.SendPropertyChanged("RUN_QURY");
-					this.OnRUN_QURYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_PRNT_STAT", DbType="VarChar(3)")]
-		public string ATTN_PRNT_STAT
-		{
-			get
-			{
-				return this._ATTN_PRNT_STAT;
-			}
-			set
-			{
-				if ((this._ATTN_PRNT_STAT != value))
-				{
-					this.OnATTN_PRNT_STATChanging(value);
-					this.SendPropertyChanging();
-					this._ATTN_PRNT_STAT = value;
-					this.SendPropertyChanged("ATTN_PRNT_STAT");
-					this.OnATTN_PRNT_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHAR_MBSP_STAT", DbType="VarChar(3)")]
-		public string SHAR_MBSP_STAT
-		{
-			get
-			{
-				return this._SHAR_MBSP_STAT;
-			}
-			set
-			{
-				if ((this._SHAR_MBSP_STAT != value))
-				{
-					this.OnSHAR_MBSP_STATChanging(value);
-					this.SendPropertyChanging();
-					this._SHAR_MBSP_STAT = value;
-					this.SendPropertyChanged("SHAR_MBSP_STAT");
-					this.OnSHAR_MBSP_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RUN_RBOT", DbType="VarChar(3)")]
-		public string RUN_RBOT
-		{
-			get
-			{
-				return this._RUN_RBOT;
-			}
-			set
-			{
-				if ((this._RUN_RBOT != value))
-				{
-					this.OnRUN_RBOTChanging(value);
-					this.SendPropertyChanging();
-					this._RUN_RBOT = value;
-					this.SendPropertyChanged("RUN_RBOT");
-					this.OnRUN_RBOTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HLDY_CONT", DbType="Int")]
-		public System.Nullable<int> HLDY_CONT
-		{
-			get
-			{
-				return this._HLDY_CONT;
-			}
-			set
-			{
-				if ((this._HLDY_CONT != value))
-				{
-					this.OnHLDY_CONTChanging(value);
-					this.SendPropertyChanging();
-					this._HLDY_CONT = value;
-					this.SendPropertyChanged("HLDY_CONT");
-					this.OnHLDY_CONTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLER_ZERO", DbType="VarChar(3)")]
-		public string CLER_ZERO
-		{
-			get
-			{
-				return this._CLER_ZERO;
-			}
-			set
-			{
-				if ((this._CLER_ZERO != value))
-				{
-					this.OnCLER_ZEROChanging(value);
-					this.SendPropertyChanging();
-					this._CLER_ZERO = value;
-					this.SendPropertyChanged("CLER_ZERO");
-					this.OnCLER_ZEROChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DUPL_NATL_CODE", DbType="VarChar(3)")]
-		public string DUPL_NATL_CODE
-		{
-			get
-			{
-				return this._DUPL_NATL_CODE;
-			}
-			set
-			{
-				if ((this._DUPL_NATL_CODE != value))
-				{
-					this.OnDUPL_NATL_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._DUPL_NATL_CODE = value;
-					this.SendPropertyChanged("DUPL_NATL_CODE");
-					this.OnDUPL_NATL_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DUPL_CELL_PHON", DbType="VarChar(3)")]
-		public string DUPL_CELL_PHON
-		{
-			get
-			{
-				return this._DUPL_CELL_PHON;
-			}
-			set
-			{
-				if ((this._DUPL_CELL_PHON != value))
-				{
-					this.OnDUPL_CELL_PHONChanging(value);
-					this.SendPropertyChanging();
-					this._DUPL_CELL_PHON = value;
-					this.SendPropertyChanged("DUPL_CELL_PHON");
-					this.OnDUPL_CELL_PHONChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPT_NATL_CODE_STAT", DbType="VarChar(3)")]
-		public string INPT_NATL_CODE_STAT
-		{
-			get
-			{
-				return this._INPT_NATL_CODE_STAT;
-			}
-			set
-			{
-				if ((this._INPT_NATL_CODE_STAT != value))
-				{
-					this.OnINPT_NATL_CODE_STATChanging(value);
-					this.SendPropertyChanging();
-					this._INPT_NATL_CODE_STAT = value;
-					this.SendPropertyChanged("INPT_NATL_CODE_STAT");
-					this.OnINPT_NATL_CODE_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPT_CELL_PHON_STAT", DbType="VarChar(3)")]
-		public string INPT_CELL_PHON_STAT
-		{
-			get
-			{
-				return this._INPT_CELL_PHON_STAT;
-			}
-			set
-			{
-				if ((this._INPT_CELL_PHON_STAT != value))
-				{
-					this.OnINPT_CELL_PHON_STATChanging(value);
-					this.SendPropertyChanging();
-					this._INPT_CELL_PHON_STAT = value;
-					this.SendPropertyChanged("INPT_CELL_PHON_STAT");
-					this.OnINPT_CELL_PHON_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR3", DbType="VarChar(15)")]
-		public string IP_ADR3
-		{
-			get
-			{
-				return this._IP_ADR3;
-			}
-			set
-			{
-				if ((this._IP_ADR3 != value))
-				{
-					this.OnIP_ADR3Changing(value);
-					this.SendPropertyChanging();
-					this._IP_ADR3 = value;
-					this.SendPropertyChanged("IP_ADR3");
-					this.OnIP_ADR3Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM3", DbType="Int")]
-		public System.Nullable<int> PORT_NUM3
-		{
-			get
-			{
-				return this._PORT_NUM3;
-			}
-			set
-			{
-				if ((this._PORT_NUM3 != value))
-				{
-					this.OnPORT_NUM3Changing(value);
-					this.SendPropertyChanging();
-					this._PORT_NUM3 = value;
-					this.SendPropertyChanged("PORT_NUM3");
-					this.OnPORT_NUM3Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC3", DbType="VarChar(30)")]
-		public string ATTN_COMP_CNC3
-		{
-			get
-			{
-				return this._ATTN_COMP_CNC3;
-			}
-			set
-			{
-				if ((this._ATTN_COMP_CNC3 != value))
-				{
-					this.OnATTN_COMP_CNC3Changing(value);
-					this.SendPropertyChanging();
-					this._ATTN_COMP_CNC3 = value;
-					this.SendPropertyChanged("ATTN_COMP_CNC3");
-					this.OnATTN_COMP_CNC3Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN4_EVNT_ACTN_TYPE", DbType="VarChar(3)")]
-		public string ATN4_EVNT_ACTN_TYPE
-		{
-			get
-			{
-				return this._ATN4_EVNT_ACTN_TYPE;
-			}
-			set
-			{
-				if ((this._ATN4_EVNT_ACTN_TYPE != value))
-				{
-					this.OnATN4_EVNT_ACTN_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._ATN4_EVNT_ACTN_TYPE = value;
-					this.SendPropertyChanged("ATN4_EVNT_ACTN_TYPE");
-					this.OnATN4_EVNT_ACTN_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LEN_FNGR_PRNT", DbType="SmallInt")]
-		public System.Nullable<short> LEN_FNGR_PRNT
-		{
-			get
-			{
-				return this._LEN_FNGR_PRNT;
-			}
-			set
-			{
-				if ((this._LEN_FNGR_PRNT != value))
-				{
-					this.OnLEN_FNGR_PRNTChanging(value);
-					this.SendPropertyChanging();
-					this._LEN_FNGR_PRNT = value;
-					this.SendPropertyChanged("LEN_FNGR_PRNT");
-					this.OnLEN_FNGR_PRNTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_GUST_NUMB_TYPE", DbType="VarChar(3)")]
-		public string ATTN_GUST_NUMB_TYPE
-		{
-			get
-			{
-				return this._ATTN_GUST_NUMB_TYPE;
-			}
-			set
-			{
-				if ((this._ATTN_GUST_NUMB_TYPE != value))
-				{
-					this.OnATTN_GUST_NUMB_TYPEChanging(value);
-					this.SendPropertyChanging();
-					this._ATTN_GUST_NUMB_TYPE = value;
-					this.SendPropertyChanged("ATTN_GUST_NUMB_TYPE");
-					this.OnATTN_GUST_NUMB_TYPEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_DELY_TIME", DbType="SmallInt")]
-		public System.Nullable<short> ATTN_DELY_TIME
-		{
-			get
-			{
-				return this._ATTN_DELY_TIME;
-			}
-			set
-			{
-				if ((this._ATTN_DELY_TIME != value))
-				{
-					this.OnATTN_DELY_TIMEChanging(value);
-					this.SendPropertyChanging();
-					this._ATTN_DELY_TIME = value;
-					this.SendPropertyChanged("ATTN_DELY_TIME");
-					this.OnATTN_DELY_TIMEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND1_PATH", DbType="NVarChar(4000)")]
-		public string SND1_PATH
-		{
-			get
-			{
-				return this._SND1_PATH;
-			}
-			set
-			{
-				if ((this._SND1_PATH != value))
-				{
-					this.OnSND1_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._SND1_PATH = value;
-					this.SendPropertyChanged("SND1_PATH");
-					this.OnSND1_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND2_PATH", DbType="NVarChar(4000)")]
-		public string SND2_PATH
-		{
-			get
-			{
-				return this._SND2_PATH;
-			}
-			set
-			{
-				if ((this._SND2_PATH != value))
-				{
-					this.OnSND2_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._SND2_PATH = value;
-					this.SendPropertyChanged("SND2_PATH");
-					this.OnSND2_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND3_PATH", DbType="NVarChar(4000)")]
-		public string SND3_PATH
-		{
-			get
-			{
-				return this._SND3_PATH;
-			}
-			set
-			{
-				if ((this._SND3_PATH != value))
-				{
-					this.OnSND3_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._SND3_PATH = value;
-					this.SendPropertyChanged("SND3_PATH");
-					this.OnSND3_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND4_PATH", DbType="NVarChar(4000)")]
-		public string SND4_PATH
-		{
-			get
-			{
-				return this._SND4_PATH;
-			}
-			set
-			{
-				if ((this._SND4_PATH != value))
-				{
-					this.OnSND4_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._SND4_PATH = value;
-					this.SendPropertyChanged("SND4_PATH");
-					this.OnSND4_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND5_PATH", DbType="NVarChar(4000)")]
-		public string SND5_PATH
-		{
-			get
-			{
-				return this._SND5_PATH;
-			}
-			set
-			{
-				if ((this._SND5_PATH != value))
-				{
-					this.OnSND5_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._SND5_PATH = value;
-					this.SendPropertyChanged("SND5_PATH");
-					this.OnSND5_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND6_PATH", DbType="NVarChar(4000)")]
-		public string SND6_PATH
-		{
-			get
-			{
-				return this._SND6_PATH;
-			}
-			set
-			{
-				if ((this._SND6_PATH != value))
-				{
-					this.OnSND6_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._SND6_PATH = value;
-					this.SendPropertyChanged("SND6_PATH");
-					this.OnSND6_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND7_PATH", DbType="NVarChar(4000)")]
-		public string SND7_PATH
-		{
-			get
-			{
-				return this._SND7_PATH;
-			}
-			set
-			{
-				if ((this._SND7_PATH != value))
-				{
-					this.OnSND7_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._SND7_PATH = value;
-					this.SendPropertyChanged("SND7_PATH");
-					this.OnSND7_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND8_PATH", DbType="NVarChar(4000)")]
-		public string SND8_PATH
-		{
-			get
-			{
-				return this._SND8_PATH;
-			}
-			set
-			{
-				if ((this._SND8_PATH != value))
-				{
-					this.OnSND8_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._SND8_PATH = value;
-					this.SendPropertyChanged("SND8_PATH");
-					this.OnSND8_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND9_PATH", DbType="NVarChar(4000)")]
-		public string SND9_PATH
-		{
-			get
-			{
-				return this._SND9_PATH;
-			}
-			set
-			{
-				if ((this._SND9_PATH != value))
-				{
-					this.OnSND9_PATHChanging(value);
-					this.SendPropertyChanging();
-					this._SND9_PATH = value;
-					this.SendPropertyChanged("SND9_PATH");
-					this.OnSND9_PATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REST_ATTN_NUMB_BY_YEAR", DbType="VarChar(3)")]
-		public string REST_ATTN_NUMB_BY_YEAR
-		{
-			get
-			{
-				return this._REST_ATTN_NUMB_BY_YEAR;
-			}
-			set
-			{
-				if ((this._REST_ATTN_NUMB_BY_YEAR != value))
-				{
-					this.OnREST_ATTN_NUMB_BY_YEARChanging(value);
-					this.SendPropertyChanging();
-					this._REST_ATTN_NUMB_BY_YEAR = value;
-					this.SendPropertyChanged("REST_ATTN_NUMB_BY_YEAR");
-					this.OnREST_ATTN_NUMB_BY_YEARChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOT_INSR_STAT", DbType="VarChar(3)")]
-		public string ATTN_NOT_INSR_STAT
-		{
-			get
-			{
-				return this._ATTN_NOT_INSR_STAT;
-			}
-			set
-			{
-				if ((this._ATTN_NOT_INSR_STAT != value))
-				{
-					this.OnATTN_NOT_INSR_STATChanging(value);
-					this.SendPropertyChanging();
-					this._ATTN_NOT_INSR_STAT = value;
-					this.SendPropertyChanged("ATTN_NOT_INSR_STAT");
-					this.OnATTN_NOT_INSR_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_RBON_MNUI", DbType="VarChar(3)")]
-		public string SHOW_RBON_MNUI
-		{
-			get
-			{
-				return this._SHOW_RBON_MNUI;
-			}
-			set
-			{
-				if ((this._SHOW_RBON_MNUI != value))
-				{
-					this.OnSHOW_RBON_MNUIChanging(value);
-					this.SendPropertyChanging();
-					this._SHOW_RBON_MNUI = value;
-					this.SendPropertyChanged("SHOW_RBON_MNUI");
-					this.OnSHOW_RBON_MNUIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_SLID_MNUI", DbType="VarChar(3)")]
-		public string SHOW_SLID_MNUI
-		{
-			get
-			{
-				return this._SHOW_SLID_MNUI;
-			}
-			set
-			{
-				if ((this._SHOW_SLID_MNUI != value))
-				{
-					this.OnSHOW_SLID_MNUIChanging(value);
-					this.SendPropertyChanging();
-					this._SHOW_SLID_MNUI = value;
-					this.SendPropertyChanged("SHOW_SLID_MNUI");
-					this.OnSHOW_SLID_MNUIChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NEG_DPST_AMNT", DbType="VarChar(3)")]
-		public string NEG_DPST_AMNT
-		{
-			get
-			{
-				return this._NEG_DPST_AMNT;
-			}
-			set
-			{
-				if ((this._NEG_DPST_AMNT != value))
-				{
-					this.OnNEG_DPST_AMNTChanging(value);
-					this.SendPropertyChanging();
-					this._NEG_DPST_AMNT = value;
-					this.SendPropertyChanged("NEG_DPST_AMNT");
-					this.OnNEG_DPST_AMNTChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONT_SHOW_EROR", DbType="VarChar(3)")]
-		public string DONT_SHOW_EROR
-		{
-			get
-			{
-				return this._DONT_SHOW_EROR;
-			}
-			set
-			{
-				if ((this._DONT_SHOW_EROR != value))
-				{
-					this.OnDONT_SHOW_ERORChanging(value);
-					this.SendPropertyChanging();
-					this._DONT_SHOW_EROR = value;
-					this.SendPropertyChanged("DONT_SHOW_EROR");
-					this.OnDONT_SHOW_ERORChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_EROR_LOG", DbType="VarChar(3)")]
-		public string SHOW_EROR_LOG
-		{
-			get
-			{
-				return this._SHOW_EROR_LOG;
-			}
-			set
-			{
-				if ((this._SHOW_EROR_LOG != value))
-				{
-					this.OnSHOW_EROR_LOGChanging(value);
-					this.SendPropertyChanging();
-					this._SHOW_EROR_LOG = value;
-					this.SendPropertyChanged("SHOW_EROR_LOG");
-					this.OnSHOW_EROR_LOGChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV4_STAT", DbType="VarChar(3)")]
-		public string DEV4_STAT
-		{
-			get
-			{
-				return this._DEV4_STAT;
-			}
-			set
-			{
-				if ((this._DEV4_STAT != value))
-				{
-					this.OnDEV4_STATChanging(value);
-					this.SendPropertyChanging();
-					this._DEV4_STAT = value;
-					this.SendPropertyChanged("DEV4_STAT");
-					this.OnDEV4_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR4", DbType="VarChar(15)")]
-		public string IP_ADR4
-		{
-			get
-			{
-				return this._IP_ADR4;
-			}
-			set
-			{
-				if ((this._IP_ADR4 != value))
-				{
-					this.OnIP_ADR4Changing(value);
-					this.SendPropertyChanging();
-					this._IP_ADR4 = value;
-					this.SendPropertyChanged("IP_ADR4");
-					this.OnIP_ADR4Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM4", DbType="Int")]
-		public System.Nullable<int> PORT_NUM4
-		{
-			get
-			{
-				return this._PORT_NUM4;
-			}
-			set
-			{
-				if ((this._PORT_NUM4 != value))
-				{
-					this.OnPORT_NUM4Changing(value);
-					this.SendPropertyChanging();
-					this._PORT_NUM4 = value;
-					this.SendPropertyChanged("PORT_NUM4");
-					this.OnPORT_NUM4Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC4", DbType="VarChar(30)")]
-		public string ATTN_COMP_CNC4
-		{
-			get
-			{
-				return this._ATTN_COMP_CNC4;
-			}
-			set
-			{
-				if ((this._ATTN_COMP_CNC4 != value))
-				{
-					this.OnATTN_COMP_CNC4Changing(value);
-					this.SendPropertyChanging();
-					this._ATTN_COMP_CNC4 = value;
-					this.SendPropertyChanged("ATTN_COMP_CNC4");
-					this.OnATTN_COMP_CNC4Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV5_STAT", DbType="VarChar(3)")]
-		public string DEV5_STAT
-		{
-			get
-			{
-				return this._DEV5_STAT;
-			}
-			set
-			{
-				if ((this._DEV5_STAT != value))
-				{
-					this.OnDEV5_STATChanging(value);
-					this.SendPropertyChanging();
-					this._DEV5_STAT = value;
-					this.SendPropertyChanged("DEV5_STAT");
-					this.OnDEV5_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR5", DbType="VarChar(15)")]
-		public string IP_ADR5
-		{
-			get
-			{
-				return this._IP_ADR5;
-			}
-			set
-			{
-				if ((this._IP_ADR5 != value))
-				{
-					this.OnIP_ADR5Changing(value);
-					this.SendPropertyChanging();
-					this._IP_ADR5 = value;
-					this.SendPropertyChanged("IP_ADR5");
-					this.OnIP_ADR5Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM5", DbType="Int")]
-		public System.Nullable<int> PORT_NUM5
-		{
-			get
-			{
-				return this._PORT_NUM5;
-			}
-			set
-			{
-				if ((this._PORT_NUM5 != value))
-				{
-					this.OnPORT_NUM5Changing(value);
-					this.SendPropertyChanging();
-					this._PORT_NUM5 = value;
-					this.SendPropertyChanged("PORT_NUM5");
-					this.OnPORT_NUM5Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC5", DbType="VarChar(30)")]
-		public string ATTN_COMP_CNC5
-		{
-			get
-			{
-				return this._ATTN_COMP_CNC5;
-			}
-			set
-			{
-				if ((this._ATTN_COMP_CNC5 != value))
-				{
-					this.OnATTN_COMP_CNC5Changing(value);
-					this.SendPropertyChanging();
-					this._ATTN_COMP_CNC5 = value;
-					this.SendPropertyChanged("ATTN_COMP_CNC5");
-					this.OnATTN_COMP_CNC5Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV6_STAT", DbType="VarChar(3)")]
-		public string DEV6_STAT
-		{
-			get
-			{
-				return this._DEV6_STAT;
-			}
-			set
-			{
-				if ((this._DEV6_STAT != value))
-				{
-					this.OnDEV6_STATChanging(value);
-					this.SendPropertyChanging();
-					this._DEV6_STAT = value;
-					this.SendPropertyChanged("DEV6_STAT");
-					this.OnDEV6_STATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR6", DbType="VarChar(15)")]
-		public string IP_ADR6
-		{
-			get
-			{
-				return this._IP_ADR6;
-			}
-			set
-			{
-				if ((this._IP_ADR6 != value))
-				{
-					this.OnIP_ADR6Changing(value);
-					this.SendPropertyChanging();
-					this._IP_ADR6 = value;
-					this.SendPropertyChanged("IP_ADR6");
-					this.OnIP_ADR6Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM6", DbType="Int")]
-		public System.Nullable<int> PORT_NUM6
-		{
-			get
-			{
-				return this._PORT_NUM6;
-			}
-			set
-			{
-				if ((this._PORT_NUM6 != value))
-				{
-					this.OnPORT_NUM6Changing(value);
-					this.SendPropertyChanging();
-					this._PORT_NUM6 = value;
-					this.SendPropertyChanged("PORT_NUM6");
-					this.OnPORT_NUM6Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC6", DbType="VarChar(30)")]
-		public string ATTN_COMP_CNC6
-		{
-			get
-			{
-				return this._ATTN_COMP_CNC6;
-			}
-			set
-			{
-				if ((this._ATTN_COMP_CNC6 != value))
-				{
-					this.OnATTN_COMP_CNC6Changing(value);
-					this.SendPropertyChanging();
-					this._ATTN_COMP_CNC6 = value;
-					this.SendPropertyChanged("ATTN_COMP_CNC6");
-					this.OnATTN_COMP_CNC6Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LIMT_CALC_ATTN_INDY", DbType="VarChar(3)")]
-		public string LIMT_CALC_ATTN_INDY
-		{
-			get
-			{
-				return this._LIMT_CALC_ATTN_INDY;
-			}
-			set
-			{
-				if ((this._LIMT_CALC_ATTN_INDY != value))
-				{
-					this.OnLIMT_CALC_ATTN_INDYChanging(value);
-					this.SendPropertyChanging();
-					this._LIMT_CALC_ATTN_INDY = value;
-					this.SendPropertyChanged("LIMT_CALC_ATTN_INDY");
-					this.OnLIMT_CALC_ATTN_INDYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Setting", Storage="_Club", ThisKey="CLUB_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Club Club
-		{
-			get
-			{
-				return this._Club.Entity;
-			}
-			set
-			{
-				Club previousValue = this._Club.Entity;
-				if (((previousValue != value) 
-							|| (this._Club.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Club.Entity = null;
-						previousValue.Settings.Remove(this);
-					}
-					this._Club.Entity = value;
-					if ((value != null))
-					{
-						value.Settings.Add(this);
-						this._CLUB_CODE = value.CODE;
-					}
-					else
-					{
-						this._CLUB_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Club");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Dresser")]
 	public partial class Dresser : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -111569,195 +109266,6 @@ namespace System.Scsc.Data
 		{
 			this.SendPropertyChanging();
 			entity.Dresser = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V#Pos_Device")]
-	public partial class V_Pos_Device
-	{
-		
-		private long _PSID;
-		
-		private string _BANK_NAME;
-		
-		private string _BANK_TYPE;
-		
-		private string _BNKB_CODE;
-		
-		private string _BNKA_ACNT_NUMB;
-		
-		private string _SHBA_CODE;
-		
-		private string _POS_DESC;
-		
-		private string _POS_DFLT;
-		
-		private string _GTWY_MAC_ADRS;
-		
-		private string _IP_ADRS;
-		
-		public V_Pos_Device()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PSID", DbType="BigInt NOT NULL")]
-		public long PSID
-		{
-			get
-			{
-				return this._PSID;
-			}
-			set
-			{
-				if ((this._PSID != value))
-				{
-					this._PSID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_NAME", DbType="NVarChar(255) NOT NULL", CanBeNull=false)]
-		public string BANK_NAME
-		{
-			get
-			{
-				return this._BANK_NAME;
-			}
-			set
-			{
-				if ((this._BANK_NAME != value))
-				{
-					this._BANK_NAME = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_TYPE", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
-		public string BANK_TYPE
-		{
-			get
-			{
-				return this._BANK_TYPE;
-			}
-			set
-			{
-				if ((this._BANK_TYPE != value))
-				{
-					this._BANK_TYPE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BNKB_CODE", DbType="VarChar(10) NOT NULL", CanBeNull=false)]
-		public string BNKB_CODE
-		{
-			get
-			{
-				return this._BNKB_CODE;
-			}
-			set
-			{
-				if ((this._BNKB_CODE != value))
-				{
-					this._BNKB_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BNKA_ACNT_NUMB", DbType="VarChar(15) NOT NULL", CanBeNull=false)]
-		public string BNKA_ACNT_NUMB
-		{
-			get
-			{
-				return this._BNKA_ACNT_NUMB;
-			}
-			set
-			{
-				if ((this._BNKA_ACNT_NUMB != value))
-				{
-					this._BNKA_ACNT_NUMB = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHBA_CODE", DbType="VarChar(50)")]
-		public string SHBA_CODE
-		{
-			get
-			{
-				return this._SHBA_CODE;
-			}
-			set
-			{
-				if ((this._SHBA_CODE != value))
-				{
-					this._SHBA_CODE = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_DESC", DbType="NVarChar(250)")]
-		public string POS_DESC
-		{
-			get
-			{
-				return this._POS_DESC;
-			}
-			set
-			{
-				if ((this._POS_DESC != value))
-				{
-					this._POS_DESC = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_DFLT", DbType="VarChar(3)")]
-		public string POS_DFLT
-		{
-			get
-			{
-				return this._POS_DFLT;
-			}
-			set
-			{
-				if ((this._POS_DFLT != value))
-				{
-					this._POS_DFLT = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GTWY_MAC_ADRS", DbType="VarChar(17)")]
-		public string GTWY_MAC_ADRS
-		{
-			get
-			{
-				return this._GTWY_MAC_ADRS;
-			}
-			set
-			{
-				if ((this._GTWY_MAC_ADRS != value))
-				{
-					this._GTWY_MAC_ADRS = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADRS", DbType="VarChar(15)")]
-		public string IP_ADRS
-		{
-			get
-			{
-				return this._IP_ADRS;
-			}
-			set
-			{
-				if ((this._IP_ADRS != value))
-				{
-					this._IP_ADRS = value;
-				}
-			}
 		}
 	}
 	
@@ -115896,6 +113404,3067 @@ namespace System.Scsc.Data
 		{
 			this.SendPropertyChanging();
 			entity.Fighter_Bank_Account = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Settings")]
+	public partial class Setting : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _CLUB_CODE;
+		
+		private long _CODE;
+		
+		private string _DFLT_STAT;
+		
+		private System.Nullable<bool> _BACK_UP;
+		
+		private System.Nullable<bool> _BACK_UP_APP_EXIT;
+		
+		private System.Nullable<bool> _BACK_UP_IN_TRED;
+		
+		private System.Nullable<bool> _BACK_UP_OPTN_PATH;
+		
+		private string _BACK_UP_OPTN_PATH_ADRS;
+		
+		private string _BACK_UP_ROOT_PATH;
+		
+		private string _DRES_STAT;
+		
+		private string _DRES_AUTO;
+		
+		private string _MORE_FIGH_ONE_DRES;
+		
+		private string _MORE_ATTN_SESN;
+		
+		private string _NOTF_STAT;
+		
+		private System.Nullable<int> _NOTF_EXP_DAY;
+		
+		private System.Nullable<System.DateTime> _NOTF_VIST_DATE;
+		
+		private string _ATTN_SYST_TYPE;
+		
+		private string _COMM_PORT_NAME;
+		
+		private System.Nullable<int> _BAND_RATE;
+		
+		private string _BAR_CODE_DATA_TYPE;
+		
+		private string _ATN3_EVNT_ACTN_TYPE;
+		
+		private string _IP_ADDR;
+		
+		private System.Nullable<int> _PORT_NUMB;
+		
+		private string _ATTN_COMP_CONCT;
+		
+		private string _ATN1_EVNT_ACTN_TYPE;
+		
+		private string _IP_ADR2;
+		
+		private System.Nullable<int> _PORT_NUM2;
+		
+		private string _ATTN_COMP_CNC2;
+		
+		private string _ATN2_EVNT_ACTN_TYPE;
+		
+		private string _ATTN_NOTF_STAT;
+		
+		private string _ATTN_NOTF_CLOS_TYPE;
+		
+		private System.Nullable<int> _ATTN_NOTF_CLOS_INTR;
+		
+		private string _DEBT_CLNG_STAT;
+		
+		private System.Nullable<long> _MOST_DEBT_CLNG_AMNT;
+		
+		private System.Nullable<int> _EXPR_DEBT_DAY;
+		
+		private string _DEBT_CHCK_STAT;
+		
+		private System.Nullable<int> _PERM_ENTR_DEBT_SERV_NUMB;
+		
+		private string _TRY_VALD_SBMT;
+		
+		private string _GATE_ATTN_STAT;
+		
+		private string _GATE_COMM_PORT_NAME;
+		
+		private System.Nullable<int> _GATE_BAND_RATE;
+		
+		private System.Nullable<int> _GATE_TIME_CLOS;
+		
+		private string _GATE_ENTR_OPEN;
+		
+		private string _GATE_EXIT_OPEN;
+		
+		private string _EXPN_EXTR_STAT;
+		
+		private string _EXPN_COMM_PORT_NAME;
+		
+		private System.Nullable<int> _EXPN_BAND_RATE;
+		
+		private string _RUN_QURY;
+		
+		private string _ATTN_PRNT_STAT;
+		
+		private string _SHAR_MBSP_STAT;
+		
+		private string _RUN_RBOT;
+		
+		private System.Nullable<int> _HLDY_CONT;
+		
+		private string _CLER_ZERO;
+		
+		private string _DUPL_NATL_CODE;
+		
+		private string _DUPL_CELL_PHON;
+		
+		private string _INPT_NATL_CODE_STAT;
+		
+		private string _INPT_CELL_PHON_STAT;
+		
+		private string _IP_ADR3;
+		
+		private System.Nullable<int> _PORT_NUM3;
+		
+		private string _ATTN_COMP_CNC3;
+		
+		private string _ATN4_EVNT_ACTN_TYPE;
+		
+		private System.Nullable<short> _LEN_FNGR_PRNT;
+		
+		private string _ATTN_GUST_NUMB_TYPE;
+		
+		private System.Nullable<short> _ATTN_DELY_TIME;
+		
+		private string _SND1_PATH;
+		
+		private string _SND2_PATH;
+		
+		private string _SND3_PATH;
+		
+		private string _SND4_PATH;
+		
+		private string _SND5_PATH;
+		
+		private string _SND6_PATH;
+		
+		private string _SND7_PATH;
+		
+		private string _SND8_PATH;
+		
+		private string _SND9_PATH;
+		
+		private string _REST_ATTN_NUMB_BY_YEAR;
+		
+		private string _ATTN_NOT_INSR_STAT;
+		
+		private string _SHOW_RBON_MNUI;
+		
+		private string _SHOW_SLID_MNUI;
+		
+		private string _NEG_DPST_AMNT;
+		
+		private string _DONT_SHOW_EROR;
+		
+		private string _SHOW_EROR_LOG;
+		
+		private string _DEV4_STAT;
+		
+		private string _IP_ADR4;
+		
+		private System.Nullable<int> _PORT_NUM4;
+		
+		private string _ATTN_COMP_CNC4;
+		
+		private string _DEV5_STAT;
+		
+		private string _IP_ADR5;
+		
+		private System.Nullable<int> _PORT_NUM5;
+		
+		private string _ATTN_COMP_CNC5;
+		
+		private string _DEV6_STAT;
+		
+		private string _IP_ADR6;
+		
+		private System.Nullable<int> _PORT_NUM6;
+		
+		private string _ATTN_COMP_CNC6;
+		
+		private string _LIMT_CALC_ATTN_INDY;
+		
+		private string _CARD_EXPN_STAT;
+		
+		private System.Nullable<long> _CARD_EXPN_CODE;
+		
+		private EntityRef<Club> _Club;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnCLUB_CODEChanging(System.Nullable<long> value);
+    partial void OnCLUB_CODEChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnDFLT_STATChanging(string value);
+    partial void OnDFLT_STATChanged();
+    partial void OnBACK_UPChanging(System.Nullable<bool> value);
+    partial void OnBACK_UPChanged();
+    partial void OnBACK_UP_APP_EXITChanging(System.Nullable<bool> value);
+    partial void OnBACK_UP_APP_EXITChanged();
+    partial void OnBACK_UP_IN_TREDChanging(System.Nullable<bool> value);
+    partial void OnBACK_UP_IN_TREDChanged();
+    partial void OnBACK_UP_OPTN_PATHChanging(System.Nullable<bool> value);
+    partial void OnBACK_UP_OPTN_PATHChanged();
+    partial void OnBACK_UP_OPTN_PATH_ADRSChanging(string value);
+    partial void OnBACK_UP_OPTN_PATH_ADRSChanged();
+    partial void OnBACK_UP_ROOT_PATHChanging(string value);
+    partial void OnBACK_UP_ROOT_PATHChanged();
+    partial void OnDRES_STATChanging(string value);
+    partial void OnDRES_STATChanged();
+    partial void OnDRES_AUTOChanging(string value);
+    partial void OnDRES_AUTOChanged();
+    partial void OnMORE_FIGH_ONE_DRESChanging(string value);
+    partial void OnMORE_FIGH_ONE_DRESChanged();
+    partial void OnMORE_ATTN_SESNChanging(string value);
+    partial void OnMORE_ATTN_SESNChanged();
+    partial void OnNOTF_STATChanging(string value);
+    partial void OnNOTF_STATChanged();
+    partial void OnNOTF_EXP_DAYChanging(System.Nullable<int> value);
+    partial void OnNOTF_EXP_DAYChanged();
+    partial void OnNOTF_VIST_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnNOTF_VIST_DATEChanged();
+    partial void OnATTN_SYST_TYPEChanging(string value);
+    partial void OnATTN_SYST_TYPEChanged();
+    partial void OnCOMM_PORT_NAMEChanging(string value);
+    partial void OnCOMM_PORT_NAMEChanged();
+    partial void OnBAND_RATEChanging(System.Nullable<int> value);
+    partial void OnBAND_RATEChanged();
+    partial void OnBAR_CODE_DATA_TYPEChanging(string value);
+    partial void OnBAR_CODE_DATA_TYPEChanged();
+    partial void OnATN3_EVNT_ACTN_TYPEChanging(string value);
+    partial void OnATN3_EVNT_ACTN_TYPEChanged();
+    partial void OnIP_ADDRChanging(string value);
+    partial void OnIP_ADDRChanged();
+    partial void OnPORT_NUMBChanging(System.Nullable<int> value);
+    partial void OnPORT_NUMBChanged();
+    partial void OnATTN_COMP_CONCTChanging(string value);
+    partial void OnATTN_COMP_CONCTChanged();
+    partial void OnATN1_EVNT_ACTN_TYPEChanging(string value);
+    partial void OnATN1_EVNT_ACTN_TYPEChanged();
+    partial void OnIP_ADR2Changing(string value);
+    partial void OnIP_ADR2Changed();
+    partial void OnPORT_NUM2Changing(System.Nullable<int> value);
+    partial void OnPORT_NUM2Changed();
+    partial void OnATTN_COMP_CNC2Changing(string value);
+    partial void OnATTN_COMP_CNC2Changed();
+    partial void OnATN2_EVNT_ACTN_TYPEChanging(string value);
+    partial void OnATN2_EVNT_ACTN_TYPEChanged();
+    partial void OnATTN_NOTF_STATChanging(string value);
+    partial void OnATTN_NOTF_STATChanged();
+    partial void OnATTN_NOTF_CLOS_TYPEChanging(string value);
+    partial void OnATTN_NOTF_CLOS_TYPEChanged();
+    partial void OnATTN_NOTF_CLOS_INTRChanging(System.Nullable<int> value);
+    partial void OnATTN_NOTF_CLOS_INTRChanged();
+    partial void OnDEBT_CLNG_STATChanging(string value);
+    partial void OnDEBT_CLNG_STATChanged();
+    partial void OnMOST_DEBT_CLNG_AMNTChanging(System.Nullable<long> value);
+    partial void OnMOST_DEBT_CLNG_AMNTChanged();
+    partial void OnEXPR_DEBT_DAYChanging(System.Nullable<int> value);
+    partial void OnEXPR_DEBT_DAYChanged();
+    partial void OnDEBT_CHCK_STATChanging(string value);
+    partial void OnDEBT_CHCK_STATChanged();
+    partial void OnPERM_ENTR_DEBT_SERV_NUMBChanging(System.Nullable<int> value);
+    partial void OnPERM_ENTR_DEBT_SERV_NUMBChanged();
+    partial void OnTRY_VALD_SBMTChanging(string value);
+    partial void OnTRY_VALD_SBMTChanged();
+    partial void OnGATE_ATTN_STATChanging(string value);
+    partial void OnGATE_ATTN_STATChanged();
+    partial void OnGATE_COMM_PORT_NAMEChanging(string value);
+    partial void OnGATE_COMM_PORT_NAMEChanged();
+    partial void OnGATE_BAND_RATEChanging(System.Nullable<int> value);
+    partial void OnGATE_BAND_RATEChanged();
+    partial void OnGATE_TIME_CLOSChanging(System.Nullable<int> value);
+    partial void OnGATE_TIME_CLOSChanged();
+    partial void OnGATE_ENTR_OPENChanging(string value);
+    partial void OnGATE_ENTR_OPENChanged();
+    partial void OnGATE_EXIT_OPENChanging(string value);
+    partial void OnGATE_EXIT_OPENChanged();
+    partial void OnEXPN_EXTR_STATChanging(string value);
+    partial void OnEXPN_EXTR_STATChanged();
+    partial void OnEXPN_COMM_PORT_NAMEChanging(string value);
+    partial void OnEXPN_COMM_PORT_NAMEChanged();
+    partial void OnEXPN_BAND_RATEChanging(System.Nullable<int> value);
+    partial void OnEXPN_BAND_RATEChanged();
+    partial void OnRUN_QURYChanging(string value);
+    partial void OnRUN_QURYChanged();
+    partial void OnATTN_PRNT_STATChanging(string value);
+    partial void OnATTN_PRNT_STATChanged();
+    partial void OnSHAR_MBSP_STATChanging(string value);
+    partial void OnSHAR_MBSP_STATChanged();
+    partial void OnRUN_RBOTChanging(string value);
+    partial void OnRUN_RBOTChanged();
+    partial void OnHLDY_CONTChanging(System.Nullable<int> value);
+    partial void OnHLDY_CONTChanged();
+    partial void OnCLER_ZEROChanging(string value);
+    partial void OnCLER_ZEROChanged();
+    partial void OnDUPL_NATL_CODEChanging(string value);
+    partial void OnDUPL_NATL_CODEChanged();
+    partial void OnDUPL_CELL_PHONChanging(string value);
+    partial void OnDUPL_CELL_PHONChanged();
+    partial void OnINPT_NATL_CODE_STATChanging(string value);
+    partial void OnINPT_NATL_CODE_STATChanged();
+    partial void OnINPT_CELL_PHON_STATChanging(string value);
+    partial void OnINPT_CELL_PHON_STATChanged();
+    partial void OnIP_ADR3Changing(string value);
+    partial void OnIP_ADR3Changed();
+    partial void OnPORT_NUM3Changing(System.Nullable<int> value);
+    partial void OnPORT_NUM3Changed();
+    partial void OnATTN_COMP_CNC3Changing(string value);
+    partial void OnATTN_COMP_CNC3Changed();
+    partial void OnATN4_EVNT_ACTN_TYPEChanging(string value);
+    partial void OnATN4_EVNT_ACTN_TYPEChanged();
+    partial void OnLEN_FNGR_PRNTChanging(System.Nullable<short> value);
+    partial void OnLEN_FNGR_PRNTChanged();
+    partial void OnATTN_GUST_NUMB_TYPEChanging(string value);
+    partial void OnATTN_GUST_NUMB_TYPEChanged();
+    partial void OnATTN_DELY_TIMEChanging(System.Nullable<short> value);
+    partial void OnATTN_DELY_TIMEChanged();
+    partial void OnSND1_PATHChanging(string value);
+    partial void OnSND1_PATHChanged();
+    partial void OnSND2_PATHChanging(string value);
+    partial void OnSND2_PATHChanged();
+    partial void OnSND3_PATHChanging(string value);
+    partial void OnSND3_PATHChanged();
+    partial void OnSND4_PATHChanging(string value);
+    partial void OnSND4_PATHChanged();
+    partial void OnSND5_PATHChanging(string value);
+    partial void OnSND5_PATHChanged();
+    partial void OnSND6_PATHChanging(string value);
+    partial void OnSND6_PATHChanged();
+    partial void OnSND7_PATHChanging(string value);
+    partial void OnSND7_PATHChanged();
+    partial void OnSND8_PATHChanging(string value);
+    partial void OnSND8_PATHChanged();
+    partial void OnSND9_PATHChanging(string value);
+    partial void OnSND9_PATHChanged();
+    partial void OnREST_ATTN_NUMB_BY_YEARChanging(string value);
+    partial void OnREST_ATTN_NUMB_BY_YEARChanged();
+    partial void OnATTN_NOT_INSR_STATChanging(string value);
+    partial void OnATTN_NOT_INSR_STATChanged();
+    partial void OnSHOW_RBON_MNUIChanging(string value);
+    partial void OnSHOW_RBON_MNUIChanged();
+    partial void OnSHOW_SLID_MNUIChanging(string value);
+    partial void OnSHOW_SLID_MNUIChanged();
+    partial void OnNEG_DPST_AMNTChanging(string value);
+    partial void OnNEG_DPST_AMNTChanged();
+    partial void OnDONT_SHOW_ERORChanging(string value);
+    partial void OnDONT_SHOW_ERORChanged();
+    partial void OnSHOW_EROR_LOGChanging(string value);
+    partial void OnSHOW_EROR_LOGChanged();
+    partial void OnDEV4_STATChanging(string value);
+    partial void OnDEV4_STATChanged();
+    partial void OnIP_ADR4Changing(string value);
+    partial void OnIP_ADR4Changed();
+    partial void OnPORT_NUM4Changing(System.Nullable<int> value);
+    partial void OnPORT_NUM4Changed();
+    partial void OnATTN_COMP_CNC4Changing(string value);
+    partial void OnATTN_COMP_CNC4Changed();
+    partial void OnDEV5_STATChanging(string value);
+    partial void OnDEV5_STATChanged();
+    partial void OnIP_ADR5Changing(string value);
+    partial void OnIP_ADR5Changed();
+    partial void OnPORT_NUM5Changing(System.Nullable<int> value);
+    partial void OnPORT_NUM5Changed();
+    partial void OnATTN_COMP_CNC5Changing(string value);
+    partial void OnATTN_COMP_CNC5Changed();
+    partial void OnDEV6_STATChanging(string value);
+    partial void OnDEV6_STATChanged();
+    partial void OnIP_ADR6Changing(string value);
+    partial void OnIP_ADR6Changed();
+    partial void OnPORT_NUM6Changing(System.Nullable<int> value);
+    partial void OnPORT_NUM6Changed();
+    partial void OnATTN_COMP_CNC6Changing(string value);
+    partial void OnATTN_COMP_CNC6Changed();
+    partial void OnLIMT_CALC_ATTN_INDYChanging(string value);
+    partial void OnLIMT_CALC_ATTN_INDYChanged();
+    partial void OnCARD_EXPN_STATChanging(string value);
+    partial void OnCARD_EXPN_STATChanged();
+    partial void OnCARD_EXPN_CODEChanging(System.Nullable<long> value);
+    partial void OnCARD_EXPN_CODEChanged();
+    #endregion
+		
+		public Setting()
+		{
+			this._Club = default(EntityRef<Club>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLUB_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> CLUB_CODE
+		{
+			get
+			{
+				return this._CLUB_CODE;
+			}
+			set
+			{
+				if ((this._CLUB_CODE != value))
+				{
+					if (this._Club.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnCLUB_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._CLUB_CODE = value;
+					this.SendPropertyChanged("CLUB_CODE");
+					this.OnCLUB_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DFLT_STAT
+		{
+			get
+			{
+				return this._DFLT_STAT;
+			}
+			set
+			{
+				if ((this._DFLT_STAT != value))
+				{
+					this.OnDFLT_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DFLT_STAT = value;
+					this.SendPropertyChanged("DFLT_STAT");
+					this.OnDFLT_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<bool> BACK_UP
+		{
+			get
+			{
+				return this._BACK_UP;
+			}
+			set
+			{
+				if ((this._BACK_UP != value))
+				{
+					this.OnBACK_UPChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP = value;
+					this.SendPropertyChanged("BACK_UP");
+					this.OnBACK_UPChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_APP_EXIT", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<bool> BACK_UP_APP_EXIT
+		{
+			get
+			{
+				return this._BACK_UP_APP_EXIT;
+			}
+			set
+			{
+				if ((this._BACK_UP_APP_EXIT != value))
+				{
+					this.OnBACK_UP_APP_EXITChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_APP_EXIT = value;
+					this.SendPropertyChanged("BACK_UP_APP_EXIT");
+					this.OnBACK_UP_APP_EXITChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_IN_TRED", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<bool> BACK_UP_IN_TRED
+		{
+			get
+			{
+				return this._BACK_UP_IN_TRED;
+			}
+			set
+			{
+				if ((this._BACK_UP_IN_TRED != value))
+				{
+					this.OnBACK_UP_IN_TREDChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_IN_TRED = value;
+					this.SendPropertyChanged("BACK_UP_IN_TRED");
+					this.OnBACK_UP_IN_TREDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_OPTN_PATH", DbType="Bit", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<bool> BACK_UP_OPTN_PATH
+		{
+			get
+			{
+				return this._BACK_UP_OPTN_PATH;
+			}
+			set
+			{
+				if ((this._BACK_UP_OPTN_PATH != value))
+				{
+					this.OnBACK_UP_OPTN_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_OPTN_PATH = value;
+					this.SendPropertyChanged("BACK_UP_OPTN_PATH");
+					this.OnBACK_UP_OPTN_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_OPTN_PATH_ADRS", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public string BACK_UP_OPTN_PATH_ADRS
+		{
+			get
+			{
+				return this._BACK_UP_OPTN_PATH_ADRS;
+			}
+			set
+			{
+				if ((this._BACK_UP_OPTN_PATH_ADRS != value))
+				{
+					this.OnBACK_UP_OPTN_PATH_ADRSChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_OPTN_PATH_ADRS = value;
+					this.SendPropertyChanged("BACK_UP_OPTN_PATH_ADRS");
+					this.OnBACK_UP_OPTN_PATH_ADRSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BACK_UP_ROOT_PATH", DbType="NVarChar(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public string BACK_UP_ROOT_PATH
+		{
+			get
+			{
+				return this._BACK_UP_ROOT_PATH;
+			}
+			set
+			{
+				if ((this._BACK_UP_ROOT_PATH != value))
+				{
+					this.OnBACK_UP_ROOT_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._BACK_UP_ROOT_PATH = value;
+					this.SendPropertyChanged("BACK_UP_ROOT_PATH");
+					this.OnBACK_UP_ROOT_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRES_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DRES_STAT
+		{
+			get
+			{
+				return this._DRES_STAT;
+			}
+			set
+			{
+				if ((this._DRES_STAT != value))
+				{
+					this.OnDRES_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DRES_STAT = value;
+					this.SendPropertyChanged("DRES_STAT");
+					this.OnDRES_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRES_AUTO", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DRES_AUTO
+		{
+			get
+			{
+				return this._DRES_AUTO;
+			}
+			set
+			{
+				if ((this._DRES_AUTO != value))
+				{
+					this.OnDRES_AUTOChanging(value);
+					this.SendPropertyChanging();
+					this._DRES_AUTO = value;
+					this.SendPropertyChanged("DRES_AUTO");
+					this.OnDRES_AUTOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MORE_FIGH_ONE_DRES", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string MORE_FIGH_ONE_DRES
+		{
+			get
+			{
+				return this._MORE_FIGH_ONE_DRES;
+			}
+			set
+			{
+				if ((this._MORE_FIGH_ONE_DRES != value))
+				{
+					this.OnMORE_FIGH_ONE_DRESChanging(value);
+					this.SendPropertyChanging();
+					this._MORE_FIGH_ONE_DRES = value;
+					this.SendPropertyChanged("MORE_FIGH_ONE_DRES");
+					this.OnMORE_FIGH_ONE_DRESChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MORE_ATTN_SESN", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string MORE_ATTN_SESN
+		{
+			get
+			{
+				return this._MORE_ATTN_SESN;
+			}
+			set
+			{
+				if ((this._MORE_ATTN_SESN != value))
+				{
+					this.OnMORE_ATTN_SESNChanging(value);
+					this.SendPropertyChanging();
+					this._MORE_ATTN_SESN = value;
+					this.SendPropertyChanged("MORE_ATTN_SESN");
+					this.OnMORE_ATTN_SESNChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTF_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string NOTF_STAT
+		{
+			get
+			{
+				return this._NOTF_STAT;
+			}
+			set
+			{
+				if ((this._NOTF_STAT != value))
+				{
+					this.OnNOTF_STATChanging(value);
+					this.SendPropertyChanging();
+					this._NOTF_STAT = value;
+					this.SendPropertyChanged("NOTF_STAT");
+					this.OnNOTF_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTF_EXP_DAY", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> NOTF_EXP_DAY
+		{
+			get
+			{
+				return this._NOTF_EXP_DAY;
+			}
+			set
+			{
+				if ((this._NOTF_EXP_DAY != value))
+				{
+					this.OnNOTF_EXP_DAYChanging(value);
+					this.SendPropertyChanging();
+					this._NOTF_EXP_DAY = value;
+					this.SendPropertyChanged("NOTF_EXP_DAY");
+					this.OnNOTF_EXP_DAYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NOTF_VIST_DATE", DbType="Date", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> NOTF_VIST_DATE
+		{
+			get
+			{
+				return this._NOTF_VIST_DATE;
+			}
+			set
+			{
+				if ((this._NOTF_VIST_DATE != value))
+				{
+					this.OnNOTF_VIST_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._NOTF_VIST_DATE = value;
+					this.SendPropertyChanged("NOTF_VIST_DATE");
+					this.OnNOTF_VIST_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_SYST_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string ATTN_SYST_TYPE
+		{
+			get
+			{
+				return this._ATTN_SYST_TYPE;
+			}
+			set
+			{
+				if ((this._ATTN_SYST_TYPE != value))
+				{
+					this.OnATTN_SYST_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_SYST_TYPE = value;
+					this.SendPropertyChanged("ATTN_SYST_TYPE");
+					this.OnATTN_SYST_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_COMM_PORT_NAME", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string COMM_PORT_NAME
+		{
+			get
+			{
+				return this._COMM_PORT_NAME;
+			}
+			set
+			{
+				if ((this._COMM_PORT_NAME != value))
+				{
+					this.OnCOMM_PORT_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._COMM_PORT_NAME = value;
+					this.SendPropertyChanged("COMM_PORT_NAME");
+					this.OnCOMM_PORT_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAND_RATE", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> BAND_RATE
+		{
+			get
+			{
+				return this._BAND_RATE;
+			}
+			set
+			{
+				if ((this._BAND_RATE != value))
+				{
+					this.OnBAND_RATEChanging(value);
+					this.SendPropertyChanging();
+					this._BAND_RATE = value;
+					this.SendPropertyChanged("BAND_RATE");
+					this.OnBAND_RATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BAR_CODE_DATA_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string BAR_CODE_DATA_TYPE
+		{
+			get
+			{
+				return this._BAR_CODE_DATA_TYPE;
+			}
+			set
+			{
+				if ((this._BAR_CODE_DATA_TYPE != value))
+				{
+					this.OnBAR_CODE_DATA_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._BAR_CODE_DATA_TYPE = value;
+					this.SendPropertyChanged("BAR_CODE_DATA_TYPE");
+					this.OnBAR_CODE_DATA_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN3_EVNT_ACTN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string ATN3_EVNT_ACTN_TYPE
+		{
+			get
+			{
+				return this._ATN3_EVNT_ACTN_TYPE;
+			}
+			set
+			{
+				if ((this._ATN3_EVNT_ACTN_TYPE != value))
+				{
+					this.OnATN3_EVNT_ACTN_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._ATN3_EVNT_ACTN_TYPE = value;
+					this.SendPropertyChanged("ATN3_EVNT_ACTN_TYPE");
+					this.OnATN3_EVNT_ACTN_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADDR", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		public string IP_ADDR
+		{
+			get
+			{
+				return this._IP_ADDR;
+			}
+			set
+			{
+				if ((this._IP_ADDR != value))
+				{
+					this.OnIP_ADDRChanging(value);
+					this.SendPropertyChanging();
+					this._IP_ADDR = value;
+					this.SendPropertyChanged("IP_ADDR");
+					this.OnIP_ADDRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUMB", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> PORT_NUMB
+		{
+			get
+			{
+				return this._PORT_NUMB;
+			}
+			set
+			{
+				if ((this._PORT_NUMB != value))
+				{
+					this.OnPORT_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._PORT_NUMB = value;
+					this.SendPropertyChanged("PORT_NUMB");
+					this.OnPORT_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CONCT", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string ATTN_COMP_CONCT
+		{
+			get
+			{
+				return this._ATTN_COMP_CONCT;
+			}
+			set
+			{
+				if ((this._ATTN_COMP_CONCT != value))
+				{
+					this.OnATTN_COMP_CONCTChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_COMP_CONCT = value;
+					this.SendPropertyChanged("ATTN_COMP_CONCT");
+					this.OnATTN_COMP_CONCTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN1_EVNT_ACTN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string ATN1_EVNT_ACTN_TYPE
+		{
+			get
+			{
+				return this._ATN1_EVNT_ACTN_TYPE;
+			}
+			set
+			{
+				if ((this._ATN1_EVNT_ACTN_TYPE != value))
+				{
+					this.OnATN1_EVNT_ACTN_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._ATN1_EVNT_ACTN_TYPE = value;
+					this.SendPropertyChanged("ATN1_EVNT_ACTN_TYPE");
+					this.OnATN1_EVNT_ACTN_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR2", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		public string IP_ADR2
+		{
+			get
+			{
+				return this._IP_ADR2;
+			}
+			set
+			{
+				if ((this._IP_ADR2 != value))
+				{
+					this.OnIP_ADR2Changing(value);
+					this.SendPropertyChanging();
+					this._IP_ADR2 = value;
+					this.SendPropertyChanged("IP_ADR2");
+					this.OnIP_ADR2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM2", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> PORT_NUM2
+		{
+			get
+			{
+				return this._PORT_NUM2;
+			}
+			set
+			{
+				if ((this._PORT_NUM2 != value))
+				{
+					this.OnPORT_NUM2Changing(value);
+					this.SendPropertyChanging();
+					this._PORT_NUM2 = value;
+					this.SendPropertyChanged("PORT_NUM2");
+					this.OnPORT_NUM2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC2", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string ATTN_COMP_CNC2
+		{
+			get
+			{
+				return this._ATTN_COMP_CNC2;
+			}
+			set
+			{
+				if ((this._ATTN_COMP_CNC2 != value))
+				{
+					this.OnATTN_COMP_CNC2Changing(value);
+					this.SendPropertyChanging();
+					this._ATTN_COMP_CNC2 = value;
+					this.SendPropertyChanged("ATTN_COMP_CNC2");
+					this.OnATTN_COMP_CNC2Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN2_EVNT_ACTN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string ATN2_EVNT_ACTN_TYPE
+		{
+			get
+			{
+				return this._ATN2_EVNT_ACTN_TYPE;
+			}
+			set
+			{
+				if ((this._ATN2_EVNT_ACTN_TYPE != value))
+				{
+					this.OnATN2_EVNT_ACTN_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._ATN2_EVNT_ACTN_TYPE = value;
+					this.SendPropertyChanged("ATN2_EVNT_ACTN_TYPE");
+					this.OnATN2_EVNT_ACTN_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOTF_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string ATTN_NOTF_STAT
+		{
+			get
+			{
+				return this._ATTN_NOTF_STAT;
+			}
+			set
+			{
+				if ((this._ATTN_NOTF_STAT != value))
+				{
+					this.OnATTN_NOTF_STATChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_NOTF_STAT = value;
+					this.SendPropertyChanged("ATTN_NOTF_STAT");
+					this.OnATTN_NOTF_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOTF_CLOS_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string ATTN_NOTF_CLOS_TYPE
+		{
+			get
+			{
+				return this._ATTN_NOTF_CLOS_TYPE;
+			}
+			set
+			{
+				if ((this._ATTN_NOTF_CLOS_TYPE != value))
+				{
+					this.OnATTN_NOTF_CLOS_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_NOTF_CLOS_TYPE = value;
+					this.SendPropertyChanged("ATTN_NOTF_CLOS_TYPE");
+					this.OnATTN_NOTF_CLOS_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOTF_CLOS_INTR", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> ATTN_NOTF_CLOS_INTR
+		{
+			get
+			{
+				return this._ATTN_NOTF_CLOS_INTR;
+			}
+			set
+			{
+				if ((this._ATTN_NOTF_CLOS_INTR != value))
+				{
+					this.OnATTN_NOTF_CLOS_INTRChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_NOTF_CLOS_INTR = value;
+					this.SendPropertyChanged("ATTN_NOTF_CLOS_INTR");
+					this.OnATTN_NOTF_CLOS_INTRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_CLNG_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DEBT_CLNG_STAT
+		{
+			get
+			{
+				return this._DEBT_CLNG_STAT;
+			}
+			set
+			{
+				if ((this._DEBT_CLNG_STAT != value))
+				{
+					this.OnDEBT_CLNG_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DEBT_CLNG_STAT = value;
+					this.SendPropertyChanged("DEBT_CLNG_STAT");
+					this.OnDEBT_CLNG_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MOST_DEBT_CLNG_AMNT", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> MOST_DEBT_CLNG_AMNT
+		{
+			get
+			{
+				return this._MOST_DEBT_CLNG_AMNT;
+			}
+			set
+			{
+				if ((this._MOST_DEBT_CLNG_AMNT != value))
+				{
+					this.OnMOST_DEBT_CLNG_AMNTChanging(value);
+					this.SendPropertyChanging();
+					this._MOST_DEBT_CLNG_AMNT = value;
+					this.SendPropertyChanged("MOST_DEBT_CLNG_AMNT");
+					this.OnMOST_DEBT_CLNG_AMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPR_DEBT_DAY", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> EXPR_DEBT_DAY
+		{
+			get
+			{
+				return this._EXPR_DEBT_DAY;
+			}
+			set
+			{
+				if ((this._EXPR_DEBT_DAY != value))
+				{
+					this.OnEXPR_DEBT_DAYChanging(value);
+					this.SendPropertyChanging();
+					this._EXPR_DEBT_DAY = value;
+					this.SendPropertyChanged("EXPR_DEBT_DAY");
+					this.OnEXPR_DEBT_DAYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEBT_CHCK_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DEBT_CHCK_STAT
+		{
+			get
+			{
+				return this._DEBT_CHCK_STAT;
+			}
+			set
+			{
+				if ((this._DEBT_CHCK_STAT != value))
+				{
+					this.OnDEBT_CHCK_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DEBT_CHCK_STAT = value;
+					this.SendPropertyChanged("DEBT_CHCK_STAT");
+					this.OnDEBT_CHCK_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PERM_ENTR_DEBT_SERV_NUMB", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> PERM_ENTR_DEBT_SERV_NUMB
+		{
+			get
+			{
+				return this._PERM_ENTR_DEBT_SERV_NUMB;
+			}
+			set
+			{
+				if ((this._PERM_ENTR_DEBT_SERV_NUMB != value))
+				{
+					this.OnPERM_ENTR_DEBT_SERV_NUMBChanging(value);
+					this.SendPropertyChanging();
+					this._PERM_ENTR_DEBT_SERV_NUMB = value;
+					this.SendPropertyChanged("PERM_ENTR_DEBT_SERV_NUMB");
+					this.OnPERM_ENTR_DEBT_SERV_NUMBChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TRY_VALD_SBMT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string TRY_VALD_SBMT
+		{
+			get
+			{
+				return this._TRY_VALD_SBMT;
+			}
+			set
+			{
+				if ((this._TRY_VALD_SBMT != value))
+				{
+					this.OnTRY_VALD_SBMTChanging(value);
+					this.SendPropertyChanging();
+					this._TRY_VALD_SBMT = value;
+					this.SendPropertyChanged("TRY_VALD_SBMT");
+					this.OnTRY_VALD_SBMTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_ATTN_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string GATE_ATTN_STAT
+		{
+			get
+			{
+				return this._GATE_ATTN_STAT;
+			}
+			set
+			{
+				if ((this._GATE_ATTN_STAT != value))
+				{
+					this.OnGATE_ATTN_STATChanging(value);
+					this.SendPropertyChanging();
+					this._GATE_ATTN_STAT = value;
+					this.SendPropertyChanged("GATE_ATTN_STAT");
+					this.OnGATE_ATTN_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_COMM_PORT_NAME", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string GATE_COMM_PORT_NAME
+		{
+			get
+			{
+				return this._GATE_COMM_PORT_NAME;
+			}
+			set
+			{
+				if ((this._GATE_COMM_PORT_NAME != value))
+				{
+					this.OnGATE_COMM_PORT_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._GATE_COMM_PORT_NAME = value;
+					this.SendPropertyChanged("GATE_COMM_PORT_NAME");
+					this.OnGATE_COMM_PORT_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_BAND_RATE", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> GATE_BAND_RATE
+		{
+			get
+			{
+				return this._GATE_BAND_RATE;
+			}
+			set
+			{
+				if ((this._GATE_BAND_RATE != value))
+				{
+					this.OnGATE_BAND_RATEChanging(value);
+					this.SendPropertyChanging();
+					this._GATE_BAND_RATE = value;
+					this.SendPropertyChanged("GATE_BAND_RATE");
+					this.OnGATE_BAND_RATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_TIME_CLOS", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> GATE_TIME_CLOS
+		{
+			get
+			{
+				return this._GATE_TIME_CLOS;
+			}
+			set
+			{
+				if ((this._GATE_TIME_CLOS != value))
+				{
+					this.OnGATE_TIME_CLOSChanging(value);
+					this.SendPropertyChanging();
+					this._GATE_TIME_CLOS = value;
+					this.SendPropertyChanged("GATE_TIME_CLOS");
+					this.OnGATE_TIME_CLOSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_ENTR_OPEN", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string GATE_ENTR_OPEN
+		{
+			get
+			{
+				return this._GATE_ENTR_OPEN;
+			}
+			set
+			{
+				if ((this._GATE_ENTR_OPEN != value))
+				{
+					this.OnGATE_ENTR_OPENChanging(value);
+					this.SendPropertyChanging();
+					this._GATE_ENTR_OPEN = value;
+					this.SendPropertyChanged("GATE_ENTR_OPEN");
+					this.OnGATE_ENTR_OPENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GATE_EXIT_OPEN", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string GATE_EXIT_OPEN
+		{
+			get
+			{
+				return this._GATE_EXIT_OPEN;
+			}
+			set
+			{
+				if ((this._GATE_EXIT_OPEN != value))
+				{
+					this.OnGATE_EXIT_OPENChanging(value);
+					this.SendPropertyChanging();
+					this._GATE_EXIT_OPEN = value;
+					this.SendPropertyChanged("GATE_EXIT_OPEN");
+					this.OnGATE_EXIT_OPENChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_EXTR_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string EXPN_EXTR_STAT
+		{
+			get
+			{
+				return this._EXPN_EXTR_STAT;
+			}
+			set
+			{
+				if ((this._EXPN_EXTR_STAT != value))
+				{
+					this.OnEXPN_EXTR_STATChanging(value);
+					this.SendPropertyChanging();
+					this._EXPN_EXTR_STAT = value;
+					this.SendPropertyChanged("EXPN_EXTR_STAT");
+					this.OnEXPN_EXTR_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_COMM_PORT_NAME", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string EXPN_COMM_PORT_NAME
+		{
+			get
+			{
+				return this._EXPN_COMM_PORT_NAME;
+			}
+			set
+			{
+				if ((this._EXPN_COMM_PORT_NAME != value))
+				{
+					this.OnEXPN_COMM_PORT_NAMEChanging(value);
+					this.SendPropertyChanging();
+					this._EXPN_COMM_PORT_NAME = value;
+					this.SendPropertyChanged("EXPN_COMM_PORT_NAME");
+					this.OnEXPN_COMM_PORT_NAMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_BAND_RATE", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> EXPN_BAND_RATE
+		{
+			get
+			{
+				return this._EXPN_BAND_RATE;
+			}
+			set
+			{
+				if ((this._EXPN_BAND_RATE != value))
+				{
+					this.OnEXPN_BAND_RATEChanging(value);
+					this.SendPropertyChanging();
+					this._EXPN_BAND_RATE = value;
+					this.SendPropertyChanged("EXPN_BAND_RATE");
+					this.OnEXPN_BAND_RATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RUN_QURY", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string RUN_QURY
+		{
+			get
+			{
+				return this._RUN_QURY;
+			}
+			set
+			{
+				if ((this._RUN_QURY != value))
+				{
+					this.OnRUN_QURYChanging(value);
+					this.SendPropertyChanging();
+					this._RUN_QURY = value;
+					this.SendPropertyChanged("RUN_QURY");
+					this.OnRUN_QURYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_PRNT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string ATTN_PRNT_STAT
+		{
+			get
+			{
+				return this._ATTN_PRNT_STAT;
+			}
+			set
+			{
+				if ((this._ATTN_PRNT_STAT != value))
+				{
+					this.OnATTN_PRNT_STATChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_PRNT_STAT = value;
+					this.SendPropertyChanged("ATTN_PRNT_STAT");
+					this.OnATTN_PRNT_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHAR_MBSP_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string SHAR_MBSP_STAT
+		{
+			get
+			{
+				return this._SHAR_MBSP_STAT;
+			}
+			set
+			{
+				if ((this._SHAR_MBSP_STAT != value))
+				{
+					this.OnSHAR_MBSP_STATChanging(value);
+					this.SendPropertyChanging();
+					this._SHAR_MBSP_STAT = value;
+					this.SendPropertyChanged("SHAR_MBSP_STAT");
+					this.OnSHAR_MBSP_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RUN_RBOT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string RUN_RBOT
+		{
+			get
+			{
+				return this._RUN_RBOT;
+			}
+			set
+			{
+				if ((this._RUN_RBOT != value))
+				{
+					this.OnRUN_RBOTChanging(value);
+					this.SendPropertyChanging();
+					this._RUN_RBOT = value;
+					this.SendPropertyChanged("RUN_RBOT");
+					this.OnRUN_RBOTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HLDY_CONT", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> HLDY_CONT
+		{
+			get
+			{
+				return this._HLDY_CONT;
+			}
+			set
+			{
+				if ((this._HLDY_CONT != value))
+				{
+					this.OnHLDY_CONTChanging(value);
+					this.SendPropertyChanging();
+					this._HLDY_CONT = value;
+					this.SendPropertyChanged("HLDY_CONT");
+					this.OnHLDY_CONTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CLER_ZERO", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string CLER_ZERO
+		{
+			get
+			{
+				return this._CLER_ZERO;
+			}
+			set
+			{
+				if ((this._CLER_ZERO != value))
+				{
+					this.OnCLER_ZEROChanging(value);
+					this.SendPropertyChanging();
+					this._CLER_ZERO = value;
+					this.SendPropertyChanged("CLER_ZERO");
+					this.OnCLER_ZEROChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DUPL_NATL_CODE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DUPL_NATL_CODE
+		{
+			get
+			{
+				return this._DUPL_NATL_CODE;
+			}
+			set
+			{
+				if ((this._DUPL_NATL_CODE != value))
+				{
+					this.OnDUPL_NATL_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._DUPL_NATL_CODE = value;
+					this.SendPropertyChanged("DUPL_NATL_CODE");
+					this.OnDUPL_NATL_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DUPL_CELL_PHON", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DUPL_CELL_PHON
+		{
+			get
+			{
+				return this._DUPL_CELL_PHON;
+			}
+			set
+			{
+				if ((this._DUPL_CELL_PHON != value))
+				{
+					this.OnDUPL_CELL_PHONChanging(value);
+					this.SendPropertyChanging();
+					this._DUPL_CELL_PHON = value;
+					this.SendPropertyChanged("DUPL_CELL_PHON");
+					this.OnDUPL_CELL_PHONChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPT_NATL_CODE_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string INPT_NATL_CODE_STAT
+		{
+			get
+			{
+				return this._INPT_NATL_CODE_STAT;
+			}
+			set
+			{
+				if ((this._INPT_NATL_CODE_STAT != value))
+				{
+					this.OnINPT_NATL_CODE_STATChanging(value);
+					this.SendPropertyChanging();
+					this._INPT_NATL_CODE_STAT = value;
+					this.SendPropertyChanged("INPT_NATL_CODE_STAT");
+					this.OnINPT_NATL_CODE_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INPT_CELL_PHON_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string INPT_CELL_PHON_STAT
+		{
+			get
+			{
+				return this._INPT_CELL_PHON_STAT;
+			}
+			set
+			{
+				if ((this._INPT_CELL_PHON_STAT != value))
+				{
+					this.OnINPT_CELL_PHON_STATChanging(value);
+					this.SendPropertyChanging();
+					this._INPT_CELL_PHON_STAT = value;
+					this.SendPropertyChanged("INPT_CELL_PHON_STAT");
+					this.OnINPT_CELL_PHON_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR3", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		public string IP_ADR3
+		{
+			get
+			{
+				return this._IP_ADR3;
+			}
+			set
+			{
+				if ((this._IP_ADR3 != value))
+				{
+					this.OnIP_ADR3Changing(value);
+					this.SendPropertyChanging();
+					this._IP_ADR3 = value;
+					this.SendPropertyChanged("IP_ADR3");
+					this.OnIP_ADR3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM3", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> PORT_NUM3
+		{
+			get
+			{
+				return this._PORT_NUM3;
+			}
+			set
+			{
+				if ((this._PORT_NUM3 != value))
+				{
+					this.OnPORT_NUM3Changing(value);
+					this.SendPropertyChanging();
+					this._PORT_NUM3 = value;
+					this.SendPropertyChanged("PORT_NUM3");
+					this.OnPORT_NUM3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC3", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string ATTN_COMP_CNC3
+		{
+			get
+			{
+				return this._ATTN_COMP_CNC3;
+			}
+			set
+			{
+				if ((this._ATTN_COMP_CNC3 != value))
+				{
+					this.OnATTN_COMP_CNC3Changing(value);
+					this.SendPropertyChanging();
+					this._ATTN_COMP_CNC3 = value;
+					this.SendPropertyChanged("ATTN_COMP_CNC3");
+					this.OnATTN_COMP_CNC3Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATN4_EVNT_ACTN_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string ATN4_EVNT_ACTN_TYPE
+		{
+			get
+			{
+				return this._ATN4_EVNT_ACTN_TYPE;
+			}
+			set
+			{
+				if ((this._ATN4_EVNT_ACTN_TYPE != value))
+				{
+					this.OnATN4_EVNT_ACTN_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._ATN4_EVNT_ACTN_TYPE = value;
+					this.SendPropertyChanged("ATN4_EVNT_ACTN_TYPE");
+					this.OnATN4_EVNT_ACTN_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LEN_FNGR_PRNT", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<short> LEN_FNGR_PRNT
+		{
+			get
+			{
+				return this._LEN_FNGR_PRNT;
+			}
+			set
+			{
+				if ((this._LEN_FNGR_PRNT != value))
+				{
+					this.OnLEN_FNGR_PRNTChanging(value);
+					this.SendPropertyChanging();
+					this._LEN_FNGR_PRNT = value;
+					this.SendPropertyChanged("LEN_FNGR_PRNT");
+					this.OnLEN_FNGR_PRNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_GUST_NUMB_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string ATTN_GUST_NUMB_TYPE
+		{
+			get
+			{
+				return this._ATTN_GUST_NUMB_TYPE;
+			}
+			set
+			{
+				if ((this._ATTN_GUST_NUMB_TYPE != value))
+				{
+					this.OnATTN_GUST_NUMB_TYPEChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_GUST_NUMB_TYPE = value;
+					this.SendPropertyChanged("ATTN_GUST_NUMB_TYPE");
+					this.OnATTN_GUST_NUMB_TYPEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_DELY_TIME", DbType="SmallInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<short> ATTN_DELY_TIME
+		{
+			get
+			{
+				return this._ATTN_DELY_TIME;
+			}
+			set
+			{
+				if ((this._ATTN_DELY_TIME != value))
+				{
+					this.OnATTN_DELY_TIMEChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_DELY_TIME = value;
+					this.SendPropertyChanged("ATTN_DELY_TIME");
+					this.OnATTN_DELY_TIMEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND1_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		public string SND1_PATH
+		{
+			get
+			{
+				return this._SND1_PATH;
+			}
+			set
+			{
+				if ((this._SND1_PATH != value))
+				{
+					this.OnSND1_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._SND1_PATH = value;
+					this.SendPropertyChanged("SND1_PATH");
+					this.OnSND1_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND2_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		public string SND2_PATH
+		{
+			get
+			{
+				return this._SND2_PATH;
+			}
+			set
+			{
+				if ((this._SND2_PATH != value))
+				{
+					this.OnSND2_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._SND2_PATH = value;
+					this.SendPropertyChanged("SND2_PATH");
+					this.OnSND2_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND3_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		public string SND3_PATH
+		{
+			get
+			{
+				return this._SND3_PATH;
+			}
+			set
+			{
+				if ((this._SND3_PATH != value))
+				{
+					this.OnSND3_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._SND3_PATH = value;
+					this.SendPropertyChanged("SND3_PATH");
+					this.OnSND3_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND4_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		public string SND4_PATH
+		{
+			get
+			{
+				return this._SND4_PATH;
+			}
+			set
+			{
+				if ((this._SND4_PATH != value))
+				{
+					this.OnSND4_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._SND4_PATH = value;
+					this.SendPropertyChanged("SND4_PATH");
+					this.OnSND4_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND5_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		public string SND5_PATH
+		{
+			get
+			{
+				return this._SND5_PATH;
+			}
+			set
+			{
+				if ((this._SND5_PATH != value))
+				{
+					this.OnSND5_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._SND5_PATH = value;
+					this.SendPropertyChanged("SND5_PATH");
+					this.OnSND5_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND6_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		public string SND6_PATH
+		{
+			get
+			{
+				return this._SND6_PATH;
+			}
+			set
+			{
+				if ((this._SND6_PATH != value))
+				{
+					this.OnSND6_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._SND6_PATH = value;
+					this.SendPropertyChanged("SND6_PATH");
+					this.OnSND6_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND7_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		public string SND7_PATH
+		{
+			get
+			{
+				return this._SND7_PATH;
+			}
+			set
+			{
+				if ((this._SND7_PATH != value))
+				{
+					this.OnSND7_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._SND7_PATH = value;
+					this.SendPropertyChanged("SND7_PATH");
+					this.OnSND7_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND8_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		public string SND8_PATH
+		{
+			get
+			{
+				return this._SND8_PATH;
+			}
+			set
+			{
+				if ((this._SND8_PATH != value))
+				{
+					this.OnSND8_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._SND8_PATH = value;
+					this.SendPropertyChanged("SND8_PATH");
+					this.OnSND8_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SND9_PATH", DbType="NVarChar(4000)", UpdateCheck=UpdateCheck.Never)]
+		public string SND9_PATH
+		{
+			get
+			{
+				return this._SND9_PATH;
+			}
+			set
+			{
+				if ((this._SND9_PATH != value))
+				{
+					this.OnSND9_PATHChanging(value);
+					this.SendPropertyChanging();
+					this._SND9_PATH = value;
+					this.SendPropertyChanged("SND9_PATH");
+					this.OnSND9_PATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_REST_ATTN_NUMB_BY_YEAR", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string REST_ATTN_NUMB_BY_YEAR
+		{
+			get
+			{
+				return this._REST_ATTN_NUMB_BY_YEAR;
+			}
+			set
+			{
+				if ((this._REST_ATTN_NUMB_BY_YEAR != value))
+				{
+					this.OnREST_ATTN_NUMB_BY_YEARChanging(value);
+					this.SendPropertyChanging();
+					this._REST_ATTN_NUMB_BY_YEAR = value;
+					this.SendPropertyChanged("REST_ATTN_NUMB_BY_YEAR");
+					this.OnREST_ATTN_NUMB_BY_YEARChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_NOT_INSR_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string ATTN_NOT_INSR_STAT
+		{
+			get
+			{
+				return this._ATTN_NOT_INSR_STAT;
+			}
+			set
+			{
+				if ((this._ATTN_NOT_INSR_STAT != value))
+				{
+					this.OnATTN_NOT_INSR_STATChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_NOT_INSR_STAT = value;
+					this.SendPropertyChanged("ATTN_NOT_INSR_STAT");
+					this.OnATTN_NOT_INSR_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_RBON_MNUI", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string SHOW_RBON_MNUI
+		{
+			get
+			{
+				return this._SHOW_RBON_MNUI;
+			}
+			set
+			{
+				if ((this._SHOW_RBON_MNUI != value))
+				{
+					this.OnSHOW_RBON_MNUIChanging(value);
+					this.SendPropertyChanging();
+					this._SHOW_RBON_MNUI = value;
+					this.SendPropertyChanged("SHOW_RBON_MNUI");
+					this.OnSHOW_RBON_MNUIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_SLID_MNUI", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string SHOW_SLID_MNUI
+		{
+			get
+			{
+				return this._SHOW_SLID_MNUI;
+			}
+			set
+			{
+				if ((this._SHOW_SLID_MNUI != value))
+				{
+					this.OnSHOW_SLID_MNUIChanging(value);
+					this.SendPropertyChanging();
+					this._SHOW_SLID_MNUI = value;
+					this.SendPropertyChanged("SHOW_SLID_MNUI");
+					this.OnSHOW_SLID_MNUIChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NEG_DPST_AMNT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string NEG_DPST_AMNT
+		{
+			get
+			{
+				return this._NEG_DPST_AMNT;
+			}
+			set
+			{
+				if ((this._NEG_DPST_AMNT != value))
+				{
+					this.OnNEG_DPST_AMNTChanging(value);
+					this.SendPropertyChanging();
+					this._NEG_DPST_AMNT = value;
+					this.SendPropertyChanged("NEG_DPST_AMNT");
+					this.OnNEG_DPST_AMNTChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DONT_SHOW_EROR", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DONT_SHOW_EROR
+		{
+			get
+			{
+				return this._DONT_SHOW_EROR;
+			}
+			set
+			{
+				if ((this._DONT_SHOW_EROR != value))
+				{
+					this.OnDONT_SHOW_ERORChanging(value);
+					this.SendPropertyChanging();
+					this._DONT_SHOW_EROR = value;
+					this.SendPropertyChanged("DONT_SHOW_EROR");
+					this.OnDONT_SHOW_ERORChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHOW_EROR_LOG", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string SHOW_EROR_LOG
+		{
+			get
+			{
+				return this._SHOW_EROR_LOG;
+			}
+			set
+			{
+				if ((this._SHOW_EROR_LOG != value))
+				{
+					this.OnSHOW_EROR_LOGChanging(value);
+					this.SendPropertyChanging();
+					this._SHOW_EROR_LOG = value;
+					this.SendPropertyChanged("SHOW_EROR_LOG");
+					this.OnSHOW_EROR_LOGChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV4_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DEV4_STAT
+		{
+			get
+			{
+				return this._DEV4_STAT;
+			}
+			set
+			{
+				if ((this._DEV4_STAT != value))
+				{
+					this.OnDEV4_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DEV4_STAT = value;
+					this.SendPropertyChanged("DEV4_STAT");
+					this.OnDEV4_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR4", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		public string IP_ADR4
+		{
+			get
+			{
+				return this._IP_ADR4;
+			}
+			set
+			{
+				if ((this._IP_ADR4 != value))
+				{
+					this.OnIP_ADR4Changing(value);
+					this.SendPropertyChanging();
+					this._IP_ADR4 = value;
+					this.SendPropertyChanged("IP_ADR4");
+					this.OnIP_ADR4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM4", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> PORT_NUM4
+		{
+			get
+			{
+				return this._PORT_NUM4;
+			}
+			set
+			{
+				if ((this._PORT_NUM4 != value))
+				{
+					this.OnPORT_NUM4Changing(value);
+					this.SendPropertyChanging();
+					this._PORT_NUM4 = value;
+					this.SendPropertyChanged("PORT_NUM4");
+					this.OnPORT_NUM4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC4", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string ATTN_COMP_CNC4
+		{
+			get
+			{
+				return this._ATTN_COMP_CNC4;
+			}
+			set
+			{
+				if ((this._ATTN_COMP_CNC4 != value))
+				{
+					this.OnATTN_COMP_CNC4Changing(value);
+					this.SendPropertyChanging();
+					this._ATTN_COMP_CNC4 = value;
+					this.SendPropertyChanged("ATTN_COMP_CNC4");
+					this.OnATTN_COMP_CNC4Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV5_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DEV5_STAT
+		{
+			get
+			{
+				return this._DEV5_STAT;
+			}
+			set
+			{
+				if ((this._DEV5_STAT != value))
+				{
+					this.OnDEV5_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DEV5_STAT = value;
+					this.SendPropertyChanged("DEV5_STAT");
+					this.OnDEV5_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR5", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		public string IP_ADR5
+		{
+			get
+			{
+				return this._IP_ADR5;
+			}
+			set
+			{
+				if ((this._IP_ADR5 != value))
+				{
+					this.OnIP_ADR5Changing(value);
+					this.SendPropertyChanging();
+					this._IP_ADR5 = value;
+					this.SendPropertyChanged("IP_ADR5");
+					this.OnIP_ADR5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM5", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> PORT_NUM5
+		{
+			get
+			{
+				return this._PORT_NUM5;
+			}
+			set
+			{
+				if ((this._PORT_NUM5 != value))
+				{
+					this.OnPORT_NUM5Changing(value);
+					this.SendPropertyChanging();
+					this._PORT_NUM5 = value;
+					this.SendPropertyChanged("PORT_NUM5");
+					this.OnPORT_NUM5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC5", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string ATTN_COMP_CNC5
+		{
+			get
+			{
+				return this._ATTN_COMP_CNC5;
+			}
+			set
+			{
+				if ((this._ATTN_COMP_CNC5 != value))
+				{
+					this.OnATTN_COMP_CNC5Changing(value);
+					this.SendPropertyChanging();
+					this._ATTN_COMP_CNC5 = value;
+					this.SendPropertyChanged("ATTN_COMP_CNC5");
+					this.OnATTN_COMP_CNC5Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEV6_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DEV6_STAT
+		{
+			get
+			{
+				return this._DEV6_STAT;
+			}
+			set
+			{
+				if ((this._DEV6_STAT != value))
+				{
+					this.OnDEV6_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DEV6_STAT = value;
+					this.SendPropertyChanged("DEV6_STAT");
+					this.OnDEV6_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADR6", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		public string IP_ADR6
+		{
+			get
+			{
+				return this._IP_ADR6;
+			}
+			set
+			{
+				if ((this._IP_ADR6 != value))
+				{
+					this.OnIP_ADR6Changing(value);
+					this.SendPropertyChanging();
+					this._IP_ADR6 = value;
+					this.SendPropertyChanged("IP_ADR6");
+					this.OnIP_ADR6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORT_NUM6", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> PORT_NUM6
+		{
+			get
+			{
+				return this._PORT_NUM6;
+			}
+			set
+			{
+				if ((this._PORT_NUM6 != value))
+				{
+					this.OnPORT_NUM6Changing(value);
+					this.SendPropertyChanging();
+					this._PORT_NUM6 = value;
+					this.SendPropertyChanged("PORT_NUM6");
+					this.OnPORT_NUM6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_COMP_CNC6", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		public string ATTN_COMP_CNC6
+		{
+			get
+			{
+				return this._ATTN_COMP_CNC6;
+			}
+			set
+			{
+				if ((this._ATTN_COMP_CNC6 != value))
+				{
+					this.OnATTN_COMP_CNC6Changing(value);
+					this.SendPropertyChanging();
+					this._ATTN_COMP_CNC6 = value;
+					this.SendPropertyChanged("ATTN_COMP_CNC6");
+					this.OnATTN_COMP_CNC6Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LIMT_CALC_ATTN_INDY", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string LIMT_CALC_ATTN_INDY
+		{
+			get
+			{
+				return this._LIMT_CALC_ATTN_INDY;
+			}
+			set
+			{
+				if ((this._LIMT_CALC_ATTN_INDY != value))
+				{
+					this.OnLIMT_CALC_ATTN_INDYChanging(value);
+					this.SendPropertyChanging();
+					this._LIMT_CALC_ATTN_INDY = value;
+					this.SendPropertyChanged("LIMT_CALC_ATTN_INDY");
+					this.OnLIMT_CALC_ATTN_INDYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CARD_EXPN_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string CARD_EXPN_STAT
+		{
+			get
+			{
+				return this._CARD_EXPN_STAT;
+			}
+			set
+			{
+				if ((this._CARD_EXPN_STAT != value))
+				{
+					this.OnCARD_EXPN_STATChanging(value);
+					this.SendPropertyChanging();
+					this._CARD_EXPN_STAT = value;
+					this.SendPropertyChanged("CARD_EXPN_STAT");
+					this.OnCARD_EXPN_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CARD_EXPN_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> CARD_EXPN_CODE
+		{
+			get
+			{
+				return this._CARD_EXPN_CODE;
+			}
+			set
+			{
+				if ((this._CARD_EXPN_CODE != value))
+				{
+					this.OnCARD_EXPN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._CARD_EXPN_CODE = value;
+					this.SendPropertyChanged("CARD_EXPN_CODE");
+					this.OnCARD_EXPN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Club_Setting", Storage="_Club", ThisKey="CLUB_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Club Club
+		{
+			get
+			{
+				return this._Club.Entity;
+			}
+			set
+			{
+				Club previousValue = this._Club.Entity;
+				if (((previousValue != value) 
+							|| (this._Club.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Club.Entity = null;
+						previousValue.Settings.Remove(this);
+					}
+					this._Club.Entity = value;
+					if ((value != null))
+					{
+						value.Settings.Add(this);
+						this._CLUB_CODE = value.CODE;
+					}
+					else
+					{
+						this._CLUB_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Club");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V#Pos_Device")]
+	public partial class V_Pos_Device
+	{
+		
+		private long _PSID;
+		
+		private string _BANK_NAME;
+		
+		private string _BANK_TYPE;
+		
+		private string _BNKB_CODE;
+		
+		private string _BNKA_ACNT_NUMB;
+		
+		private string _SHBA_CODE;
+		
+		private string _POS_DESC;
+		
+		private string _POS_DFLT;
+		
+		private string _GTWY_MAC_ADRS;
+		
+		private string _IP_ADRS;
+		
+		private string _TERM_NO;
+		
+		public V_Pos_Device()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PSID", DbType="BigInt NOT NULL")]
+		public long PSID
+		{
+			get
+			{
+				return this._PSID;
+			}
+			set
+			{
+				if ((this._PSID != value))
+				{
+					this._PSID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_NAME", DbType="NVarChar(255) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string BANK_NAME
+		{
+			get
+			{
+				return this._BANK_NAME;
+			}
+			set
+			{
+				if ((this._BANK_NAME != value))
+				{
+					this._BANK_NAME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BANK_TYPE", DbType="VarChar(3) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string BANK_TYPE
+		{
+			get
+			{
+				return this._BANK_TYPE;
+			}
+			set
+			{
+				if ((this._BANK_TYPE != value))
+				{
+					this._BANK_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BNKB_CODE", DbType="VarChar(10) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string BNKB_CODE
+		{
+			get
+			{
+				return this._BNKB_CODE;
+			}
+			set
+			{
+				if ((this._BNKB_CODE != value))
+				{
+					this._BNKB_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BNKA_ACNT_NUMB", DbType="VarChar(15) NOT NULL", CanBeNull=false, UpdateCheck=UpdateCheck.Never)]
+		public string BNKA_ACNT_NUMB
+		{
+			get
+			{
+				return this._BNKA_ACNT_NUMB;
+			}
+			set
+			{
+				if ((this._BNKA_ACNT_NUMB != value))
+				{
+					this._BNKA_ACNT_NUMB = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SHBA_CODE", DbType="VarChar(50)", UpdateCheck=UpdateCheck.Never)]
+		public string SHBA_CODE
+		{
+			get
+			{
+				return this._SHBA_CODE;
+			}
+			set
+			{
+				if ((this._SHBA_CODE != value))
+				{
+					this._SHBA_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_DESC", DbType="NVarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string POS_DESC
+		{
+			get
+			{
+				return this._POS_DESC;
+			}
+			set
+			{
+				if ((this._POS_DESC != value))
+				{
+					this._POS_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_POS_DFLT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string POS_DFLT
+		{
+			get
+			{
+				return this._POS_DFLT;
+			}
+			set
+			{
+				if ((this._POS_DFLT != value))
+				{
+					this._POS_DFLT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GTWY_MAC_ADRS", DbType="VarChar(17)", UpdateCheck=UpdateCheck.Never)]
+		public string GTWY_MAC_ADRS
+		{
+			get
+			{
+				return this._GTWY_MAC_ADRS;
+			}
+			set
+			{
+				if ((this._GTWY_MAC_ADRS != value))
+				{
+					this._GTWY_MAC_ADRS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IP_ADRS", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		public string IP_ADRS
+		{
+			get
+			{
+				return this._IP_ADRS;
+			}
+			set
+			{
+				if ((this._IP_ADRS != value))
+				{
+					this._IP_ADRS = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TERM_NO", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string TERM_NO
+		{
+			get
+			{
+				return this._TERM_NO;
+			}
+			set
+			{
+				if ((this._TERM_NO != value))
+				{
+					this._TERM_NO = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.V$Card_Link_Operation")]
+	public partial class V_Card_Link_Operation
+	{
+		
+		private string _CARD_FNGR_PRNT_DNRM;
+		
+		private string _SERV_NAME_DNRM;
+		
+		private string _SERV_FNGR_PRNT_DNRM;
+		
+		private string _SERV_CELL_PHON_DNRM;
+		
+		private string _SERV_TYPE;
+		
+		private string _SERV_TYPE_DESC;
+		
+		private string _SERV_SEX_DESC;
+		
+		private string _SERV_SEX_TYPE;
+		
+		private System.Nullable<int> _TOTL_USE_MINT_DNRM;
+		
+		private System.Nullable<System.DateTime> _STRT_TIME;
+		
+		private System.Nullable<System.DateTime> _END_TIME;
+		
+		private System.Nullable<int> _CRNT_MINT_NOW;
+		
+		private System.Nullable<int> _TOTL_MINT_DNRM;
+		
+		private System.Nullable<long> _TOTL_EXPN_AMNT_DNRM;
+		
+		private System.Nullable<int> _EXPN_NUMB_ATTN_DNRM;
+		
+		private System.Nullable<int> _EXPN_1ATN_AMNT_DNRM;
+		
+		private System.Nullable<long> _EXPN_1MIN_AMNT_DNRM;
+		
+		private string _FINE_STAT;
+		
+		private System.Nullable<int> _FINE_MINT_DNRM;
+		
+		private System.Nullable<long> _FINE_AMNT_DNRM;
+		
+		private System.Nullable<long> _FINE_RQST_RQID;
+		
+		private string _VALD_TYPE;
+		
+		private System.Nullable<int> _TOTL_OPEN_DNRM;
+		
+		private System.Nullable<int> _TOTL_CLOS_DNRM;
+		
+		private System.Nullable<long> _EDEV_CODE;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		public V_Card_Link_Operation()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CARD_FNGR_PRNT_DNRM", DbType="VarChar(20)")]
+		public string CARD_FNGR_PRNT_DNRM
+		{
+			get
+			{
+				return this._CARD_FNGR_PRNT_DNRM;
+			}
+			set
+			{
+				if ((this._CARD_FNGR_PRNT_DNRM != value))
+				{
+					this._CARD_FNGR_PRNT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_NAME_DNRM", DbType="NVarChar(757)")]
+		public string SERV_NAME_DNRM
+		{
+			get
+			{
+				return this._SERV_NAME_DNRM;
+			}
+			set
+			{
+				if ((this._SERV_NAME_DNRM != value))
+				{
+					this._SERV_NAME_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_FNGR_PRNT_DNRM", DbType="VarChar(20)")]
+		public string SERV_FNGR_PRNT_DNRM
+		{
+			get
+			{
+				return this._SERV_FNGR_PRNT_DNRM;
+			}
+			set
+			{
+				if ((this._SERV_FNGR_PRNT_DNRM != value))
+				{
+					this._SERV_FNGR_PRNT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_CELL_PHON_DNRM", DbType="VarChar(11)")]
+		public string SERV_CELL_PHON_DNRM
+		{
+			get
+			{
+				return this._SERV_CELL_PHON_DNRM;
+			}
+			set
+			{
+				if ((this._SERV_CELL_PHON_DNRM != value))
+				{
+					this._SERV_CELL_PHON_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_TYPE", DbType="VarChar(3)")]
+		public string SERV_TYPE
+		{
+			get
+			{
+				return this._SERV_TYPE;
+			}
+			set
+			{
+				if ((this._SERV_TYPE != value))
+				{
+					this._SERV_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_TYPE_DESC", DbType="NVarChar(255)")]
+		public string SERV_TYPE_DESC
+		{
+			get
+			{
+				return this._SERV_TYPE_DESC;
+			}
+			set
+			{
+				if ((this._SERV_TYPE_DESC != value))
+				{
+					this._SERV_TYPE_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_SEX_DESC", DbType="NVarChar(255)")]
+		public string SERV_SEX_DESC
+		{
+			get
+			{
+				return this._SERV_SEX_DESC;
+			}
+			set
+			{
+				if ((this._SERV_SEX_DESC != value))
+				{
+					this._SERV_SEX_DESC = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_SEX_TYPE", DbType="VarChar(3)")]
+		public string SERV_SEX_TYPE
+		{
+			get
+			{
+				return this._SERV_SEX_TYPE;
+			}
+			set
+			{
+				if ((this._SERV_SEX_TYPE != value))
+				{
+					this._SERV_SEX_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_USE_MINT_DNRM", DbType="Int")]
+		public System.Nullable<int> TOTL_USE_MINT_DNRM
+		{
+			get
+			{
+				return this._TOTL_USE_MINT_DNRM;
+			}
+			set
+			{
+				if ((this._TOTL_USE_MINT_DNRM != value))
+				{
+					this._TOTL_USE_MINT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STRT_TIME", DbType="DateTime")]
+		public System.Nullable<System.DateTime> STRT_TIME
+		{
+			get
+			{
+				return this._STRT_TIME;
+			}
+			set
+			{
+				if ((this._STRT_TIME != value))
+				{
+					this._STRT_TIME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_END_TIME", DbType="DateTime")]
+		public System.Nullable<System.DateTime> END_TIME
+		{
+			get
+			{
+				return this._END_TIME;
+			}
+			set
+			{
+				if ((this._END_TIME != value))
+				{
+					this._END_TIME = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRNT_MINT_NOW", DbType="Int")]
+		public System.Nullable<int> CRNT_MINT_NOW
+		{
+			get
+			{
+				return this._CRNT_MINT_NOW;
+			}
+			set
+			{
+				if ((this._CRNT_MINT_NOW != value))
+				{
+					this._CRNT_MINT_NOW = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_MINT_DNRM", DbType="Int")]
+		public System.Nullable<int> TOTL_MINT_DNRM
+		{
+			get
+			{
+				return this._TOTL_MINT_DNRM;
+			}
+			set
+			{
+				if ((this._TOTL_MINT_DNRM != value))
+				{
+					this._TOTL_MINT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_EXPN_AMNT_DNRM", DbType="BigInt")]
+		public System.Nullable<long> TOTL_EXPN_AMNT_DNRM
+		{
+			get
+			{
+				return this._TOTL_EXPN_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._TOTL_EXPN_AMNT_DNRM != value))
+				{
+					this._TOTL_EXPN_AMNT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_NUMB_ATTN_DNRM", DbType="Int")]
+		public System.Nullable<int> EXPN_NUMB_ATTN_DNRM
+		{
+			get
+			{
+				return this._EXPN_NUMB_ATTN_DNRM;
+			}
+			set
+			{
+				if ((this._EXPN_NUMB_ATTN_DNRM != value))
+				{
+					this._EXPN_NUMB_ATTN_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_1ATN_AMNT_DNRM", DbType="Int")]
+		public System.Nullable<int> EXPN_1ATN_AMNT_DNRM
+		{
+			get
+			{
+				return this._EXPN_1ATN_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._EXPN_1ATN_AMNT_DNRM != value))
+				{
+					this._EXPN_1ATN_AMNT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EXPN_1MIN_AMNT_DNRM", DbType="BigInt")]
+		public System.Nullable<long> EXPN_1MIN_AMNT_DNRM
+		{
+			get
+			{
+				return this._EXPN_1MIN_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._EXPN_1MIN_AMNT_DNRM != value))
+				{
+					this._EXPN_1MIN_AMNT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FINE_STAT", DbType="VarChar(3)")]
+		public string FINE_STAT
+		{
+			get
+			{
+				return this._FINE_STAT;
+			}
+			set
+			{
+				if ((this._FINE_STAT != value))
+				{
+					this._FINE_STAT = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FINE_MINT_DNRM", DbType="Int")]
+		public System.Nullable<int> FINE_MINT_DNRM
+		{
+			get
+			{
+				return this._FINE_MINT_DNRM;
+			}
+			set
+			{
+				if ((this._FINE_MINT_DNRM != value))
+				{
+					this._FINE_MINT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FINE_AMNT_DNRM", DbType="BigInt")]
+		public System.Nullable<long> FINE_AMNT_DNRM
+		{
+			get
+			{
+				return this._FINE_AMNT_DNRM;
+			}
+			set
+			{
+				if ((this._FINE_AMNT_DNRM != value))
+				{
+					this._FINE_AMNT_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FINE_RQST_RQID", DbType="BigInt")]
+		public System.Nullable<long> FINE_RQST_RQID
+		{
+			get
+			{
+				return this._FINE_RQST_RQID;
+			}
+			set
+			{
+				if ((this._FINE_RQST_RQID != value))
+				{
+					this._FINE_RQST_RQID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VALD_TYPE", DbType="VarChar(3)")]
+		public string VALD_TYPE
+		{
+			get
+			{
+				return this._VALD_TYPE;
+			}
+			set
+			{
+				if ((this._VALD_TYPE != value))
+				{
+					this._VALD_TYPE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_OPEN_DNRM", DbType="Int")]
+		public System.Nullable<int> TOTL_OPEN_DNRM
+		{
+			get
+			{
+				return this._TOTL_OPEN_DNRM;
+			}
+			set
+			{
+				if ((this._TOTL_OPEN_DNRM != value))
+				{
+					this._TOTL_OPEN_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TOTL_CLOS_DNRM", DbType="Int")]
+		public System.Nullable<int> TOTL_CLOS_DNRM
+		{
+			get
+			{
+				return this._TOTL_CLOS_DNRM;
+			}
+			set
+			{
+				if ((this._TOTL_CLOS_DNRM != value))
+				{
+					this._TOTL_CLOS_DNRM = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EDEV_CODE", DbType="BigInt")]
+		public System.Nullable<long> EDEV_CODE
+		{
+			get
+			{
+				return this._EDEV_CODE;
+			}
+			set
+			{
+				if ((this._EDEV_CODE != value))
+				{
+					this._EDEV_CODE = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this._CRET_BY = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this._CRET_DATE = value;
+				}
+			}
 		}
 	}
 	

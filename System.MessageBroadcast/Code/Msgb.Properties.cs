@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Newtonsoft.Json.Linq;
 
 namespace System.MessageBroadcast.Code
 {
@@ -29,6 +30,7 @@ namespace System.MessageBroadcast.Code
       private int _UntilBeforeDay = 1;
       private SmsService.Sms SmsClient; // Web Service Sms Call Company * Mr Vahaj
       private iNotiSmsService.iNotiSMS iNotiSmsClient; // Web Service iNoti Sms Company * Mr Marashi
+      private IPPanelEdgeClient iPPanelEdgeClient; // Web Service IP Panel
       private XElement xHost;
       private bool _PingStatus;
       #endregion
@@ -197,6 +199,10 @@ namespace System.MessageBroadcast.Code
                         if (iNotiSmsClient == null)
                            iNotiSmsClient = new iNotiSmsService.iNotiSMS();
                      }
+                     else if (smsConf.FirstOrDefault().SERV_TYPE == "004")
+                     {
+                        iPPanelEdgeClient = new IPPanelEdgeClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
+                     }
 
                      // Check Line Type is Active
                      if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == bulkSms.FirstOrDefault().LINE_TYPE && sc.BGWK_STAT == "002") == null) return;
@@ -216,6 +222,11 @@ namespace System.MessageBroadcast.Code
                      {
                         // iNoti Sms Provider
                         SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value/*.Split('.')[0]*/);
+                     }
+                     else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+                     {
+                        // IPPanel
+                        SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value);
                      }
 
                      if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").ALRM_MIN_REMN_CHRG >= SendCredit)
@@ -292,6 +303,22 @@ namespace System.MessageBroadcast.Code
                                     break;
                               }
                            });                           
+                        }
+                     }
+                     else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+                     {
+                        var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, bulkSms.Select(bs => bs.PHON_NUMB).ToArray(), bulkSms.FirstOrDefault().MSGB_TEXT));
+                        if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
+                           bulkSms.ToList().ForEach(bs => bs.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>());
+                        else
+                        {
+                           bulkSms.ToList()
+                           .ForEach(sms =>
+                           {
+                              sms.MESG_ID = "0";
+                              sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
+                              sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
+                           });
                         }
                      }
 
@@ -396,6 +423,11 @@ namespace System.MessageBroadcast.Code
                         if (iNotiSmsClient == null)
                            iNotiSmsClient = new iNotiSmsService.iNotiSMS();
                      }
+                     else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+                     {
+                        if (iPPanelEdgeClient == null)
+                           iPPanelEdgeClient = new IPPanelEdgeClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
+                     }
 
                      // Check Line Type is Active
                      if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE && sc.BGWK_STAT == "002") == null) continue;
@@ -415,6 +447,11 @@ namespace System.MessageBroadcast.Code
                      {
                         // iNoti Sms Provider
                         SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value/*.Split('.')[0]*/);
+                     }
+                     else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+                     {
+                        // IPPanel
+                        SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value);
                      }
 
                      if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").ALRM_MIN_REMN_CHRG >= SendCredit)
@@ -516,6 +553,18 @@ namespace System.MessageBroadcast.Code
                      iProject.SubmitChanges();
 
                      ++smsSendCount;
+                  }
+                  else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+                  {
+                     var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, new List<string> { sms.PHON_NUMB }, sms.MSGB_TEXT));
+                     if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
+                        sms.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>();
+                     else
+                     {
+                        sms.MESG_ID = "0";
+                        sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
+                        sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
+                     }
                   }
                   else
                   {
@@ -625,6 +674,12 @@ namespace System.MessageBroadcast.Code
                if (iNotiSmsClient == null)
                   iNotiSmsClient = new iNotiSmsService.iNotiSMS();
             }
+            else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+            {
+               // IPPanel
+               if (iPPanelEdgeClient == null)
+                  iPPanelEdgeClient = new IPPanelEdgeClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
+            }
 
             // 1398/06/08 * Sms Call Provider
             if (smsConf.FirstOrDefault().SERV_TYPE == "001")
@@ -658,6 +713,15 @@ namespace System.MessageBroadcast.Code
                   new XDocument(
                      new XElement("iNotiSms",
                         new XElement("SendCredit", iNotiSmsClient.GetChargeRemaining(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD))
+                     )
+                  );
+            }
+            else if (smsConf.FirstOrDefault().SERV_TYPE == "004")
+            {
+               return
+                  new XDocument(
+                     new XElement("iNotiSms",
+                        new XElement("SendCredit", iPPanelEdgeClient.GetCredit())
                      )
                   );
             }

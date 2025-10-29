@@ -25,6 +25,7 @@ namespace System.Scsc.Ui.OtherIncome
       string fileno = "";
       string fngrPrnt = "";
       private string CurrentUser;
+      long? dfltexpncode = null;
 
       public void SendRequest(Job job)
       {
@@ -460,6 +461,7 @@ namespace System.Scsc.Ui.OtherIncome
          DCyclBs1.DataSource = iScsc.D_CYCLs;
          DAtypBs1.DataSource = iScsc.D_ATYPs;
          DRcmtBs1.DataSource = iScsc.D_RCMTs;
+         DActvBs.DataSource = iScsc.D_ACTVs;
          //RQTT_CODE_LookUpEdit.EditValue = "001";
          DYsnoBs1.DataSource = iScsc.D_YSNOs;
          DDytpBs.DataSource = iScsc.D_DYTPs;
@@ -521,11 +523,20 @@ namespace System.Scsc.Ui.OtherIncome
             fngrPrnt = "";
          }
 
+         if (xinput.Attribute("dfltexpncode") != null)
+         {
+            dfltexpncode = Convert.ToInt64(xinput.Attribute("dfltexpncode").Value);
+         }
+         else
+            dfltexpncode = null;
+
          switch (xinput.Attribute("type").Value)
          {
             case "02":
                // در این قسمت برای دریافت اطلاعات کد کارت برای ست کردن کارت برای درخواست خدمات زمان دار
                var _rqst = RqstBs1.Current as Data.Request;
+               if (Rqid_Cbx.Checked)
+                  _rqst = OldRqstBs1.Current as Data.Request;
                if (_rqst == null) return;
 
                var _timingPydts = _rqst.Payments.FirstOrDefault().Payment_Details.Where(pd => pd.Expense.MIN_TIME.Value.TimeOfDay.TotalMinutes > 1 );
@@ -545,7 +556,13 @@ namespace System.Scsc.Ui.OtherIncome
                                new XAttribute("cardfileno", fileno)
                            )
                         );
+                        PymtOprt_Tc.SelectedTab = More_Tp;
+                        More_Tc.SelectedTab = tp_cardlinkoprt;
                         Execute_Query();
+                     }
+                     else
+                     {
+                        Rqid_Cbx.Checked = false;
                      }
                   }
                }
@@ -615,6 +632,14 @@ namespace System.Scsc.Ui.OtherIncome
                   {
                      Btn_RqstBnARqt1_Click(null, null);
                      RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == Convert.ToInt64(fileno))));
+                  }
+
+                  // 1404/07/17 * add default expncode in payment detail
+                  if((dfltexpncode?? 0) != 0)
+                  {
+                     ExpnBs1.Position = ExpnBs1.IndexOf(ExpnBs1.List.OfType<Data.Expense>().FirstOrDefault(e => e.CODE == dfltexpncode));
+                     dfltexpncode = null;
+                     AddItem_ButtonClick(this, null);
                   }
                }
                break; 

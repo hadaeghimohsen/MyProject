@@ -1435,6 +1435,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.V_Admin_Wallet.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Appd_Message_Box.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_App_Message_Box.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_Card_Link_Operation.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Coach_Event.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Computer.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_DiscountPayment.datasource" />

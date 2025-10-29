@@ -159,9 +159,30 @@ namespace System.Scsc.Ui.Notifications
                   break;
                case 2:
                   Back_Butn_Click(null, null);
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _attn.FIGH_FILE_NO)) }
-                  );
+                  if (ModifierKeys.HasFlag(Keys.Control))
+                  {
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost",
+                           new List<Job>
+                           {
+                              new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 10 /* Execute Actn_CalF_P */)
+                              {
+                                 Input = 
+                                    new XElement("Request",
+                                       new XAttribute("type", "setfngrprnt"),
+                                       new XAttribute("fngrprnt", _attn.FNGR_PRNT_DNRM)
+                                    )
+                              }
+                           }
+                        )
+                     );
+                  }
+                  else
+                  {
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _attn.FIGH_FILE_NO)) }
+                     );
+                  }
                   break;
                case 3:
                   if(ModifierKeys == Keys.Control)

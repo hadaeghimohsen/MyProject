@@ -28,18 +28,17 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Desktop));
-         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem3 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem4 = new DevExpress.Utils.ToolTipSeparatorItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem1 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipSeparatorItem toolTipSeparatorItem2 = new DevExpress.Utils.ToolTipSeparatorItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
          this.FLP_Desktop = new System.Windows.Forms.FlowLayoutPanel();
          this.LNK_SecurityManagment = new System.Windows.Forms.LinkLabel();
          this.LNK_ServiceDefinition = new System.Windows.Forms.LinkLabel();
@@ -60,8 +59,8 @@
          this.AdjustDateTime_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.StartMenu_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.sb_startdrawer = new DevExpress.XtraEditors.SimpleButton();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
-         this.Cms_MainMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+         this.Tm_ShowTime = new System.Windows.Forms.Timer();
+         this.Cms_MainMenu = new System.Windows.Forms.ContextMenuStrip();
          this.CrntUser_Tsm = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
          this.تنظیماتنرمافزارToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -133,10 +132,12 @@
          // LNK_SecurityManagment
          // 
          this.LNK_SecurityManagment.Cursor = System.Windows.Forms.Cursors.Hand;
-         this.LNK_SecurityManagment.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_SecurityManagment.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_SecurityManagment.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_SecurityManagment.Image = ((System.Drawing.Image)(resources.GetObject("LNK_SecurityManagment.Image")));
          this.LNK_SecurityManagment.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_SecurityManagment.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_SecurityManagment.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_SecurityManagment.Location = new System.Drawing.Point(873, 8);
          this.LNK_SecurityManagment.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_SecurityManagment.Name = "LNK_SecurityManagment";
@@ -150,10 +151,12 @@
          // LNK_ServiceDefinition
          // 
          this.LNK_ServiceDefinition.Cursor = System.Windows.Forms.Cursors.Hand;
-         this.LNK_ServiceDefinition.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_ServiceDefinition.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_ServiceDefinition.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_ServiceDefinition.Image = ((System.Drawing.Image)(resources.GetObject("LNK_ServiceDefinition.Image")));
          this.LNK_ServiceDefinition.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_ServiceDefinition.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_ServiceDefinition.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_ServiceDefinition.Location = new System.Drawing.Point(873, 109);
          this.LNK_ServiceDefinition.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_ServiceDefinition.Name = "LNK_ServiceDefinition";
@@ -167,10 +170,12 @@
          // LNK_ReportManagment
          // 
          this.LNK_ReportManagment.Cursor = System.Windows.Forms.Cursors.Hand;
-         this.LNK_ReportManagment.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_ReportManagment.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_ReportManagment.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_ReportManagment.Image = ((System.Drawing.Image)(resources.GetObject("LNK_ReportManagment.Image")));
          this.LNK_ReportManagment.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_ReportManagment.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_ReportManagment.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_ReportManagment.Location = new System.Drawing.Point(873, 210);
          this.LNK_ReportManagment.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_ReportManagment.Name = "LNK_ReportManagment";
@@ -185,10 +190,12 @@
          // 
          this.LNK_XTerm.Cursor = System.Windows.Forms.Cursors.Hand;
          this.LNK_XTerm.Enabled = false;
-         this.LNK_XTerm.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_XTerm.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_XTerm.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_XTerm.Image = ((System.Drawing.Image)(resources.GetObject("LNK_XTerm.Image")));
          this.LNK_XTerm.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_XTerm.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_XTerm.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_XTerm.Location = new System.Drawing.Point(873, 322);
          this.LNK_XTerm.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_XTerm.Name = "LNK_XTerm";
@@ -202,10 +209,12 @@
          // LNK_SCSC
          // 
          this.LNK_SCSC.Cursor = System.Windows.Forms.Cursors.Hand;
-         this.LNK_SCSC.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_SCSC.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_SCSC.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_SCSC.Image = global::MyProject.Properties.Resources.IMAGE_1100;
          this.LNK_SCSC.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_SCSC.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_SCSC.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_SCSC.Location = new System.Drawing.Point(873, 423);
          this.LNK_SCSC.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_SCSC.Name = "LNK_SCSC";
@@ -219,10 +228,12 @@
          // LNK_Emis
          // 
          this.LNK_Emis.Cursor = System.Windows.Forms.Cursors.Hand;
-         this.LNK_Emis.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_Emis.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_Emis.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_Emis.Image = ((System.Drawing.Image)(resources.GetObject("LNK_Emis.Image")));
          this.LNK_Emis.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_Emis.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_Emis.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_Emis.Location = new System.Drawing.Point(733, 8);
          this.LNK_Emis.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_Emis.Name = "LNK_Emis";
@@ -237,10 +248,12 @@
          // LNK_SMS
          // 
          this.LNK_SMS.Cursor = System.Windows.Forms.Cursors.Hand;
-         this.LNK_SMS.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_SMS.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_SMS.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_SMS.Image = ((System.Drawing.Image)(resources.GetObject("LNK_SMS.Image")));
          this.LNK_SMS.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_SMS.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_SMS.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_SMS.Location = new System.Drawing.Point(733, 121);
          this.LNK_SMS.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_SMS.Name = "LNK_SMS";
@@ -255,10 +268,12 @@
          // 
          this.LNK_HOTELING.Cursor = System.Windows.Forms.Cursors.Hand;
          this.LNK_HOTELING.Enabled = false;
-         this.LNK_HOTELING.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_HOTELING.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_HOTELING.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_HOTELING.Image = ((System.Drawing.Image)(resources.GetObject("LNK_HOTELING.Image")));
          this.LNK_HOTELING.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_HOTELING.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_HOTELING.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_HOTELING.Location = new System.Drawing.Point(733, 222);
          this.LNK_HOTELING.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_HOTELING.Name = "LNK_HOTELING";
@@ -273,10 +288,12 @@
          // 
          this.LNK_Supplies.Cursor = System.Windows.Forms.Cursors.Hand;
          this.LNK_Supplies.Enabled = false;
-         this.LNK_Supplies.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_Supplies.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_Supplies.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_Supplies.Image = ((System.Drawing.Image)(resources.GetObject("LNK_Supplies.Image")));
          this.LNK_Supplies.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_Supplies.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_Supplies.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_Supplies.Location = new System.Drawing.Point(733, 335);
          this.LNK_Supplies.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_Supplies.Name = "LNK_Supplies";
@@ -290,10 +307,12 @@
          // LNK_ISP
          // 
          this.LNK_ISP.Cursor = System.Windows.Forms.Cursors.Hand;
-         this.LNK_ISP.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_ISP.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_ISP.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_ISP.Image = ((System.Drawing.Image)(resources.GetObject("LNK_ISP.Image")));
          this.LNK_ISP.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_ISP.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_ISP.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_ISP.Location = new System.Drawing.Point(593, 8);
          this.LNK_ISP.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_ISP.Name = "LNK_ISP";
@@ -309,10 +328,12 @@
          // 
          this.LNK_MedicalSickFile.Cursor = System.Windows.Forms.Cursors.Hand;
          this.LNK_MedicalSickFile.Enabled = false;
-         this.LNK_MedicalSickFile.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_MedicalSickFile.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_MedicalSickFile.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_MedicalSickFile.Image = ((System.Drawing.Image)(resources.GetObject("LNK_MedicalSickFile.Image")));
          this.LNK_MedicalSickFile.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_MedicalSickFile.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_MedicalSickFile.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_MedicalSickFile.Location = new System.Drawing.Point(593, 136);
          this.LNK_MedicalSickFile.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_MedicalSickFile.Name = "LNK_MedicalSickFile";
@@ -327,10 +348,12 @@
          // 
          this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
          this.linkLabel1.Enabled = false;
-         this.linkLabel1.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.linkLabel1.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.linkLabel1.ForeColor = System.Drawing.Color.LightYellow;
          this.linkLabel1.Image = ((System.Drawing.Image)(resources.GetObject("linkLabel1.Image")));
          this.linkLabel1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.linkLabel1.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.linkLabel1.LinkColor = System.Drawing.Color.LightYellow;
          this.linkLabel1.Location = new System.Drawing.Point(593, 249);
          this.linkLabel1.Margin = new System.Windows.Forms.Padding(8);
          this.linkLabel1.Name = "linkLabel1";
@@ -344,10 +367,12 @@
          // LNK_CRM
          // 
          this.LNK_CRM.Cursor = System.Windows.Forms.Cursors.Hand;
-         this.LNK_CRM.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_CRM.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_CRM.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_CRM.Image = ((System.Drawing.Image)(resources.GetObject("LNK_CRM.Image")));
          this.LNK_CRM.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_CRM.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_CRM.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_CRM.Location = new System.Drawing.Point(593, 359);
          this.LNK_CRM.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_CRM.Name = "LNK_CRM";
@@ -361,10 +386,12 @@
          // LNK_ROBOTECH
          // 
          this.LNK_ROBOTECH.Cursor = System.Windows.Forms.Cursors.Hand;
-         this.LNK_ROBOTECH.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_ROBOTECH.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_ROBOTECH.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_ROBOTECH.Image = ((System.Drawing.Image)(resources.GetObject("LNK_ROBOTECH.Image")));
          this.LNK_ROBOTECH.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_ROBOTECH.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_ROBOTECH.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_ROBOTECH.Location = new System.Drawing.Point(453, 8);
          this.LNK_ROBOTECH.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_ROBOTECH.Name = "LNK_ROBOTECH";
@@ -378,10 +405,12 @@
          // LNK_GATECONTROL
          // 
          this.LNK_GATECONTROL.Cursor = System.Windows.Forms.Cursors.Hand;
-         this.LNK_GATECONTROL.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_GATECONTROL.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LNK_GATECONTROL.ForeColor = System.Drawing.Color.LightYellow;
          this.LNK_GATECONTROL.Image = global::MyProject.Properties.Resources.IMAGE_1241;
          this.LNK_GATECONTROL.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
          this.LNK_GATECONTROL.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LNK_GATECONTROL.LinkColor = System.Drawing.Color.LightYellow;
          this.LNK_GATECONTROL.Location = new System.Drawing.Point(453, 124);
          this.LNK_GATECONTROL.Margin = new System.Windows.Forms.Padding(8);
          this.LNK_GATECONTROL.Name = "LNK_GATECONTROL";
@@ -395,7 +424,7 @@
          // 
          // panel1
          // 
-         this.panel1.BackColor = System.Drawing.Color.AliceBlue;
+         this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
          this.panel1.Controls.Add(this.AdjustDateTime_Butn);
          this.panel1.Controls.Add(this.StartMenu_Butn);
          this.panel1.Controls.Add(this.sb_startdrawer);
@@ -425,17 +454,17 @@
          this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
          this.AdjustDateTime_Butn.Size = new System.Drawing.Size(88, 49);
-         toolTipTitleItem5.Text = "کاربر گرامی";
-         toolTipItem3.LeftIndent = 6;
-         toolTipItem3.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
+         toolTipTitleItem1.Text = "کاربر گرامی";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem6.LeftIndent = 6;
-         toolTipTitleItem6.Text = "تغییر مد کاربری";
-         superToolTip3.Items.Add(toolTipTitleItem5);
-         superToolTip3.Items.Add(toolTipItem3);
-         superToolTip3.Items.Add(toolTipSeparatorItem3);
-         superToolTip3.Items.Add(toolTipTitleItem6);
-         this.AdjustDateTime_Butn.SuperTip = superToolTip3;
+         toolTipTitleItem2.LeftIndent = 6;
+         toolTipTitleItem2.Text = "تغییر مد کاربری";
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         superToolTip1.Items.Add(toolTipSeparatorItem1);
+         superToolTip1.Items.Add(toolTipTitleItem2);
+         this.AdjustDateTime_Butn.SuperTip = superToolTip1;
          this.AdjustDateTime_Butn.TabIndex = 3;
          this.AdjustDateTime_Butn.Tag = "1";
          this.AdjustDateTime_Butn.Text = "15:53 pm\r\n1396/02/03";
@@ -460,17 +489,17 @@
          this.StartMenu_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.StartMenu_Butn.Name = "StartMenu_Butn";
          this.StartMenu_Butn.Size = new System.Drawing.Size(49, 49);
-         toolTipTitleItem7.Text = "کاربر گرامی";
-         toolTipItem4.LeftIndent = 6;
-         toolTipItem4.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
+         toolTipTitleItem3.Text = "کاربر گرامی";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "برای خروج از محیط کاربری خود و وارد شدن به محیط کاربری دیگر بدون باز و بسته کردن " +
     "نرم افزار برای سرعت عمل بیشتر می توانید از این دکمه برای ورود مجدد استفاده کنید";
-         toolTipTitleItem8.LeftIndent = 6;
-         toolTipTitleItem8.Text = "تغییر مد کاربری";
-         superToolTip4.Items.Add(toolTipTitleItem7);
-         superToolTip4.Items.Add(toolTipItem4);
-         superToolTip4.Items.Add(toolTipSeparatorItem4);
-         superToolTip4.Items.Add(toolTipTitleItem8);
-         this.StartMenu_Butn.SuperTip = superToolTip4;
+         toolTipTitleItem4.LeftIndent = 6;
+         toolTipTitleItem4.Text = "تغییر مد کاربری";
+         superToolTip2.Items.Add(toolTipTitleItem3);
+         superToolTip2.Items.Add(toolTipItem2);
+         superToolTip2.Items.Add(toolTipSeparatorItem2);
+         superToolTip2.Items.Add(toolTipTitleItem4);
+         this.StartMenu_Butn.SuperTip = superToolTip2;
          this.StartMenu_Butn.TabIndex = 3;
          this.StartMenu_Butn.Tag = "1";
          this.StartMenu_Butn.Click += new System.EventHandler(this.StartMenu_Butn_Click);
@@ -792,7 +821,7 @@
          // labelControl1
          // 
          this.labelControl1.AllowHtmlString = true;
-         this.labelControl1.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.labelControl1.Appearance.BackColor = System.Drawing.Color.Gray;
          this.labelControl1.Appearance.Font = new System.Drawing.Font("Segoe UI Light", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.labelControl1.Appearance.Image = global::MyProject.Properties.Resources.IMAGE_1757;
          this.labelControl1.Appearance.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -804,13 +833,14 @@
          this.labelControl1.Size = new System.Drawing.Size(1005, 53);
          this.labelControl1.TabIndex = 4;
          this.labelControl1.Text = "<size=20>RelaySoft\r\n<size=10><b>Team Corporation</b> \r\n<size=20><color=3,61,152>A" +
-    "ll <b>Services</b> In One Package</color>\r\n<size=10><color=red><b>Just Request</" +
-    "b></color>\r\n";
+    "ll <b>Services</b> In One Package</color>\r\n<size=10><color=yellow><b>Just Reques" +
+    "t</b></color>\r\n";
          // 
          // Desktop
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+         this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
          this.ContextMenuStrip = this.Cms_MainMenu;
          this.Controls.Add(this.FLP_Desktop);
          this.Controls.Add(this.labelControl1);

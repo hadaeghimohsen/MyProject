@@ -12,7 +12,7 @@ namespace System.MaxUi
 {
    /// <summary>A special custom rounding GroupBox with many painting features.</summary>   
    [Designer(typeof(RolloutDesing))]
-   [Designer("System.Windows.Forms.Design.ParentControlDesigner, System.Design", typeof(IDesigner))]
+   //[Designer("System.Windows.Forms.Design.ParentControlDesigner, System.Design", typeof(IDesigner))]
    public class Rollout : UserControl
    {
       #region Enumerations
@@ -48,7 +48,7 @@ namespace System.MaxUi
       private System.Drawing.Color V_RolloutBorderColor = Color.FromArgb(110, 110, 110);
       private float V_BorderThickness = 1;
       private bool V_ShadowControl = false;
-      private System.Drawing.Color V_BackgroundColor = Color.FromArgb(197,197,197);
+      private System.Drawing.Color V_BackgroundColor = Color.FromArgb(186,186,186);
       private System.Drawing.Color V_BackgroundGradientColor = SystemColors.Control;
       private GroupBoxGradientMode V_BackgroundGradientMode = GroupBoxGradientMode.None;
       private System.Drawing.Color V_ShadowColor = Color.DarkGray;
@@ -302,8 +302,13 @@ namespace System.MaxUi
       #region Protected Methods
 
       protected override void OnMouseDown(MouseEventArgs e)
-      {
+      {         
          base.OnMouseDown(e);
+
+         // فقط کلیک چپ
+         if (e.Button != MouseButtons.Left)
+            return;
+
          if ((e.X >= 4 && e.X <= (Width - 6)) && (e.Y >= 0 && e.Y <= 21))
          {
             mouseDown = true;
@@ -314,6 +319,11 @@ namespace System.MaxUi
       protected override void OnMouseUp(MouseEventArgs e)
       {
          base.OnMouseUp(e);
+
+         // فقط کلیک چپ اجازه باز/بسته شدن بده
+         if (e.Button != MouseButtons.Left)
+            return;
+
          if ((e.X >= 4 && e.X <= (Width - 6)) && (e.Y >= 0 && e.Y <= 21))
          {
             mouseDown = false;
@@ -658,13 +668,37 @@ namespace System.MaxUi
       public bool Status
       {
          get { return linkControl.RolloutStatus; }
-         set { GetPropertyByName("RolloutStatus").SetValue(linkControl, value); }
+         set
+         {
+            PropertyDescriptor prop = GetPropertyByName("RolloutStatus");
+
+            IComponentChangeService svc =
+                (IComponentChangeService)GetService(typeof(IComponentChangeService));
+
+            svc.OnComponentChanging(linkControl, prop);
+
+            prop.SetValue(linkControl, value);
+
+            svc.OnComponentChanged(linkControl, prop, null, null);
+         }
       }
 
       public string Title
       {
          get { return linkControl.RolloutTitle; }
-         set { GetPropertyByName("RolloutTitle").SetValue(linkControl, value); }
+         set { 
+            //GetPropertyByName("RolloutTitle").SetValue(linkControl, value); 
+            PropertyDescriptor prop = GetPropertyByName("RolloutTitle");
+
+            IComponentChangeService svc =
+                (IComponentChangeService)GetService(typeof(IComponentChangeService));
+
+            svc.OnComponentChanging(linkControl, prop);
+
+            prop.SetValue(linkControl, value);
+
+            svc.OnComponentChanged(linkControl, prop, null, null);
+         }
       }
 
       private PropertyDescriptor GetPropertyByName(string propName)

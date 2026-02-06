@@ -189,10 +189,10 @@ namespace System.MaxUi
          if (nonMaxMode)
          {
             ForeColor = SystemColors.ControlText;
-            BackColor = Color.FromArgb(197, 197, 197);
+            BackColor = Color.FromArgb(186,186,186); // 197,197,197
             CheckedColor = Color.FromArgb(238, 204, 85);
-            FrameLowColor = SystemColors.ControlDark;
-            FrameHighColor = SystemColors.ControlLight;
+            FrameLowColor = Color.FromArgb(110, 110, 110);//SystemColors.ControlDark;
+            FrameHighColor = Color.FromArgb(225,225,225);//SystemColors.ControlLight;
             WindowColor = SystemColors.Window;
             WindowTextColor = SystemColors.WindowText;
          }

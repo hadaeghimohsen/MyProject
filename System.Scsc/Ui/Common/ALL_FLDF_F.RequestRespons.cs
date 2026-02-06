@@ -1421,7 +1421,7 @@ namespace System.Scsc.Ui.Common
             // 1403/11/29 * Load 
             FgbmBs.DataSource = iScsc.Fighter_Body_Measurements.Where(f => f.FIGH_FILE_NO == fileno);
             // 1404/04/03 * Load Last Rqst
-            LastRqstBs.DataSource = iScsc.VF_Request_Changing(fileno).Where(r => r.RQTP_CODE != "011").OrderByDescending(r => r.SAVE_DATE).Take(1);
+            LastRqstBs.DataSource = iScsc.VF_Request_Changing(fileno).Where(r => r.RQTP_CODE != "011" && (r.RQST_RQID == null || r.RQTP_CODE == "001")).OrderByDescending(r => r.SAVE_DATE).Take(1);
             // 1401/08/08 * Reload data on tabpage control
             tb_master_SelectedIndexChanged(null, null);
 
@@ -1520,6 +1520,7 @@ namespace System.Scsc.Ui.Common
             var flowno = RcevXData.Attribute("flowno").Value;
             var refno = RcevXData.Attribute("refno").Value;
             var actndate = RcevXData.Attribute("actndate").Value;
+            var psid = RcevXData.Attribute("psid").Value;
 
             if (regl.AMNT_TYPE == "002")
                amnt /= 10;
@@ -1540,7 +1541,8 @@ namespace System.Scsc.Ui.Common
                            new XAttribute("cardno", cardno),
                            new XAttribute("flowno", flowno),
                            new XAttribute("refno", refno),
-                           new XAttribute("actndate", actndate)
+                           new XAttribute("actndate", actndate),
+                           new XAttribute("psid", psid)
                         )
                      )
                   )
@@ -1563,7 +1565,8 @@ namespace System.Scsc.Ui.Common
                            new XAttribute("cardno", cardno),
                            new XAttribute("flowno", flowno),
                            new XAttribute("refno", refno),
-                           new XAttribute("actndate", actndate)
+                           new XAttribute("actndate", actndate),
+                           new XAttribute("psid", psid)
                         )
                      )
                   )
@@ -1596,6 +1599,7 @@ namespace System.Scsc.Ui.Common
             var flowno = RcevXData.Attribute("flowno").Value;
             var refno = RcevXData.Attribute("refno").Value;
             var actndate = RcevXData.Attribute("actndate").Value;
+            var psid = RcevXData.Attribute("psid").Value;
 
             if (regl.AMNT_TYPE == "002")
                paydebt /= 10;
@@ -1633,7 +1637,8 @@ namespace System.Scsc.Ui.Common
                            new XAttribute("cardno", cardno),
                            new XAttribute("flowno", flowno),
                            new XAttribute("refno", refno),
-                           new XAttribute("actndate", actndate)
+                           new XAttribute("actndate", actndate),
+                           new XAttribute("psid", psid)
                         )
                      )
                   )

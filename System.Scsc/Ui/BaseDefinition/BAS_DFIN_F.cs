@@ -1589,16 +1589,10 @@ namespace System.Scsc.Ui.BaseDefinition
                   case 3:
                      if (MessageBox.Show(this, "آیا با حذف کردن رکورد موافقید؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-                     iScsc.STNG_SAVE_P(
-                        new XElement("Config",
-                           new XAttribute("type", "005"),
-                           new XElement("Delete",
-                              new XElement("Club_Method",
-                                 new XAttribute("code", cbmt.CODE)
-                              )
-                           )
-                        )
-                     );
+                     iScsc.ExecuteCommand(string.Format("DELETE dbo.Club_Method WHERE Code = {0};", cbmt.CODE));
+
+                     fetchagine = true;
+                     requery = true;
                      break;
                   default:
                      break;
@@ -1608,6 +1602,11 @@ namespace System.Scsc.Ui.BaseDefinition
          catch (Exception)
          {
 
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
 
@@ -1639,7 +1638,8 @@ namespace System.Scsc.Ui.BaseDefinition
                         && ex.Expense_Type.Request_Requester.RQTP_CODE == "016"
                         && ex.Expense_Type.Request_Requester.RQTT_CODE == "001"
                         && ex.Expense_Type.EPIT_CODE == epit
-                        && ex.MTOD_CODE == mtod.CODE                        
+                        && ex.MTOD_CODE == mtod.CODE
+                        && ex.NUMB_OF_ATTN_MONT == 0
                      );
 
                   if (expn.Count() > 0)
@@ -1707,6 +1707,7 @@ namespace System.Scsc.Ui.BaseDefinition
                         && ex.Expense_Type.EPIT_CODE == epit
                         && ex.MTOD_CODE == ctgy.MTOD_CODE
                         && ex.CTGY_CODE == ctgy.CODE
+                        //&& ex.NUMB_OF_ATTN_MONT == 0
                      );
 
                   if (expn.Count() > 0)
@@ -4636,10 +4637,16 @@ namespace System.Scsc.Ui.BaseDefinition
             iScsc.External_Device_Link_Methods.DeleteOnSubmit(edlm);
 
             iScsc.SubmitChanges();
+            requery = true;
          }
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
 
@@ -5982,7 +5989,10 @@ namespace System.Scsc.Ui.BaseDefinition
             }
 
             if (_cbmt.CODE == 0)
+            {
+               fetchagine = true;
                iScsc.INS_CBMT_P(_cbmt.CLUB_CODE, _cbmt.MTOD_CODE, _cbmt.COCH_FILE_NO, _cbmt.DAY_TYPE, _cbmt.STRT_TIME, _cbmt.END_TIME, _cbmt.SEX_TYPE, _cbmt.CBMT_DESC, _cbmt.DFLT_STAT, _cbmt.CPCT_NUMB, _cbmt.CPCT_STAT, _cbmt.CBMT_TIME, _cbmt.CBMT_TIME_STAT, _cbmt.CLAS_TIME, _cbmt.AMNT, _cbmt.NATL_CODE, _cbmt.DURT_ATTN_SOND_PATH);
+            }
             else
                iScsc.UPD_CBMT_P(_cbmt.CODE, _cbmt.CLUB_CODE, _cbmt.MTOD_CODE, _cbmt.COCH_FILE_NO, _cbmt.MTOD_STAT, _cbmt.DAY_TYPE, _cbmt.STRT_TIME, _cbmt.END_TIME, _cbmt.SEX_TYPE, _cbmt.CBMT_DESC, _cbmt.DFLT_STAT, _cbmt.CPCT_NUMB, _cbmt.CPCT_STAT, _cbmt.CBMT_TIME, _cbmt.CBMT_TIME_STAT, _cbmt.CLAS_TIME, _cbmt.AMNT, _cbmt.NATL_CODE, _cbmt.DURT_ATTN_SOND_PATH);
 
@@ -6021,6 +6031,84 @@ namespace System.Scsc.Ui.BaseDefinition
          catch (Exception exc)
          {
 
+         }
+      }
+
+      private void DelCoch_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _coch = CochBs1.Current as Data.Fighter;
+            if (_coch == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف کامل مشتری موافق هستید، بعد از انجام عملیات به هیچ عنوان اطلاعات قابلیت بازیابی را ندارند", "هشدار جهت عملیات بدون بازگشت", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            iScsc.DEL_FIGH_P(
+               new XElement("Fighter",
+                   new XAttribute("fileno", _coch.FILE_NO)
+               )
+            );
+
+            // Play Enter Sound
+            // 1404/03/30 ** New version for play sound
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+               {
+                  Input = new XElement("Sound", new XAttribute("type", "011"))
+               }
+            );
+
+            requery = true;
+         }
+         catch (Exception _exc)
+         {
+            MessageBox.Show(_exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void MergDuplCoch_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _coch = CochBs1.Current as Data.Fighter;
+            if (_coch == null) return;
+
+            var _duplRecd = CochBs1.List.OfType<Data.Fighter>().Where(a => a.FILE_NO != _coch.FILE_NO && a.FRST_NAME_DNRM.Contains(_coch.FRST_NAME_DNRM) && a.LAST_NAME_DNRM.Contains(_coch.LAST_NAME_DNRM));
+            if (_duplRecd.Count() == 0) return;
+
+            var _hasClas = _duplRecd.ToList().OfType<Data.Fighter>().Where(a => a.Club_Methods.Any());
+            var _noClas = _duplRecd.ToList().OfType<Data.Fighter>().Where(a => !a.Club_Methods.Any());
+
+            if(_noClas.Count() > 0 || _hasClas.Count() > 0)
+               if (MessageBox.Show(this, "آیا با حذف رکورد ها موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+
+            foreach (var i in _noClas)
+            {
+               iScsc.DEL_FIGH_P(
+                  new XElement("Fighter",
+                      new XAttribute("fileno", _coch.FILE_NO)
+                  )
+               );
+            }
+
+            foreach (var i in _hasClas)
+            {
+               //if (MessageBox.Show(this, string.Format("آیا با حذف {0} با شماره پرونده {1} با کد  شناسایی {2} موافق هستید؟", i.NAME_DNRM, i.FILE_NO, i.FNGR_PRNT_DNRM ?? "---"), "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) continue;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
          }
       }
    }

@@ -284,7 +284,7 @@ namespace System.Scsc.Ui.BaseDefinition
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
-         FrstName_Text.Text = LastName_Text.Text = FNGR_PRNT_TextEdit.Text = "";
+         FrstName_Txt.Text = LastName_Txt.Text = FngrPrnt_Txt.Text = CellPhon_Txt.Text = NatlCode_Txt.Text = "";
          SexType_Lov.EditValue = Mtod_Lov.EditValue = null;
 
          DSxtpBs1.DataSource = iScsc.D_SXTPs;

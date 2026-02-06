@@ -40,6 +40,12 @@ namespace System.Scsc.Ui.ReportManager
                if (Figh_Lov.EditValue != null && Figh_Lov.EditValue.ToString() != "")
                   fileno = (long?)Figh_Lov.EditValue;
                
+               List<string> _slctPos = new List<string>();
+               foreach (int _sRow in Pos_Gv.GetSelectedRows())
+               {
+                   _slctPos.Add(((Data.V_Pos_Device)(Pos_Gv.GetRow(_sRow))).TERM_NO);
+               }
+
                PmmtBs1.DataSource =
                   iScsc.Payment_Methods
                   .Where(pm =>
@@ -55,7 +61,9 @@ namespace System.Scsc.Ui.ReportManager
                      // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
                      (cochfileno == null || pm.Payment.Payment_Details.Any(pd => pd.FIGH_FILE_NO == cochfileno)) &&
                      (cbmtcode == null || pm.Payment.Payment_Details.Any(pd => pd.CBMT_CODE_DNRM == cbmtcode)) &&
-                     (!DebtPay_Cbx.Checked || pm.CRET_DATE.Value.Date != pm.Payment.CRET_DATE.Value.Date)
+                     (!DebtPay_Cbx.Checked || pm.CRET_DATE.Value.Date != pm.Payment.CRET_DATE.Value.Date) &&
+                     (ManPosPay_Cbx.CheckState == CheckState.Indeterminate || (ManPosPay_Cbx.Checked && pm.RCPT_MTOD == "003" && pm.TERM_NO != null && pm.CARD_NO != null) || (!ManPosPay_Cbx.Checked && pm.RCPT_MTOD == "003" && pm.TERM_NO == null)) &&
+                     (!SlctPos_Cbx.Checked || _slctPos.Contains(pm.TERM_NO))
                   );
 
                GlrdBs1.DataSource =
@@ -364,6 +372,7 @@ namespace System.Scsc.Ui.ReportManager
 
          if (tc_master.SelectedTab == tp_001)
          {
+            // Payment_Method
             if (!FromDate1_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate1_Date.Focus(); return; }
             if (!ToDate1_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate1_Date.Focus(); return; }
 
@@ -379,6 +388,7 @@ namespace System.Scsc.Ui.ReportManager
          }
          else if(tc_master.SelectedTab == tp_002)
          {
+            // Payment_Detail
             if (!FromDate2_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate2_Date.Focus(); return; }
             if (!ToDate2_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate2_Date.Focus(); return; }
 
@@ -723,6 +733,12 @@ namespace System.Scsc.Ui.ReportManager
       {
          Find_Butn_Click(null, null);
 
+         List<string> _slctPos = new List<string>();
+         foreach (int _sRow in Pos_Gv.GetSelectedRows())
+         {
+            _slctPos.Add(((Data.V_Pos_Device)(Pos_Gv.GetRow(_sRow))).TERM_NO);
+         }
+
          Job _InteractWithScsc =
             new Job(SendType.External, "Localhost",
                new List<Job>
@@ -735,14 +751,17 @@ namespace System.Scsc.Ui.ReportManager
                            new XAttribute("modual", /*GetType().Name*/formName), 
                            new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"),
                            //string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/></Request>", FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), User_Lov2.EditValue, Figh_Lov2.EditValue, Cbmt_Lov2.EditValue, Ctgy_lov2.EditValue )
-                           string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/><Organ code=\"{6}\"/></Request>", 
+                           string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/><Organ code=\"{6}\"/><PcPos actv=\"{7}\" slctpos=\"{8}\" termno=\"{9}\"/></Request>", 
                                           FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
                                           ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
                                           User_Lov2.EditValue, 
                                           Figh_Lov2.EditValue/*cochfileno*/, 
                                           Cbmt_Lov2.EditValue/*cbmtcode*/, 
                                           Ctgy_lov2.EditValue,
-                                          Sunt_Lov2.EditValue)
+                                          Sunt_Lov2.EditValue,
+                                          ManPosPay_Cbx.CheckState.ToString("d").PadLeft(3, '0'),
+                                          SlctPos_Cbx.CheckState.ToString("d").PadLeft(3, '0'),
+                                          string.Join(",", _slctPos))
                         )
                   }
                });
@@ -752,6 +771,12 @@ namespace System.Scsc.Ui.ReportManager
       private void RqstBnDefaultPrint_Click(object sender, EventArgs e)
       {
          Find_Butn_Click(null, null);
+
+         List<string> _slctPos = new List<string>();
+         foreach (int _sRow in Pos_Gv.GetSelectedRows())
+         {
+            _slctPos.Add(((Data.V_Pos_Device)(Pos_Gv.GetRow(_sRow))).TERM_NO);
+         }
 
          Job _InteractWithScsc =
             new Job(SendType.External, "Localhost",
@@ -764,14 +789,17 @@ namespace System.Scsc.Ui.ReportManager
                            new XAttribute("type", "Default"), 
                            new XAttribute("modual", /*GetType().Name*/ formName), 
                            new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), 
-                           string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/><Organ code=\"{6}\"/></Request>", 
+                           string.Format("<Request fromrqstdate=\"{0}\" torqstdate=\"{1}\" cretby=\"{2}\"><Club_Method cochfileno=\"{3}\" code=\"{4}\" ctgycode=\"{5}\"/><Organ code=\"{6}\"/><PcPos actv=\"{7}\" slctpos=\"{8}\" termno=\"{9}\"/></Request>", 
                               FromDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
                               ToDate2_Date.Value.Value.Date.ToString("yyyy-MM-dd"), 
                               User_Lov2.EditValue, 
                               Figh_Lov2.EditValue, 
                               Cbmt_Lov2.EditValue/*cbmtcode*/, 
                               Ctgy_lov2.EditValue,
-                              Sunt_Lov2.EditValue
+                              Sunt_Lov2.EditValue,
+                              ManPosPay_Cbx.CheckState.ToString("d").PadLeft(3, '0'),
+                              SlctPos_Cbx.CheckState.ToString("d").PadLeft(3, '0'),
+                              string.Join(",", _slctPos)
                            )
                         )
                   }
@@ -1704,7 +1732,7 @@ namespace System.Scsc.Ui.ReportManager
             var _user = User_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
             Data.Sub_Unit _orgn = null;
             if(Sunt_Lov2.EditValue != null && Sunt_Lov2.EditValue.ToString() != "")
-               _orgn = SuntBs1.List.OfType<Data.Sub_Unit>().FirstOrDefault(o => o.CODE == Sunt_Lov2.EditValue);
+               _orgn = SuntBs1.List.OfType<Data.Sub_Unit>().FirstOrDefault(o => o.CODE == Sunt_Lov2.EditValue.ToString());
 
             if(_rpac == null)
             {
@@ -1719,6 +1747,8 @@ namespace System.Scsc.Ui.ReportManager
                _rpac.SUNT_BUNT_DEPT_CODE = _orgn == null ? null : _orgn.BUNT_DEPT_CODE;
                _rpac.SUNT_BUNT_CODE = _orgn == null ? null : _orgn.BUNT_CODE;
                _rpac.SUNT_CODE = _orgn == null ? null : _orgn.CODE;
+               _rpac.PPOS_STAT = ManPosPay_Cbx.CheckState.ToString("d").PadLeft(3, '0');
+               _rpac.POS_TERM_NO = SlctPos_Cbx.Checked ? ((Data.V_Pos_Device)Pos_Gv.GetFocusedRow()).TERM_NO : null;
                iScsc.Report_Action_Parameters.InsertOnSubmit(_rpac);
             }
             else
@@ -1732,6 +1762,8 @@ namespace System.Scsc.Ui.ReportManager
                _rpac.SUNT_BUNT_DEPT_CODE = _orgn == null ? null : _orgn.BUNT_DEPT_CODE;
                _rpac.SUNT_BUNT_CODE = _orgn == null ? null : _orgn.BUNT_CODE;
                _rpac.SUNT_CODE = _orgn == null ? null : _orgn.CODE;
+               _rpac.PPOS_STAT = ManPosPay_Cbx.CheckState.ToString("d").PadLeft(3, '0');
+               _rpac.POS_TERM_NO = SlctPos_Cbx.Checked ? ((Data.V_Pos_Device)Pos_Gv.GetFocusedRow()).TERM_NO : null;
             }
             iScsc.SubmitChanges();
          }
@@ -1839,6 +1871,13 @@ namespace System.Scsc.Ui.ReportManager
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void PosConf_Butn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "localhost", "Commons", 33 /* Execute PosSettings */, SendType.Self) { Input = "Pos_Butn" }
+         );
       }
    }
 }

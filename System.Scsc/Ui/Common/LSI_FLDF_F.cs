@@ -72,7 +72,7 @@ namespace System.Scsc.Ui.Common
          if (vF_Fighs.Current == null) return;
          string filenos = "";
 
-         foreach (int i in FIGH_Gv.GetSelectedRows())
+         foreach (int i in Serv_Gv.GetSelectedRows())
          {
             vF_Fighs.Position = i;
             var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
@@ -328,35 +328,35 @@ namespace System.Scsc.Ui.Common
          {
             case "Green_Lbl":
                //PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] >= 4";
-               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] >= 4";
+               Serv_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] >= 4";
                break;
             case "Red_Lbl":
                //PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] = 0";
-               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] = 0";
+               Serv_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] = 0";
                break;
             case "Yellow_Lbl":
                //PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] <= 3 And [colRemnDay] >= 1";
-               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] <= 3 And [colRemnDay] >= 1";
+               Serv_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] <= 3 And [colRemnDay] >= 1";
                break;
             case "Gray_Lbl":
                //PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] < -7";
-               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] < -7";
+               Serv_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] < -7";
                break;
             case "Gold_Lbl":
                //PBLC_Gv.ActiveFilterString = "TYPE != '003' And [colRemnDay] < 0 And [colRemnDay] >= -7";
-               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] < 0 And [colRemnDay] >= -7";
+               Serv_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And [colRemnDay] < 0 And [colRemnDay] >= -7";
                break;
             case "YellowGreen_Lbl":
                //PBLC_Gv.ActiveFilterString = "TYPE != '003'";
-               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003'";
+               Serv_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003'";
                break;
             case "DebtUp_Lbl":
                //PBLC_Gv.ActiveFilterString = "TYPE != '003' And DEBT_DNRM > 0";
-               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And DEBT_DNRM > 0";
+               Serv_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And DEBT_DNRM > 0";
                break;
             case "DebtDown_Lbl":
                //PBLC_Gv.ActiveFilterString = "TYPE != '003' And DPST_AMNT_DNRM > 0";
-               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And DPST_AMNT_DNRM > 0";
+               Serv_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003' And DPST_AMNT_DNRM > 0";
                break;
             case "NullProfile_Lbl":
                break;
@@ -364,11 +364,11 @@ namespace System.Scsc.Ui.Common
                break;
             case "YesInsr_Lbl":
                //PBLC_Gv.ActiveFilterString = string.Format("TYPE != '003' And INSR_DATE_DNRM >= #{0}#", DateTime.Now.ToShortDateString());
-               FIGH_Gv.ActiveFilterString = string.Format("FGPB_TYPE_DNRM != '003' And INSR_DATE_DNRM >= #{0}#", DateTime.Now.ToShortDateString());
+               Serv_Gv.ActiveFilterString = string.Format("FGPB_TYPE_DNRM != '003' And INSR_DATE_DNRM >= #{0}#", DateTime.Now.ToShortDateString());
                break;
             case "NoInsr_Lbl":
                //PBLC_Gv.ActiveFilterString = string.Format("TYPE != '003' And (IsNullOrEmpty(INSR_DATE_DNRM) OR INSR_DATE_DNRM < #{0}#)", DateTime.Now.ToShortDateString());
-               FIGH_Gv.ActiveFilterString = string.Format("FGPB_TYPE_DNRM != '003' And (IsNullOrEmpty(INSR_DATE_DNRM) OR INSR_DATE_DNRM < #{0}#)", DateTime.Now.ToShortDateString());
+               Serv_Gv.ActiveFilterString = string.Format("FGPB_TYPE_DNRM != '003' And (IsNullOrEmpty(INSR_DATE_DNRM) OR INSR_DATE_DNRM < #{0}#)", DateTime.Now.ToShortDateString());
                break;
          }
       }
@@ -434,6 +434,7 @@ namespace System.Scsc.Ui.Common
                      iScsc.Fighters.
                      Where(f =>
                         Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM)
+                     && (HasValuFngrPrnt_Cbx.Checked ? f.FNGR_PRNT_DNRM.Length >= 1 : (f.FNGR_PRNT_DNRM == null || f.FNGR_PRNT_DNRM.Trim().Length == 0))
                      && f.CONF_STAT == "002"
                      && f.FGPB_TYPE_DNRM != "003"
                      && f.ACTV_TAG_DNRM == "101"
@@ -470,53 +471,66 @@ namespace System.Scsc.Ui.Common
 
       private void vF_Last_Info_FighterResultBindingSource_CurrentChanged(object sender, EventArgs e)
       {
-         dynamic figh;
-         figh = FighBs.Current as Data.Fighter;
-         if (figh == null) return;
-
-         RqstBnFignInfo_Lb.Text = figh.NAME_DNRM;
-         PayDebtAmnt_Txt.Text = figh.DEBT_DNRM.ToString();
-
-         long fileno = figh.FILE_NO;
-         if (ServInfo_Rlt.RolloutStatus)
+         try
          {
-            try
+            dynamic figh;
+            figh = FighBs.Current as Data.Fighter;
+            if (figh == null) return;
+
+            RqstBnFignInfo_Lb.Text = figh.NAME_DNRM;
+            PayDebtAmnt_Txt.Text = figh.DEBT_DNRM.ToString();
+
+            long fileno = figh.FILE_NO;
+            if (ServInfo_Rlt.RolloutStatus)
             {
-               // 1401/05/22 * Focused
-               ServProf_Tc.SelectedIndex = 0;
+               try
+               {
+                  // 1401/05/22 * Focused
+                  ServProf_Tc.SelectedIndex = 0;
 
-               MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == fileno && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
-               Mbsp_gv.TopRowIndex = 0;
+                  MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == fileno && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+                  Mbsp_gv.TopRowIndex = 0;
 
-               UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = null;
-               MemoryStream mStream = new MemoryStream();
-               byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO))).ToArray();
-               mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-               Bitmap bm = new Bitmap(mStream, false);
-               mStream.Dispose();
+                  UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = null;
+                  MemoryStream mStream = new MemoryStream();
+                  byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO))).ToArray();
+                  mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+                  Bitmap bm = new Bitmap(mStream, false);
+                  mStream.Dispose();
 
-               //Pb_FighImg.Visible = true;            
+                  //Pb_FighImg.Visible = true;            
+
+                  if (InvokeRequired)
+                     Invoke(new Action(() => { UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = bm; }));
+                  else
+                     UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = bm;
+               }
+               catch
+               { //Pb_FighImg.Visible = false;
+                  UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+               }
+            }
+
+            // get data from database for has value
+            if (DataMngt_Rt.RolloutStatus)
+            {
+               var _imgFngrHasValu = iScsc.GET_FPFC_U(new XElement("Request", new XAttribute("fileno", fileno), new XAttribute("fetchdata", "001"), new XAttribute("datatype", "001"))) == "002" ? true : false;//!iScsc.Image_Documents.Any(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == fileno && i.Receive_Document.Request_Document.DCMT_DSID == 13980505495708 /* Finger Print */ && (i.IMAG == null || i.IMAG.Length < 100));
+               var _imgFaceHasvalu = iScsc.GET_FPFC_U(new XElement("Request", new XAttribute("fileno", fileno), new XAttribute("fetchdata", "001"), new XAttribute("datatype", "002"))) == "002" ? true : false;//!iScsc.Image_Documents.Any(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == fileno && i.Receive_Document.Request_Document.DCMT_DSID == 14032589693230 /* Face Id */ && (i.IMAG == null || i.IMAG.Length < 100));
 
                if (InvokeRequired)
-                  Invoke(new Action(() => { UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = bm; }));
+                  Invoke(new Action(() =>
+                  {
+                     FngrPrntHasValu_Lb.BackColor = _imgFngrHasValu ? Color.Lime : Color.FromArgb(224, 224, 224);
+                     FaceHasValu_Lb.BackColor = _imgFaceHasvalu ? Color.Lime : Color.FromArgb(224, 224, 224);
+                  }));
                else
-                  UserProFile1_Rb.ImageProfile = UserProFile_Rb.ImageProfile = bm;
-            }
-            catch
-            { //Pb_FighImg.Visible = false;
-               UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
+               {
+                  FngrPrntHasValu_Lb.BackColor = _imgFngrHasValu ? Color.Lime : Color.FromArgb(224, 224, 224);
+                  FaceHasValu_Lb.BackColor = _imgFaceHasvalu ? Color.Lime : Color.FromArgb(224, 224, 224);
+               }
             }
          }
-
-         // get data from database for has value
-         if(DataMngt_Rt.RolloutStatus)
-         {
-            var _imgFngrHasValu = iScsc.GET_FPFC_U(new XElement("Request", new XAttribute("fileno", fileno), new XAttribute("fetchdata", "001"), new XAttribute("datatype", "001"))) == "002" ? true : false;//!iScsc.Image_Documents.Any(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == fileno && i.Receive_Document.Request_Document.DCMT_DSID == 13980505495708 /* Finger Print */ && (i.IMAG == null || i.IMAG.Length < 100));
-            var _imgFaceHasvalu = iScsc.GET_FPFC_U(new XElement("Request", new XAttribute("fileno", fileno), new XAttribute("fetchdata", "001"), new XAttribute("datatype", "002"))) == "002" ? true : false;//!iScsc.Image_Documents.Any(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == fileno && i.Receive_Document.Request_Document.DCMT_DSID == 14032589693230 /* Face Id */ && (i.IMAG == null || i.IMAG.Length < 100));
-
-            FngrPrntHasValu_Lb.BackColor = _imgFngrHasValu ? Color.Lime : Color.FromArgb(224,224,224);
-            FaceHasValu_Lb.BackColor = _imgFaceHasvalu ? Color.Lime : Color.FromArgb(224, 224, 224);
-         }
+         catch { }
       }
 
       private void MbspBs_CurrentChanged(object sender, EventArgs e)
@@ -915,7 +929,7 @@ namespace System.Scsc.Ui.Common
                      {
                         Input = 
                            new XElement("DeviceControlFunction", 
-                              new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.2" /* Delete Face */ : "5.2.3.5" /* Delete Finger */)), 
+                              new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.2" /* Delete Face */ : ModifierKeys == Keys.Shift ? "5.2.3.8.3" /* Delete Card */ : "5.2.3.5" /* Delete Finger */)), 
                               new XAttribute("funcdesc", "Delete User Info"), 
                               new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM)
                            )
@@ -2332,12 +2346,7 @@ namespace System.Scsc.Ui.Common
          try
          {
             FngrDevOpr_Tmr.Enabled = false;
-
-            if (ConfDateRecd_Rb.Checked)
-            {
-               FromConfDate_Dt.Value = !FromConfDate_Dt.Value.HasValue ? DateTime.Now : FromConfDate_Dt.Value;
-               ToConfDate_Dt.Value = !ToConfDate_Dt.Value.HasValue ? DateTime.Now : ToConfDate_Dt.Value;
-            }
+            
             if (MbspDateRecd_Rb.Checked)
             {
                FromMbspDate_Dt.Value = !FromMbspDate_Dt.Value.HasValue ? DateTime.Now : FromMbspDate_Dt.Value;
@@ -2354,15 +2363,8 @@ namespace System.Scsc.Ui.Common
             {
                // در اولین مرحله پیدا کردن اطلاعات مشتریان
                var _Servs =
-                  FighBs.List.OfType<Data.Fighter>().
-                  Where(s =>
-                     ((Men_Cbx.Checked && s.SEX_TYPE_DNRM == "001") || (Women_Cbx.Checked && s.SEX_TYPE_DNRM == "002")) &&
-                     (
-                      AllRecd_Rb.Checked || (CrntRecd_Rb.Checked && s.FILE_NO == _crntServ.FILE_NO) ||
-                      (ConfDateRecd_Rb.Checked && s.CONF_DATE.Value.Date >= FromConfDate_Dt.Value.Value.Date && s.CONF_DATE.Value.Date <= ToConfDate_Dt.Value.Value.Date) ||
-                      (MbspDateRecd_Rb.Checked && s.MBSP_STRT_DATE >= FromMbspDate_Dt.Value.Value.Date && s.MBSP_STRT_DATE <= ToMbspDate_Dt.Value.Value.Date)
-                     )
-                  );
+                  FighBs.List.OfType<Data.Fighter>()
+                  .Where(s => s.FILE_NO == _crntServ.FILE_NO);
 
                // get all records
                //int _all = _Servs.Count();
@@ -2436,31 +2438,9 @@ namespace System.Scsc.Ui.Common
                                                          (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";") +
                                                          (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";")
                                                       );
-
-                                                      //if (_fngr != null)
-                                                      //   iScsc.SET_IMAG_P(
-                                                      //      new XElement("Image",
-                                                      //          new XAttribute("desttype", "p"),
-                                                      //          new XAttribute("actntype", "003"),
-                                                      //          new XAttribute("fileid", _fngr),
-                                                      //          new XAttribute("rcdcrcid", _imgFngr.RCDC_RCID),
-                                                      //          new XAttribute("rwno", _imgFngr.RWNO)
-                                                      //      )
-                                                      //   );
-                                                      //if (_face != null)
-                                                      //   iScsc.SET_IMAG_P(
-                                                      //      new XElement("Image",
-                                                      //          new XAttribute("desttype", "p"),
-                                                      //          new XAttribute("actntype", "003"),
-                                                      //          new XAttribute("fileid", _face),
-                                                      //          new XAttribute("rcdcrcid", _imgFace.RCDC_RCID),
-                                                      //          new XAttribute("rwno", _imgFace.RWNO)
-                                                      //      )
-                                                      //   );
-
+                                                      
                                                       RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
                                                       RsltOprDev_Txt.BackColor = Color.LimeGreen;
-
                                                    }
                                                    else
                                                    { 
@@ -2493,27 +2473,6 @@ namespace System.Scsc.Ui.Common
                                                       (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";") +
                                                       (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";")
                                                    );
-
-                                                   //if (_fngr != null)
-                                                   //   iScsc.SET_IMAG_P(
-                                                   //      new XElement("Image",
-                                                   //          new XAttribute("desttype", "p"),
-                                                   //          new XAttribute("actntype", "003"),
-                                                   //          new XAttribute("fileid", _fngr),
-                                                   //          new XAttribute("rcdcrcid", _imgFngr.RCDC_RCID),
-                                                   //          new XAttribute("rwno", _imgFngr.RWNO)
-                                                   //      )
-                                                   //   );
-                                                   //if (_face != null)
-                                                   //   iScsc.SET_IMAG_P(
-                                                   //      new XElement("Image",
-                                                   //          new XAttribute("desttype", "p"),
-                                                   //          new XAttribute("actntype", "003"),
-                                                   //          new XAttribute("fileid", _face),
-                                                   //          new XAttribute("rcdcrcid", _imgFace.RCDC_RCID),
-                                                   //          new XAttribute("rwno", _imgFace.RWNO)
-                                                   //      )
-                                                   //   );
 
                                                    RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
                                                    RsltOprDev_Txt.BackColor = Color.LimeGreen;
@@ -2616,6 +2575,52 @@ namespace System.Scsc.Ui.Common
                      );
                      #endregion
                   }
+                  else if (FngrDevOpr_Tmr.Tag.ToString() == "del")
+                  {
+                     #region DELETE DATA FROM DEVICE
+                     //++_indx;
+                     if (InvokeRequired)
+                     {
+                        Invoke(new Action(() =>
+                        {
+                           RsltOprDev_Txt.Text = string.Format("پردازش حذف اطلاعات " + "*{0}*" + "...", _serv.NAME_DNRM);
+                           //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
+                        }));
+                     }
+                     else
+                     {
+                        RsltOprDev_Txt.Text = string.Format("پردازش حذف اطلاعات " + "*{0}*" + "...", _serv.NAME_DNRM);
+                        //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
+                     }
+
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost",
+                           new List<Job>
+                           {                  
+                              new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                              {
+                                 //Executive = ExecutiveType.Synchronize,
+                                 Input = 
+                                    new XElement("DeviceControlFunction", 
+                                       new XAttribute("functype", "5.2.3.8.2"), 
+                                       new XAttribute("funcdesc", "Delete data face id from device"), 
+                                       new XAttribute("enrollnumb", _serv.FNGR_PRNT_DNRM)
+                                    )
+                              },
+                              new Job(SendType.SelfToUserInterface, "MAIN_PAGE_F", 43 /* DeviceControlFunction */)
+                              {
+                                 //Executive = ExecutiveType.Synchronize,
+                                 Input = 
+                                    new XElement("DeviceControlFunction", 
+                                       new XAttribute("functype", "5.2.3.5"), 
+                                       new XAttribute("funcdesc", "Delete data finger print from device"), 
+                                       new XAttribute("enrollnumb", _serv.FNGR_PRNT_DNRM)
+                                    )
+                              }
+                           })
+                     );
+                     #endregion
+                  }
                }
                #endregion
 
@@ -2657,7 +2662,7 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            if (SendRecv_Cmbx.SelectedIndex.NotIn(0, 1)) { SendRecv_Cmbx.Focus(); return; }
+            if (SendRecv_Cmbx.SelectedIndex.NotIn(0, 1, 3)) { SendRecv_Cmbx.Focus(); return; }
 
             iScsc.ExecuteCommand(string.Format("UPDATE dbo.Image_Document SET IMAG = NULL WHERE LEN(IMAG) < 100;"));
 
@@ -2673,12 +2678,16 @@ namespace System.Scsc.Ui.Common
             else
                ClubCode = (long?)ClubCode_Lov.EditValue;
 
+            // Get current Service in list
+            var _crntServ = FighBs.Current as Data.Fighter;
+
             // get data
+            #region First query for fetch list of service from db
             _getServ =
-               //FighBs.List.OfType<Data.Fighter>()
                iScsc.Fighters
                .Where(s =>
-                  Fga_Uclb_U.Contains(s.CLUB_CODE_DNRM)
+                     Fga_Uclb_U.Contains(s.CLUB_CODE_DNRM)
+                  && (HasValuFngrPrnt_Cbx.Checked ? s.FNGR_PRNT_DNRM.Length >= 1 : (s.FNGR_PRNT_DNRM == null || s.FNGR_PRNT_DNRM.Trim().Length == 0))
                   && s.CONF_STAT == "002"
                   && s.FGPB_TYPE_DNRM != "003"
                   && s.ACTV_TAG_DNRM == "101"
@@ -2692,19 +2701,81 @@ namespace System.Scsc.Ui.Common
                   && (GlobCode_Txt.Text == "" || s.GLOB_CODE_DNRM.Contains(GlobCode_Txt.Text))
                   && (BothSex_Rb.Checked || (s.SEX_TYPE_DNRM == (Men_Rb.Checked ? "001" : "002")))
                   && (ClubCode == null || s.CLUB_CODE_DNRM == ClubCode)
-                  && (SuntCode == null || s.SUNT_CODE_DNRM == SuntCode) &&
-                  s.FGPB_TYPE_DNRM == "001" && s.CONF_STAT == "002" &&
-                  (s.FNGR_PRNT_DNRM != null && s.FNGR_PRNT_DNRM.Trim() != "") &&
-                     //((Men_Cbx.Checked && s.SEX_TYPE_DNRM == "001") || (Women_Cbx.Checked && s.SEX_TYPE_DNRM == "002")) &&
+                  && (SuntCode == null || s.SUNT_CODE_DNRM == SuntCode) 
+                  && (s.FGPB_TYPE_DNRM == "001" && s.CONF_STAT == "002") 
+                  &&
                   (JustForAll_Rb.Checked ||
                    s.Request_Rows.Any(rr =>
                      (rr.RQTP_CODE == "001" || rr.RQTP_CODE == "025") &&
-                     rr.Receive_Documents.Any(rd =>
-                        rd.Image_Documents.Any(im => (im.IMAG == null /* Image IS Null */ || im.IMAG.Length < 100 /* Image IS NOT VALID */) && ((Fngr_Cbx.Checked && rd.Request_Document.DCMT_DSID == 13980505495708) /* Finger Print */ || (Face_Cbx.Checked && rd.Request_Document.DCMT_DSID == 14032589693230 /* Face */)))
+                      rr.Receive_Documents.Any(rd =>
+                        rd.Image_Documents.Any(im => 
+                           (im.IMAG == null /* Image IS Null */ || im.IMAG.Length < 100 /* Image IS NOT VALID */) &&
+                           ((Fngr_Cbx.Checked && rd.Request_Document.DCMT_DSID == 13980505495708) /* Finger Print */ || (Face_Cbx.Checked && rd.Request_Document.DCMT_DSID == 14032589693230 /* Face */))
+                        )
                      )
                    )
                   )
                );
+            #endregion 
+
+            #region Filter service from query
+            if (CrntRecd_Rb.Checked)
+               _getServ = _getServ.Where(s => s.FILE_NO == _crntServ.FILE_NO);
+            else if (SlctProcRecds_Rb.Checked)
+            {
+               if (SlctTop_Rb.Checked || SlctDown_Rb.Checked)
+               {
+                  // 1404/10/25 * Select Records from gridview
+                  #region Selected rows in Service gridview
+                  List<Data.Fighter> _slcts = new List<Data.Fighter>();
+                  if (SlctProcRecds_Rb.Checked)
+                  {
+                     // اگر تعداد ردیف های درون جدول از عدد شروع ما کمتر باشد دیگر نیازی به پردازش نیست 
+                     if (Serv_Gv.RowCount >= (int)SlctFromProcRecds_Nud.Value)
+                     {
+                        var _len = SlctToProcRecds_Nud.Value;
+                        var _rmnd = Serv_Gv.RowCount - SlctFromProcRecds_Nud.Value;
+
+                        if (SlctTop_Rb.Checked)
+                        {
+                           // قراردادن تعداد رکرودهایی که درون بازه قرار دارند
+                           for (int i = (int)(SlctFromProcRecds_Nud.Value - 1), j = 0;  (_rmnd > _len ? _len : _rmnd) > j ; i++, j++)
+                           {
+                              _slcts.Add(Serv_Gv.GetRow(i) as Data.Fighter);
+                           }
+                        }
+                        else if (SlctDown_Rb.Checked)
+                        {
+                           // قراردادن تعداد رکرودهایی که درون بازه قرار دارند
+                           for (int i = (int)(Serv_Gv.RowCount - SlctFromProcRecds_Nud.Value), j = 0; (_rmnd > _len ? _len : _rmnd) > j; i--, j++)
+                           {
+                              _slcts.Add(Serv_Gv.GetRow(i) as Data.Fighter);
+                           }
+                        }
+                     }
+                     else
+                     {
+                        MessageBox.Show(this, "بازه انتخابی رکورد های [از ،تا] شما هیچ رکوردی را در بر نمیگیرد", "عدم وجود رکورد در بازه انتخابی شما", MessageBoxButtons.OK);
+                        return;
+                     }
+                  }
+                  #endregion
+
+                  if(_slcts.Any())
+                     _getServ = _getServ.Where(s => _slcts.Select(sr => sr.FNGR_PRNT_DNRM).Contains(s.FNGR_PRNT_DNRM));
+               }
+               else if (MbspDateRecd_Rb.Checked)
+               {
+                  if (!FromMbspDate_Dt.Value.HasValue) { FromMbspDate_Dt.Focus(); return; }
+                  if (!ToMbspDate_Dt.Value.HasValue) { ToMbspDate_Dt.Focus(); return; }
+
+                  _getServ =
+                     _getServ.Where(
+                        s => FromMbspDate_Dt.Value.Value.Date >= s.MBSP_STRT_DATE && ToMbspDate_Dt.Value.Value.Date <= s.MBSP_END_DATE
+                     );
+               }
+            }
+            #endregion
 
             switch (RunCyclUpdDev_Butn.Tag.ToString())
             {
@@ -2735,6 +2806,13 @@ namespace System.Scsc.Ui.Common
                   //FngrDevOpr_Tmr.Enabled = true;
                   GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = false;
                   break;
+               case 3:
+                  // Clear data to device
+                  if (MessageBox.Show(this, "آیا با حذف اطلاعات از دستگاه موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                  FngrDevOpr_Tmr.Tag = "del";
+                  //FngrDevOpr_Tmr.Enabled = true;
+                  GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = false;
+                  break;
             }
 
             //new Thread(() => CyclUpdtDev_Tmr_Tick(null, null)) { IsBackground = true }.Start();
@@ -2762,7 +2840,9 @@ namespace System.Scsc.Ui.Common
                Lbls_Click(YellowGreen_Lbl, e);
                FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
                RsltCont_Lb.Text = string.Format("Q: {0:n0} / P: {1:n0}", _all - _indx, _indx);
-               FighBs.Position = FighBs.IndexOf(_serv);
+               var _index = FighBs.IndexOf(_serv);
+               if (_index == -1) continue;
+               FighBs.Position = _index;
                FngrPrntProc_Lb.Text = _serv.FNGR_PRNT_DNRM;
                NameDnrmProc_Lb.Text = _serv.NAME_DNRM;
 
@@ -2775,6 +2855,10 @@ namespace System.Scsc.Ui.Common
                   case 1:
                      // Send data to device
                      FngrDevOpr_Tmr.Tag = "set";
+                     break;
+                  case 3:
+                     // Delete data to device
+                     FngrDevOpr_Tmr.Tag = "del";
                      break;
                }
 
@@ -3191,6 +3275,19 @@ namespace System.Scsc.Ui.Common
             {
                Search_Butn_Click(null, null);
             }
+         }
+      }
+
+      private void SlctFromProcRecds_Nud_ValueChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            if (SlctFromProcRecds_Nud.Value > Serv_Gv.RowCount)
+               SlctFromProcRecds_Nud.Value = Serv_Gv.RowCount;            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

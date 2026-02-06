@@ -60,7 +60,7 @@
          // 
          this.User2_Txt.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.User2_Txt.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.User2_Txt.ForeColor = System.Drawing.Color.White;
+         this.User2_Txt.ForeColor = System.Drawing.Color.LightYellow;
          this.User2_Txt.Location = new System.Drawing.Point(221, 286);
          this.User2_Txt.Name = "User2_Txt";
          this.User2_Txt.Size = new System.Drawing.Size(100, 23);
@@ -72,7 +72,7 @@
          // 
          this.User1_Txt.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.User1_Txt.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.User1_Txt.ForeColor = System.Drawing.Color.White;
+         this.User1_Txt.ForeColor = System.Drawing.Color.LightYellow;
          this.User1_Txt.Location = new System.Drawing.Point(359, 286);
          this.User1_Txt.Name = "User1_Txt";
          this.User1_Txt.Size = new System.Drawing.Size(100, 23);
@@ -84,7 +84,7 @@
          // 
          this.User3_Txt.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.User3_Txt.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.User3_Txt.ForeColor = System.Drawing.Color.White;
+         this.User3_Txt.ForeColor = System.Drawing.Color.LightYellow;
          this.User3_Txt.Location = new System.Drawing.Point(497, 286);
          this.User3_Txt.Name = "User3_Txt";
          this.User3_Txt.Size = new System.Drawing.Size(100, 23);
@@ -96,7 +96,7 @@
          // 
          this.label4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
          this.label4.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label4.ForeColor = System.Drawing.Color.White;
+         this.label4.ForeColor = System.Drawing.Color.LightYellow;
          this.label4.Location = new System.Drawing.Point(359, 688);
          this.label4.Name = "label4";
          this.label4.Size = new System.Drawing.Size(100, 23);
@@ -108,7 +108,7 @@
          // 
          this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.label1.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label1.ForeColor = System.Drawing.Color.White;
+         this.label1.ForeColor = System.Drawing.Color.LightYellow;
          this.label1.Location = new System.Drawing.Point(747, 2);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(69, 23);
@@ -120,11 +120,11 @@
          // 
          this.Lb_ShowLoginDesc.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.Lb_ShowLoginDesc.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.Lb_ShowLoginDesc.ForeColor = System.Drawing.Color.White;
-         this.Lb_ShowLoginDesc.Location = new System.Drawing.Point(39, 552);
+         this.Lb_ShowLoginDesc.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Lb_ShowLoginDesc.ForeColor = System.Drawing.Color.LightYellow;
+         this.Lb_ShowLoginDesc.Location = new System.Drawing.Point(39, 520);
          this.Lb_ShowLoginDesc.Name = "Lb_ShowLoginDesc";
-         this.Lb_ShowLoginDesc.Size = new System.Drawing.Size(742, 58);
+         this.Lb_ShowLoginDesc.Size = new System.Drawing.Size(742, 100);
          this.Lb_ShowLoginDesc.TabIndex = 4;
          this.Lb_ShowLoginDesc.Text = "Artman Gym * M.Tavakoli \r\nCellphone : 0917 101 5031 - Telephone : 3 234 5695";
          this.Lb_ShowLoginDesc.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -134,7 +134,7 @@
          this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
          this.label3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label3.ForeColor = System.Drawing.Color.White;
+         this.label3.ForeColor = System.Drawing.Color.LightYellow;
          this.label3.Location = new System.Drawing.Point(39, 106);
          this.label3.Name = "label3";
          this.label3.Size = new System.Drawing.Size(742, 32);
@@ -146,7 +146,7 @@
          // 
          this.User5_Txt.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.User5_Txt.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.User5_Txt.ForeColor = System.Drawing.Color.White;
+         this.User5_Txt.ForeColor = System.Drawing.Color.LightYellow;
          this.User5_Txt.Location = new System.Drawing.Point(635, 286);
          this.User5_Txt.Name = "User5_Txt";
          this.User5_Txt.Size = new System.Drawing.Size(100, 23);
@@ -158,7 +158,7 @@
          // 
          this.User4_Txt.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.User4_Txt.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.User4_Txt.ForeColor = System.Drawing.Color.White;
+         this.User4_Txt.ForeColor = System.Drawing.Color.LightYellow;
          this.User4_Txt.Location = new System.Drawing.Point(83, 286);
          this.User4_Txt.Name = "User4_Txt";
          this.User4_Txt.Size = new System.Drawing.Size(100, 23);
@@ -342,7 +342,7 @@
          this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
          this.label2.AutoSize = true;
          this.label2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.label2.ForeColor = System.Drawing.Color.White;
+         this.label2.ForeColor = System.Drawing.Color.LightYellow;
          this.label2.Location = new System.Drawing.Point(62, 697);
          this.label2.Name = "label2";
          this.label2.Size = new System.Drawing.Size(158, 14);
@@ -368,9 +368,9 @@
          this.ActvLicnTime_LL.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.ActvLicnTime_LL.AutoSize = true;
          this.ActvLicnTime_LL.Font = new System.Drawing.Font("Segoe UI", 9F);
-         this.ActvLicnTime_LL.ForeColor = System.Drawing.Color.White;
+         this.ActvLicnTime_LL.ForeColor = System.Drawing.Color.Black;
          this.ActvLicnTime_LL.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
-         this.ActvLicnTime_LL.LinkColor = System.Drawing.Color.White;
+         this.ActvLicnTime_LL.LinkColor = System.Drawing.Color.LightYellow;
          this.ActvLicnTime_LL.Location = new System.Drawing.Point(436, 378);
          this.ActvLicnTime_LL.Name = "ActvLicnTime_LL";
          this.ActvLicnTime_LL.Size = new System.Drawing.Size(129, 15);
@@ -384,7 +384,7 @@
          this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
          this.label5.AutoSize = true;
          this.label5.Font = new System.Drawing.Font("Segoe UI", 9F);
-         this.label5.ForeColor = System.Drawing.Color.White;
+         this.label5.ForeColor = System.Drawing.Color.LightYellow;
          this.label5.Location = new System.Drawing.Point(278, 378);
          this.label5.Name = "label5";
          this.label5.Size = new System.Drawing.Size(141, 15);
@@ -417,7 +417,7 @@
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BackColor = System.Drawing.Color.DarkSlateBlue;
+         this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
          this.Controls.Add(this.labelControl2);
          this.Controls.Add(this.labelControl1);
          this.Controls.Add(this.ActvLicnTime_LL);

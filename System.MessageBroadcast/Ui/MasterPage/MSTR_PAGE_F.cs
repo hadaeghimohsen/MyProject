@@ -186,7 +186,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
                      {
                         xmsRespons =
                            new XDocument(
-                              new XElement("iNotiSms",
+                              new XElement("FarazSmsClient",
                                  new XElement("SendCredit", FarazSmsClient.GetCredit())
                               )
                            );
@@ -195,7 +195,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
                      {
                         xmsRespons =
                            new XDocument(
-                              new XElement("iNotiSms",
+                              new XElement("iPPanelEdgeClient",
                                  new XElement("SendCredit", iPPanelEdgeClient.GetCredit())
                               )
                            );

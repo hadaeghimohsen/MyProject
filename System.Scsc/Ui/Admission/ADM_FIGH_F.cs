@@ -2846,5 +2846,29 @@ namespace System.Scsc.Ui.Admission
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void PymtsBs1_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _pymt = PymtsBs1.Current as Data.Payment;
+            if (_pymt == null) return;
+
+            if((_pymt.SUM_EXPN_PRIC - (_pymt.SUM_RCPT_EXPN_PRIC + _pymt.SUM_PYMT_DSCN_DNRM)) == 0)
+            {
+               RcmtOprt_Pnl.Visible = false;
+               RqstBnASav1.Enabled = true;
+            }
+            else
+            {
+               RcmtOprt_Pnl.Visible = true;
+               RqstBnASav1.Enabled = false;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
    }
 }

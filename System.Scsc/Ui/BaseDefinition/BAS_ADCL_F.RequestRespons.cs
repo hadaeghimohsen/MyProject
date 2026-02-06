@@ -292,6 +292,7 @@ namespace System.Scsc.Ui.BaseDefinition
          Regn_Lov.EditValue = null;
          
          RegnBs1.DataSource = iScsc.Regions;
+         DSxtpBs.DataSource = iScsc.D_SXTPs;
          ClubBs.List.Clear();
          ClubBs.AddNew();
 

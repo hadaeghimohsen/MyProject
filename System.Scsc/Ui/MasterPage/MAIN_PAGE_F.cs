@@ -45,6 +45,111 @@ namespace System.Scsc.Ui.MasterPage
       private long _doActionStep = 0;
       private bool requery = false;
 
+      #region Task manager for run form
+      private class RunTask
+      {
+         public CheckButton MainCheckButton { get; set; }
+         public string UiPath { get; set; }
+         public bool IsActive { get; set; }
+         public CheckButton TaskBarCheckButton { get; set; }         
+      }
+
+      LinkedList<RunTask> _runTask = new LinkedList<RunTask>();
+
+      private void AddOrBringToFront(CheckButton checkButton)
+      {
+         try
+         {
+            // اگر checkButton null باشد، کاری نمی‌کنیم
+            if (checkButton == null) return;
+
+            // ابتدا Checked همه آیتم‌های موجود در لیست را false می‌کنیم
+            foreach (var task in _runTask)
+            {
+               if (task.MainCheckButton != null)
+               {
+                  task.MainCheckButton.Checked = false;
+               }
+            }
+
+            // پیدا کردن آیتم با استفاده از LINQ
+            var existingItem = _runTask.FirstOrDefault(node => node.MainCheckButton == checkButton);
+
+            if (existingItem != null)
+            {
+               // حذف آیتم موجود و اضافه کردن به ابتدا
+               _runTask.Remove(existingItem);
+               _runTask.AddFirst(existingItem);
+
+               // Checked آیتم منتقل شده را true می‌کنیم
+               if (existingItem.MainCheckButton != null)
+               {
+                  existingItem.MainCheckButton.Checked = true;
+               }
+            }
+            else
+            {
+               // ایجاد آیتم جدید و اضافه کردن به ابتدا
+               _runTask.AddFirst(new RunTask
+               {
+                  MainCheckButton = checkButton,
+                  UiPath = checkButton.Tag.ToString(),
+                  IsActive = true,
+                  TaskBarCheckButton = null
+               });
+
+               // Checked آیتم جدید را true می‌کنیم
+               if (checkButton != null)
+               {
+                  checkButton.Checked = true;
+               }
+            }
+         }
+         catch (Exception _exc)
+         {
+            MessageBox.Show(_exc.Message);
+         }
+      }
+      private bool RemoveByUiPathAndUpdateChecked(string uiPath)
+      {
+         try
+         {
+            // بررسی اولیه
+            if (string.IsNullOrEmpty(uiPath) || _runTask == null || _runTask.Count == 0)
+               return false;
+
+            // پیدا کردن آیتم
+            var itemToRemove = _runTask.FirstOrDefault(node => node != null && node != null && node.UiPath == uiPath);
+
+            if (itemToRemove == null)
+               return false;
+
+            // false کردن Checked
+            if (itemToRemove.MainCheckButton != null)
+               itemToRemove.MainCheckButton.Checked = false;
+
+            // حذف از لیست
+            bool removed = _runTask.Remove(itemToRemove);
+
+            if (!removed)
+               return false;
+
+            // true کردن Checked اولین آیتم (اگر وجود داشته باشد)
+            if (_runTask.Count > 0 && _runTask.First != null && _runTask.First.Value != null)
+            {
+               if (_runTask.First.Value.MainCheckButton != null)
+                  _runTask.First.Value.MainCheckButton.Checked = true;
+            }
+
+            return true;
+         }
+         catch
+         {
+            return false;
+         }
+      }
+      #endregion 
+
       private void Execute_Query()
       {
          iScsc = new Data.iScscDataContext(ConnectionString);
@@ -2589,6 +2694,8 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
+            iScsc = new Data.iScscDataContext(ConnectionString);
+
             if (AttnType_Lov.EditValue == null) { AttnType_Lov.EditValue = "003"; }
             if (AttnType_Lov.EditValue.ToString() != "001") 
             { 
@@ -3014,7 +3121,9 @@ namespace System.Scsc.Ui.MasterPage
 
             // 1396/10/26 * اگر سیستم به صورتی باشد که نرم افزار اپراتور پشت آن قرار ندارد            
             if(iScsc.Computer_Actions.FirstOrDefault(ca => ca.COMP_NAME == xHost.Attribute("name").Value).CHCK_DOBL_ATTN_STAT == "002")
-               if (EnrollNumber == oldenrollnumber && MessageBox.Show(this, "شناسایی دوبار انجام شده است، آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری اثرانگشت اعضا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+               if (EnrollNumber == oldenrollnumber && 
+                   !iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == EnrollNumber && f.FGPB_TYPE_DNRM == "003") &&
+                   MessageBox.Show(this, "شناسایی دوبار انجام شده است، آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری اثرانگشت اعضا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
                   return;
 
             // 1397/05/10 * تست اینکه آیا سرور برقرار هست یا خیر
@@ -3313,7 +3422,7 @@ namespace System.Scsc.Ui.MasterPage
                #endregion
 
                #region Check Any Member_Ship
-               var mbsp =
+               var _mbsp =
                   iScsc.ExecuteQuery<Data.Member_Ship>(
                      host.CHCK_ATTN_ALRM == "001" ? 
                         /* منشی پشت سیستم حضور دارد */
@@ -3367,10 +3476,42 @@ namespace System.Scsc.Ui.MasterPage
                   return;
                }
 
-               if (mbsp.Count() >= 2)
+               if (_mbsp.Count() >= 2)
                {
                   //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
                   //new Thread(AlarmShow).Start();
+
+                  // 1404/11/03 * Check Exists Attendance ENTER
+                  var _attns =
+                     iScsc.Attendances
+                     .Where(a => 
+                        _mbsp.Select(m => m.RWNO).Contains(a.Member_Ship.RWNO) && 
+                        a.FNGR_PRNT_DNRM == EnrollNumber &&
+                        a.ATTN_DATE == DateTime.Now.Date && 
+                        a.EXIT_TIME == null && 
+                        a.ATTN_STAT == "002");
+                     //_mbsp.Where(a => a.Attendances.Any(b => b.ATTN_DATE == DateTime.Now.Date && b.EXIT_TIME == null && b.ATTN_STAT == "002" && b.ENTR_TIME.Value.Add(new TimeSpan(0, 45, 0)) >= DateTime.Now.TimeOfDay)).Select(a => a.Attendances);
+                  //if(_attns.Count() >= 1)
+                  int _iattn = 0;
+                  foreach (var _a in _attns.ToList())
+                  {
+                     if (_a.ENTR_TIME.Value.Add(new TimeSpan(0, 45, 0)).CompareTo(DateTime.Now.TimeOfDay) < 0)
+                     {
+                        ++_iattn;
+                        // 1404/11/04 * In this step close all attendance
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "Localhost",
+                              new List<Job>
+                           {
+                              new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
+                              new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", _a.MBSP_RWNO_DNRM), new XAttribute("compname", xHost.Attribute("name").Value), new XAttribute("chckattnalrm", host.CHCK_ATTN_ALRM), new XAttribute("attnsystype", attnsystype))}
+                           })
+                        );
+                     }
+                  }
+                  // 1404/11/04 * اگر مشتری چند رشته ای بوده و در حال خروج و پایان دادن به یکی از رشته ها باشد دیگر نیاز به نمایش تعداد چند رشته ای ان وجود ندارد فقط کافیست که خروج زده شود و در همین نقطه فراِند بسته شود
+                  if (_iattn >= 1)
+                     return;
 
                   // Play Enter Sound
                   // 1404/03/30 ** New version for play sound
@@ -3405,7 +3546,7 @@ namespace System.Scsc.Ui.MasterPage
                   // 1396/10/27 * منشی پشت سیستم حضور ندارد
                   if(host.CHCK_ATTN_ALRM == "002")
                   {
-                     mbsp =
+                     _mbsp =
                         iScsc.ExecuteQuery<Data.Member_Ship>(
                            string.Format(@"SELECT TOP 1 ms.*
                                              FROM Member_Ship ms, Fighter_Public fp, Method mt
@@ -3429,7 +3570,7 @@ namespace System.Scsc.Ui.MasterPage
                         new List<Job>
                         {
                            new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
-                           new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", mbsp.Count() > 0 ? mbsp.FirstOrDefault().RWNO : 0), new XAttribute("compname", xHost.Attribute("name").Value), new XAttribute("chckattnalrm", host.CHCK_ATTN_ALRM), new XAttribute("attnsystype", attnsystype))}
+                           new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", EnrollNumber), new XAttribute("mbsprwno", _mbsp.Count() > 0 ? _mbsp.FirstOrDefault().RWNO : 0), new XAttribute("compname", xHost.Attribute("name").Value), new XAttribute("chckattnalrm", host.CHCK_ATTN_ALRM), new XAttribute("attnsystype", attnsystype))}
                         });
                   _DefaultGateway.Gateway(_InteractWithScsc);
                }
@@ -3601,6 +3742,140 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception exc)
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+            MessageBox.Show(exc.Message);
+            return false;
+         }
+      }
+
+      private bool Delete_CardNumber_Finger(string enrollid)
+      {
+         try
+         {
+            //string aCardNumber = "";
+            string sName = "";
+            string sPassword = "";
+            int iPrivilege = 0;
+            bool benabled = false;
+
+            #region SetCard User
+            if (axCZKEM1.SSR_GetUserInfo(1, enrollid, out sName, out sPassword, out iPrivilege, out benabled))
+            {
+               // sdwEnrollNumber now holds the card number
+               //axCZKEM1.GetStrCardNumber(out aCardNumber);
+               if (Fp1DevIsConnected)
+               {
+                  axCZKEM1.EnableDevice(1, false);
+
+                  axCZKEM1.SetStrCardNumber("");//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+                  if (axCZKEM1.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
+                  {
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                  }
+                  else
+                  {
+                     int idwErrorCode = 0;
+                     axCZKEM1.GetLastError(ref idwErrorCode);
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+                  }
+                  axCZKEM1.RefreshData(1);//the data in the device should be refreshed
+                  axCZKEM1.EnableDevice(1, true);
+               }
+               if (Fp2DevIsConnected)
+               {
+                  axCZKEM2.EnableDevice(1, false);
+
+                  axCZKEM2.SetStrCardNumber("");//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+                  if (axCZKEM2.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
+                  {
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                  }
+                  else
+                  {
+                     int idwErrorCode = 0;
+                     axCZKEM2.GetLastError(ref idwErrorCode);
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+                  }
+                  axCZKEM2.RefreshData(1);//the data in the device should be refreshed
+                  axCZKEM2.EnableDevice(1, true);
+               }
+               if (Fp3DevIsConnected)
+               {
+                  axCZKEM3.EnableDevice(1, false);
+
+                  axCZKEM3.SetStrCardNumber("");//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+                  if (axCZKEM3.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
+                  {
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                  }
+                  else
+                  {
+                     int idwErrorCode = 0;
+                     axCZKEM3.GetLastError(ref idwErrorCode);
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+                  }
+                  axCZKEM3.RefreshData(1);//the data in the device should be refreshed
+                  axCZKEM3.EnableDevice(1, true);
+               }
+               if (Fp4DevIsConnected)
+               {
+                  axCZKEM4.EnableDevice(1, false);
+
+                  axCZKEM4.SetStrCardNumber("");//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+                  if (axCZKEM4.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
+                  {
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                  }
+                  else
+                  {
+                     int idwErrorCode = 0;
+                     axCZKEM4.GetLastError(ref idwErrorCode);
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+                  }
+                  axCZKEM4.RefreshData(1);//the data in the device should be refreshed
+                  axCZKEM4.EnableDevice(1, true);
+               }
+               if (Fp5DevIsConnected)
+               {
+                  axCZKEM5.EnableDevice(1, false);
+
+                  axCZKEM5.SetStrCardNumber("");//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+                  if (axCZKEM5.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
+                  {
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                  }
+                  else
+                  {
+                     int idwErrorCode = 0;
+                     axCZKEM5.GetLastError(ref idwErrorCode);
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+                  }
+                  axCZKEM5.RefreshData(1);//the data in the device should be refreshed
+                  axCZKEM5.EnableDevice(1, true);
+               }
+               if (Fp6DevIsConnected)
+               {
+                  axCZKEM6.EnableDevice(1, false);
+
+                  axCZKEM6.SetStrCardNumber("");//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+                  if (axCZKEM6.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
+                  {
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                  }
+                  else
+                  {
+                     int idwErrorCode = 0;
+                     axCZKEM6.GetLastError(ref idwErrorCode);
+                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+                  }
+                  axCZKEM6.RefreshData(1);//the data in the device should be refreshed
+                  axCZKEM6.EnableDevice(1, true);
+               }
+            }
+            #endregion
+            return true;
+         }
+         catch (Exception exc)
+         {
             MessageBox.Show(exc.Message);
             return false;
          }
@@ -3899,10 +4174,6 @@ namespace System.Scsc.Ui.MasterPage
                _data.Add(tmpData);
                #endregion
 
-               //_oddcolor = _evencolor = Color.AliceBlue;
-               //_wplayer_url = "";
-               //new Thread(AlarmShow).Start();
-
                // Reset old data
                tmpData = null;
 
@@ -3914,10 +4185,6 @@ namespace System.Scsc.Ui.MasterPage
                
                _data.Add(tmpData);
                #endregion
-
-               //_oddcolor = _evencolor = Color.Azure;
-               //_wplayer_url = "";
-               //new Thread(AlarmShow).Start();
             }
             else if (Fp2DevIsConnected)
             {
@@ -3928,10 +4195,6 @@ namespace System.Scsc.Ui.MasterPage
                
                _data.Add(tmpData);
                #endregion
-
-               //_oddcolor = _evencolor = Color.AliceBlue;
-               //_wplayer_url = "";
-               //new Thread(AlarmShow).Start();
 
                // Reset old data
                tmpData = null;
@@ -3944,10 +4207,6 @@ namespace System.Scsc.Ui.MasterPage
                
                _data.Add(tmpData);
                #endregion
-
-               //_oddcolor = _evencolor = Color.Azure;
-               //_wplayer_url = "";
-               //new Thread(AlarmShow).Start();
             }
 
             // Play Enter Sound
@@ -3976,8 +4235,6 @@ namespace System.Scsc.Ui.MasterPage
 
             // Part 1 : Finger Print
             #region Finger Print
-            //var result = axCZKEM1.GetUserTmpExStr(1, enrollid, 6, out flag, out tmpData, out tmplen);
-
             // 1402/10/14 * اگر این گزینه خروجی هیچ داده ای وجود نداشته باشید
             if (fngrprntupdate == "002" && tmpData != null && tmpData.Length > 100)
             {
@@ -3987,7 +4244,6 @@ namespace System.Scsc.Ui.MasterPage
                   {
                      axCZKEM1.SSR_DelUserTmpExt(1, enrollid, i);
                   }
-                  //MessageBox.Show("2nd Device Enrolling");
                   result = axCZKEM1.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM1.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
                }
@@ -3997,7 +4253,6 @@ namespace System.Scsc.Ui.MasterPage
                   {
                      axCZKEM2.SSR_DelUserTmpExt(1, enrollid, i);
                   }
-                  //MessageBox.Show("2nd Device Enrolling");
                   result = axCZKEM2.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM2.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
                }
@@ -4007,7 +4262,6 @@ namespace System.Scsc.Ui.MasterPage
                   {
                      axCZKEM3.SSR_DelUserTmpExt(1, enrollid, i);
                   }
-                  //MessageBox.Show("3rd Device Enrolling");
                   result = axCZKEM3.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM3.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
                }
@@ -4017,7 +4271,6 @@ namespace System.Scsc.Ui.MasterPage
                   {
                      axCZKEM4.SSR_DelUserTmpExt(1, enrollid, i);
                   }
-                  //MessageBox.Show("3rd Device Enrolling");
                   result = axCZKEM4.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM4.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
                }
@@ -4027,7 +4280,6 @@ namespace System.Scsc.Ui.MasterPage
                   {
                      axCZKEM5.SSR_DelUserTmpExt(1, enrollid, i);
                   }
-                  //MessageBox.Show("3rd Device Enrolling");
                   result = axCZKEM5.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM5.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
                }
@@ -4037,7 +4289,6 @@ namespace System.Scsc.Ui.MasterPage
                   {
                      axCZKEM6.SSR_DelUserTmpExt(1, enrollid, i);
                   }
-                  //MessageBox.Show("3rd Device Enrolling");
                   result = axCZKEM6.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM6.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
                }
@@ -4050,7 +4301,6 @@ namespace System.Scsc.Ui.MasterPage
             // Part 2 : Face User
             #region Face User
             // Part 1 : Finger Print
-            //result = axCZKEM1.GetUserFaceStr(1, enrollid, 111, ref tmpData, ref tmplen);
 
             // 1402/10/14 * اگر این گزینه خروجی هیچ داده ای وجود نداشته باشید
             if (faceupdate == "002" && tmpData != null && tmpData.Length > 100)
@@ -4059,7 +4309,6 @@ namespace System.Scsc.Ui.MasterPage
                {
                   axCZKEM1.DelUserFace(1, enrollid, 111);
                   axCZKEM1.RefreshData(1);//the data in the device should be refreshed
-                  //MessageBox.Show("2nd Device Enrolling");
                   result = axCZKEM1.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM1.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
                }
@@ -4067,7 +4316,6 @@ namespace System.Scsc.Ui.MasterPage
                {
                   axCZKEM2.DelUserFace(1, enrollid, 111);
                   axCZKEM2.RefreshData(1);//the data in the device should be refreshed
-                  //MessageBox.Show("2nd Device Enrolling");
                   result = axCZKEM2.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM2.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
                }
@@ -4075,7 +4323,6 @@ namespace System.Scsc.Ui.MasterPage
                {
                   axCZKEM3.DelUserFace(1, enrollid, 111);
                   axCZKEM3.RefreshData(1);//the data in the device should be refreshed
-                  //MessageBox.Show("3rd Device Enrolling");
                   result = axCZKEM3.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM3.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
                }
@@ -4083,7 +4330,6 @@ namespace System.Scsc.Ui.MasterPage
                {
                   axCZKEM4.DelUserFace(1, enrollid, 111);
                   axCZKEM4.RefreshData(1);//the data in the device should be refreshed
-                  //MessageBox.Show("3rd Device Enrolling");
                   result = axCZKEM4.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM4.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
                }
@@ -4091,7 +4337,6 @@ namespace System.Scsc.Ui.MasterPage
                {
                   axCZKEM5.DelUserFace(1, enrollid, 111);
                   axCZKEM5.RefreshData(1);//the data in the device should be refreshed
-                  //MessageBox.Show("3rd Device Enrolling");
                   result = axCZKEM5.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM5.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
                }
@@ -4099,7 +4344,6 @@ namespace System.Scsc.Ui.MasterPage
                {
                   axCZKEM6.DelUserFace(1, enrollid, 111);
                   axCZKEM6.RefreshData(1);//the data in the device should be refreshed
-                  //MessageBox.Show("3rd Device Enrolling");
                   result = axCZKEM6.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM6.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
                }
@@ -6570,14 +6814,14 @@ namespace System.Scsc.Ui.MasterPage
                RSignalOpen_Butn.Tag = "key";
                LSignalOpen_Butn.Tag = null;
                _wplayer_url = "";
-               new Thread(new ThreadStart(() => AlarmShow(RSignalOpen_Butn))).Start();               
+               new Thread(new ThreadStart(() => AlarmShow(RSignalOpen_Butn))).Start();
             }
             else
             {
                RSignalOpen_Butn.Tag = null;
                LSignalOpen_Butn.Tag = "key";
                _wplayer_url = "";
-               new Thread(new ThreadStart(() => AlarmShow(LSignalOpen_Butn))).Start();               
+               new Thread(new ThreadStart(() => AlarmShow(LSignalOpen_Butn))).Start();
             }
 
             Partners_Butn.Visible = PrtnrCont_Butn.Visible = PrtnrPos_Butn.Visible = PartnerDresNum_Butn.Visible = false;
@@ -9849,7 +10093,7 @@ namespace System.Scsc.Ui.MasterPage
 
       private void ShowRbonMenu_Btn_Click(object sender, EventArgs e)
       {
-         MainRbonMenu_Rbnc.Visible = !MainRbonMenu_Rbnc.Visible;
+         //MainRbonMenu_Rbnc.Visible = !MainRbonMenu_Rbnc.Visible;
 
          //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\tick.wav";
          //new Thread(AlarmShow).Start();
@@ -12255,6 +12499,8 @@ namespace System.Scsc.Ui.MasterPage
             if (_gust == null) return;
             if (_gust.FNGR_PRNT_DNRM == "") { return; }
 
+            // 1404/10/26  * if (_gust.Attendances.Any(a => a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null)) { MessageBox.Show(this, "کاربر مهمان انتخاب شده فعلا در دست مشتری دیگری میباشد، لطفا ابتدا کاربر مهمان دیگری را انتخاب کنید", "خطا", MessageBoxButtons.OK); Execute_Query(); return; }
+
             switch (e.Button.Index)
             {
                case 0:
@@ -12312,7 +12558,7 @@ namespace System.Scsc.Ui.MasterPage
                            {
                               Input = 
                                  new XElement("DeviceControlFunction", 
-                                    new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.2" /* Delete Face */ : "5.2.3.5" /* Delete Finger */)), 
+                                    new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.2" /* Delete Face */ : ModifierKeys == Keys.Shift ? "5.2.3.8.3" /* Delete CardNumber */ : "5.2.3.5" /* Delete Finger */)), 
                                     new XAttribute("funcdesc", "Delete User Info"), 
                                     new XAttribute("enrollnumb", _gust.FNGR_PRNT_DNRM)
                                  )
@@ -12353,6 +12599,8 @@ namespace System.Scsc.Ui.MasterPage
          {
             var _gust = GustBs.Current as Data.Fighter;
             if (_gust == null) return;
+
+            //1404/10/26 * if (_gust.Attendances.Any(a => a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null)) { MessageBox.Show(this, "کاربر مهمان انتخاب شده فعلا در دست مشتری دیگری میباشد، لطفا ابتدا کاربر مهمان دیگری را انتخاب کنید", "خطا", MessageBoxButtons.OK); Execute_Query(); return; }
 
             if (_gust.FNGR_PRNT_DNRM == "" && !(_gust.FGPB_TYPE_DNRM == "002" || _gust.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "برای عضو مورد نظر هیچ کد انگشتی وارد نشده، لطفا کد عضو را از طریق تغییرات مشخصات عمومی تغییر لازم را اعمال کنید"); return; }
             if (_gust.COCH_FILE_NO_DNRM == null && !(_gust.FGPB_TYPE_DNRM == "009" || _gust.FGPB_TYPE_DNRM == "002" || _gust.FGPB_TYPE_DNRM == "003" || _gust.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "برای عضو شما مربی و ساعت کلاسی مشخصی وجود ندارد که مشخص کنیم در چه کلاس حضوری ثبت کنیم"); return; }
@@ -12683,6 +12931,79 @@ namespace System.Scsc.Ui.MasterPage
             if (requery)
                Execute_Query();
          }
+      }
+
+      private void AddNewGust_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            iScsc.ADD_GUST_P(
+               new XElement("Request",
+                   new XAttribute("sextype", MenGust_Rb.Checked ? "001" : (WomenGust_Rb.Checked ? "002" : "003" ) )
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void OthrIncmGust_Butn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _gust = GustBs.Current as Data.Fighter;
+            if (_gust == null) return;
+
+            if (_gust.Attendances.Any(a => a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null)) { MessageBox.Show(this, "کاربر مهمان انتخاب شده فعلا در دست مشتری دیگری میباشد، لطفا ابتدا کاربر مهمان دیگری را انتخاب کنید", "خطا", MessageBoxButtons.OK); Execute_Query(); return; }
+
+            if (_gust.FNGR_PRNT_DNRM == null || _gust.FNGR_PRNT_DNRM == "") { MessageBox.Show(this, "کد شناسایی برای مشتری وارد نشده. لطفا بررسی و اصلاح کنید", "عدم وجود کد شناسایی برای مشتری", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
+            if (_gust.FIGH_STAT == "001") { MessageBox.Show(this, "مشتری در وضعیت قفل قرار دارد، و آن را اول آزاد کنید و دوباره درخواست را انجام دهید.", "مشتری قفل میباشد", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
+
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                  new List<Job>
+                  {                  
+                     new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
+                     new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", _gust.FILE_NO)))}
+                  })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void BasDef1_Btn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {
+                 new Job(SendType.Self, 170 /* Execute Bas_Def1_F */),
+                 new Job(SendType.SelfToUserInterface, "BAS_DEF1_F", 10 /* Actn_CalF_P */)
+              })
+         );
+      }
+
+      private void BasDef2_Btn_Click(object sender, EventArgs e)
+      {
+         _DefaultGateway.Gateway(
+            new Job(SendType.External, "Localhost",
+              new List<Job>
+              {
+                 new Job(SendType.Self, 171 /* Execute Bas_Def2_F */),
+                 new Job(SendType.SelfToUserInterface, "BAS_DEF2_F", 10 /* Actn_CalF_P */)
+              })
+         );
       }
    }
 }

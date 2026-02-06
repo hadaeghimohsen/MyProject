@@ -846,6 +846,9 @@
          // 
          this.colBPID.FieldName = "BPID";
          this.colBPID.Name = "colBPID";
+         this.colBPID.Visible = true;
+         this.colBPID.VisibleIndex = 1;
+         this.colBPID.Width = 20;
          // 
          // colBOXP_DESC
          // 
@@ -854,6 +857,7 @@
          this.colBOXP_DESC.Name = "colBOXP_DESC";
          this.colBOXP_DESC.Visible = true;
          this.colBOXP_DESC.VisibleIndex = 0;
+         this.colBOXP_DESC.Width = 118;
          // 
          // colCRET_BY1
          // 

@@ -426,6 +426,7 @@ namespace System.Scsc.Ui.Notifications
             var flowno = RcevXData.Attribute("flowno").Value;
             var refno = RcevXData.Attribute("refno").Value;
             var actndate = RcevXData.Attribute("actndate").Value;
+            var psid = RcevXData.Attribute("psid").Value;
 
             if (regl.AMNT_TYPE == "002")
                paydebt /= 10;
@@ -462,7 +463,8 @@ namespace System.Scsc.Ui.Notifications
                            new XAttribute("cardno", cardno),
                            new XAttribute("flowno", flowno),
                            new XAttribute("refno", refno),
-                           new XAttribute("actndate", actndate)
+                           new XAttribute("actndate", actndate),
+                           new XAttribute("psid", psid)
                         )
                      )
                   )

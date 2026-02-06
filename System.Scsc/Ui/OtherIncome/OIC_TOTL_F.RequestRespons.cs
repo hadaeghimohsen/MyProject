@@ -680,6 +680,7 @@ namespace System.Scsc.Ui.OtherIncome
             var flowno = RcevXData.Attribute("flowno").Value;
             var refno = RcevXData.Attribute("refno").Value;
             var actndate = RcevXData.Attribute("actndate").Value;
+            var psid = RcevXData.Attribute("psid").Value;
 
             if (regl.AMNT_TYPE == "002")
                amnt /= 10;
@@ -701,7 +702,8 @@ namespace System.Scsc.Ui.OtherIncome
                            new XAttribute("flowno", flowno),
                            new XAttribute("refno", refno),
                            new XAttribute("actndate", actndate),
-                           new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
+                           new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001"),
+                           new XAttribute("psid", psid)
                         )
                      )
                   )
@@ -733,7 +735,8 @@ namespace System.Scsc.Ui.OtherIncome
                            new XAttribute("flowno", flowno),
                            new XAttribute("refno", refno),
                            new XAttribute("actndate", actndate),
-                           new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001")
+                           new XAttribute("valdtype", PymtVldtType_Cbx.Checked ? "002" : "001"),
+                           new XAttribute("psid", psid)
                         )
                      )
                   )

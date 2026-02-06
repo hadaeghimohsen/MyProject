@@ -188,7 +188,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                         new XAttribute("cardno", tlog.CARD_NO),
                         new XAttribute("flowno", tlog.FLOW_NO),
                         new XAttribute("refno", tlog.REF_NO),
-                        new XAttribute("actndate", tlog.ISSU_DATE)
+                        new XAttribute("actndate", tlog.ISSU_DATE),
+                        new XAttribute("psid", tlog.POSD_PSID)
                      )
                }
             );
@@ -549,8 +550,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                default:
                   break;
             }
-            
 
+            // 1404/08/19 * پوز بانک ملت باید کد فاکتور هم براش ارسال کرد
+            if (rqid == 0) { rqid = pos.PSID; }
             Transaction TXN = new Transaction(connection);
             var posResult = TXN.Debits_Goods_And_Service(rqid.ToString(), "1", Amnt_Txt.EditValue.ToString(), "", "", "", false);
             Tlid = MellatPcPos_SaveTransactionLog(posResult);

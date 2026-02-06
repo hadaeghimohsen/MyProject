@@ -538,7 +538,7 @@ namespace System.Scsc.Ui.BaseDefinition
                      //CbmtTitl_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "cbmtdesc_lb":
-                     CbmtDesc_Lb.Text = control.LABL_TEXT;
+                     ///CbmtDesc_Lb.Text = control.LABL_TEXT;
                      //CbmtDesc_Lb.Text = control.LABL_TEXT; // ToolTip
                      //CbmtDesc_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -618,7 +618,7 @@ namespace System.Scsc.Ui.BaseDefinition
                      //HolyDayTitl_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "holydaydesc1_lb":
-                     HolyDayDesc1_Lb.Text = control.LABL_TEXT;
+                     //HolyDayDesc1_Lb.Text = control.LABL_TEXT;
                      //HolyDayDesc1_Lb.Text = control.LABL_TEXT; // ToolTip
                      //HolyDayDesc1_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;

@@ -167,6 +167,8 @@ namespace System.Scsc.Code
       internal Ui.Company.OPR_COMP_F _Opr_Comp_F { get; set;}
       internal Ui.Warehouse.DEF_PROD_F _Def_Prod_F { get; set; }
       internal Ui.ChangeRials.GLR_CHNG_F _Glr_Chng_F { get; set; }
+      internal Ui.BaseDefinition.BAS_DEF1_F _Bas_Def1_f { get; set; }
+      internal Ui.BaseDefinition.BAS_DEF2_F _Bas_Def2_f { get; set; }
 
       /// Kiosk
       internal Ui.OtherIncome.KSK_INCM_F _Ksk_Incm_F { get; set; }

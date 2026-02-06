@@ -43,6 +43,7 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
          this.CordX_Lb = new System.Windows.Forms.Label();
          this.CordY_Lb = new System.Windows.Forms.Label();
          this.TellPhon_Lb = new System.Windows.Forms.Label();
@@ -81,6 +82,9 @@
          this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
          this.label4 = new System.Windows.Forms.Label();
          this.label5 = new System.Windows.Forms.Label();
+         this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
+         this.DSxtpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.label6 = new System.Windows.Forms.Label();
          this.panel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.ClubName_Text.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ClubBs)).BeginInit();
@@ -97,6 +101,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.EconCode_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs)).BeginInit();
          this.SuspendLayout();
          // 
          // CordX_Lb
@@ -846,6 +852,57 @@
          this.label5.TabIndex = 55;
          this.label5.Text = "www.instagram.com/....";
          // 
+         // lookUpEdit1
+         // 
+         this.lookUpEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.lookUpEdit1.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.ClubBs, "SEX_TYPE", true));
+         this.lookUpEdit1.Location = new System.Drawing.Point(35, 302);
+         this.lookUpEdit1.Name = "lookUpEdit1";
+         this.lookUpEdit1.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.lookUpEdit1.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
+         this.lookUpEdit1.Properties.Appearance.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.lookUpEdit1.Properties.Appearance.Options.UseBackColor = true;
+         this.lookUpEdit1.Properties.Appearance.Options.UseBorderColor = true;
+         this.lookUpEdit1.Properties.Appearance.Options.UseFont = true;
+         this.lookUpEdit1.Properties.Appearance.Options.UseTextOptions = true;
+         this.lookUpEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.lookUpEdit1.Properties.AppearanceDropDown.Font = new System.Drawing.Font("B Koodak", 12F, System.Drawing.FontStyle.Bold);
+         this.lookUpEdit1.Properties.AppearanceDropDown.Options.UseFont = true;
+         this.lookUpEdit1.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.lookUpEdit1.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Blue;
+         this.lookUpEdit1.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.lookUpEdit1.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.lookUpEdit1.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.lookUpEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1190, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject14, "", null, null, true)});
+         this.lookUpEdit1.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 55, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
+            new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "جنسیت", 82, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
+         this.lookUpEdit1.Properties.DataSource = this.DSxtpBs;
+         this.lookUpEdit1.Properties.DisplayMember = "DOMN_DESC";
+         this.lookUpEdit1.Properties.NullText = "";
+         this.lookUpEdit1.Properties.NullValuePrompt = "جنسیت";
+         this.lookUpEdit1.Properties.NullValuePromptShowForEmptyValue = true;
+         this.lookUpEdit1.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+         this.lookUpEdit1.Properties.ValueMember = "VALU";
+         this.lookUpEdit1.Size = new System.Drawing.Size(189, 34);
+         this.lookUpEdit1.TabIndex = 2;
+         // 
+         // DSxtpBs
+         // 
+         this.DSxtpBs.DataSource = typeof(System.Scsc.Data.D_SXTP);
+         // 
+         // label6
+         // 
+         this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label6.AutoSize = true;
+         this.label6.Font = new System.Drawing.Font("IRANSans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label6.Location = new System.Drawing.Point(230, 305);
+         this.label6.Name = "label6";
+         this.label6.Size = new System.Drawing.Size(60, 24);
+         this.label6.TabIndex = 54;
+         this.label6.Text = "جنسیت :";
+         // 
          // BAS_ADCL_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -867,7 +924,9 @@
          this.Controls.Add(this.label2);
          this.Controls.Add(this.CordX_Lb);
          this.Controls.Add(this.Name_Lb);
+         this.Controls.Add(this.label6);
          this.Controls.Add(this.RegnCode_Lb);
+         this.Controls.Add(this.lookUpEdit1);
          this.Controls.Add(this.Regn_Lov);
          this.Controls.Add(this.EmailAddress_Text);
          this.Controls.Add(this.WebSite_Text);
@@ -906,6 +965,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.ZipCode_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.EconCode_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.lookUpEdit1.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DSxtpBs)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -951,6 +1012,9 @@
       private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
       private Windows.Forms.Label label4;
       private Windows.Forms.Label label5;
+      private Windows.Forms.BindingSource DSxtpBs;
+      private DevExpress.XtraEditors.LookUpEdit lookUpEdit1;
+      private Windows.Forms.Label label6;
 
    }
 }

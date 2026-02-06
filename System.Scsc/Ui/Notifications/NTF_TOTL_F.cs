@@ -623,7 +623,12 @@ namespace System.Scsc.Ui.Notifications
             // 1404/04/06 * اجرای صداهای مربوط به خطای رخداده شده
             switch (_getCode)
             {
+               case "0012":
                case "0013":
+                  // First Show Service Profile
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", Lov_FileName2.EditValue)) }
+                  );
                   // Play Enter Sound
                   // 1404/03/30 ** New version for play sound
                   _DefaultGateway.Gateway(

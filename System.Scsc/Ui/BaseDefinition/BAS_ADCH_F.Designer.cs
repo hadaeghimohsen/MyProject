@@ -29,7 +29,6 @@
       private void InitializeComponent()
       {
          this.components = new System.ComponentModel.Container();
-         System.Windows.Forms.Label label14;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BAS_ADCH_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -38,6 +37,14 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
          this.LastName_Lb = new System.Windows.Forms.Label();
          this.FrstName_Lb = new System.Windows.Forms.Label();
          this.Mtod_Lb = new System.Windows.Forms.Label();
@@ -50,10 +57,10 @@
          this.TitlForm_Lb = new DevExpress.XtraEditors.LabelControl();
          this.Back_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.SubmitChange_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.FrstName_Text = new DevExpress.XtraEditors.ButtonEdit();
+         this.FrstName_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.Desc1_Lb = new DevExpress.XtraEditors.LabelControl();
-         this.LastName_Text = new DevExpress.XtraEditors.ButtonEdit();
-         this.FNGR_PRNT_TextEdit = new DevExpress.XtraEditors.ButtonEdit();
+         this.LastName_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.FngrPrnt_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.Mtod_Lov = new DevExpress.XtraEditors.LookUpEdit();
          this.MtodBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.SexType_Lov = new DevExpress.XtraEditors.LookUpEdit();
@@ -70,11 +77,16 @@
          this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
          this.RqstBnEnrollFngrPrnt2 = new System.Windows.Forms.ToolStripMenuItem();
          this.RqstBnDeleteFngrPrnt2 = new System.Windows.Forms.ToolStripMenuItem();
-         label14 = new System.Windows.Forms.Label();
+         this.CellPhon_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.NatlCode_Txt = new DevExpress.XtraEditors.ButtonEdit();
+         this.label1 = new System.Windows.Forms.Label();
+         this.label2 = new System.Windows.Forms.Label();
+         this.CopyFngrDevc_Btn = new DevExpress.XtraEditors.SimpleButton();
+         this.EnrlFngrPrnt_Btn = new DevExpress.XtraEditors.SimpleButton();
          this.panel1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.FrstName_Text.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.LastName_Text.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FNGR_PRNT_TextEdit.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FrstName_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LastName_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FngrPrnt_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Mtod_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MtodBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.SexType_Lov.Properties)).BeginInit();
@@ -82,26 +94,16 @@
          ((System.ComponentModel.ISupportInitialize)(this.CardNum_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Chat_Id_TextEdit.Properties)).BeginInit();
          this.AllMenu_Cmn.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.CellPhon_Txt.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.NatlCode_Txt.Properties)).BeginInit();
          this.SuspendLayout();
-         // 
-         // label14
-         // 
-         label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         label14.Enabled = false;
-         label14.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
-         label14.Location = new System.Drawing.Point(409, 340);
-         label14.Name = "label14";
-         label14.Size = new System.Drawing.Size(26, 19);
-         label14.TabIndex = 6;
-         label14.TextAlign = System.Drawing.ContentAlignment.TopRight;
-         label14.Visible = false;
          // 
          // LastName_Lb
          // 
          this.LastName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.LastName_Lb.AutoSize = true;
          this.LastName_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LastName_Lb.Location = new System.Drawing.Point(579, 170);
+         this.LastName_Lb.Location = new System.Drawing.Point(413, 170);
          this.LastName_Lb.Name = "LastName_Lb";
          this.LastName_Lb.Size = new System.Drawing.Size(93, 26);
          this.LastName_Lb.TabIndex = 56;
@@ -112,7 +114,7 @@
          this.FrstName_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FrstName_Lb.AutoSize = true;
          this.FrstName_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.FrstName_Lb.Location = new System.Drawing.Point(579, 134);
+         this.FrstName_Lb.Location = new System.Drawing.Point(413, 134);
          this.FrstName_Lb.Name = "FrstName_Lb";
          this.FrstName_Lb.Size = new System.Drawing.Size(36, 26);
          this.FrstName_Lb.TabIndex = 55;
@@ -123,7 +125,7 @@
          this.Mtod_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Mtod_Lb.AutoSize = true;
          this.Mtod_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.Mtod_Lb.Location = new System.Drawing.Point(579, 436);
+         this.Mtod_Lb.Location = new System.Drawing.Point(413, 505);
          this.Mtod_Lb.Name = "Mtod_Lb";
          this.Mtod_Lb.Size = new System.Drawing.Size(45, 26);
          this.Mtod_Lb.TabIndex = 54;
@@ -134,7 +136,7 @@
          this.FngrPrnt_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.FngrPrnt_Lb.AutoSize = true;
          this.FngrPrnt_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.FngrPrnt_Lb.Location = new System.Drawing.Point(579, 265);
+         this.FngrPrnt_Lb.Location = new System.Drawing.Point(413, 265);
          this.FngrPrnt_Lb.Name = "FngrPrnt_Lb";
          this.FngrPrnt_Lb.Size = new System.Drawing.Size(88, 26);
          this.FngrPrnt_Lb.TabIndex = 53;
@@ -145,7 +147,7 @@
          this.SexType_Lb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SexType_Lb.AutoSize = true;
          this.SexType_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.SexType_Lb.Location = new System.Drawing.Point(578, 476);
+         this.SexType_Lb.Location = new System.Drawing.Point(412, 545);
          this.SexType_Lb.Name = "SexType_Lb";
          this.SexType_Lb.Size = new System.Drawing.Size(66, 26);
          this.SexType_Lb.TabIndex = 54;
@@ -157,7 +159,7 @@
          this.CardNo_Lb.AutoSize = true;
          this.CardNo_Lb.Enabled = false;
          this.CardNo_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.CardNo_Lb.Location = new System.Drawing.Point(579, 301);
+         this.CardNo_Lb.Location = new System.Drawing.Point(413, 301);
          this.CardNo_Lb.Name = "CardNo_Lb";
          this.CardNo_Lb.Size = new System.Drawing.Size(86, 26);
          this.CardNo_Lb.TabIndex = 53;
@@ -170,7 +172,7 @@
          this.ChatId_Lb.AutoSize = true;
          this.ChatId_Lb.Enabled = false;
          this.ChatId_Lb.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.ChatId_Lb.Location = new System.Drawing.Point(579, 337);
+         this.ChatId_Lb.Location = new System.Drawing.Point(413, 337);
          this.ChatId_Lb.Name = "ChatId_Lb";
          this.ChatId_Lb.Size = new System.Drawing.Size(72, 26);
          this.ChatId_Lb.TabIndex = 53;
@@ -186,8 +188,8 @@
          this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
          this.panel1.Location = new System.Drawing.Point(0, 0);
          this.panel1.Name = "panel1";
-         this.panel1.Size = new System.Drawing.Size(687, 59);
-         this.panel1.TabIndex = 0;
+         this.panel1.Size = new System.Drawing.Size(521, 59);
+         this.panel1.TabIndex = 9;
          // 
          // SaveNewCoch_Butn
          // 
@@ -204,7 +206,7 @@
          this.SaveNewCoch_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SaveNewCoch_Butn.Name = "SaveNewCoch_Butn";
          this.SaveNewCoch_Butn.Size = new System.Drawing.Size(129, 59);
-         this.SaveNewCoch_Butn.TabIndex = 9;
+         this.SaveNewCoch_Butn.TabIndex = 1;
          this.SaveNewCoch_Butn.Text = "ذخیره و ثبت جدید";
          this.SaveNewCoch_Butn.ToolTip = "ذخیره و آماده برای ثبت جدید";
          this.SaveNewCoch_Butn.Click += new System.EventHandler(this.SaveNewCoch_Butn_Click);
@@ -217,7 +219,7 @@
          this.TitlForm_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.TitlForm_Lb.Dock = System.Windows.Forms.DockStyle.Right;
          this.TitlForm_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.TitlForm_Lb.Location = new System.Drawing.Point(387, 0);
+         this.TitlForm_Lb.Location = new System.Drawing.Point(221, 0);
          this.TitlForm_Lb.Name = "TitlForm_Lb";
          this.TitlForm_Lb.Size = new System.Drawing.Size(239, 59);
          this.TitlForm_Lb.TabIndex = 1;
@@ -230,7 +232,7 @@
          this.Back_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.Back_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1371;
          this.Back_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.Back_Butn.Location = new System.Drawing.Point(626, 0);
+         this.Back_Butn.Location = new System.Drawing.Point(460, 0);
          this.Back_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.Back_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Back_Butn.Name = "Back_Butn";
@@ -254,41 +256,41 @@
          this.SubmitChange_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SubmitChange_Butn.Name = "SubmitChange_Butn";
          this.SubmitChange_Butn.Size = new System.Drawing.Size(68, 59);
-         this.SubmitChange_Butn.TabIndex = 10;
+         this.SubmitChange_Butn.TabIndex = 2;
          this.SubmitChange_Butn.Text = "ذخیره";
          this.SubmitChange_Butn.ToolTip = "ذخیره و خروج";
          this.SubmitChange_Butn.Click += new System.EventHandler(this.SubmitChange_Butn_Click);
          // 
-         // FrstName_Text
+         // FrstName_Txt
          // 
-         this.FrstName_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.FrstName_Text.EditValue = "";
-         this.FrstName_Text.Location = new System.Drawing.Point(336, 132);
-         this.FrstName_Text.Name = "FrstName_Text";
-         this.FrstName_Text.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
-         this.FrstName_Text.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
-         this.FrstName_Text.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.FrstName_Text.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.FrstName_Text.Properties.Appearance.Options.UseBackColor = true;
-         this.FrstName_Text.Properties.Appearance.Options.UseBorderColor = true;
-         this.FrstName_Text.Properties.Appearance.Options.UseFont = true;
-         this.FrstName_Text.Properties.Appearance.Options.UseForeColor = true;
-         this.FrstName_Text.Properties.Appearance.Options.UseTextOptions = true;
-         this.FrstName_Text.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.FrstName_Text.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.FrstName_Text.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Blue;
-         this.FrstName_Text.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.FrstName_Text.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.FrstName_Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.FrstName_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FrstName_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
-         this.FrstName_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.FrstName_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.FrstName_Text.Properties.NullValuePrompt = "نام";
-         this.FrstName_Text.Properties.NullValuePromptShowForEmptyValue = true;
-         this.FrstName_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.FrstName_Text.Size = new System.Drawing.Size(237, 30);
-         this.FrstName_Text.TabIndex = 1;
+         this.FrstName_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FrstName_Txt.EditValue = "";
+         this.FrstName_Txt.Location = new System.Drawing.Point(170, 132);
+         this.FrstName_Txt.Name = "FrstName_Txt";
+         this.FrstName_Txt.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.FrstName_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
+         this.FrstName_Txt.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.FrstName_Txt.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.FrstName_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.FrstName_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.FrstName_Txt.Properties.Appearance.Options.UseFont = true;
+         this.FrstName_Txt.Properties.Appearance.Options.UseForeColor = true;
+         this.FrstName_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.FrstName_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.FrstName_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.FrstName_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Blue;
+         this.FrstName_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.FrstName_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.FrstName_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.FrstName_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FrstName_Txt.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+         this.FrstName_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.FrstName_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.FrstName_Txt.Properties.NullValuePrompt = "نام";
+         this.FrstName_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.FrstName_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.FrstName_Txt.Size = new System.Drawing.Size(237, 30);
+         this.FrstName_Txt.TabIndex = 0;
          // 
          // Desc1_Lb
          // 
@@ -301,79 +303,79 @@
          this.Desc1_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Desc1_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Desc1_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.Desc1_Lb.Location = new System.Drawing.Point(219, 65);
+         this.Desc1_Lb.Location = new System.Drawing.Point(53, 65);
          this.Desc1_Lb.Name = "Desc1_Lb";
          this.Desc1_Lb.Size = new System.Drawing.Size(452, 46);
          this.Desc1_Lb.TabIndex = 18;
          this.Desc1_Lb.Text = "بعد از تعریف کردن سرپرستان درون سیستم باید بلافاصله در قسمت برنامه های گروه قرار " +
     "گیرد";
          // 
-         // LastName_Text
+         // LastName_Txt
          // 
-         this.LastName_Text.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.LastName_Text.EditValue = "";
-         this.LastName_Text.Location = new System.Drawing.Point(336, 168);
-         this.LastName_Text.Name = "LastName_Text";
-         this.LastName_Text.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
-         this.LastName_Text.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
-         this.LastName_Text.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.LastName_Text.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.LastName_Text.Properties.Appearance.Options.UseBackColor = true;
-         this.LastName_Text.Properties.Appearance.Options.UseBorderColor = true;
-         this.LastName_Text.Properties.Appearance.Options.UseFont = true;
-         this.LastName_Text.Properties.Appearance.Options.UseForeColor = true;
-         this.LastName_Text.Properties.Appearance.Options.UseTextOptions = true;
-         this.LastName_Text.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.LastName_Text.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.LastName_Text.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Blue;
-         this.LastName_Text.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.LastName_Text.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.LastName_Text.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.LastName_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LastName_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
-         this.LastName_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.LastName_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.LastName_Text.Properties.NullValuePrompt = "نام خانوادگی";
-         this.LastName_Text.Properties.NullValuePromptShowForEmptyValue = true;
-         this.LastName_Text.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.LastName_Text.Size = new System.Drawing.Size(237, 30);
-         this.LastName_Text.TabIndex = 2;
+         this.LastName_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.LastName_Txt.EditValue = "";
+         this.LastName_Txt.Location = new System.Drawing.Point(170, 168);
+         this.LastName_Txt.Name = "LastName_Txt";
+         this.LastName_Txt.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.LastName_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
+         this.LastName_Txt.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LastName_Txt.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.LastName_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.LastName_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.LastName_Txt.Properties.Appearance.Options.UseFont = true;
+         this.LastName_Txt.Properties.Appearance.Options.UseForeColor = true;
+         this.LastName_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.LastName_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.LastName_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.LastName_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Blue;
+         this.LastName_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.LastName_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.LastName_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.LastName_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("LastName_Txt.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+         this.LastName_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.LastName_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.LastName_Txt.Properties.NullValuePrompt = "نام خانوادگی";
+         this.LastName_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.LastName_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.LastName_Txt.Size = new System.Drawing.Size(237, 30);
+         this.LastName_Txt.TabIndex = 1;
          // 
-         // FNGR_PRNT_TextEdit
+         // FngrPrnt_Txt
          // 
-         this.FNGR_PRNT_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.FNGR_PRNT_TextEdit.EditValue = "";
-         this.FNGR_PRNT_TextEdit.Location = new System.Drawing.Point(441, 262);
-         this.FNGR_PRNT_TextEdit.Name = "FNGR_PRNT_TextEdit";
-         this.FNGR_PRNT_TextEdit.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
-         this.FNGR_PRNT_TextEdit.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
-         this.FNGR_PRNT_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.FNGR_PRNT_TextEdit.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-         this.FNGR_PRNT_TextEdit.Properties.Appearance.Options.UseBackColor = true;
-         this.FNGR_PRNT_TextEdit.Properties.Appearance.Options.UseBorderColor = true;
-         this.FNGR_PRNT_TextEdit.Properties.Appearance.Options.UseFont = true;
-         this.FNGR_PRNT_TextEdit.Properties.Appearance.Options.UseForeColor = true;
-         this.FNGR_PRNT_TextEdit.Properties.Appearance.Options.UseTextOptions = true;
-         this.FNGR_PRNT_TextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.FNGR_PRNT_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.FNGR_PRNT_TextEdit.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Blue;
-         this.FNGR_PRNT_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.FNGR_PRNT_TextEdit.Properties.AppearanceFocused.Options.UseBorderColor = true;
-         this.FNGR_PRNT_TextEdit.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
-         this.FNGR_PRNT_TextEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FNGR_PRNT_TextEdit.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
-         this.FNGR_PRNT_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
-         this.FNGR_PRNT_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.FNGR_PRNT_TextEdit.Properties.NullValuePrompt = "شماره انگشتی";
-         this.FNGR_PRNT_TextEdit.Properties.NullValuePromptShowForEmptyValue = true;
-         this.FNGR_PRNT_TextEdit.RightToLeft = System.Windows.Forms.RightToLeft.No;
-         this.FNGR_PRNT_TextEdit.Size = new System.Drawing.Size(132, 30);
-         this.FNGR_PRNT_TextEdit.TabIndex = 3;
+         this.FngrPrnt_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.FngrPrnt_Txt.EditValue = "";
+         this.FngrPrnt_Txt.Location = new System.Drawing.Point(275, 262);
+         this.FngrPrnt_Txt.Name = "FngrPrnt_Txt";
+         this.FngrPrnt_Txt.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.FngrPrnt_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
+         this.FngrPrnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.FngrPrnt_Txt.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.FngrPrnt_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.FngrPrnt_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.FngrPrnt_Txt.Properties.Appearance.Options.UseFont = true;
+         this.FngrPrnt_Txt.Properties.Appearance.Options.UseForeColor = true;
+         this.FngrPrnt_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.FngrPrnt_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.FngrPrnt_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.FngrPrnt_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Blue;
+         this.FngrPrnt_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.FngrPrnt_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.FngrPrnt_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.FngrPrnt_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("FngrPrnt_Txt.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+         this.FngrPrnt_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.FngrPrnt_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.FngrPrnt_Txt.Properties.NullValuePrompt = "شماره انگشتی";
+         this.FngrPrnt_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.FngrPrnt_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.FngrPrnt_Txt.Size = new System.Drawing.Size(132, 30);
+         this.FngrPrnt_Txt.TabIndex = 2;
          // 
          // Mtod_Lov
          // 
          this.Mtod_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.Mtod_Lov.Location = new System.Drawing.Point(387, 433);
+         this.Mtod_Lov.Location = new System.Drawing.Point(170, 502);
          this.Mtod_Lov.Name = "Mtod_Lov";
          this.Mtod_Lov.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.Mtod_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -409,13 +411,13 @@
          this.Mtod_Lov.Properties.NullValuePrompt = "گروه";
          this.Mtod_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.Mtod_Lov.Properties.ValueMember = "CODE";
-         this.Mtod_Lov.Size = new System.Drawing.Size(186, 31);
+         this.Mtod_Lov.Size = new System.Drawing.Size(237, 31);
          this.Mtod_Lov.TabIndex = 7;
          // 
          // SexType_Lov
          // 
          this.SexType_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.SexType_Lov.Location = new System.Drawing.Point(387, 473);
+         this.SexType_Lov.Location = new System.Drawing.Point(170, 542);
          this.SexType_Lov.Name = "SexType_Lov";
          this.SexType_Lov.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.SexType_Lov.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -443,7 +445,7 @@
          this.SexType_Lov.Properties.NullValuePrompt = "جنسیت";
          this.SexType_Lov.Properties.NullValuePromptShowForEmptyValue = true;
          this.SexType_Lov.Properties.ValueMember = "VALU";
-         this.SexType_Lov.Size = new System.Drawing.Size(186, 34);
+         this.SexType_Lov.Size = new System.Drawing.Size(237, 34);
          this.SexType_Lov.TabIndex = 8;
          // 
          // DSxtpBs1
@@ -460,12 +462,12 @@
          this.GetMaxFngrPrint_Butn.Appearance.Options.UseFont = true;
          this.GetMaxFngrPrint_Butn.Appearance.Options.UseForeColor = true;
          this.GetMaxFngrPrint_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GetMaxFngrPrint_Butn.Location = new System.Drawing.Point(387, 262);
+         this.GetMaxFngrPrint_Butn.Location = new System.Drawing.Point(234, 262);
          this.GetMaxFngrPrint_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GetMaxFngrPrint_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GetMaxFngrPrint_Butn.Name = "GetMaxFngrPrint_Butn";
-         this.GetMaxFngrPrint_Butn.Size = new System.Drawing.Size(48, 30);
-         this.GetMaxFngrPrint_Butn.TabIndex = 4;
+         this.GetMaxFngrPrint_Butn.Size = new System.Drawing.Size(35, 30);
+         this.GetMaxFngrPrint_Butn.TabIndex = 3;
          this.GetMaxFngrPrint_Butn.Text = "...";
          this.GetMaxFngrPrint_Butn.ToolTip = "بازگشت";
          this.GetMaxFngrPrint_Butn.Click += new System.EventHandler(this.GetMaxFngrPrint_Butn_Click);
@@ -482,7 +484,7 @@
          this.Desc2_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Desc2_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Desc2_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.Desc2_Lb.Location = new System.Drawing.Point(285, 204);
+         this.Desc2_Lb.Location = new System.Drawing.Point(119, 204);
          this.Desc2_Lb.Name = "Desc2_Lb";
          this.Desc2_Lb.Size = new System.Drawing.Size(350, 52);
          this.Desc2_Lb.TabIndex = 18;
@@ -501,7 +503,7 @@
          this.Desc3_Lb.Appearance.TextOptions.WordWrap = DevExpress.Utils.WordWrap.Wrap;
          this.Desc3_Lb.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
          this.Desc3_Lb.ImageAlignToText = DevExpress.XtraEditors.ImageAlignToText.RightCenter;
-         this.Desc3_Lb.Location = new System.Drawing.Point(219, 375);
+         this.Desc3_Lb.Location = new System.Drawing.Point(53, 444);
          this.Desc3_Lb.Name = "Desc3_Lb";
          this.Desc3_Lb.Size = new System.Drawing.Size(416, 52);
          this.Desc3_Lb.TabIndex = 18;
@@ -513,7 +515,7 @@
          this.CardNum_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CardNum_Txt.EditValue = "";
          this.CardNum_Txt.Enabled = false;
-         this.CardNum_Txt.Location = new System.Drawing.Point(441, 298);
+         this.CardNum_Txt.Location = new System.Drawing.Point(275, 298);
          this.CardNum_Txt.Name = "CardNum_Txt";
          this.CardNum_Txt.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.CardNum_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -538,7 +540,7 @@
          this.CardNum_Txt.Properties.NullValuePromptShowForEmptyValue = true;
          this.CardNum_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.CardNum_Txt.Size = new System.Drawing.Size(132, 30);
-         this.CardNum_Txt.TabIndex = 5;
+         this.CardNum_Txt.TabIndex = 3;
          this.CardNum_Txt.Visible = false;
          // 
          // Chat_Id_TextEdit
@@ -546,7 +548,7 @@
          this.Chat_Id_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.Chat_Id_TextEdit.EditValue = "";
          this.Chat_Id_TextEdit.Enabled = false;
-         this.Chat_Id_TextEdit.Location = new System.Drawing.Point(441, 334);
+         this.Chat_Id_TextEdit.Location = new System.Drawing.Point(275, 334);
          this.Chat_Id_TextEdit.Name = "Chat_Id_TextEdit";
          this.Chat_Id_TextEdit.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
          this.Chat_Id_TextEdit.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
@@ -571,7 +573,7 @@
          this.Chat_Id_TextEdit.Properties.NullValuePromptShowForEmptyValue = true;
          this.Chat_Id_TextEdit.RightToLeft = System.Windows.Forms.RightToLeft.No;
          this.Chat_Id_TextEdit.Size = new System.Drawing.Size(132, 30);
-         this.Chat_Id_TextEdit.TabIndex = 6;
+         this.Chat_Id_TextEdit.TabIndex = 4;
          this.Chat_Id_TextEdit.Visible = false;
          // 
          // AllMenu_Cmn
@@ -631,27 +633,170 @@
          this.RqstBnDeleteFngrPrnt2.Size = new System.Drawing.Size(218, 22);
          this.RqstBnDeleteFngrPrnt2.Text = "حذف کد انگشتی دستگاه انار";
          // 
+         // CellPhon_Txt
+         // 
+         this.CellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CellPhon_Txt.EditValue = "";
+         this.CellPhon_Txt.Location = new System.Drawing.Point(275, 370);
+         this.CellPhon_Txt.Name = "CellPhon_Txt";
+         this.CellPhon_Txt.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.CellPhon_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
+         this.CellPhon_Txt.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.CellPhon_Txt.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.CellPhon_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.CellPhon_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.CellPhon_Txt.Properties.Appearance.Options.UseFont = true;
+         this.CellPhon_Txt.Properties.Appearance.Options.UseForeColor = true;
+         this.CellPhon_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.CellPhon_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.CellPhon_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.CellPhon_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Blue;
+         this.CellPhon_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.CellPhon_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.CellPhon_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.CellPhon_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CellPhon_Txt.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject8, "", null, null, true)});
+         this.CellPhon_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.CellPhon_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.CellPhon_Txt.Properties.NullValuePrompt = "شماره موبایل";
+         this.CellPhon_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.CellPhon_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.CellPhon_Txt.Size = new System.Drawing.Size(132, 30);
+         this.CellPhon_Txt.TabIndex = 5;
+         // 
+         // NatlCode_Txt
+         // 
+         this.NatlCode_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.NatlCode_Txt.EditValue = "";
+         this.NatlCode_Txt.Location = new System.Drawing.Point(275, 406);
+         this.NatlCode_Txt.Name = "NatlCode_Txt";
+         this.NatlCode_Txt.Properties.Appearance.BackColor = System.Drawing.Color.WhiteSmoke;
+         this.NatlCode_Txt.Properties.Appearance.BorderColor = System.Drawing.Color.Gray;
+         this.NatlCode_Txt.Properties.Appearance.Font = new System.Drawing.Font("B Mitra", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.NatlCode_Txt.Properties.Appearance.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+         this.NatlCode_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.NatlCode_Txt.Properties.Appearance.Options.UseBorderColor = true;
+         this.NatlCode_Txt.Properties.Appearance.Options.UseFont = true;
+         this.NatlCode_Txt.Properties.Appearance.Options.UseForeColor = true;
+         this.NatlCode_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.NatlCode_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.NatlCode_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.NatlCode_Txt.Properties.AppearanceFocused.BorderColor = System.Drawing.Color.Blue;
+         this.NatlCode_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.NatlCode_Txt.Properties.AppearanceFocused.Options.UseBorderColor = true;
+         this.NatlCode_Txt.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
+         this.NatlCode_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("NatlCode_Txt.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject9, "", null, null, true)});
+         this.NatlCode_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.NatlCode_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.NatlCode_Txt.Properties.NullValuePrompt = "کد ملی";
+         this.NatlCode_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.NatlCode_Txt.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.NatlCode_Txt.Size = new System.Drawing.Size(132, 30);
+         this.NatlCode_Txt.TabIndex = 6;
+         // 
+         // label1
+         // 
+         this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label1.AutoSize = true;
+         this.label1.Enabled = false;
+         this.label1.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label1.Location = new System.Drawing.Point(413, 372);
+         this.label1.Name = "label1";
+         this.label1.Size = new System.Drawing.Size(95, 26);
+         this.label1.TabIndex = 53;
+         this.label1.Text = "شماره موبایل :";
+         // 
+         // label2
+         // 
+         this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label2.AutoSize = true;
+         this.label2.Enabled = false;
+         this.label2.Font = new System.Drawing.Font("IRANSans", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label2.Location = new System.Drawing.Point(413, 408);
+         this.label2.Name = "label2";
+         this.label2.Size = new System.Drawing.Size(62, 26);
+         this.label2.TabIndex = 53;
+         this.label2.Text = "کد ملی :";
+         // 
+         // CopyFngrDevc_Btn
+         // 
+         this.CopyFngrDevc_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CopyFngrDevc_Btn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.CopyFngrDevc_Btn.Appearance.Options.UseBackColor = true;
+         this.CopyFngrDevc_Btn.Image = ((System.Drawing.Image)(resources.GetObject("CopyFngrDevc_Btn.Image")));
+         this.CopyFngrDevc_Btn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.CopyFngrDevc_Btn.Location = new System.Drawing.Point(152, 262);
+         this.CopyFngrDevc_Btn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.CopyFngrDevc_Btn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.CopyFngrDevc_Btn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.CopyFngrDevc_Btn.Name = "CopyFngrDevc_Btn";
+         this.CopyFngrDevc_Btn.Size = new System.Drawing.Size(35, 29);
+         toolTipTitleItem1.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image")));
+         toolTipTitleItem1.Appearance.Options.UseImage = true;
+         toolTipTitleItem1.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem1.Image")));
+         toolTipTitleItem1.Text = "یکسان سازی دستگاه های اثر انگشت کمد انلاین";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "برای اینکه تمامی دستگاه های مجموعه شما شخص ثبت نامی را شناسایی کنند نیاز به یکپار" +
+    "چه سازی دارد";
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         superToolTip1.Items.Add(toolTipItem1);
+         this.CopyFngrDevc_Btn.SuperTip = superToolTip1;
+         this.CopyFngrDevc_Btn.TabIndex = 92;
+         this.CopyFngrDevc_Btn.Click += new System.EventHandler(this.CopyFngrDevc_Btn_Click);
+         // 
+         // EnrlFngrPrnt_Btn
+         // 
+         this.EnrlFngrPrnt_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.EnrlFngrPrnt_Btn.Appearance.BackColor = System.Drawing.Color.Transparent;
+         this.EnrlFngrPrnt_Btn.Appearance.Options.UseBackColor = true;
+         this.EnrlFngrPrnt_Btn.Image = ((System.Drawing.Image)(resources.GetObject("EnrlFngrPrnt_Btn.Image")));
+         this.EnrlFngrPrnt_Btn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+         this.EnrlFngrPrnt_Btn.Location = new System.Drawing.Point(193, 262);
+         this.EnrlFngrPrnt_Btn.LookAndFeel.SkinName = "Office 2010 Silver";
+         this.EnrlFngrPrnt_Btn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
+         this.EnrlFngrPrnt_Btn.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.EnrlFngrPrnt_Btn.Name = "EnrlFngrPrnt_Btn";
+         this.EnrlFngrPrnt_Btn.Size = new System.Drawing.Size(35, 29);
+         toolTipTitleItem2.Appearance.Image = ((System.Drawing.Image)(resources.GetObject("resource.Image1")));
+         toolTipTitleItem2.Appearance.Options.UseImage = true;
+         toolTipTitleItem2.Image = ((System.Drawing.Image)(resources.GetObject("toolTipTitleItem2.Image")));
+         toolTipTitleItem2.Text = "تعریف اثر انگشت";
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "برای سیستم های اثر انگشت و کمد انلاین میتوانید با این گزینه به دستگاه اصلی پیام ت" +
+    "عریف اثر انگشت را ارسال کنید";
+         superToolTip2.Items.Add(toolTipTitleItem2);
+         superToolTip2.Items.Add(toolTipItem2);
+         this.EnrlFngrPrnt_Btn.SuperTip = superToolTip2;
+         this.EnrlFngrPrnt_Btn.TabIndex = 93;
+         this.EnrlFngrPrnt_Btn.Click += new System.EventHandler(this.EnrlFngrPrnt_Btn_Click);
+         // 
          // BAS_ADCH_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.BackColor = System.Drawing.SystemColors.ControlLight;
          this.ContextMenuStrip = this.AllMenu_Cmn;
-         this.Controls.Add(label14);
+         this.Controls.Add(this.CopyFngrDevc_Btn);
+         this.Controls.Add(this.EnrlFngrPrnt_Btn);
          this.Controls.Add(this.LastName_Lb);
          this.Controls.Add(this.FrstName_Lb);
          this.Controls.Add(this.SexType_Lb);
          this.Controls.Add(this.Mtod_Lb);
+         this.Controls.Add(this.label2);
          this.Controls.Add(this.ChatId_Lb);
+         this.Controls.Add(this.label1);
          this.Controls.Add(this.CardNo_Lb);
          this.Controls.Add(this.FngrPrnt_Lb);
          this.Controls.Add(this.SexType_Lov);
          this.Controls.Add(this.Mtod_Lov);
+         this.Controls.Add(this.NatlCode_Txt);
          this.Controls.Add(this.Chat_Id_TextEdit);
+         this.Controls.Add(this.CellPhon_Txt);
          this.Controls.Add(this.CardNum_Txt);
-         this.Controls.Add(this.FNGR_PRNT_TextEdit);
-         this.Controls.Add(this.LastName_Text);
-         this.Controls.Add(this.FrstName_Text);
+         this.Controls.Add(this.FngrPrnt_Txt);
+         this.Controls.Add(this.LastName_Txt);
+         this.Controls.Add(this.FrstName_Txt);
          this.Controls.Add(this.Desc3_Lb);
          this.Controls.Add(this.Desc2_Lb);
          this.Controls.Add(this.Desc1_Lb);
@@ -660,11 +805,11 @@
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "BAS_ADCH_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(687, 549);
+         this.Size = new System.Drawing.Size(521, 618);
          this.panel1.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.FrstName_Text.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.LastName_Text.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.FNGR_PRNT_TextEdit.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FrstName_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.LastName_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.FngrPrnt_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Mtod_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MtodBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.SexType_Lov.Properties)).EndInit();
@@ -672,6 +817,8 @@
          ((System.ComponentModel.ISupportInitialize)(this.CardNum_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Chat_Id_TextEdit.Properties)).EndInit();
          this.AllMenu_Cmn.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.CellPhon_Txt.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.NatlCode_Txt.Properties)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -683,9 +830,9 @@
       private DevExpress.XtraEditors.LabelControl TitlForm_Lb;
       private DevExpress.XtraEditors.SimpleButton Back_Butn;
       private DevExpress.XtraEditors.SimpleButton SubmitChange_Butn;
-      private DevExpress.XtraEditors.ButtonEdit FrstName_Text;
-      private DevExpress.XtraEditors.ButtonEdit LastName_Text;
-      private DevExpress.XtraEditors.ButtonEdit FNGR_PRNT_TextEdit;
+      private DevExpress.XtraEditors.ButtonEdit FrstName_Txt;
+      private DevExpress.XtraEditors.ButtonEdit LastName_Txt;
+      private DevExpress.XtraEditors.ButtonEdit FngrPrnt_Txt;
       private DevExpress.XtraEditors.LookUpEdit Mtod_Lov;
       private DevExpress.XtraEditors.LookUpEdit SexType_Lov;
       private DevExpress.XtraEditors.SimpleButton GetMaxFngrPrint_Butn;
@@ -711,6 +858,12 @@
       private Windows.Forms.ToolStripSeparator toolStripMenuItem1;
       private Windows.Forms.ToolStripMenuItem RqstBnEnrollFngrPrnt2;
       private Windows.Forms.ToolStripMenuItem RqstBnDeleteFngrPrnt2;
+      private DevExpress.XtraEditors.ButtonEdit CellPhon_Txt;
+      private DevExpress.XtraEditors.ButtonEdit NatlCode_Txt;
+      private Windows.Forms.Label label1;
+      private Windows.Forms.Label label2;
+      private DevExpress.XtraEditors.SimpleButton CopyFngrDevc_Btn;
+      private DevExpress.XtraEditors.SimpleButton EnrlFngrPrnt_Btn;
 
    }
 }

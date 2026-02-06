@@ -245,7 +245,7 @@ namespace System.Scsc.Ui.Common
                      //NatlCode_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "fngrprnt_lb":
-                     FngrPrnt_Lb.Text = control.LABL_TEXT;
+                     //FngrPrnt_Lb.Text = control.LABL_TEXT;
                      //FngrPrnt_Lb.Text = control.LABL_TEXT; // ToolTip
                      //FngrPrnt_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -511,13 +511,13 @@ namespace System.Scsc.Ui.Common
          switch (x.Attribute("showlist").Value)
          {
             case "001": //  مشترییان
-               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003'";
+               Serv_Gv.ActiveFilterString = "FGPB_TYPE_DNRM != '003'";
                break;
             case "003":
-               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM = '003'";
+               Serv_Gv.ActiveFilterString = "FGPB_TYPE_DNRM = '003'";
                break;
             case "004":
-               FIGH_Gv.ActiveFilterString = "FGPB_TYPE_DNRM = '004'";
+               Serv_Gv.ActiveFilterString = "FGPB_TYPE_DNRM = '004'";
                break;
             default:
                break;
@@ -619,6 +619,7 @@ namespace System.Scsc.Ui.Common
             var flowno = RcevXData.Attribute("flowno").Value;
             var refno = RcevXData.Attribute("refno").Value;
             var actndate = RcevXData.Attribute("actndate").Value;
+            var psid = RcevXData.Attribute("psid").Value;
 
             if (regl.AMNT_TYPE == "002")
                amnt /= 10;
@@ -662,7 +663,8 @@ namespace System.Scsc.Ui.Common
                            new XAttribute("cardno", cardno),
                            new XAttribute("flowno", flowno),
                            new XAttribute("refno", refno),
-                           new XAttribute("actndate", actndate)
+                           new XAttribute("actndate", actndate),
+                           new XAttribute("psid", psid)
                         )
                      )
                   )
@@ -695,6 +697,7 @@ namespace System.Scsc.Ui.Common
             var flowno = RcevXData.Attribute("flowno").Value;
             var refno = RcevXData.Attribute("refno").Value;
             var actndate = RcevXData.Attribute("actndate").Value;
+            var psid = RcevXData.Attribute("psid").Value;
 
             if (regl.AMNT_TYPE == "002")
                paydebt /= 10;
@@ -731,7 +734,8 @@ namespace System.Scsc.Ui.Common
                            new XAttribute("cardno", cardno),
                            new XAttribute("flowno", flowno),
                            new XAttribute("refno", refno),
-                           new XAttribute("actndate", actndate)
+                           new XAttribute("actndate", actndate),
+                           new XAttribute("psid", psid)
                         )
                      )
                   )

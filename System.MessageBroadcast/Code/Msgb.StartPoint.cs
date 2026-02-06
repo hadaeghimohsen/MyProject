@@ -15,6 +15,7 @@ using System.Net;
 using System.Text;
 using System.Web.Script.Serialization;
 using System.Collections.Generic;
+using Newtonsoft.Json.Linq;
 
 namespace System.MessageBroadcast.Code
 {
@@ -210,9 +211,12 @@ namespace System.MessageBroadcast.Code
          }
 
          public IPPanelEdgeClient(string username, string password) {
-            var tokenOrApiKey = Login(username, password);
-            if (string.IsNullOrEmpty(tokenOrApiKey)) throw new ArgumentNullException("tokenOrApiKey");
-            _authTokenOrApiKey = tokenOrApiKey;
+            //var tokenOrApiKey = 
+            var _jsonRslt = JObject.Parse(Login(username, password));
+            if (_jsonRslt["meta"]["status"].Value<bool>() == true)
+               _authTokenOrApiKey = _jsonRslt["data"]["token"].Value<string>();
+            //if (string.IsNullOrEmpty(tokenOrApiKey)) throw new ArgumentNullException("tokenOrApiKey");
+            //_authTokenOrApiKey = tokenOrApiKey;
          }
 
          #region Internal HTTP helpers
@@ -603,7 +607,7 @@ namespace System.MessageBroadcast.Code
          public string GetCredit()
          {
             // try packages/credit first
-            string r = SendRequest("/api/packages/credit", "GET", null);
+            string r = SendRequest("/api/packages/credit/mine", "GET", null);
             // If the remote returns an error because endpoint differs, user can call GetCreditAlternate
             return r;
          }

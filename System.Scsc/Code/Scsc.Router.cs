@@ -537,6 +537,12 @@ namespace System.Scsc.Code
             case 169:
                Glr_Chng_F(job);
                break;
+            case 170:
+               Bas_Def1_F(job);
+               break;
+            case 171:
+               Bas_Def2_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -1025,6 +1031,12 @@ namespace System.Scsc.Code
                break;
             case "GLR_CHNG_F":
                _Glr_Chng_F.SendRequest(job);
+               break;
+            case "BAS_DEF1_F":
+               _Bas_Def1_f.SendRequest(job);
+               break;
+            case "BAS_DEF2_F":
+               _Bas_Def2_f.SendRequest(job);
                break;
 
             /* Show Changed */

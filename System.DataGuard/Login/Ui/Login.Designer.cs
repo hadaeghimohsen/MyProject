@@ -365,7 +365,7 @@
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-         this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Controls.Add(this.FngrDev_Pb);
          this.Controls.Add(this.SwitchUser_RondButn);
          this.Controls.Add(this.Cancel_Lbl);

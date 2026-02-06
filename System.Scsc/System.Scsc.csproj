@@ -538,6 +538,24 @@
     <Compile Include="Ui\BaseDefinition\APBS_DFIN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\BaseDefinition\BAS_DEF2_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\BAS_DEF2_F.Designer.cs">
+      <DependentUpon>BAS_DEF2_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\BAS_DEF1_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\BAS_DEF1_F.Designer.cs">
+      <DependentUpon>BAS_DEF1_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\BAS_DEF2_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\BaseDefinition\BAS_DEF1_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Ui\BaseDefinition\BAS_CBMT_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -1234,6 +1252,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.D_FGST.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_FGTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_GPTP.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.D_HAVE.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_IDTP.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_INVC.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.D_ITTP.datasource" />
@@ -1454,6 +1473,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.V_SubSy.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Total_Member_Ship.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Transaction_Fee.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_UCFGA.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_User.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_User_Localization_Form.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.Warehouse.datasource" />
@@ -1566,6 +1586,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefinition\APBS_DFIN_F.resx">
       <DependentUpon>APBS_DFIN_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\BaseDefinition\BAS_DEF2_F.resx">
+      <DependentUpon>BAS_DEF2_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\BaseDefinition\BAS_DEF1_F.resx">
+      <DependentUpon>BAS_DEF1_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\BaseDefinition\BAS_CBMT_F.resx">
       <DependentUpon>BAS_CBMT_F.cs</DependentUpon>

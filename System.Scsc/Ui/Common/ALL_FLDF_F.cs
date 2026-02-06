@@ -1838,7 +1838,7 @@ namespace System.Scsc.Ui.Common
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",
-                     new List<Job>
+                  new List<Job>
                   {                  
                      new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
                      new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", fileno)))}
@@ -2224,7 +2224,7 @@ namespace System.Scsc.Ui.Common
                      {
                         Input = 
                            new XElement("DeviceControlFunction", 
-                              new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.2" /* Delete Face */ : "5.2.3.5" /* Delete Finger */)), 
+                              new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.2" /* Delete Face */ : ModifierKeys == Keys.Shift ? "5.2.3.8.3" /* Delete Card */ : "5.2.3.5" /* Delete Finger */)), 
                               new XAttribute("funcdesc", "Delete User Info"), 
                               new XAttribute("enrollnumb", FngrPrnt_Txt.Text)
                            )
@@ -6334,7 +6334,7 @@ namespace System.Scsc.Ui.Common
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
-         }         
+         }
       }
    }
 }

@@ -46,7 +46,7 @@ namespace System.MaxUi
       private System.Drawing.Color V_BorderColor = Color.FromArgb(110,110,110);
       private float V_BorderThickness = 1;
       private bool V_ShadowControl = false;
-      private System.Drawing.Color V_BackgroundColor = Color.FromArgb(197,197,197);
+      private System.Drawing.Color V_BackgroundColor = Color.FromArgb(186,186,186);
       private System.Drawing.Color V_BackgroundGradientColor = SystemColors.Control;
       private GroupBoxGradientMode V_BackgroundGradientMode = GroupBoxGradientMode.None;
       private System.Drawing.Color V_ShadowColor = Color.DarkGray;

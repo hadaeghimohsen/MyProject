@@ -36,21 +36,6 @@
          System.Windows.Forms.Label label19;
          System.Windows.Forms.Label label22;
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN_PAGE_F));
-         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem3 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip4 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem4 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.SuperToolTip superToolTip5 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem5 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -154,26 +139,26 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject90 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject91 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject92 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip6 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem6 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject93 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject94 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject95 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject96 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject97 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject98 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip7 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem7 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem6 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem8 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject99 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject100 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject101 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject102 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SuperToolTip superToolTip8 = new DevExpress.Utils.SuperToolTip();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem9 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.ToolTipItem toolTipItem7 = new DevExpress.Utils.ToolTipItem();
-         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem10 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
+         DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
+         DevExpress.Utils.ToolTipTitleItem toolTipTitleItem5 = new DevExpress.Utils.ToolTipTitleItem();
          this.gridColumn5 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSTAT1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREC_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -185,144 +170,6 @@
          this.Lbs_CrntUser = new System.Windows.Forms.ToolStripStatusLabel();
          this.Tsp_AttnSys = new System.Windows.Forms.ToolStripStatusLabel();
          this.Lbs_Tooltip = new System.Windows.Forms.ToolStripStatusLabel();
-         this.MainRbonMenu_Rbnc = new DevExpress.XtraBars.Ribbon.RibbonControl();
-         this.bbi_epitbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_cashbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_mtodbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_regnbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_clubbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_ucplbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_reglbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_crglbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_idrgbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_orgnbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_movpbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_adm1butn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_mbs1butn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_insrbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_flstbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_fdbtbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_adm2butn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_fmdfbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_cclcbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_fdelbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_fundbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_fmtdbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_clstbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_cdelbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_cundbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_fchmbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_cchmbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_fembbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_frkdbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_coptbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_bkupbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_rstrbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_trnsbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_oincbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_oexpbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_cincbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_fcrlbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_attnbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_smsbbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_agmbbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_aglsbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_agcbbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_testbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_compbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_exambutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_pyftbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_calcbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_hertbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_fnmvbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_fnfdbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_fnanbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_feinbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_femtbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_lusrbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_salebutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_acntbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_inotbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_incmbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_expnbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_shmdbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_bislbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_agmcbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_mbcobutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_aprsbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_dprsbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_cprsbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_cpaybutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_cmanbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_exdsbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_hlstbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_mbfzbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_cyclbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_rptcbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_senmbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_rptsbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_dsrdbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_dshbbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_fdlsbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_embkbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_basdifnbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_mbsnbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_incgbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.ksk_incmbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.tol_calcbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.tol_devmngrbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.tol_servbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.tol_sharfldrbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.tol_appfldrbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.tol_ssmsbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.tol_rmotdeskbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.tol_magnfirebutn = new DevExpress.XtraBars.BarButtonItem();
-         this.tol_cntlpnelbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.tol_cmdbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.tol_anydeskbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.tol_opengatebutn = new DevExpress.XtraBars.BarButtonItem();
-         this.tol_closegatebutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_grntbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_evntsysbutn = new DevExpress.XtraBars.BarButtonItem();
-         this.bbi_dsctcard = new DevExpress.XtraBars.BarButtonItem();
-         this.System_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
-         this.Base_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.Base_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Mali_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Adm_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.Adm_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Serv_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.Serv_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageGroup8 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.OtherInCome_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
-         this.OthrOption_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.OthrOption_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.OthrExpnOption_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageGroup19 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageCategory3 = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
-         this.ribbonPage7 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.ribbonPageGroup15 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageGroup16 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.AgrActn_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
-         this.AgrOption_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.AgrSmsOption_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.AgrOprOption_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Mngr_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
-         this.Report_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.Report_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageGroup17 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPage8 = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.ribbonPageGroup20 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.SystemAdmin_RPgc = new DevExpress.XtraBars.Ribbon.RibbonPageCategory();
-         this.SystemAdmin_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.SystemAdmin_RbGp = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Tools_RbPg = new DevExpress.XtraBars.Ribbon.RibbonPage();
-         this.Tools_RbGg = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
          this.spc_desktop = new System.Windows.Forms.SplitContainer();
          this.spc_desktopnew = new DevExpress.XtraEditors.SplitContainerControl();
          this.AdjustDateTime_Lab = new System.Windows.Forms.Label();
@@ -342,15 +189,18 @@
          this.CertificateLogo_Pb = new System.MaxUi.RoundedButton();
          this.Licnday_Lnk = new System.Windows.Forms.LinkLabel();
          this.Base_Rlt = new System.MaxUi.Rollout();
+         this.BasDef2_Btn = new System.MaxUi.Button();
+         this.BasDef1_Btn = new System.MaxUi.Button();
+         this.InptData_Rlt = new System.MaxUi.Rollout();
          this.button3 = new System.MaxUi.Button();
          this.button8 = new System.MaxUi.Button();
          this.bbi_AllCoch_Butn = new System.MaxUi.Button();
+         this.bbi_AddCoch_Butn = new System.MaxUi.Button();
          this.button11 = new System.MaxUi.Button();
          this.button10 = new System.MaxUi.Button();
          this.button12 = new System.MaxUi.Button();
          this.button9 = new System.MaxUi.Button();
          this.button7 = new System.MaxUi.Button();
-         this.bbi_AddCoch_Butn = new System.MaxUi.Button();
          this.button15 = new System.MaxUi.Button();
          this.button4 = new System.MaxUi.Button();
          this.button14 = new System.MaxUi.Button();
@@ -485,7 +335,9 @@
          this.colClub1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCategory_Belt = new DevExpress.XtraGrid.Columns.GridColumn();
          this.GustAttn_Butn = new System.MaxUi.Button();
+         this.OthrIncmGust_Butn = new System.MaxUi.Button();
          this.ShowGustProfile_Butn = new System.MaxUi.Button();
+         this.AddNewGust_Butn = new System.MaxUi.Button();
          this.ShowGust_Butn = new System.MaxUi.Button();
          this.grouper31 = new System.MaxUi.Grouper();
          this.ExitLockDres_Butn = new System.MaxUi.Button();
@@ -729,6 +581,9 @@
          this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
          this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
          this.AtnwFind_Butn = new System.Windows.Forms.ToolStripButton();
+         this.xTp_006 = new DevExpress.XtraTab.XtraTabPage();
+         this.xTp_004 = new DevExpress.XtraTab.XtraTabPage();
+         this.xTp_005 = new DevExpress.XtraTab.XtraTabPage();
          this.xTp_003 = new DevExpress.XtraTab.XtraTabPage();
          this.Stng_Pnl = new System.Windows.Forms.FlowLayoutPanel();
          this.rollout4 = new System.MaxUi.Rollout();
@@ -997,7 +852,6 @@
          this.xTp_001 = new DevExpress.XtraTab.XtraTabPage();
          this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
          this.rollout1 = new System.MaxUi.Rollout();
-         this.EventDays_Spn = new System.MaxUi.Spinner();
          this.Evnt_Gc = new DevExpress.XtraGrid.GridControl();
          this.vEvntBs = new System.Windows.Forms.BindingSource(this.components);
          this.Evnt_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
@@ -1014,6 +868,7 @@
          this.colEVNT_DESC = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.EventFuture_Rb = new System.Windows.Forms.RadioButton();
          this.EventToday_Rb = new System.Windows.Forms.RadioButton();
+         this.EventDays_Spn = new System.MaxUi.Spinner();
          this.rollout10 = new System.MaxUi.Rollout();
          this.grouper6 = new System.MaxUi.Grouper();
          this.SubmitNote_Butn = new System.MaxUi.Button();
@@ -1119,7 +974,6 @@
          label19 = new System.Windows.Forms.Label();
          label22 = new System.Windows.Forms.Label();
          this.statusStrip1.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.MainRbonMenu_Rbnc)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktop)).BeginInit();
          this.spc_desktop.Panel1.SuspendLayout();
          this.spc_desktop.Panel2.SuspendLayout();
@@ -1138,6 +992,7 @@
          this.grouper33.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.SubVerNo_Txt.Properties)).BeginInit();
          this.Base_Rlt.SuspendLayout();
+         this.InptData_Rlt.SuspendLayout();
          this.DataMang_Rlt.SuspendLayout();
          this.Tool_Rlt.SuspendLayout();
          this.Kisk_Rlt.SuspendLayout();
@@ -1496,1460 +1351,13 @@
          this.Lbs_Tooltip.Size = new System.Drawing.Size(58, 19);
          this.Lbs_Tooltip.Text = "توضیحات";
          // 
-         // MainRbonMenu_Rbnc
-         // 
-         this.MainRbonMenu_Rbnc.ExpandCollapseItem.Id = 0;
-         this.MainRbonMenu_Rbnc.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
-            this.MainRbonMenu_Rbnc.ExpandCollapseItem,
-            this.bbi_epitbutn,
-            this.bbi_cashbutn,
-            this.bbi_mtodbutn,
-            this.bbi_regnbutn,
-            this.bbi_clubbutn,
-            this.bbi_ucplbutn,
-            this.bbi_reglbutn,
-            this.bbi_crglbutn,
-            this.bbi_idrgbutn,
-            this.bbi_orgnbutn,
-            this.bbi_movpbutn,
-            this.bbi_adm1butn,
-            this.bbi_mbs1butn,
-            this.bbi_insrbutn,
-            this.bbi_flstbutn,
-            this.bbi_fdbtbutn,
-            this.bbi_adm2butn,
-            this.bbi_fmdfbutn,
-            this.bbi_cclcbutn,
-            this.bbi_fdelbutn,
-            this.bbi_fundbutn,
-            this.bbi_fmtdbutn,
-            this.bbi_clstbutn,
-            this.bbi_cdelbutn,
-            this.bbi_cundbutn,
-            this.bbi_fchmbutn,
-            this.bbi_cchmbutn,
-            this.bbi_fembbutn,
-            this.bbi_frkdbutn,
-            this.bbi_coptbutn,
-            this.bbi_bkupbutn,
-            this.bbi_rstrbutn,
-            this.bbi_trnsbutn,
-            this.bbi_oincbutn,
-            this.bbi_oexpbutn,
-            this.bbi_cincbutn,
-            this.bbi_fcrlbutn,
-            this.bbi_attnbutn,
-            this.bbi_smsbbutn,
-            this.bbi_agmbbutn,
-            this.bbi_aglsbutn,
-            this.bbi_agcbbutn,
-            this.bbi_testbutn,
-            this.bbi_compbutn,
-            this.bbi_exambutn,
-            this.bbi_pyftbutn,
-            this.bbi_calcbutn,
-            this.bbi_hertbutn,
-            this.bbi_fnmvbutn,
-            this.bbi_fnfdbutn,
-            this.bbi_fnanbutn,
-            this.bbi_feinbutn,
-            this.bbi_femtbutn,
-            this.bbi_lusrbutn,
-            this.bbi_salebutn,
-            this.bbi_acntbutn,
-            this.bbi_inotbutn,
-            this.bbi_incmbutn,
-            this.bbi_expnbutn,
-            this.bbi_shmdbutn,
-            this.bbi_bislbutn,
-            this.bbi_agmcbutn,
-            this.bbi_mbcobutn,
-            this.bbi_aprsbutn,
-            this.bbi_dprsbutn,
-            this.bbi_cprsbutn,
-            this.bbi_cpaybutn,
-            this.bbi_cmanbutn,
-            this.bbi_exdsbutn,
-            this.bbi_hlstbutn,
-            this.bbi_mbfzbutn,
-            this.bbi_cyclbutn,
-            this.bbi_rptcbutn,
-            this.bbi_senmbutn,
-            this.bbi_rptsbutn,
-            this.bbi_dsrdbutn,
-            this.bbi_dshbbutn,
-            this.bbi_fdlsbutn,
-            this.bbi_embkbutn,
-            this.bbi_basdifnbutn,
-            this.bbi_mbsnbutn,
-            this.bbi_incgbutn,
-            this.ksk_incmbutn,
-            this.tol_calcbutn,
-            this.tol_devmngrbutn,
-            this.tol_servbutn,
-            this.tol_sharfldrbutn,
-            this.tol_appfldrbutn,
-            this.tol_ssmsbutn,
-            this.tol_rmotdeskbutn,
-            this.tol_magnfirebutn,
-            this.tol_cntlpnelbutn,
-            this.tol_cmdbutn,
-            this.tol_anydeskbutn,
-            this.tol_opengatebutn,
-            this.tol_closegatebutn,
-            this.bbi_grntbutn,
-            this.bbi_evntsysbutn,
-            this.bbi_dsctcard});
-         this.MainRbonMenu_Rbnc.Location = new System.Drawing.Point(0, 0);
-         this.MainRbonMenu_Rbnc.MaxItemId = 114;
-         this.MainRbonMenu_Rbnc.Name = "MainRbonMenu_Rbnc";
-         this.MainRbonMenu_Rbnc.PageCategories.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageCategory[] {
-            this.System_RPgc,
-            this.OtherInCome_RPgc,
-            this.ribbonPageCategory3,
-            this.AgrActn_RPgc,
-            this.Mngr_RPgc,
-            this.SystemAdmin_RPgc});
-         this.MainRbonMenu_Rbnc.Size = new System.Drawing.Size(1230, 142);
-         this.MainRbonMenu_Rbnc.Visible = false;
-         // 
-         // bbi_epitbutn
-         // 
-         this.bbi_epitbutn.Caption = "آیتم های درآمدی";
-         this.bbi_epitbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_epitbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_epitbutn.Glyph")));
-         this.bbi_epitbutn.Id = 3;
-         this.bbi_epitbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_epitbutn.LargeGlyph")));
-         this.bbi_epitbutn.Name = "bbi_epitbutn";
-         this.bbi_epitbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_epitbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_epitbutn_ItemClick);
-         // 
-         // bbi_cashbutn
-         // 
-         this.bbi_cashbutn.Caption = "گزینه های نرم افزار";
-         this.bbi_cashbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_cashbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_cashbutn.Glyph")));
-         this.bbi_cashbutn.Id = 4;
-         this.bbi_cashbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_cashbutn.LargeGlyph")));
-         this.bbi_cashbutn.Name = "bbi_cashbutn";
-         this.bbi_cashbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_cashbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cashbutn_ItemClick);
-         // 
-         // bbi_mtodbutn
-         // 
-         this.bbi_mtodbutn.Caption = "تعریف گروه ها";
-         this.bbi_mtodbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_mtodbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_mtodbutn.Glyph")));
-         this.bbi_mtodbutn.Id = 5;
-         this.bbi_mtodbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_mtodbutn.LargeGlyph")));
-         this.bbi_mtodbutn.Name = "bbi_mtodbutn";
-         this.bbi_mtodbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_mtodbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_mtodbutn_ItemClick);
-         // 
-         // bbi_regnbutn
-         // 
-         this.bbi_regnbutn.Caption = "تقسیم بندی";
-         this.bbi_regnbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_regnbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_regnbutn.Glyph")));
-         this.bbi_regnbutn.Id = 6;
-         this.bbi_regnbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_regnbutn.LargeGlyph")));
-         this.bbi_regnbutn.Name = "bbi_regnbutn";
-         this.bbi_regnbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_regnbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_regnbutn_ItemClick);
-         // 
-         // bbi_clubbutn
-         // 
-         this.bbi_clubbutn.Caption = "باشگاه";
-         this.bbi_clubbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_clubbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_clubbutn.Glyph")));
-         this.bbi_clubbutn.Id = 7;
-         this.bbi_clubbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_clubbutn.LargeGlyph")));
-         this.bbi_clubbutn.Name = "bbi_clubbutn";
-         this.bbi_clubbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_clubbutn_ItemClick);
-         // 
-         // bbi_ucplbutn
-         // 
-         this.bbi_ucplbutn.Caption = "دسترسی کاربران به باشگاه";
-         this.bbi_ucplbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_ucplbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_ucplbutn.Glyph")));
-         this.bbi_ucplbutn.Id = 8;
-         this.bbi_ucplbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_ucplbutn.LargeGlyph")));
-         this.bbi_ucplbutn.Name = "bbi_ucplbutn";
-         this.bbi_ucplbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_ucplbutn_ItemClick);
-         // 
-         // bbi_reglbutn
-         // 
-         this.bbi_reglbutn.Caption = "دوره مالی";
-         this.bbi_reglbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_reglbutn.Glyph")));
-         this.bbi_reglbutn.Id = 9;
-         this.bbi_reglbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_reglbutn.LargeGlyph")));
-         this.bbi_reglbutn.Name = "bbi_reglbutn";
-         this.bbi_reglbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_reglbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_reglbutn_ItemClick);
-         // 
-         // bbi_crglbutn
-         // 
-         this.bbi_crglbutn.Caption = "دوره مالی جاری";
-         this.bbi_crglbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_crglbutn.Glyph")));
-         this.bbi_crglbutn.Id = 10;
-         this.bbi_crglbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_crglbutn.LargeGlyph")));
-         this.bbi_crglbutn.Name = "bbi_crglbutn";
-         this.bbi_crglbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_crglbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_crglbutn_ItemClick);
-         // 
-         // bbi_idrgbutn
-         // 
-         this.bbi_idrgbutn.Caption = "افزایش & کاهش نرخ درآمدها";
-         this.bbi_idrgbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_idrgbutn.Glyph")));
-         this.bbi_idrgbutn.Id = 11;
-         this.bbi_idrgbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_idrgbutn.LargeGlyph")));
-         this.bbi_idrgbutn.Name = "bbi_idrgbutn";
-         this.bbi_idrgbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_idrgbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_idrgbutn_ItemClick);
-         // 
-         // bbi_orgnbutn
-         // 
-         this.bbi_orgnbutn.Caption = "سازمان ها و نهادها";
-         this.bbi_orgnbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_orgnbutn.Glyph")));
-         this.bbi_orgnbutn.Id = 12;
-         this.bbi_orgnbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_orgnbutn.LargeGlyph")));
-         this.bbi_orgnbutn.Name = "bbi_orgnbutn";
-         this.bbi_orgnbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_orgnbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_orgnbutn_ItemClick);
-         // 
-         // bbi_movpbutn
-         // 
-         this.bbi_movpbutn.Caption = "برنامه حرکتی";
-         this.bbi_movpbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_movpbutn.Glyph")));
-         this.bbi_movpbutn.Id = 13;
-         this.bbi_movpbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_movpbutn.LargeGlyph")));
-         this.bbi_movpbutn.Name = "bbi_movpbutn";
-         this.bbi_movpbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_movpbutn_ItemClick);
-         // 
-         // bbi_adm1butn
-         // 
-         this.bbi_adm1butn.Caption = "ثبت نام";
-         this.bbi_adm1butn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_adm1butn.Glyph")));
-         this.bbi_adm1butn.Id = 15;
-         this.bbi_adm1butn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_adm1butn.LargeGlyph")));
-         this.bbi_adm1butn.Name = "bbi_adm1butn";
-         toolTipTitleItem1.Text = "ثبت نام جدید";
-         toolTipItem1.Appearance.Options.UseImage = true;
-         toolTipItem1.LeftIndent = 6;
-         toolTipItem1.Text = "F2 \r\nبرای دسترسی آسان از این کلید استفاده کنید";
-         superToolTip1.Items.Add(toolTipTitleItem1);
-         superToolTip1.Items.Add(toolTipItem1);
-         this.bbi_adm1butn.SuperTip = superToolTip1;
-         this.bbi_adm1butn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_adm1butn_ItemClick);
-         // 
-         // bbi_mbs1butn
-         // 
-         this.bbi_mbs1butn.Caption = "ثبت دوره جدید";
-         this.bbi_mbs1butn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_mbs1butn.Glyph")));
-         this.bbi_mbs1butn.Id = 16;
-         this.bbi_mbs1butn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_mbs1butn.LargeGlyph")));
-         this.bbi_mbs1butn.Name = "bbi_mbs1butn";
-         toolTipTitleItem2.Text = "تمدید عضویت";
-         toolTipItem2.Appearance.Options.UseImage = true;
-         toolTipItem2.LeftIndent = 6;
-         toolTipItem2.Text = "F3\r\nبرای دسترسی آسان از این کلید استفاده کنید";
-         superToolTip2.Items.Add(toolTipTitleItem2);
-         superToolTip2.Items.Add(toolTipItem2);
-         this.bbi_mbs1butn.SuperTip = superToolTip2;
-         this.bbi_mbs1butn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_mbs1butn_ItemClick);
-         // 
-         // bbi_insrbutn
-         // 
-         this.bbi_insrbutn.Caption = "کارت بیمه";
-         this.bbi_insrbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_insrbutn.Glyph")));
-         this.bbi_insrbutn.Id = 17;
-         this.bbi_insrbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_insrbutn.LargeGlyph")));
-         this.bbi_insrbutn.Name = "bbi_insrbutn";
-         this.bbi_insrbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_insrbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_insrbutn_ItemClick);
-         // 
-         // bbi_flstbutn
-         // 
-         this.bbi_flstbutn.Caption = "لیست مشترییان";
-         this.bbi_flstbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_flstbutn.Glyph")));
-         this.bbi_flstbutn.Id = 18;
-         this.bbi_flstbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_flstbutn.LargeGlyph")));
-         this.bbi_flstbutn.Name = "bbi_flstbutn";
-         toolTipTitleItem3.Text = "لیست اعضا";
-         toolTipItem3.Appearance.Options.UseImage = true;
-         toolTipItem3.LeftIndent = 6;
-         toolTipItem3.Text = "F4\r\nبرای دسترسی آسان از این کلید استفاده کنید";
-         superToolTip3.Items.Add(toolTipTitleItem3);
-         superToolTip3.Items.Add(toolTipItem3);
-         this.bbi_flstbutn.SuperTip = superToolTip3;
-         this.bbi_flstbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_flstbutn_ItemClick);
-         // 
-         // bbi_fdbtbutn
-         // 
-         this.bbi_fdbtbutn.Caption = "لیست بدهکاران";
-         this.bbi_fdbtbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_fdbtbutn.Glyph")));
-         this.bbi_fdbtbutn.Id = 19;
-         this.bbi_fdbtbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_fdbtbutn.LargeGlyph")));
-         this.bbi_fdbtbutn.Name = "bbi_fdbtbutn";
-         this.bbi_fdbtbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_fdbtbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_fdbtbutn_ItemClick);
-         // 
-         // bbi_adm2butn
-         // 
-         this.bbi_adm2butn.Caption = "ثبت نام";
-         this.bbi_adm2butn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_adm2butn.Glyph")));
-         this.bbi_adm2butn.Id = 20;
-         this.bbi_adm2butn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_adm2butn.LargeGlyph")));
-         this.bbi_adm2butn.Name = "bbi_adm2butn";
-         this.bbi_adm2butn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_adm2butn_ItemClick);
-         // 
-         // bbi_fmdfbutn
-         // 
-         this.bbi_fmdfbutn.Caption = "تغییر مشخصات عمومی";
-         this.bbi_fmdfbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_fmdfbutn.Glyph")));
-         this.bbi_fmdfbutn.Id = 21;
-         this.bbi_fmdfbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_fmdfbutn.LargeGlyph")));
-         this.bbi_fmdfbutn.Name = "bbi_fmdfbutn";
-         this.bbi_fmdfbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_fmdfbutn_ItemClick);
-         // 
-         // bbi_cclcbutn
-         // 
-         this.bbi_cclcbutn.Caption = "درصد مربیان";
-         this.bbi_cclcbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_cclcbutn.Glyph")));
-         this.bbi_cclcbutn.Id = 22;
-         this.bbi_cclcbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_cclcbutn.LargeGlyph")));
-         this.bbi_cclcbutn.Name = "bbi_cclcbutn";
-         this.bbi_cclcbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cclcbutn_ItemClick);
-         // 
-         // bbi_fdelbutn
-         // 
-         this.bbi_fdelbutn.Caption = "حذف";
-         this.bbi_fdelbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_fdelbutn.Glyph")));
-         this.bbi_fdelbutn.Id = 23;
-         this.bbi_fdelbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_fdelbutn.LargeGlyph")));
-         this.bbi_fdelbutn.Name = "bbi_fdelbutn";
-         this.bbi_fdelbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_fdelbutn_ItemClick);
-         // 
-         // bbi_fundbutn
-         // 
-         this.bbi_fundbutn.Caption = "بازیابی";
-         this.bbi_fundbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_fundbutn.Glyph")));
-         this.bbi_fundbutn.Id = 24;
-         this.bbi_fundbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_fundbutn.LargeGlyph")));
-         this.bbi_fundbutn.Name = "bbi_fundbutn";
-         this.bbi_fundbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_fundbutn_ItemClick);
-         // 
-         // bbi_fmtdbutn
-         // 
-         this.bbi_fmtdbutn.Caption = "کارت عضویت سبک";
-         this.bbi_fmtdbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_fmtdbutn.Glyph")));
-         this.bbi_fmtdbutn.Id = 25;
-         this.bbi_fmtdbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_fmtdbutn.LargeGlyph")));
-         this.bbi_fmtdbutn.Name = "bbi_fmtdbutn";
-         this.bbi_fmtdbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_fmtdbutn_ItemClick);
-         // 
-         // bbi_clstbutn
-         // 
-         this.bbi_clstbutn.Caption = "لیست مربیان";
-         this.bbi_clstbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_clstbutn.Glyph")));
-         this.bbi_clstbutn.Id = 26;
-         this.bbi_clstbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_clstbutn.LargeGlyph")));
-         this.bbi_clstbutn.Name = "bbi_clstbutn";
-         this.bbi_clstbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_clstbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_clstbutn_ItemClick);
-         // 
-         // bbi_cdelbutn
-         // 
-         this.bbi_cdelbutn.Caption = "فسخ قرارداد";
-         this.bbi_cdelbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_cdelbutn.Glyph")));
-         this.bbi_cdelbutn.Id = 27;
-         this.bbi_cdelbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_cdelbutn.LargeGlyph")));
-         this.bbi_cdelbutn.Name = "bbi_cdelbutn";
-         this.bbi_cdelbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_cdelbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cdelbutn_ItemClick);
-         // 
-         // bbi_cundbutn
-         // 
-         this.bbi_cundbutn.Caption = "عقدقرارداد";
-         this.bbi_cundbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_cundbutn.Glyph")));
-         this.bbi_cundbutn.Id = 28;
-         this.bbi_cundbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_cundbutn.LargeGlyph")));
-         this.bbi_cundbutn.Name = "bbi_cundbutn";
-         this.bbi_cundbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_cundbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cundbutn_ItemClick);
-         // 
-         // bbi_fchmbutn
-         // 
-         this.bbi_fchmbutn.Caption = "تغییر سبک و رسته";
-         this.bbi_fchmbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_fchmbutn.Glyph")));
-         this.bbi_fchmbutn.Id = 29;
-         this.bbi_fchmbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_fchmbutn.LargeGlyph")));
-         this.bbi_fchmbutn.Name = "bbi_fchmbutn";
-         this.bbi_fchmbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_fchmbutn_ItemClick);
-         // 
-         // bbi_cchmbutn
-         // 
-         this.bbi_cchmbutn.Caption = "تغییر سبک و رسته";
-         this.bbi_cchmbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_cchmbutn.Glyph")));
-         this.bbi_cchmbutn.Id = 30;
-         this.bbi_cchmbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_cchmbutn.LargeGlyph")));
-         this.bbi_cchmbutn.Name = "bbi_cchmbutn";
-         this.bbi_cchmbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cchmbutn_ItemClick);
-         // 
-         // bbi_fembbutn
-         // 
-         this.bbi_fembbutn.Caption = "پایان عضویت باشگاه";
-         this.bbi_fembbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_fembbutn.Glyph")));
-         this.bbi_fembbutn.Id = 31;
-         this.bbi_fembbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_fembbutn.LargeGlyph")));
-         this.bbi_fembbutn.Name = "bbi_fembbutn";
-         this.bbi_fembbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_fembbutn_ItemClick);
-         // 
-         // bbi_frkdbutn
-         // 
-         this.bbi_frkdbutn.Caption = "مشترییان راکد";
-         this.bbi_frkdbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_frkdbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_frkdbutn.Glyph")));
-         this.bbi_frkdbutn.Id = 33;
-         this.bbi_frkdbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_frkdbutn.LargeGlyph")));
-         this.bbi_frkdbutn.Name = "bbi_frkdbutn";
-         this.bbi_frkdbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_frkdbutn_ItemClick);
-         // 
-         // bbi_coptbutn
-         // 
-         this.bbi_coptbutn.Caption = "تنظیمات نرم افزار";
-         this.bbi_coptbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_coptbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_coptbutn.Glyph")));
-         this.bbi_coptbutn.Id = 34;
-         this.bbi_coptbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_coptbutn.LargeGlyph")));
-         this.bbi_coptbutn.Name = "bbi_coptbutn";
-         this.bbi_coptbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_coptbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_coptbutn_ItemClick);
-         // 
-         // bbi_bkupbutn
-         // 
-         this.bbi_bkupbutn.Caption = "پشتیبان گیری";
-         this.bbi_bkupbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_bkupbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_bkupbutn.Glyph")));
-         this.bbi_bkupbutn.Id = 35;
-         this.bbi_bkupbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_bkupbutn.LargeGlyph")));
-         this.bbi_bkupbutn.Name = "bbi_bkupbutn";
-         this.bbi_bkupbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_bkupbutn_ItemClick);
-         // 
-         // bbi_rstrbutn
-         // 
-         this.bbi_rstrbutn.Caption = "بازگردانی";
-         this.bbi_rstrbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_rstrbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_rstrbutn.Glyph")));
-         this.bbi_rstrbutn.Id = 36;
-         this.bbi_rstrbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_rstrbutn.LargeGlyph")));
-         this.bbi_rstrbutn.Name = "bbi_rstrbutn";
-         this.bbi_rstrbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_rstrbutn_ItemClick);
-         // 
-         // bbi_trnsbutn
-         // 
-         this.bbi_trnsbutn.Caption = "انتقال اطلاعات";
-         this.bbi_trnsbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_trnsbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_trnsbutn.Glyph")));
-         this.bbi_trnsbutn.Id = 37;
-         this.bbi_trnsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_trnsbutn.LargeGlyph")));
-         this.bbi_trnsbutn.Name = "bbi_trnsbutn";
-         this.bbi_trnsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_trnsbutn_ItemClick);
-         // 
-         // bbi_oincbutn
-         // 
-         this.bbi_oincbutn.Caption = "فروشگاه";
-         this.bbi_oincbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_oincbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_oincbutn.Glyph")));
-         this.bbi_oincbutn.Id = 38;
-         this.bbi_oincbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1088;
-         this.bbi_oincbutn.Name = "bbi_oincbutn";
-         toolTipTitleItem4.Text = "فروشگاه";
-         toolTipItem4.LeftIndent = 6;
-         toolTipItem4.Text = "F5\r\nبرای دسترسی آسان از این کلیئ استفاده کنید";
-         superToolTip4.Items.Add(toolTipTitleItem4);
-         superToolTip4.Items.Add(toolTipItem4);
-         this.bbi_oincbutn.SuperTip = superToolTip4;
-         this.bbi_oincbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_oincbutn_ItemClick);
-         // 
-         // bbi_oexpbutn
-         // 
-         this.bbi_oexpbutn.Caption = "هزینه ها";
-         this.bbi_oexpbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_oexpbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_oexpbutn.Glyph")));
-         this.bbi_oexpbutn.Id = 39;
-         this.bbi_oexpbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1105;
-         this.bbi_oexpbutn.Name = "bbi_oexpbutn";
-         this.bbi_oexpbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_oexpbutn_ItemClick);
-         // 
-         // bbi_cincbutn
-         // 
-         this.bbi_cincbutn.Caption = "محاسبه حقوق و دستمزد مربیان";
-         this.bbi_cincbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_cincbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_cincbutn.Glyph")));
-         this.bbi_cincbutn.Id = 40;
-         this.bbi_cincbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_cincbutn.LargeGlyph")));
-         this.bbi_cincbutn.Name = "bbi_cincbutn";
-         this.bbi_cincbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cincbutn_ItemClick);
-         // 
-         // bbi_fcrlbutn
-         // 
-         this.bbi_fcrlbutn.Caption = "تغیییرات ریالی";
-         this.bbi_fcrlbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_fcrlbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_fcrlbutn.Glyph")));
-         this.bbi_fcrlbutn.Id = 41;
-         this.bbi_fcrlbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_fcrlbutn.LargeGlyph")));
-         this.bbi_fcrlbutn.Name = "bbi_fcrlbutn";
-         this.bbi_fcrlbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_fcrlbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_fcrlbutn_ItemClick);
-         // 
-         // bbi_attnbutn
-         // 
-         this.bbi_attnbutn.Caption = "حضورغیاب";
-         this.bbi_attnbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_attnbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_attnbutn.Glyph")));
-         this.bbi_attnbutn.Id = 42;
-         this.bbi_attnbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_attnbutn.LargeGlyph")));
-         this.bbi_attnbutn.Name = "bbi_attnbutn";
-         this.bbi_attnbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_attnbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_attnbutn_ItemClick);
-         // 
-         // bbi_smsbbutn
-         // 
-         this.bbi_smsbbutn.Caption = "ارسال پیام";
-         this.bbi_smsbbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_smsbbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_smsbbutn.Glyph")));
-         this.bbi_smsbbutn.Id = 43;
-         this.bbi_smsbbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_smsbbutn.LargeGlyph")));
-         this.bbi_smsbbutn.Name = "bbi_smsbbutn";
-         this.bbi_smsbbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_smsbbutn_ItemClick);
-         // 
-         // bbi_agmbbutn
-         // 
-         this.bbi_agmbbutn.Caption = "تمدید قرارداد گروهی";
-         this.bbi_agmbbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_agmbbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_agmbbutn.Glyph")));
-         this.bbi_agmbbutn.Id = 44;
-         this.bbi_agmbbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_agmbbutn.LargeGlyph")));
-         this.bbi_agmbbutn.Name = "bbi_agmbbutn";
-         this.bbi_agmbbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_agmbbutn_ItemClick);
-         // 
-         // bbi_aglsbutn
-         // 
-         this.bbi_aglsbutn.Caption = "حضور و غیاب گروهی";
-         this.bbi_aglsbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_aglsbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_aglsbutn.Glyph")));
-         this.bbi_aglsbutn.Id = 45;
-         this.bbi_aglsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_aglsbutn.LargeGlyph")));
-         this.bbi_aglsbutn.Name = "bbi_aglsbutn";
-         this.bbi_aglsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_aglsbutn_ItemClick);
-         // 
-         // bbi_agcbbutn
-         // 
-         this.bbi_agcbbutn.Caption = "تغییر برنامه کلاسی گروهی";
-         this.bbi_agcbbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_agcbbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_agcbbutn.Glyph")));
-         this.bbi_agcbbutn.Id = 46;
-         this.bbi_agcbbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_agcbbutn.LargeGlyph")));
-         this.bbi_agcbbutn.Name = "bbi_agcbbutn";
-         this.bbi_agcbbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_agcbbutn_ItemClick);
-         // 
-         // bbi_testbutn
-         // 
-         this.bbi_testbutn.Caption = "آزمون";
-         this.bbi_testbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_testbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_testbutn.Glyph")));
-         this.bbi_testbutn.Id = 47;
-         this.bbi_testbutn.Name = "bbi_testbutn";
-         this.bbi_testbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_testbutn_ItemClick);
-         // 
-         // bbi_compbutn
-         // 
-         this.bbi_compbutn.Caption = "مسابقات";
-         this.bbi_compbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_compbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_compbutn.Glyph")));
-         this.bbi_compbutn.Id = 48;
-         this.bbi_compbutn.Name = "bbi_compbutn";
-         this.bbi_compbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_compbutn_ItemClick);
-         // 
-         // bbi_exambutn
-         // 
-         this.bbi_exambutn.Caption = "تست";
-         this.bbi_exambutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_exambutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_exambutn.Glyph")));
-         this.bbi_exambutn.Id = 49;
-         this.bbi_exambutn.Name = "bbi_exambutn";
-         this.bbi_exambutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_exambutn_ItemClick);
-         // 
-         // bbi_pyftbutn
-         // 
-         this.bbi_pyftbutn.Caption = "آمادگی جسمانی";
-         this.bbi_pyftbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_pyftbutn.Id = 50;
-         this.bbi_pyftbutn.Name = "bbi_pyftbutn";
-         this.bbi_pyftbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_pyftbutn_ItemClick);
-         // 
-         // bbi_calcbutn
-         // 
-         this.bbi_calcbutn.Caption = "محاسبه کالری";
-         this.bbi_calcbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_calcbutn.Id = 51;
-         this.bbi_calcbutn.Name = "bbi_calcbutn";
-         this.bbi_calcbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_calcbutn_ItemClick);
-         // 
-         // bbi_hertbutn
-         // 
-         this.bbi_hertbutn.Caption = "ضربان قلب";
-         this.bbi_hertbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_hertbutn.Id = 52;
-         this.bbi_hertbutn.Name = "bbi_hertbutn";
-         this.bbi_hertbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_hertbutn_ItemClick);
-         // 
-         // bbi_fnmvbutn
-         // 
-         this.bbi_fnmvbutn.Caption = "برنامه حرکتی";
-         this.bbi_fnmvbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_fnmvbutn.Id = 54;
-         this.bbi_fnmvbutn.Name = "bbi_fnmvbutn";
-         this.bbi_fnmvbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_fnmvbutn_ItemClick);
-         // 
-         // bbi_fnfdbutn
-         // 
-         this.bbi_fnfdbutn.Caption = "برنامه غذایی";
-         this.bbi_fnfdbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_fnfdbutn.Id = 55;
-         this.bbi_fnfdbutn.Name = "bbi_fnfdbutn";
-         this.bbi_fnfdbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_fnfdbutn_ItemClick);
-         // 
-         // bbi_fnanbutn
-         // 
-         this.bbi_fnanbutn.Caption = "میزان پیشرفت";
-         this.bbi_fnanbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_fnanbutn.Id = 56;
-         this.bbi_fnanbutn.Name = "bbi_fnanbutn";
-         this.bbi_fnanbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_fnanbutn_ItemClick);
-         // 
-         // bbi_feinbutn
-         // 
-         this.bbi_feinbutn.Caption = "پایان بیمه مشترییان";
-         this.bbi_feinbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_feinbutn.Id = 57;
-         this.bbi_feinbutn.Name = "bbi_feinbutn";
-         this.bbi_feinbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_feinbutn_ItemClick);
-         // 
-         // bbi_femtbutn
-         // 
-         this.bbi_femtbutn.Caption = "پایان عضویت حق سبک";
-         this.bbi_femtbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_femtbutn.Id = 58;
-         this.bbi_femtbutn.Name = "bbi_femtbutn";
-         this.bbi_femtbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_femtbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_femtbutn_ItemClick);
-         // 
-         // bbi_lusrbutn
-         // 
-         this.bbi_lusrbutn.Caption = "عملکرد کاربران به مدیریت";
-         this.bbi_lusrbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_lusrbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_lusrbutn.Glyph")));
-         this.bbi_lusrbutn.Id = 63;
-         this.bbi_lusrbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_lusrbutn.LargeGlyph")));
-         this.bbi_lusrbutn.Name = "bbi_lusrbutn";
-         this.bbi_lusrbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_lusrbutn_ItemClick);
-         // 
-         // bbi_salebutn
-         // 
-         this.bbi_salebutn.Caption = "فروش";
-         this.bbi_salebutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_salebutn.Id = 64;
-         this.bbi_salebutn.Name = "bbi_salebutn";
-         this.bbi_salebutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_salebutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_salebutn_ItemClick);
-         // 
-         // bbi_acntbutn
-         // 
-         this.bbi_acntbutn.Caption = "حسابداری باشگاه";
-         this.bbi_acntbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_acntbutn.Id = 65;
-         this.bbi_acntbutn.Name = "bbi_acntbutn";
-         this.bbi_acntbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_acntbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_acntbutn_ItemClick);
-         // 
-         // bbi_inotbutn
-         // 
-         this.bbi_inotbutn.Caption = "سود و زیان";
-         this.bbi_inotbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_inotbutn.Id = 66;
-         this.bbi_inotbutn.Name = "bbi_inotbutn";
-         this.bbi_inotbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_inotbutn_ItemClick);
-         // 
-         // bbi_incmbutn
-         // 
-         this.bbi_incmbutn.Caption = "گزارش";
-         this.bbi_incmbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_incmbutn.Id = 67;
-         this.bbi_incmbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1086;
-         this.bbi_incmbutn.Name = "bbi_incmbutn";
-         this.bbi_incmbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_incmbutn_ItemClick);
-         // 
-         // bbi_expnbutn
-         // 
-         this.bbi_expnbutn.Caption = "هزینه ها";
-         this.bbi_expnbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_expnbutn.Id = 68;
-         this.bbi_expnbutn.Name = "bbi_expnbutn";
-         this.bbi_expnbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_expnbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_expnbutn_ItemClick);
-         // 
-         // bbi_shmdbutn
-         // 
-         this.bbi_shmdbutn.Caption = "سهامداران";
-         this.bbi_shmdbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_shmdbutn.Id = 69;
-         this.bbi_shmdbutn.Name = "bbi_shmdbutn";
-         this.bbi_shmdbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_shmdbutn_ItemClick);
-         // 
-         // bbi_bislbutn
-         // 
-         this.bbi_bislbutn.Caption = "گزارش عملکردی";
-         this.bbi_bislbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_bislbutn.Id = 70;
-         this.bbi_bislbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1087;
-         this.bbi_bislbutn.Name = "bbi_bislbutn";
-         this.bbi_bislbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_bislbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_bislbutn_ItemClick);
-         // 
-         // bbi_agmcbutn
-         // 
-         this.bbi_agmcbutn.Caption = "تغییر سبک و رسته";
-         this.bbi_agmcbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_agmcbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_agmcbutn.Glyph")));
-         this.bbi_agmcbutn.Id = 71;
-         this.bbi_agmcbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_agmcbutn.LargeGlyph")));
-         this.bbi_agmcbutn.Name = "bbi_agmcbutn";
-         this.bbi_agmcbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_agmcbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_agmcbutn_ItemClick);
-         // 
-         // bbi_mbcobutn
-         // 
-         this.bbi_mbcobutn.Caption = "تمدید جلسه خصوصی مربی";
-         this.bbi_mbcobutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_mbcobutn.Id = 72;
-         this.bbi_mbcobutn.Name = "bbi_mbcobutn";
-         this.bbi_mbcobutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_mbcobutn_ItemClick);
-         // 
-         // bbi_aprsbutn
-         // 
-         this.bbi_aprsbutn.Caption = "عقدقرارداد";
-         this.bbi_aprsbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_aprsbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_aprsbutn.Glyph")));
-         this.bbi_aprsbutn.Id = 73;
-         this.bbi_aprsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_aprsbutn.LargeGlyph")));
-         this.bbi_aprsbutn.Name = "bbi_aprsbutn";
-         this.bbi_aprsbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_aprsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_aprsbutn_ItemClick);
-         // 
-         // bbi_dprsbutn
-         // 
-         this.bbi_dprsbutn.Caption = "فسخ قرارداد";
-         this.bbi_dprsbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_dprsbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_dprsbutn.Glyph")));
-         this.bbi_dprsbutn.Id = 74;
-         this.bbi_dprsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_dprsbutn.LargeGlyph")));
-         this.bbi_dprsbutn.Name = "bbi_dprsbutn";
-         this.bbi_dprsbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_dprsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_dprsbutn_ItemClick);
-         // 
-         // bbi_cprsbutn
-         // 
-         this.bbi_cprsbutn.Caption = "تغییر قرارداد";
-         this.bbi_cprsbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_cprsbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_cprsbutn.Glyph")));
-         this.bbi_cprsbutn.Id = 75;
-         this.bbi_cprsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_cprsbutn.LargeGlyph")));
-         this.bbi_cprsbutn.Name = "bbi_cprsbutn";
-         this.bbi_cprsbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_cprsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cprsbutn_ItemClick);
-         // 
-         // bbi_cpaybutn
-         // 
-         this.bbi_cpaybutn.Caption = "محاسبه حقوق و دستمزد";
-         this.bbi_cpaybutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_cpaybutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_cpaybutn.Glyph")));
-         this.bbi_cpaybutn.Id = 76;
-         this.bbi_cpaybutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_cpaybutn.LargeGlyph")));
-         this.bbi_cpaybutn.Name = "bbi_cpaybutn";
-         this.bbi_cpaybutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cpaybutn_ItemClick);
-         // 
-         // bbi_cmanbutn
-         // 
-         this.bbi_cmanbutn.Caption = "ثبت مشتری";
-         this.bbi_cmanbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_cmanbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_cmanbutn.Glyph")));
-         this.bbi_cmanbutn.Id = 79;
-         this.bbi_cmanbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_cmanbutn.LargeGlyph")));
-         this.bbi_cmanbutn.Name = "bbi_cmanbutn";
-         this.bbi_cmanbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cmanbutn_ItemClick);
-         // 
-         // bbi_exdsbutn
-         // 
-         this.bbi_exdsbutn.Caption = "رزرو میز";
-         this.bbi_exdsbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_exdsbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_exdsbutn.Glyph")));
-         this.bbi_exdsbutn.Id = 80;
-         this.bbi_exdsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_exdsbutn.LargeGlyph")));
-         this.bbi_exdsbutn.Name = "bbi_exdsbutn";
-         toolTipTitleItem5.Text = "رزرو میز";
-         toolTipItem5.LeftIndent = 6;
-         toolTipItem5.Text = "F6\r\nبرای دسترسی آسان از این کلید استفاده کنید";
-         superToolTip5.Items.Add(toolTipTitleItem5);
-         superToolTip5.Items.Add(toolTipItem5);
-         this.bbi_exdsbutn.SuperTip = superToolTip5;
-         this.bbi_exdsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_exdsbutn_ItemClick);
-         // 
-         // bbi_hlstbutn
-         // 
-         this.bbi_hlstbutn.Caption = "لیست پرسنل";
-         this.bbi_hlstbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_hlstbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_hlstbutn.Glyph")));
-         this.bbi_hlstbutn.Id = 81;
-         this.bbi_hlstbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_hlstbutn.LargeGlyph")));
-         this.bbi_hlstbutn.Name = "bbi_hlstbutn";
-         this.bbi_hlstbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_hlstbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_hlstbutn_ItemClick_1);
-         // 
-         // bbi_mbfzbutn
-         // 
-         this.bbi_mbfzbutn.Caption = "بلوکه کردن";
-         this.bbi_mbfzbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_mbfzbutn.Id = 82;
-         this.bbi_mbfzbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1241;
-         this.bbi_mbfzbutn.Name = "bbi_mbfzbutn";
-         this.bbi_mbfzbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_mbfzbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_mbfzbutn_ItemClick);
-         // 
-         // bbi_cyclbutn
-         // 
-         this.bbi_cyclbutn.Caption = "ثبت نام ترکیبی";
-         this.bbi_cyclbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_cyclbutn.Id = 83;
-         this.bbi_cyclbutn.Name = "bbi_cyclbutn";
-         this.bbi_cyclbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_cyclbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_cyclbutn_ItemClick);
-         // 
-         // bbi_rptcbutn
-         // 
-         this.bbi_rptcbutn.Caption = "گزارش چک";
-         this.bbi_rptcbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_rptcbutn.Id = 84;
-         this.bbi_rptcbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_rptcbutn.LargeGlyph")));
-         this.bbi_rptcbutn.Name = "bbi_rptcbutn";
-         this.bbi_rptcbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_rptcbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_rptcbutn_ItemClick);
-         // 
-         // bbi_senmbutn
-         // 
-         this.bbi_senmbutn.Caption = "جلسه مشاوره";
-         this.bbi_senmbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_senmbutn.Id = 85;
-         this.bbi_senmbutn.Name = "bbi_senmbutn";
-         this.bbi_senmbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_senmbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_senmbutn_ItemClick);
-         // 
-         // bbi_rptsbutn
-         // 
-         this.bbi_rptsbutn.Caption = "گزارش جلسه مشاوره";
-         this.bbi_rptsbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_rptsbutn.Id = 86;
-         this.bbi_rptsbutn.Name = "bbi_rptsbutn";
-         this.bbi_rptsbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_rptsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_rptsbutn_ItemClick);
-         // 
-         // bbi_dsrdbutn
-         // 
-         this.bbi_dsrdbutn.Caption = "فروش و صول";
-         this.bbi_dsrdbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_dsrdbutn.Id = 87;
-         this.bbi_dsrdbutn.Name = "bbi_dsrdbutn";
-         this.bbi_dsrdbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_dsrdbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_dsrdbutn_ItemClick);
-         // 
-         // bbi_dshbbutn
-         // 
-         this.bbi_dshbbutn.Caption = "داشبورد مدیریتی";
-         this.bbi_dshbbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_dshbbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_dshbbutn.Glyph")));
-         this.bbi_dshbbutn.Id = 89;
-         this.bbi_dshbbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_dshbbutn.LargeGlyph")));
-         this.bbi_dshbbutn.Name = "bbi_dshbbutn";
-         this.bbi_dshbbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_dshbbutn_ItemClick);
-         // 
-         // bbi_fdlsbutn
-         // 
-         this.bbi_fdlsbutn.Caption = "لیست مشترکین حذف شده";
-         this.bbi_fdlsbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_fdlsbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_fdlsbutn.Glyph")));
-         this.bbi_fdlsbutn.Id = 90;
-         this.bbi_fdlsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_fdlsbutn.LargeGlyph")));
-         this.bbi_fdlsbutn.Name = "bbi_fdlsbutn";
-         this.bbi_fdlsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_fdlsbutn_ItemClick);
-         // 
-         // bbi_embkbutn
-         // 
-         this.bbi_embkbutn.Caption = "پشتیبان گیری اضطراری";
-         this.bbi_embkbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_embkbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_embkbutn.Glyph")));
-         this.bbi_embkbutn.Id = 91;
-         this.bbi_embkbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_embkbutn.LargeGlyph")));
-         this.bbi_embkbutn.Name = "bbi_embkbutn";
-         this.bbi_embkbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_embkbutn_ItemClick);
-         // 
-         // bbi_basdifnbutn
-         // 
-         this.bbi_basdifnbutn.Caption = "اطلاعات پایه";
-         this.bbi_basdifnbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_basdifnbutn.Id = 92;
-         this.bbi_basdifnbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1150;
-         this.bbi_basdifnbutn.Name = "bbi_basdifnbutn";
-         this.bbi_basdifnbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_basdifnbutn_ItemClick);
-         // 
-         // bbi_mbsnbutn
-         // 
-         this.bbi_mbsnbutn.Caption = "تمدید جلسات ترکیبی";
-         this.bbi_mbsnbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_mbsnbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_mbsnbutn.Glyph")));
-         this.bbi_mbsnbutn.Id = 93;
-         this.bbi_mbsnbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_mbsnbutn.LargeGlyph")));
-         this.bbi_mbsnbutn.Name = "bbi_mbsnbutn";
-         this.bbi_mbsnbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_mbsnbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_mbsnbutn_ItemClick);
-         // 
-         // bbi_incgbutn
-         // 
-         this.bbi_incgbutn.Caption = "ثبت درآمد گروهی";
-         this.bbi_incgbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_incgbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_incgbutn.Glyph")));
-         this.bbi_incgbutn.Id = 94;
-         this.bbi_incgbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_incgbutn.LargeGlyph")));
-         this.bbi_incgbutn.Name = "bbi_incgbutn";
-         this.bbi_incgbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_incgbutn_ItemClick);
-         // 
-         // ksk_incmbutn
-         // 
-         this.ksk_incmbutn.Caption = "فروش از طریق پایانه فروش";
-         this.ksk_incmbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.ksk_incmbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("ksk_incmbutn.Glyph")));
-         this.ksk_incmbutn.Id = 96;
-         this.ksk_incmbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("ksk_incmbutn.LargeGlyph")));
-         this.ksk_incmbutn.Name = "ksk_incmbutn";
-         this.ksk_incmbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.ksk_incmbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.ksk_incmbutn_ItemClick);
-         // 
-         // tol_calcbutn
-         // 
-         this.tol_calcbutn.Caption = "ماشین حساب";
-         this.tol_calcbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_calcbutn.Id = 97;
-         this.tol_calcbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1080;
-         this.tol_calcbutn.Name = "tol_calcbutn";
-         this.tol_calcbutn.Tag = "calc";
-         this.tol_calcbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
-         // 
-         // tol_devmngrbutn
-         // 
-         this.tol_devmngrbutn.Caption = "Device Manager";
-         this.tol_devmngrbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_devmngrbutn.Id = 98;
-         this.tol_devmngrbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1067;
-         this.tol_devmngrbutn.Name = "tol_devmngrbutn";
-         this.tol_devmngrbutn.Tag = "devicemanager";
-         this.tol_devmngrbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
-         // 
-         // tol_servbutn
-         // 
-         this.tol_servbutn.Caption = "Local Services";
-         this.tol_servbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_servbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_servbutn.Glyph")));
-         this.tol_servbutn.Id = 99;
-         this.tol_servbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_servbutn.LargeGlyph")));
-         this.tol_servbutn.Name = "tol_servbutn";
-         this.tol_servbutn.Tag = "localservices";
-         this.tol_servbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
-         // 
-         // tol_sharfldrbutn
-         // 
-         this.tol_sharfldrbutn.Caption = "Share Folder";
-         this.tol_sharfldrbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_sharfldrbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_sharfldrbutn.Glyph")));
-         this.tol_sharfldrbutn.Id = 100;
-         this.tol_sharfldrbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_sharfldrbutn.LargeGlyph")));
-         this.tol_sharfldrbutn.Name = "tol_sharfldrbutn";
-         this.tol_sharfldrbutn.Tag = "sharefolder";
-         this.tol_sharfldrbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
-         // 
-         // tol_appfldrbutn
-         // 
-         this.tol_appfldrbutn.Caption = "App Folder";
-         this.tol_appfldrbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_appfldrbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_appfldrbutn.Glyph")));
-         this.tol_appfldrbutn.Id = 101;
-         this.tol_appfldrbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_appfldrbutn.LargeGlyph")));
-         this.tol_appfldrbutn.Name = "tol_appfldrbutn";
-         this.tol_appfldrbutn.Tag = "appfolder";
-         this.tol_appfldrbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
-         // 
-         // tol_ssmsbutn
-         // 
-         this.tol_ssmsbutn.Caption = "Sql Server";
-         this.tol_ssmsbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_ssmsbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_ssmsbutn.Glyph")));
-         this.tol_ssmsbutn.Id = 102;
-         this.tol_ssmsbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_ssmsbutn.LargeGlyph")));
-         this.tol_ssmsbutn.Name = "tol_ssmsbutn";
-         this.tol_ssmsbutn.Tag = "ssms";
-         this.tol_ssmsbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
-         // 
-         // tol_rmotdeskbutn
-         // 
-         this.tol_rmotdeskbutn.Caption = "Remote Desktop";
-         this.tol_rmotdeskbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_rmotdeskbutn.Id = 103;
-         this.tol_rmotdeskbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1101;
-         this.tol_rmotdeskbutn.Name = "tol_rmotdeskbutn";
-         this.tol_rmotdeskbutn.Tag = "mstsc";
-         this.tol_rmotdeskbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
-         // 
-         // tol_magnfirebutn
-         // 
-         this.tol_magnfirebutn.Caption = "Magnifire";
-         this.tol_magnfirebutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_magnfirebutn.Id = 104;
-         this.tol_magnfirebutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1069;
-         this.tol_magnfirebutn.Name = "tol_magnfirebutn";
-         this.tol_magnfirebutn.Tag = "magnifire";
-         this.tol_magnfirebutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
-         // 
-         // tol_cntlpnelbutn
-         // 
-         this.tol_cntlpnelbutn.Caption = "Control Panel";
-         this.tol_cntlpnelbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_cntlpnelbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_cntlpnelbutn.Glyph")));
-         this.tol_cntlpnelbutn.Id = 105;
-         this.tol_cntlpnelbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_cntlpnelbutn.LargeGlyph")));
-         this.tol_cntlpnelbutn.Name = "tol_cntlpnelbutn";
-         this.tol_cntlpnelbutn.Tag = "controlpanel";
-         this.tol_cntlpnelbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
-         // 
-         // tol_cmdbutn
-         // 
-         this.tol_cmdbutn.Caption = "Command Prompt";
-         this.tol_cmdbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_cmdbutn.Id = 106;
-         this.tol_cmdbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1181;
-         this.tol_cmdbutn.Name = "tol_cmdbutn";
-         this.tol_cmdbutn.Tag = "cmd";
-         this.tol_cmdbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
-         // 
-         // tol_anydeskbutn
-         // 
-         this.tol_anydeskbutn.Caption = "AnyDesk";
-         this.tol_anydeskbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_anydeskbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_anydeskbutn.Glyph")));
-         this.tol_anydeskbutn.Id = 108;
-         this.tol_anydeskbutn.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1092;
-         this.tol_anydeskbutn.Name = "tol_anydeskbutn";
-         this.tol_anydeskbutn.Tag = "anydesk";
-         this.tol_anydeskbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_ibutn_ItemClick);
-         // 
-         // tol_opengatebutn
-         // 
-         this.tol_opengatebutn.Caption = "OPEN";
-         this.tol_opengatebutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_opengatebutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_opengatebutn.Glyph")));
-         this.tol_opengatebutn.Id = 109;
-         this.tol_opengatebutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_opengatebutn.LargeGlyph")));
-         this.tol_opengatebutn.Name = "tol_opengatebutn";
-         this.tol_opengatebutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_opengatebutn_ItemClick);
-         // 
-         // tol_closegatebutn
-         // 
-         this.tol_closegatebutn.Caption = "CLOSE";
-         this.tol_closegatebutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.tol_closegatebutn.Glyph = ((System.Drawing.Image)(resources.GetObject("tol_closegatebutn.Glyph")));
-         this.tol_closegatebutn.Id = 110;
-         this.tol_closegatebutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("tol_closegatebutn.LargeGlyph")));
-         this.tol_closegatebutn.Name = "tol_closegatebutn";
-         this.tol_closegatebutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.tol_closegatebutn_ItemClick);
-         // 
-         // bbi_grntbutn
-         // 
-         this.bbi_grntbutn.Caption = "خدمات گارانتی";
-         this.bbi_grntbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_grntbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_grntbutn.Glyph")));
-         this.bbi_grntbutn.Id = 111;
-         this.bbi_grntbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_grntbutn.LargeGlyph")));
-         this.bbi_grntbutn.Name = "bbi_grntbutn";
-         this.bbi_grntbutn.Visibility = DevExpress.XtraBars.BarItemVisibility.Never;
-         this.bbi_grntbutn.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_grntbutn_ItemClick);
-         // 
-         // bbi_evntsysbutn
-         // 
-         this.bbi_evntsysbutn.Caption = "رخدادهای سیستم";
-         this.bbi_evntsysbutn.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_evntsysbutn.Glyph = ((System.Drawing.Image)(resources.GetObject("bbi_evntsysbutn.Glyph")));
-         this.bbi_evntsysbutn.Id = 112;
-         this.bbi_evntsysbutn.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("bbi_evntsysbutn.LargeGlyph")));
-         this.bbi_evntsysbutn.Name = "bbi_evntsysbutn";
-         // 
-         // bbi_dsctcard
-         // 
-         this.bbi_dsctcard.Caption = "کد تخفیف";
-         this.bbi_dsctcard.CategoryGuid = new System.Guid("6ffddb2b-9015-4d97-a4c1-91613e0ef537");
-         this.bbi_dsctcard.Glyph = global::System.Scsc.Properties.Resources.IMAGE_1206;
-         this.bbi_dsctcard.Id = 113;
-         this.bbi_dsctcard.LargeGlyph = global::System.Scsc.Properties.Resources.IMAGE_1206;
-         this.bbi_dsctcard.Name = "bbi_dsctcard";
-         this.bbi_dsctcard.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.bbi_dsctcard_ItemClick);
-         // 
-         // System_RPgc
-         // 
-         this.System_RPgc.Color = System.Drawing.Color.Empty;
-         this.System_RPgc.Name = "System_RPgc";
-         this.System_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.Base_RbPg,
-            this.Adm_RbPg,
-            this.Serv_RbPg});
-         this.System_RPgc.Text = "                                سیستم نرم افزار پایه";
-         // 
-         // Base_RbPg
-         // 
-         this.Base_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.Base_RbGp,
-            this.Mali_RbGp,
-            this.ribbonPageGroup3});
-         this.Base_RbPg.Name = "Base_RbPg";
-         this.Base_RbPg.Text = "اطلاعات پایه";
-         // 
-         // Base_RbGp
-         // 
-         this.Base_RbGp.ItemLinks.Add(this.bbi_basdifnbutn);
-         this.Base_RbGp.ItemLinks.Add(this.bbi_cashbutn);
-         this.Base_RbGp.ItemLinks.Add(this.bbi_mtodbutn);
-         this.Base_RbGp.ItemLinks.Add(this.bbi_regnbutn);
-         this.Base_RbGp.ItemLinks.Add(this.bbi_coptbutn);
-         this.Base_RbGp.Name = "Base_RbGp";
-         this.Base_RbGp.Text = "مفاهیم اولیه مورد نیاز";
-         // 
-         // Mali_RbGp
-         // 
-         this.Mali_RbGp.ItemLinks.Add(this.bbi_reglbutn);
-         this.Mali_RbGp.ItemLinks.Add(this.bbi_crglbutn);
-         this.Mali_RbGp.ItemLinks.Add(this.bbi_idrgbutn);
-         this.Mali_RbGp.ItemLinks.Add(this.bbi_orgnbutn);
-         this.Mali_RbGp.Name = "Mali_RbGp";
-         this.Mali_RbGp.Text = "اطلاعات اولیه مالی";
-         this.Mali_RbGp.Visible = false;
-         // 
-         // ribbonPageGroup3
-         // 
-         this.ribbonPageGroup3.ItemLinks.Add(this.bbi_movpbutn);
-         this.ribbonPageGroup3.Name = "ribbonPageGroup3";
-         this.ribbonPageGroup3.Text = "اضافی";
-         this.ribbonPageGroup3.Visible = false;
-         // 
-         // Adm_RbPg
-         // 
-         this.Adm_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.Adm_RbGp,
-            this.ribbonPageGroup5});
-         this.Adm_RbPg.Name = "Adm_RbPg";
-         this.Adm_RbPg.Text = "اطلاعات ثبت نام";
-         // 
-         // Adm_RbGp
-         // 
-         this.Adm_RbGp.ItemLinks.Add(this.bbi_adm1butn);
-         this.Adm_RbGp.ItemLinks.Add(this.bbi_mbs1butn);
-         this.Adm_RbGp.ItemLinks.Add(this.bbi_cyclbutn);
-         this.Adm_RbGp.ItemLinks.Add(this.bbi_mbsnbutn);
-         this.Adm_RbGp.ItemLinks.Add(this.bbi_mbfzbutn);
-         this.Adm_RbGp.ItemLinks.Add(this.bbi_senmbutn);
-         this.Adm_RbGp.ItemLinks.Add(this.bbi_insrbutn);
-         this.Adm_RbGp.ItemLinks.Add(this.bbi_fmdfbutn);
-         this.Adm_RbGp.ItemLinks.Add(this.bbi_fcrlbutn);
-         this.Adm_RbGp.Name = "Adm_RbGp";
-         this.Adm_RbGp.Text = "اطلاعات ثبت نام";
-         // 
-         // ribbonPageGroup5
-         // 
-         this.ribbonPageGroup5.ItemLinks.Add(this.bbi_adm2butn);
-         this.ribbonPageGroup5.ItemLinks.Add(this.bbi_clstbutn);
-         this.ribbonPageGroup5.ItemLinks.Add(this.bbi_cundbutn);
-         this.ribbonPageGroup5.ItemLinks.Add(this.bbi_cdelbutn);
-         this.ribbonPageGroup5.ItemLinks.Add(this.bbi_cchmbutn);
-         this.ribbonPageGroup5.ItemLinks.Add(this.bbi_mbcobutn);
-         this.ribbonPageGroup5.Name = "ribbonPageGroup5";
-         this.ribbonPageGroup5.Text = "مربیان / اساتید";
-         this.ribbonPageGroup5.Visible = false;
-         // 
-         // Serv_RbPg
-         // 
-         this.Serv_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.Serv_RbGp,
-            this.ribbonPageGroup8,
-            this.ribbonPageGroup9});
-         this.Serv_RbPg.Name = "Serv_RbPg";
-         this.Serv_RbPg.Text = "اطلاعات پرونده مشتریان";
-         // 
-         // Serv_RbGp
-         // 
-         this.Serv_RbGp.ItemLinks.Add(this.bbi_flstbutn);
-         this.Serv_RbGp.ItemLinks.Add(this.bbi_clstbutn);
-         this.Serv_RbGp.ItemLinks.Add(this.bbi_fdlsbutn);
-         this.Serv_RbGp.ItemLinks.Add(this.bbi_attnbutn);
-         this.Serv_RbGp.ItemLinks.Add(this.bbi_rptcbutn);
-         this.Serv_RbGp.ItemLinks.Add(this.bbi_rptsbutn);
-         this.Serv_RbGp.Name = "Serv_RbGp";
-         this.Serv_RbGp.Text = "اطلاعات پرونده مشتریان";
-         // 
-         // ribbonPageGroup8
-         // 
-         this.ribbonPageGroup8.Name = "ribbonPageGroup8";
-         this.ribbonPageGroup8.Text = "مربیان";
-         this.ribbonPageGroup8.Visible = false;
-         // 
-         // ribbonPageGroup9
-         // 
-         this.ribbonPageGroup9.ItemLinks.Add(this.bbi_fembbutn);
-         this.ribbonPageGroup9.ItemLinks.Add(this.bbi_frkdbutn);
-         this.ribbonPageGroup9.ItemLinks.Add(this.bbi_feinbutn);
-         this.ribbonPageGroup9.ItemLinks.Add(this.bbi_femtbutn);
-         this.ribbonPageGroup9.Name = "ribbonPageGroup9";
-         this.ribbonPageGroup9.Text = "مشترییان";
-         this.ribbonPageGroup9.Visible = false;
-         // 
-         // OtherInCome_RPgc
-         // 
-         this.OtherInCome_RPgc.Color = System.Drawing.Color.Empty;
-         this.OtherInCome_RPgc.Name = "OtherInCome_RPgc";
-         this.OtherInCome_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.OthrOption_RbPg});
-         this.OtherInCome_RPgc.Text = "متفرقه";
-         // 
-         // OthrOption_RbPg
-         // 
-         this.OthrOption_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.OthrOption_RbGp,
-            this.OthrExpnOption_RbGp,
-            this.ribbonPageGroup19});
-         this.OthrOption_RbPg.Name = "OthrOption_RbPg";
-         this.OthrOption_RbPg.Text = "متفرقه";
-         // 
-         // OthrOption_RbGp
-         // 
-         this.OthrOption_RbGp.ItemLinks.Add(this.bbi_cmanbutn);
-         this.OthrOption_RbGp.ItemLinks.Add(this.bbi_oincbutn);
-         this.OthrOption_RbGp.ItemLinks.Add(this.bbi_exdsbutn);
-         this.OthrOption_RbGp.ItemLinks.Add(this.bbi_fdbtbutn);
-         this.OthrOption_RbGp.ItemLinks.Add(this.ksk_incmbutn);
-         this.OthrOption_RbGp.ItemLinks.Add(this.bbi_grntbutn);
-         this.OthrOption_RbGp.Name = "OthrOption_RbGp";
-         this.OthrOption_RbGp.Text = "درآمد";
-         // 
-         // OthrExpnOption_RbGp
-         // 
-         this.OthrExpnOption_RbGp.ItemLinks.Add(this.bbi_oexpbutn);
-         this.OthrExpnOption_RbGp.ItemLinks.Add(this.bbi_cpaybutn);
-         this.OthrExpnOption_RbGp.Name = "OthrExpnOption_RbGp";
-         this.OthrExpnOption_RbGp.Text = "هزینه";
-         // 
-         // ribbonPageGroup19
-         // 
-         this.ribbonPageGroup19.ItemLinks.Add(this.bbi_aprsbutn);
-         this.ribbonPageGroup19.ItemLinks.Add(this.bbi_dprsbutn);
-         this.ribbonPageGroup19.ItemLinks.Add(this.bbi_cprsbutn);
-         this.ribbonPageGroup19.ItemLinks.Add(this.bbi_hlstbutn);
-         this.ribbonPageGroup19.Name = "ribbonPageGroup19";
-         this.ribbonPageGroup19.Text = "پرسنل باشگاه";
-         this.ribbonPageGroup19.Visible = false;
-         // 
-         // ribbonPageCategory3
-         // 
-         this.ribbonPageCategory3.Color = System.Drawing.Color.Empty;
-         this.ribbonPageCategory3.Name = "ribbonPageCategory3";
-         this.ribbonPageCategory3.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.ribbonPage7});
-         this.ribbonPageCategory3.Text = "سیستم استعداد یابی برای مربیان";
-         this.ribbonPageCategory3.Visible = false;
-         // 
-         // ribbonPage7
-         // 
-         this.ribbonPage7.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup15,
-            this.ribbonPageGroup16});
-         this.ribbonPage7.Name = "ribbonPage7";
-         this.ribbonPage7.Text = "شاخص مربیان";
-         this.ribbonPage7.Visible = false;
-         // 
-         // ribbonPageGroup15
-         // 
-         this.ribbonPageGroup15.Name = "ribbonPageGroup15";
-         this.ribbonPageGroup15.Text = "مشترییان";
-         // 
-         // ribbonPageGroup16
-         // 
-         this.ribbonPageGroup16.Name = "ribbonPageGroup16";
-         this.ribbonPageGroup16.Text = "تناسب اندام";
-         // 
-         // AgrActn_RPgc
-         // 
-         this.AgrActn_RPgc.Color = System.Drawing.Color.Empty;
-         this.AgrActn_RPgc.Name = "AgrActn_RPgc";
-         this.AgrActn_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.AgrOption_RbPg});
-         this.AgrActn_RPgc.Text = "فعالیت گروهی";
-         // 
-         // AgrOption_RbPg
-         // 
-         this.AgrOption_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.AgrSmsOption_RbGp,
-            this.AgrOprOption_RbGp,
-            this.ribbonPageGroup2});
-         this.AgrOption_RbPg.Name = "AgrOption_RbPg";
-         this.AgrOption_RbPg.Text = "اطلاع رسانی و تبلیغات";
-         // 
-         // AgrSmsOption_RbGp
-         // 
-         this.AgrSmsOption_RbGp.ItemLinks.Add(this.bbi_smsbbutn);
-         this.AgrSmsOption_RbGp.Name = "AgrSmsOption_RbGp";
-         this.AgrSmsOption_RbGp.Text = "اطلاع رسانی ها";
-         // 
-         // AgrOprOption_RbGp
-         // 
-         this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_agmbbutn);
-         this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_agcbbutn);
-         this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_aglsbutn);
-         this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_agmcbutn);
-         this.AgrOprOption_RbGp.ItemLinks.Add(this.bbi_incgbutn);
-         this.AgrOprOption_RbGp.Name = "AgrOprOption_RbGp";
-         this.AgrOprOption_RbGp.Text = "عملیات دوره ای";
-         this.AgrOprOption_RbGp.Visible = false;
-         // 
-         // ribbonPageGroup2
-         // 
-         this.ribbonPageGroup2.ItemLinks.Add(this.bbi_dsctcard);
-         this.ribbonPageGroup2.Name = "ribbonPageGroup2";
-         this.ribbonPageGroup2.Text = "تبلیغات";
-         // 
-         // Mngr_RPgc
-         // 
-         this.Mngr_RPgc.Color = System.Drawing.Color.Empty;
-         this.Mngr_RPgc.Name = "Mngr_RPgc";
-         this.Mngr_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.Report_RbPg,
-            this.ribbonPage8});
-         this.Mngr_RPgc.Text = "گزارش های مدیریتی";
-         // 
-         // Report_RbPg
-         // 
-         this.Report_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.Report_RbGp,
-            this.ribbonPageGroup17});
-         this.Report_RbPg.Name = "Report_RbPg";
-         this.Report_RbPg.Text = "گزارشات";
-         // 
-         // Report_RbGp
-         // 
-         this.Report_RbGp.ItemLinks.Add(this.bbi_acntbutn);
-         this.Report_RbGp.ItemLinks.Add(this.bbi_incmbutn);
-         this.Report_RbGp.ItemLinks.Add(this.bbi_expnbutn);
-         this.Report_RbGp.ItemLinks.Add(this.bbi_salebutn);
-         this.Report_RbGp.ItemLinks.Add(this.bbi_bislbutn);
-         this.Report_RbGp.Name = "Report_RbGp";
-         this.Report_RbGp.Text = "مالی";
-         // 
-         // ribbonPageGroup17
-         // 
-         this.ribbonPageGroup17.ItemLinks.Add(this.bbi_evntsysbutn);
-         this.ribbonPageGroup17.Name = "ribbonPageGroup17";
-         this.ribbonPageGroup17.Text = "فعالیت های سیستم";
-         this.ribbonPageGroup17.Visible = false;
-         // 
-         // ribbonPage8
-         // 
-         this.ribbonPage8.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup20});
-         this.ribbonPage8.Name = "ribbonPage8";
-         this.ribbonPage8.Text = "داشبورد";
-         this.ribbonPage8.Visible = false;
-         // 
-         // ribbonPageGroup20
-         // 
-         this.ribbonPageGroup20.ItemLinks.Add(this.bbi_dsrdbutn);
-         this.ribbonPageGroup20.ItemLinks.Add(this.bbi_dshbbutn);
-         this.ribbonPageGroup20.Name = "ribbonPageGroup20";
-         this.ribbonPageGroup20.Text = "گزارشات راهبردی";
-         // 
-         // SystemAdmin_RPgc
-         // 
-         this.SystemAdmin_RPgc.Color = System.Drawing.Color.Empty;
-         this.SystemAdmin_RPgc.Name = "SystemAdmin_RPgc";
-         this.SystemAdmin_RPgc.Pages.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPage[] {
-            this.SystemAdmin_RbPg,
-            this.Tools_RbPg});
-         this.SystemAdmin_RPgc.Text = "مدیریت سیستم";
-         // 
-         // SystemAdmin_RbPg
-         // 
-         this.SystemAdmin_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.SystemAdmin_RbGp});
-         this.SystemAdmin_RbPg.Name = "SystemAdmin_RbPg";
-         this.SystemAdmin_RbPg.Text = "مدیریت سیستم";
-         // 
-         // SystemAdmin_RbGp
-         // 
-         this.SystemAdmin_RbGp.ItemLinks.Add(this.bbi_bkupbutn);
-         this.SystemAdmin_RbGp.ItemLinks.Add(this.bbi_rstrbutn);
-         this.SystemAdmin_RbGp.ItemLinks.Add(this.bbi_embkbutn);
-         this.SystemAdmin_RbGp.Name = "SystemAdmin_RbGp";
-         this.SystemAdmin_RbGp.Text = "حفاظت اطلاعات";
-         // 
-         // Tools_RbPg
-         // 
-         this.Tools_RbPg.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.Tools_RbGg,
-            this.ribbonPageGroup1});
-         this.Tools_RbPg.Name = "Tools_RbPg";
-         this.Tools_RbPg.Text = "ابزار های مفید";
-         // 
-         // Tools_RbGg
-         // 
-         this.Tools_RbGg.ItemLinks.Add(this.tol_calcbutn);
-         this.Tools_RbGg.ItemLinks.Add(this.tol_devmngrbutn);
-         this.Tools_RbGg.ItemLinks.Add(this.tol_servbutn);
-         this.Tools_RbGg.ItemLinks.Add(this.tol_sharfldrbutn);
-         this.Tools_RbGg.ItemLinks.Add(this.tol_appfldrbutn);
-         this.Tools_RbGg.ItemLinks.Add(this.tol_ssmsbutn);
-         this.Tools_RbGg.ItemLinks.Add(this.tol_rmotdeskbutn);
-         this.Tools_RbGg.ItemLinks.Add(this.tol_magnfirebutn);
-         this.Tools_RbGg.ItemLinks.Add(this.tol_cntlpnelbutn);
-         this.Tools_RbGg.ItemLinks.Add(this.tol_cmdbutn);
-         this.Tools_RbGg.ItemLinks.Add(this.tol_anydeskbutn);
-         this.Tools_RbGg.Name = "Tools_RbGg";
-         this.Tools_RbGg.Text = "ابزارهای مفید";
-         // 
-         // ribbonPageGroup1
-         // 
-         this.ribbonPageGroup1.ItemLinks.Add(this.tol_closegatebutn);
-         this.ribbonPageGroup1.ItemLinks.Add(this.tol_opengatebutn);
-         this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-         this.ribbonPageGroup1.Text = "کنترل تردد گیت";
-         // 
          // spc_desktop
          // 
          this.spc_desktop.Dock = System.Windows.Forms.DockStyle.Fill;
          this.spc_desktop.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
          this.spc_desktop.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.spc_desktop.IsSplitterFixed = true;
-         this.spc_desktop.Location = new System.Drawing.Point(0, 142);
+         this.spc_desktop.Location = new System.Drawing.Point(0, 0);
          this.spc_desktop.Name = "spc_desktop";
          this.spc_desktop.Orientation = System.Windows.Forms.Orientation.Horizontal;
          // 
@@ -2988,24 +1396,27 @@
          this.spc_desktop.Panel2.Controls.Add(this.ShowDesktop_Butn);
          this.spc_desktop.Panel2.Padding = new System.Windows.Forms.Padding(5);
          this.spc_desktop.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.spc_desktop.Size = new System.Drawing.Size(1230, 895);
-         this.spc_desktop.SplitterDistance = 854;
+         this.spc_desktop.Size = new System.Drawing.Size(1291, 982);
+         this.spc_desktop.SplitterDistance = 941;
          this.spc_desktop.TabIndex = 3;
          // 
          // spc_desktopnew
          // 
-         this.spc_desktopnew.Appearance.BackColor = System.Drawing.SystemColors.Control;
+         this.spc_desktopnew.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.spc_desktopnew.Appearance.Options.UseBackColor = true;
          this.spc_desktopnew.Dock = System.Windows.Forms.DockStyle.Fill;
          this.spc_desktopnew.FixedPanel = DevExpress.XtraEditors.SplitFixedPanel.Panel2;
          this.spc_desktopnew.Location = new System.Drawing.Point(0, 0);
+         this.spc_desktopnew.LookAndFeel.UseDefaultLookAndFeel = false;
          this.spc_desktopnew.Name = "spc_desktopnew";
+         this.spc_desktopnew.Panel1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
+         this.spc_desktopnew.Panel1.Appearance.Options.UseBackColor = true;
          this.spc_desktopnew.Panel1.Controls.Add(this.AdjustDateTime_Lab);
          this.spc_desktopnew.Panel1.Text = "Panel1";
          this.spc_desktopnew.Panel2.Controls.Add(this.Master_Tc);
          this.spc_desktopnew.Panel2.Text = "Panel2";
-         this.spc_desktopnew.Size = new System.Drawing.Size(1230, 854);
-         this.spc_desktopnew.SplitterPosition = 265;
+         this.spc_desktopnew.Size = new System.Drawing.Size(1291, 941);
+         this.spc_desktopnew.SplitterPosition = 266;
          this.spc_desktopnew.TabIndex = 23;
          this.spc_desktopnew.Text = "splitContainerControl1";
          // 
@@ -3013,7 +1424,7 @@
          // 
          this.AdjustDateTime_Lab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
          this.AdjustDateTime_Lab.Font = new System.Drawing.Font("Segoe UI Light", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.AdjustDateTime_Lab.Location = new System.Drawing.Point(612, 684);
+         this.AdjustDateTime_Lab.Location = new System.Drawing.Point(672, 771);
          this.AdjustDateTime_Lab.Name = "AdjustDateTime_Lab";
          this.AdjustDateTime_Lab.Size = new System.Drawing.Size(343, 155);
          this.AdjustDateTime_Lab.TabIndex = 0;
@@ -3021,22 +1432,28 @@
          // 
          // Master_Tc
          // 
+         this.Master_Tc.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.Master_Tc.Appearance.Options.UseBackColor = true;
          this.Master_Tc.AppearancePage.Header.Options.UseTextOptions = true;
          this.Master_Tc.AppearancePage.Header.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
-         this.Master_Tc.AppearancePage.PageClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Master_Tc.AppearancePage.PageClient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Master_Tc.AppearancePage.PageClient.Options.UseBackColor = true;
          this.Master_Tc.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Master_Tc.HeaderAutoFill = DevExpress.Utils.DefaultBoolean.True;
          this.Master_Tc.Location = new System.Drawing.Point(0, 0);
-         this.Master_Tc.LookAndFeel.SkinName = "Office 2013 Dark Gray";
+         this.Master_Tc.LookAndFeel.SkinName = "DevExpress Dark Style";
+         this.Master_Tc.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Style3D;
          this.Master_Tc.LookAndFeel.UseDefaultLookAndFeel = false;
          this.Master_Tc.MultiLine = DevExpress.Utils.DefaultBoolean.True;
          this.Master_Tc.Name = "Master_Tc";
          this.Master_Tc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Master_Tc.SelectedTabPage = this.xTp_002;
-         this.Master_Tc.Size = new System.Drawing.Size(265, 854);
+         this.Master_Tc.Size = new System.Drawing.Size(266, 941);
          this.Master_Tc.TabIndex = 1;
          this.Master_Tc.TabPages.AddRange(new DevExpress.XtraTab.XtraTabPage[] {
+            this.xTp_006,
+            this.xTp_004,
+            this.xTp_005,
             this.xTp_003,
             this.xTp_001,
             this.xTp_002});
@@ -3045,31 +1462,32 @@
          // xTp_002
          // 
          this.xTp_002.Appearance.Header.BackColor = System.Drawing.SystemColors.Control;
-         this.xTp_002.Appearance.Header.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_002.Appearance.Header.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.xTp_002.Appearance.Header.Options.UseBackColor = true;
          this.xTp_002.Appearance.Header.Options.UseBorderColor = true;
-         this.xTp_002.Appearance.HeaderActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.xTp_002.Appearance.HeaderActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_002.Appearance.HeaderActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_002.Appearance.HeaderActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.xTp_002.Appearance.HeaderActive.Options.UseBackColor = true;
          this.xTp_002.Appearance.HeaderActive.Options.UseBorderColor = true;
-         this.xTp_002.Appearance.HeaderHotTracked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.xTp_002.Appearance.HeaderHotTracked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_002.Appearance.HeaderHotTracked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_002.Appearance.HeaderHotTracked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.xTp_002.Appearance.HeaderHotTracked.Options.UseBackColor = true;
          this.xTp_002.Appearance.HeaderHotTracked.Options.UseBorderColor = true;
          this.xTp_002.Appearance.PageClient.BackColor = System.Drawing.SystemColors.Control;
          this.xTp_002.Appearance.PageClient.Options.UseBackColor = true;
          this.xTp_002.Controls.Add(this.Main_Pnl);
+         this.xTp_002.Image = ((System.Drawing.Image)(resources.GetObject("xTp_002.Image")));
          this.xTp_002.Name = "xTp_002";
-         this.xTp_002.Size = new System.Drawing.Size(263, 829);
-         this.xTp_002.Text = "سیستم جامع";
+         this.xTp_002.Size = new System.Drawing.Size(262, 914);
          // 
          // Main_Pnl
          // 
          this.Main_Pnl.AutoScroll = true;
-         this.Main_Pnl.BackColor = System.Drawing.SystemColors.Control;
+         this.Main_Pnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Main_Pnl.Controls.Add(this.Wlet_Rlt);
          this.Main_Pnl.Controls.Add(this.SprtYear_Rlt);
          this.Main_Pnl.Controls.Add(this.Base_Rlt);
+         this.Main_Pnl.Controls.Add(this.InptData_Rlt);
          this.Main_Pnl.Controls.Add(this.DataMang_Rlt);
          this.Main_Pnl.Controls.Add(this.Tool_Rlt);
          this.Main_Pnl.Controls.Add(this.Kisk_Rlt);
@@ -3081,13 +1499,13 @@
          this.Main_Pnl.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
          this.Main_Pnl.Location = new System.Drawing.Point(0, 0);
          this.Main_Pnl.Name = "Main_Pnl";
-         this.Main_Pnl.Size = new System.Drawing.Size(263, 829);
+         this.Main_Pnl.Size = new System.Drawing.Size(262, 914);
          this.Main_Pnl.TabIndex = 35;
          this.Main_Pnl.WrapContents = false;
          // 
          // Wlet_Rlt
          // 
-         this.Wlet_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Wlet_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Wlet_Rlt.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.Wlet_Rlt.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.Wlet_Rlt.BorderThickness = 1F;
@@ -3095,11 +1513,11 @@
          this.Wlet_Rlt.Controls.Add(this.CWlet_Pb);
          this.Wlet_Rlt.Controls.Add(this.CWlet_Lnk);
          this.Wlet_Rlt.Controls.Add(this.CWlet_Txt);
-         this.Wlet_Rlt.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.Wlet_Rlt.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.Wlet_Rlt.ForeColor = System.Drawing.Color.Black;
          this.Wlet_Rlt.FrameOnMouseOverOnly = false;
          this.Wlet_Rlt.GroupImage = null;
-         this.Wlet_Rlt.Location = new System.Drawing.Point(6, 3);
+         this.Wlet_Rlt.Location = new System.Drawing.Point(5, 3);
          this.Wlet_Rlt.MaxHeight = 474;
          this.Wlet_Rlt.Name = "Wlet_Rlt";
          this.Wlet_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -3115,11 +1533,11 @@
          this.Wlet_Rlt.ShowFocusFrame = false;
          this.Wlet_Rlt.Size = new System.Drawing.Size(237, 474);
          this.Wlet_Rlt.TabIndex = 26;
-         this.Wlet_Rlt.TitleBorderColor = System.Drawing.Color.Gray;
+         this.Wlet_Rlt.TitleBorderColor = System.Drawing.Color.Black;
          // 
          // grouper15
          // 
-         this.grouper15.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper15.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper15.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper15.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper15.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -3156,12 +1574,12 @@
          // 
          // WletChrg_Butn
          // 
-         this.WletChrg_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.WletChrg_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.WletChrg_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.WletChrg_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.WletChrg_Butn.FlatAppearance.BorderSize = 0;
          this.WletChrg_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.WletChrg_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.WletChrg_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.WletChrg_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.WletChrg_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.WletChrg_Butn.Font = new System.Drawing.Font("B Yekan", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.WletChrg_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -3207,9 +1625,8 @@
          this.CWlet_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CWlet_Txt.EditValue = "0";
          this.CWlet_Txt.Location = new System.Drawing.Point(24, 167);
-         this.CWlet_Txt.MenuManager = this.MainRbonMenu_Rbnc;
          this.CWlet_Txt.Name = "CWlet_Txt";
-         this.CWlet_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CWlet_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.CWlet_Txt.Properties.Appearance.Font = new System.Drawing.Font("B Roya", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CWlet_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.CWlet_Txt.Properties.Appearance.Options.UseFont = true;
@@ -3230,36 +1647,36 @@
          // 
          // SprtYear_Rlt
          // 
-         this.SprtYear_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SprtYear_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SprtYear_Rlt.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.SprtYear_Rlt.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.SprtYear_Rlt.BorderThickness = 1F;
          this.SprtYear_Rlt.Controls.Add(this.grouper33);
-         this.SprtYear_Rlt.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.SprtYear_Rlt.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.SprtYear_Rlt.ForeColor = System.Drawing.Color.Black;
          this.SprtYear_Rlt.FrameOnMouseOverOnly = false;
          this.SprtYear_Rlt.GroupImage = null;
-         this.SprtYear_Rlt.Location = new System.Drawing.Point(6, 483);
+         this.SprtYear_Rlt.Location = new System.Drawing.Point(5, 483);
          this.SprtYear_Rlt.MaxHeight = 266;
          this.SprtYear_Rlt.Name = "SprtYear_Rlt";
          this.SprtYear_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.SprtYear_Rlt.PaintRollout = true;
          this.SprtYear_Rlt.RolloutBorderColor = System.Drawing.Color.Gray;
          this.SprtYear_Rlt.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.SprtYear_Rlt.RolloutStatus = false;
+         this.SprtYear_Rlt.RolloutStatus = true;
          this.SprtYear_Rlt.RolloutTitle = "پشتیبانی سالیانه سیستم";
          this.SprtYear_Rlt.RoundCorners = 2;
          this.SprtYear_Rlt.ShadowColor = System.Drawing.Color.DarkGray;
          this.SprtYear_Rlt.ShadowControl = false;
          this.SprtYear_Rlt.ShadowThickness = 3;
          this.SprtYear_Rlt.ShowFocusFrame = false;
-         this.SprtYear_Rlt.Size = new System.Drawing.Size(237, 22);
+         this.SprtYear_Rlt.Size = new System.Drawing.Size(237, 266);
          this.SprtYear_Rlt.TabIndex = 29;
-         this.SprtYear_Rlt.TitleBorderColor = System.Drawing.Color.Gray;
+         this.SprtYear_Rlt.TitleBorderColor = System.Drawing.Color.Black;
          // 
          // grouper33
          // 
-         this.grouper33.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper33.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper33.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper33.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper33.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -3289,9 +1706,8 @@
          this.SubVerNo_Txt.EditValue = "1.0.0.0";
          this.SubVerNo_Txt.Enabled = false;
          this.SubVerNo_Txt.Location = new System.Drawing.Point(18, 33);
-         this.SubVerNo_Txt.MenuManager = this.MainRbonMenu_Rbnc;
          this.SubVerNo_Txt.Name = "SubVerNo_Txt";
-         this.SubVerNo_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SubVerNo_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SubVerNo_Txt.Properties.Appearance.Font = new System.Drawing.Font("Fixed", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.SubVerNo_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.SubVerNo_Txt.Properties.Appearance.Options.UseFont = true;
@@ -3345,59 +1761,134 @@
          // 
          // Base_Rlt
          // 
-         this.Base_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Base_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Base_Rlt.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.Base_Rlt.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.Base_Rlt.BorderThickness = 1F;
-         this.Base_Rlt.Controls.Add(this.button3);
-         this.Base_Rlt.Controls.Add(this.button8);
-         this.Base_Rlt.Controls.Add(this.bbi_AllCoch_Butn);
-         this.Base_Rlt.Controls.Add(this.button11);
-         this.Base_Rlt.Controls.Add(this.button10);
-         this.Base_Rlt.Controls.Add(this.button12);
-         this.Base_Rlt.Controls.Add(this.button9);
-         this.Base_Rlt.Controls.Add(this.button7);
-         this.Base_Rlt.Controls.Add(this.bbi_AddCoch_Butn);
-         this.Base_Rlt.Controls.Add(this.button15);
-         this.Base_Rlt.Controls.Add(this.button4);
-         this.Base_Rlt.Controls.Add(this.button14);
-         this.Base_Rlt.Controls.Add(this.button13);
-         this.Base_Rlt.Controls.Add(this.button2);
-         this.Base_Rlt.Controls.Add(this.bbi_oprcompbutn);
-         this.Base_Rlt.Controls.Add(this.button1);
-         this.Base_Rlt.Controls.Add(this.bbi_BaseDef_Butn);
-         this.Base_Rlt.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.Base_Rlt.Controls.Add(this.BasDef2_Btn);
+         this.Base_Rlt.Controls.Add(this.BasDef1_Btn);
+         this.Base_Rlt.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.Base_Rlt.ForeColor = System.Drawing.Color.Black;
          this.Base_Rlt.FrameOnMouseOverOnly = false;
          this.Base_Rlt.GroupImage = null;
-         this.Base_Rlt.Location = new System.Drawing.Point(6, 511);
-         this.Base_Rlt.MaxHeight = 377;
+         this.Base_Rlt.Location = new System.Drawing.Point(5, 755);
+         this.Base_Rlt.MaxHeight = 93;
          this.Base_Rlt.Name = "Base_Rlt";
          this.Base_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.Base_Rlt.PaintRollout = true;
          this.Base_Rlt.RolloutBorderColor = System.Drawing.Color.Gray;
          this.Base_Rlt.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
          this.Base_Rlt.RolloutStatus = true;
-         this.Base_Rlt.RolloutTitle = "پایه و اساس سیستم";
+         this.Base_Rlt.RolloutTitle = "تعاریف اولیه سیستم";
          this.Base_Rlt.RoundCorners = 2;
          this.Base_Rlt.ShadowColor = System.Drawing.Color.DarkGray;
          this.Base_Rlt.ShadowControl = false;
          this.Base_Rlt.ShadowThickness = 3;
          this.Base_Rlt.ShowFocusFrame = false;
-         this.Base_Rlt.Size = new System.Drawing.Size(237, 377);
-         this.Base_Rlt.TabIndex = 27;
-         this.Base_Rlt.Tag = "open";
-         this.Base_Rlt.TitleBorderColor = System.Drawing.Color.Gray;
+         this.Base_Rlt.Size = new System.Drawing.Size(237, 93);
+         this.Base_Rlt.TabIndex = 36;
+         this.Base_Rlt.TitleBorderColor = System.Drawing.Color.Black;
+         // 
+         // BasDef2_Btn
+         // 
+         this.BasDef2_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.BasDef2_Btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.BasDef2_Btn.FlatAppearance.BorderSize = 0;
+         this.BasDef2_Btn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.BasDef2_Btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.BasDef2_Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.BasDef2_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.BasDef2_Btn.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.BasDef2_Btn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.BasDef2_Btn.FrameOnMouseOverOnly = false;
+         this.BasDef2_Btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.BasDef2_Btn.Location = new System.Drawing.Point(7, 62);
+         this.BasDef2_Btn.Name = "BasDef2_Btn";
+         this.BasDef2_Btn.ShowFocusFrame = true;
+         this.BasDef2_Btn.Size = new System.Drawing.Size(224, 25);
+         this.BasDef2_Btn.TabIndex = 68;
+         this.BasDef2_Btn.Text = "پیکربندی شبکه و سرویس خدمات";
+         this.BasDef2_Btn.UseVisualStyleBackColor = false;
+         this.BasDef2_Btn.Click += new System.EventHandler(this.BasDef2_Btn_Click);
+         // 
+         // BasDef1_Btn
+         // 
+         this.BasDef1_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.BasDef1_Btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.BasDef1_Btn.FlatAppearance.BorderSize = 0;
+         this.BasDef1_Btn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.BasDef1_Btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.BasDef1_Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.BasDef1_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.BasDef1_Btn.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.BasDef1_Btn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.BasDef1_Btn.FrameOnMouseOverOnly = false;
+         this.BasDef1_Btn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.BasDef1_Btn.Location = new System.Drawing.Point(7, 31);
+         this.BasDef1_Btn.Name = "BasDef1_Btn";
+         this.BasDef1_Btn.ShowFocusFrame = true;
+         this.BasDef1_Btn.Size = new System.Drawing.Size(224, 25);
+         this.BasDef1_Btn.TabIndex = 68;
+         this.BasDef1_Btn.Text = "تعاریف اولیه درآمد / هزینه";
+         this.BasDef1_Btn.UseVisualStyleBackColor = false;
+         this.BasDef1_Btn.Click += new System.EventHandler(this.BasDef1_Btn_Click);
+         // 
+         // InptData_Rlt
+         // 
+         this.InptData_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.InptData_Rlt.BackgroundGradientColor = System.Drawing.SystemColors.Control;
+         this.InptData_Rlt.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
+         this.InptData_Rlt.BorderThickness = 1F;
+         this.InptData_Rlt.Controls.Add(this.button3);
+         this.InptData_Rlt.Controls.Add(this.button8);
+         this.InptData_Rlt.Controls.Add(this.bbi_AllCoch_Butn);
+         this.InptData_Rlt.Controls.Add(this.bbi_AddCoch_Butn);
+         this.InptData_Rlt.Controls.Add(this.button11);
+         this.InptData_Rlt.Controls.Add(this.button10);
+         this.InptData_Rlt.Controls.Add(this.button12);
+         this.InptData_Rlt.Controls.Add(this.button9);
+         this.InptData_Rlt.Controls.Add(this.button7);
+         this.InptData_Rlt.Controls.Add(this.button15);
+         this.InptData_Rlt.Controls.Add(this.button4);
+         this.InptData_Rlt.Controls.Add(this.button14);
+         this.InptData_Rlt.Controls.Add(this.button13);
+         this.InptData_Rlt.Controls.Add(this.button2);
+         this.InptData_Rlt.Controls.Add(this.bbi_oprcompbutn);
+         this.InptData_Rlt.Controls.Add(this.button1);
+         this.InptData_Rlt.Controls.Add(this.bbi_BaseDef_Butn);
+         this.InptData_Rlt.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.InptData_Rlt.ForeColor = System.Drawing.Color.Black;
+         this.InptData_Rlt.FrameOnMouseOverOnly = false;
+         this.InptData_Rlt.GroupImage = null;
+         this.InptData_Rlt.Location = new System.Drawing.Point(5, 854);
+         this.InptData_Rlt.MaxHeight = 377;
+         this.InptData_Rlt.Name = "InptData_Rlt";
+         this.InptData_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
+         this.InptData_Rlt.PaintRollout = true;
+         this.InptData_Rlt.RolloutBorderColor = System.Drawing.Color.Gray;
+         this.InptData_Rlt.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
+         this.InptData_Rlt.RolloutStatus = true;
+         this.InptData_Rlt.RolloutTitle = "داده های استاندارد";
+         this.InptData_Rlt.RoundCorners = 2;
+         this.InptData_Rlt.ShadowColor = System.Drawing.Color.DarkGray;
+         this.InptData_Rlt.ShadowControl = false;
+         this.InptData_Rlt.ShadowThickness = 3;
+         this.InptData_Rlt.ShowFocusFrame = false;
+         this.InptData_Rlt.Size = new System.Drawing.Size(237, 377);
+         this.InptData_Rlt.TabIndex = 27;
+         this.InptData_Rlt.Tag = "open";
+         this.InptData_Rlt.TitleBorderColor = System.Drawing.Color.Black;
          // 
          // button3
          // 
-         this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button3.FlatAppearance.BorderSize = 0;
          this.button3.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.button3.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button3.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button3.FrameOnMouseOverOnly = false;
          this.button3.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3412,13 +1903,14 @@
          // 
          // button8
          // 
-         this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button8.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button8.FlatAppearance.BorderSize = 0;
          this.button8.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button8.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button8.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.button8.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button8.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button8.FrameOnMouseOverOnly = false;
          this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3433,13 +1925,15 @@
          // 
          // bbi_AllCoch_Butn
          // 
-         this.bbi_AllCoch_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_AllCoch_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_AllCoch_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.bbi_AllCoch_Butn.Enabled = false;
+         this.bbi_AllCoch_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_AllCoch_Butn.FlatAppearance.BorderSize = 0;
          this.bbi_AllCoch_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.bbi_AllCoch_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_AllCoch_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_AllCoch_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_AllCoch_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.bbi_AllCoch_Butn.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.bbi_AllCoch_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.bbi_AllCoch_Butn.FrameOnMouseOverOnly = false;
          this.bbi_AllCoch_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3452,15 +1946,39 @@
          this.bbi_AllCoch_Butn.UseVisualStyleBackColor = false;
          this.bbi_AllCoch_Butn.Click += new System.EventHandler(this.bbi_AllCoch_Butn_Click);
          // 
+         // bbi_AddCoch_Butn
+         // 
+         this.bbi_AddCoch_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.bbi_AddCoch_Butn.Enabled = false;
+         this.bbi_AddCoch_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.bbi_AddCoch_Butn.FlatAppearance.BorderSize = 0;
+         this.bbi_AddCoch_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.bbi_AddCoch_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.bbi_AddCoch_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.bbi_AddCoch_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.bbi_AddCoch_Butn.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.bbi_AddCoch_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.bbi_AddCoch_Butn.FrameOnMouseOverOnly = false;
+         this.bbi_AddCoch_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.bbi_AddCoch_Butn.Location = new System.Drawing.Point(121, 219);
+         this.bbi_AddCoch_Butn.Name = "bbi_AddCoch_Butn";
+         this.bbi_AddCoch_Butn.ShowFocusFrame = true;
+         this.bbi_AddCoch_Butn.Size = new System.Drawing.Size(110, 25);
+         this.bbi_AddCoch_Butn.TabIndex = 70;
+         this.bbi_AddCoch_Butn.Text = "ثبت پرسنل";
+         this.bbi_AddCoch_Butn.UseVisualStyleBackColor = false;
+         this.bbi_AddCoch_Butn.Click += new System.EventHandler(this.bbi_AddCoch_Butn_Click);
+         // 
          // button11
          // 
-         this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button11.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button11.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button11.FlatAppearance.BorderSize = 0;
          this.button11.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button11.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button11.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button11.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.button11.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button11.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button11.FrameOnMouseOverOnly = false;
          this.button11.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3475,13 +1993,14 @@
          // 
          // button10
          // 
-         this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button10.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button10.FlatAppearance.BorderSize = 0;
          this.button10.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button10.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button10.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.button10.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button10.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button10.FrameOnMouseOverOnly = false;
          this.button10.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3496,13 +2015,14 @@
          // 
          // button12
          // 
-         this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button12.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button12.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button12.FlatAppearance.BorderSize = 0;
          this.button12.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button12.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button12.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.button12.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button12.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button12.FrameOnMouseOverOnly = false;
          this.button12.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3517,13 +2037,14 @@
          // 
          // button9
          // 
-         this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button9.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button9.FlatAppearance.BorderSize = 0;
          this.button9.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button9.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button9.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.button9.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button9.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button9.FrameOnMouseOverOnly = false;
          this.button9.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3538,13 +2059,14 @@
          // 
          // button7
          // 
-         this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button7.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button7.FlatAppearance.BorderSize = 0;
          this.button7.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button7.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button7.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.button7.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button7.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button7.FrameOnMouseOverOnly = false;
          this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3557,36 +2079,16 @@
          this.button7.UseVisualStyleBackColor = false;
          this.button7.Click += new System.EventHandler(this.bbi_cpaybutn_ItemClick);
          // 
-         // bbi_AddCoch_Butn
-         // 
-         this.bbi_AddCoch_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_AddCoch_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_AddCoch_Butn.FlatAppearance.BorderSize = 0;
-         this.bbi_AddCoch_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_AddCoch_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_AddCoch_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_AddCoch_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.bbi_AddCoch_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.bbi_AddCoch_Butn.FrameOnMouseOverOnly = false;
-         this.bbi_AddCoch_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.bbi_AddCoch_Butn.Location = new System.Drawing.Point(121, 219);
-         this.bbi_AddCoch_Butn.Name = "bbi_AddCoch_Butn";
-         this.bbi_AddCoch_Butn.ShowFocusFrame = true;
-         this.bbi_AddCoch_Butn.Size = new System.Drawing.Size(110, 25);
-         this.bbi_AddCoch_Butn.TabIndex = 70;
-         this.bbi_AddCoch_Butn.Text = "ثبت پرسنل";
-         this.bbi_AddCoch_Butn.UseVisualStyleBackColor = false;
-         this.bbi_AddCoch_Butn.Click += new System.EventHandler(this.bbi_AddCoch_Butn_Click);
-         // 
          // button15
          // 
-         this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button15.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button15.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button15.FlatAppearance.BorderSize = 0;
          this.button15.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button15.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button15.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button15.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.button15.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button15.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button15.FrameOnMouseOverOnly = false;
          this.button15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3601,14 +2103,14 @@
          // 
          // button4
          // 
-         this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button4.FlatAppearance.BorderSize = 0;
          this.button4.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.button4.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.button4.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button4.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button4.FrameOnMouseOverOnly = false;
          this.button4.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3623,13 +2125,14 @@
          // 
          // button14
          // 
-         this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button14.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button14.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button14.FlatAppearance.BorderSize = 0;
          this.button14.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button14.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button14.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.button14.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button14.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button14.FrameOnMouseOverOnly = false;
          this.button14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3644,13 +2147,14 @@
          // 
          // button13
          // 
-         this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button13.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button13.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button13.FlatAppearance.BorderSize = 0;
          this.button13.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button13.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button13.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button13.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.button13.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button13.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button13.FrameOnMouseOverOnly = false;
          this.button13.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3665,14 +2169,14 @@
          // 
          // button2
          // 
-         this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button2.FlatAppearance.BorderSize = 0;
          this.button2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.button2.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.button2.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button2.FrameOnMouseOverOnly = false;
          this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3687,14 +2191,14 @@
          // 
          // bbi_oprcompbutn
          // 
-         this.bbi_oprcompbutn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_oprcompbutn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_oprcompbutn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.bbi_oprcompbutn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_oprcompbutn.FlatAppearance.BorderSize = 0;
          this.bbi_oprcompbutn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.bbi_oprcompbutn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_oprcompbutn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_oprcompbutn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_oprcompbutn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.bbi_oprcompbutn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.bbi_oprcompbutn.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.bbi_oprcompbutn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.bbi_oprcompbutn.FrameOnMouseOverOnly = false;
          this.bbi_oprcompbutn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3709,14 +2213,14 @@
          // 
          // button1
          // 
-         this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button1.FlatAppearance.BorderSize = 0;
          this.button1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.button1.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.button1.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button1.FrameOnMouseOverOnly = false;
          this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3731,14 +2235,15 @@
          // 
          // bbi_BaseDef_Butn
          // 
-         this.bbi_BaseDef_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_BaseDef_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_BaseDef_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.bbi_BaseDef_Butn.Enabled = false;
+         this.bbi_BaseDef_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_BaseDef_Butn.FlatAppearance.BorderSize = 0;
          this.bbi_BaseDef_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.bbi_BaseDef_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_BaseDef_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_BaseDef_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_BaseDef_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-         this.bbi_BaseDef_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.bbi_BaseDef_Butn.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.bbi_BaseDef_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.bbi_BaseDef_Butn.FrameOnMouseOverOnly = false;
          this.bbi_BaseDef_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3753,7 +2258,7 @@
          // 
          // DataMang_Rlt
          // 
-         this.DataMang_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.DataMang_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.DataMang_Rlt.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.DataMang_Rlt.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.DataMang_Rlt.BorderThickness = 1F;
@@ -3761,11 +2266,11 @@
          this.DataMang_Rlt.Controls.Add(this.button23);
          this.DataMang_Rlt.Controls.Add(this.button24);
          this.DataMang_Rlt.Controls.Add(this.button25);
-         this.DataMang_Rlt.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.DataMang_Rlt.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.DataMang_Rlt.ForeColor = System.Drawing.Color.Black;
          this.DataMang_Rlt.FrameOnMouseOverOnly = false;
          this.DataMang_Rlt.GroupImage = null;
-         this.DataMang_Rlt.Location = new System.Drawing.Point(6, 894);
+         this.DataMang_Rlt.Location = new System.Drawing.Point(5, 1237);
          this.DataMang_Rlt.MaxHeight = 125;
          this.DataMang_Rlt.Name = "DataMang_Rlt";
          this.DataMang_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -3781,17 +2286,18 @@
          this.DataMang_Rlt.ShowFocusFrame = false;
          this.DataMang_Rlt.Size = new System.Drawing.Size(237, 125);
          this.DataMang_Rlt.TabIndex = 28;
-         this.DataMang_Rlt.TitleBorderColor = System.Drawing.Color.Gray;
+         this.DataMang_Rlt.TitleBorderColor = System.Drawing.Color.Black;
          // 
          // bbi_clenupbutn
          // 
-         this.bbi_clenupbutn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_clenupbutn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_clenupbutn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.bbi_clenupbutn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_clenupbutn.FlatAppearance.BorderSize = 0;
          this.bbi_clenupbutn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.bbi_clenupbutn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_clenupbutn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_clenupbutn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_clenupbutn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.bbi_clenupbutn.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.bbi_clenupbutn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.bbi_clenupbutn.FrameOnMouseOverOnly = false;
          this.bbi_clenupbutn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3806,13 +2312,14 @@
          // 
          // button23
          // 
-         this.button23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button23.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button23.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button23.FlatAppearance.BorderSize = 0;
          this.button23.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button23.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button23.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button23.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.button23.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button23.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button23.FrameOnMouseOverOnly = false;
          this.button23.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3827,13 +2334,14 @@
          // 
          // button24
          // 
-         this.button24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button24.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button24.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button24.FlatAppearance.BorderSize = 0;
          this.button24.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button24.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button24.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button24.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.button24.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button24.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button24.FrameOnMouseOverOnly = false;
          this.button24.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3848,13 +2356,14 @@
          // 
          // button25
          // 
-         this.button25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button25.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button25.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button25.FlatAppearance.BorderSize = 0;
          this.button25.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button25.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button25.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button25.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button25.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.button25.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.button25.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button25.FrameOnMouseOverOnly = false;
          this.button25.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -3869,7 +2378,7 @@
          // 
          // Tool_Rlt
          // 
-         this.Tool_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Tool_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Tool_Rlt.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.Tool_Rlt.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.Tool_Rlt.BorderThickness = 1F;
@@ -3886,11 +2395,11 @@
          this.Tool_Rlt.Controls.Add(this.button16);
          this.Tool_Rlt.Controls.Add(this.button17);
          this.Tool_Rlt.Controls.Add(this.button18);
-         this.Tool_Rlt.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.Tool_Rlt.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.Tool_Rlt.ForeColor = System.Drawing.Color.Black;
          this.Tool_Rlt.FrameOnMouseOverOnly = false;
          this.Tool_Rlt.GroupImage = null;
-         this.Tool_Rlt.Location = new System.Drawing.Point(6, 1025);
+         this.Tool_Rlt.Location = new System.Drawing.Point(5, 1368);
          this.Tool_Rlt.MaxHeight = 249;
          this.Tool_Rlt.Name = "Tool_Rlt";
          this.Tool_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -3906,16 +2415,16 @@
          this.Tool_Rlt.ShowFocusFrame = false;
          this.Tool_Rlt.Size = new System.Drawing.Size(237, 249);
          this.Tool_Rlt.TabIndex = 30;
-         this.Tool_Rlt.TitleBorderColor = System.Drawing.Color.Gray;
+         this.Tool_Rlt.TitleBorderColor = System.Drawing.Color.Black;
          // 
          // button28
          // 
-         this.button28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button28.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button28.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button28.FlatAppearance.BorderSize = 0;
          this.button28.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button28.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button28.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button28.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button28.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button28.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button28.FrameOnMouseOverOnly = false;
@@ -3932,12 +2441,12 @@
          // 
          // button26
          // 
-         this.button26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button26.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button26.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button26.FlatAppearance.BorderSize = 0;
          this.button26.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button26.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button26.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button26.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button26.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button26.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button26.FrameOnMouseOverOnly = false;
@@ -3954,12 +2463,12 @@
          // 
          // button21
          // 
-         this.button21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button21.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button21.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button21.FlatAppearance.BorderSize = 0;
          this.button21.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button21.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button21.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button21.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button21.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button21.FrameOnMouseOverOnly = false;
@@ -3976,12 +2485,12 @@
          // 
          // button19
          // 
-         this.button19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button19.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button19.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button19.FlatAppearance.BorderSize = 0;
          this.button19.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button19.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button19.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button19.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button19.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button19.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button19.FrameOnMouseOverOnly = false;
@@ -3998,12 +2507,12 @@
          // 
          // button5
          // 
-         this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button5.FlatAppearance.BorderSize = 0;
          this.button5.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button5.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button5.FrameOnMouseOverOnly = false;
@@ -4020,12 +2529,12 @@
          // 
          // button29
          // 
-         this.button29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button29.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button29.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button29.FlatAppearance.BorderSize = 0;
          this.button29.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button29.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button29.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button29.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button29.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button29.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button29.FrameOnMouseOverOnly = false;
@@ -4042,12 +2551,12 @@
          // 
          // button27
          // 
-         this.button27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button27.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button27.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button27.FlatAppearance.BorderSize = 0;
          this.button27.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button27.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button27.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button27.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button27.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button27.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button27.FrameOnMouseOverOnly = false;
@@ -4064,12 +2573,13 @@
          // 
          // ShowRbonMenu_Btn
          // 
-         this.ShowRbonMenu_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.ShowRbonMenu_Btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ShowRbonMenu_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.ShowRbonMenu_Btn.Enabled = false;
+         this.ShowRbonMenu_Btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ShowRbonMenu_Btn.FlatAppearance.BorderSize = 0;
          this.ShowRbonMenu_Btn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.ShowRbonMenu_Btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.ShowRbonMenu_Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ShowRbonMenu_Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ShowRbonMenu_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ShowRbonMenu_Btn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.ShowRbonMenu_Btn.FrameOnMouseOverOnly = false;
@@ -4086,12 +2596,12 @@
          // 
          // button22
          // 
-         this.button22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button22.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button22.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button22.FlatAppearance.BorderSize = 0;
          this.button22.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button22.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button22.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button22.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button22.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button22.FrameOnMouseOverOnly = false;
@@ -4108,12 +2618,12 @@
          // 
          // button20
          // 
-         this.button20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button20.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button20.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button20.FlatAppearance.BorderSize = 0;
          this.button20.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button20.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button20.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button20.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button20.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button20.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button20.FrameOnMouseOverOnly = false;
@@ -4130,12 +2640,12 @@
          // 
          // button16
          // 
-         this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button16.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button16.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button16.FlatAppearance.BorderSize = 0;
          this.button16.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button16.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button16.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button16.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button16.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button16.FrameOnMouseOverOnly = false;
@@ -4152,12 +2662,12 @@
          // 
          // button17
          // 
-         this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button17.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button17.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button17.FlatAppearance.BorderSize = 0;
          this.button17.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button17.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button17.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button17.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button17.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button17.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button17.FrameOnMouseOverOnly = false;
@@ -4174,12 +2684,12 @@
          // 
          // button18
          // 
-         this.button18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button18.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button18.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button18.FlatAppearance.BorderSize = 0;
          this.button18.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button18.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button18.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button18.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button18.FrameOnMouseOverOnly = false;
@@ -4190,24 +2700,24 @@
          this.button18.Size = new System.Drawing.Size(224, 25);
          this.button18.TabIndex = 67;
          this.button18.Tag = "calc";
-         this.button18.Text = "ماشین حساب";
+         this.button18.Text = "Calculator";
          this.button18.UseVisualStyleBackColor = false;
          this.button18.Click += new System.EventHandler(this.tol_ibutn_ItemClick);
          // 
          // Kisk_Rlt
          // 
-         this.Kisk_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Kisk_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Kisk_Rlt.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.Kisk_Rlt.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.Kisk_Rlt.BorderThickness = 1F;
          this.Kisk_Rlt.Controls.Add(this.button31);
          this.Kisk_Rlt.Controls.Add(this.button36);
          this.Kisk_Rlt.Controls.Add(this.button38);
-         this.Kisk_Rlt.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.Kisk_Rlt.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.Kisk_Rlt.ForeColor = System.Drawing.Color.Black;
          this.Kisk_Rlt.FrameOnMouseOverOnly = false;
          this.Kisk_Rlt.GroupImage = null;
-         this.Kisk_Rlt.Location = new System.Drawing.Point(6, 1280);
+         this.Kisk_Rlt.Location = new System.Drawing.Point(5, 1623);
          this.Kisk_Rlt.MaxHeight = 99;
          this.Kisk_Rlt.Name = "Kisk_Rlt";
          this.Kisk_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -4223,16 +2733,16 @@
          this.Kisk_Rlt.ShowFocusFrame = false;
          this.Kisk_Rlt.Size = new System.Drawing.Size(237, 99);
          this.Kisk_Rlt.TabIndex = 31;
-         this.Kisk_Rlt.TitleBorderColor = System.Drawing.Color.Gray;
+         this.Kisk_Rlt.TitleBorderColor = System.Drawing.Color.Black;
          // 
          // button31
          // 
-         this.button31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button31.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button31.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button31.FlatAppearance.BorderSize = 0;
          this.button31.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button31.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button31.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button31.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button31.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button31.FrameOnMouseOverOnly = false;
@@ -4249,12 +2759,12 @@
          // 
          // button36
          // 
-         this.button36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button36.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button36.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button36.FlatAppearance.BorderSize = 0;
          this.button36.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button36.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button36.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button36.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button36.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button36.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button36.FrameOnMouseOverOnly = false;
@@ -4271,12 +2781,12 @@
          // 
          // button38
          // 
-         this.button38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button38.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button38.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button38.FlatAppearance.BorderSize = 0;
          this.button38.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button38.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button38.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button38.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button38.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button38.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button38.FrameOnMouseOverOnly = false;
@@ -4293,17 +2803,17 @@
          // 
          // Wrhs_Rlt
          // 
-         this.Wrhs_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Wrhs_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Wrhs_Rlt.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.Wrhs_Rlt.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.Wrhs_Rlt.BorderThickness = 1F;
          this.Wrhs_Rlt.Controls.Add(this.bbi_UnitDef_Butn);
          this.Wrhs_Rlt.Controls.Add(this.bbi_ProdDef_Butn);
-         this.Wrhs_Rlt.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.Wrhs_Rlt.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.Wrhs_Rlt.ForeColor = System.Drawing.Color.Black;
          this.Wrhs_Rlt.FrameOnMouseOverOnly = false;
          this.Wrhs_Rlt.GroupImage = null;
-         this.Wrhs_Rlt.Location = new System.Drawing.Point(6, 1385);
+         this.Wrhs_Rlt.Location = new System.Drawing.Point(5, 1728);
          this.Wrhs_Rlt.MaxHeight = 64;
          this.Wrhs_Rlt.Name = "Wrhs_Rlt";
          this.Wrhs_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -4319,17 +2829,17 @@
          this.Wrhs_Rlt.ShowFocusFrame = false;
          this.Wrhs_Rlt.Size = new System.Drawing.Size(237, 64);
          this.Wrhs_Rlt.TabIndex = 32;
-         this.Wrhs_Rlt.TitleBorderColor = System.Drawing.Color.Gray;
+         this.Wrhs_Rlt.TitleBorderColor = System.Drawing.Color.Black;
          this.Wrhs_Rlt.Visible = false;
          // 
          // bbi_UnitDef_Butn
          // 
-         this.bbi_UnitDef_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_UnitDef_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_UnitDef_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.bbi_UnitDef_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_UnitDef_Butn.FlatAppearance.BorderSize = 0;
          this.bbi_UnitDef_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.bbi_UnitDef_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_UnitDef_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_UnitDef_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_UnitDef_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.bbi_UnitDef_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.bbi_UnitDef_Butn.FrameOnMouseOverOnly = false;
@@ -4344,12 +2854,12 @@
          // 
          // bbi_ProdDef_Butn
          // 
-         this.bbi_ProdDef_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.bbi_ProdDef_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_ProdDef_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.bbi_ProdDef_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_ProdDef_Butn.FlatAppearance.BorderSize = 0;
          this.bbi_ProdDef_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.bbi_ProdDef_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.bbi_ProdDef_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.bbi_ProdDef_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_ProdDef_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.bbi_ProdDef_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.bbi_ProdDef_Butn.FrameOnMouseOverOnly = false;
@@ -4365,17 +2875,17 @@
          // 
          // LockOnln_Rlt
          // 
-         this.LockOnln_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.LockOnln_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.LockOnln_Rlt.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.LockOnln_Rlt.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.LockOnln_Rlt.BorderThickness = 1F;
          this.LockOnln_Rlt.Controls.Add(this.grouper2);
          this.LockOnln_Rlt.Controls.Add(this.grouper1);
-         this.LockOnln_Rlt.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.LockOnln_Rlt.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.LockOnln_Rlt.ForeColor = System.Drawing.Color.Black;
          this.LockOnln_Rlt.FrameOnMouseOverOnly = false;
          this.LockOnln_Rlt.GroupImage = null;
-         this.LockOnln_Rlt.Location = new System.Drawing.Point(6, 1455);
+         this.LockOnln_Rlt.Location = new System.Drawing.Point(5, 1798);
          this.LockOnln_Rlt.MaxHeight = 2158;
          this.LockOnln_Rlt.Name = "LockOnln_Rlt";
          this.LockOnln_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -4391,11 +2901,11 @@
          this.LockOnln_Rlt.ShowFocusFrame = false;
          this.LockOnln_Rlt.Size = new System.Drawing.Size(237, 2158);
          this.LockOnln_Rlt.TabIndex = 33;
-         this.LockOnln_Rlt.TitleBorderColor = System.Drawing.Color.Gray;
+         this.LockOnln_Rlt.TitleBorderColor = System.Drawing.Color.Black;
          // 
          // grouper2
          // 
-         this.grouper2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper2.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper2.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper2.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -4425,7 +2935,7 @@
          // 
          // grouper34
          // 
-         this.grouper34.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper34.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper34.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper34.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper34.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -4435,7 +2945,9 @@
          this.grouper34.Controls.Add(this.AllGust_Rb);
          this.grouper34.Controls.Add(this.gridControl9);
          this.grouper34.Controls.Add(this.GustAttn_Butn);
+         this.grouper34.Controls.Add(this.OthrIncmGust_Butn);
          this.grouper34.Controls.Add(this.ShowGustProfile_Butn);
+         this.grouper34.Controls.Add(this.AddNewGust_Butn);
          this.grouper34.Controls.Add(this.ShowGust_Butn);
          this.grouper34.CustomGroupBoxColor = System.Drawing.Color.White;
          this.grouper34.ForeColor = System.Drawing.Color.Black;
@@ -4612,6 +3124,7 @@
          this.gridView7.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.gridView7.OptionsView.EnableAppearanceEvenRow = true;
          this.gridView7.OptionsView.ShowAutoFilterRow = true;
+         this.gridView7.OptionsView.ShowFooter = true;
          this.gridView7.OptionsView.ShowGroupPanel = false;
          this.gridView7.OptionsView.ShowIndicator = false;
          // 
@@ -4773,6 +3286,8 @@
          this.colNAME_DNRM1.Name = "colNAME_DNRM1";
          this.colNAME_DNRM1.OptionsColumn.AllowEdit = false;
          this.colNAME_DNRM1.OptionsColumn.ReadOnly = true;
+         this.colNAME_DNRM1.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
          this.colNAME_DNRM1.Visible = true;
          this.colNAME_DNRM1.VisibleIndex = 2;
          this.colNAME_DNRM1.Width = 87;
@@ -5090,12 +3605,12 @@
          // 
          // GustAttn_Butn
          // 
-         this.GustAttn_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.GustAttn_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.GustAttn_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.GustAttn_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.GustAttn_Butn.FlatAppearance.BorderSize = 0;
          this.GustAttn_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.GustAttn_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.GustAttn_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.GustAttn_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.GustAttn_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.GustAttn_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.GustAttn_Butn.FrameOnMouseOverOnly = false;
@@ -5110,45 +3625,89 @@
          this.GustAttn_Butn.UseVisualStyleBackColor = false;
          this.GustAttn_Butn.Click += new System.EventHandler(this.GustAttn_Butn_Click);
          // 
+         // OthrIncmGust_Butn
+         // 
+         this.OthrIncmGust_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.OthrIncmGust_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.OthrIncmGust_Butn.FlatAppearance.BorderSize = 0;
+         this.OthrIncmGust_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.OthrIncmGust_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.OthrIncmGust_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.OthrIncmGust_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.OthrIncmGust_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.OthrIncmGust_Butn.FrameOnMouseOverOnly = false;
+         this.OthrIncmGust_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.OthrIncmGust_Butn.Location = new System.Drawing.Point(104, 321);
+         this.OthrIncmGust_Butn.Name = "OthrIncmGust_Butn";
+         this.OthrIncmGust_Butn.ShowFocusFrame = true;
+         this.OthrIncmGust_Butn.Size = new System.Drawing.Size(41, 24);
+         this.OthrIncmGust_Butn.TabIndex = 68;
+         this.OthrIncmGust_Butn.Text = "هزینه";
+         this.OthrIncmGust_Butn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.OthrIncmGust_Butn.UseVisualStyleBackColor = false;
+         this.OthrIncmGust_Butn.Click += new System.EventHandler(this.OthrIncmGust_Butn_Click);
+         // 
          // ShowGustProfile_Butn
          // 
-         this.ShowGustProfile_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.ShowGustProfile_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ShowGustProfile_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.ShowGustProfile_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ShowGustProfile_Butn.FlatAppearance.BorderSize = 0;
          this.ShowGustProfile_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.ShowGustProfile_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.ShowGustProfile_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ShowGustProfile_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ShowGustProfile_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ShowGustProfile_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.ShowGustProfile_Butn.FrameOnMouseOverOnly = false;
          this.ShowGustProfile_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.ShowGustProfile_Butn.Location = new System.Drawing.Point(109, 321);
+         this.ShowGustProfile_Butn.Location = new System.Drawing.Point(151, 321);
          this.ShowGustProfile_Butn.Name = "ShowGustProfile_Butn";
          this.ShowGustProfile_Butn.ShowFocusFrame = true;
-         this.ShowGustProfile_Butn.Size = new System.Drawing.Size(90, 24);
+         this.ShowGustProfile_Butn.Size = new System.Drawing.Size(48, 24);
          this.ShowGustProfile_Butn.TabIndex = 68;
          this.ShowGustProfile_Butn.Text = "پروفایل";
          this.ShowGustProfile_Butn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
          this.ShowGustProfile_Butn.UseVisualStyleBackColor = false;
          this.ShowGustProfile_Butn.Click += new System.EventHandler(this.ShowGustProfile_Butn_Click);
          // 
+         // AddNewGust_Butn
+         // 
+         this.AddNewGust_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.AddNewGust_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.AddNewGust_Butn.FlatAppearance.BorderSize = 0;
+         this.AddNewGust_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.AddNewGust_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.AddNewGust_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.AddNewGust_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+         this.AddNewGust_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.AddNewGust_Butn.FrameOnMouseOverOnly = false;
+         this.AddNewGust_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1706;
+         this.AddNewGust_Butn.Location = new System.Drawing.Point(8, 22);
+         this.AddNewGust_Butn.Name = "AddNewGust_Butn";
+         this.AddNewGust_Butn.ShowFocusFrame = true;
+         this.AddNewGust_Butn.Size = new System.Drawing.Size(55, 32);
+         this.AddNewGust_Butn.TabIndex = 68;
+         this.AddNewGust_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.AddNewGust_Butn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+         this.AddNewGust_Butn.UseVisualStyleBackColor = false;
+         this.AddNewGust_Butn.Click += new System.EventHandler(this.AddNewGust_Butn_Click);
+         // 
          // ShowGust_Butn
          // 
-         this.ShowGust_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.ShowGust_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ShowGust_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.ShowGust_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ShowGust_Butn.FlatAppearance.BorderSize = 0;
          this.ShowGust_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.ShowGust_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.ShowGust_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ShowGust_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ShowGust_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ShowGust_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.ShowGust_Butn.FrameOnMouseOverOnly = false;
          this.ShowGust_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1593;
          this.ShowGust_Butn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-         this.ShowGust_Butn.Location = new System.Drawing.Point(8, 22);
+         this.ShowGust_Butn.Location = new System.Drawing.Point(69, 22);
          this.ShowGust_Butn.Name = "ShowGust_Butn";
          this.ShowGust_Butn.ShowFocusFrame = true;
-         this.ShowGust_Butn.Size = new System.Drawing.Size(190, 30);
+         this.ShowGust_Butn.Size = new System.Drawing.Size(129, 32);
          this.ShowGust_Butn.TabIndex = 68;
          this.ShowGust_Butn.Text = "نمایش مهمانان آزاد";
          this.ShowGust_Butn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -5158,7 +3717,7 @@
          // 
          // grouper31
          // 
-         this.grouper31.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper31.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper31.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper31.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper31.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -5187,12 +3746,12 @@
          // 
          // ExitLockDres_Butn
          // 
-         this.ExitLockDres_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.ExitLockDres_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ExitLockDres_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.ExitLockDres_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ExitLockDres_Butn.FlatAppearance.BorderSize = 0;
          this.ExitLockDres_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.ExitLockDres_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.ExitLockDres_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ExitLockDres_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ExitLockDres_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ExitLockDres_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.ExitLockDres_Butn.FrameOnMouseOverOnly = false;
@@ -5294,6 +3853,7 @@
          this.LockDres_Gv.OptionsFind.ShowClearButton = false;
          this.LockDres_Gv.OptionsView.EnableAppearanceEvenRow = true;
          this.LockDres_Gv.OptionsView.ShowAutoFilterRow = true;
+         this.LockDres_Gv.OptionsView.ShowFooter = true;
          this.LockDres_Gv.OptionsView.ShowGroupPanel = false;
          this.LockDres_Gv.OptionsView.ShowIndicator = false;
          this.LockDres_Gv.SortInfo.AddRange(new DevExpress.XtraGrid.Columns.GridColumnSortInfo[] {
@@ -5332,6 +3892,8 @@
          this.gridColumn3.Name = "gridColumn3";
          this.gridColumn3.OptionsColumn.AllowEdit = false;
          this.gridColumn3.OptionsColumn.ReadOnly = true;
+         this.gridColumn3.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Count)});
          this.gridColumn3.Visible = true;
          this.gridColumn3.VisibleIndex = 1;
          this.gridColumn3.Width = 159;
@@ -5400,13 +3962,13 @@
          // 
          // LockDresAttn_Butn
          // 
-         this.LockDresAttn_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.LockDresAttn_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.LockDresAttn_Butn.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.LockDresAttnBs, "NAME_DNRM", true));
-         this.LockDresAttn_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.LockDresAttn_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.LockDresAttn_Butn.FlatAppearance.BorderSize = 0;
          this.LockDresAttn_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.LockDresAttn_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.LockDresAttn_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.LockDresAttn_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.LockDresAttn_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.LockDresAttn_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.LockDresAttn_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -5449,12 +4011,12 @@
          // 
          // RefLock_Butn
          // 
-         this.RefLock_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.RefLock_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.RefLock_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.RefLock_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.RefLock_Butn.FlatAppearance.BorderSize = 0;
          this.RefLock_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.RefLock_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.RefLock_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.RefLock_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.RefLock_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.RefLock_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.RefLock_Butn.FrameOnMouseOverOnly = false;
@@ -5473,7 +4035,7 @@
          // 
          // grouper7
          // 
-         this.grouper7.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper7.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper7.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper7.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper7.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -5499,7 +4061,7 @@
          // 
          // grouper9
          // 
-         this.grouper9.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper9.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper9.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper9.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper9.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -5547,12 +4109,12 @@
          // 
          // StrtOpenDvip_Butn
          // 
-         this.StrtOpenDvip_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.StrtOpenDvip_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.StrtOpenDvip_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.StrtOpenDvip_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.StrtOpenDvip_Butn.FlatAppearance.BorderSize = 0;
          this.StrtOpenDvip_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.StrtOpenDvip_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.StrtOpenDvip_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.StrtOpenDvip_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.StrtOpenDvip_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.StrtOpenDvip_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.StrtOpenDvip_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -5569,7 +4131,7 @@
          // 
          // grouper8
          // 
-         this.grouper8.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper8.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper8.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper8.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper8.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -5593,13 +4155,13 @@
          // 
          // ServDvip_Butn
          // 
-         this.ServDvip_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ServDvip_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ServDvip_Butn.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.DVipBs, "Fighter.NAME_DNRM", true));
-         this.ServDvip_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ServDvip_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ServDvip_Butn.FlatAppearance.BorderSize = 0;
          this.ServDvip_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.ServDvip_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.ServDvip_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ServDvip_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ServDvip_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ServDvip_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.ServDvip_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -5767,7 +4329,7 @@
          // 
          // grouper3
          // 
-         this.grouper3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper3.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper3.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper3.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -5812,13 +4374,13 @@
          // 
          // ActnSlctServOpenDres_Butn
          // 
-         this.ActnSlctServOpenDres_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ActnSlctServOpenDres_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ActnSlctServOpenDres_Butn.Enabled = false;
-         this.ActnSlctServOpenDres_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ActnSlctServOpenDres_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ActnSlctServOpenDres_Butn.FlatAppearance.BorderSize = 0;
          this.ActnSlctServOpenDres_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.ActnSlctServOpenDres_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.ActnSlctServOpenDres_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ActnSlctServOpenDres_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ActnSlctServOpenDres_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ActnSlctServOpenDres_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.ActnSlctServOpenDres_Butn.FrameOnMouseOverOnly = false;
@@ -5836,13 +4398,13 @@
          // 
          // SlctServDres_Butn
          // 
-         this.SlctServDres_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SlctServDres_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SlctServDres_Butn.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AttnBs, "NAME_DNRM", true));
-         this.SlctServDres_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SlctServDres_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SlctServDres_Butn.FlatAppearance.BorderSize = 0;
          this.SlctServDres_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.SlctServDres_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.SlctServDres_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SlctServDres_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SlctServDres_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SlctServDres_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.SlctServDres_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -6214,7 +4776,7 @@
          // 
          // grouper1
          // 
-         this.grouper1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper1.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper1.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -6253,7 +4815,6 @@
          // 
          this.PrtnrProc3_Pbc.EditValue = 3;
          this.PrtnrProc3_Pbc.Location = new System.Drawing.Point(68, 132);
-         this.PrtnrProc3_Pbc.MenuManager = this.MainRbonMenu_Rbnc;
          this.PrtnrProc3_Pbc.Name = "PrtnrProc3_Pbc";
          this.PrtnrProc3_Pbc.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrtnrProc3_Pbc.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -6268,7 +4829,6 @@
          // 
          this.PrtnrProc2_Pbc.EditValue = 3;
          this.PrtnrProc2_Pbc.Location = new System.Drawing.Point(68, 128);
-         this.PrtnrProc2_Pbc.MenuManager = this.MainRbonMenu_Rbnc;
          this.PrtnrProc2_Pbc.Name = "PrtnrProc2_Pbc";
          this.PrtnrProc2_Pbc.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrtnrProc2_Pbc.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -6283,7 +4843,6 @@
          // 
          this.PrtnrProc1_Pbc.EditValue = 3;
          this.PrtnrProc1_Pbc.Location = new System.Drawing.Point(68, 124);
-         this.PrtnrProc1_Pbc.MenuManager = this.MainRbonMenu_Rbnc;
          this.PrtnrProc1_Pbc.Name = "PrtnrProc1_Pbc";
          this.PrtnrProc1_Pbc.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.PrtnrProc1_Pbc.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -6304,8 +4863,8 @@
          this.PrtnrPos_Butn.ForeColor = System.Drawing.Color.White;
          this.PrtnrPos_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
          this.PrtnrPos_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.PrtnrPos_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.PrtnrPos_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.PrtnrPos_Butn.HoverColorA = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.PrtnrPos_Butn.HoverColorB = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.PrtnrPos_Butn.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          this.PrtnrPos_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.PrtnrPos_Butn.ImageVisiable = false;
@@ -6330,8 +4889,8 @@
          this.PrtnrCont_Butn.ForeColor = System.Drawing.Color.White;
          this.PrtnrCont_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
          this.PrtnrCont_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.PrtnrCont_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.PrtnrCont_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.PrtnrCont_Butn.HoverColorA = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.PrtnrCont_Butn.HoverColorB = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.PrtnrCont_Butn.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          this.PrtnrCont_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.PrtnrCont_Butn.ImageVisiable = false;
@@ -6355,8 +4914,8 @@
          this.LSignalOpen_Butn.Font = new System.Drawing.Font("Fixed", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.LSignalOpen_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
          this.LSignalOpen_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.LSignalOpen_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.LSignalOpen_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.LSignalOpen_Butn.HoverColorA = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.LSignalOpen_Butn.HoverColorB = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.LSignalOpen_Butn.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          this.LSignalOpen_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.LSignalOpen_Butn.ImageVisiable = false;
@@ -6379,8 +4938,8 @@
          this.PartnerDresNum_Butn.Font = new System.Drawing.Font("Fixed", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.PartnerDresNum_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
          this.PartnerDresNum_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.PartnerDresNum_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.PartnerDresNum_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.PartnerDresNum_Butn.HoverColorA = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.PartnerDresNum_Butn.HoverColorB = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.PartnerDresNum_Butn.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          this.PartnerDresNum_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.PartnerDresNum_Butn.ImageVisiable = false;
@@ -6404,8 +4963,8 @@
          this.RSignalOpen_Butn.Font = new System.Drawing.Font("Fixed", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.RSignalOpen_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
          this.RSignalOpen_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.RSignalOpen_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.RSignalOpen_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.RSignalOpen_Butn.HoverColorA = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.RSignalOpen_Butn.HoverColorB = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.RSignalOpen_Butn.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1492;
          this.RSignalOpen_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.RSignalOpen_Butn.ImageVisiable = false;
@@ -6429,8 +4988,8 @@
          this.Partners_Butn.Font = new System.Drawing.Font("Fixed", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Partners_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
          this.Partners_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.Partners_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.Partners_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.Partners_Butn.HoverColorA = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.Partners_Butn.HoverColorB = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.Partners_Butn.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1492;
          this.Partners_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.Partners_Butn.ImageVisiable = false;
@@ -6454,8 +5013,8 @@
          this.ServProFile_Rb.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
          this.ServProFile_Rb.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
          this.ServProFile_Rb.HoverBorderColor = System.Drawing.Color.Gold;
-         this.ServProFile_Rb.HoverColorA = System.Drawing.Color.LightGray;
-         this.ServProFile_Rb.HoverColorB = System.Drawing.Color.LightGray;
+         this.ServProFile_Rb.HoverColorA = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.ServProFile_Rb.HoverColorB = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.ServProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          this.ServProFile_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.ServProFile_Rb.ImageVisiable = false;
@@ -6471,13 +5030,13 @@
          // 
          // CrntServOpenDres_Butn
          // 
-         this.CrntServOpenDres_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CrntServOpenDres_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.CrntServOpenDres_Butn.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.CrntOpenBs, "NAME_DNRM", true));
-         this.CrntServOpenDres_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CrntServOpenDres_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.CrntServOpenDres_Butn.FlatAppearance.BorderSize = 0;
          this.CrntServOpenDres_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.CrntServOpenDres_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.CrntServOpenDres_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CrntServOpenDres_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.CrntServOpenDres_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.CrntServOpenDres_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CrntServOpenDres_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -6523,7 +5082,7 @@
          this.CrntDresNumb_Txt.EditValue = "";
          this.CrntDresNumb_Txt.Location = new System.Drawing.Point(78, 173);
          this.CrntDresNumb_Txt.Name = "CrntDresNumb_Txt";
-         this.CrntDresNumb_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CrntDresNumb_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.CrntDresNumb_Txt.Properties.Appearance.Font = new System.Drawing.Font("B Koodak", 26.25F, System.Drawing.FontStyle.Bold);
          this.CrntDresNumb_Txt.Properties.Appearance.Options.UseBackColor = true;
          this.CrntDresNumb_Txt.Properties.Appearance.Options.UseFont = true;
@@ -6561,7 +5120,7 @@
          // 
          // EdevFngr_Rlt
          // 
-         this.EdevFngr_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.EdevFngr_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.EdevFngr_Rlt.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.EdevFngr_Rlt.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.EdevFngr_Rlt.BorderThickness = 1F;
@@ -6570,11 +5129,11 @@
          this.EdevFngr_Rlt.Controls.Add(this.grouper10);
          this.EdevFngr_Rlt.Controls.Add(this.grouper5);
          this.EdevFngr_Rlt.Controls.Add(this.grouper4);
-         this.EdevFngr_Rlt.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.EdevFngr_Rlt.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.EdevFngr_Rlt.ForeColor = System.Drawing.Color.Black;
          this.EdevFngr_Rlt.FrameOnMouseOverOnly = false;
          this.EdevFngr_Rlt.GroupImage = null;
-         this.EdevFngr_Rlt.Location = new System.Drawing.Point(6, 3619);
+         this.EdevFngr_Rlt.Location = new System.Drawing.Point(5, 3962);
          this.EdevFngr_Rlt.MaxHeight = 1682;
          this.EdevFngr_Rlt.Name = "EdevFngr_Rlt";
          this.EdevFngr_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -6590,11 +5149,11 @@
          this.EdevFngr_Rlt.ShowFocusFrame = false;
          this.EdevFngr_Rlt.Size = new System.Drawing.Size(237, 1682);
          this.EdevFngr_Rlt.TabIndex = 34;
-         this.EdevFngr_Rlt.TitleBorderColor = System.Drawing.Color.Gray;
+         this.EdevFngr_Rlt.TitleBorderColor = System.Drawing.Color.Black;
          // 
          // grouper41
          // 
-         this.grouper41.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper41.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper41.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper41.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper41.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -6620,7 +5179,6 @@
          // Logs_Txt
          // 
          this.Logs_Txt.Location = new System.Drawing.Point(8, 33);
-         this.Logs_Txt.MenuManager = this.MainRbonMenu_Rbnc;
          this.Logs_Txt.Name = "Logs_Txt";
          this.Logs_Txt.Properties.ReadOnly = true;
          this.Logs_Txt.Size = new System.Drawing.Size(208, 217);
@@ -6628,12 +5186,12 @@
          // 
          // DelLogs_Btn
          // 
-         this.DelLogs_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.DelLogs_Btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.DelLogs_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.DelLogs_Btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.DelLogs_Btn.FlatAppearance.BorderSize = 0;
          this.DelLogs_Btn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.DelLogs_Btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.DelLogs_Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.DelLogs_Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.DelLogs_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.DelLogs_Btn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.DelLogs_Btn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -6650,7 +5208,7 @@
          // 
          // grouper32
          // 
-         this.grouper32.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper32.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper32.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper32.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper32.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -6787,12 +5345,12 @@
          // 
          // PosConf_Butn
          // 
-         this.PosConf_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.PosConf_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.PosConf_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.PosConf_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.PosConf_Butn.FlatAppearance.BorderSize = 0;
          this.PosConf_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.PosConf_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.PosConf_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.PosConf_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.PosConf_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.PosConf_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.PosConf_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -6875,7 +5433,7 @@
          // 
          // grouper10
          // 
-         this.grouper10.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper10.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper10.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper10.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper10.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -6906,7 +5464,6 @@
          // CrntDevGetData_Txt
          // 
          this.CrntDevGetData_Txt.Location = new System.Drawing.Point(9, 158);
-         this.CrntDevGetData_Txt.MenuManager = this.MainRbonMenu_Rbnc;
          this.CrntDevGetData_Txt.Name = "CrntDevGetData_Txt";
          this.CrntDevGetData_Txt.Properties.ReadOnly = true;
          this.CrntDevGetData_Txt.Size = new System.Drawing.Size(206, 53);
@@ -6914,12 +5471,12 @@
          // 
          // CrntDevGetData_Butn
          // 
-         this.CrntDevGetData_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.CrntDevGetData_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CrntDevGetData_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.CrntDevGetData_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.CrntDevGetData_Butn.FlatAppearance.BorderSize = 0;
          this.CrntDevGetData_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.CrntDevGetData_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.CrntDevGetData_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CrntDevGetData_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.CrntDevGetData_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.CrntDevGetData_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CrntDevGetData_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -6936,12 +5493,12 @@
          // GetSignalDataProc_Cbx
          // 
          this.GetSignalDataProc_Cbx.Appearance = System.Windows.Forms.Appearance.Button;
-         this.GetSignalDataProc_Cbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.GetSignalDataProc_Cbx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.GetSignalDataProc_Cbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.GetSignalDataProc_Cbx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.GetSignalDataProc_Cbx.FlatAppearance.BorderSize = 0;
-         this.GetSignalDataProc_Cbx.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.GetSignalDataProc_Cbx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.GetSignalDataProc_Cbx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.GetSignalDataProc_Cbx.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.GetSignalDataProc_Cbx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.GetSignalDataProc_Cbx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.GetSignalDataProc_Cbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.GetSignalDataProc_Cbx.ForeColor = System.Drawing.SystemColors.ControlText;
          this.GetSignalDataProc_Cbx.FrameOnMouseOverOnly = false;
@@ -6956,12 +5513,12 @@
          // 
          // CrntServGetData_Butn
          // 
-         this.CrntServGetData_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.CrntServGetData_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CrntServGetData_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.CrntServGetData_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.CrntServGetData_Butn.FlatAppearance.BorderSize = 0;
          this.CrntServGetData_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.CrntServGetData_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.CrntServGetData_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CrntServGetData_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.CrntServGetData_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.CrntServGetData_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.CrntServGetData_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -6986,8 +5543,8 @@
          this.LSignalGet_Butn.Font = new System.Drawing.Font("Fixed", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.LSignalGet_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
          this.LSignalGet_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.LSignalGet_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.LSignalGet_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.LSignalGet_Butn.HoverColorA = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.LSignalGet_Butn.HoverColorB = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.LSignalGet_Butn.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          this.LSignalGet_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.LSignalGet_Butn.ImageVisiable = false;
@@ -7010,8 +5567,8 @@
          this.RSignalGet_Butn.Font = new System.Drawing.Font("Fixed", 9.749999F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.RSignalGet_Butn.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
          this.RSignalGet_Butn.HoverBorderColor = System.Drawing.Color.Gold;
-         this.RSignalGet_Butn.HoverColorA = System.Drawing.Color.LightGray;
-         this.RSignalGet_Butn.HoverColorB = System.Drawing.Color.LightGray;
+         this.RSignalGet_Butn.HoverColorA = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.RSignalGet_Butn.HoverColorB = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.RSignalGet_Butn.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1492;
          this.RSignalGet_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
          this.RSignalGet_Butn.ImageVisiable = false;
@@ -7050,7 +5607,7 @@
          // 
          // grouper5
          // 
-         this.grouper5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper5.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper5.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper5.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -7094,12 +5651,12 @@
          // Face_Cbx
          // 
          this.Face_Cbx.Appearance = System.Windows.Forms.Appearance.Button;
-         this.Face_Cbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.Face_Cbx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Face_Cbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.Face_Cbx.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Face_Cbx.FlatAppearance.BorderSize = 0;
-         this.Face_Cbx.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.Face_Cbx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.Face_Cbx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Face_Cbx.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.Face_Cbx.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.Face_Cbx.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Face_Cbx.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.Face_Cbx.ForeColor = System.Drawing.SystemColors.ControlText;
          this.Face_Cbx.FrameOnMouseOverOnly = false;
@@ -7203,12 +5760,12 @@
          // 
          // FngrDevOpr_Butn
          // 
-         this.FngrDevOpr_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.FngrDevOpr_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.FngrDevOpr_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.FngrDevOpr_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.FngrDevOpr_Butn.FlatAppearance.BorderSize = 0;
          this.FngrDevOpr_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.FngrDevOpr_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.FngrDevOpr_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.FngrDevOpr_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.FngrDevOpr_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.FngrDevOpr_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.FngrDevOpr_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -7329,7 +5886,6 @@
          // 
          this.FngrPrntOpr_Txt.EditValue = "";
          this.FngrPrntOpr_Txt.Location = new System.Drawing.Point(8, 158);
-         this.FngrPrntOpr_Txt.MenuManager = this.MainRbonMenu_Rbnc;
          this.FngrPrntOpr_Txt.Name = "FngrPrntOpr_Txt";
          this.FngrPrntOpr_Txt.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info;
          this.FngrPrntOpr_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -7370,7 +5926,7 @@
          // 
          // grouper4
          // 
-         this.grouper4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper4.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper4.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -7458,12 +6014,12 @@
          // 
          // RestNetRecnctDevs_Butn
          // 
-         this.RestNetRecnctDevs_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.RestNetRecnctDevs_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.RestNetRecnctDevs_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.RestNetRecnctDevs_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.RestNetRecnctDevs_Butn.FlatAppearance.BorderSize = 0;
          this.RestNetRecnctDevs_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.RestNetRecnctDevs_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.RestNetRecnctDevs_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.RestNetRecnctDevs_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.RestNetRecnctDevs_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.RestNetRecnctDevs_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.RestNetRecnctDevs_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -7481,12 +6037,12 @@
          // 
          // SetOnline_Butn
          // 
-         this.SetOnline_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.SetOnline_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SetOnline_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.SetOnline_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SetOnline_Butn.FlatAppearance.BorderSize = 0;
          this.SetOnline_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.SetOnline_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.SetOnline_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SetOnline_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SetOnline_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SetOnline_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.SetOnline_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -7504,12 +6060,12 @@
          // 
          // SetOffline_Butn
          // 
-         this.SetOffline_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.SetOffline_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SetOffline_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.SetOffline_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SetOffline_Butn.FlatAppearance.BorderSize = 0;
          this.SetOffline_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.SetOffline_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.SetOffline_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SetOffline_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SetOffline_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SetOffline_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.SetOffline_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -7527,12 +6083,12 @@
          // 
          // SelfTest_Butn
          // 
-         this.SelfTest_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.SelfTest_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SelfTest_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.SelfTest_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SelfTest_Butn.FlatAppearance.BorderSize = 0;
          this.SelfTest_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.SelfTest_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.SelfTest_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SelfTest_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SelfTest_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SelfTest_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.SelfTest_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -7550,12 +6106,12 @@
          // 
          // Error_Butn
          // 
-         this.Error_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.Error_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Error_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.Error_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Error_Butn.FlatAppearance.BorderSize = 0;
          this.Error_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.Error_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.Error_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Error_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Error_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.Error_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Error_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -7573,12 +6129,12 @@
          // 
          // CloseStop_Butn
          // 
-         this.CloseStop_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.CloseStop_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CloseStop_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.CloseStop_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.CloseStop_Butn.FlatAppearance.BorderSize = 0;
          this.CloseStop_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.CloseStop_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.CloseStop_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.CloseStop_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.CloseStop_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.CloseStop_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CloseStop_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -7596,12 +6152,12 @@
          // 
          // OpenStart_Butn
          // 
-         this.OpenStart_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.OpenStart_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.OpenStart_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.OpenStart_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.OpenStart_Butn.FlatAppearance.BorderSize = 0;
          this.OpenStart_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.OpenStart_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.OpenStart_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.OpenStart_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.OpenStart_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.OpenStart_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OpenStart_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -7869,17 +6425,17 @@
          // 
          // Atnw_Rlt
          // 
-         this.Atnw_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.Atnw_Rlt.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Atnw_Rlt.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.Atnw_Rlt.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.Atnw_Rlt.BorderThickness = 1F;
          this.Atnw_Rlt.Controls.Add(this.grouper11);
          this.Atnw_Rlt.Controls.Add(this.grouper12);
-         this.Atnw_Rlt.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.Atnw_Rlt.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.Atnw_Rlt.ForeColor = System.Drawing.Color.Black;
          this.Atnw_Rlt.FrameOnMouseOverOnly = false;
          this.Atnw_Rlt.GroupImage = null;
-         this.Atnw_Rlt.Location = new System.Drawing.Point(6, 5307);
+         this.Atnw_Rlt.Location = new System.Drawing.Point(5, 5650);
          this.Atnw_Rlt.MaxHeight = 966;
          this.Atnw_Rlt.Name = "Atnw_Rlt";
          this.Atnw_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -7895,11 +6451,11 @@
          this.Atnw_Rlt.ShowFocusFrame = false;
          this.Atnw_Rlt.Size = new System.Drawing.Size(237, 966);
          this.Atnw_Rlt.TabIndex = 35;
-         this.Atnw_Rlt.TitleBorderColor = System.Drawing.Color.Gray;
+         this.Atnw_Rlt.TitleBorderColor = System.Drawing.Color.Black;
          // 
          // grouper11
          // 
-         this.grouper11.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper11.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper11.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper11.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper11.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -7950,12 +6506,12 @@
          // 
          // AtnwCont_Btn
          // 
-         this.AtnwCont_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.AtnwCont_Btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.AtnwCont_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.AtnwCont_Btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.AtnwCont_Btn.FlatAppearance.BorderSize = 0;
          this.AtnwCont_Btn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.AtnwCont_Btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.AtnwCont_Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.AtnwCont_Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.AtnwCont_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.AtnwCont_Btn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.AtnwCont_Btn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -7971,13 +6527,13 @@
          // 
          // AtwnWrst_Butn
          // 
-         this.AtwnWrst_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.AtwnWrst_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.AtwnWrst_Butn.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AtnwBs, "ATNW_FNGR_PRNT_DNRM", true));
-         this.AtwnWrst_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.AtwnWrst_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.AtwnWrst_Butn.FlatAppearance.BorderSize = 0;
          this.AtwnWrst_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.AtwnWrst_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.AtwnWrst_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.AtwnWrst_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.AtwnWrst_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.AtwnWrst_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.AtwnWrst_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -7999,13 +6555,13 @@
          // 
          // AtnwFigh_Butn
          // 
-         this.AtnwFigh_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.AtnwFigh_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.AtnwFigh_Butn.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.AtnwBs, "Fighter.NAME_DNRM", true));
-         this.AtnwFigh_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.AtnwFigh_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.AtnwFigh_Butn.FlatAppearance.BorderSize = 0;
          this.AtnwFigh_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.AtnwFigh_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.AtnwFigh_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.AtnwFigh_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.AtnwFigh_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.AtnwFigh_Butn.Font = new System.Drawing.Font("IRANSans", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.AtnwFigh_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -8030,8 +6586,8 @@
          this.ServProFileAtnw_Rb.Font = new System.Drawing.Font("Verdana", 10F, System.Drawing.FontStyle.Bold);
          this.ServProFileAtnw_Rb.GradientStyle = System.MaxUi.RoundedButton.GradientStyles.Vertical;
          this.ServProFileAtnw_Rb.HoverBorderColor = System.Drawing.Color.Gold;
-         this.ServProFileAtnw_Rb.HoverColorA = System.Drawing.Color.LightGray;
-         this.ServProFileAtnw_Rb.HoverColorB = System.Drawing.Color.LightGray;
+         this.ServProFileAtnw_Rb.HoverColorA = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
+         this.ServProFileAtnw_Rb.HoverColorB = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.ServProFileAtnw_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          this.ServProFileAtnw_Rb.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
          this.ServProFileAtnw_Rb.ImageVisiable = false;
@@ -8047,7 +6603,7 @@
          // 
          // grouper12
          // 
-         this.grouper12.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper12.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper12.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper12.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper12.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -8087,7 +6643,7 @@
          // 
          // grouper13
          // 
-         this.grouper13.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper13.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper13.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper13.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper13.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -8421,7 +6977,7 @@
          // 
          // grouper14
          // 
-         this.grouper14.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper14.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper14.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper14.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper14.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -8446,12 +7002,12 @@
          // 
          // AtwnAllBack_Butn
          // 
-         this.AtwnAllBack_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.AtwnAllBack_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.AtwnAllBack_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.AtwnAllBack_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.AtwnAllBack_Butn.FlatAppearance.BorderSize = 0;
          this.AtwnAllBack_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.AtwnAllBack_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.AtwnAllBack_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.AtwnAllBack_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.AtwnAllBack_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.AtwnAllBack_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.AtwnAllBack_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -8469,7 +7025,7 @@
          // AtnwBn
          // 
          this.AtnwBn.AddNewItem = null;
-         this.AtnwBn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.AtnwBn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.AtnwBn.BindingSource = this.AtnwBs;
          this.AtnwBn.CountItem = this.bindingNavigatorCountItem;
          this.AtnwBn.DeleteItem = null;
@@ -8521,41 +7077,105 @@
          this.AtnwFind_Butn.Text = "جستجو";
          this.AtnwFind_Butn.Click += new System.EventHandler(this.AtnwFind_Butn_Click);
          // 
+         // xTp_006
+         // 
+         this.xTp_006.Appearance.Header.BackColor = System.Drawing.SystemColors.Control;
+         this.xTp_006.Appearance.Header.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_006.Appearance.Header.Options.UseBackColor = true;
+         this.xTp_006.Appearance.Header.Options.UseBorderColor = true;
+         this.xTp_006.Appearance.HeaderActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_006.Appearance.HeaderActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_006.Appearance.HeaderActive.Options.UseBackColor = true;
+         this.xTp_006.Appearance.HeaderActive.Options.UseBorderColor = true;
+         this.xTp_006.Appearance.HeaderHotTracked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_006.Appearance.HeaderHotTracked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_006.Appearance.HeaderHotTracked.Options.UseBackColor = true;
+         this.xTp_006.Appearance.HeaderHotTracked.Options.UseBorderColor = true;
+         this.xTp_006.Appearance.PageClient.BackColor = System.Drawing.SystemColors.Control;
+         this.xTp_006.Appearance.PageClient.Options.UseBackColor = true;
+         this.xTp_006.Image = ((System.Drawing.Image)(resources.GetObject("xTp_006.Image")));
+         this.xTp_006.Name = "xTp_006";
+         this.xTp_006.Size = new System.Drawing.Size(262, 914);
+         // 
+         // xTp_004
+         // 
+         this.xTp_004.Appearance.Header.BackColor = System.Drawing.SystemColors.Control;
+         this.xTp_004.Appearance.Header.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_004.Appearance.Header.Options.UseBackColor = true;
+         this.xTp_004.Appearance.Header.Options.UseBorderColor = true;
+         this.xTp_004.Appearance.HeaderActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_004.Appearance.HeaderActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_004.Appearance.HeaderActive.Options.UseBackColor = true;
+         this.xTp_004.Appearance.HeaderActive.Options.UseBorderColor = true;
+         this.xTp_004.Appearance.HeaderHotTracked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_004.Appearance.HeaderHotTracked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_004.Appearance.HeaderHotTracked.Options.UseBackColor = true;
+         this.xTp_004.Appearance.HeaderHotTracked.Options.UseBorderColor = true;
+         this.xTp_004.Appearance.PageClient.BackColor = System.Drawing.SystemColors.Control;
+         this.xTp_004.Appearance.PageClient.Options.UseBackColor = true;
+         this.xTp_004.Image = ((System.Drawing.Image)(resources.GetObject("xTp_004.Image")));
+         this.xTp_004.Name = "xTp_004";
+         this.xTp_004.Size = new System.Drawing.Size(262, 914);
+         // 
+         // xTp_005
+         // 
+         this.xTp_005.Appearance.Header.BackColor = System.Drawing.SystemColors.Control;
+         this.xTp_005.Appearance.Header.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_005.Appearance.Header.Options.UseBackColor = true;
+         this.xTp_005.Appearance.Header.Options.UseBorderColor = true;
+         this.xTp_005.Appearance.HeaderActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_005.Appearance.HeaderActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_005.Appearance.HeaderActive.Options.UseBackColor = true;
+         this.xTp_005.Appearance.HeaderActive.Options.UseBorderColor = true;
+         this.xTp_005.Appearance.HeaderHotTracked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_005.Appearance.HeaderHotTracked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_005.Appearance.HeaderHotTracked.Options.UseBackColor = true;
+         this.xTp_005.Appearance.HeaderHotTracked.Options.UseBorderColor = true;
+         this.xTp_005.Appearance.PageClient.BackColor = System.Drawing.SystemColors.Control;
+         this.xTp_005.Appearance.PageClient.Options.UseBackColor = true;
+         this.xTp_005.Image = ((System.Drawing.Image)(resources.GetObject("xTp_005.Image")));
+         this.xTp_005.Name = "xTp_005";
+         this.xTp_005.Size = new System.Drawing.Size(262, 914);
+         // 
          // xTp_003
          // 
          this.xTp_003.Appearance.Header.BackColor = System.Drawing.SystemColors.Control;
-         this.xTp_003.Appearance.Header.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_003.Appearance.Header.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.xTp_003.Appearance.Header.Options.UseBackColor = true;
          this.xTp_003.Appearance.Header.Options.UseBorderColor = true;
-         this.xTp_003.Appearance.HeaderActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.xTp_003.Appearance.HeaderActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_003.Appearance.HeaderActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_003.Appearance.HeaderActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.xTp_003.Appearance.HeaderActive.Options.UseBackColor = true;
          this.xTp_003.Appearance.HeaderActive.Options.UseBorderColor = true;
+         this.xTp_003.Appearance.HeaderHotTracked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_003.Appearance.HeaderHotTracked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_003.Appearance.HeaderHotTracked.Options.UseBackColor = true;
+         this.xTp_003.Appearance.HeaderHotTracked.Options.UseBorderColor = true;
          this.xTp_003.Appearance.PageClient.BackColor = System.Drawing.SystemColors.Control;
          this.xTp_003.Appearance.PageClient.Options.UseBackColor = true;
          this.xTp_003.Controls.Add(this.Stng_Pnl);
          this.xTp_003.Controls.Add(this.Conf_Pnl);
+         this.xTp_003.Image = ((System.Drawing.Image)(resources.GetObject("xTp_003.Image")));
          this.xTp_003.Name = "xTp_003";
-         this.xTp_003.Size = new System.Drawing.Size(263, 829);
-         this.xTp_003.Text = "تنظیمات";
+         this.xTp_003.Size = new System.Drawing.Size(262, 914);
          // 
          // Stng_Pnl
          // 
          this.Stng_Pnl.AutoScroll = true;
-         this.Stng_Pnl.BackColor = System.Drawing.SystemColors.Control;
+         this.Stng_Pnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Stng_Pnl.Controls.Add(this.rollout4);
          this.Stng_Pnl.Controls.Add(this.rollout2);
          this.Stng_Pnl.Dock = System.Windows.Forms.DockStyle.Fill;
          this.Stng_Pnl.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
          this.Stng_Pnl.Location = new System.Drawing.Point(0, 47);
          this.Stng_Pnl.Name = "Stng_Pnl";
-         this.Stng_Pnl.Size = new System.Drawing.Size(263, 782);
+         this.Stng_Pnl.Size = new System.Drawing.Size(262, 867);
          this.Stng_Pnl.TabIndex = 37;
          this.Stng_Pnl.WrapContents = false;
          // 
          // rollout4
          // 
-         this.rollout4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.rollout4.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.rollout4.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.rollout4.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.rollout4.BorderThickness = 1F;
@@ -8574,11 +7194,11 @@
          this.rollout4.Controls.Add(this.grouper19);
          this.rollout4.Controls.Add(this.grouper18);
          this.rollout4.Controls.Add(this.grouper17);
-         this.rollout4.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout4.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.rollout4.ForeColor = System.Drawing.Color.Black;
          this.rollout4.FrameOnMouseOverOnly = false;
          this.rollout4.GroupImage = null;
-         this.rollout4.Location = new System.Drawing.Point(6, 3);
+         this.rollout4.Location = new System.Drawing.Point(5, 3);
          this.rollout4.MaxHeight = 1920;
          this.rollout4.Name = "rollout4";
          this.rollout4.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -8594,11 +7214,11 @@
          this.rollout4.ShowFocusFrame = false;
          this.rollout4.Size = new System.Drawing.Size(237, 1920);
          this.rollout4.TabIndex = 28;
-         this.rollout4.TitleBorderColor = System.Drawing.Color.Gray;
+         this.rollout4.TitleBorderColor = System.Drawing.Color.Black;
          // 
          // grouper29
          // 
-         this.grouper29.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper29.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper29.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper29.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper29.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -8854,7 +7474,7 @@
          // 
          // grouper30
          // 
-         this.grouper30.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper30.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper30.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper30.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper30.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -9149,7 +7769,7 @@
          // 
          // grouper28
          // 
-         this.grouper28.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper28.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper28.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper28.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper28.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -9204,7 +7824,7 @@
          // 
          // grouper27
          // 
-         this.grouper27.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper27.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper27.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper27.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper27.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -9259,7 +7879,7 @@
          // 
          // grouper26
          // 
-         this.grouper26.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper26.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper26.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper26.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper26.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -9314,7 +7934,7 @@
          // 
          // grouper25
          // 
-         this.grouper25.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper25.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper25.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper25.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper25.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -9654,7 +8274,7 @@
          // 
          // grouper16
          // 
-         this.grouper16.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper16.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper16.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper16.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper16.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -9805,7 +8425,7 @@
          // 
          // grouper24
          // 
-         this.grouper24.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper24.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper24.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper24.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper24.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -9961,7 +8581,7 @@
          // 
          // grouper23
          // 
-         this.grouper23.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper23.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper23.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper23.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper23.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -10113,7 +8733,7 @@
          // 
          // grouper22
          // 
-         this.grouper22.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper22.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper22.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper22.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper22.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -10265,7 +8885,7 @@
          // 
          // grouper21
          // 
-         this.grouper21.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper21.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper21.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper21.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper21.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -10376,7 +8996,7 @@
          // 
          // grouper20
          // 
-         this.grouper20.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper20.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper20.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper20.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper20.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -10532,7 +9152,7 @@
          // 
          // grouper19
          // 
-         this.grouper19.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper19.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper19.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper19.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper19.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -10684,7 +9304,7 @@
          // 
          // grouper18
          // 
-         this.grouper18.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper18.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper18.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper18.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper18.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -10828,7 +9448,7 @@
          // 
          // grouper17
          // 
-         this.grouper17.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper17.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper17.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper17.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper17.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -10854,12 +9474,12 @@
          // 
          // ConfCncl_Butn
          // 
-         this.ConfCncl_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.ConfCncl_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ConfCncl_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.ConfCncl_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ConfCncl_Butn.FlatAppearance.BorderSize = 0;
          this.ConfCncl_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.ConfCncl_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.ConfCncl_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ConfCncl_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ConfCncl_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ConfCncl_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.ConfCncl_Butn.FrameOnMouseOverOnly = false;
@@ -10876,12 +9496,12 @@
          // 
          // ConfSave_Butn
          // 
-         this.ConfSave_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.ConfSave_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ConfSave_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.ConfSave_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ConfSave_Butn.FlatAppearance.BorderSize = 0;
          this.ConfSave_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.ConfSave_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.ConfSave_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ConfSave_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ConfSave_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ConfSave_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.ConfSave_Butn.FrameOnMouseOverOnly = false;
@@ -11503,17 +10123,17 @@
          // 
          // rollout2
          // 
-         this.rollout2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.rollout2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.rollout2.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.rollout2.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.rollout2.BorderThickness = 1F;
          this.rollout2.Controls.Add(this.grouper36);
          this.rollout2.Controls.Add(this.grouper35);
-         this.rollout2.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout2.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.rollout2.ForeColor = System.Drawing.Color.Black;
          this.rollout2.FrameOnMouseOverOnly = false;
          this.rollout2.GroupImage = null;
-         this.rollout2.Location = new System.Drawing.Point(6, 1929);
+         this.rollout2.Location = new System.Drawing.Point(5, 1929);
          this.rollout2.MaxHeight = 861;
          this.rollout2.Name = "rollout2";
          this.rollout2.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -11529,11 +10149,11 @@
          this.rollout2.ShowFocusFrame = false;
          this.rollout2.Size = new System.Drawing.Size(237, 861);
          this.rollout2.TabIndex = 30;
-         this.rollout2.TitleBorderColor = System.Drawing.Color.Gray;
+         this.rollout2.TitleBorderColor = System.Drawing.Color.Black;
          // 
          // grouper36
          // 
-         this.grouper36.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper36.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper36.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper36.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper36.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -11561,7 +10181,7 @@
          // 
          // grouper37
          // 
-         this.grouper37.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper37.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper37.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper37.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper37.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -11588,7 +10208,7 @@
          // 
          // grouper40
          // 
-         this.grouper40.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper40.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper40.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper40.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper40.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -11635,7 +10255,7 @@
          // 
          // grouper39
          // 
-         this.grouper39.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper39.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper39.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper39.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper39.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -11682,12 +10302,12 @@
          // 
          // SondLoad_Butn
          // 
-         this.SondLoad_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.SondLoad_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SondLoad_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.SondLoad_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SondLoad_Butn.FlatAppearance.BorderSize = 0;
          this.SondLoad_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.SondLoad_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.SondLoad_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SondLoad_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SondLoad_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SondLoad_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.SondLoad_Butn.FrameOnMouseOverOnly = false;
@@ -11706,7 +10326,7 @@
          // 
          // grouper38
          // 
-         this.grouper38.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper38.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper38.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper38.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper38.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -11753,12 +10373,12 @@
          // 
          // button6
          // 
-         this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.button6.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button6.FlatAppearance.BorderSize = 0;
          this.button6.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.button6.ForeColor = System.Drawing.SystemColors.ControlText;
          this.button6.FrameOnMouseOverOnly = false;
@@ -11775,12 +10395,12 @@
          // 
          // SondSave_Btn
          // 
-         this.SondSave_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.SondSave_Btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SondSave_Btn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.SondSave_Btn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SondSave_Btn.FlatAppearance.BorderSize = 0;
          this.SondSave_Btn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
          this.SondSave_Btn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
-         this.SondSave_Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SondSave_Btn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SondSave_Btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SondSave_Btn.ForeColor = System.Drawing.SystemColors.ControlText;
          this.SondSave_Btn.FrameOnMouseOverOnly = false;
@@ -11961,7 +10581,7 @@
          // 
          // grouper35
          // 
-         this.grouper35.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper35.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper35.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper35.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper35.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -12132,6 +10752,7 @@
          // 
          // Conf_Pnl
          // 
+         this.Conf_Pnl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.Conf_Pnl.Controls.Add(this.checkButton1);
          this.Conf_Pnl.Controls.Add(this.checkButton3);
          this.Conf_Pnl.Controls.Add(this.checkButton4);
@@ -12140,24 +10761,24 @@
          this.Conf_Pnl.Dock = System.Windows.Forms.DockStyle.Top;
          this.Conf_Pnl.Location = new System.Drawing.Point(0, 0);
          this.Conf_Pnl.Name = "Conf_Pnl";
-         this.Conf_Pnl.Size = new System.Drawing.Size(263, 47);
+         this.Conf_Pnl.Size = new System.Drawing.Size(262, 47);
          this.Conf_Pnl.TabIndex = 0;
          // 
          // checkButton1
          // 
          this.checkButton1.Appearance = System.Windows.Forms.Appearance.Button;
-         this.checkButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.checkButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.checkButton1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton1.FlatAppearance.BorderSize = 0;
-         this.checkButton1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.checkButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.checkButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton1.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.checkButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.checkButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.checkButton1.ForeColor = System.Drawing.SystemColors.ControlText;
          this.checkButton1.FrameOnMouseOverOnly = false;
          this.checkButton1.ImageIndex = 0;
          this.checkButton1.ImageList = this.ConfPnl_Img;
-         this.checkButton1.Location = new System.Drawing.Point(218, 3);
+         this.checkButton1.Location = new System.Drawing.Point(217, 3);
          this.checkButton1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
          this.checkButton1.Name = "checkButton1";
          this.checkButton1.ShowFocusFrame = true;
@@ -12182,19 +10803,19 @@
          // checkButton3
          // 
          this.checkButton3.Appearance = System.Windows.Forms.Appearance.Button;
-         this.checkButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton3.Enabled = false;
-         this.checkButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton3.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton3.FlatAppearance.BorderSize = 0;
-         this.checkButton3.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.checkButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.checkButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton3.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.checkButton3.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.checkButton3.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.checkButton3.ForeColor = System.Drawing.SystemColors.ControlText;
          this.checkButton3.FrameOnMouseOverOnly = false;
          this.checkButton3.ImageIndex = 2;
          this.checkButton3.ImageList = this.ConfPnl_Img;
-         this.checkButton3.Location = new System.Drawing.Point(173, 3);
+         this.checkButton3.Location = new System.Drawing.Point(172, 3);
          this.checkButton3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
          this.checkButton3.Name = "checkButton3";
          this.checkButton3.ShowFocusFrame = true;
@@ -12207,19 +10828,19 @@
          // checkButton4
          // 
          this.checkButton4.Appearance = System.Windows.Forms.Appearance.Button;
-         this.checkButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton4.Enabled = false;
-         this.checkButton4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton4.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton4.FlatAppearance.BorderSize = 0;
-         this.checkButton4.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.checkButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.checkButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton4.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.checkButton4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.checkButton4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.checkButton4.ForeColor = System.Drawing.SystemColors.ControlText;
          this.checkButton4.FrameOnMouseOverOnly = false;
          this.checkButton4.ImageIndex = 3;
          this.checkButton4.ImageList = this.ConfPnl_Img;
-         this.checkButton4.Location = new System.Drawing.Point(128, 3);
+         this.checkButton4.Location = new System.Drawing.Point(127, 3);
          this.checkButton4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
          this.checkButton4.Name = "checkButton4";
          this.checkButton4.ShowFocusFrame = true;
@@ -12231,19 +10852,19 @@
          // checkButton2
          // 
          this.checkButton2.Appearance = System.Windows.Forms.Appearance.Button;
-         this.checkButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton2.Enabled = false;
-         this.checkButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton2.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton2.FlatAppearance.BorderSize = 0;
-         this.checkButton2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.checkButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.checkButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton2.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.checkButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.checkButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.checkButton2.ForeColor = System.Drawing.SystemColors.ControlText;
          this.checkButton2.FrameOnMouseOverOnly = false;
          this.checkButton2.ImageIndex = 4;
          this.checkButton2.ImageList = this.ConfPnl_Img;
-         this.checkButton2.Location = new System.Drawing.Point(83, 3);
+         this.checkButton2.Location = new System.Drawing.Point(82, 3);
          this.checkButton2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
          this.checkButton2.Name = "checkButton2";
          this.checkButton2.ShowFocusFrame = true;
@@ -12255,19 +10876,19 @@
          // checkButton5
          // 
          this.checkButton5.Appearance = System.Windows.Forms.Appearance.Button;
-         this.checkButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton5.Enabled = false;
-         this.checkButton5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton5.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton5.FlatAppearance.BorderSize = 0;
-         this.checkButton5.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.checkButton5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.checkButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.checkButton5.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.checkButton5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.checkButton5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.checkButton5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.checkButton5.ForeColor = System.Drawing.SystemColors.ControlText;
          this.checkButton5.FrameOnMouseOverOnly = false;
          this.checkButton5.ImageIndex = 5;
          this.checkButton5.ImageList = this.ConfPnl_Img;
-         this.checkButton5.Location = new System.Drawing.Point(38, 3);
+         this.checkButton5.Location = new System.Drawing.Point(37, 3);
          this.checkButton5.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
          this.checkButton5.Name = "checkButton5";
          this.checkButton5.ShowFocusFrame = true;
@@ -12279,104 +10900,69 @@
          // xTp_001
          // 
          this.xTp_001.Appearance.Header.BackColor = System.Drawing.SystemColors.Control;
-         this.xTp_001.Appearance.Header.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_001.Appearance.Header.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.xTp_001.Appearance.Header.Options.UseBackColor = true;
          this.xTp_001.Appearance.Header.Options.UseBorderColor = true;
-         this.xTp_001.Appearance.HeaderActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.xTp_001.Appearance.HeaderActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.xTp_001.Appearance.HeaderActive.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_001.Appearance.HeaderActive.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.xTp_001.Appearance.HeaderActive.Options.UseBackColor = true;
          this.xTp_001.Appearance.HeaderActive.Options.UseBorderColor = true;
+         this.xTp_001.Appearance.HeaderHotTracked.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_001.Appearance.HeaderHotTracked.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.xTp_001.Appearance.HeaderHotTracked.Options.UseBackColor = true;
+         this.xTp_001.Appearance.HeaderHotTracked.Options.UseBorderColor = true;
          this.xTp_001.Appearance.PageClient.BackColor = System.Drawing.SystemColors.Control;
          this.xTp_001.Appearance.PageClient.Options.UseBackColor = true;
          this.xTp_001.Controls.Add(this.flowLayoutPanel1);
+         this.xTp_001.Image = ((System.Drawing.Image)(resources.GetObject("xTp_001.Image")));
          this.xTp_001.Name = "xTp_001";
-         this.xTp_001.Size = new System.Drawing.Size(263, 829);
-         this.xTp_001.Text = "یادآوری و رخداد ها";
+         this.xTp_001.Size = new System.Drawing.Size(262, 914);
          // 
          // flowLayoutPanel1
          // 
          this.flowLayoutPanel1.AutoScroll = true;
-         this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
+         this.flowLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.flowLayoutPanel1.Controls.Add(this.rollout1);
          this.flowLayoutPanel1.Controls.Add(this.rollout10);
          this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
          this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-         this.flowLayoutPanel1.Size = new System.Drawing.Size(263, 829);
+         this.flowLayoutPanel1.Size = new System.Drawing.Size(262, 914);
          this.flowLayoutPanel1.TabIndex = 36;
          this.flowLayoutPanel1.WrapContents = false;
          // 
          // rollout1
          // 
-         this.rollout1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.rollout1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.rollout1.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.rollout1.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.rollout1.BorderThickness = 1F;
-         this.rollout1.Controls.Add(this.EventDays_Spn);
          this.rollout1.Controls.Add(this.Evnt_Gc);
          this.rollout1.Controls.Add(this.EventFuture_Rb);
          this.rollout1.Controls.Add(this.EventToday_Rb);
-         this.rollout1.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout1.Controls.Add(this.EventDays_Spn);
+         this.rollout1.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.rollout1.ForeColor = System.Drawing.Color.Black;
          this.rollout1.FrameOnMouseOverOnly = false;
          this.rollout1.GroupImage = null;
-         this.rollout1.Location = new System.Drawing.Point(6, 3);
+         this.rollout1.Location = new System.Drawing.Point(22, 3);
          this.rollout1.MaxHeight = 890;
          this.rollout1.Name = "rollout1";
          this.rollout1.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
          this.rollout1.PaintRollout = true;
          this.rollout1.RolloutBorderColor = System.Drawing.Color.Gray;
          this.rollout1.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
-         this.rollout1.RolloutStatus = true;
+         this.rollout1.RolloutStatus = false;
          this.rollout1.RolloutTitle = "رکوردها";
          this.rollout1.RoundCorners = 2;
          this.rollout1.ShadowColor = System.Drawing.Color.DarkGray;
          this.rollout1.ShadowControl = false;
          this.rollout1.ShadowThickness = 3;
          this.rollout1.ShowFocusFrame = false;
-         this.rollout1.Size = new System.Drawing.Size(237, 890);
+         this.rollout1.Size = new System.Drawing.Size(237, 22);
          this.rollout1.TabIndex = 26;
-         this.rollout1.TitleBorderColor = System.Drawing.Color.Gray;
-         // 
-         // EventDays_Spn
-         // 
-         this.EventDays_Spn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.EventDays_Spn.DecimalPlaces = 0;
-         this.EventDays_Spn.DefaultValue = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-         this.EventDays_Spn.FloatValue = 10F;
-         this.EventDays_Spn.ForeColor = System.Drawing.SystemColors.ControlText;
-         this.EventDays_Spn.Increment = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-         this.EventDays_Spn.IntValue = 10;
-         this.EventDays_Spn.Location = new System.Drawing.Point(20, 34);
-         this.EventDays_Spn.Maximum = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-         this.EventDays_Spn.MaximumSize = new System.Drawing.Size(0, 16);
-         this.EventDays_Spn.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-         this.EventDays_Spn.Name = "EventDays_Spn";
-         this.EventDays_Spn.Size = new System.Drawing.Size(60, 16);
-         this.EventDays_Spn.TabIndex = 61;
-         this.EventDays_Spn.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-         this.EventDays_Spn.ValueChanged += new System.EventHandler(this.EventDays_Spn_ValueChanged);
+         this.rollout1.TitleBorderColor = System.Drawing.Color.Black;
          // 
          // Evnt_Gc
          // 
@@ -12559,19 +11145,58 @@
          this.EventToday_Rb.UseVisualStyleBackColor = true;
          this.EventToday_Rb.CheckedChanged += new System.EventHandler(this.EventX_Rb_CheckedChanged);
          // 
+         // EventDays_Spn
+         // 
+         this.EventDays_Spn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.EventDays_Spn.DecimalPlaces = 0;
+         this.EventDays_Spn.DefaultValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+         this.EventDays_Spn.FloatValue = 10F;
+         this.EventDays_Spn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.EventDays_Spn.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+         this.EventDays_Spn.IntValue = 10;
+         this.EventDays_Spn.Location = new System.Drawing.Point(20, 34);
+         this.EventDays_Spn.Maximum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+         this.EventDays_Spn.MaximumSize = new System.Drawing.Size(0, 16);
+         this.EventDays_Spn.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+         this.EventDays_Spn.Name = "EventDays_Spn";
+         this.EventDays_Spn.Size = new System.Drawing.Size(60, 16);
+         this.EventDays_Spn.TabIndex = 61;
+         this.EventDays_Spn.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+         this.EventDays_Spn.ValueChanged += new System.EventHandler(this.EventDays_Spn_ValueChanged);
+         // 
          // rollout10
          // 
-         this.rollout10.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.rollout10.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.rollout10.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.rollout10.BackgroundGradientMode = System.MaxUi.Rollout.GroupBoxGradientMode.None;
          this.rollout10.BorderThickness = 1F;
          this.rollout10.Controls.Add(this.grouper6);
          this.rollout10.Controls.Add(this.gridControl4);
-         this.rollout10.CustomRolloutColor = System.Drawing.Color.LightGray;
+         this.rollout10.CustomRolloutColor = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(180)))), ((int)(((byte)(180)))));
          this.rollout10.ForeColor = System.Drawing.Color.Black;
          this.rollout10.FrameOnMouseOverOnly = false;
          this.rollout10.GroupImage = null;
-         this.rollout10.Location = new System.Drawing.Point(6, 899);
+         this.rollout10.Location = new System.Drawing.Point(22, 31);
          this.rollout10.MaxHeight = 699;
          this.rollout10.Name = "rollout10";
          this.rollout10.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -12587,11 +11212,11 @@
          this.rollout10.ShowFocusFrame = false;
          this.rollout10.Size = new System.Drawing.Size(237, 22);
          this.rollout10.TabIndex = 27;
-         this.rollout10.TitleBorderColor = System.Drawing.Color.Gray;
+         this.rollout10.TitleBorderColor = System.Drawing.Color.Black;
          // 
          // grouper6
          // 
-         this.grouper6.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.grouper6.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.grouper6.BackgroundGradientColor = System.Drawing.SystemColors.Control;
          this.grouper6.BackgroundGradientMode = System.MaxUi.Grouper.GroupBoxGradientMode.None;
          this.grouper6.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(110)))));
@@ -12622,12 +11247,12 @@
          // 
          // SubmitNote_Butn
          // 
-         this.SubmitNote_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.SubmitNote_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SubmitNote_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.SubmitNote_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SubmitNote_Butn.FlatAppearance.BorderSize = 0;
          this.SubmitNote_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.SubmitNote_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.SubmitNote_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.SubmitNote_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.SubmitNote_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.SubmitNote_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.SubmitNote_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -12646,12 +11271,12 @@
          // 
          // ClenNote_Butn
          // 
-         this.ClenNote_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.ClenNote_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ClenNote_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.ClenNote_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ClenNote_Butn.FlatAppearance.BorderSize = 0;
          this.ClenNote_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.ClenNote_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.ClenNote_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.ClenNote_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.ClenNote_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.ClenNote_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.ClenNote_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -12667,12 +11292,12 @@
          // 
          // DelNote_Butn
          // 
-         this.DelNote_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.DelNote_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.DelNote_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.DelNote_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.DelNote_Butn.FlatAppearance.BorderSize = 0;
          this.DelNote_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.DelNote_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.DelNote_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.DelNote_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.DelNote_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.DelNote_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.DelNote_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -12690,12 +11315,12 @@
          // 
          // AddNewNote_Butn
          // 
-         this.AddNewNote_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-         this.AddNewNote_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.AddNewNote_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
+         this.AddNewNote_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.AddNewNote_Butn.FlatAppearance.BorderSize = 0;
          this.AddNewNote_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
          this.AddNewNote_Butn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
-         this.AddNewNote_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+         this.AddNewNote_Butn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.AddNewNote_Butn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
          this.AddNewNote_Butn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.AddNewNote_Butn.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -12974,22 +11599,21 @@
          this.ShowMain_Btn.Dock = System.Windows.Forms.DockStyle.Right;
          this.ShowMain_Btn.Image = ((System.Drawing.Image)(resources.GetObject("ShowMain_Btn.Image")));
          this.ShowMain_Btn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ShowMain_Btn.Location = new System.Drawing.Point(847, 5);
+         this.ShowMain_Btn.Location = new System.Drawing.Point(908, 5);
          this.ShowMain_Btn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ShowMain_Btn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ShowMain_Btn.Name = "ShowMain_Btn";
          this.ShowMain_Btn.Size = new System.Drawing.Size(22, 27);
-         toolTipTitleItem6.Text = "نمایش منوی اصلی";
-         superToolTip6.Items.Add(toolTipTitleItem6);
-         this.ShowMain_Btn.SuperTip = superToolTip6;
+         toolTipTitleItem1.Text = "نمایش منوی اصلی";
+         superToolTip1.Items.Add(toolTipTitleItem1);
+         this.ShowMain_Btn.SuperTip = superToolTip1;
          this.ShowMain_Btn.TabIndex = 23;
          this.ShowMain_Btn.Click += new System.EventHandler(this.ShowMain_Btn_Click);
          // 
          // OnlineDres_Butn
          // 
          this.OnlineDres_Butn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.OnlineDres_Butn.Location = new System.Drawing.Point(698, 7);
-         this.OnlineDres_Butn.MenuManager = this.MainRbonMenu_Rbnc;
+         this.OnlineDres_Butn.Location = new System.Drawing.Point(759, 7);
          this.OnlineDres_Butn.Name = "OnlineDres_Butn";
          this.OnlineDres_Butn.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.OnlineDres_Butn.Properties.Appearance.Options.UseFont = true;
@@ -13036,7 +11660,7 @@
          this.TlgrmBot_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.TlgrmBot_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1616;
          this.TlgrmBot_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.TlgrmBot_Butn.Location = new System.Drawing.Point(869, 5);
+         this.TlgrmBot_Butn.Location = new System.Drawing.Point(930, 5);
          this.TlgrmBot_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.TlgrmBot_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.TlgrmBot_Butn.Name = "TlgrmBot_Butn";
@@ -13059,7 +11683,7 @@
          this.BackGrnd_Butn.ImageProfile = null;
          this.BackGrnd_Butn.ImageSizeMode = System.Windows.Forms.PictureBoxSizeMode.Normal;
          this.BackGrnd_Butn.ImageVisiable = false;
-         this.BackGrnd_Butn.Location = new System.Drawing.Point(823, 8);
+         this.BackGrnd_Butn.Location = new System.Drawing.Point(884, 8);
          this.BackGrnd_Butn.Name = "BackGrnd_Butn";
          this.BackGrnd_Butn.NormalBorderColor = System.Drawing.Color.Black;
          this.BackGrnd_Butn.NormalColorA = System.Drawing.Color.DimGray;
@@ -13073,7 +11697,6 @@
          // 
          this.AttnType_Lov.Dock = System.Windows.Forms.DockStyle.Left;
          this.AttnType_Lov.Location = new System.Drawing.Point(361, 5);
-         this.AttnType_Lov.MenuManager = this.MainRbonMenu_Rbnc;
          this.AttnType_Lov.Name = "AttnType_Lov";
          this.AttnType_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -13102,7 +11725,7 @@
          this.AdjustDateTime_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AdjustDateTime_Butn.Image = ((System.Drawing.Image)(resources.GetObject("AdjustDateTime_Butn.Image")));
          this.AdjustDateTime_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(899, 5);
+         this.AdjustDateTime_Butn.Location = new System.Drawing.Point(960, 5);
          this.AdjustDateTime_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AdjustDateTime_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AdjustDateTime_Butn.Name = "AdjustDateTime_Butn";
@@ -13115,24 +11738,23 @@
          // 
          this.CardNumb_Text.Dock = System.Windows.Forms.DockStyle.Left;
          this.CardNumb_Text.Location = new System.Drawing.Point(141, 5);
-         this.CardNumb_Text.MenuManager = this.MainRbonMenu_Rbnc;
          this.CardNumb_Text.Name = "CardNumb_Text";
          this.CardNumb_Text.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.CardNumb_Text.Properties.Appearance.Options.UseFont = true;
          this.CardNumb_Text.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.CardNumb_Text.Properties.AppearanceFocused.Options.UseBackColor = true;
-         toolTipTitleItem7.Text = "مشترک";
-         toolTipItem6.LeftIndent = 6;
-         toolTipItem6.Text = "نمایش اطلاعات عمومی مشترک";
-         toolTipTitleItem8.LeftIndent = 6;
-         toolTipTitleItem8.Text = "کلید میانبر \r\nF4";
-         superToolTip7.Items.Add(toolTipTitleItem7);
-         superToolTip7.Items.Add(toolTipItem6);
-         superToolTip7.Items.Add(toolTipTitleItem8);
+         toolTipTitleItem2.Text = "مشترک";
+         toolTipItem1.LeftIndent = 6;
+         toolTipItem1.Text = "نمایش اطلاعات عمومی مشترک";
+         toolTipTitleItem3.LeftIndent = 6;
+         toolTipTitleItem3.Text = "کلید میانبر \r\nF4";
+         superToolTip2.Items.Add(toolTipTitleItem2);
+         superToolTip2.Items.Add(toolTipItem1);
+         superToolTip2.Items.Add(toolTipTitleItem3);
          this.CardNumb_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject96, "ثبت نام", null, null, true),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject97, "تعویض کارت", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject98, "", null, superToolTip7, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject98, "", null, superToolTip2, true),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject99, "حضور و غیاب دستی", null, null, true),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject100, "فاکتور فروش کالا / خدمات", null, null, true),
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1620, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject101, "مهمان آزاد آقایان", null, null, true),
@@ -13150,7 +11772,6 @@
          this.FngrPrnt_Txt.Dock = System.Windows.Forms.DockStyle.Left;
          this.FngrPrnt_Txt.EditValue = "";
          this.FngrPrnt_Txt.Location = new System.Drawing.Point(61, 5);
-         this.FngrPrnt_Txt.MenuManager = this.MainRbonMenu_Rbnc;
          this.FngrPrnt_Txt.Name = "FngrPrnt_Txt";
          this.FngrPrnt_Txt.Properties.Appearance.BackColor = System.Drawing.SystemColors.Info;
          this.FngrPrnt_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -13210,7 +11831,7 @@
          this.More_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.More_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1189;
          this.More_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.More_Butn.Location = new System.Drawing.Point(985, 5);
+         this.More_Butn.Location = new System.Drawing.Point(1046, 5);
          this.More_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.More_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.More_Butn.Name = "More_Butn";
@@ -13224,7 +11845,7 @@
          this.TryPing_Cbx.Checked = true;
          this.TryPing_Cbx.CheckState = System.Windows.Forms.CheckState.Checked;
          this.TryPing_Cbx.Dock = System.Windows.Forms.DockStyle.Right;
-         this.TryPing_Cbx.Location = new System.Drawing.Point(1015, 5);
+         this.TryPing_Cbx.Location = new System.Drawing.Point(1076, 5);
          this.TryPing_Cbx.Name = "TryPing_Cbx";
          this.TryPing_Cbx.Size = new System.Drawing.Size(15, 27);
          this.TryPing_Cbx.TabIndex = 22;
@@ -13240,7 +11861,7 @@
          this.SrvrPing_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.SrvrPing_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1408;
          this.SrvrPing_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.SrvrPing_Butn.Location = new System.Drawing.Point(1030, 5);
+         this.SrvrPing_Butn.Location = new System.Drawing.Point(1091, 5);
          this.SrvrPing_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SrvrPing_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SrvrPing_Butn.Name = "SrvrPing_Butn";
@@ -13258,7 +11879,7 @@
          this.GameHours_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.GameHours_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1428;
          this.GameHours_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GameHours_Butn.Location = new System.Drawing.Point(1060, 5);
+         this.GameHours_Butn.Location = new System.Drawing.Point(1121, 5);
          this.GameHours_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GameHours_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GameHours_Butn.Name = "GameHours_Butn";
@@ -13275,7 +11896,7 @@
          this.GateAttn_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.GateAttn_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
          this.GateAttn_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.GateAttn_Butn.Location = new System.Drawing.Point(1090, 5);
+         this.GateAttn_Butn.Location = new System.Drawing.Point(1151, 5);
          this.GateAttn_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.GateAttn_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.GateAttn_Butn.Name = "GateAttn_Butn";
@@ -13293,23 +11914,23 @@
          this.AttendanceSystemAlert_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1227;
          this.AttendanceSystemAlert_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.AttendanceSystemAlert_Butn.Location = new System.Drawing.Point(1120, 5);
+         this.AttendanceSystemAlert_Butn.Location = new System.Drawing.Point(1181, 5);
          this.AttendanceSystemAlert_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.AttendanceSystemAlert_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.AttendanceSystemAlert_Butn.Name = "AttendanceSystemAlert_Butn";
          this.AttendanceSystemAlert_Butn.Size = new System.Drawing.Size(39, 27);
-         toolTipTitleItem9.Appearance.Options.UseImage = true;
-         toolTipTitleItem9.Text = "IP : ...\r\nوضعیت : *";
-         toolTipItem7.Appearance.Options.UseImage = true;
-         toolTipItem7.LeftIndent = 6;
-         toolTipItem7.Text = "IP : ...\r\nComputer Name : *";
-         toolTipTitleItem10.Appearance.Options.UseImage = true;
-         toolTipTitleItem10.LeftIndent = 6;
-         toolTipTitleItem10.Text = "تیم پشتیبانی\r\nوضعیت اینترنت : *";
-         superToolTip8.Items.Add(toolTipTitleItem9);
-         superToolTip8.Items.Add(toolTipItem7);
-         superToolTip8.Items.Add(toolTipTitleItem10);
-         this.AttendanceSystemAlert_Butn.SuperTip = superToolTip8;
+         toolTipTitleItem4.Appearance.Options.UseImage = true;
+         toolTipTitleItem4.Text = "IP : ...\r\nوضعیت : *";
+         toolTipItem2.Appearance.Options.UseImage = true;
+         toolTipItem2.LeftIndent = 6;
+         toolTipItem2.Text = "IP : ...\r\nComputer Name : *";
+         toolTipTitleItem5.Appearance.Options.UseImage = true;
+         toolTipTitleItem5.LeftIndent = 6;
+         toolTipTitleItem5.Text = "تیم پشتیبانی\r\nوضعیت اینترنت : *";
+         superToolTip3.Items.Add(toolTipTitleItem4);
+         superToolTip3.Items.Add(toolTipItem2);
+         superToolTip3.Items.Add(toolTipTitleItem5);
+         this.AttendanceSystemAlert_Butn.SuperTip = superToolTip3;
          this.AttendanceSystemAlert_Butn.TabIndex = 8;
          this.AttendanceSystemAlert_Butn.Click += new System.EventHandler(this.AttendanceSystemAlert_Butn_Click);
          // 
@@ -13324,7 +11945,7 @@
          this.ActionCenter_Butn.Enabled = false;
          this.ActionCenter_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ActionCenter_Butn.Image")));
          this.ActionCenter_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ActionCenter_Butn.Location = new System.Drawing.Point(1159, 5);
+         this.ActionCenter_Butn.Location = new System.Drawing.Point(1220, 5);
          this.ActionCenter_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ActionCenter_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ActionCenter_Butn.Name = "ActionCenter_Butn";
@@ -13342,7 +11963,7 @@
          this.ShowDesktop_Butn.Dock = System.Windows.Forms.DockStyle.Right;
          this.ShowDesktop_Butn.Image = ((System.Drawing.Image)(resources.GetObject("ShowDesktop_Butn.Image")));
          this.ShowDesktop_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
-         this.ShowDesktop_Butn.Location = new System.Drawing.Point(1201, 5);
+         this.ShowDesktop_Butn.Location = new System.Drawing.Point(1262, 5);
          this.ShowDesktop_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.ShowDesktop_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.ShowDesktop_Butn.Name = "ShowDesktop_Butn";
@@ -13368,7 +11989,6 @@
          // 
          // ribbonPageGroup6
          // 
-         this.ribbonPageGroup6.ItemLinks.Add(this.bbi_dsrdbutn);
          this.ribbonPageGroup6.Name = "ribbonPageGroup6";
          this.ribbonPageGroup6.Text = "مالی";
          // 
@@ -13683,15 +12303,13 @@
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ContextMenuStrip = this.AllMenu_Cmn;
          this.Controls.Add(this.spc_desktop);
-         this.Controls.Add(this.MainRbonMenu_Rbnc);
          this.Controls.Add(this.statusStrip1);
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "MAIN_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1230, 1037);
+         this.Size = new System.Drawing.Size(1291, 982);
          this.statusStrip1.ResumeLayout(false);
          this.statusStrip1.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.MainRbonMenu_Rbnc)).EndInit();
          this.spc_desktop.Panel1.ResumeLayout(false);
          this.spc_desktop.Panel2.ResumeLayout(false);
          this.spc_desktop.Panel2.PerformLayout();
@@ -13711,6 +12329,7 @@
          this.grouper33.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.SubVerNo_Txt.Properties)).EndInit();
          this.Base_Rlt.ResumeLayout(false);
+         this.InptData_Rlt.ResumeLayout(false);
          this.DataMang_Rlt.ResumeLayout(false);
          this.Tool_Rlt.ResumeLayout(false);
          this.Kisk_Rlt.ResumeLayout(false);
@@ -13966,134 +12585,20 @@
       private Windows.Forms.ToolStripStatusLabel Lbs_CrntUser;
       private Windows.Forms.ToolStripStatusLabel Tsp_AttnSys;
       private Windows.Forms.ToolStripStatusLabel Lbs_Tooltip;
-      private DevExpress.XtraBars.Ribbon.RibbonControl MainRbonMenu_Rbnc;
-      private DevExpress.XtraBars.Ribbon.RibbonPage Base_RbPg;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup Base_RbGp;
       private Windows.Forms.SplitContainer spc_desktop;
-      private DevExpress.XtraBars.BarButtonItem bbi_epitbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_cashbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_mtodbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_regnbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_clubbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_ucplbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_reglbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_crglbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_idrgbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_orgnbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_movpbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_adm1butn;
-      private DevExpress.XtraBars.BarButtonItem bbi_mbs1butn;
-      private DevExpress.XtraBars.BarButtonItem bbi_insrbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_flstbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_fdbtbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_adm2butn;
-      private DevExpress.XtraBars.BarButtonItem bbi_fmdfbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_cclcbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_fdelbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_fundbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_fmtdbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_clstbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_cdelbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_cundbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_fchmbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_cchmbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_fembbutn;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup Mali_RbGp;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
-      private DevExpress.XtraBars.Ribbon.RibbonPage Adm_RbPg;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup Adm_RbGp;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup5;
-      private DevExpress.XtraBars.Ribbon.RibbonPage Serv_RbPg;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup Report_RbGp;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup Serv_RbGp;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup8;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup9;
-      private DevExpress.XtraBars.BarButtonItem bbi_frkdbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_coptbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_bkupbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_rstrbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_trnsbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_oincbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_oexpbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_cincbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_fcrlbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_attnbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_smsbbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_agmbbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_aglsbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_agcbbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_testbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_compbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_exambutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_pyftbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_calcbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_hertbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_fnmvbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_fnfdbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_fnanbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_feinbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_femtbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_lusrbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_salebutn;
-      private DevExpress.XtraBars.Ribbon.RibbonPageCategory System_RPgc;
-      private DevExpress.XtraBars.Ribbon.RibbonPage SystemAdmin_RbPg;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup SystemAdmin_RbGp;
-      private DevExpress.XtraBars.Ribbon.RibbonPageCategory OtherInCome_RPgc;
-      private DevExpress.XtraBars.Ribbon.RibbonPage OthrOption_RbPg;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup OthrOption_RbGp;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup OthrExpnOption_RbGp;
-      private DevExpress.XtraBars.Ribbon.RibbonPageCategory ribbonPageCategory3;
-      private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage7;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup15;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup16;
-      private DevExpress.XtraBars.Ribbon.RibbonPageCategory AgrActn_RPgc;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup AgrSmsOption_RbGp;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup AgrOprOption_RbGp;
-      private DevExpress.XtraBars.Ribbon.RibbonPageCategory Mngr_RPgc;
-      private DevExpress.XtraBars.Ribbon.RibbonPage Report_RbPg;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup17;
-      private DevExpress.XtraBars.Ribbon.RibbonPage ribbonPage8;
-      private DevExpress.XtraBars.BarButtonItem bbi_acntbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_inotbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_incmbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_expnbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_shmdbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_bislbutn;
       private IO.Ports.SerialPort Sp_Barcode;
       private Windows.Forms.Timer Tm_FingerPrintWorker;
-      private DevExpress.XtraBars.BarButtonItem bbi_agmcbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_mbcobutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_aprsbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_dprsbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_cprsbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_cpaybutn;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup19;
       private DevExpress.XtraEditors.SimpleButton StartMenu_Butn;
       private DevExpress.XtraEditors.SimpleButton More_Butn;
       private DevExpress.XtraEditors.SimpleButton AttendanceSystemAlert_Butn;
       private DevExpress.XtraEditors.SimpleButton ActionCenter_Butn;
       private DevExpress.XtraEditors.SimpleButton ShowDesktop_Butn;
       private Windows.Forms.BindingSource FighBs;
-      private DevExpress.XtraBars.BarButtonItem bbi_cmanbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_exdsbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_hlstbutn;
       private DevExpress.XtraEditors.TextEdit FngrPrnt_Txt;
-      private DevExpress.XtraBars.BarButtonItem bbi_mbfzbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_cyclbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_rptcbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_senmbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_rptsbutn;
       private DevExpress.XtraEditors.ButtonEdit CardNumb_Text;
-      private DevExpress.XtraBars.BarButtonItem bbi_dsrdbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_dshbbutn;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup20;
       private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup6;
-      private DevExpress.XtraBars.BarButtonItem bbi_fdlsbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_embkbutn;
       private DevExpress.XtraEditors.SimpleButton AdjustDateTime_Butn;
       private Windows.Forms.Timer Tm_ShowTime;
-      private DevExpress.XtraBars.BarButtonItem bbi_basdifnbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_mbsnbutn;
       private DevExpress.XtraEditors.SimpleButton GateAttn_Butn;
       private IO.Ports.SerialPort Sp_GateAttn;
       private DevExpress.XtraEditors.SimpleButton SrvrPing_Butn;
@@ -14103,8 +12608,6 @@
       private DevExpress.XtraEditors.SimpleButton ShowInfo_Butn;
       private MaxUi.RoundedButton BackGrnd_Butn;
       private DevExpress.XtraEditors.SimpleButton TlgrmBot_Butn;
-      private DevExpress.XtraBars.Ribbon.RibbonPage AgrOption_RbPg;
-      private DevExpress.XtraBars.Ribbon.RibbonPageCategory SystemAdmin_RPgc;
       private DevExpress.XtraEditors.SimpleButton ChngAttnActn_Butn;
       private DevExpress.XtraEditors.SimpleButton GameHours_Butn;
       private Windows.Forms.ContextMenuStrip AllMenu_Cmn;
@@ -14141,42 +12644,19 @@
       private Windows.Forms.ToolStripMenuItem bbi_agmbbutn_Mn;
       private Windows.Forms.ToolStripMenuItem bbi_agcbbutn_Mn;
       private Windows.Forms.ToolStripMenuItem bbi_aglsbutn_Mn;
-      private DevExpress.XtraBars.BarButtonItem bbi_incgbutn;
-      private DevExpress.XtraBars.BarButtonItem ksk_incmbutn;
       private Windows.Forms.LinkLabel Licnday_Lnk;
-      private DevExpress.XtraBars.BarButtonItem tol_calcbutn;
-      private DevExpress.XtraBars.BarButtonItem tol_devmngrbutn;
-      private DevExpress.XtraBars.BarButtonItem tol_servbutn;
-      private DevExpress.XtraBars.BarButtonItem tol_sharfldrbutn;
-      private DevExpress.XtraBars.BarButtonItem tol_appfldrbutn;
-      private DevExpress.XtraBars.BarButtonItem tol_ssmsbutn;
-      private DevExpress.XtraBars.BarButtonItem tol_rmotdeskbutn;
-      private DevExpress.XtraBars.BarButtonItem tol_magnfirebutn;
-      private DevExpress.XtraBars.BarButtonItem tol_cntlpnelbutn;
-      private DevExpress.XtraBars.BarButtonItem tol_cmdbutn;
-      private DevExpress.XtraBars.Ribbon.RibbonPage Tools_RbPg;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup Tools_RbGg;
-      private DevExpress.XtraBars.BarButtonItem tol_anydeskbutn;
       private DevExpress.XtraEditors.ButtonEdit OnlineDres_Butn;
-      private DevExpress.XtraBars.BarButtonItem tol_opengatebutn;
-      private DevExpress.XtraBars.BarButtonItem tol_closegatebutn;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
       private Windows.Forms.ToolStripSeparator toolStripMenuItem11;
       private Windows.Forms.ToolStripMenuItem OpenGate_Tsm;
       private Windows.Forms.ToolStripMenuItem CloseGate_Tsm;
       private Windows.Forms.Timer Tm_Exdv;
-      private DevExpress.XtraBars.BarButtonItem bbi_grntbutn;
-      private DevExpress.XtraBars.BarButtonItem bbi_evntsysbutn;
       private Windows.Forms.CheckBox TryPing_Cbx;
-      private DevExpress.XtraBars.BarButtonItem bbi_dsctcard;
-      private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup2;
       private Windows.Forms.LinkLabel CWlet_Lnk;
       private Windows.Forms.PictureBox CWlet_Pb;
       private DevExpress.XtraEditors.TextEdit CWlet_Txt;
       private Windows.Forms.Timer CWlet_Tm;
       private DevExpress.XtraEditors.SplitContainerControl spc_desktopnew;
       private Windows.Forms.FlowLayoutPanel Main_Pnl;
-      private MaxUi.Rollout Wlet_Rlt;
       private Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
       private MaxUi.Rollout rollout1;
       private Windows.Forms.RadioButton EventFuture_Rb;
@@ -14196,7 +12676,7 @@
       private dxExample.PersianRepositoryItemDateEdit persianRepositoryItemDateEdit1;
       private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colCHAT_ID_DNRM;
       private DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn colEVNT_DESC;
-      private MaxUi.Rollout Base_Rlt;
+      private MaxUi.Rollout InptData_Rlt;
       private MaxUi.Button button8;
       private MaxUi.Button bbi_AllCoch_Butn;
       private MaxUi.Button button11;
@@ -14900,5 +13380,14 @@
       private DevExpress.XtraEditors.LookUpEdit lookUpEdit36;
       private Windows.Forms.BindingSource ExpnBs;
       private Windows.Forms.Label label48;
+      private MaxUi.Button AddNewGust_Butn;
+      private MaxUi.Button OthrIncmGust_Butn;
+      private DevExpress.XtraTab.XtraTabPage xTp_006;
+      private DevExpress.XtraTab.XtraTabPage xTp_004;
+      private DevExpress.XtraTab.XtraTabPage xTp_005;
+      private MaxUi.Rollout Wlet_Rlt;
+      private MaxUi.Rollout Base_Rlt;
+      private MaxUi.Button BasDef2_Btn;
+      private MaxUi.Button BasDef1_Btn;
    }
 }

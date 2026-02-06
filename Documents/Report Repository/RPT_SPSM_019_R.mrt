@@ -76,7 +76,7 @@ WHERE Rqtp_Code != '012'
       </Payment_Method>
       <Report_Action_Parameter Ref="4" type="Stimulsoft.Report.Dictionary.StiSqlSource" isKey="true">
         <Alias>Report_Action_Parameter</Alias>
-        <Columns isList="true" count="19">
+        <Columns isList="true" count="21">
           <value>CODE,System.Int64</value>
           <value>RPAC_TYPE,System.String</value>
           <value>FROM_DATE,System.String</value>
@@ -96,13 +96,15 @@ WHERE Rqtp_Code != '012'
           <value>PERS_FROM_DATE,System.String</value>
           <value>PERS_TO_DATE,System.String</value>
           <value>CRNT_DATE,System.String</value>
+          <value>PPOS_STAT,System.String</value>
+          <value>POS_TERM_NO,System.String</value>
         </Columns>
         <CommandTimeout>30</CommandTimeout>
         <Dictionary isRef="1" />
         <Name>Report_Action_Parameter</Name>
         <NameInSource>iScsc</NameInSource>
         <Parameters isList="true" count="0" />
-        <SqlCommand>select *, dbo.GET_MTOS_U(FROM_DATE) AS PERS_FROM_DATE, dbo.GET_MTOS_U(TO_DATE) AS PERS_TO_DATE,
+        <SqlCommand>select top 1 *, dbo.GET_MTOS_U(FROM_DATE) AS PERS_FROM_DATE, dbo.GET_MTOS_U(TO_DATE) AS PERS_TO_DATE,
 	   dbo.GET_CDTD_U() AS CRNT_DATE
   from Report_Action_Parameter WHERE CRET_BY = UPPER(SUSER_NAME())</SqlCommand>
       </Report_Action_Parameter>
@@ -126,7 +128,6 @@ WHERE Rqtp_Code != '012'
           <ClientRectangle>0,0.4,27.6,0.8</ClientRectangle>
           <Components isList="true" count="8">
             <DataReport_Action_Parameter_PERS_FROM_DATE Ref="7" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>16.4,0,4.2,0.8</ClientRectangle>
@@ -143,7 +144,6 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </DataReport_Action_Parameter_PERS_FROM_DATE>
             <DataReport_Action_Parameter_CRET_BY Ref="8" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>22.4,0,3.6,0.8</ClientRectangle>
@@ -160,7 +160,6 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </DataReport_Action_Parameter_CRET_BY>
             <HeaderReport_Action_Parameter_CRET_BY Ref="9" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>26,0,1.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -177,7 +176,6 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </HeaderReport_Action_Parameter_CRET_BY>
             <HeaderReport_Action_Parameter_PERS_FROM_DATE Ref="10" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>20.6,0,1.8,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -194,7 +192,6 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </HeaderReport_Action_Parameter_PERS_FROM_DATE>
             <DataReport_Action_Parameter_PERS_TO_DATE Ref="11" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>11.6,0,3.6,0.8</ClientRectangle>
@@ -211,7 +208,6 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </DataReport_Action_Parameter_PERS_TO_DATE>
             <HeaderReport_Action_Parameter_PERS_TO_DATE Ref="12" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>15.2,0,1.2,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -228,7 +224,6 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </HeaderReport_Action_Parameter_PERS_TO_DATE>
             <Text10 Ref="13" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <CanGrow>True</CanGrow>
               <ClientRectangle>0,0,9,0.8</ClientRectangle>
@@ -247,7 +242,6 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text10>
             <Text11 Ref="14" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>Transparent</Brush>
               <ClientRectangle>9,0,2.6,0.8</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -279,7 +273,6 @@ WHERE Rqtp_Code != '012'
           <ClientRectangle>0,2,27.6,1.2</ClientRectangle>
           <Components isList="true" count="17">
             <Text1 Ref="16" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>22.4,0,5.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -343,7 +336,6 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text8>
             <Text9 Ref="20" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>11.6,0,3.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -422,7 +414,6 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text27>
             <Text28 Ref="25" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>20.6,0,1.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -437,7 +428,6 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text28>
             <Text29 Ref="26" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>16.4,0,4.2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -510,7 +500,7 @@ WHERE Rqtp_Code != '012'
               <Name>Text37</Name>
               <Page isRef="5" />
               <Parent isRef="15" />
-              <Text>ارجاع</Text>
+              <Text>کاربر</Text>
               <TextBrush>Black</TextBrush>
               <Type>Expression</Type>
               <VertAlignment>Center</VertAlignment>
@@ -533,7 +523,6 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text12>
             <Text2 Ref="32" type="Text" isKey="true">
-              <Border>None;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>14.8,0,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -550,8 +539,9 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text2>
           </Components>
-          <Condition>{Payment_Method.POS_DESC}</Condition>
+          <Condition>{Payment_Method.TERM_NO}</Condition>
           <Conditions isList="true" count="0" />
+          <KeepGroupHeaderTogether>False</KeepGroupHeaderTogether>
           <Name>POS_DESC_GH</Name>
           <Page isRef="5" />
           <Parent isRef="5" />
@@ -563,6 +553,7 @@ WHERE Rqtp_Code != '012'
           <ClientRectangle>0,4,27.6,0.6</ClientRectangle>
           <Components isList="true" count="12">
             <Text3 Ref="34" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>24.4,0,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -578,6 +569,7 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text3>
             <Text4 Ref="35" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>22.4,0,2,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -599,6 +591,7 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text4>
             <Text7 Ref="37" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>20.6,0,1.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -614,6 +607,7 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text7>
             <Text14 Ref="38" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>17.8,0,2.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -629,6 +623,7 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text14>
             <Text16 Ref="39" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>16.4,0,1.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -645,6 +640,7 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text16>
             <Text20 Ref="40" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>11.6,0,4.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -661,6 +657,7 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text20>
             <Text26 Ref="41" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>9,0,2.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -676,6 +673,7 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text26>
             <Text30 Ref="42" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>6.6,0,2.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -691,6 +689,7 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text30>
             <Text32 Ref="43" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>3.2,0,3.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -706,6 +705,7 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text32>
             <Text34 Ref="44" type="Text" isKey="true">
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>1.8,0,1.4,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -721,7 +721,7 @@ WHERE Rqtp_Code != '012'
               <VertAlignment>Center</VertAlignment>
             </Text34>
             <Text36 Ref="45" type="Text" isKey="true">
-              <Border>Left;Black;1;Solid;False;4;Black</Border>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>0,0,1.8,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -732,12 +732,13 @@ WHERE Rqtp_Code != '012'
               <Page isRef="5" />
               <Parent isRef="33" />
               <ShrinkFontToFit>True</ShrinkFontToFit>
-              <Text>{Payment_Method.REF_NO}</Text>
+              <Text>{Payment_Method.CRET_BY}</Text>
               <TextBrush>Black</TextBrush>
+              <Type>DataColumn</Type>
               <VertAlignment>Center</VertAlignment>
             </Text36>
             <Text13 Ref="46" type="Text" isKey="true">
-              <Border>Right;Black;1;Solid;False;4;Black</Border>
+              <Border>All;Black;1;Solid;False;4;Black</Border>
               <Brush>EmptyBrush</Brush>
               <ClientRectangle>26,0,1.6,0.6</ClientRectangle>
               <Conditions isList="true" count="0" />
@@ -947,10 +948,10 @@ WHERE Rqtp_Code != '012'
     <value>Stimulsoft.Report.Dll</value>
   </ReferencedAssemblies>
   <ReportAlias>Report</ReportAlias>
-  <ReportChanged>10/9/2025 5:48:53 PM</ReportChanged>
+  <ReportChanged>12/18/2025 2:05:40 PM</ReportChanged>
   <ReportCreated>11/17/2017 11:30:26 AM</ReportCreated>
   <ReportFile>D:\Project\MyProject\Documents\Report Repository\RPT_SPSM_019_R.mrt</ReportFile>
-  <ReportGuid>47af8c102d564b9fac679c09d8532eda</ReportGuid>
+  <ReportGuid>bb814b9a0e464cc3adf21d3a9dbc9ebc</ReportGuid>
   <ReportName>Report</ReportName>
   <ReportUnit>Centimeters</ReportUnit>
   <ReportVersion>2012.2.1304</ReportVersion>

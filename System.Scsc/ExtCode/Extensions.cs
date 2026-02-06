@@ -131,5 +131,233 @@ namespace System.Scsc.ExtCode
                pc.GetDayOfMonth((DateTime)datetime));
       }
       #endregion
+
+      #region DragScrolling
+      // =====================================================
+      // ✅ Enable Drag Scroll For FlowLayoutPanel (VS2013)
+      // =====================================================
+      public static void EnableDragScroll(this FlowLayoutPanel panel)
+      {
+         panel.AutoScroll = true;
+
+         DragScrollHandler handler = new DragScrollHandler(panel);
+         handler.Attach(panel);
+      }
+
+      // =====================================================
+      // ✅ Helper Class (State Holder)
+      // =====================================================
+      private class DragScrollHandler
+      {
+         private bool dragging = false;
+         private Point startMouse;
+         private Point startScroll;
+
+         private FlowLayoutPanel panel;
+
+         public DragScrollHandler(FlowLayoutPanel pnl)
+         {
+            panel = pnl;
+         }
+
+         // Attach Recursive
+         public void Attach(Control ctrl)
+         {
+            ctrl.MouseDown += Ctrl_MouseDown;
+            ctrl.MouseMove += Ctrl_MouseMove;
+            ctrl.MouseUp += Ctrl_MouseUp;
+
+            ctrl.ControlAdded += Ctrl_ControlAdded;
+
+            foreach (Control child in ctrl.Controls)
+            {
+               Attach(child);
+            }
+         }
+
+         // اگر کنترل جدید اضافه شد
+         void Ctrl_ControlAdded(object sender, ControlEventArgs e)
+         {
+            Attach(e.Control);
+         }
+
+         // MouseDown
+         void Ctrl_MouseDown(object sender, MouseEventArgs e)
+         {
+            if (e.Button != MouseButtons.Left)
+               return;
+
+            Control c = sender as Control;
+
+            // ❌ روی Input ها Drag نکن
+            if (IsInputControl(c))
+               return;
+
+            dragging = true;
+
+            startMouse = Cursor.Position;
+            startScroll = panel.AutoScrollPosition;
+
+            panel.Cursor = Cursors.Hand;
+         }
+
+         // MouseMove
+         void Ctrl_MouseMove(object sender, MouseEventArgs e)
+         {
+            if (!dragging)
+               return;
+
+            Point currentMouse = Cursor.Position;
+
+            int dx = currentMouse.X - startMouse.X;
+            int dy = currentMouse.Y - startMouse.Y;
+
+            panel.AutoScrollPosition = new Point(
+                -(startScroll.X + dx),
+                -(startScroll.Y + dy)
+            );
+         }
+
+         // MouseUp
+         void Ctrl_MouseUp(object sender, MouseEventArgs e)
+         {
+            dragging = false;
+            panel.Cursor = Cursors.Default;
+         }
+
+         // کنترل‌هایی که Drag نباید فعال کنه
+         private bool IsInputControl(Control c)
+         {
+            return (c is TextBox)
+                || (c is ComboBox)
+                || (c is NumericUpDown)
+                || (c is RichTextBox);
+         }
+      }
+
+      // =====================================================
+      // ✅ Enable Drag Scroll with Smooth Scroll / Inertia
+      // =====================================================
+      /*public static void EnableDragScrollSmooth(this FlowLayoutPanel panel)
+      {
+         panel.AutoScroll = true;
+
+         var handler = new DragScrollHandler(panel);
+         handler.Attach(panel);
+      }
+
+      // =====================================================
+      // ✅ Internal Class to Hold State
+      // =====================================================
+      private class DragScrollHandler
+      {
+         private FlowLayoutPanel panel;
+         private bool dragging = false;
+         private Point startMouse;
+         private Point startScroll;
+
+         private Point lastDelta; // سرعت حرکت
+         private Timer inertiaTimer;
+
+         public DragScrollHandler(FlowLayoutPanel pnl)
+         {
+            panel = pnl;
+
+            inertiaTimer = new Timer();
+            inertiaTimer.Interval = 60; // تقریباً 60fps
+            inertiaTimer.Tick += InertiaTimer_Tick;
+         }
+
+         public void Attach(Control ctrl)
+         {
+            ctrl.MouseDown += Ctrl_MouseDown;
+            ctrl.MouseMove += Ctrl_MouseMove;
+            ctrl.MouseUp += Ctrl_MouseUp;
+            ctrl.ControlAdded += Ctrl_ControlAdded;
+
+            foreach (Control child in ctrl.Controls)
+               Attach(child);
+         }
+
+         private void Ctrl_ControlAdded(object sender, ControlEventArgs e)
+         {
+            Attach(e.Control);
+         }
+
+         private void Ctrl_MouseDown(object sender, MouseEventArgs e)
+         {
+            if (e.Button != MouseButtons.Left)
+               return;
+
+            Control c = sender as Control;
+
+            if (IsInputControl(c))
+               return;
+
+            dragging = true;
+            inertiaTimer.Stop(); // توقف Inertia قبلی
+
+            startMouse = Cursor.Position;
+            startScroll = panel.AutoScrollPosition;
+
+            lastDelta = Point.Empty;
+            panel.Cursor = Cursors.Hand;
+         }
+
+         private void Ctrl_MouseMove(object sender, MouseEventArgs e)
+         {
+            if (!dragging)
+               return;
+
+            Point currentMouse = Cursor.Position;
+            int dx = currentMouse.X - startMouse.X;
+            int dy = currentMouse.Y - startMouse.Y;
+
+            panel.AutoScrollPosition = new Point(
+                -(startScroll.X + dx),
+                -(startScroll.Y + dy)
+            );
+
+            // ذخیره سرعت حرکت
+            lastDelta = new Point(dx, dy);
+         }
+
+         private void Ctrl_MouseUp(object sender, MouseEventArgs e)
+         {
+            dragging = false;
+            panel.Cursor = Cursors.Default;
+
+            // شروع Inertia
+            inertiaTimer.Start();
+         }
+
+         private void InertiaTimer_Tick(object sender, EventArgs e)
+         {
+            // کاهش سرعت به مرور
+            lastDelta.X = (int)(lastDelta.X * 0.97);
+            lastDelta.Y = (int)(lastDelta.Y * 0.97);
+
+            if (Math.Abs(lastDelta.X) < 1 && Math.Abs(lastDelta.Y) < 1)
+            {
+               inertiaTimer.Stop();
+               return;
+            }
+
+            Point currentScroll = panel.AutoScrollPosition;
+            panel.AutoScrollPosition = new Point(
+                -(currentScroll.X + lastDelta.X),
+                -(currentScroll.Y + lastDelta.Y)
+            );
+         }
+
+         private bool IsInputControl(Control c)
+         {
+            return (c is TextBox)
+                || (c is ComboBox)
+                || (c is NumericUpDown)
+                || (c is RichTextBox);
+         }
+      }*/
+      #endregion
    }
 }

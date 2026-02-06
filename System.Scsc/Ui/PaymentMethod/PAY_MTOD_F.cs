@@ -540,7 +540,8 @@ namespace System.Scsc.Ui.PaymentMethod
                            new XAttribute("bank", (PmmtBs1.Current as Data.Payment_Method).BANK ?? ""),
                            new XAttribute("flowno", (PmmtBs1.Current as Data.Payment_Method).FLOW_NO ?? ""),
                            new XAttribute("refno", (PmmtBs1.Current as Data.Payment_Method).REF_NO ?? ""),
-                           new XAttribute("actndate", (PmmtBs1.Current as Data.Payment_Method).ACTN_DATE ?? DateTime.Now)
+                           new XAttribute("actndate", (PmmtBs1.Current as Data.Payment_Method).ACTN_DATE ?? DateTime.Now),
+                           new XAttribute("actndate", (PmmtBs1.Current as Data.Payment_Method).POSD_PSID_DNRM ?? 0)
 
                         )
                      )

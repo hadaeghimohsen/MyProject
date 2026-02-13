@@ -2236,7 +2236,6 @@
          // bbi_BaseDef_Butn
          // 
          this.bbi_BaseDef_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
-         this.bbi_BaseDef_Butn.Enabled = false;
          this.bbi_BaseDef_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_BaseDef_Butn.FlatAppearance.BorderSize = 0;
          this.bbi_BaseDef_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));

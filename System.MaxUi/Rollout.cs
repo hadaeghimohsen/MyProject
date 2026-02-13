@@ -86,7 +86,10 @@ namespace System.MaxUi
                Height = 22;
             }
 
-            this.Refresh(); 
+            this.Refresh();
+
+            // ✅ Event اجرا شود
+            OnRolloutStatusChanged();
          } 
       }
 
@@ -395,6 +398,17 @@ namespace System.MaxUi
          PaintRolloutText(e.Graphics);
          PaintRolloutButton(e);
       }
+
+      // =====================================================
+      // ✅ RolloutStatus Changed Event
+      // =====================================================
+      public event EventHandler RolloutStatusChanged;
+      protected virtual void OnRolloutStatusChanged()
+      {
+         if (RolloutStatusChanged != null)
+            RolloutStatusChanged(this, EventArgs.Empty);
+      }
+
 
       #endregion
 

@@ -230,7 +230,12 @@ namespace System.Scsc.Ui.BaseDefinition
          DActvBs.DataSource = iScsc.D_ACTVs;
          DDytpBs.DataSource = iScsc.D_DYTPs;
          DHaveBs.DataSource = iScsc.D_HAVEs;
-         vUserBs.DataSource = iScsc.V_Users;         
+         DCetpBs.DataSource = iScsc.D_CETPs;
+         DCktpBs.DataSource = iScsc.D_CKTPs;
+         DCxtpBs.DataSource = iScsc.D_CXTPs;
+         DEfdtBs.DataSource = iScsc.D_EFDTs;
+         vUserBs.DataSource = iScsc.V_Users;
+         vCompBs.DataSource = iScsc.Computer_Actions;
 
          job.Status = StatusType.Successful;
       }

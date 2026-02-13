@@ -150,6 +150,159 @@ namespace System.Scsc.ExtCode
       private class DragScrollHandler
       {
          private bool dragging = false;
+
+         private Point startMouse;
+         private Point startScroll;
+
+         private FlowLayoutPanel panel;
+
+         public DragScrollHandler(FlowLayoutPanel pnl)
+         {
+            panel = pnl;
+         }
+
+         // =====================================================
+         // ✅ Recursive Attach (All Children + Nested)
+         // =====================================================
+         public void Attach(Control ctrl)
+         {
+            ctrl.MouseDown += Ctrl_MouseDown;
+            ctrl.MouseMove += Ctrl_MouseMove;
+            ctrl.MouseUp += Ctrl_MouseUp;
+
+            ctrl.ControlAdded += Ctrl_ControlAdded;
+
+            foreach (Control child in ctrl.Controls)
+               Attach(child);
+         }
+
+         // اگر کنترل جدید اضافه شد
+         void Ctrl_ControlAdded(object sender, ControlEventArgs e)
+         {
+            Attach(e.Control);
+         }
+
+         // =====================================================
+         // ✅ MouseDown
+         // =====================================================
+         void Ctrl_MouseDown(object sender, MouseEventArgs e)
+         {
+            if (e.Button != MouseButtons.Left)
+               return;
+
+            Control clicked = sender as Control;
+
+            // ❌ اگر کنترل Input بود Drag نکن
+            if (clicked.IsInputControl())
+               return;
+
+            // ❌ اگر کنترل زیر موس Scroll داشت Drag نکن
+            if (clicked.HasScrollBar())
+               return;
+
+            dragging = true;
+
+            startMouse = Cursor.Position;
+            startScroll = panel.AutoScrollPosition;
+
+            panel.Cursor = Cursors.SizeAll; // بهتر از Hand
+         }
+
+         // =====================================================
+         // ✅ MouseMove
+         // =====================================================
+         void Ctrl_MouseMove(object sender, MouseEventArgs e)
+         {
+            if (!dragging)
+               return;
+
+            Point currentMouse = Cursor.Position;
+
+            int dx = currentMouse.X - startMouse.X;
+            int dy = currentMouse.Y - startMouse.Y;
+
+            panel.AutoScrollPosition = new Point(
+                -(startScroll.X + dx),
+                -(startScroll.Y + dy)
+            );
+         }
+
+         // =====================================================
+         // ✅ MouseUp
+         // =====================================================
+         void Ctrl_MouseUp(object sender, MouseEventArgs e)
+         {
+            dragging = false;
+            panel.Cursor = Cursors.Default;
+         }
+      }
+
+      // =====================================================
+      // ✅ Detect Input Controls (Typing Controls)
+      // =====================================================
+      public static bool IsInputControl(this Control c)
+      {
+         return (c is TextBox)
+             || (c is ComboBox)
+             || (c is NumericUpDown)
+             || (c is RichTextBox)
+             || (c is MaskedTextBox);
+      }
+
+      // =====================================================
+      // ✅ Detect Scrollable Controls (Very Important)
+      // =====================================================
+      public static bool HasScrollBar(this Control c)
+      {
+         if (c == null)
+            return false;
+
+         // DataGridView همیشه Scroll دارد
+         if (c is DataGridView)
+            return true;
+
+         // ListBox / TreeView
+         if (c is ListBox || c is TreeView)
+            return true;
+
+         if (c is DevExpress.XtraGrid.Scrolling.HCrkScrollBar || c is DevExpress.XtraGrid.Scrolling.VCrkScrollBar)
+            return true;
+
+         // اگر ScrollableControl بود
+         ScrollableControl sc = c as ScrollableControl;
+         if (sc != null)
+         {
+            // اگر AutoScroll روشن است
+            if (sc.AutoScroll)
+               return true;
+
+            // اگر ScrollBar Visible است
+            if (sc.VerticalScroll.Visible)
+               return true;
+
+            if (sc.HorizontalScroll.Visible)
+               return true;
+         }
+
+         return false;
+      }
+      // =====================================================
+      // ✅ Enable Drag Scroll For FlowLayoutPanel (VS2013)
+      // =====================================================
+      /*public static void EnableDragScroll(this FlowLayoutPanel panel)
+      {
+         panel.AutoScroll = true;
+
+         DragScrollHandler handler = new DragScrollHandler(panel);
+         handler.Attach(panel);
+      }
+
+      // =====================================================
+      // ✅ Helper Class (State Holder)
+      // =====================================================
+      private class DragScrollHandler
+      {
+         private bool dragging = false;
          private Point startMouse;
          private Point startScroll;
 
@@ -233,7 +386,7 @@ namespace System.Scsc.ExtCode
                 || (c is NumericUpDown)
                 || (c is RichTextBox);
          }
-      }
+      }*/
 
       // =====================================================
       // ✅ Enable Drag Scroll with Smooth Scroll / Inertia

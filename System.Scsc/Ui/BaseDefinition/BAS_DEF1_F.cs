@@ -34,7 +34,7 @@ namespace System.Scsc.Ui.BaseDefinition
          Flp_006.EnableDragScroll();
       }
 
-      private bool requery = false;
+      private bool requery = false, isLoading = false;
 
       private void Back_Butn_Click(object sender, EventArgs e)
       {
@@ -43,8 +43,10 @@ namespace System.Scsc.Ui.BaseDefinition
          );
       }
 
+      #region Execute Query and Reload data and triggers
       private async Task Execute_Query()
       {
+         isLoading = true;
          await Task.Yield();
          iScsc = new Data.iScscDataContext(ConnectionString);
 
@@ -57,29 +59,142 @@ namespace System.Scsc.Ui.BaseDefinition
                CntyBs.DataSource = iScsc.Countries;
                break;
             case "xTp_003":
-               MtodBs.DataSource = iScsc.Methods;
+               // مقادیر ثابت
+               var _trgtMtodStat = MtodStat_Fcb.SelectedIndex == 0 ? "002" : "001";
+
+               // شروع با کل Methods
+               var _methods = iScsc.Methods.AsQueryable();
+
+               // اعمال فیلتر MtodStat
+               if (MtodStat_Fcb.Checked)
+               {
+                  _methods = _methods.Where(a => a.MTOD_STAT == _trgtMtodStat);
+               }
+
+               // اعمال فیلتر MtodExst با Join
+               if (MtodExst_Fcb.Checked)
+               {
+                  switch(MtodExst_Fcb.SelectedIndex)
+                  { 
+                     case 0:
+                        _methods = 
+                           from m in _methods
+                           where (from cm in iScsc.Club_Methods
+                                  where cm.MTOD_CODE == m.CODE
+                                  select cm).Any()
+                           select m;
+                     break;
+                     case 1:
+                        _methods =
+                           from m in _methods
+                           where !(from cm in iScsc.Club_Methods
+                                   where cm.MTOD_CODE == m.CODE
+                                   select cm).Any()
+                           select m;
+                     break;
+                  }
+               }
+
+               int _m = MtodBs.Position;
+               MtodBs.DataSource = _methods.ToList();
+               MtodBs.Position = _m;
+
+               CntyBs.DataSource = iScsc.Countries;
                break;
             case "xTp_004":
-               CochBs.DataSource = iScsc.Fighters.Where(a => a.FGPB_TYPE_DNRM == "003");
-               MtodBs.DataSource = iScsc.Methods.Where(a => a.MTOD_STAT == "002");
+               // مقادیر ثابت
+               var _trgtCochStat = CochStat_Fcb.SelectedIndex == 0 ? "101" : "001";
+
+               var _coachs = iScsc.Fighters.Where(a => a.FGPB_TYPE_DNRM == "003");
+
+               if (CochStat_Fcb.Checked)
+                  _coachs = _coachs.Where(a => a.ACTV_TAG_DNRM == _trgtCochStat);
+
+               if(CochExst_Fcb.Checked)
+               {
+                  switch (CochExst_Fcb.SelectedIndex)
+                  {
+                     case 0:
+                        _coachs = 
+                           from c in _coachs
+                           where (from cm in iScsc.Club_Methods
+                                  where cm.COCH_FILE_NO == c.FILE_NO
+                                  select cm).Any()
+                           select c;
+                        break;
+                     case 1:
+                        _coachs = 
+                           from c in _coachs
+                           where !(from cm in iScsc.Club_Methods
+                                  where cm.COCH_FILE_NO == c.FILE_NO
+                                  select cm).Any()
+                           select c;
+                        break;
+                  }
+               }
+
+               CochBs.DataSource = _coachs;//iScsc.Fighters.Where(a => a.FGPB_TYPE_DNRM == "003");
+               //MtodBs.DataSource = iScsc.Methods.Where(a => a.MTOD_STAT == "002");
                break;
             case "xTp_005":
-               CbmtBs.DataSource = iScsc.Club_Methods;
+               // مقادیر ثابت
+               var _trgtCbmtStat = CbmtStat_Fcb.SelectedIndex == 0 ? "002" : "001";
+
+               var _club_methods = iScsc.Club_Methods.AsQueryable();
+
+               if(CbmtStat_Fcb.Checked)
+               {
+                  _club_methods = _club_methods.Where(a => a.MTOD_STAT == _trgtCbmtStat);
+               }
+
+               if(CbmtExst_Fcb.Checked)
+               {
+                  switch (CbmtExst_Fcb.SelectedIndex)
+                  {
+                     case 0:
+                        _club_methods = 
+                           from cm in _club_methods
+                           where (from p in iScsc.Fighter_Publics
+                                  where p.RECT_CODE == "004"
+                                     && p.CBMT_CODE == cm.CODE
+                                  select p).Any()
+                           select cm;
+                        break;
+                     case 1:
+                        _club_methods = 
+                           from cm in _club_methods
+                           where !(from p in iScsc.Fighter_Publics
+                                  where p.RECT_CODE == "004"
+                                     && p.CBMT_CODE == cm.CODE
+                                  select p).Any()
+                           select cm;
+                        break;
+                  }
+               }
+
+               CbmtBs.DataSource = _club_methods;
                CntyBs.DataSource = iScsc.Countries;
-               MtodBs.DataSource = iScsc.Methods.Where(a => a.MTOD_STAT == "002");
-               CochBs.DataSource = iScsc.Fighters.Where(a => a.FGPB_TYPE_DNRM == "003" && a.ACTV_TAG_DNRM == "101");
+               MtodBs.DataSource = iScsc.Methods;//.Where(a => a.MTOD_STAT == "002");
+               CochBs.DataSource = iScsc.Fighters.Where(a => a.FGPB_TYPE_DNRM == "003" /*&& a.ACTV_TAG_DNRM == "101"*/);
                break;
             case "xTp_006":
                break;
          }
          requery = false;
          BuildRolloutMenuForCurrentTab();
+         isLoading = false;
       }      
 
       private async void Master_Tc_SelectedPageChanged(object sender, DevExpress.XtraTab.TabPageChangedEventArgs e)
       {
          await Execute_Query();
       }
+
+      private async void BoolOption_CheckedChanged(object sender, EventArgs e)
+      {
+         await Execute_Query();
+      }
+      #endregion
 
       #region Rollout management
       private Rollout _currentRolloutUnderMouse = null;
@@ -265,15 +380,30 @@ namespace System.Scsc.Ui.BaseDefinition
          // اسکرول بیاد روی rollout
          panel.ScrollControlIntoView(rollout);
       }
+
+      private async void RolloutStatusChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _rlt = (Rollout)sender;
+            if (_rlt == null) return;
+
+            switch (_rlt.RolloutStatus)
+            {
+               case true:
+                  await Execute_Query();
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
       #endregion
 
       #region Expense Item tab page
       #region Expense Item Rollout
-      private async void Ittp001_Rb_CheckedChanged(object sender, EventArgs e)
-      {
-         await Execute_Query();
-      }
-
       private void AddEpit_Btn_Click(object sender, EventArgs e)
       {
          try
@@ -639,9 +769,107 @@ namespace System.Scsc.Ui.BaseDefinition
          try
          {
             var _mtod = MtodBs.Current as Data.Method;
-            if (_mtod == null) return;
+            if (_mtod == null) return;            
 
-            CtgyBs.DataSource = _mtod.Category_Belts;
+            switch (Master_Tc.SelectedTabPage.Name)
+            {
+               case "xTp_003":
+                  CtgyBs.DataSource = _mtod.Category_Belts;
+
+                  if (MtodCochCbmt_Rlt.RolloutStatus)
+                  {
+                     CbmtBs.Clear();
+
+                     // مقادیر ثابت
+                     var _trgtMtodCochStat = MtodCochStat_Fcb.SelectedIndex == 0 ? "101" : "001";
+
+                     var _coachs =
+                        iScsc.Fighters
+                        .Where(a =>
+                           a.FGPB_TYPE_DNRM == "003").AsQueryable();
+
+                     if (MtodCochStat_Fcb.Checked)
+                     {
+                        _coachs = _coachs.Where(a => a.ACTV_TAG_DNRM == _trgtMtodCochStat);
+                     }
+
+                     if (MtodCochExst_Fcb.Checked)
+                     {
+                        switch (MtodCbmtExst_Fcb.SelectedIndex)
+                        {
+                           case 0:
+                              _coachs =
+                                 from c in _coachs
+                                 where (from cm in iScsc.Club_Methods
+                                        where cm.COCH_FILE_NO == c.FILE_NO
+                                           && cm.MTOD_CODE == _mtod.CODE
+                                        select cm).Any()
+                                 select c;
+                              break;
+                           case 1:
+                              _coachs =
+                                 from c in _coachs
+                                 where !(from cm in iScsc.Club_Methods
+                                         where cm.COCH_FILE_NO == c.FILE_NO
+                                            && cm.MTOD_CODE == _mtod.CODE
+                                         select cm).Any()
+                                 select c;
+                              break;
+                        }
+                     }
+
+                     int _c = CochBs.Position;
+                     CochBs.DataSource = _coachs;
+                     CochBs.Position = _c;
+                  }
+                  break;
+               case "xTp_004":
+                  if (CochMtodCbmt_Rlt.RolloutStatus)
+                  {
+                     var _coch = CochBs.Current as Data.Fighter;
+                     if (_coch == null) return;
+
+                     // مقادیر ثابت
+                     var _trgtMtodCbmtStat = CochCbmtStat_Fcb.SelectedIndex == 0 ? "002" : "001";
+
+                     var _clubMethods = iScsc.Club_Methods.Where(a => a.MTOD_CODE == _mtod.CODE && a.COCH_FILE_NO == _coch.FILE_NO);
+
+                     if (CochCbmtStat_Fcb.Checked)
+                     {
+                        _clubMethods = _clubMethods.Where(a => a.MTOD_STAT == _trgtMtodCbmtStat);
+                     }
+
+                     if (CochCbmtExst_Fcb.Checked)
+                     {
+                        switch (CochCbmtExst_Fcb.SelectedIndex)
+                        {
+                           case 0:
+                              _clubMethods =
+                                 from cm in _clubMethods
+                                 where (from p in iScsc.Fighter_Publics
+                                        where p.RECT_CODE == "004"
+                                           && p.CBMT_CODE == cm.CODE
+                                        select p).Any()
+                                 select cm;
+                              break;
+                           case 1:
+                              _clubMethods =
+                                 from cm in _clubMethods
+                                 where !(from p in iScsc.Fighter_Publics
+                                         where p.RECT_CODE == "004"
+                                            && p.CBMT_CODE == cm.CODE
+                                         select p).Any()
+                                 select cm;
+                              break;
+                        }
+                     }
+
+                     int _cm = CbmtBs.Position;
+                     CbmtBs.DataSource = _clubMethods;
+                     CbmtBs.Position = _cm;
+                  }
+                  break;
+            }            
          }
          catch (Exception exc)
          {
@@ -764,7 +992,7 @@ namespace System.Scsc.Ui.BaseDefinition
          if (requery)
             await Execute_Query();
       }
-      #endregion
+      
 
       private void Mtod_Tl_BeforeDragNode(object sender, BeforeDragNodeEventArgs e)
       {
@@ -952,6 +1180,107 @@ namespace System.Scsc.Ui.BaseDefinition
       #endregion      
       #endregion
 
+      #region Method, User and Computer Link Rollout
+      private async void UserActn1_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _user = vUserBs.Current as Data.V_User;
+            if (_user == null) return;
+
+            var _comp = vCompBs.Current as Data.Computer_Action;
+            if (_comp == null) return;
+
+            var _mtod = MtodBs.Current as Data.Method;
+            if (_mtod == null) return;
+
+            var _ulkm = UlkmBs.AddNew() as Data.User_Link_Method;
+            _ulkm.COMA_CODE = _comp.CODE;
+            _ulkm.MTOD_CODE = _mtod.CODE;
+            _ulkm.USER_ID = _user.ID;
+            _ulkm.STAT = "002";
+
+            iScsc.User_Link_Methods.InsertOnSubmit(_ulkm);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
+
+      private void CompActn1_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         UserActn1_Btn_ButtonClick(null, null);
+      }
+
+      private void MtodActn1_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         UserActn1_Btn_ButtonClick(null, null);
+      }
+
+      private async void UlkmActn1_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            var _ulkm = UlkmBs.Current as Data.User_Link_Method;
+            if (_ulkm == null) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  // Delete
+                  iScsc.User_Link_Methods.DeleteOnSubmit(_ulkm);
+                  break;
+               case 1:
+                  // Active & Deactive
+                  _ulkm.STAT = (_ulkm.STAT == "002" ? "001" : "002");
+                  break;
+            }
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
+      #endregion
+
+      #region Coach and Club Method
+      private void AddMtodCoch_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Master_Tc.SelectedTabPage = xTp_004;
+            BeginInvoke(new Action(() => AddCoch_Btn_Click(null, null)));
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddMtodCbmt_Btn_Click(object sender, EventArgs e)
+      {
+         Master_Tc.SelectedTabPage = xTp_005;
+         BeginInvoke(new Action(() => AddCbmt_Btn_Click(null, null)));
+      }
+      private void SaveMtodCbmt_Btn_Click(object sender, EventArgs e)
+      {
+         SaveCbmt_Btn_Click(null, null);
+      }
+      #endregion
+      #endregion
+
       #region Coach tab page
       #region Coach Rollout
       private void Coch_Tl_DragOver(object sender, DragEventArgs e)
@@ -1127,6 +1456,123 @@ namespace System.Scsc.Ui.BaseDefinition
          if (requery)
             await Execute_Query();
       }
+
+      private void CochBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _coch = CochBs.Current as Data.Fighter;
+            if (_coch == null) return;
+
+            switch (Master_Tc.SelectedTabPage.Name)
+            {
+               case "xTp_003":
+                  if (MtodCochCbmt_Rlt.RolloutStatus)
+                  {
+                     var _mtod = MtodBs.Current as Data.Method;
+                     if (_mtod == null) return;
+
+                     // مقادیر ثابت
+                     var _trgtMtodCbmtStat = MtodCbmtStat_Fcb.SelectedIndex == 0 ? "002" : "001";
+
+                     var _clubMethods = iScsc.Club_Methods.Where(a => a.MTOD_CODE == _mtod.CODE && a.COCH_FILE_NO == _coch.FILE_NO);
+
+                     if (MtodCbmtStat_Fcb.Checked)
+                     {
+                        _clubMethods = _clubMethods.Where(a => a.MTOD_STAT == _trgtMtodCbmtStat);
+                     }
+
+                     if (MtodCbmtExst_Fcb.Checked)
+                     {
+                        switch (MtodCbmtExst_Fcb.SelectedIndex)
+                        {
+                           case 0:
+                              _clubMethods =
+                                 from cm in _clubMethods
+                                 where (from p in iScsc.Fighter_Publics
+                                        where p.RECT_CODE == "004"
+                                           && p.CBMT_CODE == cm.CODE
+                                        select p).Any()
+                                 select cm;
+                              break;
+                           case 1:
+                              _clubMethods =
+                                 from cm in _clubMethods
+                                 where !(from p in iScsc.Fighter_Publics
+                                         where p.RECT_CODE == "004"
+                                            && p.CBMT_CODE == cm.CODE
+                                         select p).Any()
+                                 select cm;
+                              break;
+                        }
+                     }
+
+                     int _cm = CbmtBs.Position;
+                     CbmtBs.DataSource = _clubMethods;
+                     CbmtBs.Position = _cm;
+                  }
+                  break;
+               case "xTp_004":
+                  if(CochMtodCbmt_Rlt.RolloutStatus)
+                  {
+                     CbmtBs.Clear();
+
+                     // مقادیر ثابت
+                     var _trgtMtodStat = CochMtodStat_Fcb.SelectedIndex == 0 ? "002" : "001";
+
+                     // شروع با کل Methods
+                     var _methods = iScsc.Methods.AsQueryable();
+
+                     // اعمال فیلتر MtodStat
+                     if (CochMtodStat_Fcb.Checked)
+                     {
+                        _methods = _methods.Where(a => a.MTOD_STAT == _trgtMtodStat);
+                     }
+
+                     // اعمال فیلتر MtodExst با Join
+                     if (CochMtodExst_Fcb.Checked)
+                     {
+                        switch (CochMtodExst_Fcb.SelectedIndex)
+                        {
+                           case 0:
+                              _methods =
+                                 from m in _methods
+                                 where (from cm in iScsc.Club_Methods
+                                        where cm.MTOD_CODE == m.CODE
+                                        select cm).Any()
+                                 select m;
+                              break;
+                           case 1:
+                              _methods =
+                                 from m in _methods
+                                 where !(from cm in iScsc.Club_Methods
+                                         where cm.MTOD_CODE == m.CODE
+                                         select cm).Any()
+                                 select m;
+                              break;
+                        }
+                     }
+
+                     int _m = MtodBs.Position;
+                     MtodBs.DataSource = _methods.ToList();
+                     MtodBs.Position = _m;
+                  }
+                  
+                  if(Cexc_Rlt.RolloutStatus)
+                  {
+                     int _c = CexcBs.Position;
+                     CexcBs.DataSource =
+                        iScsc.Calculate_Expense_Coaches.Where(a => a.COCH_FILE_NO == _coch.FILE_NO);
+                     CexcBs.Position = _c;
+                  }
+                  break;
+            }            
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
       #endregion
 
       #region New Coach Rollout
@@ -1256,6 +1702,346 @@ namespace System.Scsc.Ui.BaseDefinition
          }
       }
       #endregion
+
+      #region Method and Club Method Rollout
+      private void AddCochMtod_Btn_Click(object sender, EventArgs e)
+      {
+         Master_Tc.SelectedTabPage = xTp_003;
+         BeginInvoke(new Action(() => AddMtod_Btn_Click(null, null)));
+      }
       #endregion
+
+      #region Parameter Coach Calculate Expense
+      private async void SaveCochCexp_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Cexc_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
+
+      private async void ActvCochCexp_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cexp = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (_cexp == null) return;
+
+            if (_cexp.STAT == "002") return;
+
+            _cexp.STAT = "002";
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
+
+      private async void DactCochCexp_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cexp = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (_cexp == null) return;
+
+            if (_cexp.STAT == "001") return;
+
+            _cexp.STAT = "001";
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
+
+      private async void CopyCochCexp_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            CexcBs.EndEdit();
+            Cexc_Gv.PostEditor();
+
+            var _cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (_cexc == null) return;
+
+            if (ModifierKeys == Keys.Control)
+            {
+               // برای سرگروه تمام پرسنل
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     "UPDATE dbo.Calculate_Expense_Coach " +
+                     "SET Calc_Expn_Type = '{3}', Calc_Type = '{4}', Prct_Valu = {5}, Stat = '{6}', Pymt_Stat = '{7}', Rduc_Amnt = {8}, Efct_Date_Type = '{9}', Fore_Givn_Attn_Numb = {10} " +
+                     "WHERE Mtod_Code = {0} AND Rqtp_Code = {1} AND Extp_Code = {2};",
+                     _cexc.MTOD_CODE,
+                     _cexc.RQTP_CODE,
+                     _cexc.EXTP_CODE,
+                     _cexc.CALC_EXPN_TYPE,
+                     _cexc.CALC_TYPE,
+                     _cexc.PRCT_VALU,
+                     _cexc.STAT,
+                     _cexc.PYMT_STAT,
+                     _cexc.RDUC_AMNT ?? 0,
+                     _cexc.EFCT_DATE_TYPE,
+                     _cexc.FORE_GIVN_ATTN_NUMB ?? 0
+                  )
+               );
+            }
+            else if (ModifierKeys == Keys.Shift)
+            {
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     "UPDATE dbo.Calculate_Expense_Coach " +
+                     "SET Calc_Expn_Type = '{1}', Calc_Type = '{2}', Prct_Valu = {3}, Stat = '{4}', Pymt_Stat = '{5}', Rduc_Amnt = {6}, Efct_Date_Type = '{7}', Fore_Givn_Attn_Numb = {8} " +
+                     "WHERE Coch_File_No = {0};",
+                     _cexc.COCH_FILE_NO,
+                     _cexc.CALC_EXPN_TYPE,
+                     _cexc.CALC_TYPE,
+                     _cexc.PRCT_VALU,
+                     _cexc.STAT,
+                     _cexc.PYMT_STAT,
+                     _cexc.RDUC_AMNT ?? 0,
+                     _cexc.EFCT_DATE_TYPE,
+                     _cexc.FORE_GIVN_ATTN_NUMB ?? 0
+                  )
+               );
+            }
+            else if (ModifierKeys == (Keys.Control | Keys.Shift))
+            {
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     "UPDATE dbo.Calculate_Expense_Coach " +
+                     "SET Calc_Expn_Type = '{0}', Calc_Type = '{1}', Prct_Valu = {2}, Stat = '{3}', Pymt_Stat = '{4}', Rduc_Amnt = {5}, Efct_Date_Type = '{6}', Fore_Givn_Attn_Numb = {7};",
+                     _cexc.CALC_EXPN_TYPE,
+                     _cexc.CALC_TYPE,
+                     _cexc.PRCT_VALU,
+                     _cexc.STAT,
+                     _cexc.PYMT_STAT,
+                     _cexc.RDUC_AMNT ?? 0,
+                     _cexc.EFCT_DATE_TYPE,
+                     _cexc.FORE_GIVN_ATTN_NUMB ?? 0
+                  )
+               );
+            }
+            else
+            {
+               // برای تمام آیتم های سرگروه خوده پرسنل
+               iScsc.ExecuteCommand(
+                  string.Format(
+                     "UPDATE dbo.Calculate_Expense_Coach " +
+                     "SET Calc_Expn_Type = '{4}', Calc_Type = '{5}', Prct_Valu = {6}, Stat = '{7}', Pymt_Stat = '{8}', Rduc_Amnt = {9}, Efct_Date_Type = '{10}', Fore_Givn_Attn_Numb = {11} " +
+                     "WHERE Coch_File_No = {0} AND Mtod_Code = {1} AND Rqtp_Code = {2} AND Extp_Code = {3};",
+                     _cexc.COCH_FILE_NO,
+                     _cexc.MTOD_CODE,
+                     _cexc.RQTP_CODE,
+                     _cexc.EXTP_CODE,
+                     _cexc.CALC_EXPN_TYPE,
+                     _cexc.CALC_TYPE,
+                     _cexc.PRCT_VALU,
+                     _cexc.STAT,
+                     _cexc.PYMT_STAT,
+                     _cexc.RDUC_AMNT ?? 0,
+                     _cexc.EFCT_DATE_TYPE,
+                     _cexc.FORE_GIVN_ATTN_NUMB ?? 0
+                  )
+               );
+            }
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
+
+      private async void SyncCochCexp_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
+            if (_cexc == null) return;
+
+            iScsc.DUP_CEXC_P(
+               new XElement("OpIran",
+                   new XAttribute("cexccode", _cexc.CODE)
+               )
+            );
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
+      #endregion
+      #endregion
+
+      #region Club Method tab page
+      #region Club Method rollout
+      private void CbmtBs_CurrentChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cbmt = CbmtBs.Current as Data.Club_Method;
+            if (_cbmt == null) return;
+
+            CbwkBs.DataSource = _cbmt.Club_Method_Weekdays;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void AddCbmt_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (CbmtBs.List.OfType<Data.Club_Method>().Any(a => a.CODE == 0)) return;
+
+            var _club = ClubBs.Current as Data.Club;
+            if (_club == null) return;
+
+            var _mtod = MtodBs.Current as Data.Method;
+            if (_mtod == null) return;
+
+            var _coch = CochBs.Current as Data.Fighter;
+            if (_coch == null) return;
+
+            var _cbmt = CbmtBs.AddNew() as Data.Club_Method;
+            _cbmt.CLUB_CODE = _club.CODE;
+            _cbmt.MTOD_CODE = _mtod.CODE;
+            _cbmt.COCH_FILE_NO = _coch.FILE_NO;
+            _cbmt.MTOD_STAT = "002";
+            _cbmt.CPCT_STAT = _cbmt.CBMT_TIME_STAT = "001";
+            _cbmt.CLAS_TIME = 90;
+            _cbmt.CPCT_NUMB = 0;
+
+            iScsc.Club_Methods.InsertOnSubmit(_cbmt);
+
+            SexCbmt_Lov.Focus();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private async void SaveCbmt_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Cbmt003_Gv.PostEditor();
+            Cbmt004_Gv.PostEditor();
+            Cbmt005_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
+
+      private async void DelCbmt_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
+
+      private void CbwkBs_DataSourceChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            switch (Master_Tc.SelectedTabPage.Name)
+            {
+               case "xTp_005":
+                  CbwkBs.List.OfType<Data.Club_Method_Weekday>().ToList()
+                     .ForEach(a =>
+                        {
+                           xTp_005001.Controls.OfType<System.MaxUi.CheckButton>()
+                              .Where(b => b.Tag.ToString() == a.WEEK_DAY).ToList()
+                              .ForEach(b => b.Checked = a.STAT == "002" ? true : false );
+                        }
+                     );
+                  break;
+               case "xTp_003":
+                  CbwkBs.List.OfType<Data.Club_Method_Weekday>().ToList()
+                     .ForEach(a =>
+                        {
+                           xTp_003002.Controls.OfType<System.MaxUi.CheckButton>()
+                              .Where(b => b.Tag.ToString() == a.WEEK_DAY).ToList()
+                              .ForEach(b => b.Checked = a.STAT == "002" ? true : false);
+                        }
+                     );
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void WeekDay_Cbt_CheckedChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            if (isLoading) return;
+
+            var _weekday = (System.MaxUi.CheckButton)sender;
+            if (_weekday == null) return;
+
+            var _cbwk = CbwkBs.List.OfType<Data.Club_Method_Weekday>().FirstOrDefault(a => a.WEEK_DAY == _weekday.Tag.ToString());
+
+            _cbwk.STAT = _weekday.Checked ? "002" : "001";
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+      #endregion      
+      #endregion            
    }
 }

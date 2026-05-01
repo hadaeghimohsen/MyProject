@@ -157,7 +157,7 @@ namespace System.Scsc.Ui.OtherIncome
          //if (tb_master.SelectedTab == tp_001)
          {
             RqstBs1.AddNew();
-            FILE_NO_LookUpEdit.Focus();
+            Figh_Lov.Focus();
          }
       }
 
@@ -311,7 +311,7 @@ namespace System.Scsc.Ui.OtherIncome
                      new XAttribute("lettdate", Rqst == null ? "" : (Rqst.LETT_NO == null ? "" : ( Rqst.LETT_DATE == null ? "" : Rqst.LETT_DATE.Value.ToString("yyyy-MM-dd")))),
                      new XAttribute("invcdate", InvcDate_Dt.Value.HasValue ? InvcDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
                      new XElement("Request_Row",
-                        new XAttribute("fileno", Figh == null ? FILE_NO_LookUpEdit.EditValue ?? "" : Figh.FILE_NO),
+                        new XAttribute("fileno", Figh == null ? Figh_Lov.EditValue ?? "" : Figh.FILE_NO),
                         new XElement("Fighter_Public", 
                            new XAttribute("frstname", FrstName_Txt.Text),
                            new XAttribute("lastname", LastName_Txt.Text),
@@ -404,18 +404,18 @@ namespace System.Scsc.Ui.OtherIncome
             }
 
             // 1404/07/10 * چک کردن سیستم استخر علی محمدی برای اینکه اگر درخواست زماندار بخواهند ثبت کنند و کارت مورد نظر را تنظیم نکرده باشند سیستم باید خطا صادر کند
-            if (iScsc.External_Devices.Any(ex => ex.DEV_TYPE == "001" /* Card Reader */ && ex.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */ && ex.SEND_CMND_TYPE == "002" /* Close */ && ex.EXPN_CODE != null /* Fine Amount */))
-            {
-               var _timingPydts = _rqst.Payments.FirstOrDefault().Payment_Details.Where(pd => pd.Expense.MIN_TIME.Value.TimeOfDay.TotalMinutes > 1);
-               if (_timingPydts.Count() > 0)
-               {
-                  var _cardLinkOprts = _rqst.Card_Link_Operations;
-                  if (_cardLinkOprts.Count() < _timingPydts.Sum(pd => pd.QNTY))
-                  {
-                     throw new Exception("برای فاکتور ثبت شده، کارت ورود مجموعه به تعداد ذخیره نشده");
-                  }
-               }
-            }
+            //if (iScsc.External_Devices.Any(ex => ex.DEV_TYPE == "001" /* Card Reader */ && ex.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */ && ex.SEND_CMND_TYPE == "002" /* Close */ && ex.EXPN_CODE != null /* Fine Amount */))
+            //{
+            //   var _timingPydts = _rqst.Payments.FirstOrDefault().Payment_Details.Where(pd => pd.Expense.MIN_TIME.Value.TimeOfDay.TotalMinutes > 1);
+            //   if (_timingPydts.Count() > 0)
+            //   {
+            //      var _cardLinkOprts = _rqst.Card_Link_Operations;
+            //      if (_cardLinkOprts.Count() < _timingPydts.Sum(pd => pd.QNTY))
+            //      {
+            //         throw new Exception("برای فاکتور ثبت شده، کارت ورود مجموعه به تعداد ذخیره نشده");
+            //      }
+            //   }
+            //}
 
             iScsc.OIC_ESAV_F(
                new XElement("Process",
@@ -444,7 +444,7 @@ namespace System.Scsc.Ui.OtherIncome
                   if (RqstBs1.Count > 0)
                      RqstBs1.AddNew();
 
-                  FILE_NO_LookUpEdit.EditValue = _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO;
+                  Figh_Lov.EditValue = _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO;
 
                   Btn_RqstBnARqt1_Click(null, null);
                }
@@ -1076,11 +1076,14 @@ namespace System.Scsc.Ui.OtherIncome
                                        new XElement("PosRequest",
                                           new XAttribute("psid", psid),
                                           new XAttribute("subsys", 5),
+                                          new XAttribute("fileno", Figh_Lov.EditValue),
                                           new XAttribute("rqid", pymt.RQST_RQID),
-                                          new XAttribute("rqtpcode", ""),
+                                          new XAttribute("rqtpcode", "016"),
                                           new XAttribute("router", GetType().Name),
                                           new XAttribute("callback", 20),
-                                          new XAttribute("amnt", amnt)
+                                          new XAttribute("amnt", amnt),
+                                          new XAttribute("modual", GetType().Name), 
+                                          new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                        )
                                  }
                               }
@@ -1528,7 +1531,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            var fileno = FILE_NO_LookUpEdit.EditValue;
+            var fileno = Figh_Lov.EditValue;
             if (fileno == null) return;
 
             _DefaultGateway.Gateway(
@@ -2139,14 +2142,17 @@ namespace System.Scsc.Ui.OtherIncome
                                           new XElement("PosRequest",
                                              new XAttribute("psid", psid),
                                              new XAttribute("subsys", 5),
+                                             new XAttribute("fileno", Figh_Lov.EditValue),
                                              new XAttribute("rqid", pymt.RQST_RQID),
-                                             new XAttribute("rqtpcode", ""),
+                                             new XAttribute("rqtpcode", "016"),
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
                                              new XAttribute("amnt", Convert.ToInt64(PymtAmnt_Txt.EditValue)),
                                              new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
                                              new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
-                                             new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? "")
+                                             new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? ""),
+                                             new XAttribute("modual", GetType().Name), 
+                                             new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                           )
                                     }
                                  }

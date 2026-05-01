@@ -40,10 +40,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       private bool requery = false;
       private int? subsys;
       private string gtwymacadrs;
+      private long? fileno;
       private long? rqid;
       private string rqtpcode;
       private string router;
       private int? callback;
+      private string modual, section;
 
       private long? Tlid; // Transaction_Log
 
@@ -336,7 +338,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("subsys", subsys ?? 0),
                      new XAttribute("gtwymacadrs", gtwymacadrs),
                      new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("fileno", fileno ?? 0),
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("modual", modual ?? ""), 
+                     new XAttribute("section", section ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", posResult.ResponseCode ?? ""),
@@ -410,9 +415,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   new XElement("PosRequest",
                      new XAttribute("psid", pos.PSID),
                      new XAttribute("subsys", subsys ?? 0),
-                     new XAttribute("gtwymacadrs", gtwymacadrs),
+                     new XAttribute("gtwymacadrs", gtwymacadrs),                     
                      new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("fileno", fileno ?? 0),
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("modual", modual ?? ""),
+                     new XAttribute("section", section ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", posResult.GetRespCode() ?? ""),
@@ -589,7 +597,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("subsys", subsys ?? 0),
                      new XAttribute("gtwymacadrs", gtwymacadrs),
                      new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("fileno", fileno ?? 0),
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("modual", modual ?? ""),
+                     new XAttribute("section", section ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", posResult == null ? "" : posResult.ReturnCode.ToString()),
@@ -685,7 +696,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("subsys", subsys ?? 0),
                      new XAttribute("gtwymacadrs", gtwymacadrs),
                      new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("fileno", fileno ?? 0),
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("modual", modual ?? ""),
+                     new XAttribute("section", section ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", posResult.response.AppResponseCode ?? ""),
@@ -767,7 +781,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("subsys", subsys ?? 0),
                      new XAttribute("gtwymacadrs", gtwymacadrs),
                      new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("fileno", fileno ?? 0),
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("modual", modual ?? ""),
+                     new XAttribute("section", section ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", (Math.Abs(posResult.ErrorCode)).ToString("D2") ?? ""),
@@ -865,7 +882,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("subsys", subsys ?? 0),
                      new XAttribute("gtwymacadrs", gtwymacadrs),
                      new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("fileno", fileno ?? 0),
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("modual", modual ?? ""),
+                     new XAttribute("section", section ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", (Math.Abs(posResult.ErrorCode)).ToString("D2") ?? ""),
@@ -996,7 +1016,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("subsys", subsys ?? 0),
                      new XAttribute("gtwymacadrs", gtwymacadrs),
                      new XAttribute("rqid", rqid ?? 0),
+                     new XAttribute("fileno", fileno ?? 0),
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
+                     new XAttribute("modual", modual ?? ""),
+                     new XAttribute("section", section ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", posResult.ResponseCode ?? ""),

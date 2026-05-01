@@ -9617,7 +9617,7 @@ namespace System.Scsc.Ui.MasterPage
                         },
                         #endregion
                      }),
-                  new Job(SendType.Self, 45 /* Execute Lsi_Fldf_F */){Input = x},
+                  new Job(SendType.Self, 45 /* Execute Lsi_Fldf_F */),
                   new Job(SendType.SelfToUserInterface, "LSI_FLDF_F", 10 /* Actn_CalF_P */){Input = new XElement("Fighter", new XAttribute("showlist", "001"))}
                });
          _DefaultGateway.Gateway(_InteractWithScsc);

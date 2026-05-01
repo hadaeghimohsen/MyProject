@@ -263,7 +263,7 @@ namespace System.Scsc.Ui.Common
                      if (MessageBox.Show(this, "با خروج دستی مشتری موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                      iScsc.INS_ATTN_P(_attn.CLUB_CODE, _attn.FIGH_FILE_NO, null, null, "003", _attn.MBSP_RWNO_DNRM, "001", "002");
                      iScsc = new Data.iScscDataContext(ConnectionString);
-                     AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
+                     AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == _fileno);
                   }
                   break;
                case 2:
@@ -286,7 +286,7 @@ namespace System.Scsc.Ui.Common
                      }
 
                      iScsc = new Data.iScscDataContext(ConnectionString);
-                     AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
+                     AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == _fileno);
 
                      // Play Enter Sound
                      // 1404/03/30 ** New version for play sound
@@ -379,7 +379,7 @@ namespace System.Scsc.Ui.Common
          if (figh == null)
             figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_Deleted_FighterResult;
 
-         if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
+         if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == _fileno && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost",
@@ -451,7 +451,7 @@ namespace System.Scsc.Ui.Common
             {
                if (FngrPrnt_Txt.Text != "")return;
 
-               _fngrprnt = iScsc.VF_All_Info_Fighters(fileno).Where(f => f.FNGR_PRNT != null && f.FNGR_PRNT != "" && f.FNGR_PRNT.Length >= 1).OrderByDescending(f => f.RWNO).Take(1).FirstOrDefault().FNGR_PRNT;
+               _fngrprnt = iScsc.VF_All_Info_Fighters(_fileno).Where(f => f.FNGR_PRNT != null && f.FNGR_PRNT != "" && f.FNGR_PRNT.Length >= 1).OrderByDescending(f => f.RWNO).Take(1).FirstOrDefault().FNGR_PRNT;
                if (MessageBox.Show(this, "آیا با بازیابی کد شناسایی موافق هستید؟" + Environment.NewLine + "کد شناسایی : " + _fngrprnt, "بازیابی کد شناسایی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
             }
             else
@@ -462,7 +462,7 @@ namespace System.Scsc.Ui.Common
             iScsc.SCV_PBLC_P(
                new XElement("Process",
                   new XElement("Fighter",
-                     new XAttribute("fileno", fileno),
+                     new XAttribute("fileno", _fileno),
                      new XAttribute("columnname", "FNGR_PRNT"),
                      new XAttribute("newvalue", _fngrprnt)
                   )
@@ -503,7 +503,7 @@ namespace System.Scsc.Ui.Common
             iScsc.SCV_MBSP_P(
                new XElement("Process",
                   new XElement("Fighter",
-                     new XAttribute("fileno", fileno)                     
+                     new XAttribute("fileno", _fileno)                     
                   )
                )
             );
@@ -532,7 +532,7 @@ namespace System.Scsc.Ui.Common
             {
                var rqst = (from r in iScsc.Requests
                            join rr in iScsc.Request_Rows on r.RQID equals rr.RQST_RQID
-                           where rr.FIGH_FILE_NO == Convert.ToInt64(fileno)
+                           where rr.FIGH_FILE_NO == Convert.ToInt64(_fileno)
                               && (r.RQTP_CODE == "001" || r.RQTP_CODE == "025")
                            select r).FirstOrDefault();
                if (rqst == null) return;
@@ -587,7 +587,7 @@ namespace System.Scsc.Ui.Common
                new List<Job>
                {
                   new Job(SendType.Self, 117 /* Execute Debt_List_F */),
-                  new Job(SendType.SelfToUserInterface, "DEBT_LIST_F" , 10 /* Execute Actn_CalF_F */){Input = new XElement("Debt", new XAttribute("type", "query"), new XAttribute("fileno", fileno))}
+                  new Job(SendType.SelfToUserInterface, "DEBT_LIST_F" , 10 /* Execute Actn_CalF_F */){Input = new XElement("Debt", new XAttribute("type", "query"), new XAttribute("fileno", _fileno))}
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
@@ -596,7 +596,7 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var figh = iScsc.Fighters.Where(f => f.FILE_NO == fileno).FirstOrDefault();
+            var figh = iScsc.Fighters.Where(f => f.FILE_NO == _fileno).FirstOrDefault();
 
             iScsc.ExecuteCommand(string.Format("UPDATE Fighter SET Debt_Dnrm = dbo.GET_DBTF_U(FILE_NO), DPST_AMNT_DNRM = dbo.GET_DPST_U(FILE_NO) WHERE FILE_NO = {0}", figh.FILE_NO));
             requery = true;
@@ -911,7 +911,7 @@ namespace System.Scsc.Ui.Common
                               new XAttribute("cashcode", pymt.CASH_CODE),
                               new XAttribute("rqstrqid", pymt.RQID),
                               new XAttribute("paystat", "002"),
-                              new XAttribute("fileno", fileno)
+                              new XAttribute("fileno", _fileno)
                            )
                         )
                      )
@@ -1111,7 +1111,7 @@ namespace System.Scsc.Ui.Common
                                  Input = 
                                     new XElement("Payment",
                                        new XAttribute("pydtcode", pd.CODE),
-                                       new XAttribute("fileno", fileno)
+                                       new XAttribute("fileno", _fileno)
                                     )
                               }
                            }
@@ -1197,7 +1197,7 @@ namespace System.Scsc.Ui.Common
          if (figh == null)
             figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_Deleted_FighterResult;
 
-         if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
+         if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == _fileno && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost",
@@ -1400,7 +1400,7 @@ namespace System.Scsc.Ui.Common
                         {
                            Input = 
                               new XElement("Fighter",
-                                 new XAttribute("fileno", fileno),
+                                 new XAttribute("fileno", _fileno),
                                  new XAttribute("mbsprwno", _mbsp.RWNO),
                                  new XAttribute("formcaller", GetType().Name)
                               )
@@ -1455,7 +1455,7 @@ namespace System.Scsc.Ui.Common
             QEndTime_Tim.EditValue = mbsp.END_DATE;//.Fighter_Public.Club_Method.END_TIME;
             MbspFngrPrnt_Txt.EditValue = mbsp.Fighter_Public.FNGR_PRNT;
 
-            PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.Payment.Request.RQST_STAT == "002" && pd.MBSP_FIGH_FILE_NO == fileno && pd.MBSP_RWNO == mbsp.RWNO);
+            PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.Payment.Request.RQST_STAT == "002" && pd.MBSP_FIGH_FILE_NO == _fileno && pd.MBSP_RWNO == mbsp.RWNO);
          }
          catch{
          }
@@ -1561,41 +1561,41 @@ namespace System.Scsc.Ui.Common
             switch (tb_master.SelectedIndex)
             {
                case 1:
-                  vF_All_Info_FightersBs.DataSource = iScsc.VF_All_Info_Fighters(fileno).OrderByDescending(f => f.RWNO);
+                  vF_All_Info_FightersBs.DataSource = iScsc.VF_All_Info_Fighters(_fileno).OrderByDescending(f => f.RWNO);
                   break;
                case 2:
-                  vF_SavePaymentsBs.DataSource = iScsc.VF_Save_Payments(null, fileno).OrderByDescending(p => p.PYMT_CRET_DATE);
+                  vF_SavePaymentsBs.DataSource = iScsc.VF_Save_Payments(null, _fileno).OrderByDescending(p => p.PYMT_CRET_DATE);
                   ShowCrntReglYear_Butn_Click(null, null);
                   break;
                case 3:
                   if(Deposit_Tc.SelectedTab == DTp_001)
                   {
-                     GlrlBs.DataSource = iScsc.Gain_Loss_Rials.Where(g => g.FIGH_FILE_NO == fileno && g.CONF_STAT == "002" && g.AMNT > 0);
-                     GPymBs.DataSource = iScsc.Payment_Methods.Where(p => p.FIGH_FILE_NO_DNRM == fileno && p.RCPT_MTOD == "005");
+                     GlrlBs.DataSource = iScsc.Gain_Loss_Rials.Where(g => g.FIGH_FILE_NO == _fileno && g.CONF_STAT == "002" && g.AMNT > 0);
+                     GPymBs.DataSource = iScsc.Payment_Methods.Where(p => p.FIGH_FILE_NO_DNRM == _fileno && p.RCPT_MTOD == "005");
                   }
                   else if(Deposit_Tc.SelectedTab == DTp_002)
                   {
-                     MsexBs.DataSource = iScsc.Misc_Expenses.Where(m => m.VALD_TYPE == "002" && m.COCH_FILE_NO == fileno);
+                     MsexBs.DataSource = iScsc.Misc_Expenses.Where(m => m.VALD_TYPE == "002" && m.COCH_FILE_NO == _fileno);
                   }
                   break;
                case 4:
-                  AudtBs.DataSource = iScsc.Audits.Where(a => a.FIGH_FILE_NO == fileno);
-                  FbacBs.DataSource = iScsc.Fighter_Bank_Accounts.Where(a => a.FIGH_FILE_NO == fileno);
+                  AudtBs.DataSource = iScsc.Audits.Where(a => a.FIGH_FILE_NO == _fileno);
+                  FbacBs.DataSource = iScsc.Fighter_Bank_Accounts.Where(a => a.FIGH_FILE_NO == _fileno);
                   break;
                case 5:
-                  vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(fileno); ;
+                  vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(_fileno); ;
                   break;
                case 6:
-                  vF_Request_ChangingBs.DataSource = iScsc.VF_Request_Changing(fileno).OrderBy(r => r.RQST_DATE);
+                  vF_Request_ChangingBs.DataSource = iScsc.VF_Request_Changing(_fileno).OrderBy(r => r.RQST_DATE);
                   LOptBs.DataSource =
                      iScsc.Log_Operations
                      .Where(lo =>
-                        lo.FIGH_FILE_NO == fileno
+                        lo.FIGH_FILE_NO == _fileno
                      );
                   break;
                case 7:
-                  AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == fileno);
-                  ClobBs.DataSource = iScsc.Card_Link_Operations.Where(c => c.CARD_FILE_NO == fileno);
+                  AttnBs2.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == _fileno);
+                  ClobBs.DataSource = iScsc.Card_Link_Operations.Where(c => c.CARD_FILE_NO == _fileno);
                   break;
                case 10:
                   int _rqst = RqstBs.Position;
@@ -1606,7 +1606,7 @@ namespace System.Scsc.Ui.Common
                      join rr in iScsc.Request_Rows on r.RQID equals rr.RQST_RQID
                      where r.RQST_STAT == "002" &&
                            (r.RQTP_CODE == "001" || r.RQTP_CODE == "009" || r.RQTP_CODE == "016") &&
-                           rr.FIGH_FILE_NO == fileno
+                           rr.FIGH_FILE_NO == _fileno
                      orderby r.SAVE_DATE
                      select r;
                   RqstBs.Position = _rqst;
@@ -1617,7 +1617,7 @@ namespace System.Scsc.Ui.Common
                   int _pmct = PmctBs1.Position;
                   PmctBs1.DataSource =
                      iScsc.Payment_Contracts
-                     .Where(pc => pc.Payment.Request.RQST_STAT == "002" && pc.Payment.Request.Request_Rows.Any(rr => rr.FIGH_FILE_NO == fileno))
+                     .Where(pc => pc.Payment.Request.RQST_STAT == "002" && pc.Payment.Request.Request_Rows.Any(rr => rr.FIGH_FILE_NO == _fileno))
                      .OrderByDescending(pc => pc.CRET_DATE);
                   PmctBs1.Position = _pmct;
                   break;
@@ -1680,7 +1680,7 @@ namespace System.Scsc.Ui.Common
                   new Job(SendType.External, "Localhost",
                     new List<Job>
                     {
-                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("File_No = {0}", fileno))}
+                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Selection"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), string.Format("File_No = {0}", _fileno))}
                     })
                );
             }
@@ -1702,7 +1702,7 @@ namespace System.Scsc.Ui.Common
                               new XAttribute("type", "Selection"), 
                               new XAttribute("modual", GetType().Name), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_006_F"), 
-                              string.Format("FIGH_FILE_NO = {0} AND FGPB_TYPE_DNRM = '{1}' ", fileno, _figh.TYPE) + 
+                              string.Format("FIGH_FILE_NO = {0} AND FGPB_TYPE_DNRM = '{1}' ", _fileno, _figh.TYPE) + 
                               (FromAttnDate_Dt.Value.HasValue ? string.Format("AND Attn_Date >= '{0}' ",  FromAttnDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd"))  : "") + 
                               (ToAttnDate_Dt.Value.HasValue ? string.Format("AND Attn_Date <= '{0}' ", ToAttnDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd"))  : "") 
                            )
@@ -1716,7 +1716,7 @@ namespace System.Scsc.Ui.Common
                   new Job(SendType.External, "Localhost",
                     new List<Job>
                     {
-                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_007_F"), string.Format("File_No = {0}", fileno))}
+                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_007_F"), string.Format("File_No = {0}", _fileno))}
                     })
                );
             }
@@ -1742,7 +1742,7 @@ namespace System.Scsc.Ui.Common
                               new XAttribute("type", "Default"), 
                               new XAttribute("modual", GetType().Name), 
                               new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F"), 
-                              string.Format("File_No = {0}", fileno) 
+                              string.Format("File_No = {0}", _fileno) 
                            )
                        }
                     })
@@ -1766,7 +1766,7 @@ namespace System.Scsc.Ui.Common
                                new XAttribute("type", "Default"), 
                                new XAttribute("modual", GetType().Name), 
                                new XAttribute("section", GetType().Name.Substring(0,3) + "_006_F"), 
-                               string.Format("FIGH_FILE_NO = {0} AND FGPB_TYPE_DNRM = '{1}' ", fileno, _figh.TYPE) + 
+                               string.Format("FIGH_FILE_NO = {0} AND FGPB_TYPE_DNRM = '{1}' ", _fileno, _figh.TYPE) + 
                                (FromAttnDate_Dt.Value.HasValue ? string.Format("AND Attn_Date >= '{0}' ",  FromAttnDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd"))  : "") + 
                                (ToAttnDate_Dt.Value.HasValue ? string.Format("AND Attn_Date <= '{0}' ", ToAttnDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd"))  : "") 
                            )
@@ -1780,7 +1780,7 @@ namespace System.Scsc.Ui.Common
                   new Job(SendType.External, "Localhost",
                     new List<Job>
                     {
-                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_007_F"), string.Format("File_No = {0}", fileno))}
+                       new Job(SendType.Self, 84 /* Execute Rpt_Mngr_F */){Input = new XElement("Print", new XAttribute("type", "Default"), new XAttribute("modual", GetType().Name), new XAttribute("section", GetType().Name.Substring(0,3) + "_007_F"), string.Format("File_No = {0}", _fileno))}
                     })
                );
             }
@@ -1811,7 +1811,7 @@ namespace System.Scsc.Ui.Common
                         Input = 
                            new XElement("Request", 
                               new XAttribute("type", "newrequest"), 
-                              new XAttribute("fileno", fileno),
+                              new XAttribute("fileno", _fileno),
                               new XAttribute("formcaller", GetType().Name)
                            )
                      }
@@ -1841,7 +1841,7 @@ namespace System.Scsc.Ui.Common
                   new List<Job>
                   {                  
                      new Job(SendType.Self, 92 /* Execute Oic_Totl_F */),
-                     new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", fileno)))}
+                     new Job(SendType.SelfToUserInterface, "OIC_TOTL_F", 10 /* Execute Actn_CalF_F */){Input = new XElement("Request", new XAttribute("type", "01"), new XElement("Request_Row", new XAttribute("fileno", _fileno)))}
                   })
             );
          }
@@ -2004,8 +2004,8 @@ namespace System.Scsc.Ui.Common
          try
          {
             PymtDate_DateTime001.CommitChanges();
-            var pymt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
-            if (pymt == null) return;
+            var __pymt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
+            if (__pymt == null) return;
 
             if (PymtAmnt_Txt.EditValue == null || PymtAmnt_Txt.EditValue.ToString() == "" || Convert.ToInt64(PymtAmnt_Txt.EditValue) == 0) return;
 
@@ -2027,12 +2027,12 @@ namespace System.Scsc.Ui.Common
                   {
                      var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
 
-                     long psid;
+                     long __psid;
                      if (Pos_Lov.EditValue == null)
                      {
                         var posdflts = VPosBs1.List.OfType<Data.V_Pos_Device>().Where(p => p.POS_DFLT == "002");
                         if (posdflts.Count() == 1)
-                           Pos_Lov.EditValue = psid = posdflts.FirstOrDefault().PSID;
+                           Pos_Lov.EditValue = __psid = posdflts.FirstOrDefault().PSID;
                         else
                         {
                            Pos_Lov.Focus();
@@ -2041,7 +2041,7 @@ namespace System.Scsc.Ui.Common
                      }
                      else
                      {
-                        psid = (long)Pos_Lov.EditValue;
+                        __psid = (long)Pos_Lov.EditValue;
                      }
 
                      if (regl.AMNT_TYPE == "002")
@@ -2061,16 +2061,19 @@ namespace System.Scsc.Ui.Common
                                     {
                                        Input = 
                                           new XElement("PosRequest",
-                                             new XAttribute("psid", psid),
+                                             new XAttribute("psid", __psid),
                                              new XAttribute("subsys", 5),
-                                             new XAttribute("rqid", pymt.RQID),
-                                             new XAttribute("rqtpcode", ""),
+                                             new XAttribute("fileno", _fileno),
+                                             new XAttribute("rqid", __pymt.RQID),
+                                             new XAttribute("rqtpcode", __pymt.RQTP_CODE),
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
                                              new XAttribute("amnt", Convert.ToInt64(PymtAmnt_Txt.EditValue)),
                                              new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
                                              new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
-                                             new XAttribute("rcptfilepath", /*RcptFilePath_Txt.EditValue ??*/ "")
+                                             new XAttribute("rcptfilepath", /*RcptFilePath_Txt.EditValue ??*/ ""),
+                                             new XAttribute("modual", GetType().Name), 
+                                             new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                           )
                                     }
                                  }
@@ -2088,8 +2091,8 @@ namespace System.Scsc.Ui.Common
                            new XAttribute("actntype", "InsertUpdate"),
                            new XElement("Insert",
                               new XElement("Payment_Method",
-                                 new XAttribute("cashcode", pymt.CASH_CODE),
-                                 new XAttribute("rqstrqid", pymt.RQID),
+                                 new XAttribute("cashcode", __pymt.CASH_CODE),
+                                 new XAttribute("rqstrqid", __pymt.RQID),
                                  new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
                                  new XAttribute("rcptmtod", "003"),
                                  new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
@@ -2108,8 +2111,8 @@ namespace System.Scsc.Ui.Common
                         new XAttribute("actntype", "InsertUpdate"),
                         new XElement("Insert",
                            new XElement("Payment_Method",
-                              new XAttribute("cashcode", pymt.CASH_CODE),
-                              new XAttribute("rqstrqid", pymt.RQID),
+                              new XAttribute("cashcode", __pymt.CASH_CODE),
+                              new XAttribute("rqstrqid", __pymt.RQID),
                               new XAttribute("amnt", PymtAmnt_Txt.EditValue ?? 0),
                               new XAttribute("rcptmtod", RcmtType_Lov.EditValue ?? "001"),
                               new XAttribute("actndate", PymtDate_DateTime001.Value.HasValue ? PymtDate_DateTime001.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
@@ -2470,7 +2473,7 @@ namespace System.Scsc.Ui.Common
                        INSERT (FIGH_FILE_NO, EXCP_TYPE, STAT, CODE)
                        VALUES (S.FILE_NO, S.EXCP_TYPE, '002', 0)
                     WHEN MATCHED THEN
-                       UPDATE SET T.STAT = '002';", fileno
+                       UPDATE SET T.STAT = '002';", _fileno
                )
             );
             MessageBox.Show("عملیات استثناء ورود با موفقیت فعال شد");
@@ -2495,7 +2498,7 @@ namespace System.Scsc.Ui.Common
                        INSERT (FIGH_FILE_NO, EXCP_TYPE, STAT, CODE)
                        VALUES (S.FILE_NO, S.EXCP_TYPE, '001', 0)
                     WHEN MATCHED THEN
-                       UPDATE SET T.STAT = '001';", fileno
+                       UPDATE SET T.STAT = '001';", _fileno
                )
             );
             MessageBox.Show("عملیات استثناء ورود با موفقیت غیرفعال شد");
@@ -2510,7 +2513,7 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno);
+            var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == _fileno);
             // اگر مشترکی وجود نداشته باشد
             if (figh == null) return;
             // اگر مشتری بدهی نداشته باشد
@@ -2566,17 +2569,17 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno);
+            var __figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == _fileno);
             // اگر مشترکی وجود نداشته باشد
-            if (figh == null) return;
+            if (__figh == null) return;
             // اگر مشتری بدهی نداشته باشد
-            if (figh.DEBT_DNRM == 0) return;
+            if (__figh.DEBT_DNRM == 0) return;
             // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             //if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
             // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
-            if (paydebt > figh.DEBT_DNRM) return;
+            if (paydebt > __figh.DEBT_DNRM) return;
 
             if (VPosBs1.List.Count == 0) UsePos_Cb.Checked = false;
 
@@ -2607,6 +2610,9 @@ namespace System.Scsc.Ui.Common
                // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
                UsePos_Cb.Checked = false;
 
+               // 1404/12/16 * بدست آوردن درخواست بدهکار برای ارسال شماره درخواست به پوز
+               var __rqstDebt = iScsc.VF_Request_Changing(__figh.FILE_NO).OrderByDescending(a => a.DEBT_DNRM).FirstOrDefault();
+
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost",
                      new List<Job>
@@ -2620,11 +2626,14 @@ namespace System.Scsc.Ui.Common
                                     new XElement("PosRequest",
                                        new XAttribute("psid", psid),
                                        new XAttribute("subsys", 5),
-                                       new XAttribute("rqid", 0),
-                                       new XAttribute("rqtpcode", ""),
+                                       new XAttribute("fileno", __figh.FILE_NO),
+                                       new XAttribute("rqid", __rqstDebt.RQID),
+                                       new XAttribute("rqtpcode", __rqstDebt.RQTP_CODE),
                                        new XAttribute("router", GetType().Name),
                                        new XAttribute("callback", 21),
-                                       new XAttribute("amnt", paydebt )
+                                       new XAttribute("amnt", paydebt ),
+                                       new XAttribute("modual", GetType().Name), 
+                                       new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                     )
                               }
                            }
@@ -2640,7 +2649,7 @@ namespace System.Scsc.Ui.Common
                // 1404/01/05 * Fill Payment if empty
                if (vF_SavePaymentsBs.List.Count == 0)
                {
-                  vF_SavePaymentsBs.DataSource = iScsc.VF_Save_Payments(null, fileno).OrderByDescending(p => p.PYMT_CRET_DATE);
+                  vF_SavePaymentsBs.DataSource = iScsc.VF_Save_Payments(null, _fileno).OrderByDescending(p => p.PYMT_CRET_DATE);
                   ShowCrntReglYear_Butn_Click(null, null);
                }
 
@@ -3060,7 +3069,7 @@ namespace System.Scsc.Ui.Common
          if (NoteBs.List.OfType<Data.Note>().Any(n => n.CODE == 0)) return;
 
          var note = NoteBs.AddNew() as Data.Note;
-         note.FIGH_FILE_NO = fileno;
+         note.FIGH_FILE_NO = _fileno;
          iScsc.Notes.InsertOnSubmit(note);
       }
 
@@ -3130,7 +3139,7 @@ namespace System.Scsc.Ui.Common
             var attns = 
                iScsc.Attendances
                .Where(
-                  a => a.FIGH_FILE_NO == fileno &&
+                  a => a.FIGH_FILE_NO == _fileno &&
                        a.ATTN_DATE >= FromAttnDate_Dt.Value.Value.Date &&
                        a.ATTN_DATE <= ToAttnDate_Dt.Value.Value.Date &&
                        a.ATTN_STAT == "002" &&
@@ -3256,7 +3265,7 @@ namespace System.Scsc.Ui.Common
 
             iScsc.DEL_FIGH_P(
                new XElement("Fighter",
-                   new XAttribute("fileno", fileno)
+                   new XAttribute("fileno", _fileno)
                )
             );
 
@@ -3321,7 +3330,7 @@ namespace System.Scsc.Ui.Common
             if (FGrpBs.List.OfType<Data.Fighter_Grouping>().Any(g => g.CODE == 0)) return;
 
             var fgrp = FGrpBs.AddNew() as Data.Fighter_Grouping;
-            fgrp.FIGH_FILE_NO = fileno;
+            fgrp.FIGH_FILE_NO = _fileno;
 
             iScsc.Fighter_Groupings.InsertOnSubmit(fgrp);
          }
@@ -3425,7 +3434,7 @@ namespace System.Scsc.Ui.Common
             if (FgdcBs.List.OfType<Data.Fighter_Discount_Card>().Any(fd => fd.CODE == 0)) return;
 
             var _fgdc = FgdcBs.AddNew() as Data.Fighter_Discount_Card;
-            _fgdc.FIGH_FILE_NO = fileno;
+            _fgdc.FIGH_FILE_NO = _fileno;
             _fgdc.STAT = "002";
             _fgdc.DSCT_TYPE = "001";
             _fgdc.DSCT_AMNT = 10;
@@ -3581,7 +3590,7 @@ namespace System.Scsc.Ui.Common
             var _call = CallBs.AddNew() as Data.Fighter_Call;
             if (_call == null) return;
 
-            _call.FIGH_FILE_NO = fileno;
+            _call.FIGH_FILE_NO = _fileno;
             _call.CALL_DATE = DateTime.Now;
             iScsc.Fighter_Calls.InsertOnSubmit(_call);
          }
@@ -3897,7 +3906,7 @@ namespace System.Scsc.Ui.Common
                                  string.Format("{0}{1}", 
                                     iScsc.GET_TEXT_F(
                                        new XElement("TemplateToText",
-                                           new XAttribute("fileno", fileno),
+                                           new XAttribute("fileno", _fileno),
                                            new XAttribute("mbsprwno", 1),
                                            new XAttribute("fgdccode", _dsct.CODE),
                                            new XAttribute("text", msg)
@@ -4826,7 +4835,7 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            if (AdatnBs.List.OfType<Data.Dresser_Attendance>().Any(a => a.DERS_NUMB == DresNumb_Txt.Text.ToInt32() && a.FIGH_FILE_NO == fileno && a.LEND_TIME != null && a.TKBK_TIME == null)) return;
+            if (AdatnBs.List.OfType<Data.Dresser_Attendance>().Any(a => a.DERS_NUMB == DresNumb_Txt.Text.ToInt32() && a.FIGH_FILE_NO == _fileno && a.LEND_TIME != null && a.TKBK_TIME == null)) return;
 
             if (!iScsc.Dressers.Any(d => d.DRES_NUMB == DresNumb_Txt.Text.ToInt32())) return;
 
@@ -4834,7 +4843,7 @@ namespace System.Scsc.Ui.Common
             if (_mbsp == null) return;
                
             var _adatn = AdatnBs.AddNew() as Data.Dresser_Attendance;
-            _adatn.FIGH_FILE_NO = fileno;
+            _adatn.FIGH_FILE_NO = _fileno;
             _adatn.DERS_NUMB = DresNumb_Txt.Text.ToInt32();
             _adatn.MBSP_RWNO = _mbsp.RWNO;
             _adatn.MBSP_RECT_CODE = _mbsp.RECT_CODE;
@@ -4866,7 +4875,7 @@ namespace System.Scsc.Ui.Common
                string.Format(
                   "UPDATE dbo.Dresser_Attendance SET Conf_Stat = '002' WHERE FIGH_FILE_NO = {0} AND TKBK_TIME IS NULL;" + Environment.NewLine +
                   "UPDATE dbo.Dresser_Attendance SET TKBK_TIME = GETDATE() WHERE FIGH_FILE_NO != {0} AND TKBK_TIME IS NULL AND Ders_Numb IN (SELECT da.Ders_Numb FROM dbo.Dresser_Attendance da WHERE da.Figh_File_No = {0} AND da.TKBK_TIME IS NULL);",
-                  fileno
+                  _fileno
                )
             );
             requery = true;
@@ -4889,7 +4898,7 @@ namespace System.Scsc.Ui.Common
             iScsc.ExecuteCommand(
                string.Format(
                   "DELETE dbo.Dresser_Attendance WHERE FIGH_FILE_NO = {0} AND TKBK_TIME IS NULL AND CONF_STAT = '001';",
-                  fileno
+                  _fileno
                )
             );
             requery = true;
@@ -5295,7 +5304,7 @@ namespace System.Scsc.Ui.Common
          try
          {
             if (Chatid_Txt.Text == "") return;
-            if (iScsc.Fighters.FirstOrDefault(c => c.FILE_NO == fileno && c.FGPB_TYPE_DNRM != "003") == null) return;
+            if (iScsc.Fighters.FirstOrDefault(c => c.FILE_NO == _fileno && c.FGPB_TYPE_DNRM != "003") == null) return;
 
             iScsc.ExecuteCommand(
                string.Format(@"MERGE iRoboTech.dbo.Service_Robot_Group T
@@ -5412,7 +5421,7 @@ namespace System.Scsc.Ui.Common
                               {
                                  Input = 
                                     new XElement("Gain_Loss_Rial",
-                                       new XAttribute("fileno", fileno),
+                                       new XAttribute("fileno", _fileno),
                                        new XAttribute("glid", _glrl.GLID),
                                        new XAttribute("formcaller", GetType().Name)
                                     )
@@ -5473,7 +5482,7 @@ namespace System.Scsc.Ui.Common
             {
                case 1:
                   bool _freelockvip = false;
-                  var _lockbydvip = iScsc.Dresser_Vip_Fighters.FirstOrDefault(d => d.DRES_CODE == _dvipcode && d.STAT == "002" && d.MBSP_FIGH_FILE_NO != fileno);
+                  var _lockbydvip = iScsc.Dresser_Vip_Fighters.FirstOrDefault(d => d.DRES_CODE == _dvipcode && d.STAT == "002" && d.MBSP_FIGH_FILE_NO != _fileno);
                   if(_lockbydvip != null)
                   {
                      if (MessageBox.Show(this, string.Format("در حال حاضر کمد در اختیار {0} مباشد آیا با آزاد کردن کمد موافق هستید?", _lockbydvip.Fighter.NAME_DNRM), "خطا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
@@ -5481,7 +5490,7 @@ namespace System.Scsc.Ui.Common
                   }
 
                   // اگر مشتری دارای کمد اختصاصی یا اجاره ای باشه نباید کمد دیگری به آن داده شود
-                  if(iScsc.Dresser_Vip_Fighters.Any(d => d.MBSP_FIGH_FILE_NO == fileno && d.STAT == "002"))
+                  if(iScsc.Dresser_Vip_Fighters.Any(d => d.MBSP_FIGH_FILE_NO == _fileno && d.STAT == "002"))
                   {
                      MessageBox.Show(this, "مشتری دارای کمد اختصاصی یا اجاره ای میباشد، شما قادر به اختصاص کمد جدید به این مشتری نیستید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
                      return;
@@ -5500,7 +5509,7 @@ namespace System.Scsc.Ui.Common
 
                   if(_freelockvip)
                      iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
-                  iScsc.ExecuteCommand("INSERT INTO dbo.Dresser_Vip_Fighter (Dres_Code, Mbsp_Figh_File_No, Mbsp_Rwno, Mbsp_Rect_Code, Code, Stat) VALUES ({0}, {1}, {2}, '004', 0, '002');", _dvipcode, fileno, _mbsp.RWNO);
+                  iScsc.ExecuteCommand("INSERT INTO dbo.Dresser_Vip_Fighter (Dres_Code, Mbsp_Figh_File_No, Mbsp_Rwno, Mbsp_Rect_Code, Code, Stat) VALUES ({0}, {1}, {2}, '004', 0, '002');", _dvipcode, _fileno, _mbsp.RWNO);
                   break;
                default:
                   break;
@@ -5661,7 +5670,7 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno);
+            var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == _fileno);
             // اگر مشترکی وجود نداشته باشد
             if (figh == null) return;
             // اگر مشتری بدهی نداشته باشد
@@ -5721,7 +5730,7 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno);
+            var figh = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == _fileno);
             // اگر مشترکی وجود نداشته باشد
             if (figh == null) return;
             // اگر مشتری بدهی نداشته باشد
@@ -5791,7 +5800,7 @@ namespace System.Scsc.Ui.Common
                   if (_pydt.MBSP_RWNO == _mbsp.RWNO) return;
                   if (_pydt.MBSP_RWNO != null && MessageBox.Show(this, "آیا با ویرایش کردن ردیف تمدید دوره موافق هستید؟", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
-                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET Mbsp_Figh_File_No = {1}, Mbsp_Rwno = {2}, Mbsp_Rect_Code = '004' WHERE Code = {0};", _pydt.CODE, fileno, _mbsp.RWNO));
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET Mbsp_Figh_File_No = {1}, Mbsp_Rwno = {2}, Mbsp_Rect_Code = '004' WHERE Code = {0};", _pydt.CODE, _fileno, _mbsp.RWNO));
                   requery = true;
                   break;
                default:
@@ -5945,7 +5954,7 @@ namespace System.Scsc.Ui.Common
                        INSERT (FIGH_FILE_NO, EXCP_TYPE, STAT, CODE)
                        VALUES (S.FILE_NO, S.EXCP_TYPE, '002', 0)
                     WHEN MATCHED THEN
-                       UPDATE SET T.STAT = '002';", fileno
+                       UPDATE SET T.STAT = '002';", _fileno
                )
             );
             MessageBox.Show("عملیات استثناء برای بدهی مشتری با موفقیت فعال شد");
@@ -5970,7 +5979,7 @@ namespace System.Scsc.Ui.Common
                        INSERT (FIGH_FILE_NO, EXCP_TYPE, STAT, CODE)
                        VALUES (S.FILE_NO, S.EXCP_TYPE, '001', 0)
                     WHEN MATCHED THEN
-                       UPDATE SET T.STAT = '001';", fileno
+                       UPDATE SET T.STAT = '001';", _fileno
                )
             );
             MessageBox.Show("عملیات استثناء برای بدهی مشتری با موفقیت غیرفعال شد");
@@ -5995,7 +6004,7 @@ namespace System.Scsc.Ui.Common
                        INSERT (FIGH_FILE_NO, EXCP_TYPE, STAT, CODE)
                        VALUES (S.FILE_NO, S.EXCP_TYPE, '002', 0)
                     WHEN MATCHED THEN
-                       UPDATE SET T.STAT = '002';", fileno
+                       UPDATE SET T.STAT = '002';", _fileno
                )
             );
             MessageBox.Show("عملیات استثناء برای عدم دریافت کمد انلاین با موفقیت فعال شد");
@@ -6020,7 +6029,7 @@ namespace System.Scsc.Ui.Common
                        INSERT (FIGH_FILE_NO, EXCP_TYPE, STAT, CODE)
                        VALUES (S.FILE_NO, S.EXCP_TYPE, '001', 0)
                     WHEN MATCHED THEN
-                       UPDATE SET T.STAT = '001';", fileno
+                       UPDATE SET T.STAT = '001';", _fileno
                )
             );
             MessageBox.Show("عملیات استثناء برای عدم دریافت کمد انلاین با موفقیت غیرفعال شد");
@@ -6056,7 +6065,7 @@ namespace System.Scsc.Ui.Common
          {
             if (FgbmBs.List.OfType<Data.Fighter_Body_Measurement>().Any(i => i.CODE == 0)) return;
 
-            iScsc.CRET_FGBM_P(fileno);
+            iScsc.CRET_FGBM_P(_fileno);
             requery = true;
          }
          catch (Exception exc)
@@ -6166,7 +6175,7 @@ namespace System.Scsc.Ui.Common
             if (FbacBs.List.OfType<Data.Fighter_Bank_Account>().Any(a => a.CODE == 0)) return;
 
             var _fbac = FbacBs.AddNew() as Data.Fighter_Bank_Account;
-            _fbac.FIGH_FILE_NO = fileno;
+            _fbac.FIGH_FILE_NO = _fileno;
             iScsc.Fighter_Bank_Accounts.InsertOnSubmit(_fbac);
          }
          catch (Exception exc)
@@ -6227,7 +6236,7 @@ namespace System.Scsc.Ui.Common
             if (AudtBs.List.OfType<Data.Audit>().Any(a => a.CODE == 0)) return;
 
             var _audt = AudtBs.AddNew() as Data.Audit;
-            _audt.FIGH_FILE_NO = fileno;
+            _audt.FIGH_FILE_NO = _fileno;
             iScsc.Audits.InsertOnSubmit(_audt);
          }
          catch (Exception exc)

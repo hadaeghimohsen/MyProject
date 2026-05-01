@@ -1451,6 +1451,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.VF_Save_PaymentsResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_StatisticAttendanceResult.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.VF_TestResult.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_Acess_User_Datasource.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Admin_Wallet.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Appd_Message_Box.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_App_Message_Box.datasource" />
@@ -1463,6 +1464,7 @@
     <None Include="Properties\DataSources\System.Scsc.Data.V_GainLoss.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Inventory.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Pos_Device.datasource" />
+    <None Include="Properties\DataSources\System.Scsc.Data.V_Pos_Transaction_Log.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_ReceiptPayment.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Sale.datasource" />
     <None Include="Properties\DataSources\System.Scsc.Data.V_Smsd_Message_Box.datasource" />
@@ -4081,6 +4083,12 @@
     </Content>
     <Content Include="..\System.Resource\Resources\IMAGE_1762.png">
       <Link>Resources\IMAGE_1762.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1763.png">
+      <Link>Resources\IMAGE_1763.png</Link>
+    </Content>
+    <Content Include="..\System.Resource\Resources\IMAGE_1764.png">
+      <Link>Resources\IMAGE_1764.png</Link>
     </Content>
     <Content Include="cvextern.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

@@ -2114,7 +2114,7 @@
          this.AllRqst4CrntServ_Butn = new System.MaxUi.RoundedButton();
          this.AddNewMbsp_Butn = new System.MaxUi.RoundedButton();
          this.roundedButton2 = new System.MaxUi.RoundedButton();
-         this.FILE_NO_LookUpEdit = new DevExpress.XtraEditors.SearchLookUpEdit();
+         this.Figh_Lov = new DevExpress.XtraEditors.SearchLookUpEdit();
          this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -3261,7 +3261,7 @@
          this.VClnoBn.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
          this.Serv_Ro.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.FILE_NO_LookUpEdit.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Figh_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).BeginInit();
@@ -21702,7 +21702,7 @@
          this.Serv_Ro.Controls.Add(this.AllRqst4CrntServ_Butn);
          this.Serv_Ro.Controls.Add(this.AddNewMbsp_Butn);
          this.Serv_Ro.Controls.Add(this.roundedButton2);
-         this.Serv_Ro.Controls.Add(this.FILE_NO_LookUpEdit);
+         this.Serv_Ro.Controls.Add(this.Figh_Lov);
          this.Serv_Ro.Controls.Add(this.FileNos_Lb);
          this.Serv_Ro.Controls.Add(this.PlayHappyBirthDate_Butn);
          this.Serv_Ro.Controls.Add(this.Pblc_Butn);
@@ -21849,31 +21849,31 @@
          this.roundedButton2.TabIndex = 97;
          this.roundedButton2.Tooltip = null;
          // 
-         // FILE_NO_LookUpEdit
+         // Figh_Lov
          // 
-         this.FILE_NO_LookUpEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.FILE_NO_LookUpEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqroBs1, "FIGH_FILE_NO", true));
-         this.FILE_NO_LookUpEdit.Location = new System.Drawing.Point(61, 34);
-         this.FILE_NO_LookUpEdit.Name = "FILE_NO_LookUpEdit";
-         this.FILE_NO_LookUpEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.FILE_NO_LookUpEdit.Properties.Appearance.Options.UseFont = true;
-         this.FILE_NO_LookUpEdit.Properties.Appearance.Options.UseTextOptions = true;
-         this.FILE_NO_LookUpEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.FILE_NO_LookUpEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.FILE_NO_LookUpEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.FILE_NO_LookUpEdit.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
-         this.FILE_NO_LookUpEdit.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+         this.Figh_Lov.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.Figh_Lov.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.RqroBs1, "FIGH_FILE_NO", true));
+         this.Figh_Lov.Location = new System.Drawing.Point(61, 34);
+         this.Figh_Lov.Name = "Figh_Lov";
+         this.Figh_Lov.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Figh_Lov.Properties.Appearance.Options.UseFont = true;
+         this.Figh_Lov.Properties.Appearance.Options.UseTextOptions = true;
+         this.Figh_Lov.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.Figh_Lov.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.Figh_Lov.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.Figh_Lov.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
+         this.Figh_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject110, "", null, null, true)});
-         this.FILE_NO_LookUpEdit.Properties.DataSource = this.FighsBs1;
-         this.FILE_NO_LookUpEdit.Properties.DisplayMember = "NAME_DNRM";
-         this.FILE_NO_LookUpEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.FILE_NO_LookUpEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.FILE_NO_LookUpEdit.Properties.NullText = "";
-         this.FILE_NO_LookUpEdit.Properties.PopupFormMinSize = new System.Drawing.Size(1000, 0);
-         this.FILE_NO_LookUpEdit.Properties.ValueMember = "FILE_NO";
-         this.FILE_NO_LookUpEdit.Properties.View = this.searchLookUpEdit1View;
-         this.FILE_NO_LookUpEdit.Size = new System.Drawing.Size(112, 22);
-         this.FILE_NO_LookUpEdit.TabIndex = 0;
+         this.Figh_Lov.Properties.DataSource = this.FighsBs1;
+         this.Figh_Lov.Properties.DisplayMember = "NAME_DNRM";
+         this.Figh_Lov.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.Figh_Lov.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.Figh_Lov.Properties.NullText = "";
+         this.Figh_Lov.Properties.PopupFormMinSize = new System.Drawing.Size(1000, 0);
+         this.Figh_Lov.Properties.ValueMember = "FILE_NO";
+         this.Figh_Lov.Properties.View = this.searchLookUpEdit1View;
+         this.Figh_Lov.Size = new System.Drawing.Size(112, 22);
+         this.Figh_Lov.TabIndex = 0;
          // 
          // searchLookUpEdit1View
          // 
@@ -28707,7 +28707,7 @@
          this.flowLayoutPanel1.ResumeLayout(false);
          this.Serv_Ro.ResumeLayout(false);
          this.Serv_Ro.PerformLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.FILE_NO_LookUpEdit.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.Figh_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.searchLookUpEdit1View)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit11.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.textEdit10.Properties)).EndInit();
@@ -30257,7 +30257,7 @@
       private MaxUi.RoundedButton AllRqst4CrntServ_Butn;
       private MaxUi.RoundedButton AddNewMbsp_Butn;
       private MaxUi.RoundedButton roundedButton2;
-      private DevExpress.XtraEditors.SearchLookUpEdit FILE_NO_LookUpEdit;
+      private DevExpress.XtraEditors.SearchLookUpEdit Figh_Lov;
       private Windows.Forms.BindingSource RqroBs1;
       private DevExpress.XtraGrid.Views.Grid.GridView searchLookUpEdit1View;
       private DevExpress.XtraGrid.Columns.GridColumn colREGN_PRVN_CNTY_CODE;

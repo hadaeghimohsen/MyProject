@@ -4131,6 +4131,7 @@
       <Association Name="App_Base_Define_Aggregation_Operation_Detail" Member="Aggregation_Operation_Details" ThisKey="CODE" OtherKey="GROP_APBS_CODE" Type="Aggregation_Operation_Detail" />
       <Association Name="App_Base_Define_Audit" Member="Audits" ThisKey="CODE" OtherKey="PAYC_CODE" Type="Audit" />
       <Association Name="App_Base_Define_Payment_Method" Member="Payment_Methods" ThisKey="CODE" OtherKey="RCPT_TO_OTHR_ACNT" Type="Payment_Method" />
+      <Association Name="App_Base_Define_Dresser" Member="Dressers" ThisKey="CODE" OtherKey="LEVL_CODE" Type="Dresser" />
       <Association Name="App_Base_Define_App_Base_Define" Member="App_Base_Define1" ThisKey="REF_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" />
     </Type>
     <InsertFunction FunctionId="FunctionId82">
@@ -5620,33 +5621,6 @@
       <Association Name="Fighter_Fighter_Body_Measurement" Member="Fighter" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" />
     </Type>
   </Table>
-  <Table Name="dbo.Dresser" Member="Dressers">
-    <Type Name="Dresser">
-      <Column Name="COMA_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="DRES_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="[DESC]" Member="DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="REC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ORDR" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CMND_SEND" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="COMM_PORT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="VIP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="FROM_HEIT" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="TO_HEIT" Type="System.Single" DbType="Real" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="SEND_SGNL_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="INTR_SGNL_LONG" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Dresser_Dresser_Vip_Fighter" Member="Dresser_Vip_Fighters" ThisKey="CODE" OtherKey="DRES_CODE" Type="Dresser_Vip_Fighter" />
-      <Association Name="Dresser_Dresser_Attendance" Member="Dresser_Attendances" ThisKey="CODE" OtherKey="DRES_CODE" Type="Dresser_Attendance" />
-      <Association Name="Dresser_Attendance_Wrist" Member="Attendance_Wrists" ThisKey="CODE" OtherKey="DRES_CODE_DNRM" Type="Attendance_Wrist" />
-      <Association Name="Computer_Action_Dresser" Member="Computer_Action" ThisKey="COMA_CODE" OtherKey="CODE" Type="Computer_Action" IsForeignKey="true" DeleteRule="CASCADE" />
-    </Type>
-  </Table>
   <Table Name="dbo.D$SOND" Member="D_SONDs">
     <Type Name="D_SOND">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
@@ -6178,6 +6152,75 @@
     <Type Name="D_HAVE">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V$Acess_User_Datasource" Member="V_Acess_User_Datasources">
+    <Type Name="V_Acess_User_Datasource">
+      <Column Name="DATA_BASE" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="USER_NAME" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="USER_DESC" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="IP_DNRM" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="COMP_NAME_DNRM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.V#Pos_Transaction_Log" Member="V_Pos_Transaction_Logs">
+    <Type Name="V_Pos_Transaction_Log">
+      <Column Name="POSD_PSID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TLID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="TRAN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="PAY_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ISSU_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RESP_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RESP_DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="TERM_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="TRAN_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="CARD_NO" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
+      <Column Name="FLOW_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="REF_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="SERL_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="MUDL_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="SECT_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Dresser" Member="Dressers">
+    <Type Name="Dresser">
+      <Column Name="COMA_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DRES_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[DESC]" Member="DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="REC_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ORDR" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CMND_SEND" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="COMM_PORT" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="BAND_RATE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IP_ADRS" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="VIP_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="FROM_HEIT" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="TO_HEIT" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="SEND_SGNL_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="INTR_SGNL_LONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LEVL_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Dresser_Dresser_Vip_Fighter" Member="Dresser_Vip_Fighters" ThisKey="CODE" OtherKey="DRES_CODE" Type="Dresser_Vip_Fighter" />
+      <Association Name="Dresser_Dresser_Attendance" Member="Dresser_Attendances" ThisKey="CODE" OtherKey="DRES_CODE" Type="Dresser_Attendance" />
+      <Association Name="Dresser_Attendance_Wrist" Member="Attendance_Wrists" ThisKey="CODE" OtherKey="DRES_CODE_DNRM" Type="Attendance_Wrist" />
+      <Association Name="Computer_Action_Dresser" Member="Computer_Action" ThisKey="COMA_CODE" OtherKey="CODE" Type="Computer_Action" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="App_Base_Define_Dresser" Member="App_Base_Define" ThisKey="LEVL_CODE" OtherKey="CODE" Type="App_Base_Define" IsForeignKey="true" DeleteRule="SET NULL" />
     </Type>
   </Table>
   <Function Name="dbo.VF$Saved_Request" Method="VF_Saved_Request" IsComposable="true">
@@ -8640,24 +8683,6 @@
     <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
     <Return Type="System.Int64" />
   </Function>
-  <Function Name="dbo.VF$Request_Changing" Method="VF_Request_Changing" IsComposable="true">
-    <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
-    <ElementType Name="VF_Request_ChangingResult">
-      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQTP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="RQTT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
-      <Column Name="RQTT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
-      <Column Name="RQID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="SAVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="RQST_DESC" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
-      <Column Name="TOTL_AMNT" Type="System.Decimal" DbType="Decimal(21,2)" CanBeNull="true" />
-      <Column Name="TOTL_RCPT_AMNT" Type="System.Decimal" DbType="Decimal(21,2)" CanBeNull="true" />
-      <Column Name="TOTL_DSCT_AMNT" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
-    </ElementType>
-  </Function>
   <Function Id="FunctionId77" Name="dbo.INS_CBMT_P" Method="INS_CBMT_P">
     <Parameter Name="Club_Code" Parameter="club_Code" Type="System.Int64" DbType="BigInt" />
     <Parameter Name="Mtod_Code" Parameter="mtod_Code" Type="System.Int64" DbType="BigInt" />
@@ -9118,5 +9143,34 @@
     <Parameter Name="Inst_Page" Parameter="inst_Page" Type="System.String" DbType="VarChar(100)" />
     <Parameter Name="Sex_Type" Parameter="sex_Type" Type="System.String" DbType="VarChar(3)" />
     <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.CLON_DATA_P" Method="CLON_DATA_P">
+    <Parameter Name="X" Parameter="x" Type="System.Xml.Linq.XElement" DbType="Xml" />
+    <ElementType Name="CLON_DATA_PResult">
+      <Column Name="name" Type="System.String" DbType="NVarChar(35) NOT NULL" CanBeNull="false" />
+      <Column Name="minimum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="maximum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="config_value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="run_value" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.VF$Request_Changing" Method="VF_Request_Changing" IsComposable="true">
+    <Parameter Name="FileNo" Parameter="fileNo" Type="System.Int64" DbType="BigInt" />
+    <ElementType Name="VF_Request_ChangingResult">
+      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="RQTP_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="RQTT_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="RQTT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="RQID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQST_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="SAVE_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="RQST_DESC" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="TOTL_AMNT" Type="System.Decimal" DbType="Decimal(21,2)" CanBeNull="true" />
+      <Column Name="TOTL_RCPT_AMNT" Type="System.Decimal" DbType="Decimal(21,2)" CanBeNull="true" />
+      <Column Name="TOTL_DSCT_AMNT" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="DEBT_DNRM" Type="System.Decimal" DbType="Decimal(23,2)" CanBeNull="true" />
+    </ElementType>
   </Function>
 </Database>

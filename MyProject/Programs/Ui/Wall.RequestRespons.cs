@@ -537,7 +537,6 @@ namespace MyProject.Programs.Ui
                      if (activeUi.Ui.Enabled) activeUi.Ui.Focus();
                   }));
                }
-
             }
             job.Status = StatusType.Successful;
          }

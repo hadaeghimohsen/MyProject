@@ -139,22 +139,23 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject90 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject91 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject92 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject93 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip1 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem1 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject93 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject94 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject95 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject96 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject97 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject98 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject99 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip2 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem2 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem1 = new DevExpress.Utils.ToolTipItem();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem3 = new DevExpress.Utils.ToolTipTitleItem();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject99 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject100 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject101 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject102 = new DevExpress.Utils.SerializableAppearanceObject();
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject103 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SuperToolTip superToolTip3 = new DevExpress.Utils.SuperToolTip();
          DevExpress.Utils.ToolTipTitleItem toolTipTitleItem4 = new DevExpress.Utils.ToolTipTitleItem();
          DevExpress.Utils.ToolTipItem toolTipItem2 = new DevExpress.Utils.ToolTipItem();
@@ -172,7 +173,11 @@
          this.Lbs_Tooltip = new System.Windows.Forms.ToolStripStatusLabel();
          this.spc_desktop = new System.Windows.Forms.SplitContainer();
          this.spc_desktopnew = new DevExpress.XtraEditors.SplitContainerControl();
+         this.rbBlack_pbx = new System.Windows.Forms.PictureBox();
          this.AdjustDateTime_Lab = new System.Windows.Forms.Label();
+         this.Day_Lb = new System.Windows.Forms.Label();
+         this.Name_lb = new System.Windows.Forms.Label();
+         this.bkImg_pbx = new System.Windows.Forms.PictureBox();
          this.Master_Tc = new DevExpress.XtraTab.XtraTabControl();
          this.xTp_002 = new DevExpress.XtraTab.XtraTabPage();
          this.Main_Pnl = new System.Windows.Forms.FlowLayoutPanel();
@@ -900,6 +905,7 @@
          this.colMDFY_DATE3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colAggregation_Operation = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colFighter = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
+         this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
          this.ShowMain_Btn = new DevExpress.XtraEditors.SimpleButton();
          this.OnlineDres_Butn = new DevExpress.XtraEditors.ButtonEdit();
          this.ChngAttnActn_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -980,6 +986,8 @@
          this.spc_desktop.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktopnew)).BeginInit();
          this.spc_desktopnew.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.rbBlack_pbx)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.bkImg_pbx)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Master_Tc)).BeginInit();
          this.Master_Tc.SuspendLayout();
          this.xTp_002.SuspendLayout();
@@ -1202,6 +1210,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3.CalendarTimeProperties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.OnlineDres_Butn.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnType_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).BeginInit();
@@ -1375,6 +1384,7 @@
          this.spc_desktop.Panel2.AutoScroll = true;
          this.spc_desktop.Panel2.BackColor = System.Drawing.SystemColors.Control;
          this.spc_desktop.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+         this.spc_desktop.Panel2.Controls.Add(this.buttonEdit1);
          this.spc_desktop.Panel2.Controls.Add(this.ShowMain_Btn);
          this.spc_desktop.Panel2.Controls.Add(this.OnlineDres_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.ChngAttnActn_Butn);
@@ -1411,7 +1421,11 @@
          this.spc_desktopnew.Name = "spc_desktopnew";
          this.spc_desktopnew.Panel1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(125)))), ((int)(((byte)(125)))));
          this.spc_desktopnew.Panel1.Appearance.Options.UseBackColor = true;
+         this.spc_desktopnew.Panel1.Controls.Add(this.rbBlack_pbx);
          this.spc_desktopnew.Panel1.Controls.Add(this.AdjustDateTime_Lab);
+         this.spc_desktopnew.Panel1.Controls.Add(this.Day_Lb);
+         this.spc_desktopnew.Panel1.Controls.Add(this.Name_lb);
+         this.spc_desktopnew.Panel1.Controls.Add(this.bkImg_pbx);
          this.spc_desktopnew.Panel1.Text = "Panel1";
          this.spc_desktopnew.Panel2.Controls.Add(this.Master_Tc);
          this.spc_desktopnew.Panel2.Text = "Panel2";
@@ -1420,15 +1434,66 @@
          this.spc_desktopnew.TabIndex = 23;
          this.spc_desktopnew.Text = "splitContainerControl1";
          // 
+         // rbBlack_pbx
+         // 
+         this.rbBlack_pbx.Image = global::System.Scsc.Properties.Resources.IMAGE_1764;
+         this.rbBlack_pbx.Location = new System.Drawing.Point(192, 12);
+         this.rbBlack_pbx.Name = "rbBlack_pbx";
+         this.rbBlack_pbx.Size = new System.Drawing.Size(55, 70);
+         this.rbBlack_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+         this.rbBlack_pbx.TabIndex = 3;
+         this.rbBlack_pbx.TabStop = false;
+         this.rbBlack_pbx.Visible = false;
+         // 
          // AdjustDateTime_Lab
          // 
          this.AdjustDateTime_Lab.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+         this.AdjustDateTime_Lab.BackColor = System.Drawing.Color.Transparent;
          this.AdjustDateTime_Lab.Font = new System.Drawing.Font("Segoe UI Light", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.AdjustDateTime_Lab.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
          this.AdjustDateTime_Lab.Location = new System.Drawing.Point(672, 771);
          this.AdjustDateTime_Lab.Name = "AdjustDateTime_Lab";
          this.AdjustDateTime_Lab.Size = new System.Drawing.Size(343, 155);
          this.AdjustDateTime_Lab.TabIndex = 0;
          this.AdjustDateTime_Lab.Text = "1401/06/25\r\nشنبه، 25 شهریور\r\n1401";
+         // 
+         // Day_Lb
+         // 
+         this.Day_Lb.BackColor = System.Drawing.Color.Transparent;
+         this.Day_Lb.Font = new System.Drawing.Font("Iranian Sans", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.Day_Lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.Day_Lb.Location = new System.Drawing.Point(11, 22);
+         this.Day_Lb.Name = "Day_Lb";
+         this.Day_Lb.Size = new System.Drawing.Size(175, 52);
+         this.Day_Lb.TabIndex = 1;
+         this.Day_Lb.Text = "18، 19 دیماه 1404\r\nجهان پهلوان \r\nقهرمان قهرمانان مسابقات اورال";
+         this.Day_Lb.Visible = false;
+         // 
+         // Name_lb
+         // 
+         this.Name_lb.BackColor = System.Drawing.Color.Transparent;
+         this.Name_lb.Font = new System.Drawing.Font("Segoe UI Light", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.Name_lb.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+         this.Name_lb.Location = new System.Drawing.Point(9, 77);
+         this.Name_lb.Name = "Name_lb";
+         this.Name_lb.Size = new System.Drawing.Size(253, 62);
+         this.Name_lb.TabIndex = 0;
+         this.Name_lb.Text = "مسعود ذات پرور";
+         this.Name_lb.Visible = false;
+         // 
+         // bkImg_pbx
+         // 
+         this.bkImg_pbx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.bkImg_pbx.Image = global::System.Scsc.Properties.Resources.IMAGE_1763;
+         this.bkImg_pbx.Location = new System.Drawing.Point(21, 25);
+         this.bkImg_pbx.Name = "bkImg_pbx";
+         this.bkImg_pbx.Size = new System.Drawing.Size(985, 916);
+         this.bkImg_pbx.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+         this.bkImg_pbx.TabIndex = 2;
+         this.bkImg_pbx.TabStop = false;
+         this.bkImg_pbx.Visible = false;
          // 
          // Master_Tc
          // 
@@ -1868,7 +1933,7 @@
          this.InptData_Rlt.RolloutBorderColor = System.Drawing.Color.Gray;
          this.InptData_Rlt.RolloutFrameType = System.Windows.Forms.BorderStyle.FixedSingle;
          this.InptData_Rlt.RolloutStatus = true;
-         this.InptData_Rlt.RolloutTitle = "داده های استاندارد";
+         this.InptData_Rlt.RolloutTitle = "اطلاعات و داده های سازمانی";
          this.InptData_Rlt.RoundCorners = 2;
          this.InptData_Rlt.ShadowColor = System.Drawing.Color.DarkGray;
          this.InptData_Rlt.ShadowControl = false;
@@ -1926,7 +1991,6 @@
          // bbi_AllCoch_Butn
          // 
          this.bbi_AllCoch_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
-         this.bbi_AllCoch_Butn.Enabled = false;
          this.bbi_AllCoch_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_AllCoch_Butn.FlatAppearance.BorderSize = 0;
          this.bbi_AllCoch_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
@@ -1949,7 +2013,6 @@
          // bbi_AddCoch_Butn
          // 
          this.bbi_AddCoch_Butn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
-         this.bbi_AddCoch_Butn.Enabled = false;
          this.bbi_AddCoch_Butn.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(186)))), ((int)(((byte)(186)))), ((int)(((byte)(186)))));
          this.bbi_AddCoch_Butn.FlatAppearance.BorderSize = 0;
          this.bbi_AddCoch_Butn.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
@@ -11588,6 +11651,24 @@
          this.colFighter.FieldName = "Fighter";
          this.colFighter.Name = "colFighter";
          // 
+         // buttonEdit1
+         // 
+         this.buttonEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+         this.buttonEdit1.Location = new System.Drawing.Point(485, 5);
+         this.buttonEdit1.Name = "buttonEdit1";
+         this.buttonEdit1.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.buttonEdit1.Properties.Appearance.Options.UseFont = true;
+         this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject93, "", null, null, true)});
+         this.buttonEdit1.Properties.LookAndFeel.SkinName = "VS2010";
+         this.buttonEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.buttonEdit1.Properties.NullText = "هر چی میخوای اینجا جستجو کن ...";
+         this.buttonEdit1.Properties.NullValuePrompt = "هر چی میخوای اینجا جستجو کن ...";
+         this.buttonEdit1.Properties.NullValuePromptShowForEmptyValue = true;
+         this.buttonEdit1.Size = new System.Drawing.Size(257, 24);
+         this.buttonEdit1.TabIndex = 0;
+         // 
          // ShowMain_Btn
          // 
          this.ShowMain_Btn.Appearance.BackColor = System.Drawing.Color.Transparent;
@@ -11619,9 +11700,9 @@
          this.OnlineDres_Butn.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
          this.OnlineDres_Butn.Properties.AppearanceFocused.Options.UseBackColor = true;
          this.OnlineDres_Butn.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("OnlineDres_Butn.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject93, "مدریت کمد های انلاین", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("OnlineDres_Butn.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject94, "خروج عضو و آزاد سازی کلید", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("OnlineDres_Butn.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject95, "باز کردن کمد", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("OnlineDres_Butn.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject94, "مدریت کمد های انلاین", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("OnlineDres_Butn.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject95, "خروج عضو و آزاد سازی کلید", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("OnlineDres_Butn.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject96, "باز کردن کمد", null, null, true)});
          this.OnlineDres_Butn.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.OnlineDres_Butn.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.OnlineDres_Butn.Properties.NullValuePromptShowForEmptyValue = true;
@@ -11751,13 +11832,13 @@
          superToolTip2.Items.Add(toolTipItem1);
          superToolTip2.Items.Add(toolTipTitleItem3);
          this.CardNumb_Text.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject96, "ثبت نام", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject97, "تعویض کارت", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject98, "", null, superToolTip2, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject99, "حضور و غیاب دستی", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject100, "فاکتور فروش کالا / خدمات", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1620, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject101, "مهمان آزاد آقایان", null, null, true),
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1621, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject102, "مهمان آزاد بانوان", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, false, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject97, "ثبت نام", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons1"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject98, "تعویض کارت", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, false, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons2"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject99, "", null, superToolTip2, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("CardNumb_Text.Properties.Buttons3"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject100, "حضور و غیاب دستی", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1223, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject101, "فاکتور فروش کالا / خدمات", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1620, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject102, "مهمان آزاد آقایان", null, null, true),
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, global::System.Scsc.Properties.Resources.IMAGE_1621, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject103, "مهمان آزاد بانوان", null, null, true)});
          this.CardNumb_Text.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.CardNumb_Text.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
          this.CardNumb_Text.Properties.NullValuePromptShowForEmptyValue = true;
@@ -12316,6 +12397,8 @@
          this.spc_desktop.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.spc_desktopnew)).EndInit();
          this.spc_desktopnew.ResumeLayout(false);
+         ((System.ComponentModel.ISupportInitialize)(this.rbBlack_pbx)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.bkImg_pbx)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Master_Tc)).EndInit();
          this.Master_Tc.ResumeLayout(false);
          this.xTp_002.ResumeLayout(false);
@@ -12567,6 +12650,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.OnlineDres_Butn.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnType_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).EndInit();
@@ -13388,5 +13472,10 @@
       private MaxUi.Rollout Base_Rlt;
       private MaxUi.Button BasDef2_Btn;
       private MaxUi.Button BasDef1_Btn;
+      private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
+      private Windows.Forms.Label Day_Lb;
+      private Windows.Forms.Label Name_lb;
+      private Windows.Forms.PictureBox bkImg_pbx;
+      private Windows.Forms.PictureBox rbBlack_pbx;
    }
 }

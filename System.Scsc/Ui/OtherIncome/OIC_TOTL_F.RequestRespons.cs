@@ -582,7 +582,7 @@ namespace System.Scsc.Ui.OtherIncome
                   if(RqstBs1.Count > 0)
                      RqstBs1.AddNew();
 
-                  FILE_NO_LookUpEdit.EditValue = fileno;                  
+                  Figh_Lov.EditValue = fileno;                  
 
                   Btn_RqstBnARqt1_Click(null, null);
 

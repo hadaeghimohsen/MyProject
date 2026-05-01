@@ -155,7 +155,7 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("Scsc:{0}",GetType().Name), this }  },
-               new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "right:in-screen:stretch:center"} }               
+               new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "left:in-screen:stretch:center"} }
             });
          _DefaultGateway.Gateway(_Paint);
 
@@ -224,6 +224,21 @@ namespace System.Scsc.Ui.BaseDefinition
       /// <param name="job"></param>
       private void LoadData(Job job)
       {
+         DActvBs.DataSource = iScsc.D_ACTVs;
+         DWkdyBs.DataSource = iScsc.D_WKDies;
+         DYsnoBs.DataSource = iScsc.D_YSNOs;
+         vCompBs.DataSource = iScsc.V_Computers;
+         vUserBs.DataSource = iScsc.V_Users;
+         DDevcBs.DataSource = iScsc.D_DEVCs;
+         DAtsmBs.DataSource = iScsc.D_ATSMs;
+         DConnBs.DataSource = iScsc.D_CONNs;
+         DScdtBs.DataSource = iScsc.D_SCDTs;
+         DAeatBs.DataSource = iScsc.D_AEATs;
+         DRedrBs.DataSource = iScsc.D_REDRs;
+         MtodBs.DataSource = iScsc.Methods;
+         DRqstBs.DataSource = iScsc.D_RQSTs;
+         VLevlApbsBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Dresser_Level");
+
          job.Status = StatusType.Successful;
       }
 
@@ -231,10 +246,10 @@ namespace System.Scsc.Ui.BaseDefinition
       /// Code 10
       /// </summary>
       /// <param name="job"></param>
-      private void Actn_CalF_P(Job job)
+      private async void Actn_CalF_P(Job job)
       {
          if (isPainted)
-            Execute_Query();
+            await Execute_Query();
          job.Status = StatusType.Successful;
       }
    }

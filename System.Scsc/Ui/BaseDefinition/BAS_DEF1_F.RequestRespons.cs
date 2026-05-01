@@ -154,7 +154,7 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                new Job(SendType.SelfToUserInterface, "Wall", 17 /* Execute ResetUi */),
                new Job(SendType.SelfToUserInterface, "Wall", 15 /* Execute Push */) {  Input = new List<object> { string.Format("Scsc:{0}",GetType().Name), this }  },
-               new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "left:in-screen:stretch:center"} }               
+               new Job(SendType.SelfToUserInterface, "Wall", 0 /* Execute PastManualOnWall */) {  Input = new List<object> {this, "left:in-screen:stretch:center"} }
             });
          _DefaultGateway.Gateway(_Paint);
 
@@ -234,6 +234,8 @@ namespace System.Scsc.Ui.BaseDefinition
          DCktpBs.DataSource = iScsc.D_CKTPs;
          DCxtpBs.DataSource = iScsc.D_CXTPs;
          DEfdtBs.DataSource = iScsc.D_EFDTs;
+         DCyclBs.DataSource = iScsc.D_CYCLs;
+         DWkdyBs.DataSource = iScsc.D_WKDies;
          vUserBs.DataSource = iScsc.V_Users;
          vCompBs.DataSource = iScsc.Computer_Actions;
 

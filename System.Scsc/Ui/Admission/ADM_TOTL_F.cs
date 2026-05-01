@@ -409,15 +409,23 @@ namespace System.Scsc.Ui.Admission
                   return;
                }
 
+               // 1404/12/07 * HasOverlapDate
+               var __strtDate = StrtDate_DateTime003.Value;
+               var __endDate = EndDate_DateTime003.Value;
+               var __cbmtCode = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(a => a.CODE == Convert.ToInt64(CbmtCode_Lov.EditValue));
+
                // 1401/05/20 * بررسی اینکه آیا منشی رشته تکراری دارد ذخیره میکند
                if (MbspBs.List.OfType<Data.Member_Ship>()
                   .Any(m => m.VALD_TYPE == "002" &&                     
-                     StrtDate_DateTime003.Value.Value.Date.IsBetween(m.STRT_DATE.Value.Date, m.END_DATE.Value.Date) &&
+                     //StrtDate_DateTime003.Value.Value.Date.IsBetween(m.STRT_DATE.Value.Date, m.END_DATE.Value.Date) &&
+                     __strtDate <= m.END_DATE && __endDate >= m.STRT_DATE &&
                      (m.NUMB_OF_ATTN_MONT == 0 || m.SUM_ATTN_MONT_DNRM < m.NUMB_OF_ATTN_MONT) &&
-                     m.Fighter_Public.CTGY_CODE == Convert.ToInt64(CtgyCode_Lov.EditValue)
+                     //m.Fighter_Public.CTGY_CODE == Convert.ToInt64(CtgyCode_Lov.EditValue)
+                     m.FGPB_MTOD_CODE_DNRM == __cbmtCode.MTOD_CODE
                   )
                   &&
-                  MessageBox.Show(this, "اطلاعات دوره جدید تکراری میباشد" + Environment.NewLine + "در ردیف دوره های فعال مشتری با مشخصات ثبت شده توسط شما [دوره تکراری وجود دارد]، آیا مایل به اصلاح اطلاعات هستید؟", "وجود اطلاعات تکراری", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                  MessageBox.Show(this, "اطلاعات دوره جدید تکراری میباشد" + Environment.NewLine + "در ردیف دوره های فعال مشتری با مشخصات ثبت شده توسط شما [دوره تکراری وجود دارد]، آیا مایل به اصلاح اطلاعات هستید؟", "وجود اطلاعات تکراری", MessageBoxButtons.YesNo) == DialogResult.Yes
+                  )
                {
                   CtgyCode_Lov.Focus();
                   return;
@@ -1357,11 +1365,14 @@ namespace System.Scsc.Ui.Admission
                                           new XElement("PosRequest",
                                              new XAttribute("psid", psid),
                                              new XAttribute("subsys", 5),
+                                             new XAttribute("fileno", Figh_Lov.EditValue),
                                              new XAttribute("rqid", pymt.RQST_RQID),
-                                             new XAttribute("rqtpcode", ""),
+                                             new XAttribute("rqtpcode", "009"),                                             
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
-                                             new XAttribute("amnt", amnt)
+                                             new XAttribute("amnt", amnt),
+                                             new XAttribute("modual", GetType().Name), 
+                                             new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                           )
                                     }
                                  }
@@ -2062,14 +2073,17 @@ namespace System.Scsc.Ui.Admission
                                           new XElement("PosRequest",
                                              new XAttribute("psid", psid),
                                              new XAttribute("subsys", 5),
+                                             new XAttribute("fileno", Figh_Lov.EditValue),
                                              new XAttribute("rqid", pymt.RQST_RQID),
-                                             new XAttribute("rqtpcode", ""),
+                                             new XAttribute("rqtpcode", "009"),
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
                                              new XAttribute("amnt", Convert.ToInt64( PymtAmnt_Txt.EditValue)),
                                              new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
                                              new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
-                                             new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? "")
+                                             new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? ""),
+                                             new XAttribute("modual", GetType().Name), 
+                                             new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                           )
                                     }
                                  }

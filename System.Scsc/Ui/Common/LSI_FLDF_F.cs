@@ -1447,7 +1447,7 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            Data.Fighter figh = null;
+            Data.Fighter __figh = null;
             //if (Tb_Master.SelectedTab == mtp_002)
             //{
             //   var figh1 = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
@@ -1455,19 +1455,19 @@ namespace System.Scsc.Ui.Common
             //}
             //else if (Tb_Master.SelectedTab == mtp_001)
             {
-               figh = FighBs.Current as Data.Fighter;
+               __figh = FighBs.Current as Data.Fighter;
             }
 
             // اگر مشترکی وجود نداشته باشد
-            if (figh == null) return;
+            if (__figh == null) return;
             // اگر مشتری بدهی نداشته باشد
-            if (figh.DEBT_DNRM == 0) return;
+            if (__figh.DEBT_DNRM == 0) return;
             // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             //if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
             // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
-            if (paydebt > figh.DEBT_DNRM) return;
+            if (paydebt > __figh.DEBT_DNRM) return;
 
             // مشخص شدن پوز
             var VPosBs1 = iScsc.V_Pos_Devices;//.Where(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value);
@@ -1505,6 +1505,9 @@ namespace System.Scsc.Ui.Common
                // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
                UsePos_Cb = false;
 
+               // 1404/12/16 * بدست آوردن درخواست بدهکار برای ارسال شماره درخواست به پوز
+               var __rqstDebt = iScsc.VF_Request_Changing(__figh.FILE_NO).OrderByDescending(a => a.DEBT_DNRM).FirstOrDefault();
+
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost",
                      new List<Job>
@@ -1518,11 +1521,14 @@ namespace System.Scsc.Ui.Common
                                     new XElement("PosRequest",
                                        new XAttribute("psid", psid),
                                        new XAttribute("subsys", 5),
-                                       new XAttribute("rqid", 0),
-                                       new XAttribute("rqtpcode", ""),
+                                       new XAttribute("fileno", __figh.FILE_NO),
+                                       new XAttribute("rqid", __rqstDebt.RQID),
+                                       new XAttribute("rqtpcode", __rqstDebt.RQTP_CODE),
                                        new XAttribute("router", GetType().Name),
                                        new XAttribute("callback", 21 /* Call Payg_Oprt_F */),
-                                       new XAttribute("amnt", paydebt )
+                                       new XAttribute("amnt", paydebt ),
+                                       new XAttribute("modual", GetType().Name), 
+                                       new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                     )
                               }
                            }
@@ -1536,7 +1542,7 @@ namespace System.Scsc.Ui.Common
             else
             {
                var vf_SavePayment =
-                  iScsc.VF_Save_Payments(null, figh.FILE_NO)
+                  iScsc.VF_Save_Payments(null, __figh.FILE_NO)
                   .Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0).OrderBy(p => p.PYMT_CRET_DATE.Value.Date);
 
                foreach (var pymt in vf_SavePayment)

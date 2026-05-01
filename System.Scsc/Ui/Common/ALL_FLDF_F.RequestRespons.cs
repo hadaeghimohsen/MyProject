@@ -17,7 +17,7 @@ namespace System.Scsc.Ui.Common
       public IRouter _DefaultGateway { get; set; }
       private Data.iScscDataContext iScsc;
       private string ConnectionString;
-      private long fileno;
+      private long _fileno;
       private bool isFirstLoaded = false;
       private string RegnLang = "054";
       private XElement HostNameInfo;
@@ -1106,12 +1106,12 @@ namespace System.Scsc.Ui.Common
             //tb_master.SelectedTab = tp_001;
             UserProFile_Rb.ImageVisiable = true;
 
-            fileno = Convert.ToInt64((job.Input as XElement).Attributes("fileno").First().Value);
+            _fileno = Convert.ToInt64((job.Input as XElement).Attributes("fileno").First().Value);
             try
             {
                UserProFile_Rb.ImageProfile = null;
                MemoryStream mStream = new MemoryStream();
-               byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
+               byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", _fileno))).ToArray();
                mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
                Bitmap bm = new Bitmap(mStream, false);
                mStream.Dispose();
@@ -1128,11 +1128,11 @@ namespace System.Scsc.Ui.Common
             }
 
             // 1395/11/26 * اگر مشترک غیرفعال باشد باید از لیست مربوط به مشترکین غیرفعال استفاده کرد
-            var crntinfo = iScsc.Fighters.First(f => f.FILE_NO == fileno);
+            var crntinfo = iScsc.Fighters.First(f => f.FILE_NO == _fileno);
             if (Convert.ToInt32(crntinfo.ACTV_TAG_DNRM) <= 100)
-               vF_Last_Info_FighterBs.DataSource = iScsc.VF_Last_Info_Deleted_Fighter(fileno, null, null, null, null, null, null, null, null, null, null, null, null, null);
+               vF_Last_Info_FighterBs.DataSource = iScsc.VF_Last_Info_Deleted_Fighter(_fileno, null, null, null, null, null, null, null, null, null, null, null, null, null);
             else
-               vF_Last_Info_FighterBs.DataSource = iScsc.VF_Last_Info_Fighter(fileno, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+               vF_Last_Info_FighterBs.DataSource = iScsc.VF_Last_Info_Fighter(_fileno, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 
             if (crntinfo.SEX_TYPE_DNRM == "001")
             {
@@ -1157,7 +1157,7 @@ namespace System.Scsc.Ui.Common
                RqtpDesc_Txt.Text = iScsc.Request_Types.First(rt => rt.CODE == rt.Requests.First(r => r.RQID == crntinfo.RQST_RQID).RQTP_CODE).RQTP_DESC; ;
             }
 
-            vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(fileno);
+            vF_Request_DocumentBs.DataSource = iScsc.VF_Request_Document(_fileno);
             var imag =
                iScsc.Image_Documents
                .Where(id =>
@@ -1230,7 +1230,7 @@ namespace System.Scsc.Ui.Common
             //}
 
             // 1396/10/13 * نمایش لیست دوره های ثبت نام شده
-            MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == fileno && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
+            MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == _fileno && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
             // 1402/07/25 * اگر گزینه تمدید اتومات فعال باشد چک میکنیم که آیا مشتری دوره فعال دارد یا خیر
             // اگر نداشته باشد باید مشتری را به فرم تمدید رجوع دهیم برای سرعت عمل بیشتر در زمان شارژ کارت
             //if(AutoProt_Chk.Checked)
@@ -1258,21 +1258,21 @@ namespace System.Scsc.Ui.Common
             //}
             
             //1399/12/06 * نمایش اطلاعات یادداشت
-            NoteBs.DataSource = iScsc.Notes.Where(n => n.FIGH_FILE_NO == fileno);
+            NoteBs.DataSource = iScsc.Notes.Where(n => n.FIGH_FILE_NO == _fileno);
             // مبلغ بدهی
             PayDebtAmnt_Txt.Text = DebtDnrm_TextBox.Text;           
 
             // 1400/09/17 * مشخص شدن آیتم های درآمدی اعتباری
-            var pydts = iScsc.Payment_Details.Where(pd => pd.EXPR_DATE != null && pd.Request_Row.FIGH_FILE_NO == fileno && pd.Request_Row.Request.RQST_STAT == "002");
+            var pydts = iScsc.Payment_Details.Where(pd => pd.EXPR_DATE != null && pd.Request_Row.FIGH_FILE_NO == _fileno && pd.Request_Row.Request.RQST_STAT == "002");
             PivBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date >= DateTime.Now && pd.EXPR_DATE.Value.Date != pd.CRET_DATE.Value.Date);
             PinvBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date < DateTime.Now && pd.EXPR_DATE.Value.Date != pd.CRET_DATE.Value.Date);
 
             // 1400/09/21 * گروه بندی
-            FGrpBs.DataSource = iScsc.Fighter_Groupings.Where(g => g.FIGH_FILE_NO == fileno);
+            FGrpBs.DataSource = iScsc.Fighter_Groupings.Where(g => g.FIGH_FILE_NO == _fileno);
             DGrpBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Grouping");
 
             // 1401/05/04 * نتیجه تماس
-            CallBs.DataSource = iScsc.Fighter_Calls.Where(c => c.FIGH_FILE_NO == fileno).ToList();
+            CallBs.DataSource = iScsc.Fighter_Calls.Where(c => c.FIGH_FILE_NO == _fileno).ToList();
             DRCalBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call");
             DRSurBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call_Survey");
 
@@ -1299,7 +1299,7 @@ namespace System.Scsc.Ui.Common
             if (crntinfo.DAD_CHAT_ID_DNRM != null && crntinfo.DAD_CHAT_ID_DNRM >= 9)
                ChatId_Lsbx.Items.Add(crntinfo.DAD_CHAT_ID_DNRM);
 
-            FgdcBs.DataSource = iScsc.Fighter_Discount_Cards.Where(fd => fd.FIGH_FILE_NO == fileno);
+            FgdcBs.DataSource = iScsc.Fighter_Discount_Cards.Where(fd => fd.FIGH_FILE_NO == _fileno);
             MtodBs.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
 
             // 1401/05/05 * بارگذاری اطلاعات قالب های پیامی
@@ -1403,8 +1403,8 @@ namespace System.Scsc.Ui.Common
                   )
                );
 
-            AdatnBs.DataSource = iScsc.Dresser_Attendances.Where(a => a.FIGH_FILE_NO == fileno && a.TKBK_TIME == null);
-            HdatnBs.DataSource = iScsc.Dresser_Attendances.Where(a => a.FIGH_FILE_NO == fileno && a.CONF_STAT == "002" && a.TKBK_TIME != null);
+            AdatnBs.DataSource = iScsc.Dresser_Attendances.Where(a => a.FIGH_FILE_NO == _fileno && a.TKBK_TIME == null);
+            HdatnBs.DataSource = iScsc.Dresser_Attendances.Where(a => a.FIGH_FILE_NO == _fileno && a.CONF_STAT == "002" && a.TKBK_TIME != null);
 
             DPmctBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "PaymentContractItem_INFO" && a.REF_CODE != null);
             FlpcBs.DataSource = iScsc.Fighter_Link_Payment_Contarct_Items;
@@ -1415,13 +1415,13 @@ namespace System.Scsc.Ui.Common
             //1402/10/07 * Relaod Dresser VIP
             //LstDVipBs.DataSource = iScsc.Dressers.Where(d => d.VIP_STAT == "002");
             //DresVipNormType_Butn_Click(DresVipNormType_Butn, null);
-            ADVipBs.DataSource = iScsc.Dresser_Vip_Fighters.Where(dv => dv.MBSP_FIGH_FILE_NO == fileno && dv.STAT == "002");
-            HDVipBs.DataSource = iScsc.Dresser_Vip_Fighters.Where(dv => dv.MBSP_FIGH_FILE_NO == fileno && dv.STAT == "001");
+            ADVipBs.DataSource = iScsc.Dresser_Vip_Fighters.Where(dv => dv.MBSP_FIGH_FILE_NO == _fileno && dv.STAT == "002");
+            HDVipBs.DataSource = iScsc.Dresser_Vip_Fighters.Where(dv => dv.MBSP_FIGH_FILE_NO == _fileno && dv.STAT == "001");
 
             // 1403/11/29 * Load 
-            FgbmBs.DataSource = iScsc.Fighter_Body_Measurements.Where(f => f.FIGH_FILE_NO == fileno);
+            FgbmBs.DataSource = iScsc.Fighter_Body_Measurements.Where(f => f.FIGH_FILE_NO == _fileno);
             // 1404/04/03 * Load Last Rqst
-            LastRqstBs.DataSource = iScsc.VF_Request_Changing(fileno).Where(r => r.RQTP_CODE != "011" && (r.RQST_RQID == null || r.RQTP_CODE == "001")).OrderByDescending(r => r.SAVE_DATE).Take(1);
+            LastRqstBs.DataSource = iScsc.VF_Request_Changing(_fileno).Where(r => r.RQTP_CODE != "011" && (r.RQST_RQID == null || r.RQTP_CODE == "001")).OrderByDescending(r => r.SAVE_DATE).Take(1);
             // 1401/08/08 * Reload data on tabpage control
             tb_master_SelectedIndexChanged(null, null);
 
@@ -1607,7 +1607,7 @@ namespace System.Scsc.Ui.Common
             // 1404/01/05 * Fill Payment if empty
             if(vF_SavePaymentsBs.List.Count == 0)
             {
-               vF_SavePaymentsBs.DataSource = iScsc.VF_Save_Payments(null, fileno).OrderByDescending(p => p.PYMT_CRET_DATE);
+               vF_SavePaymentsBs.DataSource = iScsc.VF_Save_Payments(null, _fileno).OrderByDescending(p => p.PYMT_CRET_DATE);
                ShowCrntReglYear_Butn_Click(null, null);
             }
 

@@ -569,6 +569,8 @@
          this.colDEBT_DNRM.OptionsColumn.AllowEdit = false;
          this.colDEBT_DNRM.OptionsColumn.FixedWidth = true;
          this.colDEBT_DNRM.OptionsColumn.ReadOnly = true;
+         this.colDEBT_DNRM.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "DEBT_DNRM", "{0:n0}")});
          this.colDEBT_DNRM.Visible = true;
          this.colDEBT_DNRM.VisibleIndex = 4;
          this.colDEBT_DNRM.Width = 61;
@@ -1252,6 +1254,7 @@
          this.PBLC.OptionsSelection.EnableAppearanceFocusedCell = false;
          this.PBLC.OptionsSelection.MultiSelect = true;
          this.PBLC.OptionsView.ShowAutoFilterRow = true;
+         this.PBLC.OptionsView.ShowFooter = true;
          this.PBLC.OptionsView.ShowGroupPanel = false;
          this.PBLC.OptionsView.ShowIndicator = false;
          // 
@@ -1305,6 +1308,8 @@
          this.colDPST_AMNT_DNRM.GroupFormat.FormatString = "{0:n0}";
          this.colDPST_AMNT_DNRM.GroupFormat.FormatType = DevExpress.Utils.FormatType.Numeric;
          this.colDPST_AMNT_DNRM.Name = "colDPST_AMNT_DNRM";
+         this.colDPST_AMNT_DNRM.Summary.AddRange(new DevExpress.XtraGrid.GridSummaryItem[] {
+            new DevExpress.XtraGrid.GridColumnSummaryItem(DevExpress.Data.SummaryItemType.Sum, "DPST_AMNT_DNRM", "{0:n0}")});
          this.colDPST_AMNT_DNRM.Visible = true;
          this.colDPST_AMNT_DNRM.VisibleIndex = 3;
          this.colDPST_AMNT_DNRM.Width = 58;

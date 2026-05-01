@@ -59,6 +59,9 @@ namespace System.Scsc.Ui.BaseDefinition
                CntyBs.DataSource = iScsc.Countries;
                break;
             case "xTp_003":
+               if ((ExpnEpit_Lov.EditValue == null || ExpnEpit_Lov.EditValue.ToString() == "") && EpitBs.List.OfType<Data.Expense_Item>().Any(ei => ei.TYPE == "001" && ei.EPIT_DESC.Contains("شهریه")))
+                  ExpnEpit_Lov.EditValue = EpitBs.List.OfType<Data.Expense_Item>().FirstOrDefault(ei => ei.TYPE == "001" && ei.EPIT_DESC.Contains("شهریه")).CODE;
+
                // مقادیر ثابت
                var _trgtMtodStat = MtodStat_Fcb.SelectedIndex == 0 ? "002" : "001";
 
@@ -140,11 +143,11 @@ namespace System.Scsc.Ui.BaseDefinition
                // مقادیر ثابت
                var _trgtCbmtStat = CbmtStat_Fcb.SelectedIndex == 0 ? "002" : "001";
 
-               var _club_methods = iScsc.Club_Methods.AsQueryable();
+               var _clubMethods = iScsc.Club_Methods.AsQueryable();
 
                if(CbmtStat_Fcb.Checked)
                {
-                  _club_methods = _club_methods.Where(a => a.MTOD_STAT == _trgtCbmtStat);
+                  _clubMethods = _clubMethods.Where(a => a.MTOD_STAT == _trgtCbmtStat);
                }
 
                if(CbmtExst_Fcb.Checked)
@@ -152,8 +155,8 @@ namespace System.Scsc.Ui.BaseDefinition
                   switch (CbmtExst_Fcb.SelectedIndex)
                   {
                      case 0:
-                        _club_methods = 
-                           from cm in _club_methods
+                        _clubMethods = 
+                           from cm in _clubMethods
                            where (from p in iScsc.Fighter_Publics
                                   where p.RECT_CODE == "004"
                                      && p.CBMT_CODE == cm.CODE
@@ -161,8 +164,8 @@ namespace System.Scsc.Ui.BaseDefinition
                            select cm;
                         break;
                      case 1:
-                        _club_methods = 
-                           from cm in _club_methods
+                        _clubMethods = 
+                           from cm in _clubMethods
                            where !(from p in iScsc.Fighter_Publics
                                   where p.RECT_CODE == "004"
                                      && p.CBMT_CODE == cm.CODE
@@ -172,12 +175,13 @@ namespace System.Scsc.Ui.BaseDefinition
                   }
                }
 
-               CbmtBs.DataSource = _club_methods;
+               CbmtBs.DataSource = _clubMethods;
                CntyBs.DataSource = iScsc.Countries;
                MtodBs.DataSource = iScsc.Methods;//.Where(a => a.MTOD_STAT == "002");
                CochBs.DataSource = iScsc.Fighters.Where(a => a.FGPB_TYPE_DNRM == "003" /*&& a.ACTV_TAG_DNRM == "101"*/);
                break;
             case "xTp_006":
+               VAudsBs.DataSource = iScsc.V_Acess_User_Datasources.OrderBy(a => a.DATA_BASE);
                break;
          }
          requery = false;
@@ -778,7 +782,14 @@ namespace System.Scsc.Ui.BaseDefinition
 
                   if (MtodCochCbmt_Rlt.RolloutStatus)
                   {
-                     CbmtBs.Clear();
+                     // 1405/12/10 * دقیقا دو روز پیش خامنه ای ضحاک خوارش گوییده شد و ایران داره پوست اندازی میکنه 
+                     // این این دستوری که اینجا نوشته شده باعث میشه که رکوردها پاک بشن و این اشتباه هست 
+                     // ببینم با نال کردن مقدار این متغییر کار درست میشه یا نه 
+                     // کیر تو کص ننه مادر جنده ای حروم زاده ای که اینترنت رو قطع کرده و ما نمی تونیم از سرچ کنیم ببینیم مشکل رو چطوری حل کنیم
+                     // CbmtBs.Clear();
+                     CbmtBs.SuspendBinding();
+                     CbmtBs.DataSource = null;
+                     CbmtBs.ResumeBinding();
 
                      // مقادیر ثابت
                      var _trgtMtodCochStat = MtodCochStat_Fcb.SelectedIndex == 0 ? "101" : "001";
@@ -929,7 +940,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
 
          if (requery)
-            await Execute_Query();
+            await UpdateExpense();
       }
 
       private TreeListNode draggedNode = null;
@@ -991,8 +1002,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
          if (requery)
             await Execute_Query();
-      }
-      
+      }      
 
       private void Mtod_Tl_BeforeDragNode(object sender, BeforeDragNodeEventArgs e)
       {
@@ -1025,6 +1035,71 @@ namespace System.Scsc.Ui.BaseDefinition
          if (requery)
             await Execute_Query();
       }
+
+      private async void UpdtExpn_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            await UpdateExpense();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
+
+      private async Task UpdateExpense()
+      {
+         try
+         {
+            var _epit = ExpnEpit_Lov.EditValue;
+            if (_epit == null || _epit.ToString() == "") return;
+
+            var _mtod = MtodBs.Current as Data.Method;
+            if (_mtod == null) return;
+
+            var _ctgy = CtgyBs.Current as Data.Category_Belt;
+            if (_ctgy == null) { if (_mtod.CODE == 0) requery = true; throw new Exception("Reload data"); }
+
+            //if (MessageBox.Show(this, "آیا با بروزرسانی اطلاعات آیتم های درآمد موافق هستید؟", "بروزرسانی رکوردهای درامدی", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.Expenses
+            .Where(a =>
+               a.Expense_Type.EPIT_CODE == (long)_epit &&
+               (!Mtod_Cbx.Checked || a.MTOD_CODE == _mtod.CODE) &&
+               (!Ctgy_Cbx.Checked || a.CTGY_CODE == _ctgy.CODE) &&
+               (!CyclRqst_Cbx.Checked || (a.Expense_Type.Request_Requester.RQTP_CODE == "001" || a.Expense_Type.Request_Requester.RQTP_CODE == "009")) &&
+               (!IncmRqst_Cbx.Checked || (a.Expense_Type.Request_Requester.RQTP_CODE == "016")) &&
+               (a.Expense_Type.Request_Requester.RQTT_CODE == "001")
+            )
+            .ToList()
+            .ForEach(a =>
+            {
+               var _getCtgy = iScsc.Category_Belts.FirstOrDefault(b => b.CODE == a.CTGY_CODE);
+               if (ExpnPric_Cbx.Checked)
+                  a.PRIC = _getCtgy.PRIC ?? 0;
+               if (ExpnStat_Cbx.Checked)
+                  a.EXPN_STAT = _getCtgy.CTGY_STAT;
+               if (ExpnTNum_Cbx.Checked)
+                  a.NUMB_OF_ATTN_MONT = _getCtgy.NUMB_OF_ATTN_MONT;
+               if (ExpnCD_Cbx.Checked)
+                  a.NUMB_CYCL_DAY = _getCtgy.NUMB_CYCL_DAY;
+            });
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            //MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
       #endregion
 
       #region Category Belt
@@ -1038,6 +1113,7 @@ namespace System.Scsc.Ui.BaseDefinition
             if (CtgyBs.List.OfType<Data.Category_Belt>().Any(a => a.CODE == 0)) return;
 
             var _ctgy = CtgyBs.AddNew() as Data.Category_Belt;
+            _ctgy.MTOD_CODE = _mtod.CODE;
             iScsc.Category_Belts.InsertOnSubmit(_ctgy);
          }
          catch (Exception exc)
@@ -1083,7 +1159,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
 
          if (requery)
-            await Execute_Query();
+            await UpdateExpense();
       }
 
       private void Ctgy_Tl_DragOver(object sender, DragEventArgs e)
@@ -1457,7 +1533,7 @@ namespace System.Scsc.Ui.BaseDefinition
             await Execute_Query();
       }
 
-      private void CochBs_CurrentChanged(object sender, EventArgs e)
+      private async void CochBs_CurrentChanged(object sender, EventArgs e)
       {
          try
          {
@@ -1512,7 +1588,9 @@ namespace System.Scsc.Ui.BaseDefinition
                      CbmtBs.Position = _cm;
                   }
                   break;
-               case "xTp_004":
+               case "xTp_004":                  
+                  // Load coach profile image
+                  await LoadImageAsync(_coch.FILE_NO, CochProFile1_Rb);
                   if(CochMtodCbmt_Rlt.RolloutStatus)
                   {
                      CbmtBs.Clear();
@@ -1571,6 +1649,30 @@ namespace System.Scsc.Ui.BaseDefinition
          catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
+         }
+      }
+
+      private async Task LoadImageAsync(long fileno, RoundedButton profile)
+      {
+         try
+         {
+            await Task.Yield();
+            profile.ImageVisiable = true;
+            profile.ImageProfile = null;
+            MemoryStream mStream = new MemoryStream();
+            byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
+            mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
+            Bitmap bm = new Bitmap(mStream, false);
+            mStream.Dispose();
+
+            if (InvokeRequired)
+               Invoke(new Action(() => profile.ImageProfile = bm));
+            else
+               profile.ImageProfile = bm;
+         }
+         catch
+         { 
+            profile.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
          }
       }
       #endregion
@@ -1905,14 +2007,30 @@ namespace System.Scsc.Ui.BaseDefinition
 
       #region Club Method tab page
       #region Club Method rollout
-      private void CbmtBs_CurrentChanged(object sender, EventArgs e)
+      private async void CbmtBs_CurrentChanged(object sender, EventArgs e)
       {
          try
          {
             var _cbmt = CbmtBs.Current as Data.Club_Method;
-            if (_cbmt == null) return;
+            if (_cbmt == null || _cbmt.CODE == 0) return;
 
             CbwkBs.DataSource = _cbmt.Club_Method_Weekdays;
+
+            if(Holiday_Rlt.RolloutStatus)
+            {
+               HldyBs.DataSource = iScsc.Holidays.Where(a => a.HLDY_DATE.Value.Date >= DateTime.Now.Date);
+            }
+
+            switch (Master_Tc.SelectedTabPage.Name)
+            {
+               case "xTp_005":
+                  // Load coach profile image
+                  await LoadImageAsync((long)_cbmt.COCH_FILE_NO, CochProFile2_Rb);
+                  break;
+               default:
+                  break;
+            }
+
          }
          catch (Exception exc)
          {
@@ -2041,7 +2159,138 @@ namespace System.Scsc.Ui.BaseDefinition
             MessageBox.Show(exc.Message);
          }
       }
-      #endregion      
-      #endregion            
+      #endregion
+
+      #region Holdiday Rollout
+      private void AddHldy_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (HldyBs.List.OfType<Data.Holiday>().Any(a => a.CODE == 0)) return;
+
+            var _hldy = HldyBs.AddNew() as Data.Holiday;
+            _hldy.HLDY_DATE = DateTime.Now;
+
+            iScsc.Holidays.InsertOnSubmit(_hldy);
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private async void SaveHldy_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            Hldy_Gv.PostEditor();
+
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
+
+      private async void DelHldy_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _hldy = HldyBs.Current as Data.Holiday;
+            if (_hldy == null) return;
+
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید?", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+
+            iScsc.Holidays.DeleteOnSubmit(_hldy);
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if(requery)
+            await Execute_Query();
+      }
+      #endregion
+      #endregion
+
+      #region Settings tab page
+      #region Settings rollout
+      private async void RunArch_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (!ArchDatabase_Cbx.Checked) return;
+
+            if (ArchDbName_Txt.Text.Trim() == "") { ArchDbName_Txt.Focus(); return; }
+            if (VAudsBs.List.OfType<Data.V_Acess_User_Datasource>().Any(a => a.DATA_BASE == ArchDbName_Txt.Text)) { ArchDbName_Txt.Focus(); ArchDbName_Txt.SelectAll(); return; }
+
+            if (ArchUser_Txt.Text.Trim() == "") { ArchUser_Txt.Focus(); return; }
+            if (ArchUserDesc_Txt.Text.Trim() == "") { ArchUserDesc_Txt.Focus(); return; }
+            if (ArchUserPass_Txt.Text.Trim() == "") { ArchUserPass_Txt.Focus(); return; }
+            if (ArchUserPass_Txt.Text != ArchUserConfPass_Txt.Text) { ArchUserConfPass_Txt.Focus(); ArchUserConfPass_Txt.SelectAll(); return; }
+
+            iScsc.CLON_DATA_P(
+               new XElement("Clonedb",
+                   new XAttribute("sorcdb", iScsc.Connection.Database),
+                   new XAttribute("trgtdb", ArchDbName_Txt.Text),
+                   new XAttribute("username", ArchUser_Txt.Text),
+                   new XAttribute("userdesc", ArchUserDesc_Txt.Text),
+                   new XAttribute("pswd", ArchUserPass_Txt.Text)
+               )
+            );
+
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
+
+      private void ArchDbYearName_Cbx_CheckedChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            if (!ArchDbYearName_Cbx.Checked) return;
+
+            var year = DateTime.Now.Year.ToString();
+            if (ArchDbName_Txt.Text.Trim() == "") { ArchDbName_Txt.Focus(); return; }
+            if (!ArchDbName_Txt.Text.EndsWith(year)) { ArchDbName_Txt.Text += year; }
+
+            if (ArchUser_Txt.Text.Trim() == "") { ArchUser_Txt.Text = ArchDbName_Txt.Text; }
+            if (!ArchUser_Txt.Text.EndsWith(year)) { ArchUser_Txt.Text += year; }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void ArchUser_Txt_EditValueChanged(object sender, EventArgs e)
+      {
+         try
+         {
+            if (ArchUserDesc_Txt.Text.Trim() != "") return;
+
+            ArchUserDesc_Txt.Text = ArchUser_Txt.Text;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+      #endregion
+      #endregion
    }
 }

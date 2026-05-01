@@ -835,11 +835,14 @@ namespace System.Scsc.Ui.Admission
                                        new XElement("PosRequest",
                                           new XAttribute("psid", psid),
                                           new XAttribute("subsys", 5),
+                                          new XAttribute("fileno", FileNo_Txt.EditValue),
                                           new XAttribute("rqid", pymt.RQST_RQID),
-                                          new XAttribute("rqtpcode", ""),
+                                          new XAttribute("rqtpcode", "001"),
                                           new XAttribute("router", GetType().Name),
                                           new XAttribute("callback", 20),
-                                          new XAttribute("amnt", amnt)
+                                          new XAttribute("amnt", amnt),
+                                          new XAttribute("modual", GetType().Name), 
+                                          new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                        )
                                  }
                               }
@@ -1826,14 +1829,17 @@ namespace System.Scsc.Ui.Admission
                                           new XElement("PosRequest",
                                              new XAttribute("psid", psid),
                                              new XAttribute("subsys", 5),
+                                             new XAttribute("fileno", FileNo_Txt.EditValue),
                                              new XAttribute("rqid", pymt.RQST_RQID),
-                                             new XAttribute("rqtpcode", ""),
+                                             new XAttribute("rqtpcode", "001"),
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
                                              new XAttribute("amnt", Convert.ToInt64(PymtAmnt_Txt.EditValue)),
                                              new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
                                              new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
-                                             new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? "")
+                                             new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? ""),
+                                             new XAttribute("modual", GetType().Name), 
+                                             new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                           )
                                     }
                                  }

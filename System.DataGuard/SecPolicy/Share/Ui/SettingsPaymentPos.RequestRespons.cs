@@ -209,7 +209,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             if (Xinput.Attribute("subsys") != null)
                subsys = Convert.ToInt32(Xinput.Attribute("subsys").Value);
             else
-               subsys = null;            
+               subsys = null;
+
+            if (Xinput.Attribute("fileno") != null)
+               fileno = Convert.ToInt64(Xinput.Attribute("fileno").Value);
+            else
+               fileno = null;
 
             if (Xinput.Attribute("rqid") != null)
                rqid = Convert.ToInt64(Xinput.Attribute("rqid").Value);
@@ -235,6 +240,16 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                Amnt_Txt.EditValue = Xinput.Attribute("amnt").Value;
             else
                Amnt_Txt.EditValue = 1000;
+
+            if (Xinput.Attribute("modual") != null)
+               modual = Xinput.Attribute("modual").Value;
+            else
+               modual = null;
+
+            if (Xinput.Attribute("section") != null)
+               section = Xinput.Attribute("section").Value;
+            else
+               section = null;
          }
          else
          {
@@ -245,6 +260,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             router = null;
             callback = null;
             Amnt_Txt.EditValue = 0;
+            fileno = null;
+            modual = section = null;
          }
 
          FromTranDate_Dt.Value = ToTranDate_Dt.Value = DateTime.Now;

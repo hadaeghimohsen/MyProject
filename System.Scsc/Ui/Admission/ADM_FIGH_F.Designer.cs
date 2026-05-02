@@ -2313,7 +2313,7 @@
          this.Gb_Expense.Controls.Add(this.DtilAmnt_Lb);
          this.Gb_Expense.Controls.Add(this.payment_DetailsGridControl);
          this.Gb_Expense.Controls.Add(this.paymentsGridControl);
-         this.Gb_Expense.Location = new System.Drawing.Point(3, 50);
+         this.Gb_Expense.Location = new System.Drawing.Point(377, 50);
          this.Gb_Expense.Name = "Gb_Expense";
          this.Gb_Expense.Size = new System.Drawing.Size(490, 591);
          this.Gb_Expense.TabIndex = 28;
@@ -5423,7 +5423,7 @@
          this.RqstBn1.PositionItem = this.bindingNavigatorPositionItem;
          this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
          this.RqstBn1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.RqstBn1.Size = new System.Drawing.Size(1089, 47);
+         this.RqstBn1.Size = new System.Drawing.Size(1463, 47);
          this.RqstBn1.TabIndex = 0;
          this.RqstBn1.Text = "bindingNavigator1";
          // 
@@ -6103,7 +6103,7 @@
          this.Adm_Tc.Controls.Add(this.AdmRqstInfo_Tp);
          this.Adm_Tc.Controls.Add(this.More_Tp);
          this.Adm_Tc.ImageList = this.imageList1;
-         this.Adm_Tc.Location = new System.Drawing.Point(499, 50);
+         this.Adm_Tc.Location = new System.Drawing.Point(873, 50);
          this.Adm_Tc.Name = "Adm_Tc";
          this.Adm_Tc.RightToLeftLayout = true;
          this.Adm_Tc.SelectedIndex = 0;
@@ -9694,7 +9694,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 9F);
          this.Name = "ADM_FIGH_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1089, 647);
+         this.Size = new System.Drawing.Size(1463, 647);
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();

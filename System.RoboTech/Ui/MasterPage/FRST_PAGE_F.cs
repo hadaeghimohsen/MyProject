@@ -428,8 +428,20 @@ namespace System.RoboTech.Ui.MasterPage
                }
                else
                {
-                  NotfOrdrShip_Butn.Visible = false;
-                  OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+                  if (InvokeRequired)
+                  {
+                     Invoke(
+                        new System.Action(() =>
+                        {
+                           NotfOrdrShip_Butn.Visible = false;
+                           OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+                        }));
+                  }
+                  else
+                  {
+                     NotfOrdrShip_Butn.Visible = false;
+                     OrdrShip_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+                  }
                }
                #endregion
 
@@ -492,8 +504,21 @@ namespace System.RoboTech.Ui.MasterPage
                }
                else
                {
-                  NotfOrdrReceipt_Butn.Visible = false;
-                  OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+                  if (InvokeRequired)
+                  {
+                     Invoke(
+                        new System.Action(() =>
+                        {
+                           NotfOrdrReceipt_Butn.Visible = false;
+                           OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+                        })
+                     );
+                  }
+                  else
+                  {
+                     NotfOrdrReceipt_Butn.Visible = false;
+                     OrdrReceipt_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
+                  }
                }
                #endregion
 

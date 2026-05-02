@@ -2621,17 +2621,17 @@ namespace System.RoboTech.Controller
                );
 
                // ارسال پیام معرفی
-               await Bot.SendTextMessageAsync(
-                  chat.Message.Chat.Id,
-                  "☺️ سلام" + Environment.NewLine + 
-                  "من *حدایقی* هستم، طراح و تولید کننده این نرم افزار که شما الان دارید ازش استفاده میکنید" + Environment.NewLine +
-                  "اگر *شما* 🧮 _صاحب کسب و کاری_ هستین یا ☺️ *دوست دارید* در 🏠 _منزل کار خونگی_ داشته باشید، که بخواین به صورت 🌐 *اینترنتی* فعالیت کنید، میتونید 📣 *همین الان* با من 🤙 _تماس بگیری_ تا با شما در مورد مزایای استفاده کردن از محصولات خودم رو برای شما توضیح بدم" + Environment.NewLine +
-                  "🔔 البته این رو هم بهتون بگم که بسته نرم افزاری من به صورت 🤩 *کاملا رایگان* برای شما نصب میشه" + Environment.NewLine + Environment.NewLine +
-                  "🌐 لینک فروشگاه من : @RonisBot" + Environment.NewLine +
-                  "🔔 اگر علاقه مند باشید، فروشگاه شما رو داخل *فروشگاه خودم* تبلیغ میکنم تا افراد بیشتری شما رو راحتتر پیدا کنند و از شما خرید کنند" + Environment.NewLine + 
-                  "شماره تماس : 09033927103, 09915666598" + Environment.NewLine + 
-                  "میتونید با واتس آپ، تلگرام، بله با من در ارتباط باشید"
-               );
+               //await Bot.SendTextMessageAsync(
+               //   chat.Message.Chat.Id,
+               //   "☺️ سلام" + Environment.NewLine + 
+               //   "من *حدایقی* هستم، طراح و تولید کننده این نرم افزار که شما الان دارید ازش استفاده میکنید" + Environment.NewLine +
+               //   "اگر *شما* 🧮 _صاحب کسب و کاری_ هستین یا ☺️ *دوست دارید* در 🏠 _منزل کار خونگی_ داشته باشید، که بخواین به صورت 🌐 *اینترنتی* فعالیت کنید، میتونید 📣 *همین الان* با من 🤙 _تماس بگیری_ تا با شما در مورد مزایای استفاده کردن از محصولات خودم رو برای شما توضیح بدم" + Environment.NewLine +
+               //   "🔔 البته این رو هم بهتون بگم که بسته نرم افزاری من به صورت 🤩 *کاملا رایگان* برای شما نصب میشه" + Environment.NewLine + Environment.NewLine +
+               //   "🌐 لینک فروشگاه من : @RonisBot" + Environment.NewLine +
+               //   "🔔 اگر علاقه مند باشید، فروشگاه شما رو داخل *فروشگاه خودم* تبلیغ میکنم تا افراد بیشتری شما رو راحتتر پیدا کنند و از شما خرید کنند" + Environment.NewLine + 
+               //   "شماره تماس : 09033927103, 09915666598" + Environment.NewLine + 
+               //   "میتونید با واتس آپ، تلگرام، بله با من در ارتباط باشید"
+               //);
 
                #region بررسی اینکه مشتری ثبت نام کرده است یا خیر
                if (robot.CHCK_REGS_STRT == "002")
@@ -5734,21 +5734,25 @@ namespace System.RoboTech.Controller
 
             foreach (var pic in pics.Take(1))
             {
-               dynamic photo;
-               if (string.IsNullOrEmpty(pic.FILE_ID))
+               dynamic photo = null;
+               try
                {
-                  ///***photo = new FileToSend()
-                  ///***{
-                  ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
-                  ///***   Filename = pic.FILE_NAME
-                  ///***};
-                  photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
+                  if (string.IsNullOrEmpty(pic.FILE_ID))
+                  {
+                     ///***photo = new FileToSend()
+                     ///***{
+                     ///***   Content = new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read),
+                     ///***   Filename = pic.FILE_NAME
+                     ///***};
+                     photo = new InputOnlineFile(new FileStream(pic.FILE_PATH, FileMode.Open, FileAccess.Read, FileShare.Read), pic.FILE_NAME);
+                  }
+                  else
+                  {
+                     ///***photo = new FileToSend(pic.FILE_ID);
+                     photo = new InputOnlineFile(pic.FILE_ID);
+                  }
                }
-               else
-               {
-                  ///***photo = new FileToSend(pic.FILE_ID);
-                  photo = new InputOnlineFile(pic.FILE_ID);
-               }
+               catch { }
                try
                {
                   await Bot.SendPhotoAsync(chat.Message.Chat.Id, photo, pic.IMAG_DESC);

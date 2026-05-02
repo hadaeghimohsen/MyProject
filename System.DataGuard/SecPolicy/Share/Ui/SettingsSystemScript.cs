@@ -14,7 +14,7 @@ using System.Xml.Linq;
 using System.IO;
 using System.Security.Cryptography;
 using System.Data.OleDb;
-using Microsoft.Office.Interop.Excel;
+//using Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 
 namespace System.DataGuard.SecPolicy.Share.Ui
@@ -315,130 +315,130 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      //      }
                      //   }
                      //}
-                     Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
-                     Microsoft.Office.Interop.Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(FilePath_Txt.Text);
-                     Microsoft.Office.Interop.Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[SheetName_Txt.Text];//xlWorkbook.Sheets[1];
-                     Microsoft.Office.Interop.Excel.Range xlRange = xlWorksheet.UsedRange;
+                     //Microsoft.Office.Interop.Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+                     //Microsoft.Office.Interop.Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(FilePath_Txt.Text);
+                     //Microsoft.Office.Interop.Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[SheetName_Txt.Text];//xlWorkbook.Sheets[1];
+                     //Microsoft.Office.Interop.Excel.Range xlRange = xlWorksheet.UsedRange;
 
-                     int rowCount = xlRange.Rows.Count;
-                     int colCount = xlRange.Columns.Count;
-                     int progressCount = (int)(100/ rowCount);
-                     SourceInfoRows_Dgv.ColumnCount = colCount;
-                     SourceInfoRows_Dgv.RowCount = rowCount - 1;
-                     ExecuteRows_Pgb.Visible = true;
+                     //int rowCount = xlRange.Rows.Count;
+                     //int colCount = xlRange.Columns.Count;
+                     //int progressCount = (int)(100/ rowCount);
+                     //SourceInfoRows_Dgv.ColumnCount = colCount;
+                     //SourceInfoRows_Dgv.RowCount = rowCount - 1;
+                     //ExecuteRows_Pgb.Visible = true;
 
-                     for (int i = 1; i == 1; i++)
-                     {
-                        for (int j = 1; j <= colCount; j++)
-                        {
-                           SourceInfoRows_Dgv.Columns[j - 1].Name = xlRange.Cells[i, j].Value2.ToString();
-                        }
-                     }
+                     //for (int i = 1; i == 1; i++)
+                     //{
+                     //   for (int j = 1; j <= colCount; j++)
+                     //   {
+                     //      SourceInfoRows_Dgv.Columns[j - 1].Name = xlRange.Cells[i, j].Value2.ToString();
+                     //   }
+                     //}
 
-                     for (int i = 2; i <= rowCount; i++)
-                     {
-                        for (int j = 1; j <= colCount; j++)
-                        {
-                           //write the value to the Grid  
-                           if (xlRange.Cells[i, j] != null && xlRange.Cells[i, j].Value2 != null)
-                           {                              
-                              SourceInfoRows_Dgv.Rows[i - 2].Cells[j - 1].Value = xlRange.Cells[i, j].Value2.ToString();
-                           }
-                           // Console.Write(xlRange.Cells[i, j].Value2.ToString() + "\t");  
-                           //add useful things here!     
-                        }
-                        cmnd = script.CMND;
-                        ScppBs.List.OfType<Data.Script_Parameter>()
-                           .ToList()
-                           .ForEach(sp =>
-                              {
-                                 var indx = SourceInfoRows_Dgv.Columns[sp.NAME].Index;
-                                 cmnd = cmnd.Replace(":" + sp.NAME, SourceInfoRows_Dgv.Rows[i - 2].Cells[indx].Value.ToString() ); 
-                              }
-                           );
-                        if (ExecuteType_Tbc.Value == 1)
-                        {
-                           // Execute None Query
-                           _DefaultGateway.Gateway(
-                              new Job(SendType.External, "localhost",
-                                 new List<Job>
-                                 {
-                                    new Job(SendType.SelfToUserInterface, GetType().Name, 100 /* Execute ExecuteNoneQuery */)
-                                    {
-                                       Input = cmnd,
-                                       AfterChangedOutput = 
-                                          new Action<object>((output) => 
-                                          {
-                                             if(InvokeRequired)
-                                             {
-                                                Invoke(new Action(() => { Result_Lb.Text = output.ToString(); })); 
-                                             }
-                                             else
-                                             {
-                                                Result_Lb.Text = output.ToString();
-                                             }
-                                          })
-                                    }
-                                 }
-                              )
-                           );
-                        }
-                        else
-                        {
-                           // Execute Data Adapter
-                           _DefaultGateway.Gateway(
-                              new Job(SendType.External, "localhost",
-                                 new List<Job>
-                                 {
-                                    new Job(SendType.SelfToUserInterface, GetType().Name, 101 /* Execute ExecuteDataAdapter */)
-                                    {
-                                       Input = cmnd,
-                                       AfterChangedOutput = 
-                                          new Action<object>((output) => 
-                                          {
-                                             if (InvokeRequired)
-                                             {
-                                                Invoke(new Action(() => 
-                                                { 
-                                                   Result_Dgv.DataSource = (output as DataSet).Tables[0];
-                                                   Result_Lb.Text = Result_Dgv.RowCount.ToString();
-                                                }));
-                                             }
-                                             else
-                                             {
-                                                Result_Dgv.DataSource = (output as DataSet).Tables[0];
-                                                Result_Lb.Text = Result_Dgv.RowCount.ToString();
-                                             }
-                                          })
-                                    }
-                                 }
-                              )
-                           );
-                        }
-                        if (i % progressCount == 0)
-                           ExecuteRows_Pgb.Position += progressCount;                           
-                     }
-                     ExecuteRows_Pgb.Position = 100; ;
-                     ExecuteRows_Pgb.Visible = false;
-                     //cleanup  
-                     GC.Collect();
-                     GC.WaitForPendingFinalizers();
+                     //for (int i = 2; i <= rowCount; i++)
+                     //{
+                     //   for (int j = 1; j <= colCount; j++)
+                     //   {
+                     //      //write the value to the Grid  
+                     //      if (xlRange.Cells[i, j] != null && xlRange.Cells[i, j].Value2 != null)
+                     //      {                              
+                     //         SourceInfoRows_Dgv.Rows[i - 2].Cells[j - 1].Value = xlRange.Cells[i, j].Value2.ToString();
+                     //      }
+                     //      // Console.Write(xlRange.Cells[i, j].Value2.ToString() + "\t");  
+                     //      //add useful things here!     
+                     //   }
+                     //   cmnd = script.CMND;
+                     //   ScppBs.List.OfType<Data.Script_Parameter>()
+                     //      .ToList()
+                     //      .ForEach(sp =>
+                     //         {
+                     //            var indx = SourceInfoRows_Dgv.Columns[sp.NAME].Index;
+                     //            cmnd = cmnd.Replace(":" + sp.NAME, SourceInfoRows_Dgv.Rows[i - 2].Cells[indx].Value.ToString() ); 
+                     //         }
+                     //      );
+                     //   if (ExecuteType_Tbc.Value == 1)
+                     //   {
+                     //      // Execute None Query
+                     //      _DefaultGateway.Gateway(
+                     //         new Job(SendType.External, "localhost",
+                     //            new List<Job>
+                     //            {
+                     //               new Job(SendType.SelfToUserInterface, GetType().Name, 100 /* Execute ExecuteNoneQuery */)
+                     //               {
+                     //                  Input = cmnd,
+                     //                  AfterChangedOutput = 
+                     //                     new Action<object>((output) => 
+                     //                     {
+                     //                        if(InvokeRequired)
+                     //                        {
+                     //                           Invoke(new Action(() => { Result_Lb.Text = output.ToString(); })); 
+                     //                        }
+                     //                        else
+                     //                        {
+                     //                           Result_Lb.Text = output.ToString();
+                     //                        }
+                     //                     })
+                     //               }
+                     //            }
+                     //         )
+                     //      );
+                     //   }
+                     //   else
+                     //   {
+                     //      // Execute Data Adapter
+                     //      _DefaultGateway.Gateway(
+                     //         new Job(SendType.External, "localhost",
+                     //            new List<Job>
+                     //            {
+                     //               new Job(SendType.SelfToUserInterface, GetType().Name, 101 /* Execute ExecuteDataAdapter */)
+                     //               {
+                     //                  Input = cmnd,
+                     //                  AfterChangedOutput = 
+                     //                     new Action<object>((output) => 
+                     //                     {
+                     //                        if (InvokeRequired)
+                     //                        {
+                     //                           Invoke(new Action(() => 
+                     //                           { 
+                     //                              Result_Dgv.DataSource = (output as DataSet).Tables[0];
+                     //                              Result_Lb.Text = Result_Dgv.RowCount.ToString();
+                     //                           }));
+                     //                        }
+                     //                        else
+                     //                        {
+                     //                           Result_Dgv.DataSource = (output as DataSet).Tables[0];
+                     //                           Result_Lb.Text = Result_Dgv.RowCount.ToString();
+                     //                        }
+                     //                     })
+                     //               }
+                     //            }
+                     //         )
+                     //      );
+                     //   }
+                     //   if (i % progressCount == 0)
+                     //      ExecuteRows_Pgb.Position += progressCount;                           
+                     //}
+                     //ExecuteRows_Pgb.Position = 100; ;
+                     //ExecuteRows_Pgb.Visible = false;
+                     ////cleanup  
+                     //GC.Collect();
+                     //GC.WaitForPendingFinalizers();
 
-                     //rule of thumb for releasing com objects:  
-                     //  never use two dots, all COM objects must be referenced and released individually  
-                     //  ex: [somthing].[something].[something] is bad  
+                     ////rule of thumb for releasing com objects:  
+                     ////  never use two dots, all COM objects must be referenced and released individually  
+                     ////  ex: [somthing].[something].[something] is bad  
 
-                     //release com objects to fully kill excel process from running in the background  
-                     Marshal.ReleaseComObject(xlRange);
-                     Marshal.ReleaseComObject(xlWorksheet);
+                     ////release com objects to fully kill excel process from running in the background  
+                     //Marshal.ReleaseComObject(xlRange);
+                     //Marshal.ReleaseComObject(xlWorksheet);
 
-                     //close and release  
-                     xlWorkbook.Close();
-                     Marshal.ReleaseComObject(xlWorkbook);
+                     ////close and release  
+                     //xlWorkbook.Close();
+                     //Marshal.ReleaseComObject(xlWorkbook);
 
-                     //quit and release  
-                     xlApp.Quit();
-                     Marshal.ReleaseComObject(xlApp);  
+                     ////quit and release  
+                     //xlApp.Quit();
+                     //Marshal.ReleaseComObject(xlApp);  
                   }
                   break;
                default:

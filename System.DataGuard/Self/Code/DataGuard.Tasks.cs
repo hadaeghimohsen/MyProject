@@ -205,10 +205,33 @@ namespace System.DataGuard.Self.Code
             string cpu = "";
             foreach (ManagementObject mo in mbsList)
             {
-               cpu = mo["ProcessorID"].ToString();
+               if (mo["ProcessorID"] != null)
+                  cpu = mo["ProcessorID"].ToString();
+               else
+                  cpu = "BFEBFBFF000806D1";
             }
             string cpuID = string.Empty;
-            
+
+            //string cpu = "";
+            //using(ManagementClass mc = new ManagementClass("Win32_Processor"))
+            //using(ManagementObjectCollection moc = mc.GetInstances())
+            //{
+            //   foreach (ManagementObject mo in moc)
+            //   {                  
+            //      if(mo.Properties["ProcessorId"].Value != null)
+            //      {
+            //         string id = mo.Properties["ProcessorId"].Value.ToString();
+            //         mo.Dispose();
+            //         cpu = id;
+            //      }
+            //      else
+            //      {
+            //         mo.Dispose();
+            //         cpu = "BFEBFBFF000806D1";
+            //      }
+            //      mo.Dispose();
+            //   }
+            //}            
 
             job.Output =
                new XElement("Computer",

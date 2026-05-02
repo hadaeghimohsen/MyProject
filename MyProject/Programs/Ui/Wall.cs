@@ -66,7 +66,7 @@ namespace MyProject.Programs.Ui
            }
            else if(keyData == (Keys.Control | Keys.F10))
            {
-              MessageBox.Show(_ActiveUI.Peek().Name);
+              MessageBox.Show(string.Join("," + Environment.NewLine , _ActiveUI.Select(a => a.Name)));
            }
            else if(keyData <= Keys.Help || (keyData >= Keys.LWin && keyData <= Keys.Sleep) || (keyData >= Keys.F1))
            {

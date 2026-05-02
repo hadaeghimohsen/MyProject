@@ -479,14 +479,46 @@ namespace MyProject.Programs.Ui
                return;
             }
 
+            var _ui = new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control };
+
             var crntobj = _ActiveUI.FirstOrDefault().Ui;
-            if (crntobj == input[1] as UserControl)
+            if (crntobj == _ui.Ui)
             {
                job.Status = StatusType.Successful;
                return;
             }
 
-            _ActiveUI.Push(new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control });
+            if(_ActiveUI.Any(a => a.Name == _ui.Name))
+            {
+               var _tempList = _ActiveUI.ToList();
+               int _index = _tempList.FindIndex(a => a.Name == _ui.Name);
+
+               if(_index != -1)
+               {
+                  _tempList.RemoveAt(_index);
+                  _tempList.Reverse();
+                  _tempList.Add(_ui);
+
+                  _ActiveUI.Clear();                  
+                  foreach (var ui in _tempList)
+                  {
+                     _ActiveUI.Push(ui);
+                  }
+               }
+            }
+            else
+            {
+               _ActiveUI.Push(_ui);
+            }
+
+
+            //var crntobj = _ActiveUI.FirstOrDefault().Ui;
+            //if (crntobj == input[1] as UserControl)
+            //{
+            //   job.Status = StatusType.Successful;
+            //   return;
+            //}
+            //_ActiveUI.Push(new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control });
             job.Status = StatusType.Successful;
          }
          catch

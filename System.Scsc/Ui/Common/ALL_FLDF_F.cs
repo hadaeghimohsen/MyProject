@@ -234,6 +234,7 @@ namespace System.Scsc.Ui.Common
                         Input = 
                            new XElement("Request", 
                               new XAttribute("rqid", rqst.RQID), 
+                              new XAttribute("rqstrqid", rqst.RQST_RQID ?? 0), 
                               new XElement("Request_Row", 
                                  new XAttribute("fighfileno", figh.FILE_NO)
                               )

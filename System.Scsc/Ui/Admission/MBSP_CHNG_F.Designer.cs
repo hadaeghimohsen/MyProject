@@ -43,6 +43,9 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
+         this.DayType_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
+         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.CrntStrtDate_Lb = new System.Windows.Forms.Label();
          this.CrntEndDate_Lb = new System.Windows.Forms.Label();
          this.CrntNumbAttnMont_Lb = new System.Windows.Forms.Label();
@@ -87,14 +90,11 @@
          this.button1 = new System.Windows.Forms.Button();
          this.CBMT_CODE_GridLookUpEdit = new DevExpress.XtraEditors.GridLookUpEdit();
          this.CbmtBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DDytpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.cBMT_CODEGridLookUpEditView = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.ClubCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.MtodCode_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CochFileNo_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.DayType_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.StrtTime_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.EndTime_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMTOD_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -134,6 +134,8 @@
          this.StrtTimeN_Txt = new DevExpress.XtraEditors.TimeEdit();
          this.EndTimeN_Txt = new DevExpress.XtraEditors.TimeEdit();
          this.rollout2 = new System.MaxUi.Rollout();
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Mbsp004Bs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.tELL_PHON_DNRMTextEdit.Properties)).BeginInit();
@@ -153,8 +155,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.CtgyBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CBMT_CODE_GridLookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.cBMT_CODEGridLookUpEditView)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CtgyDescN_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MtodDescN_Txt.Properties)).BeginInit();
@@ -181,6 +181,30 @@
          ((System.ComponentModel.ISupportInitialize)(this.EndTimeN_Txt.Properties)).BeginInit();
          this.rollout2.SuspendLayout();
          this.SuspendLayout();
+         // 
+         // DayType_Clm
+         // 
+         this.DayType_Clm.Caption = "زوج / فرد";
+         this.DayType_Clm.ColumnEdit = this.repositoryItemLookUpEdit1;
+         this.DayType_Clm.FieldName = "DAY_TYPE";
+         this.DayType_Clm.Name = "DayType_Clm";
+         this.DayType_Clm.Visible = true;
+         this.DayType_Clm.VisibleIndex = 2;
+         // 
+         // repositoryItemLookUpEdit1
+         // 
+         this.repositoryItemLookUpEdit1.AutoHeight = false;
+         this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+         this.repositoryItemLookUpEdit1.DataSource = this.DDytpBs1;
+         this.repositoryItemLookUpEdit1.DisplayMember = "DOMN_DESC";
+         this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
+         this.repositoryItemLookUpEdit1.NullText = "";
+         this.repositoryItemLookUpEdit1.ValueMember = "VALU";
+         // 
+         // DDytpBs1
+         // 
+         this.DDytpBs1.DataSource = typeof(System.Scsc.Data.D_DYTP);
          // 
          // CrntStrtDate_Lb
          // 
@@ -776,21 +800,6 @@
          // 
          this.CbmtBs1.DataSource = typeof(System.Scsc.Data.Club_Method);
          // 
-         // repositoryItemLookUpEdit1
-         // 
-         this.repositoryItemLookUpEdit1.AutoHeight = false;
-         this.repositoryItemLookUpEdit1.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-         this.repositoryItemLookUpEdit1.DataSource = this.DDytpBs1;
-         this.repositoryItemLookUpEdit1.DisplayMember = "DOMN_DESC";
-         this.repositoryItemLookUpEdit1.Name = "repositoryItemLookUpEdit1";
-         this.repositoryItemLookUpEdit1.NullText = "";
-         this.repositoryItemLookUpEdit1.ValueMember = "VALU";
-         // 
-         // DDytpBs1
-         // 
-         this.DDytpBs1.DataSource = typeof(System.Scsc.Data.D_DYTP);
-         // 
          // cBMT_CODEGridLookUpEditView
          // 
          this.cBMT_CODEGridLookUpEditView.Appearance.Row.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -879,15 +888,6 @@
          // 
          this.colCODE1.FieldName = "CODE";
          this.colCODE1.Name = "colCODE1";
-         // 
-         // DayType_Clm
-         // 
-         this.DayType_Clm.Caption = "زوج / فرد";
-         this.DayType_Clm.ColumnEdit = this.repositoryItemLookUpEdit1;
-         this.DayType_Clm.FieldName = "DAY_TYPE";
-         this.DayType_Clm.Name = "DayType_Clm";
-         this.DayType_Clm.Visible = true;
-         this.DayType_Clm.VisibleIndex = 2;
          // 
          // StrtTime_Clm
          // 
@@ -1596,6 +1596,8 @@
          this.Name = "MBSP_CHNG_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Size = new System.Drawing.Size(422, 705);
+         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.nAME_DNRMTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Mbsp004Bs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.tELL_PHON_DNRMTextEdit.Properties)).EndInit();
@@ -1615,8 +1617,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.CtgyBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CBMT_CODE_GridLookUpEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.DDytpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.cBMT_CODEGridLookUpEditView)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CtgyDescN_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MtodDescN_Txt.Properties)).EndInit();

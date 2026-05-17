@@ -460,7 +460,7 @@ namespace System.Scsc.Ui.Admission.ShowChanges
          var xinput = job.Input as XElement;
          if (xinput != null)
          {
-            rqid = Convert.ToInt64(xinput.Attribute("rqid").Value);
+            rqid = Convert.ToInt64(xinput.Attribute("rqstrqid").Value);
             fileno = Convert.ToInt64(xinput.Element("Request_Row").Attribute("fighfileno").Value);
             Execute_Query();
 

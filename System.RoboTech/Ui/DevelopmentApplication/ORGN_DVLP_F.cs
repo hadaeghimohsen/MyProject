@@ -610,8 +610,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
                         newobj.ROBO_RBID = crnt.ROBO_RBID;
                         newobj.USSD_CODE = ussdcode;
-                        newobj.ITEM_DESC = crnt.ITEM_DESC;
-                        newobj.ITEM_VALU = crnt.ITEM_VALU;
+                        newobj.ITEM_DESC = (RmnusBs.Current as Data.Menu_Ussd).MENU_TEXT;//crnt.ITEM_DESC;
+                        newobj.ITEM_VALU = (RmnusBs.Current as Data.Menu_Ussd).MENU_TEXT;//crnt.ITEM_VALU;
                         newobj.STAT = crnt.STAT;
                         newobj.SHOW_STRT = crnt.SHOW_STRT;
                         newobj.ORDR = crnt.ORDR + 1;
@@ -2025,6 +2025,65 @@ namespace System.RoboTech.Ui.DevelopmentApplication
       private void RetryReg_Butn_Click(object sender, EventArgs e)
       {
          SrbtFrstName_Txt.Text = SrbtLastName_Txt.Text = SrbtCellPhon_Txt.Text = SrbtNatlCode_Txt.Text = "";
+      }
+
+      private void MenuDirBack_Tsm_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _robo = RoboBs.Current as Data.Robot;
+            if (_robo == null) return;
+
+            var _menu = RmnusBs.Current as Data.Menu_Ussd;
+            if (_menu == null) return;
+
+            if (_menu.STEP_BACK != "002") return;
+
+            _menu.STEP_BACK_USSD_CODE = _menu.Menu_Ussd1.USSD_CODE;
+
+            RmnusBs.EndEdit();
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
+      }
+
+      private void CnvtBackMenu_Tsm_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _menu = RmnusBs.Current as Data.Menu_Ussd;
+            if (_menu == null) return;
+
+            _menu.STEP_BACK = "002";
+            _menu.STEP_BACK_USSD_CODE = _menu.Menu_Ussd1.USSD_CODE;
+            _menu.STAT = "002";
+            _menu.MENU_TEXT = "🔺 بازگشت";
+            _menu.MNUS_DESC = "بازگشت";
+            _menu.CMND_FIRE = "001";
+            _menu.CMND_PLAC = "001";
+
+            RmnusBs.EndEdit();
+            iRoboTech.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+         finally
+         {
+            if (requery)
+               Execute_Query();
+         }
       }
    }
 }

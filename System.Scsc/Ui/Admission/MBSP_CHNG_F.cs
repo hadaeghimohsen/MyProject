@@ -418,13 +418,15 @@ namespace System.Scsc.Ui.Admission
                   if (day != 1)
                      StrtDate_DateTime002.Value = StrtDate_DateTime002.Value.Value.AddDays((day - 1) * -1);
                   EndDate_DateTime002.Value = StrtDate_DateTime002.Value.Value.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-               }
+               }               
             }
             else
             {
                StrtDate_DateTime002.Value = DateTime.Now;
                EndDate_DateTime002.Value = DateTime.Now.AddDays((double)(expn.NUMB_CYCL_DAY ?? 30));
-            }            
+            }
+            NumbAttnMont_TextEdit002.EditValue = expn.Category_Belt.NUMB_OF_ATTN_MONT;
+            RqstMbsp_Butn_Click(null, null);
          }
          catch (Exception)
          {

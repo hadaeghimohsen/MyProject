@@ -89,7 +89,7 @@ namespace System.Scsc.Ui.Notifications
                      )
                   );
             }
-         }catch(Exception exc)
+      }catch(Exception exc)
          {
             CBMT_CODE_GridLookUpEdit.EditValue = null;
             Execute_Query();

@@ -100,6 +100,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          {
             Tsb_SearchInMenu_Click(null, null);
          }
+         else if(keyData == Keys.F8)
+         {
+            MenuDirBack_Tsm_Click(null, null);
+         }
    
          else if (keyData == Keys.Escape)
          {

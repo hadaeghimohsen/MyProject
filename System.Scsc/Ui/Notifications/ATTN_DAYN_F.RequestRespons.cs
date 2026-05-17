@@ -324,6 +324,7 @@ namespace System.Scsc.Ui.Notifications
          DActnBs.DataSource = iScsc.D_ACTNs;
          DSxtpBs1.DataSource = iScsc.D_SXTPs;
          DYsnoBs.DataSource = iScsc.D_YSNOs;
+         DAttpBs.DataSource = iScsc.D_ATTPs;
          job.Status = StatusType.Successful;
       }
 

@@ -377,9 +377,6 @@ namespace System.Scsc.Data
     partial void InsertLog_Operation(Log_Operation instance);
     partial void UpdateLog_Operation(Log_Operation instance);
     partial void DeleteLog_Operation(Log_Operation instance);
-    partial void InsertAttendance_Wrist(Attendance_Wrist instance);
-    partial void UpdateAttendance_Wrist(Attendance_Wrist instance);
-    partial void DeleteAttendance_Wrist(Attendance_Wrist instance);
     partial void InsertAttendance(Attendance instance);
     partial void UpdateAttendance(Attendance instance);
     partial void DeleteAttendance(Attendance instance);
@@ -426,6 +423,9 @@ namespace System.Scsc.Data
     partial void InsertDresser(Dresser instance);
     partial void UpdateDresser(Dresser instance);
     partial void DeleteDresser(Dresser instance);
+    partial void InsertAttendance_Wrist(Attendance_Wrist instance);
+    partial void UpdateAttendance_Wrist(Attendance_Wrist instance);
+    partial void DeleteAttendance_Wrist(Attendance_Wrist instance);
     #endregion
 		
 		public iScscDataContext() : 
@@ -2650,14 +2650,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		public System.Data.Linq.Table<Attendance_Wrist> Attendance_Wrists
-		{
-			get
-			{
-				return this.GetTable<Attendance_Wrist>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Attendance> Attendances
 		{
 			get
@@ -2879,6 +2871,14 @@ namespace System.Scsc.Data
 			get
 			{
 				return this.GetTable<Dresser>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Attendance_Wrist> Attendance_Wrists
+		{
+			get
+			{
+				return this.GetTable<Attendance_Wrist>();
 			}
 		}
 		
@@ -63237,10 +63237,6 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Log_Operation> _Log_Operations;
 		
-		private EntitySet<Attendance_Wrist> _Attendance_Wrists;
-		
-		private EntitySet<Attendance_Wrist> _Attendance_Wrists1;
-		
 		private EntitySet<Attendance> _Attendances;
 		
 		private EntitySet<Attendance> _Attendances1;
@@ -63256,6 +63252,10 @@ namespace System.Scsc.Data
 		private EntitySet<Fighter_Bank_Account> _Fighter_Bank_Accounts;
 		
 		private EntitySet<Payment_Method> _Payment_Methods;
+		
+		private EntitySet<Attendance_Wrist> _Attendance_Wrists;
+		
+		private EntitySet<Attendance_Wrist> _Attendance_Wrists1;
 		
 		private EntityRef<Fighter> _Fighter1;
 		
@@ -63485,8 +63485,6 @@ namespace System.Scsc.Data
 			this._Payment_Discounts = new EntitySet<Payment_Discount>(new Action<Payment_Discount>(this.attach_Payment_Discounts), new Action<Payment_Discount>(this.detach_Payment_Discounts));
 			this._Payment_Details = new EntitySet<Payment_Detail>(new Action<Payment_Detail>(this.attach_Payment_Details), new Action<Payment_Detail>(this.detach_Payment_Details));
 			this._Log_Operations = new EntitySet<Log_Operation>(new Action<Log_Operation>(this.attach_Log_Operations), new Action<Log_Operation>(this.detach_Log_Operations));
-			this._Attendance_Wrists = new EntitySet<Attendance_Wrist>(new Action<Attendance_Wrist>(this.attach_Attendance_Wrists), new Action<Attendance_Wrist>(this.detach_Attendance_Wrists));
-			this._Attendance_Wrists1 = new EntitySet<Attendance_Wrist>(new Action<Attendance_Wrist>(this.attach_Attendance_Wrists1), new Action<Attendance_Wrist>(this.detach_Attendance_Wrists1));
 			this._Attendances = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances), new Action<Attendance>(this.detach_Attendances));
 			this._Attendances1 = new EntitySet<Attendance>(new Action<Attendance>(this.attach_Attendances1), new Action<Attendance>(this.detach_Attendances1));
 			this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
@@ -63495,6 +63493,8 @@ namespace System.Scsc.Data
 			this._Audits = new EntitySet<Audit>(new Action<Audit>(this.attach_Audits), new Action<Audit>(this.detach_Audits));
 			this._Fighter_Bank_Accounts = new EntitySet<Fighter_Bank_Account>(new Action<Fighter_Bank_Account>(this.attach_Fighter_Bank_Accounts), new Action<Fighter_Bank_Account>(this.detach_Fighter_Bank_Accounts));
 			this._Payment_Methods = new EntitySet<Payment_Method>(new Action<Payment_Method>(this.attach_Payment_Methods), new Action<Payment_Method>(this.detach_Payment_Methods));
+			this._Attendance_Wrists = new EntitySet<Attendance_Wrist>(new Action<Attendance_Wrist>(this.attach_Attendance_Wrists), new Action<Attendance_Wrist>(this.detach_Attendance_Wrists));
+			this._Attendance_Wrists1 = new EntitySet<Attendance_Wrist>(new Action<Attendance_Wrist>(this.attach_Attendance_Wrists1), new Action<Attendance_Wrist>(this.detach_Attendance_Wrists1));
 			this._Fighter1 = default(EntityRef<Fighter>);
 			this._Region = default(EntityRef<Region>);
 			this._Sub_Unit = default(EntityRef<Sub_Unit>);
@@ -65739,32 +65739,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance_Wrist", Storage="_Attendance_Wrists", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO_DNRM")]
-		public EntitySet<Attendance_Wrist> Attendance_Wrists
-		{
-			get
-			{
-				return this._Attendance_Wrists;
-			}
-			set
-			{
-				this._Attendance_Wrists.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance_Wrist1", Storage="_Attendance_Wrists1", ThisKey="FILE_NO", OtherKey="ATNW_FIGH_FILE_NO")]
-		public EntitySet<Attendance_Wrist> Attendance_Wrists1
-		{
-			get
-			{
-				return this._Attendance_Wrists1;
-			}
-			set
-			{
-				this._Attendance_Wrists1.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance", Storage="_Attendances", ThisKey="FILE_NO", OtherKey="COCH_FILE_NO")]
 		public EntitySet<Attendance> Attendances
 		{
@@ -65866,6 +65840,32 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Payment_Methods.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance_Wrist", Storage="_Attendance_Wrists", ThisKey="FILE_NO", OtherKey="FIGH_FILE_NO_DNRM")]
+		public EntitySet<Attendance_Wrist> Attendance_Wrists
+		{
+			get
+			{
+				return this._Attendance_Wrists;
+			}
+			set
+			{
+				this._Attendance_Wrists.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance_Wrist1", Storage="_Attendance_Wrists1", ThisKey="FILE_NO", OtherKey="ATNW_FIGH_FILE_NO")]
+		public EntitySet<Attendance_Wrist> Attendance_Wrists1
+		{
+			get
+			{
+				return this._Attendance_Wrists1;
+			}
+			set
+			{
+				this._Attendance_Wrists1.Assign(value);
 			}
 		}
 		
@@ -66642,30 +66642,6 @@ namespace System.Scsc.Data
 			entity.Fighter = null;
 		}
 		
-		private void attach_Attendance_Wrists(Attendance_Wrist entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = this;
-		}
-		
-		private void detach_Attendance_Wrists(Attendance_Wrist entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter = null;
-		}
-		
-		private void attach_Attendance_Wrists1(Attendance_Wrist entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter1 = this;
-		}
-		
-		private void detach_Attendance_Wrists1(Attendance_Wrist entity)
-		{
-			this.SendPropertyChanging();
-			entity.Fighter1 = null;
-		}
-		
 		private void attach_Attendances(Attendance entity)
 		{
 			this.SendPropertyChanging();
@@ -66760,6 +66736,30 @@ namespace System.Scsc.Data
 		{
 			this.SendPropertyChanging();
 			entity.Fighter = null;
+		}
+		
+		private void attach_Attendance_Wrists(Attendance_Wrist entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = this;
+		}
+		
+		private void detach_Attendance_Wrists(Attendance_Wrist entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter = null;
+		}
+		
+		private void attach_Attendance_Wrists1(Attendance_Wrist entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter1 = this;
+		}
+		
+		private void detach_Attendance_Wrists1(Attendance_Wrist entity)
+		{
+			this.SendPropertyChanging();
+			entity.Fighter1 = null;
 		}
 	}
 	
@@ -101650,496 +101650,6 @@ namespace System.Scsc.Data
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Attendance_Wrist")]
-	public partial class Attendance_Wrist : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private System.Nullable<long> _ATTN_CODE;
-		
-		private System.Nullable<long> _ATNW_FIGH_FILE_NO;
-		
-		private long _CODE;
-		
-		private System.Nullable<int> _RWNO;
-		
-		private string _STAT;
-		
-		private string _ATNW_FNGR_PRNT_DNRM;
-		
-		private System.Nullable<long> _DRES_CODE_DNRM;
-		
-		private System.Nullable<long> _FIGH_FILE_NO_DNRM;
-		
-		private string _CRET_BY;
-		
-		private System.Nullable<System.DateTime> _CRET_DATE;
-		
-		private string _MDFY_BY;
-		
-		private System.Nullable<System.DateTime> _MDFY_DATE;
-		
-		private EntityRef<Fighter> _Fighter;
-		
-		private EntityRef<Fighter> _Fighter1;
-		
-		private EntityRef<Attendance> _Attendance;
-		
-		private EntityRef<Dresser> _Dresser;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnATTN_CODEChanging(System.Nullable<long> value);
-    partial void OnATTN_CODEChanged();
-    partial void OnATNW_FIGH_FILE_NOChanging(System.Nullable<long> value);
-    partial void OnATNW_FIGH_FILE_NOChanged();
-    partial void OnCODEChanging(long value);
-    partial void OnCODEChanged();
-    partial void OnRWNOChanging(System.Nullable<int> value);
-    partial void OnRWNOChanged();
-    partial void OnSTATChanging(string value);
-    partial void OnSTATChanged();
-    partial void OnATNW_FNGR_PRNT_DNRMChanging(string value);
-    partial void OnATNW_FNGR_PRNT_DNRMChanged();
-    partial void OnDRES_CODE_DNRMChanging(System.Nullable<long> value);
-    partial void OnDRES_CODE_DNRMChanged();
-    partial void OnFIGH_FILE_NO_DNRMChanging(System.Nullable<long> value);
-    partial void OnFIGH_FILE_NO_DNRMChanged();
-    partial void OnCRET_BYChanging(string value);
-    partial void OnCRET_BYChanged();
-    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnCRET_DATEChanged();
-    partial void OnMDFY_BYChanging(string value);
-    partial void OnMDFY_BYChanged();
-    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
-    partial void OnMDFY_DATEChanged();
-    #endregion
-		
-		public Attendance_Wrist()
-		{
-			this._Fighter = default(EntityRef<Fighter>);
-			this._Fighter1 = default(EntityRef<Fighter>);
-			this._Attendance = default(EntityRef<Attendance>);
-			this._Dresser = default(EntityRef<Dresser>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> ATTN_CODE
-		{
-			get
-			{
-				return this._ATTN_CODE;
-			}
-			set
-			{
-				if ((this._ATTN_CODE != value))
-				{
-					if (this._Attendance.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnATTN_CODEChanging(value);
-					this.SendPropertyChanging();
-					this._ATTN_CODE = value;
-					this.SendPropertyChanged("ATTN_CODE");
-					this.OnATTN_CODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATNW_FIGH_FILE_NO", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> ATNW_FIGH_FILE_NO
-		{
-			get
-			{
-				return this._ATNW_FIGH_FILE_NO;
-			}
-			set
-			{
-				if ((this._ATNW_FIGH_FILE_NO != value))
-				{
-					if (this._Fighter1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnATNW_FIGH_FILE_NOChanging(value);
-					this.SendPropertyChanging();
-					this._ATNW_FIGH_FILE_NO = value;
-					this.SendPropertyChanged("ATNW_FIGH_FILE_NO");
-					this.OnATNW_FIGH_FILE_NOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
-		public long CODE
-		{
-			get
-			{
-				return this._CODE;
-			}
-			set
-			{
-				if ((this._CODE != value))
-				{
-					this.OnCODEChanging(value);
-					this.SendPropertyChanging();
-					this._CODE = value;
-					this.SendPropertyChanged("CODE");
-					this.OnCODEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="Int", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<int> RWNO
-		{
-			get
-			{
-				return this._RWNO;
-			}
-			set
-			{
-				if ((this._RWNO != value))
-				{
-					this.OnRWNOChanging(value);
-					this.SendPropertyChanging();
-					this._RWNO = value;
-					this.SendPropertyChanged("RWNO");
-					this.OnRWNOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
-		public string STAT
-		{
-			get
-			{
-				return this._STAT;
-			}
-			set
-			{
-				if ((this._STAT != value))
-				{
-					this.OnSTATChanging(value);
-					this.SendPropertyChanging();
-					this._STAT = value;
-					this.SendPropertyChanged("STAT");
-					this.OnSTATChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATNW_FNGR_PRNT_DNRM", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
-		public string ATNW_FNGR_PRNT_DNRM
-		{
-			get
-			{
-				return this._ATNW_FNGR_PRNT_DNRM;
-			}
-			set
-			{
-				if ((this._ATNW_FNGR_PRNT_DNRM != value))
-				{
-					this.OnATNW_FNGR_PRNT_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._ATNW_FNGR_PRNT_DNRM = value;
-					this.SendPropertyChanged("ATNW_FNGR_PRNT_DNRM");
-					this.OnATNW_FNGR_PRNT_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRES_CODE_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> DRES_CODE_DNRM
-		{
-			get
-			{
-				return this._DRES_CODE_DNRM;
-			}
-			set
-			{
-				if ((this._DRES_CODE_DNRM != value))
-				{
-					if (this._Dresser.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnDRES_CODE_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._DRES_CODE_DNRM = value;
-					this.SendPropertyChanged("DRES_CODE_DNRM");
-					this.OnDRES_CODE_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_FILE_NO_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<long> FIGH_FILE_NO_DNRM
-		{
-			get
-			{
-				return this._FIGH_FILE_NO_DNRM;
-			}
-			set
-			{
-				if ((this._FIGH_FILE_NO_DNRM != value))
-				{
-					if (this._Fighter.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.OnFIGH_FILE_NO_DNRMChanging(value);
-					this.SendPropertyChanging();
-					this._FIGH_FILE_NO_DNRM = value;
-					this.SendPropertyChanged("FIGH_FILE_NO_DNRM");
-					this.OnFIGH_FILE_NO_DNRMChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string CRET_BY
-		{
-			get
-			{
-				return this._CRET_BY;
-			}
-			set
-			{
-				if ((this._CRET_BY != value))
-				{
-					this.OnCRET_BYChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_BY = value;
-					this.SendPropertyChanged("CRET_BY");
-					this.OnCRET_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> CRET_DATE
-		{
-			get
-			{
-				return this._CRET_DATE;
-			}
-			set
-			{
-				if ((this._CRET_DATE != value))
-				{
-					this.OnCRET_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._CRET_DATE = value;
-					this.SendPropertyChanged("CRET_DATE");
-					this.OnCRET_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
-		public string MDFY_BY
-		{
-			get
-			{
-				return this._MDFY_BY;
-			}
-			set
-			{
-				if ((this._MDFY_BY != value))
-				{
-					this.OnMDFY_BYChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_BY = value;
-					this.SendPropertyChanged("MDFY_BY");
-					this.OnMDFY_BYChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
-		public System.Nullable<System.DateTime> MDFY_DATE
-		{
-			get
-			{
-				return this._MDFY_DATE;
-			}
-			set
-			{
-				if ((this._MDFY_DATE != value))
-				{
-					this.OnMDFY_DATEChanging(value);
-					this.SendPropertyChanging();
-					this._MDFY_DATE = value;
-					this.SendPropertyChanged("MDFY_DATE");
-					this.OnMDFY_DATEChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance_Wrist", Storage="_Fighter", ThisKey="FIGH_FILE_NO_DNRM", OtherKey="FILE_NO", IsForeignKey=true)]
-		public Fighter Fighter
-		{
-			get
-			{
-				return this._Fighter.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter.Entity = null;
-						previousValue.Attendance_Wrists.Remove(this);
-					}
-					this._Fighter.Entity = value;
-					if ((value != null))
-					{
-						value.Attendance_Wrists.Add(this);
-						this._FIGH_FILE_NO_DNRM = value.FILE_NO;
-					}
-					else
-					{
-						this._FIGH_FILE_NO_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Fighter");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance_Wrist1", Storage="_Fighter1", ThisKey="ATNW_FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
-		public Fighter Fighter1
-		{
-			get
-			{
-				return this._Fighter1.Entity;
-			}
-			set
-			{
-				Fighter previousValue = this._Fighter1.Entity;
-				if (((previousValue != value) 
-							|| (this._Fighter1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Fighter1.Entity = null;
-						previousValue.Attendance_Wrists1.Remove(this);
-					}
-					this._Fighter1.Entity = value;
-					if ((value != null))
-					{
-						value.Attendance_Wrists1.Add(this);
-						this._ATNW_FIGH_FILE_NO = value.FILE_NO;
-					}
-					else
-					{
-						this._ATNW_FIGH_FILE_NO = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Fighter1");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Attendance_Attendance_Wrist", Storage="_Attendance", ThisKey="ATTN_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
-		public Attendance Attendance
-		{
-			get
-			{
-				return this._Attendance.Entity;
-			}
-			set
-			{
-				Attendance previousValue = this._Attendance.Entity;
-				if (((previousValue != value) 
-							|| (this._Attendance.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Attendance.Entity = null;
-						previousValue.Attendance_Wrists.Remove(this);
-					}
-					this._Attendance.Entity = value;
-					if ((value != null))
-					{
-						value.Attendance_Wrists.Add(this);
-						this._ATTN_CODE = value.CODE;
-					}
-					else
-					{
-						this._ATTN_CODE = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Attendance");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dresser_Attendance_Wrist", Storage="_Dresser", ThisKey="DRES_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
-		public Dresser Dresser
-		{
-			get
-			{
-				return this._Dresser.Entity;
-			}
-			set
-			{
-				Dresser previousValue = this._Dresser.Entity;
-				if (((previousValue != value) 
-							|| (this._Dresser.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Dresser.Entity = null;
-						previousValue.Attendance_Wrists.Remove(this);
-					}
-					this._Dresser.Entity = value;
-					if ((value != null))
-					{
-						value.Attendance_Wrists.Add(this);
-						this._DRES_CODE_DNRM = value.CODE;
-					}
-					else
-					{
-						this._DRES_CODE_DNRM = default(Nullable<long>);
-					}
-					this.SendPropertyChanged("Dresser");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Attendance")]
 	public partial class Attendance : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -102246,13 +101756,13 @@ namespace System.Scsc.Data
 		
 		private EntitySet<Dresser_Attendance> _Dresser_Attendances;
 		
-		private EntitySet<Attendance_Wrist> _Attendance_Wrists;
-		
 		private EntitySet<Member_Ship_Session> _Member_Ship_Sessions;
 		
 		private EntitySet<Aggregation_Operation_Detail> _Aggregation_Operation_Details;
 		
 		private EntitySet<Card_Link_Operation> _Card_Link_Operations;
+		
+		private EntitySet<Attendance_Wrist> _Attendance_Wrists;
 		
 		private EntityRef<Club_Method> _Club_Method;
 		
@@ -102377,10 +101887,10 @@ namespace System.Scsc.Data
 		public Attendance()
 		{
 			this._Dresser_Attendances = new EntitySet<Dresser_Attendance>(new Action<Dresser_Attendance>(this.attach_Dresser_Attendances), new Action<Dresser_Attendance>(this.detach_Dresser_Attendances));
-			this._Attendance_Wrists = new EntitySet<Attendance_Wrist>(new Action<Attendance_Wrist>(this.attach_Attendance_Wrists), new Action<Attendance_Wrist>(this.detach_Attendance_Wrists));
 			this._Member_Ship_Sessions = new EntitySet<Member_Ship_Session>(new Action<Member_Ship_Session>(this.attach_Member_Ship_Sessions), new Action<Member_Ship_Session>(this.detach_Member_Ship_Sessions));
 			this._Aggregation_Operation_Details = new EntitySet<Aggregation_Operation_Detail>(new Action<Aggregation_Operation_Detail>(this.attach_Aggregation_Operation_Details), new Action<Aggregation_Operation_Detail>(this.detach_Aggregation_Operation_Details));
 			this._Card_Link_Operations = new EntitySet<Card_Link_Operation>(new Action<Card_Link_Operation>(this.attach_Card_Link_Operations), new Action<Card_Link_Operation>(this.detach_Card_Link_Operations));
+			this._Attendance_Wrists = new EntitySet<Attendance_Wrist>(new Action<Attendance_Wrist>(this.attach_Attendance_Wrists), new Action<Attendance_Wrist>(this.detach_Attendance_Wrists));
 			this._Club_Method = default(EntityRef<Club_Method>);
 			this._Fighter = default(EntityRef<Fighter>);
 			this._Category_Belt = default(EntityRef<Category_Belt>);
@@ -103421,19 +102931,6 @@ namespace System.Scsc.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Attendance_Attendance_Wrist", Storage="_Attendance_Wrists", ThisKey="CODE", OtherKey="ATTN_CODE")]
-		public EntitySet<Attendance_Wrist> Attendance_Wrists
-		{
-			get
-			{
-				return this._Attendance_Wrists;
-			}
-			set
-			{
-				this._Attendance_Wrists.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Attendance_Member_Ship_Session", Storage="_Member_Ship_Sessions", ThisKey="CODE", OtherKey="ATTN_CODE")]
 		public EntitySet<Member_Ship_Session> Member_Ship_Sessions
 		{
@@ -103470,6 +102967,19 @@ namespace System.Scsc.Data
 			set
 			{
 				this._Card_Link_Operations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Attendance_Attendance_Wrist", Storage="_Attendance_Wrists", ThisKey="CODE", OtherKey="ATTN_CODE")]
+		public EntitySet<Attendance_Wrist> Attendance_Wrists
+		{
+			get
+			{
+				return this._Attendance_Wrists;
+			}
+			set
+			{
+				this._Attendance_Wrists.Assign(value);
 			}
 		}
 		
@@ -103781,18 +103291,6 @@ namespace System.Scsc.Data
 			entity.Attendance = null;
 		}
 		
-		private void attach_Attendance_Wrists(Attendance_Wrist entity)
-		{
-			this.SendPropertyChanging();
-			entity.Attendance = this;
-		}
-		
-		private void detach_Attendance_Wrists(Attendance_Wrist entity)
-		{
-			this.SendPropertyChanging();
-			entity.Attendance = null;
-		}
-		
 		private void attach_Member_Ship_Sessions(Member_Ship_Session entity)
 		{
 			this.SendPropertyChanging();
@@ -103824,6 +103322,18 @@ namespace System.Scsc.Data
 		}
 		
 		private void detach_Card_Link_Operations(Card_Link_Operation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Attendance = null;
+		}
+		
+		private void attach_Attendance_Wrists(Attendance_Wrist entity)
+		{
+			this.SendPropertyChanging();
+			entity.Attendance = this;
+		}
+		
+		private void detach_Attendance_Wrists(Attendance_Wrist entity)
 		{
 			this.SendPropertyChanging();
 			entity.Attendance = null;
@@ -117460,6 +116970,520 @@ namespace System.Scsc.Data
 		{
 			this.SendPropertyChanging();
 			entity.Dresser = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Attendance_Wrist")]
+	public partial class Attendance_Wrist : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private System.Nullable<long> _ATTN_CODE;
+		
+		private System.Nullable<long> _ATNW_FIGH_FILE_NO;
+		
+		private long _CODE;
+		
+		private System.Nullable<int> _RWNO;
+		
+		private string _STAT;
+		
+		private string _ATNW_FNGR_PRNT_DNRM;
+		
+		private System.Nullable<long> _DRES_CODE_DNRM;
+		
+		private System.Nullable<long> _FIGH_FILE_NO_DNRM;
+		
+		private string _DEC_ATTN_STAT;
+		
+		private string _CRET_BY;
+		
+		private System.Nullable<System.DateTime> _CRET_DATE;
+		
+		private string _MDFY_BY;
+		
+		private System.Nullable<System.DateTime> _MDFY_DATE;
+		
+		private EntityRef<Fighter> _Fighter;
+		
+		private EntityRef<Fighter> _Fighter1;
+		
+		private EntityRef<Dresser> _Dresser;
+		
+		private EntityRef<Attendance> _Attendance;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnATTN_CODEChanging(System.Nullable<long> value);
+    partial void OnATTN_CODEChanged();
+    partial void OnATNW_FIGH_FILE_NOChanging(System.Nullable<long> value);
+    partial void OnATNW_FIGH_FILE_NOChanged();
+    partial void OnCODEChanging(long value);
+    partial void OnCODEChanged();
+    partial void OnRWNOChanging(System.Nullable<int> value);
+    partial void OnRWNOChanged();
+    partial void OnSTATChanging(string value);
+    partial void OnSTATChanged();
+    partial void OnATNW_FNGR_PRNT_DNRMChanging(string value);
+    partial void OnATNW_FNGR_PRNT_DNRMChanged();
+    partial void OnDRES_CODE_DNRMChanging(System.Nullable<long> value);
+    partial void OnDRES_CODE_DNRMChanged();
+    partial void OnFIGH_FILE_NO_DNRMChanging(System.Nullable<long> value);
+    partial void OnFIGH_FILE_NO_DNRMChanged();
+    partial void OnDEC_ATTN_STATChanging(string value);
+    partial void OnDEC_ATTN_STATChanged();
+    partial void OnCRET_BYChanging(string value);
+    partial void OnCRET_BYChanged();
+    partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnCRET_DATEChanged();
+    partial void OnMDFY_BYChanging(string value);
+    partial void OnMDFY_BYChanged();
+    partial void OnMDFY_DATEChanging(System.Nullable<System.DateTime> value);
+    partial void OnMDFY_DATEChanged();
+    #endregion
+		
+		public Attendance_Wrist()
+		{
+			this._Fighter = default(EntityRef<Fighter>);
+			this._Fighter1 = default(EntityRef<Fighter>);
+			this._Dresser = default(EntityRef<Dresser>);
+			this._Attendance = default(EntityRef<Attendance>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATTN_CODE", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> ATTN_CODE
+		{
+			get
+			{
+				return this._ATTN_CODE;
+			}
+			set
+			{
+				if ((this._ATTN_CODE != value))
+				{
+					if (this._Attendance.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnATTN_CODEChanging(value);
+					this.SendPropertyChanging();
+					this._ATTN_CODE = value;
+					this.SendPropertyChanged("ATTN_CODE");
+					this.OnATTN_CODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATNW_FIGH_FILE_NO", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> ATNW_FIGH_FILE_NO
+		{
+			get
+			{
+				return this._ATNW_FIGH_FILE_NO;
+			}
+			set
+			{
+				if ((this._ATNW_FIGH_FILE_NO != value))
+				{
+					if (this._Fighter1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnATNW_FIGH_FILE_NOChanging(value);
+					this.SendPropertyChanging();
+					this._ATNW_FIGH_FILE_NO = value;
+					this.SendPropertyChanged("ATNW_FIGH_FILE_NO");
+					this.OnATNW_FIGH_FILE_NOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CODE", DbType="BigInt NOT NULL", IsPrimaryKey=true)]
+		public long CODE
+		{
+			get
+			{
+				return this._CODE;
+			}
+			set
+			{
+				if ((this._CODE != value))
+				{
+					this.OnCODEChanging(value);
+					this.SendPropertyChanging();
+					this._CODE = value;
+					this.SendPropertyChanged("CODE");
+					this.OnCODEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RWNO", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<int> RWNO
+		{
+			get
+			{
+				return this._RWNO;
+			}
+			set
+			{
+				if ((this._RWNO != value))
+				{
+					this.OnRWNOChanging(value);
+					this.SendPropertyChanging();
+					this._RWNO = value;
+					this.SendPropertyChanged("RWNO");
+					this.OnRWNOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string STAT
+		{
+			get
+			{
+				return this._STAT;
+			}
+			set
+			{
+				if ((this._STAT != value))
+				{
+					this.OnSTATChanging(value);
+					this.SendPropertyChanging();
+					this._STAT = value;
+					this.SendPropertyChanged("STAT");
+					this.OnSTATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ATNW_FNGR_PRNT_DNRM", DbType="VarChar(20)", UpdateCheck=UpdateCheck.Never)]
+		public string ATNW_FNGR_PRNT_DNRM
+		{
+			get
+			{
+				return this._ATNW_FNGR_PRNT_DNRM;
+			}
+			set
+			{
+				if ((this._ATNW_FNGR_PRNT_DNRM != value))
+				{
+					this.OnATNW_FNGR_PRNT_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._ATNW_FNGR_PRNT_DNRM = value;
+					this.SendPropertyChanged("ATNW_FNGR_PRNT_DNRM");
+					this.OnATNW_FNGR_PRNT_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DRES_CODE_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> DRES_CODE_DNRM
+		{
+			get
+			{
+				return this._DRES_CODE_DNRM;
+			}
+			set
+			{
+				if ((this._DRES_CODE_DNRM != value))
+				{
+					if (this._Dresser.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDRES_CODE_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._DRES_CODE_DNRM = value;
+					this.SendPropertyChanged("DRES_CODE_DNRM");
+					this.OnDRES_CODE_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FIGH_FILE_NO_DNRM", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<long> FIGH_FILE_NO_DNRM
+		{
+			get
+			{
+				return this._FIGH_FILE_NO_DNRM;
+			}
+			set
+			{
+				if ((this._FIGH_FILE_NO_DNRM != value))
+				{
+					if (this._Fighter.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnFIGH_FILE_NO_DNRMChanging(value);
+					this.SendPropertyChanging();
+					this._FIGH_FILE_NO_DNRM = value;
+					this.SendPropertyChanged("FIGH_FILE_NO_DNRM");
+					this.OnFIGH_FILE_NO_DNRMChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DEC_ATTN_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		public string DEC_ATTN_STAT
+		{
+			get
+			{
+				return this._DEC_ATTN_STAT;
+			}
+			set
+			{
+				if ((this._DEC_ATTN_STAT != value))
+				{
+					this.OnDEC_ATTN_STATChanging(value);
+					this.SendPropertyChanging();
+					this._DEC_ATTN_STAT = value;
+					this.SendPropertyChanged("DEC_ATTN_STAT");
+					this.OnDEC_ATTN_STATChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string CRET_BY
+		{
+			get
+			{
+				return this._CRET_BY;
+			}
+			set
+			{
+				if ((this._CRET_BY != value))
+				{
+					this.OnCRET_BYChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_BY = value;
+					this.SendPropertyChanged("CRET_BY");
+					this.OnCRET_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> CRET_DATE
+		{
+			get
+			{
+				return this._CRET_DATE;
+			}
+			set
+			{
+				if ((this._CRET_DATE != value))
+				{
+					this.OnCRET_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._CRET_DATE = value;
+					this.SendPropertyChanged("CRET_DATE");
+					this.OnCRET_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		public string MDFY_BY
+		{
+			get
+			{
+				return this._MDFY_BY;
+			}
+			set
+			{
+				if ((this._MDFY_BY != value))
+				{
+					this.OnMDFY_BYChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_BY = value;
+					this.SendPropertyChanged("MDFY_BY");
+					this.OnMDFY_BYChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		public System.Nullable<System.DateTime> MDFY_DATE
+		{
+			get
+			{
+				return this._MDFY_DATE;
+			}
+			set
+			{
+				if ((this._MDFY_DATE != value))
+				{
+					this.OnMDFY_DATEChanging(value);
+					this.SendPropertyChanging();
+					this._MDFY_DATE = value;
+					this.SendPropertyChanged("MDFY_DATE");
+					this.OnMDFY_DATEChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance_Wrist", Storage="_Fighter", ThisKey="FIGH_FILE_NO_DNRM", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter
+		{
+			get
+			{
+				return this._Fighter.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter.Entity = null;
+						previousValue.Attendance_Wrists.Remove(this);
+					}
+					this._Fighter.Entity = value;
+					if ((value != null))
+					{
+						value.Attendance_Wrists.Add(this);
+						this._FIGH_FILE_NO_DNRM = value.FILE_NO;
+					}
+					else
+					{
+						this._FIGH_FILE_NO_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Fighter_Attendance_Wrist1", Storage="_Fighter1", ThisKey="ATNW_FIGH_FILE_NO", OtherKey="FILE_NO", IsForeignKey=true)]
+		public Fighter Fighter1
+		{
+			get
+			{
+				return this._Fighter1.Entity;
+			}
+			set
+			{
+				Fighter previousValue = this._Fighter1.Entity;
+				if (((previousValue != value) 
+							|| (this._Fighter1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Fighter1.Entity = null;
+						previousValue.Attendance_Wrists1.Remove(this);
+					}
+					this._Fighter1.Entity = value;
+					if ((value != null))
+					{
+						value.Attendance_Wrists1.Add(this);
+						this._ATNW_FIGH_FILE_NO = value.FILE_NO;
+					}
+					else
+					{
+						this._ATNW_FIGH_FILE_NO = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Fighter1");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Dresser_Attendance_Wrist", Storage="_Dresser", ThisKey="DRES_CODE_DNRM", OtherKey="CODE", IsForeignKey=true)]
+		public Dresser Dresser
+		{
+			get
+			{
+				return this._Dresser.Entity;
+			}
+			set
+			{
+				Dresser previousValue = this._Dresser.Entity;
+				if (((previousValue != value) 
+							|| (this._Dresser.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Dresser.Entity = null;
+						previousValue.Attendance_Wrists.Remove(this);
+					}
+					this._Dresser.Entity = value;
+					if ((value != null))
+					{
+						value.Attendance_Wrists.Add(this);
+						this._DRES_CODE_DNRM = value.CODE;
+					}
+					else
+					{
+						this._DRES_CODE_DNRM = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Dresser");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Attendance_Attendance_Wrist", Storage="_Attendance", ThisKey="ATTN_CODE", OtherKey="CODE", IsForeignKey=true, DeleteRule="CASCADE")]
+		public Attendance Attendance
+		{
+			get
+			{
+				return this._Attendance.Entity;
+			}
+			set
+			{
+				Attendance previousValue = this._Attendance.Entity;
+				if (((previousValue != value) 
+							|| (this._Attendance.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Attendance.Entity = null;
+						previousValue.Attendance_Wrists.Remove(this);
+					}
+					this._Attendance.Entity = value;
+					if ((value != null))
+					{
+						value.Attendance_Wrists.Add(this);
+						this._ATTN_CODE = value.CODE;
+					}
+					else
+					{
+						this._ATTN_CODE = default(Nullable<long>);
+					}
+					this.SendPropertyChanged("Attendance");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
 		}
 	}
 	

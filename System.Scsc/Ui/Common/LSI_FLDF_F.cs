@@ -26,6 +26,11 @@ namespace System.Scsc.Ui.Common
       int index = 0;
       private bool requery = false;
 
+      // متغیرهای سطح کلاس
+      private int currentSkip = 0;
+      private int totalRecordsCount = 0;
+      private bool allDataLoaded = false;
+
       private void HL_INVSFILENO_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
          try
@@ -430,6 +435,30 @@ namespace System.Scsc.Ui.Common
                   else
                      ClubCode = (long?)ClubCode_Lov.EditValue;
 
+                  totalRecordsCount = 
+                     iScsc.Fighters.
+                     Where(f =>
+                        Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM)
+                     && (HasValuFngrPrnt_Cbx.Checked ? f.FNGR_PRNT_DNRM.Length >= 1 : (f.FNGR_PRNT_DNRM == null || f.FNGR_PRNT_DNRM.Trim().Length == 0))
+                     && f.CONF_STAT == "002"
+                     && f.FGPB_TYPE_DNRM != "003"
+                     && f.ACTV_TAG_DNRM == "101"
+                     && (FrstName_Txt.Text == "" || f.FRST_NAME_DNRM.Contains(FrstName_Txt.Text))
+                     && (LastName_Txt.Text == "" || f.LAST_NAME_DNRM.Contains(LastName_Txt.Text))
+                     && (NatlCode_Txt.Text == "" || f.NATL_CODE_DNRM.Contains(NatlCode_Txt.Text))
+                     && (FngrPrnt_Txt.Text == "" || f.FNGR_PRNT_DNRM.Contains(FngrPrnt_Txt.Text))
+                     && (CellPhon_Txt.Text == "" || f.CELL_PHON_DNRM.Contains(CellPhon_Txt.Text))
+                     && (TellPhon_Txt.Text == "" || f.TELL_PHON_DNRM.Contains(TellPhon_Txt.Text))
+                     && (ServNo_Txt.Text == "" || f.SERV_NO_DNRM.Contains(ServNo_Txt.Text))
+                     && (GlobCode_Txt.Text == "" || f.GLOB_CODE_DNRM.Contains(GlobCode_Txt.Text))
+                     && (BothSex_Rb.Checked || (f.SEX_TYPE_DNRM == (Men_Rb.Checked ? "001" : "002")))
+                     && (ClubCode == null || f.CLUB_CODE_DNRM == ClubCode)
+                     && (SuntCode == null || f.SUNT_CODE_DNRM == SuntCode)
+                     ).OrderByDescending(f => f.MBSP_END_DATE).Count();
+
+                  // تعداد رکورد اولیه (مثلاً همون مقدار NumericUpDown)
+                  int take = (int)FtchRows_Nud.Value;
+
                   FighBs.DataSource =
                      iScsc.Fighters.
                      Where(f =>
@@ -450,7 +479,17 @@ namespace System.Scsc.Ui.Common
                      && (ClubCode == null || f.CLUB_CODE_DNRM == ClubCode)
                      && (SuntCode == null || f.SUNT_CODE_DNRM == SuntCode)
                      ).OrderByDescending(f => f.MBSP_END_DATE)
-                     .Take((int)FtchRows_Nud.Value);
+                     .Take(take)
+                     .ToList();
+
+                  // به روز رسانی وضعیت
+                  currentSkip = take;
+
+                  // فعال/غیرفعال کردن دکمه بعدی
+                  LoadNextPage_Btn.Enabled = currentSkip < totalRecordsCount;
+
+                  allDataLoaded = false;
+                  LoadNextPage_Btn.Enabled = true;
 
                   // 1404/03/04
                   if (DataMngt_Rt.RolloutStatus)
@@ -467,6 +506,86 @@ namespace System.Scsc.Ui.Common
                   Search_Butn.Enabled = true;
                })
          );         
+      }
+
+      private void LoadNextPage_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            MbspBs.List.Clear();
+            ExpnAmnt_Txt.Text = PymtAmnt_Txt.Text = DscnAmnt_Txt.Text = "";
+
+            string SuntCode = "";
+            if (SuntCode_Lov.EditValue == null || SuntCode_Lov.Text == "")
+               SuntCode = null;
+            else
+               SuntCode = SuntCode_Lov.EditValue.ToString();
+
+            long? ClubCode = null;
+            if (ClubCode_Lov.EditValue == null || ClubCode_Lov.Text == "")
+               ClubCode = null;
+            else
+               ClubCode = (long?)ClubCode_Lov.EditValue;
+
+            if (allDataLoaded) return;
+
+            int take = (int)FtchRows_Nud.Value;
+
+            var nextPage =
+                     iScsc.Fighters.
+                     Where(f =>
+                        Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM)
+                     && (HasValuFngrPrnt_Cbx.Checked ? f.FNGR_PRNT_DNRM.Length >= 1 : (f.FNGR_PRNT_DNRM == null || f.FNGR_PRNT_DNRM.Trim().Length == 0))
+                     && f.CONF_STAT == "002"
+                     && f.FGPB_TYPE_DNRM != "003"
+                     && f.ACTV_TAG_DNRM == "101"
+                     && (FrstName_Txt.Text == "" || f.FRST_NAME_DNRM.Contains(FrstName_Txt.Text))
+                     && (LastName_Txt.Text == "" || f.LAST_NAME_DNRM.Contains(LastName_Txt.Text))
+                     && (NatlCode_Txt.Text == "" || f.NATL_CODE_DNRM.Contains(NatlCode_Txt.Text))
+                     && (FngrPrnt_Txt.Text == "" || f.FNGR_PRNT_DNRM.Contains(FngrPrnt_Txt.Text))
+                     && (CellPhon_Txt.Text == "" || f.CELL_PHON_DNRM.Contains(CellPhon_Txt.Text))
+                     && (TellPhon_Txt.Text == "" || f.TELL_PHON_DNRM.Contains(TellPhon_Txt.Text))
+                     && (ServNo_Txt.Text == "" || f.SERV_NO_DNRM.Contains(ServNo_Txt.Text))
+                     && (GlobCode_Txt.Text == "" || f.GLOB_CODE_DNRM.Contains(GlobCode_Txt.Text))
+                     && (BothSex_Rb.Checked || (f.SEX_TYPE_DNRM == (Men_Rb.Checked ? "001" : "002")))
+                     && (ClubCode == null || f.CLUB_CODE_DNRM == ClubCode)
+                     && (SuntCode == null || f.SUNT_CODE_DNRM == SuntCode)
+                     ).OrderByDescending(f => f.MBSP_END_DATE)
+                     .Skip(currentSkip)
+                     .Take(take)
+                     .ToList();
+
+            if(nextPage.Any())
+            {
+               // اضافه کردن به BindingSource موجود (بدون پاک کردن قبلی‌ها)
+               foreach (var fighter in nextPage)
+               {
+                  FighBs.Add(fighter);
+               }
+
+               Figh_Gc.RefreshDataSource();
+
+               currentSkip += nextPage.Count;
+
+               // بررسی اتمام داده‌ها
+               if (currentSkip >= totalRecordsCount)
+               {
+                  allDataLoaded = true;
+                  LoadNextPage_Btn.Enabled = false;
+                  //MessageBox.Show("تمام رکوردها بارگذاری شدند!", "پایان",
+                  //                MessageBoxButtons.OK, MessageBoxIcon.Information);
+               }
+            }
+            else
+            {
+               allDataLoaded = true;
+               LoadNextPage_Btn.Enabled = false;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
 
       private void vF_Last_Info_FighterResultBindingSource_CurrentChanged(object sender, EventArgs e)
@@ -3296,5 +3415,7 @@ namespace System.Scsc.Ui.Common
             MessageBox.Show(exc.Message);
          }
       }
+
+      
    }
 }

@@ -1492,6 +1492,10 @@ namespace System.Scsc.Ui.Notifications
                   );
                   break;
                case 1:
+                  if (_attn.EXIT_TIME != null) return;
+
+                  if (_attn.NUMB_OF_ATTN_MONT == _attn.SUM_ATTN_MONT_DNRM) { MessageBox.Show(this, "برای دوره فعلی دیگر جلسه آزادی وجودی ندارد که از آن برای همراهان استفاده کنید", "اتمام تعداد جلسات", MessageBoxButtons.OK, MessageBoxIcon.Stop); return; }
+
                   //var _dvipcode = _attn.Dresser_Attendances.FirstOrDefault(d => d.DRAT_CODE == null).DRES_CODE;
                   var _mbsp = _attn.Member_Ship;
 
@@ -1524,6 +1528,22 @@ namespace System.Scsc.Ui.Notifications
                   if(_freelockvip)
                      iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Lock_Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
                   iScsc.ExecuteCommand("INSERT INTO dbo.Dresser_Attendance (Dres_Code, Attn_Code, Figh_File_No, Code, Drat_Code, Ders_Numb, Lend_Time) SELECT {0}, {1}, {2}, 0, {4}, {3}, CAST(GETDATE() AS TIME(0)) WHERE NOT EXISTS (SELECT 0 FROM dbo.Dresser_Attendance WHERE Dres_Code = {0} AND Attn_Code = {1});", _dres.CODE, _attn.CODE, fileno, _dres.DRES_NUMB, _attn.Dresser_Attendances.FirstOrDefault(d => d.DRAT_CODE == null).CODE);
+                  
+                  // 1405/02/26 * کسر جلسه بابت کمد همراه
+                  iScsc.ExecuteCommand(
+                     string.Format(
+                        "UPDATE dbo.Attendance SET SUM_ATTN_MONT_DNRM += 1 WHERE CODE = {0};" + Environment.NewLine +
+                        "UPDATE ms SET ms.SUM_ATTN_MONT_DNRM += 1 FROM dbo.Member_Ship ms, dbo.Attendance a WHERE a.Code = {0} AND a.MBSP_RWNO_DNRM = ms.RWNO AND a.FIGH_FILE_NO = ms.FIGH_FILE_NO AND ms.RECT_CODE = '004';", 
+                     _attn.CODE)
+                  );
+
+                  iScsc.INS_LGOP_P(
+                     new XElement("Log",
+                           new XAttribute("fileno", _attn.FIGH_FILE_NO),
+                           new XAttribute("type", "011"),
+                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _attn.NAME_DNRM + " یک جلسه به صورت دستی بابت دستبند اضافه کم کرد")
+                     )
+                  );
                   break;
                default:
                   break;
@@ -1595,7 +1615,25 @@ namespace System.Scsc.Ui.Notifications
                   );
                   break;
                case 1:
-                  iScsc.ExecuteCommand("DELETE dbo.Dresser_Attendance WHERE Attn_Code = {0} AND Ders_Numb = '{0}';", _drat.ATTN_CODE, _drat.DERS_NUMB);
+                  if (_drat.Attendance.EXIT_TIME != null) return;
+
+                  iScsc.ExecuteCommand("DELETE dbo.Dresser_Attendance WHERE Attn_Code = {0} AND DERS_NUMB = {1};", _drat.ATTN_CODE, _drat.DERS_NUMB);
+
+                  // 1405/02/26 * کسر جلسه بابت کمد همراه
+                  iScsc.ExecuteCommand(
+                     string.Format(
+                        "UPDATE dbo.Attendance SET SUM_ATTN_MONT_DNRM -= 1 WHERE CODE = {0};" + Environment.NewLine +
+                        "UPDATE ms SET ms.SUM_ATTN_MONT_DNRM -= 1 FROM dbo.Member_Ship ms, dbo.Attendance a WHERE a.Code = {0} AND a.MBSP_RWNO_DNRM = ms.RWNO AND a.FIGH_FILE_NO = ms.FIGH_FILE_NO AND ms.RECT_CODE = '004';",
+                     _drat.ATTN_CODE)
+                  );
+
+                  iScsc.INS_LGOP_P(
+                     new XElement("Log",
+                           new XAttribute("fileno", _drat.FIGH_FILE_NO),
+                           new XAttribute("type", "012"),
+                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _drat.Attendance.NAME_DNRM + " برگشت یک جلسه به دوره مشتری به صورت دستی بابت حذف دستبند شماره " + _drat.Dresser.DRES_NUMB.ToString() + " انجام شد")
+                     )
+                  );
                   break;
                default:
                   break;
@@ -1630,8 +1668,13 @@ namespace System.Scsc.Ui.Notifications
                case 0:
                   if (!AtnwBs.List.OfType<Data.Attendance_Wrist>().Any(aw => aw.Fighter1.FNGR_PRNT_DNRM == WristBand_Txt.Text))
                   {
+                     // 1405/02/26 
+                     if (_attn.EXIT_TIME != null) return;
+
                      var _wrst = iScsc.Fighters.FirstOrDefault(w => w.FNGR_PRNT_DNRM == WristBand_Txt.Text);
                      if (_wrst == null) return;
+
+                     if (_attn.NUMB_OF_ATTN_MONT == _attn.SUM_ATTN_MONT_DNRM) { MessageBox.Show(this, "برای دوره فعلی دیگر جلسه آزادی وجودی ندارد که از آن برای همراهان استفاده کنید", "اتمام تعداد جلسات", MessageBoxButtons.OK, MessageBoxIcon.Stop); return; }
 
                      if (!AutoAddToList_Cbx.Checked && MessageBox.Show(this, "آیا با اضافه کردن دستبند به لیست موافق هستید؟", "عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
                      
@@ -1749,6 +1792,9 @@ namespace System.Scsc.Ui.Notifications
                   );
                   break;
                case 2:
+                  // 1405/02/26
+                  if (_atnw.Attendance.EXIT_TIME != null) return;
+
                   if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف دستبند", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
                   iScsc.ExecuteCommand(string.Format("DELETE dbo.Attendance_Wrist WHERE Code = {0};", _atnw.CODE));

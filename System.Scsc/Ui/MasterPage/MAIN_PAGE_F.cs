@@ -1522,18 +1522,18 @@ namespace System.Scsc.Ui.MasterPage
             if (devInfo.DEV_TYPE.In("009", "010"))
             {
                // Unlock
-               //server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
-               //   .ForEach(d =>
-               //   {
-               //      try
-               //      {
-               //         d.SendMessage(
-               //            cmndText
-               //         );
-               //      }
-               //      catch { }
-               //   }
-               //   );
+               server.ConnectedClients.Where(d => d.ConnectAddress == devName).ToList()
+                  .ForEach(d =>
+                  {
+                     try
+                     {
+                        d.SendMessage(
+                           cmndText
+                        );
+                     }
+                     catch { }
+                  }
+                  );
 
                Thread.Sleep(100);
 
@@ -1544,7 +1544,7 @@ namespace System.Scsc.Ui.MasterPage
                      try
                      {
                         d.SendMessage(
-                           enrollNumber.PadLeft(3, '0')
+                           enrollNumber.PadLeft(2, '0')
                         );
                      }
                      catch { }

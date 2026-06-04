@@ -179,7 +179,7 @@ namespace System.Scsc.Ui.Admission
             );
 
             // 1404/01/24 * Duplicate checking (CellPhon, NatlCode)
-            WhoCellPhon_ButtonClick(null, null);
+            WhoCellPhon_ButtonClick(CELL_PHON_TextEdit, null);
             if (FighsBs1.Count > 0) return;
             NATL_CODE_TextEdit_ButtonClick(null, null);
             if (FighsBs1.Count > 0) return;

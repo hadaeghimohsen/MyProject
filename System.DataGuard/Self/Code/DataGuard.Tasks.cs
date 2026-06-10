@@ -527,13 +527,16 @@ namespace System.DataGuard.Self.Code
 
          foreach (ManagementObject wmi in searcher.Get())
          {
-            try
-            {
-               job.Output = wmi.GetPropertyValue("Drive").ToString();
-               job.Status = StatusType.Successful;
-               return;
-            }
-            catch { }
+             try
+             {
+                job.Output = wmi.GetPropertyValue("Drive").ToString();
+                job.Status = StatusType.Successful;
+                return;
+             }
+             catch (Exception ex)
+             {
+                System.Diagnostics.Debug.WriteLine("DataGuard.GetDriveLetter: " + ex.Message);
+             }
          }
 
          job.Output = "CD ROM Drive Letter: Unknown";
@@ -555,16 +558,19 @@ namespace System.DataGuard.Self.Code
             try
             {
                job.Output = wmi.GetPropertyValue("Manufacturer").ToString();
-               job.Status = StatusType.Successful;
-               return;
-            }
-            catch { }
+                job.Status = StatusType.Successful;
+                return;
+             }
+             catch (Exception ex)
+             {
+                System.Diagnostics.Debug.WriteLine("DataGuard.GetBIOSmaker: " + ex.Message);
+             }
 
-         }
+          }
 
-         job.Output = "BIOS Maker: Unknown";
-         job.Status = StatusType.Failed;
-      }
+          job.Output = "BIOS Maker: Unknown";
+          job.Status = StatusType.Failed;
+       }
 
       /// <summary>
       /// Code 17
@@ -581,17 +587,19 @@ namespace System.DataGuard.Self.Code
             try
             {
                job.Output = wmi.GetPropertyValue("SerialNumber").ToString();
-               job.Status = StatusType.Successful;
-               return;
-            }
+                job.Status = StatusType.Successful;
+                return;
+             }
+             catch (Exception ex)
+             {
+                System.Diagnostics.Debug.WriteLine("DataGuard.GetBIOSserNo: " + ex.Message);
+             }
 
-            catch { }
+          }
 
-         }
-
-         job.Output = "BIOS Serial Number: Unknown";
-         job.Status = StatusType.Failed;
-      }
+          job.Output = "BIOS Serial Number: Unknown";
+          job.Status = StatusType.Failed;
+       }
 
       /// <summary>
       /// Code 18
@@ -607,16 +615,19 @@ namespace System.DataGuard.Self.Code
          {
             try
             {
-               job.Output = wmi.GetPropertyValue("Caption").ToString();
-               job.Status = StatusType.Successful;
-               return;
-            }
-            catch { }
-         }
+                job.Output = wmi.GetPropertyValue("Caption").ToString();
+                job.Status = StatusType.Successful;
+                return;
+             }
+             catch (Exception ex)
+             {
+                System.Diagnostics.Debug.WriteLine("DataGuard.GetBIOScaption: " + ex.Message);
+             }
+          }
 
-         job.Output = "BIOS Caption: Unknown";
-         job.Status = StatusType.Failed;
-      }
+          job.Output = "BIOS Caption: Unknown";
+          job.Status = StatusType.Failed;
+       }
 
       /// <summary>
       /// Code 19
@@ -631,15 +642,18 @@ namespace System.DataGuard.Self.Code
          {
             try
             {
-               job.Output = wmi.GetPropertyValue("Name").ToString();
-               job.Status = StatusType.Successful;
-               return;
-            }
-            catch { }
-         }
-         job.Output = "User Account Name: Unknown";
-         job.Status = StatusType.Failed;
-      }
+                job.Output = wmi.GetPropertyValue("Name").ToString();
+                job.Status = StatusType.Successful;
+                return;
+             }
+             catch (Exception ex)
+             {
+                System.Diagnostics.Debug.WriteLine("DataGuard.GetAccountName: " + ex.Message);
+             }
+          }
+          job.Output = "User Account Name: Unknown";
+          job.Status = StatusType.Failed;
+       }
 
       /// <summary>
       /// Code 20
@@ -799,19 +813,22 @@ namespace System.DataGuard.Self.Code
          {
             try
             {
-               job.Output = wmi.GetPropertyValue("Manufacturer").ToString();
-               job.Status = StatusType.Successful;
-               return;
-            }
+                job.Output = wmi.GetPropertyValue("Manufacturer").ToString();
+                job.Status = StatusType.Successful;
+                return;
+             }
 
-            catch { }
+             catch (Exception ex)
+             {
+                System.Diagnostics.Debug.WriteLine("DataGuard.GetBoardMaker: " + ex.Message);
+             }
 
-         }
+          }
 
-         job.Output = "Board Maker: Unknown";
-         job.Status = StatusType.Failed;
+          job.Output = "Board Maker: Unknown";
+          job.Status = StatusType.Failed;
 
-      }
+       }
 
       /// <summary>
       /// Code 26
@@ -829,18 +846,21 @@ namespace System.DataGuard.Self.Code
             {
                job.Output = wmi.GetPropertyValue("Product").ToString();
                job.Status = StatusType.Successful;
-               return;
+                return;
 
-            }
+             }
 
-            catch { }
+             catch (Exception ex)
+             {
+                System.Diagnostics.Debug.WriteLine("DataGuard.GetBoardProductId: " + ex.Message);
+             }
 
-         }
+          }
 
-         job.Output = "Product: Unknown";
-         job.Status = StatusType.Failed;
+          job.Output = "Product: Unknown";
+          job.Status = StatusType.Failed;
 
-      }
+       }
 
       /// <summary>
       /// Code 27
@@ -877,18 +897,21 @@ namespace System.DataGuard.Self.Code
             try
             {
                job.Output = wmi.GetPropertyValue("CurrentLanguage").ToString();
-               job.Status = StatusType.Successful;
-               return;
-            }
+                job.Status = StatusType.Successful;
+                return;
+             }
 
-            catch { }
+             catch (Exception ex)
+             {
+                System.Diagnostics.Debug.WriteLine("DataGuard.GetProcessorInfo: " + ex.Message);
+             }
 
-         }
+          }
 
-         job.Output = "BIOS Maker: Unknown";
-         job.Status = StatusType.Failed;
+          job.Output = "BIOS Maker: Unknown";
+          job.Status = StatusType.Failed;
 
-      }
+       }
 
       /// <summary>
       /// Code 29
@@ -901,16 +924,19 @@ namespace System.DataGuard.Self.Code
          foreach (ManagementObject wmi in searcher.Get())
          {
             try
-            {
-               job.Output = ((string)wmi["Caption"]).Trim() + ", " + (string)wmi["Version"] + ", " + (string)wmi["OSArchitecture"];
-               job.Status = StatusType.Successful;
-               return;
-            }
-            catch { }
-         }
-         job.Output = "BIOS Maker: Unknown";
-         job.Status = StatusType.Failed;
-      }
+             {
+                job.Output = ((string)wmi["Caption"]).Trim() + ", " + (string)wmi["Version"] + ", " + (string)wmi["OSArchitecture"];
+                job.Status = StatusType.Successful;
+                return;
+             }
+             catch (Exception ex)
+             {
+                System.Diagnostics.Debug.WriteLine("DataGuard.GetOSInformation: " + ex.Message);
+             }
+          }
+          job.Output = "BIOS Maker: Unknown";
+          job.Status = StatusType.Failed;
+       }
 
       /// <summary>
       /// Code 30

@@ -15,9 +15,9 @@ namespace MyProject.Programs.Ui
 {
    partial class Wall : ISendRequest
    {
-       public IRouter _DefaultGateway { get; set; }
-       private int dY = 0, dX = 0;
-       private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+      public IRouter _DefaultGateway { get; set; }
+      private int dY = 0, dX = 0;
+      private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
       public void SendRequest(Job job)
       {
@@ -131,12 +131,12 @@ namespace MyProject.Programs.Ui
                break;
             case "cntrhrz":
                if (InvokeRequired) Invoke(new Action(() => SetCenterHorizontal(uc, settings.Split(':'))));
-               else 
+               else
                   SetCenterHorizontal(uc, settings.Split(':'));
                break;
             case "cntrvrt":
                if (InvokeRequired) Invoke(new Action(() => SetCenterVertical(uc, settings.Split(':'))));
-               else 
+               else
                   SetCenterVertical(uc, settings.Split(':'));
                break;
 
@@ -152,7 +152,7 @@ namespace MyProject.Programs.Ui
       {
          UserControl obj = (UserControl)job.Input;
 
-         if(InvokeRequired)
+         if (InvokeRequired)
             Invoke(new Action<UserControl>(c =>
             {
                c.Dock = DockStyle.Fill;
@@ -204,10 +204,10 @@ namespace MyProject.Programs.Ui
             }
 
          }
-          catch (Exception ex)
-          {
-             Log.Warn("RemoveFromWall failed, retrying...", ex);
-             UserControl obj = (UserControl)job.Input;
+         catch (Exception ex)
+         {
+            Log.Warn("RemoveFromWall failed, retrying...", ex);
+            UserControl obj = (UserControl)job.Input;
             //obj.Dock = DockStyle.Fill;
             if (InvokeRequired)
                Invoke(new Action<UserControl>(c =>
@@ -484,25 +484,25 @@ namespace MyProject.Programs.Ui
 
             var _ui = new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control };
 
-             var crntobj = _ActiveUI.Peek().Ui;
+            var crntobj = _ActiveUI.Peek().Ui;
             if (crntobj == _ui.Ui)
             {
                job.Status = StatusType.Successful;
                return;
             }
 
-            if(_ActiveUI.Any(a => a.Name == _ui.Name))
+            if (_ActiveUI.Any(a => a.Name == _ui.Name))
             {
                var _tempList = _ActiveUI.ToList();
                int _index = _tempList.FindIndex(a => a.Name == _ui.Name);
 
-               if(_index != -1)
+               if (_index != -1)
                {
                   _tempList.RemoveAt(_index);
                   _tempList.Reverse();
                   _tempList.Add(_ui);
 
-                  _ActiveUI.Clear();                  
+                  _ActiveUI.Clear();
                   foreach (var ui in _tempList)
                   {
                      _ActiveUI.Push(ui);
@@ -524,35 +524,35 @@ namespace MyProject.Programs.Ui
             //_ActiveUI.Push(new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control });
             job.Status = StatusType.Successful;
          }
-          catch (Exception ex)
-          {
-             Log.Warn("Push failed on _ActiveUI stack.", ex);
-             job.Status = StatusType.Failed;
-          }
-       }
+         catch (Exception ex)
+         {
+            Log.Warn("Push failed on _ActiveUI stack.", ex);
+            job.Status = StatusType.Failed;
+         }
+      }
 
-       /// <summary>
-       /// Code 16
-       /// </summary>
+      /// <summary>
+      /// Code 16
+      /// </summary>
       /// <param name="job"></param>
-       private void Pop(Job job)
-       {
-          try
-          {
-              if (_ActiveUI.Count > 1)
-                 job.Output = _ActiveUI.Pop();
-             job.Status = StatusType.Successful;
-          }
-          catch (Exception ex)
-          {
-             Log.Warn("Pop failed on _ActiveUI stack.", ex);
-             job.Status = StatusType.Failed;
-          }
-       }
+      private void Pop(Job job)
+      {
+         try
+         {
+            if (_ActiveUI.Count > 1)
+               job.Output = _ActiveUI.Pop();
+            job.Status = StatusType.Successful;
+         }
+         catch (Exception ex)
+         {
+            Log.Warn("Pop failed on _ActiveUI stack.", ex);
+            job.Status = StatusType.Failed;
+         }
+      }
 
-        /// <summary>
-       /// Code 17
-       /// </summary>
+      /// <summary>
+      /// Code 17
+      /// </summary>
       /// <param name="job"></param>
       private void ResetUi(Job job)
       {
@@ -578,24 +578,24 @@ namespace MyProject.Programs.Ui
                   }));
                }
             }
-             job.Status = StatusType.Successful;
-          }
-           catch (Exception ex)
-           {
-              Log.Warn("ResetUi failed on _ActiveUI stack.", ex);
-              job.Status = StatusType.Failed;
-           }
-       }
+            job.Status = StatusType.Successful;
+         }
+         catch (Exception ex)
+         {
+            Log.Warn("ResetUi failed on _ActiveUI stack.", ex);
+            job.Status = StatusType.Failed;
+         }
+      }
 
-       /// <summary>
-       /// Code 18
-       /// </summary>
+      /// <summary>
+      /// Code 18
+      /// </summary>
       /// <param name="job"></param>
       private void SetTextOnTitleForm(Job job)
       {
          string input = job.Input as string;
 
-         Text = string.Format("کاربر جاری {0} می باشد ", 
+         Text = string.Format("کاربر جاری {0} می باشد ",
             //XElement.Parse(input).Descendants("UserEnName").First().Value,
             XElement.Parse(input).Descendants("UserFaName").First().Value);
          job.Status = StatusType.Successful;
@@ -661,11 +661,11 @@ namespace MyProject.Programs.Ui
             job.Output = _ActiveUI.Peek().Ui;
             job.Status = StatusType.Successful;
          }
-          catch (Exception ex)
-          {
-             Log.Warn("Peek failed on _ActiveUI stack.", ex);
-             job.Status = StatusType.Failed;
-          }
+         catch (Exception ex)
+         {
+            Log.Warn("Peek failed on _ActiveUI stack.", ex);
+            job.Status = StatusType.Failed;
+         }
       }
 
       #region Private Member
@@ -1070,7 +1070,7 @@ namespace MyProject.Programs.Ui
                uc.Anchor = AnchorStyles.Right;
                break;
          }
-         
+
          switch (size)
          {
             case "normal":

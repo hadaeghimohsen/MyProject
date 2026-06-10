@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.JobRouting.Routering;
 using System.JobRouting.Jobs;
+using log4net;
 using System.Windows.Forms;
 using System.Threading;
 using System.Drawing;
@@ -14,8 +15,9 @@ namespace MyProject.Programs.Ui
 {
    partial class Wall : ISendRequest
    {
-      public IRouter _DefaultGateway { get; set; }
-      private int dY = 0, dX = 0;
+       public IRouter _DefaultGateway { get; set; }
+       private int dY = 0, dX = 0;
+       private static readonly ILog Log = LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
 
       public void SendRequest(Job job)
       {
@@ -202,9 +204,10 @@ namespace MyProject.Programs.Ui
             }
 
          }
-         catch
-         {
-            UserControl obj = (UserControl)job.Input;
+          catch (Exception ex)
+          {
+             Log.Warn("RemoveFromWall failed, retrying...", ex);
+             UserControl obj = (UserControl)job.Input;
             //obj.Dock = DockStyle.Fill;
             if (InvokeRequired)
                Invoke(new Action<UserControl>(c =>
@@ -481,7 +484,7 @@ namespace MyProject.Programs.Ui
 
             var _ui = new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control };
 
-            var crntobj = _ActiveUI.FirstOrDefault().Ui;
+             var crntobj = _ActiveUI.Peek().Ui;
             if (crntobj == _ui.Ui)
             {
                job.Status = StatusType.Successful;
@@ -521,30 +524,35 @@ namespace MyProject.Programs.Ui
             //_ActiveUI.Push(new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control });
             job.Status = StatusType.Successful;
          }
-         catch
-         {
-            job.Status = StatusType.Failed;
-         }
-      }
+          catch (Exception ex)
+          {
+             Log.Warn("Push failed on _ActiveUI stack.", ex);
+             job.Status = StatusType.Failed;
+          }
+       }
 
-      /// <summary>
-      /// Code 16
-      /// </summary>
+       /// <summary>
+       /// Code 16
+       /// </summary>
       /// <param name="job"></param>
-      private void Pop(Job job)
-      {
-         try
-         {
-            if (_ActiveUI.Count >= 1)
-               job.Output = _ActiveUI.Pop();
-            job.Status = StatusType.Successful;
-         }
-         catch { job.Status = StatusType.Failed; }
-      }
+       private void Pop(Job job)
+       {
+          try
+          {
+              if (_ActiveUI.Count > 1)
+                 job.Output = _ActiveUI.Pop();
+             job.Status = StatusType.Successful;
+          }
+          catch (Exception ex)
+          {
+             Log.Warn("Pop failed on _ActiveUI stack.", ex);
+             job.Status = StatusType.Failed;
+          }
+       }
 
-      /// <summary>
-      /// Code 17
-      /// </summary>
+        /// <summary>
+       /// Code 17
+       /// </summary>
       /// <param name="job"></param>
       private void ResetUi(Job job)
       {
@@ -570,14 +578,18 @@ namespace MyProject.Programs.Ui
                   }));
                }
             }
-            job.Status = StatusType.Successful;
-         }
-         catch { job.Status = StatusType.Failed; }
-      }
+             job.Status = StatusType.Successful;
+          }
+           catch (Exception ex)
+           {
+              Log.Warn("ResetUi failed on _ActiveUI stack.", ex);
+              job.Status = StatusType.Failed;
+           }
+       }
 
-      /// <summary>
-      /// Code 18
-      /// </summary>
+       /// <summary>
+       /// Code 18
+       /// </summary>
       /// <param name="job"></param>
       private void SetTextOnTitleForm(Job job)
       {
@@ -649,10 +661,11 @@ namespace MyProject.Programs.Ui
             job.Output = _ActiveUI.Peek().Ui;
             job.Status = StatusType.Successful;
          }
-         catch
-         {
-            job.Status = StatusType.Failed;
-         }
+          catch (Exception ex)
+          {
+             Log.Warn("Peek failed on _ActiveUI stack.", ex);
+             job.Status = StatusType.Failed;
+          }
       }
 
       #region Private Member

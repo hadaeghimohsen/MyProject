@@ -84,7 +84,7 @@ namespace MyProject.Commons.LifeTime.Ui
       /// <param name="job"></param>
       private void Get(Job job)
       {
-         throw new NotImplementedException();
+         job.Status = StatusType.Failed;
       }
 
       /// <summary>
@@ -145,10 +145,11 @@ namespace MyProject.Commons.LifeTime.Ui
       {
          Func<string, string, string, string> UpdateXmlRedoLog = (docRedolog, docRole, textExplain) =>
          {
-            //var dsRedolog = XElement.Parse(docRedolog);
             var dsRole = XElement.Parse(docRole);
+            var roleName = dsRole.Descendants("RoleName").FirstOrDefault();
+            string roleNameValue = roleName != null ? roleName.Value : "Unknown";
 
-            return docRedolog = string.Format(docRedolog, string.Format(textExplain, dsRole.Descendants("RoleName").FirstOrDefault().Value));
+            return docRedolog = string.Format(docRedolog, string.Format(textExplain, roleNameValue));
          };
 
          int value = (int)job.Input;

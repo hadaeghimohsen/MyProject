@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.JobRouting.Routering;
+using System.JobRouting.Jobs;
 
 namespace MyProject.Commons.RedoLogs.Ui
 {
@@ -17,7 +18,7 @@ namespace MyProject.Commons.RedoLogs.Ui
 
       public void SendRequest(System.JobRouting.Jobs.Job job)
       {
-         throw new NotImplementedException();
+         job.Status = StatusType.Failed;
       }      
    }
 }

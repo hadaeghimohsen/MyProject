@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.JobRouting.Jobs;
 using System.Linq;
 using System.Text;
@@ -39,8 +40,12 @@ namespace MyProject.Commons.Form_Settings.Ui
 
       partial void b_commit_Click(object sender, EventArgs e)
       {
-         StringWriter sw = new StringWriter();
-         ds_form_report.WriteXml(sw);
+         string xmlContent;
+         using (StringWriter sw = new StringWriter())
+         {
+            ds_form_report.WriteXml(sw);
+            xmlContent = sw.ToString();
+         }
 
          _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",
@@ -90,7 +95,7 @@ namespace MyProject.Commons.Form_Settings.Ui
                                     true,
                                     false,
                                     "xml",
-                                    string.Format(@"<Request type=""SetCurrentFormReports"">{0}{1}</Request>", sw.ToString(), xdoc.ToString()),
+                                    string.Format(@"<Request type=""SetCurrentFormReports"">{0}{1}</Request>", xmlContent, xdoc.ToString()),
                                     "{ CALL Global.SetFormReport(?) }",
                                     "iProject",
                                     "scott"
@@ -145,7 +150,10 @@ namespace MyProject.Commons.Form_Settings.Ui
                                                    break;
                                              }
                                           }
-                                          catch { }
+                                           catch (Exception ex)
+                                           {
+                                              Debug.WriteLine("FRPT_STNG_F.RowRemove: " + ex.Message);
+                                           }
                                        }
                                  )
                               }

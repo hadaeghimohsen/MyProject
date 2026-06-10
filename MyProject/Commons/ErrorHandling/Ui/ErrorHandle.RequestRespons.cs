@@ -107,7 +107,7 @@ namespace MyProject.Commons.ErrorHandling.Ui
       /// <param name="job"></param>
       private void Get(Job job)
       {
-         throw new NotImplementedException();
+         job.Status = StatusType.Failed;
       }
 
       /// <summary>

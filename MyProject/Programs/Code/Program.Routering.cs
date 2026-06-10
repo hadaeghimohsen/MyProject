@@ -94,8 +94,8 @@ namespace MyProject.Programs.Code
                }
                break;
             case "GateControl":
-               if (_Setup != null)
-                  _Setup.Gateway(jobs);
+               if (_GateControl != null)
+                  _GateControl.Gateway(jobs);
                else
                {
                   //System.Windows.Forms.MessageBox.Show(_errorForNotInstallDll);

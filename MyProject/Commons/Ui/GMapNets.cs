@@ -1495,8 +1495,9 @@ namespace MyProject.Commons.Ui
                {
                     Invoke(m);
                }
-               catch(Exception)
+               catch(Exception ex)
                {
+                  Debug.WriteLine("GMapNets.OnMarkerEnter.Invoke: " + ex.Message);
                }
             }
          }

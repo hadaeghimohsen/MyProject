@@ -32,17 +32,20 @@ namespace MyProject.Commons.ChangeHandling.Ui
          Func<string, string> ChangeTagRoleName = (doc) =>
             {
                var datasource = XElement.Parse(doc);
-               datasource.Descendants("RoleName").FirstOrDefault().SetValue(te_titlefa.Text);
+               var roleName = datasource.Descendants("RoleName").FirstOrDefault();
+               if (roleName != null)
+                  roleName.SetValue(te_titlefa.Text);
                datasource.Add(new XElement("STitleFa", te_titlefa.Text.Trim()));
                return datasource.ToString();
             };
 
          Func<string, string, string> UpdateXmlRedoLog = (docRedolog, docRole) =>
             {
-               //var dsRedolog = XElement.Parse(docRedolog);
                var dsRole = XElement.Parse(docRole);
+               var roleName = dsRole.Descendants("RoleName").FirstOrDefault();
+               string roleNameValue = roleName != null ? roleName.Value : "Unknown";
 
-               return docRedolog = string.Format(docRedolog, string.Format("تغییر نام گروه دسترسی {0} به {1}", dsRole.Descendants("RoleName").FirstOrDefault().Value, te_titlefa.Text));               
+               return docRedolog = string.Format(docRedolog, string.Format("تغییر نام گروه دسترسی {0} به {1}", roleNameValue, te_titlefa.Text));               
             };
 
          Job _DoWork4Accept = new Job(SendType.External, "ChangeName",

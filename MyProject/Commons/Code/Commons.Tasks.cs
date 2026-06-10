@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -600,12 +601,9 @@ namespace MyProject.Commons.Code
             job.OwnerDefineWorkWith.AddRange(
                new List<Job>
                {
-                  //new Job(SendType.Self, 01 /* Execute GetUi */){Input = "adm_hrsr_f"},
-                  //new Job(SendType.SelfToUserInterface, "ADM_HRSR_F", 05 /* Execute CheckSecurity */),                  
                   new Job(SendType.SelfToUserInterface, "Shutdown", 02 /* Execute Set */),                  
                   new Job(SendType.SelfToUserInterface, "Shutdown", 07 /* Execute Load_Data */),
                   new Job(SendType.SelfToUserInterface, "Shutdown", 03 /* Execute Paint */),
-                  //new Job(SendType.SelfToUserInterface, "ADM_HRSR_F", 10 /* Execute Actn_CalF_P */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)
@@ -1104,11 +1102,12 @@ namespace MyProject.Commons.Code
                job.Output = pingStatus = (reply.Status == IPStatus.Success);
                job.Status = StatusType.Successful;
             }
-            catch (Exception)
-            {
-               job.Output = pingStatus = false;
-               job.Status = StatusType.Successful;
-            }
+             catch (Exception ex)
+             {
+                job.Output = pingStatus = false;
+                job.Status = StatusType.Successful;
+                Debug.WriteLine("DoWork4Ping: " + ex.Message);
+             }
          }
       }
 
@@ -1147,23 +1146,24 @@ namespace MyProject.Commons.Code
          byte[] plainTextBytes = Encoding.UTF8.GetBytes(plainText);
 
          byte[] keyBytes = new Rfc2898DeriveBytes(PasswordHash, Encoding.ASCII.GetBytes(SaltKey)).GetBytes(256 / 8);
-         var symmetricKey = new RijndaelManaged() { Mode = CipherMode.CBC, Padding = PaddingMode.Zeros };
-         var encryptor = symmetricKey.CreateEncryptor(keyBytes, Encoding.ASCII.GetBytes(VIKey));
 
-         byte[] cipherTextBytes;
-
-         using (var memoryStream = new MemoryStream())
+         using (var symmetricKey = new RijndaelManaged() { Mode = CipherMode.CBC, Padding = PaddingMode.Zeros })
          {
-            using (var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+            var encryptor = symmetricKey.CreateEncryptor(keyBytes, Encoding.ASCII.GetBytes(VIKey));
+
+            byte[] cipherTextBytes;
+
+            using (var memoryStream = new MemoryStream())
             {
-               cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
-               cryptoStream.FlushFinalBlock();
-               cipherTextBytes = memoryStream.ToArray();
-               cryptoStream.Close();
+               using (var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write))
+               {
+                  cryptoStream.Write(plainTextBytes, 0, plainTextBytes.Length);
+                  cryptoStream.FlushFinalBlock();
+                  cipherTextBytes = memoryStream.ToArray();
+               }
             }
-            memoryStream.Close();
+            job.Output = Convert.ToBase64String(cipherTextBytes);
          }
-         job.Output = Convert.ToBase64String(cipherTextBytes);
          job.Status = StatusType.Successful;
       }
 
@@ -1176,17 +1176,21 @@ namespace MyProject.Commons.Code
          string encryptedText = job.Input as string;
          byte[] cipherTextBytes = Convert.FromBase64String(encryptedText);
          byte[] keyBytes = new Rfc2898DeriveBytes(PasswordHash, Encoding.ASCII.GetBytes(SaltKey)).GetBytes(256 / 8);
-         var symmetricKey = new RijndaelManaged() { Mode = CipherMode.CBC, Padding = PaddingMode.None };
 
-         var decryptor = symmetricKey.CreateDecryptor(keyBytes, Encoding.ASCII.GetBytes(VIKey));
-         var memoryStream = new MemoryStream(cipherTextBytes);
-         var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
-         byte[] plainTextBytes = new byte[cipherTextBytes.Length];
+         using (var symmetricKey = new RijndaelManaged() { Mode = CipherMode.CBC, Padding = PaddingMode.None })
+         {
+            var decryptor = symmetricKey.CreateDecryptor(keyBytes, Encoding.ASCII.GetBytes(VIKey));
 
-         int decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
-         memoryStream.Close();
-         cryptoStream.Close();
-         job.Output = Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount).TrimEnd("\0".ToCharArray());
+            using (var memoryStream = new MemoryStream(cipherTextBytes))
+            {
+               using (var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read))
+               {
+                  byte[] plainTextBytes = new byte[cipherTextBytes.Length];
+                  int decryptedByteCount = cryptoStream.Read(plainTextBytes, 0, plainTextBytes.Length);
+                  job.Output = Encoding.UTF8.GetString(plainTextBytes, 0, decryptedByteCount).TrimEnd("\0".ToCharArray());
+               }
+            }
+         }
          job.Status = StatusType.Successful;
       }
       #endregion

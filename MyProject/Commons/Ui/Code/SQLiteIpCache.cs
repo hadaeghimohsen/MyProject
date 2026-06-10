@@ -197,9 +197,10 @@ namespace MyProject.Commons.Ui.Code
 #endif
                cn.Open();
                {
-                  using(DbCommand com = cn.CreateCommand())
-                  {
-                     com.CommandText = "SELECT * FROM Cache WHERE Ip = '" + ip + "'";
+                     using(DbCommand com = cn.CreateCommand())
+                     {
+                        com.CommandText = "SELECT * FROM Cache WHERE Ip = @p1";
+                        com.Parameters.Add(new SQLiteParameter("@p1", ip));
 
                      using(DbDataReader rd = com.ExecuteReader())
                      {

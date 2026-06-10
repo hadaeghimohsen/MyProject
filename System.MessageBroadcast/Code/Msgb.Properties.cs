@@ -31,6 +31,7 @@ namespace System.MessageBroadcast.Code
       private SmsService.Sms SmsClient; // Web Service Sms Call Company * Mr Vahaj
       private iNotiSmsService.iNotiSMS iNotiSmsClient; // Web Service iNoti Sms Company * Mr Marashi
       private IPPanelEdgeClient iPPanelEdgeClient; // Web Service IP Panel
+      private AsiaTechSmsClient AsiaTechClient; // Web Service AsiaTech SMS
       private XElement xHost;
       private bool _PingStatus;
       #endregion
@@ -38,92 +39,104 @@ namespace System.MessageBroadcast.Code
       #region Event Block
       void _CustBgwk_Tick(object sender, EventArgs e)
       {
-         try
+         var uiContext = System.Threading.SynchronizationContext.Current;
+         System.Threading.Tasks.Task.Run(() =>
          {
-            // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
-            // اولین گام بدست آوردن نام سیستم فعلی
-            if (xHost == null)
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost", "DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
-                  {
-                     AfterChangedOutput =
-                     new Action<object>((output) =>
+            try
+            {
+               // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
+               // اولین گام بدست آوردن نام سیستم فعلی
+               if (xHost == null)
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost", "DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
                      {
-                        xHost = output as XElement;
-                     })
-                  }
-               ); 
+                        AfterChangedOutput =
+                        new Action<object>((output) =>
+                        {
+                           xHost = output as XElement;
+                        })
+                     }
+                  ); 
 
-            _GetConnectionString();
-            var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
+               _GetConnectionString();
+               var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
 
-            // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
-            if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { _CustBgwk.Interval = 1000 * 60 * 10; return; }
+               // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
+               if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS)
+               {
+                  uiContext.Post(_ => _CustBgwk.Interval = 1000 * 60 * 10, null);
+                  return;
+               }
 
-            if (smsConf.Count(sms => sms.TYPE == "001" && sms.CUST_BGWK_STAT == "002") == 0)
-            {
-               _CustBgwk.Enabled = false;
-               _CustBgwk.Stop();
+               if (smsConf.Count(sms => sms.TYPE == "001" && sms.CUST_BGWK_STAT == "002") == 0)
+               {
+                  uiContext.Post(_ => { _CustBgwk.Enabled = false; _CustBgwk.Stop(); }, null);
+               }
+               else
+               {
+                  uiContext.Post(_ => _CustBgwk.Interval = (int)smsConf.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.CUST_BGWK_INTR), null);
+               }
+
+               if (SmsWorkerStat)
+               {
+                  iProject.PrepareSendCustSms(new XElement("Process", ""));
+               }
             }
-            else
+            catch (Exception ex)
             {
-               _CustBgwk.Interval = (int)smsConf.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.CUST_BGWK_INTR);
+               System.Diagnostics.Debug.WriteLine("Msgb._CustBgwk_Tick: " + ex.Message);
             }
-
-            if (SmsWorkerStat)
-            {
-               iProject.PrepareSendCustSms(new XElement("Process", ""));
-            }
-         }
-         catch {  }
+         });
       }
 
       void _SenderBgwk_Tick(object sender, EventArgs e)
       {
-         try
+         var uiContext = System.Threading.SynchronizationContext.Current;
+         System.Threading.Tasks.Task.Run(() =>
          {
-            // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
-            // اولین گام بدست آوردن نام سیستم فعلی
-            if(xHost == null)
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost", "DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
-                  {
-                     AfterChangedOutput =
-                     new Action<object>((output) =>
+            try
+            {
+               // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
+               // اولین گام بدست آوردن نام سیستم فعلی
+               if(xHost == null)
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost", "DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
                      {
-                        xHost = output as XElement;
-                     })
-                  }
-               );            
-
-            _GetConnectionString();
-            var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
-
-            // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
-            if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { _SenderBgwk.Interval = 1000 * 60 * 10; return; }
-
-            if(smsConf.Count(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002") == 0)
-            {
-               _SenderBgwk.Enabled = false;
-               _SenderBgwk.Stop();
-               return;
-            }
-            else
-            {
-               _SenderBgwk.Interval = (int)smsConf.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.BGWK_INTR);
-            }
-
-            // 1398/07/05 * بررسی اینکه آیا اینترنت برقرار می باشد یا خیر
-            #region Ping Network
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost", "Commons", 38 /* Execute DoWork4PingNetwork */, SendType.Self)
-               {
-                  Input = smsConf.FirstOrDefault().PING_IP_ADRS ?? "google.com",
-                  AfterChangedOutput = 
-                     new Action<object>(
-                        (pingStatus) =>
+                        AfterChangedOutput =
+                        new Action<object>((output) =>
                         {
-                           _PingStatus = (bool)pingStatus;
+                           xHost = output as XElement;
+                        })
+                     }
+                  );            
+
+               _GetConnectionString();
+               var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
+
+               // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
+               if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { uiContext.Post(_ => _SenderBgwk.Interval = 1000 * 60 * 10, null); return; }
+
+               if(smsConf.Count(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002") == 0)
+               {
+                  uiContext.Post(_ => { _SenderBgwk.Enabled = false; _SenderBgwk.Stop(); }, null);
+                  return;
+               }
+               else
+               {
+                  uiContext.Post(_ => _SenderBgwk.Interval = (int)smsConf.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.BGWK_INTR), null);
+               }
+
+               // 1398/07/05 * بررسی اینکه آیا اینترنت برقرار می باشد یا خیر
+               #region Ping Network
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "Commons", 38 /* Execute DoWork4PingNetwork */, SendType.Self)
+                  {
+                     Input = smsConf.FirstOrDefault().PING_IP_ADRS ?? "google.com",
+                     AfterChangedOutput = 
+                        new Action<object>(
+                           (pingStatus) =>
+                           {
+                              _PingStatus = (bool)pingStatus;
 
                            // نتیجه بررسی ارتباط اینترنتی
                            if(!(bool)pingStatus)
@@ -199,10 +212,15 @@ namespace System.MessageBroadcast.Code
                         if (iNotiSmsClient == null)
                            iNotiSmsClient = new iNotiSmsService.iNotiSMS();
                      }
-                     else if (smsConf.FirstOrDefault().SERV_TYPE == "004")
-                     {
-                        iPPanelEdgeClient = new IPPanelEdgeClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
-                     }
+                      else if (smsConf.FirstOrDefault().SERV_TYPE == "004")
+                      {
+                         iPPanelEdgeClient = new IPPanelEdgeClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
+                      }
+                      else if (smsConf.FirstOrDefault().SERV_TYPE == "005")
+                      {
+                         if (AsiaTechClient == null)
+                            AsiaTechClient = new AsiaTechSmsClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
+                      }
 
                      // Check Line Type is Active
                      if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == bulkSms.FirstOrDefault().LINE_TYPE && sc.BGWK_STAT == "002") == null) return;
@@ -226,6 +244,11 @@ namespace System.MessageBroadcast.Code
                      else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
                      {
                         // IPPanel
+                        SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value);
+                     }
+                     else if(smsConf.FirstOrDefault().SERV_TYPE == "005")
+                     {
+                        // AsiaTech
                         SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value);
                      }
 
@@ -305,26 +328,63 @@ namespace System.MessageBroadcast.Code
                            });                           
                         }
                      }
-                     else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
-                     {
-                        var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, bulkSms.Select(bs => bs.PHON_NUMB).ToArray(), bulkSms.FirstOrDefault().MSGB_TEXT));
-                        if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
-                           bulkSms.ToList().ForEach(bs => bs.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>());
-                        else
-                        {
-                           bulkSms.ToList()
-                           .ForEach(sms =>
-                           {
-                              sms.MESG_ID = "0";
-                              sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
-                              sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
-                           });
-                        }
-                     }
+                      else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+                      {
+                         var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, bulkSms.Select(bs => bs.PHON_NUMB).ToArray(), bulkSms.FirstOrDefault().MSGB_TEXT));
+                         if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
+                            bulkSms.ToList().ForEach(bs => bs.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>());
+                         else
+                         {
+                            bulkSms.ToList()
+                            .ForEach(sms =>
+                            {
+                               sms.MESG_ID = "0";
+                               sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
+                               sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
+                            });
+                         }
+                      }
+                      else if (smsConf.FirstOrDefault().SERV_TYPE == "005")
+                      {
+                         try
+                         {
+                            var json = AsiaTechClient.SendBulkSms(smsConf.FirstOrDefault().LINE_NUMB, bulkSms.FirstOrDefault().MSGB_TEXT, bulkSms.Select(bs => bs.PHON_NUMB).ToArray());
+                            var rslt = JObject.Parse(json);
+                            var msgIds = rslt["MessageIds"] as JArray;
+                            if (msgIds != null && msgIds.Count > 0)
+                            {
+                               int idx = 0;
+                               bulkSms.ToList().ForEach(bs =>
+                               {
+                                  bs.MESG_ID = msgIds[idx].Value<string>();
+                                  idx++;
+                               });
+                            }
+                            else
+                            {
+                               bulkSms.ToList().ForEach(sms =>
+                               {
+                                  sms.MESG_ID = "0";
+                                  sms.EROR_CODE = "-1";
+                                  sms.EROR_MESG = "Send Failed";
+                               });
+                            }
+                         }
+                         catch (Exception ex)
+                         {
+                            System.Diagnostics.Debug.WriteLine("AsiaTech.BulkSms: " + ex.Message);
+                            bulkSms.ToList().ForEach(sms =>
+                            {
+                               sms.MESG_ID = "0";
+                               sms.EROR_CODE = "-1";
+                               sms.EROR_MESG = ex.Message;
+                            });
+                         }
+                      }
 
-                     iProject.SubmitChanges();
+                      iProject.SubmitChanges();
 
-                     smsSendCount = bulkSms.Count();
+                      smsSendCount = bulkSms.Count();
                   }
                }
                #endregion
@@ -391,7 +451,10 @@ namespace System.MessageBroadcast.Code
                            }
                         );
                      }
-                     catch { }
+               catch (Exception ex)
+               {
+                  System.Diagnostics.Debug.WriteLine("Msgb._SenderBgwk_Tick.InternetConnected: " + ex.Message);
+               }
                      break;
                   }
                   #endregion
@@ -406,7 +469,10 @@ namespace System.MessageBroadcast.Code
                         }
                      );
                   }
-                  catch { }
+                    catch (Exception ex)
+                  {
+                     System.Diagnostics.Debug.WriteLine("Msgb._SenderBgwk_Tick.BulkSms.InternetConnected: " + ex.Message);
+                  }
 
                   if (SmsWorkerStat)
                   {
@@ -423,11 +489,16 @@ namespace System.MessageBroadcast.Code
                         if (iNotiSmsClient == null)
                            iNotiSmsClient = new iNotiSmsService.iNotiSMS();
                      }
-                     else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
-                     {
-                        if (iPPanelEdgeClient == null)
-                           iPPanelEdgeClient = new IPPanelEdgeClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
-                     }
+                      else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+                      {
+                         if (iPPanelEdgeClient == null)
+                            iPPanelEdgeClient = new IPPanelEdgeClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
+                      }
+                      else if(smsConf.FirstOrDefault().SERV_TYPE == "005")
+                      {
+                         if (AsiaTechClient == null)
+                            AsiaTechClient = new AsiaTechSmsClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
+                      }
 
                      // Check Line Type is Active
                      if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE && sc.BGWK_STAT == "002") == null) continue;
@@ -451,6 +522,11 @@ namespace System.MessageBroadcast.Code
                      else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
                      {
                         // IPPanel
+                        SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value);
+                     }
+                     else if(smsConf.FirstOrDefault().SERV_TYPE == "005")
+                     {
+                        // AsiaTech
                         SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value);
                      }
 
@@ -554,18 +630,43 @@ namespace System.MessageBroadcast.Code
 
                      ++smsSendCount;
                   }
-                  else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
-                  {
-                     var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, new List<string> { sms.PHON_NUMB }, sms.MSGB_TEXT));
-                     if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
-                        sms.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>();
-                     else
-                     {
-                        sms.MESG_ID = "0";
-                        sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
-                        sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
-                     }
-                  }
+                   else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+                   {
+                      var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, new List<string> { sms.PHON_NUMB }, sms.MSGB_TEXT));
+                      if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
+                         sms.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>();
+                      else
+                      {
+                         sms.MESG_ID = "0";
+                         sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
+                         sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
+                      }
+                   }
+                   else if (smsConf.FirstOrDefault().SERV_TYPE == "005")
+                   {
+                      try
+                      {
+                         var json = AsiaTechClient.SendSms(smsConf.FirstOrDefault().LINE_NUMB, sms.MSGB_TEXT, sms.PHON_NUMB);
+                         var arr = JArray.Parse(json);
+                         if (arr.Count > 0 && arr[0]["MessageId"] != null)
+                         {
+                            sms.MESG_ID = arr[0]["MessageId"].Value<string>();
+                         }
+                         else
+                         {
+                            sms.MESG_ID = "0";
+                            sms.EROR_CODE = "-1";
+                            sms.EROR_MESG = "Send Failed";
+                         }
+                      }
+                      catch (Exception ex)
+                      {
+                         System.Diagnostics.Debug.WriteLine("AsiaTech.SingleSms: " + ex.Message);
+                         sms.MESG_ID = "0";
+                         sms.EROR_CODE = "-1";
+                         sms.EROR_MESG = ex.Message;
+                      }
+                   }
                   else
                   {
                      break;
@@ -606,9 +707,12 @@ namespace System.MessageBroadcast.Code
                // مرحله بعدی ارسال درخواست برای ارسال پیام به مخاطبین
             }
          }
-         catch {}
-         finally {}
-      }
+          catch (Exception ex)
+          {
+             System.Diagnostics.Debug.WriteLine("Msgb._SenderBgwk_Tick: " + ex.Message);
+          }
+          });
+       }
       #endregion
 
       #region procedure
@@ -674,12 +778,18 @@ namespace System.MessageBroadcast.Code
                if (iNotiSmsClient == null)
                   iNotiSmsClient = new iNotiSmsService.iNotiSMS();
             }
-            else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
-            {
-               // IPPanel
-               if (iPPanelEdgeClient == null)
-                  iPPanelEdgeClient = new IPPanelEdgeClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
-            }
+             else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+             {
+                // IPPanel
+                if (iPPanelEdgeClient == null)
+                   iPPanelEdgeClient = new IPPanelEdgeClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
+             }
+             else if(smsConf.FirstOrDefault().SERV_TYPE == "005")
+             {
+                // AsiaTech
+                if (AsiaTechClient == null)
+                   AsiaTechClient = new AsiaTechSmsClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
+             }
 
             // 1398/06/08 * Sms Call Provider
             if (smsConf.FirstOrDefault().SERV_TYPE == "001")
@@ -724,6 +834,26 @@ namespace System.MessageBroadcast.Code
                         new XElement("SendCredit", iPPanelEdgeClient.GetCredit())
                      )
                   );
+            }
+            else if (smsConf.FirstOrDefault().SERV_TYPE == "005")
+            {
+               try
+               {
+                  var json = AsiaTechClient.GetUserInfo();
+                  var obj = JObject.Parse(json);
+                  var credit = obj["credit"] ?? obj["remainingCredit"] ?? obj["balance"] ?? "0";
+                  return
+                     new XDocument(
+                        new XElement("AsiaTech",
+                           new XElement("SendCredit", credit.ToString())
+                        )
+                     );
+               }
+               catch (Exception ex)
+               {
+                  System.Diagnostics.Debug.WriteLine("AsiaTech.GetUserInfo: " + ex.Message);
+                  return null;
+               }
             }
             return null;
             //return xoutput;

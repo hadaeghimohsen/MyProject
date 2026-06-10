@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Data;
 using System.Linq;
@@ -292,9 +293,9 @@ namespace MyProject.Commons.Ui
             }
             Second_Pic.Invalidate();
          }
-         catch (Exception )
+         catch (Exception ex)
          {
-
+            Debug.WriteLine("DateTimes.SetTime_Tmr_Tick: " + ex.Message);
          }
       }
    }

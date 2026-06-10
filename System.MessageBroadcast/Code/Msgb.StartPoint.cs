@@ -761,9 +761,156 @@ namespace System.MessageBroadcast.Code
             }
             catch { return null; }
          }
-         #endregion
-      }
+          #endregion
+       }
 
+      /// <summary>
+      /// Client for AsiaTech SMS API (OAuth2, RESTful)
+      /// https://smsapi.asiatech.ir
+      /// </summary>
+      public class AsiaTechSmsClient
+      {
+         private readonly string _baseUrl = "https://smsapi.asiatech.ir";
+         private readonly string _username;
+         private readonly string _password;
+         private readonly string _scope;
+         private string _token;
+         private DateTime _tokenExpiry;
+         private readonly JavaScriptSerializer _js = new JavaScriptSerializer() { MaxJsonLength = int.MaxValue };
+
+         public AsiaTechSmsClient(string username, string password, string scope = "ApiAccess")
+         {
+            _username = username;
+            _password = password;
+            _scope = scope;
+         }
+
+         private string GetToken()
+         {
+            if (!string.IsNullOrEmpty(_token) && DateTime.UtcNow < _tokenExpiry)
+               return _token;
+
+            var request = (HttpWebRequest)WebRequest.Create(_baseUrl + "/connect/token");
+            request.Method = "POST";
+            request.ContentType = "application/x-www-form-urlencoded";
+
+            string body = string.Format("username={0}&password={1}&scope={2}", 
+               Uri.EscapeDataString(_username), Uri.EscapeDataString(_password), Uri.EscapeDataString(_scope));
+            byte[] bytes = Encoding.UTF8.GetBytes(body);
+            request.ContentLength = bytes.Length;
+
+            using (var rs = request.GetRequestStream())
+            {
+               rs.Write(bytes, 0, bytes.Length);
+            }
+
+            try
+            {
+               using (var resp = (HttpWebResponse)request.GetResponse())
+               using (var sr = new StreamReader(resp.GetResponseStream(), Encoding.UTF8))
+               {
+                  string json = sr.ReadToEnd();
+                  var result = _js.DeserializeObject(json) as Dictionary<string, object>;
+                  _token = result["access_token"] as string;
+                  int expiresIn = Convert.ToInt32(result["expires_in"]);
+                  _tokenExpiry = DateTime.UtcNow.AddSeconds(expiresIn - 60);
+                  return _token;
+               }
+            }
+            catch (WebException ex)
+            {
+               if (ex.Response != null)
+               {
+                  using (var er = (HttpWebResponse)ex.Response)
+                  using (var sr = new StreamReader(er.GetResponseStream(), Encoding.UTF8))
+                  {
+                     string err = sr.ReadToEnd();
+                     System.Diagnostics.Debug.WriteLine("AsiaTech.GetToken: " + err);
+                  }
+               }
+               throw;
+            }
+         }
+
+         private string SendRequest(string relativePath, string method, object body, string scope = "ApiAccess")
+         {
+            string token = GetToken();
+            var req = (HttpWebRequest)WebRequest.Create(_baseUrl + relativePath);
+            req.Method = method;
+            req.ContentType = "application/json";
+            req.Headers["Authorization"] = "Bearer " + token;
+            req.Headers["Scope"] = scope;
+
+            if (body != null)
+            {
+               string json = _js.Serialize(body);
+               byte[] bytes = Encoding.UTF8.GetBytes(json);
+               req.ContentLength = bytes.Length;
+               using (var rs = req.GetRequestStream())
+               {
+                  rs.Write(bytes, 0, bytes.Length);
+               }
+            }
+
+            try
+            {
+               using (var resp = (HttpWebResponse)req.GetResponse())
+               using (var sr = new StreamReader(resp.GetResponseStream(), Encoding.UTF8))
+               {
+                  return sr.ReadToEnd();
+               }
+            }
+            catch (WebException ex)
+            {
+               if (ex.Response != null)
+               {
+                  using (var er = (HttpWebResponse)ex.Response)
+                  using (var sr = new StreamReader(er.GetResponseStream(), Encoding.UTF8))
+                  {
+                     string err = sr.ReadToEnd();
+                     System.Diagnostics.Debug.WriteLine("AsiaTech.SendRequest: " + err);
+                     return err;
+                  }
+               }
+               throw;
+            }
+         }
+
+         public string SendSms(string sourceAddress, string messageText, string destinationAddress)
+         {
+            var body = new[]
+            {
+               new
+               {
+                  SourceAddress = sourceAddress,
+                  MessageText = messageText,
+                  DestinationAddress = destinationAddress
+               }
+            };
+            return SendRequest("/api/message/send", "POST", body, "ApiAccess");
+         }
+
+         public string SendBulkSms(string sourceAddress, string messageText, string[] destinationAddresses)
+         {
+            var body = new
+            {
+               SourceAddress = sourceAddress,
+               MessageText = messageText,
+               DestinationAddress = destinationAddresses
+            };
+            return SendRequest("/api/message/bulk", "POST", body, "BulkApiAccess");
+         }
+
+         public string GetDeliveryStatus(string[] messageIds)
+         {
+            return SendRequest("/api/message/GetDLR", "POST", messageIds, "ApiAccess");
+         }
+
+         public string GetUserInfo()
+         {
+            return SendRequest("/api/user/UserInfo", "GET", null, "ApiAccess");
+         }
+      }
 
    }
 }

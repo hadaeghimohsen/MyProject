@@ -130,12 +130,15 @@ namespace System.MessageBroadcast.Code
                default:
                   break;
             }
-         }
-         catch { }
-         finally
-         {
-            iProject = new Data.iProjectDataContext(ConnectionString);
-         }
+          }
+          catch (Exception ex)
+          {
+             System.Diagnostics.Debug.WriteLine("Msgb.Tasks.Actn_Extr_P: " + ex.Message);
+          }
+          finally
+          {
+             iProject = new Data.iProjectDataContext(ConnectionString);
+          }
       }
 
       /// <summary>
@@ -219,15 +222,18 @@ namespace System.MessageBroadcast.Code
                      new XElement("Message",
                         rslt,
                         new XElement("Result",
-                           new XAttribute("code", "100"),
-                           "اطلاعات با موفقیت به شما برگشت داده شد")
-                     );
-            }
-            job.Status = StatusType.Successful;
+                            new XAttribute("code", "100"),
+                            "اطلاعات با موفقیت به شما برگشت داده شد")
+                      );
+             }
+             job.Status = StatusType.Successful;
 
-            iProject.SubmitChanges();
-         }
-         catch { }
+             iProject.SubmitChanges();
+          }
+          catch (Exception ex)
+          {
+             System.Diagnostics.Debug.WriteLine("Msgb.Tasks.Mesg_Chks_P: " + ex.Message);
+          }
       }
 
       /// <summary>
@@ -290,15 +296,18 @@ namespace System.MessageBroadcast.Code
                      new XElement("Message",
                         "بدون عملیات از سمت سرور",
                         new XElement("Result",
-                           new XAttribute("code", "100"),
-                           "اطلاعات با موفقیت به شما برگشت داده شد")
-                     );
-            }
-            job.Status = StatusType.Successful;
+                            new XAttribute("code", "100"),
+                            "اطلاعات با موفقیت به شما برگشت داده شد")
+                      );
+             }
+             job.Status = StatusType.Successful;
 
-            iProject.SubmitChanges();
-         }
-         catch { }
+             iProject.SubmitChanges();
+          }
+          catch (Exception ex)
+          {
+             System.Diagnostics.Debug.WriteLine("Msgb.Tasks.Mesg_Chks_P: " + ex.Message);
+          }
       }
 
       /// <summary>
@@ -360,15 +369,18 @@ namespace System.MessageBroadcast.Code
                      new XElement("Message",
                         "بدون عملیات از سمت سرور",
                         new XElement("Result",
-                           new XAttribute("code", "100"),
-                           "اطلاعات با موفقیت به شما برگشت داده شد")
-                     );
-            }
-            job.Status = StatusType.Successful;
+                            new XAttribute("code", "100"),
+                            "اطلاعات با موفقیت به شما برگشت داده شد")
+                      );
+             }
+             job.Status = StatusType.Successful;
 
-            iProject.SubmitChanges();
-         }
-         catch { }
+             iProject.SubmitChanges();
+          }
+          catch (Exception ex)
+          {
+             System.Diagnostics.Debug.WriteLine("Msgb.Tasks.Mesg_Chks_P: " + ex.Message);
+          }
       }
 
       /// <summary>

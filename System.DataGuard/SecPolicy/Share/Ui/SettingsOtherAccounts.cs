@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -292,9 +292,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             );
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally { 
             if(requery)
             {
@@ -322,9 +320,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             );
             requery = true;
          }
-         catch (Exception exc)
-         {            
-         }
+         catch { }
          finally
          {
             if(requery)
@@ -458,9 +454,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             );
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally
          {
             if(requery)
@@ -534,9 +528,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -591,9 +583,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -625,9 +615,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -662,9 +650,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -699,9 +685,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -736,9 +720,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -777,9 +759,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -811,9 +791,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -852,9 +830,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -889,9 +865,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -926,9 +900,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -987,9 +959,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch { }
          finally
          {
             if (requery)

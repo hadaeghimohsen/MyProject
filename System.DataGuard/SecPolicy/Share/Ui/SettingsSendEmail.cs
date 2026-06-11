@@ -31,8 +31,6 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          ImageAccount_Pb.Region = rg;
       }
 
-      private bool requery = false;
-
       private void Back_Butn_Click(object sender, EventArgs e)
       {
          _DefaultGateway.Gateway(

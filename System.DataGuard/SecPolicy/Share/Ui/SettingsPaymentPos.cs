@@ -236,8 +236,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
       #region Saman Pos Bank
       #region Variable
-      private PcPosFactory _PcPosFactory;
-      private TransactionType _TranType = TransactionType.Purchase;
+       private PcPosFactory _PcPosFactory;
       #endregion
       private void SamanPcPos()
       {
@@ -251,11 +250,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                _PcPosFactory = new PcPosFactory();
                _PcPosFactory.CardSwiped += SamanPosClient_CardSwiped;
                _PcPosFactory.PosResultReceived += SamanPosClient_PosResultReceived;
-            }
+             }
 
-            _TranType = TransactionType.Purchase;
-
-            switch (pos.POS_CNCT_TYPE)
+             switch (pos.POS_CNCT_TYPE)
             {
                case "001":
                   _PcPosFactory.SetCom(pos.COMM_PORT);
@@ -271,10 +268,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             if (posResult != null)
                SamanPosClient_CardSwiped(posResult);
          }
-         catch (Exception exc)
-         {
-            //MessageBox.Show(exc.Message);
-            PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
+          catch
+          {
+             PayResult_Lb.Appearance.Image = System.DataGuard.Properties.Resources.IMAGE_1577;
          }
       }
 
@@ -470,8 +466,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
       #region Mellat Pos Bank
       #region Variable
-      Transaction _MellatPcPos;
-      #endregion
+       #endregion
       private void MellatPcPos()
       {
          try

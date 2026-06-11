@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -169,10 +169,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             iProject.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch { }
          finally { if (requery) { Execute_Query(); requery = false; } }
       }
 
@@ -189,10 +186,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             iProject.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch { }
          finally { if (requery) { Execute_Query(); requery = false; } }
       }
 
@@ -270,10 +264,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             iProject.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch { }
          finally { if (requery) { Execute_Query(); requery = false; } }
       }
 
@@ -319,10 +310,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             iProject.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch { }
          finally { if (requery) { Execute_Query(); requery = false; } }
       }
 
@@ -390,10 +378,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             iProject.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch { }
          finally { if (requery) { Execute_Query(); requery = false; } }
       }
 
@@ -410,10 +395,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             iProject.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch { }
          finally { if (requery) { Execute_Query(); requery = false; } }
       }
    }

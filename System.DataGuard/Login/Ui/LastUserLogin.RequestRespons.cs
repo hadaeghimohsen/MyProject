@@ -14,8 +14,8 @@ namespace System.DataGuard.Login.Ui
    {
       public IRouter _DefaultGateway { get; set; }
       private string ConnectionString;
-      private Data.iProjectDataContext iProject;
-      private string CurrentUser;
+       private Data.iProjectDataContext iProject;
+
 
       public void SendRequest(Job job)
       {
@@ -111,8 +111,6 @@ namespace System.DataGuard.Login.Ui
          _DefaultGateway.Gateway(
             GetConnectionString
          );
-         
-         CurrentUser = "scott";
 
          ConnectionString = GetConnectionString.Output.ToString();
          iProject = new Data.iProjectDataContext(GetConnectionString.Output.ToString());

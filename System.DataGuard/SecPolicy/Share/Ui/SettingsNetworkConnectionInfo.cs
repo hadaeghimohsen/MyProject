@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -24,8 +24,6 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          InitializeComponent();
 
       }
-
-      private bool requery = false;
 
       private void Back_Butn_Click(object sender, EventArgs e)
       {
@@ -164,7 +162,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          try
          {
             var aud = AccessDatasourceBs.Current as Data.Access_User_Datasource;
-            if (aud == null || MessageBox.Show(this, "آیا با حذف ارتباط موافق هستید؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (aud == null || MessageBox.Show(this, "??? ?? ??? ?????? ????? ??????", "???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
 
             iProject.Access_User_Datasources.DeleteOnSubmit(aud);

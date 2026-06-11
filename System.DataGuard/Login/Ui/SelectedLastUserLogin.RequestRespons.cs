@@ -14,9 +14,8 @@ namespace System.DataGuard.Login.Ui
    {
       public IRouter _DefaultGateway { get; set; }
       private string ConnectionString;
-      private Data.iProjectDataContext iProject;
-      private string CurrentUser;
-      private Data.User SelectedUser;
+       private Data.iProjectDataContext iProject;
+       private Data.User SelectedUser;
       private XElement HostInfo;
 
       public void SendRequest(Job job)

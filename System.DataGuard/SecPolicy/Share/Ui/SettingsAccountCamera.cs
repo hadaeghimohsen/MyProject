@@ -22,8 +22,6 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       {
          InitializeComponent();
       }
-
-      private bool requery = false;
       private Capture capture;
       private CascadeClassifier cascadeClassifier;
 
@@ -118,10 +116,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      else
                         Pb_FaceZone.Image = imageFrame.Copy(newface).Convert<Rgba, byte>().ToBitmap();
                   }
-                  catch (Exception ex)
-                  {
-                     //LB_Result.Text = ex.Message;
-                  }
+                   catch { }
 
 
                   imageFrame.Draw(face, new Bgr(Color.Red), 1); //the detected face(s) is highlighted here using a box that is drawn around it/them

@@ -20,8 +20,6 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          Tb_Master.Dock = DockStyle.Fill;
       }
 
-      private bool requery = false;
-
       private void Back_Butn_Click(object sender, EventArgs e)
       {
          _DefaultGateway.Gateway(

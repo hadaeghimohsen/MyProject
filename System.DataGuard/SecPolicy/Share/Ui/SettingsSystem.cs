@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -264,10 +264,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                }
             }
          }
-         catch (Exception exc)
-         {
-            //MessageBox.Show(exc.Message);
-         }
+         catch { }
       }
 
       private void Emptydb_Butn_Click(object sender, EventArgs e)
@@ -297,10 +294,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             iProject.SubmitChanges();
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch { }
       }
 
       private void ClearSubSysDesc_Butn_Click(object sender, EventArgs e)
@@ -314,10 +308,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             iProject.SubmitChanges();
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch { }
       }
       #endregion
 
@@ -366,10 +357,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch { }
          finally
          {
             if (requery)
@@ -407,12 +395,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             UserGatewayBs.DataSource = iProject.User_Gateways.Where(ug => ug.USER_ID == user.ID && ug.VALD_TYPE == "002");
          }
-         catch (Exception exc)
-         {
+         catch
+          {
 
-            throw;
-         }
-      }
+             throw;
+          }
+       }
 
       private void SystemPackage_Lnk_Click(object sender, EventArgs e)
       {
@@ -472,10 +460,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             iProject.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch { }
          finally { if (requery) { Execute_Query(); requery = false; } }
       }
 
@@ -492,10 +477,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             iProject.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch { }
          finally { if (requery) { Execute_Query(); requery = false; } }
       }
 
@@ -510,12 +492,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             iProject.SubmitChanges();
          }
-         catch (Exception exc)
-         {
-            
-            throw;
-         }
-      }
+         catch
+          {
+             
+             throw;
+          }
+       }
 
       private void Ts_JobsStat_Toggled(object sender, EventArgs e)
       {
@@ -544,10 +526,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             iProject.UpdateSubSystem(subsys.SUB_SYS, subsys.STAT, subsys.INST_STAT, subsys.INST_DATE, subsys.LICN_TYPE, subsys.LICN_TRIL_DATE, subsys.CLNT_LICN_DESC, subsys.SRVR_LICN_DESC, subsys.SUB_DESC, subsys.JOBS_STAT, subsys.FREQ_INTR, subsys.VERS_NO, subsys.SUPR_YEAR_PRIC);
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch { }
       }
 
       private void SetSubSysJobs_Butn_Click(object sender, EventArgs e)
@@ -559,10 +538,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             iProject.UpdateSubSystem(subsys.SUB_SYS, subsys.STAT, subsys.INST_STAT, subsys.INST_DATE, subsys.LICN_TYPE, subsys.LICN_TRIL_DATE, subsys.CLNT_LICN_DESC, subsys.SRVR_LICN_DESC, subsys.SUB_DESC, subsys.JOBS_STAT, subsys.FREQ_INTR, subsys.VERS_NO, subsys.SUPR_YEAR_PRIC);
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch { }
       }
 
       private void InstallUninstallJobs_Butn_Click(object sender, EventArgs e)

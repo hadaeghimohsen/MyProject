@@ -23,8 +23,6 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          InitializeComponent();
       }
 
-      private bool requery = false;
-
       private void Back_Butn_Click(object sender, EventArgs e)
       {
          _DefaultGateway.Gateway(

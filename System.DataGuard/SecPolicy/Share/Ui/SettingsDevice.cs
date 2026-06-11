@@ -726,15 +726,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      ResBuf[RowLoop + ColLoop] = BmpBuf[BmpBuflen - RowLoop - width + ColLoop];
                   }
 
-                  RowLoop = RowLoop + width;
-               }
-            }
-            catch (Exception ex)
-            {
-               //ZKCE.SysException.ZKCELogger logger = new ZKCE.SysException.ZKCELogger(ex);
-               //logger.Append();
-            }
-         }
+                   RowLoop = RowLoop + width;
+                }
+             }
+             catch { }
+          }
 
          /*******************************************
          * ?�???��?�?StructToBytes       
@@ -778,12 +774,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   return GetBytes;
                }
             }
-            catch (Exception ex)
-            {
-               //ZKCE.SysException.ZKCELogger logger = new ZKCE.SysException.ZKCELogger(ex);
-               //logger.Append();
+            catch
+             {
 
-               return GetBytes;
+                return GetBytes;
             }
          }
 
@@ -862,11 +856,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   }
                }
             }
-            catch (Exception ex)
-            {
-               // ZKCE.SysException.ZKCELogger logger = new ZKCE.SysException.ZKCELogger(ex);
-               // logger.Append();
-            }
+            catch { }
          }
 
          /*******************************************
@@ -951,11 +941,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                FileStream.Close();
                TmpBinaryWriter.Close();
             }
-            catch (Exception ex)
-            {
-               //ZKCE.SysException.ZKCELogger logger = new ZKCE.SysException.ZKCELogger(ex);
-               //logger.Append();
-            }
+            catch { }
          }
       }
 
@@ -1159,10 +1145,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   iFngrSlav.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
                   Cursor = Cursors.WaitCursor;
-                  string sdwEnrollNumber = "";
-                  int idwTMachineNumber = 0;
-                  int idwEMachineNumber = 0;
-                  int idwVerifyMode = 0;
+                   string sdwEnrollNumber = "";
+                   int idwVerifyMode = 0;
                   int idwInOutMode = 0;
                   int idwYear = 0;
                   int idwMonth = 0;

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -35,317 +35,169 @@ namespace System.CRM.Ui.Cases
          );
       }
 
-      private void Execute_Query()
-      {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         DateTime StrtDate = DateTime.Now, EndDate = DateTime.Now;
-         switch (caseShow)
-         {
-            case "1":
-               CaseBs.List.Clear();
-               break;
-            case "2":
-               CaseBs.List.Clear();
-               break;
-            case "3":
-               CaseBs.List.Clear();
-               break;
-            case "4":
-               CaseBs.DataSource =
-                  iCRM.Cases.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       //&& c.Request_Row.Request.SSTT_CODE == 1
-                     );
-               break;
-            case "5":
-               switch (DateTime.Now.DayOfWeek)
-	            {
-                  case DayOfWeek.Saturday:                     
-                     break;
-                  case DayOfWeek.Sunday:
-                     StrtDate = DateTime.Now.AddDays(-1);
-                     break;
-                  case DayOfWeek.Monday:
-                     StrtDate = DateTime.Now.AddDays(-2);
-                     break;
-                  case DayOfWeek.Tuesday:
-                     StrtDate = DateTime.Now.AddDays(-3);
-                     break;
-                  case DayOfWeek.Wednesday:
-                     StrtDate = DateTime.Now.AddDays(-4);
-                     break;
-                  case DayOfWeek.Thursday:
-                     StrtDate = DateTime.Now.AddDays(-5);
-                     break;
-                  case DayOfWeek.Friday:
-                     StrtDate = DateTime.Now.AddDays(-6);
-                     break;
-                  default:
-                     break;
-	            }
-               CaseBs.DataSource =
-                  iCRM.Cases.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       //&& c.Request_Row.Request.SSTT_CODE == 1
-                       && (c.STAT == "007" || c.STAT == "008" || c.STAT == "011" || c.STAT == "012")
-                       && (c.CRET_DATE.Value.Date >= StrtDate)
-                     );
-               break;
-            case "6":
-               CaseBs.DataSource =
-                  iCRM.Cases.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       //&& c.Request_Row.Request.SSTT_CODE == 1
-                       && (c.STAT == "013" || c.STAT == "014")
-                       //&& (c.CRET_DATE.Value.Date >= StrtDate)
-                     );
-               break;
-            case "7":
-               switch (DateTime.Now.DayOfWeek)
-	            {
-                  case DayOfWeek.Saturday:                     
-                     break;
-                  case DayOfWeek.Sunday:
-                     StrtDate = DateTime.Now.AddDays(-1);
-                     break;
-                  case DayOfWeek.Monday:
-                     StrtDate = DateTime.Now.AddDays(-2);
-                     break;
-                  case DayOfWeek.Tuesday:
-                     StrtDate = DateTime.Now.AddDays(-3);
-                     break;
-                  case DayOfWeek.Wednesday:
-                     StrtDate = DateTime.Now.AddDays(-4);
-                     break;
-                  case DayOfWeek.Thursday:
-                     StrtDate = DateTime.Now.AddDays(-5);
-                     break;
-                  case DayOfWeek.Friday:
-                     StrtDate = DateTime.Now.AddDays(-6);
-                     break;
-                  default:
-                     break;
-	            }
-               CaseBs.DataSource =
-                  iCRM.Cases.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       //&& c.Request_Row.Request.SSTT_CODE == 1
-                       && c.Job_Personnel.USER_NAME == CurrentUser
-                       && (c.STAT == "013" || c.STAT == "014")
-                       && (c.CRET_DATE.Value.Date >= StrtDate)
-                     );
-               //switch (DateTime.Now.DayOfWeek)
-               //{
-               //   case DayOfWeek.Saturday:
-               //      StrtDate = DateTime.Now.AddDays(-7);
-               //      EndDate = DateTime.Now.AddDays(-1);
-               //      break;
-               //   case DayOfWeek.Sunday:
-               //      StrtDate = DateTime.Now.AddDays(-8);
-               //      EndDate = DateTime.Now.AddDays(-2);
-               //      break;
-               //   case DayOfWeek.Monday:
-               //      StrtDate = DateTime.Now.AddDays(-9);
-               //      EndDate = DateTime.Now.AddDays(-3);
-               //      break;
-               //   case DayOfWeek.Tuesday:
-               //      StrtDate = DateTime.Now.AddDays(-10);
-               //      EndDate = DateTime.Now.AddDays(-4);
-               //      break;
-               //   case DayOfWeek.Wednesday:
-               //      StrtDate = DateTime.Now.AddDays(-11);
-               //      EndDate = DateTime.Now.AddDays(-5);
-               //      break;
-               //   case DayOfWeek.Thursday:
-               //      StrtDate = DateTime.Now.AddDays(-12);
-               //      EndDate = DateTime.Now.AddDays(-6);
-               //      break;
-               //   case DayOfWeek.Friday:
-               //      StrtDate = DateTime.Now.AddDays(-13);
-               //      EndDate = DateTime.Now.AddDays(-7);
-               //      break;
-               //   default:
-               //      break;
-               //}
-               //CaseBs.DataSource =
-               //   iCRM.Leads.Where(
-               //      l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
-               //        && l.Request_Row.Request.RQST_STAT != "003"
-               //        && l.Request_Row.Request.SSTT_CODE == 1
-               //        && (l.STAT != "009" && l.STAT != "010")
-               //        && (l.CRET_DATE.Value.Date >= StrtDate)
-               //        && (l.CRET_DATE.Value.Date <= EndDate)
-               //      );
+      private async void Execute_Query()
+       {
+          var _caseShow = caseShow;
+          var _compcode = compcode;
+          var _currentUser = CurrentUser;
 
-               break;
-            case "8":
-               switch (DateTime.Now.DayOfWeek)
-	            {
-                  case DayOfWeek.Saturday:                     
-                     break;
-                  case DayOfWeek.Sunday:
-                     StrtDate = DateTime.Now.AddDays(-1);
-                     break;
-                  case DayOfWeek.Monday:
-                     StrtDate = DateTime.Now.AddDays(-2);
-                     break;
-                  case DayOfWeek.Tuesday:
-                     StrtDate = DateTime.Now.AddDays(-3);
-                     break;
-                  case DayOfWeek.Wednesday:
-                     StrtDate = DateTime.Now.AddDays(-4);
-                     break;
-                  case DayOfWeek.Thursday:
-                     StrtDate = DateTime.Now.AddDays(-5);
-                     break;
-                  case DayOfWeek.Friday:
-                     StrtDate = DateTime.Now.AddDays(-6);
-                     break;
-                  default:
-                     break;
-	            }
-               CaseBs.DataSource =
-                  iCRM.Cases.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       //&& c.Request_Row.Request.SSTT_CODE == 1
-                       //&& c.Job_Personnel.USER_NAME == CurrentUser
-                       && (c.STAT == "013" || c.STAT == "014")
-                       && (c.CRET_DATE.Value.Date >= StrtDate)
-                     );
-               break;
-            case "9":
-               CaseBs.DataSource =
-                  iCRM.Cases.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       //&& c.Request_Row.Request.SSTT_CODE == 1
-                       && c.Job_Personnel.USER_NAME == CurrentUser
-                       && (c.STAT == "013" || c.STAT == "014")
-                       //&& (c.CRET_DATE.Value.Date >= StrtDate)
-                     );
-               break;
-            case "10":
-               CaseBs.List.Clear();
+          List<Data.Case> result = null;
+          bool clearList = false;
 
-               break;
-            case "11":
-               CaseBs.DataSource =
-                  iCRM.Cases.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       //&& c.Request_Row.Request.SSTT_CODE == 1
-                       //&& c.Job_Personnel.USER_NAME == CurrentUser
-                       && (c.STAT == "007" || c.STAT == "008" || c.STAT == "011" || c.STAT == "012")
-                       //&& (c.CRET_DATE.Value.Date >= StrtDate)
-                     );
-               break;
-            case "12":
-               CaseBs.List.Clear();
-               break;
-            case "13":
-               switch (DateTime.Now.DayOfWeek)
-	            {
-                  case DayOfWeek.Saturday:                     
-                     break;
-                  case DayOfWeek.Sunday:
-                     StrtDate = DateTime.Now.AddDays(-1);
-                     break;
-                  case DayOfWeek.Monday:
-                     StrtDate = DateTime.Now.AddDays(-2);
-                     break;
-                  case DayOfWeek.Tuesday:
-                     StrtDate = DateTime.Now.AddDays(-3);
-                     break;
-                  case DayOfWeek.Wednesday:
-                     StrtDate = DateTime.Now.AddDays(-4);
-                     break;
-                  case DayOfWeek.Thursday:
-                     StrtDate = DateTime.Now.AddDays(-5);
-                     break;
-                  case DayOfWeek.Friday:
-                     StrtDate = DateTime.Now.AddDays(-6);
-                     break;
-                  default:
-                     break;
-	            }
-               CaseBs.DataSource =
-                  iCRM.Cases.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       //&& c.Request_Row.Request.SSTT_CODE == 1
-                       //&& c.Job_Personnel.USER_NAME == CurrentUser
-                       && (c.STAT == "007" || c.STAT == "008" || c.STAT == "011" || c.STAT == "012")
-                       && (c.CRET_DATE.Value.Date >= StrtDate)
-                     );
-               break;
-            case "14":
-               switch (DateTime.Now.DayOfWeek)
-	            {
-                  case DayOfWeek.Saturday:                     
-                     break;
-                  case DayOfWeek.Sunday:
-                     StrtDate = DateTime.Now.AddDays(-1);
-                     break;
-                  case DayOfWeek.Monday:
-                     StrtDate = DateTime.Now.AddDays(-2);
-                     break;
-                  case DayOfWeek.Tuesday:
-                     StrtDate = DateTime.Now.AddDays(-3);
-                     break;
-                  case DayOfWeek.Wednesday:
-                     StrtDate = DateTime.Now.AddDays(-4);
-                     break;
-                  case DayOfWeek.Thursday:
-                     StrtDate = DateTime.Now.AddDays(-5);
-                     break;
-                  case DayOfWeek.Friday:
-                     StrtDate = DateTime.Now.AddDays(-6);
-                     break;
-                  default:
-                     break;
-	            }
-               CaseBs.DataSource =
-                  iCRM.Cases.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       //&& c.Request_Row.Request.SSTT_CODE == 1
-                       && c.Job_Personnel.USER_NAME == CurrentUser
-                       && (c.STAT == "007" || c.STAT == "008" || c.STAT == "011" || c.STAT == "012")
-                       && (c.CRET_DATE.Value.Date >= StrtDate)
-                     );
-               break;
-            case "15":
-               CaseBs.DataSource =
-                  iCRM.Cases.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       //&& c.Request_Row.Request.SSTT_CODE == 1
-                       && c.Job_Personnel.USER_NAME == CurrentUser
-                       && (c.STAT == "007" || c.STAT == "008" || c.STAT == "011" || c.STAT == "012")
-                       //&& (c.CRET_DATE.Value.Date >= StrtDate)
-                     );
-               break;
-            case "16":
-               CaseBs.List.Clear();
-               break;
-            case "17":
-               CaseBs.DataSource =
-                  iCRM.Cases.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       //&& c.Request_Row.Request.SSTT_CODE == 1
-                       //&& c.Job_Personnel.USER_NAME == CurrentUser
-                       //&& (c.STAT == "007" || c.STAT == "008" || c.STAT == "011" || c.STAT == "012")
-                       //&& (c.CRET_DATE.Value.Date >= StrtDate)
-                     );
-               break;
-         }         
-      }
+          switch (_caseShow)
+          {
+             case "1":
+             case "2":
+             case "3":
+             case "10":
+             case "12":
+             case "16":
+                clearList = true;
+                break;
+          }
+
+          if (!clearList)
+          {
+             result = await Task.Run(() =>
+             {
+                DateTime StrtDate = DateTime.Now;
+                using (var db = new Data.iCRMDataContext(ConnectionString))
+                {
+                   switch (_caseShow)
+                   {
+                      case "4":
+                         return db.Cases.Where(
+                            c => (c.COMP_CODE ?? 0) == (_compcode != 0 ? _compcode : (c.COMP_CODE ?? 0))
+                              && c.Request_Row.Request.RQST_STAT != "003"
+                            ).ToList();
+                      case "5":
+                         switch (DateTime.Now.DayOfWeek)
+                         {
+                            case DayOfWeek.Sunday: StrtDate = DateTime.Now.AddDays(-1); break;
+                            case DayOfWeek.Monday: StrtDate = DateTime.Now.AddDays(-2); break;
+                            case DayOfWeek.Tuesday: StrtDate = DateTime.Now.AddDays(-3); break;
+                            case DayOfWeek.Wednesday: StrtDate = DateTime.Now.AddDays(-4); break;
+                            case DayOfWeek.Thursday: StrtDate = DateTime.Now.AddDays(-5); break;
+                            case DayOfWeek.Friday: StrtDate = DateTime.Now.AddDays(-6); break;
+                         }
+                         return db.Cases.Where(
+                            c => (c.COMP_CODE ?? 0) == (_compcode != 0 ? _compcode : (c.COMP_CODE ?? 0))
+                              && c.Request_Row.Request.RQST_STAT != "003"
+                              && (c.STAT == "007" || c.STAT == "008" || c.STAT == "011" || c.STAT == "012")
+                              && (c.CRET_DATE.Value.Date >= StrtDate)
+                            ).ToList();
+                      case "6":
+                         return db.Cases.Where(
+                            c => (c.COMP_CODE ?? 0) == (_compcode != 0 ? _compcode : (c.COMP_CODE ?? 0))
+                              && c.Request_Row.Request.RQST_STAT != "003"
+                              && (c.STAT == "013" || c.STAT == "014")
+                            ).ToList();
+                      case "7":
+                         switch (DateTime.Now.DayOfWeek)
+                         {
+                            case DayOfWeek.Sunday: StrtDate = DateTime.Now.AddDays(-1); break;
+                            case DayOfWeek.Monday: StrtDate = DateTime.Now.AddDays(-2); break;
+                            case DayOfWeek.Tuesday: StrtDate = DateTime.Now.AddDays(-3); break;
+                            case DayOfWeek.Wednesday: StrtDate = DateTime.Now.AddDays(-4); break;
+                            case DayOfWeek.Thursday: StrtDate = DateTime.Now.AddDays(-5); break;
+                            case DayOfWeek.Friday: StrtDate = DateTime.Now.AddDays(-6); break;
+                         }
+                         return db.Cases.Where(
+                            c => (c.COMP_CODE ?? 0) == (_compcode != 0 ? _compcode : (c.COMP_CODE ?? 0))
+                              && c.Request_Row.Request.RQST_STAT != "003"
+                              && c.Job_Personnel.USER_NAME == _currentUser
+                              && (c.STAT == "013" || c.STAT == "014")
+                              && (c.CRET_DATE.Value.Date >= StrtDate)
+                            ).ToList();
+                      case "8":
+                         switch (DateTime.Now.DayOfWeek)
+                         {
+                            case DayOfWeek.Sunday: StrtDate = DateTime.Now.AddDays(-1); break;
+                            case DayOfWeek.Monday: StrtDate = DateTime.Now.AddDays(-2); break;
+                            case DayOfWeek.Tuesday: StrtDate = DateTime.Now.AddDays(-3); break;
+                            case DayOfWeek.Wednesday: StrtDate = DateTime.Now.AddDays(-4); break;
+                            case DayOfWeek.Thursday: StrtDate = DateTime.Now.AddDays(-5); break;
+                            case DayOfWeek.Friday: StrtDate = DateTime.Now.AddDays(-6); break;
+                         }
+                         return db.Cases.Where(
+                            c => (c.COMP_CODE ?? 0) == (_compcode != 0 ? _compcode : (c.COMP_CODE ?? 0))
+                              && c.Request_Row.Request.RQST_STAT != "003"
+                              && (c.STAT == "013" || c.STAT == "014")
+                              && (c.CRET_DATE.Value.Date >= StrtDate)
+                            ).ToList();
+                      case "9":
+                         return db.Cases.Where(
+                            c => (c.COMP_CODE ?? 0) == (_compcode != 0 ? _compcode : (c.COMP_CODE ?? 0))
+                              && c.Request_Row.Request.RQST_STAT != "003"
+                              && c.Job_Personnel.USER_NAME == _currentUser
+                              && (c.STAT == "013" || c.STAT == "014")
+                            ).ToList();
+                      case "11":
+                         return db.Cases.Where(
+                            c => (c.COMP_CODE ?? 0) == (_compcode != 0 ? _compcode : (c.COMP_CODE ?? 0))
+                              && c.Request_Row.Request.RQST_STAT != "003"
+                              && (c.STAT == "007" || c.STAT == "008" || c.STAT == "011" || c.STAT == "012")
+                            ).ToList();
+                      case "13":
+                         switch (DateTime.Now.DayOfWeek)
+                         {
+                            case DayOfWeek.Sunday: StrtDate = DateTime.Now.AddDays(-1); break;
+                            case DayOfWeek.Monday: StrtDate = DateTime.Now.AddDays(-2); break;
+                            case DayOfWeek.Tuesday: StrtDate = DateTime.Now.AddDays(-3); break;
+                            case DayOfWeek.Wednesday: StrtDate = DateTime.Now.AddDays(-4); break;
+                            case DayOfWeek.Thursday: StrtDate = DateTime.Now.AddDays(-5); break;
+                            case DayOfWeek.Friday: StrtDate = DateTime.Now.AddDays(-6); break;
+                         }
+                         return db.Cases.Where(
+                            c => (c.COMP_CODE ?? 0) == (_compcode != 0 ? _compcode : (c.COMP_CODE ?? 0))
+                              && c.Request_Row.Request.RQST_STAT != "003"
+                              && (c.STAT == "007" || c.STAT == "008" || c.STAT == "011" || c.STAT == "012")
+                              && (c.CRET_DATE.Value.Date >= StrtDate)
+                            ).ToList();
+                      case "14":
+                         switch (DateTime.Now.DayOfWeek)
+                         {
+                            case DayOfWeek.Sunday: StrtDate = DateTime.Now.AddDays(-1); break;
+                            case DayOfWeek.Monday: StrtDate = DateTime.Now.AddDays(-2); break;
+                            case DayOfWeek.Tuesday: StrtDate = DateTime.Now.AddDays(-3); break;
+                            case DayOfWeek.Wednesday: StrtDate = DateTime.Now.AddDays(-4); break;
+                            case DayOfWeek.Thursday: StrtDate = DateTime.Now.AddDays(-5); break;
+                            case DayOfWeek.Friday: StrtDate = DateTime.Now.AddDays(-6); break;
+                         }
+                         return db.Cases.Where(
+                            c => (c.COMP_CODE ?? 0) == (_compcode != 0 ? _compcode : (c.COMP_CODE ?? 0))
+                              && c.Request_Row.Request.RQST_STAT != "003"
+                              && c.Job_Personnel.USER_NAME == _currentUser
+                              && (c.STAT == "007" || c.STAT == "008" || c.STAT == "011" || c.STAT == "012")
+                              && (c.CRET_DATE.Value.Date >= StrtDate)
+                            ).ToList();
+                      case "15":
+                         return db.Cases.Where(
+                            c => (c.COMP_CODE ?? 0) == (_compcode != 0 ? _compcode : (c.COMP_CODE ?? 0))
+                              && c.Request_Row.Request.RQST_STAT != "003"
+                              && c.Job_Personnel.USER_NAME == _currentUser
+                              && (c.STAT == "007" || c.STAT == "008" || c.STAT == "011" || c.STAT == "012")
+                            ).ToList();
+                      case "17":
+                         return db.Cases.Where(
+                            c => (c.COMP_CODE ?? 0) == (_compcode != 0 ? _compcode : (c.COMP_CODE ?? 0))
+                              && c.Request_Row.Request.RQST_STAT != "003"
+                            ).ToList();
+                      default:
+                         return null;
+                   }
+                }
+             });
+          }
+
+          iCRM = new Data.iCRMDataContext(ConnectionString);
+
+          if (result == null || clearList)
+             CaseBs.List.Clear();
+          else
+             CaseBs.DataSource = result;
+       }
+
 
 
       #region Mouse Click

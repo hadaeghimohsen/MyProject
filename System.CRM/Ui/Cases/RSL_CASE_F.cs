@@ -36,18 +36,24 @@ namespace System.CRM.Ui.Cases
          );
       }
 
-      private void Execute_Query()
-      {
-         try
-         {
-            iCRM = new Data.iCRMDataContext(ConnectionString);
-
-            CaseBs.DataSource = iCRM.Cases.Where(c => c.CSID == csid);            
-
-            requery = false;
-         }
-         catch { }
-      }      
+      private async void Execute_Query()
+       {
+          try
+          {
+             var _csid = csid;
+             var data = await Task.Run(() =>
+             {
+                using (var db = new Data.iCRMDataContext(ConnectionString))
+                {
+                   return db.Cases.Where(c => c.CSID == _csid).ToList();
+                }
+             });
+             iCRM = new Data.iCRMDataContext(ConnectionString);
+             CaseBs.DataSource = data;
+             requery = false;
+          }
+          catch { }
+       }
 
       private void SubmitChange_Butn_Click(object sender, EventArgs e)
       {

@@ -34,16 +34,22 @@ namespace System.CRM.Ui.CampaignActivity
          );
       }
 
-      private void Execute_Query()
-      {
-         try
-         {
-            CamaBs.DataSource = iCRM.Campaign_Activities;
-               
-            requery = false;
-         }
-         catch { }         
-      }
+      private async void Execute_Query()
+       {
+          try
+          {
+             var data = await Task.Run(() =>
+             {
+                using (var db = new Data.iCRMDataContext(ConnectionString))
+                {
+                   return db.Campaign_Activities.ToList();
+                }
+             });
+             CamaBs.DataSource = data;
+             requery = false;
+          }
+          catch { }         
+       }
 
       #region Menu
       private void New_Butn_Click(object sender, EventArgs e)

@@ -33,38 +33,56 @@ namespace System.CRM.Ui.CampaignQuick
          );
       }
 
-      private void Execute_Query()
-      {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
+      private async void Execute_Query()
+       {
+          var _mkltcode = mkltcode;
+          var _camqcode = camqcode;
+          var _currentUser = CurrentUser;
 
-         LstMkltBs.DataSource = iCRM.Marketing_Lists.Where(m => m.MLID == mkltcode);
+          var data = await Task.Run(() =>
+          {
+             using (var db = new Data.iCRMDataContext(ConnectionString))
+             {
+                var mkltList = db.Marketing_Lists.Where(m => m.MLID == _mkltcode).ToList();
+                if (_camqcode != null)
+                {
+                   return new { MkltList = mkltList, CamqList = (object)db.Campaign_Quicks.Where(c => c.QCID == _camqcode).ToList(), JobpList = (object)null, IsNew = false };
+                }
+                else
+                {
+                   return new { MkltList = mkltList, CamqList = (object)null, JobpList = (object)db.Job_Personnels.Where(o => o.STAT == "002").ToList(), IsNew = true };
+                }
+             }
+          });
 
-         if (camqcode != null)
-         {
-            int camq = CamqBs.Position;
+          iCRM = new Data.iCRMDataContext(ConnectionString);
 
-            CamqBs.DataSource = iCRM.Campaign_Quicks.Where(c => c.QCID == camqcode);
+          LstMkltBs.DataSource = data.MkltList;
 
-            CamqBs.Position = camq;
-         }
-         else
-         {
-            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");            
+          if (!data.IsNew)
+          {
+             int camq = CamqBs.Position;
+             CamqBs.DataSource = data.CamqList;
+             CamqBs.Position = camq;
+          }
+          else
+          {
+             JobpBs.DataSource = data.JobpList;
 
-            CamqBs.AddNew();
-            var camq = CamqBs.Current as Data.Campaign_Quick;
+             CamqBs.AddNew();
+             var camq = CamqBs.Current as Data.Campaign_Quick;
 
-            camq.OWNR_CODE = JobpBs.List.OfType<Data.Job_Personnel>().FirstOrDefault(jp => jp.USER_NAME == CurrentUser).CODE;
-            camq.MKLT_MLID = mkltcode;
-            camq.MEMB_TYPE = "001";
-            camq.STAT_RESN = "001";
-            camq.ACTV_TYPE = "001";           
+             camq.OWNR_CODE = JobpBs.List.OfType<Data.Job_Personnel>().FirstOrDefault(jp => jp.USER_NAME == _currentUser).CODE;
+             camq.MKLT_MLID = _mkltcode;
+             camq.MEMB_TYPE = "001";
+             camq.STAT_RESN = "001";
+             camq.ACTV_TYPE = "001";           
 
-            iCRM.Campaign_Quicks.InsertOnSubmit(camq);
-         }
+             iCRM.Campaign_Quicks.InsertOnSubmit(camq);
+          }
 
-         requery = false;
-      }
+          requery = false;
+       }
 
       private void RqstBnDefaultPrint1_Click(object sender, EventArgs e)
       {

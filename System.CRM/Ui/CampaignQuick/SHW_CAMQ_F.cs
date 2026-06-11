@@ -34,16 +34,23 @@ namespace System.CRM.Ui.CampaignQuick
          );
       }
 
-      private void Execute_Query()
-      {
-         try
-         {
-            CamqBs.DataSource = iCRM.Campaign_Quicks.Where(cq => (mkltcode == null || cq.MKLT_MLID == mkltcode));
-               
-            requery = false;
-         }
-         catch { }         
-      }
+      private async void Execute_Query()
+       {
+          try
+          {
+             var _mkltcode = mkltcode;
+             var data = await Task.Run(() =>
+             {
+                using (var db = new Data.iCRMDataContext(ConnectionString))
+                {
+                   return db.Campaign_Quicks.Where(cq => (_mkltcode == null || cq.MKLT_MLID == _mkltcode)).ToList();
+                }
+             });
+             CamqBs.DataSource = data;
+             requery = false;
+          }
+          catch { }         
+       }
 
       #region Menu
       private void New_Butn_Click(object sender, EventArgs e)

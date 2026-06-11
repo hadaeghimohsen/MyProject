@@ -33,36 +33,54 @@ namespace System.CRM.Ui.CampaignActivity
          );
       }
 
-      private void Execute_Query()
-      {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
+      private async void Execute_Query()
+       {
+          var _campcode = campcode;
+          var _camacode = camacode;
+          var _currentUser = CurrentUser;
 
-         CampBs.DataSource = iCRM.Campaigns.Where(c => c.CMID == campcode);
+          var data = await Task.Run(() =>
+          {
+             using (var db = new Data.iCRMDataContext(ConnectionString))
+             {
+                var campList = db.Campaigns.Where(c => c.CMID == _campcode).ToList();
+                if (_camacode != null)
+                {
+                   return new { CampList = campList, CamaList = (object)db.Campaigns.Where(c => c.CMID == _camacode).ToList(), JobpList = (object)null, IsNew = false };
+                }
+                else
+                {
+                   return new { CampList = campList, CamaList = (object)null, JobpList = (object)db.Job_Personnels.Where(o => o.STAT == "002").ToList(), IsNew = true };
+                }
+             }
+          });
 
-         if (camacode != null)
-         {
-            int cmdf = CamaBs.Position;
+          iCRM = new Data.iCRMDataContext(ConnectionString);
 
-            CamaBs.DataSource = iCRM.Campaigns.Where(c => c.CMID == camacode);
+          CampBs.DataSource = data.CampList;
 
-            CamaBs.Position = cmdf;
-         }
-         else
-         {
-            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");            
+          if (!data.IsNew)
+          {
+             int cmdf = CamaBs.Position;
+             CamaBs.DataSource = data.CamaList;
+             CamaBs.Position = cmdf;
+          }
+          else
+          {
+             JobpBs.DataSource = data.JobpList;
 
-            CamaBs.AddNew();
-            var cama = CamaBs.Current as Data.Campaign_Activity;
+             CamaBs.AddNew();
+             var cama = CamaBs.Current as Data.Campaign_Activity;
 
-            cama.CAMP_CMID = campcode;
-            cama.OWNR_CODE = JobpBs.List.OfType<Data.Job_Personnel>().FirstOrDefault(jp => jp.USER_NAME == CurrentUser).CODE;            
-            cama.TYPE = "001";           
+             cama.CAMP_CMID = _campcode;
+             cama.OWNR_CODE = JobpBs.List.OfType<Data.Job_Personnel>().FirstOrDefault(jp => jp.USER_NAME == _currentUser).CODE;            
+             cama.TYPE = "001";           
 
-            iCRM.Campaign_Activities.InsertOnSubmit(cama);
-         }
+             iCRM.Campaign_Activities.InsertOnSubmit(cama);
+          }
 
-         requery = false;
-      }
+          requery = false;
+       }
 
       private void RqstBnDefaultPrint1_Click(object sender, EventArgs e)
       {

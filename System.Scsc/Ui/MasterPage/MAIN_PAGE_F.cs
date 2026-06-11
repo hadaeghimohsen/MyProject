@@ -150,49 +150,70 @@ namespace System.Scsc.Ui.MasterPage
       }
       #endregion 
 
-      private void Execute_Query()
-      {
-         iScsc = new Data.iScscDataContext(ConnectionString);
+       private async void Execute_Query()
+       {
+          int _compa = CompaBs.Position;
+          int _note = NoteBs.Position;
+          int _exdv = ExdvBs.Position;
+          int _dvip = DVipBs.Position;
+          int _stng = StngBs1.Position;
+          int _lockdres = LockDresBs.Position;
+          int _gust = GustBs.Position;
+          int _scmp = ScmpBs.Position;
+          int _sond = SondBs.Position;
 
-         int _compa = CompaBs.Position;
-         int _note = NoteBs.Position;
-         int _exdv = ExdvBs.Position;
-         int _dvip = DVipBs.Position;
-         int _stng = StngBs1.Position;
-         int _lockdres = LockDresBs.Position;
-         int _gust = GustBs.Position;
-         int _scmp = ScmpBs.Position;
-         int _sond = SondBs.Position;
+          bool _allGust = AllGust_Rb.Checked;
+          bool _menGust = MenGust_Rb.Checked;
+          bool _womenGust = WomenGust_Rb.Checked;
 
-         CompaBs.DataSource = iScsc.Computer_Actions.Where(c => c.Dressers.Any());
-         NoteBs.DataSource = iScsc.Notes;
-         ExdvBs.DataSource = iScsc.External_Devices.Where(ed => ed.STAT == "002");
-         DVipBs.DataSource = iScsc.Dresser_Vip_Fighters.Where(dv => dv.STAT == "002");
-         StngBs1.DataSource = iScsc.Settings;
-         LockDresBs.DataSource = iScsc.Dressers.Where(d => d.Dresser_Attendances.Any(da => da.TKBK_TIME == null));
-         GustBs.DataSource = 
-            iScsc.Fighters
-            .Where(f => 
-               f.CONF_STAT == "002" && 
-               f.FGPB_TYPE_DNRM == "005" && 
-               f.ACTV_TAG_DNRM == "101" &&
-               (AllGust_Rb.Checked || (MenGust_Rb.Checked && f.SEX_TYPE_DNRM == "001") || (WomenGust_Rb.Checked && f.SEX_TYPE_DNRM == "002")) &&
-               !f.Attendances1.Any(a => a.EXIT_TIME == null && a.ATTN_STAT == "002")
-            );
-         ScmpBs.DataSource = iScsc.Schema_Profiles;
+          var data = await Task.Run(() =>
+          {
+             using (var db = new Data.iScscDataContext(ConnectionString))
+             {
+                return new
+                {
+                   Compa = db.Computer_Actions.Where(c => c.Dressers.Any()).ToList(),
+                   Notes = db.Notes.ToList(),
+                   Exdv = db.External_Devices.Where(ed => ed.STAT == "002").ToList(),
+                   Dvip = db.Dresser_Vip_Fighters.Where(dv => dv.STAT == "002").ToList(),
+                   Stng = db.Settings.ToList(),
+                   LockDres = db.Dressers.Where(d => d.Dresser_Attendances.Any(da => da.TKBK_TIME == null)).ToList(),
+                   Gust = db.Fighters
+                      .Where(f =>
+                         f.CONF_STAT == "002" &&
+                         f.FGPB_TYPE_DNRM == "005" &&
+                         f.ACTV_TAG_DNRM == "101" &&
+                         (_allGust || (_menGust && f.SEX_TYPE_DNRM == "001") || (_womenGust && f.SEX_TYPE_DNRM == "002")) &&
+                         !f.Attendances1.Any(a => a.EXIT_TIME == null && a.ATTN_STAT == "002")
+                      ).ToList(),
+                   Scmp = db.Schema_Profiles.ToList()
+                };
+             }
+          });
 
-         CompaBs.Position = _compa;
-         NoteBs.Position = _note;
-         ExdvBs.Position = _exdv;
-         DVipBs.Position = _dvip;
-         StngBs1.Position = _stng;
-         LockDresBs.Position = _lockdres;
-         GustBs.Position = _gust;
-         ScmpBs.Position = _scmp;
-         SondBs.Position = _sond;
+          iScsc = new Data.iScscDataContext(ConnectionString);
 
-         requery = false;
-      }
+          CompaBs.DataSource = data.Compa;
+          NoteBs.DataSource = data.Notes;
+          ExdvBs.DataSource = data.Exdv;
+          DVipBs.DataSource = data.Dvip;
+          StngBs1.DataSource = data.Stng;
+          LockDresBs.DataSource = data.LockDres;
+          GustBs.DataSource = data.Gust;
+          ScmpBs.DataSource = data.Scmp;
+
+          CompaBs.Position = _compa;
+          NoteBs.Position = _note;
+          ExdvBs.Position = _exdv;
+          DVipBs.Position = _dvip;
+          StngBs1.Position = _stng;
+          LockDresBs.Position = _lockdres;
+          GustBs.Position = _gust;
+          ScmpBs.Position = _scmp;
+          SondBs.Position = _sond;
+
+          requery = false;
+       }
 
       private bool CheckInternetConnection()
       {

@@ -28,75 +28,53 @@ namespace System.Scsc.Ui.Admission
       private int rqstindex = default(int);
       private long? cbmtcode = null, ctgycode = null;
 
-      private void Execute_Query()
-      {
-         setOnDebt = false;
-         try
-         {
-            //if (tb_master.SelectedTab == tp_001)
-            //{
-            //   iScsc = new Data.iScscDataContext(ConnectionString);
-            //   var Rqids = iScsc.VF_Requests(new XElement("Request"))
-            //      .Where(rqst =>
-            //            rqst.RQTP_CODE == "001" &&
-            //            rqst.RQST_STAT == "001" &&
-            //            (rqst.RQTT_CODE == "001" || rqst.RQTT_CODE == "004" || rqst.RQTT_CODE == "005" || rqst.RQTT_CODE == "006") &&
-            //            rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+       private async void Execute_Query()
+       {
+          setOnDebt = false;
+          try
+          {
+             {
+                bool _showMyRqst = ShowRqst_PickButn.PickChecked;
+                string _currentUser = CurrentUser;
 
-            //   RqstBs1.DataSource =
-            //      iScsc.Requests
-            //      .Where(
-            //         rqst =>
-            //            Rqids.Contains(rqst.RQID)
-            //      )
-            //      .OrderByDescending(
-            //         rqst =>
-            //            rqst.RQST_DATE
-            //      ); 
+                var data = await Task.Run(() =>
+                {
+                   using (var db = new Data.iScscDataContext(ConnectionString))
+                   {
+                      var Rqids = db.VF_Requests(new XElement("Request", new XAttribute("cretby", _showMyRqst ? _currentUser : "")))
+                         .Where(rqst =>
+                               rqst.RQTP_CODE == "009" &&
+                               (rqst.RQTT_CODE == "001" || rqst.RQTT_CODE == "004" || rqst.RQTT_CODE == "005" || rqst.RQTT_CODE == "006") &&
+                               rqst.RQST_STAT == "001" &&
+                               rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-            //   RqstBs1.Position = rqstindex;
+                      var requests = db.Requests
+                         .Where(rqst => Rqids.Contains(rqst.RQID))
+                         .OrderByDescending(rqst => rqst.RQST_DATE)
+                         .ToList();
 
-            //   if (RqstBs1.Count == 0 || (RqstBs1.Count == 1 && RqstBs1.List.OfType<Data.Request>().FirstOrDefault().RQID == 0))
-            //   {
-            //      DefaultTabPage001();
-            //   } 
-            //}
+                      var fighters = db.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID)).ToList();
 
-            {
-               iScsc = new Data.iScscDataContext(ConnectionString);
-               var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
-                  .Where(rqst =>
-                        rqst.RQTP_CODE == "009" &&
-                        (rqst.RQTT_CODE == "001" || rqst.RQTT_CODE == "004" || rqst.RQTT_CODE == "005" || rqst.RQTT_CODE == "006") &&
-                        rqst.RQST_STAT == "001" &&
-                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+                      return new { Rqids = Rqids, Requests = requests, Fighters = fighters };
+                   }
+                });
 
-               RqstBs3.DataSource =
-                  iScsc.Requests
-                  .Where(
-                     rqst =>
-                        Rqids.Contains(rqst.RQID)
-                  )
-                  .OrderByDescending(
-                     rqst =>
-                        rqst.RQST_DATE
-                  ); 
+                iScsc = new Data.iScscDataContext(ConnectionString);
 
-               RqstBs3.Position = rqstindex;
+                RqstBs3.DataSource = data.Requests;
+                RqstBs3.Position = rqstindex;
+                FighBs3.DataSource = data.Fighters;
 
-               // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
-               FighBs3.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
+                if (RqstBs3.Count == 0 || (RqstBs3.Count == 1 && RqstBs3.List.OfType<Data.Request>().FirstOrDefault().RQID == 0))
+                {
+                   DefaultTabPage003();
+                }
 
-               if (RqstBs3.Count == 0 || (RqstBs3.Count == 1 && RqstBs3.List.OfType<Data.Request>().FirstOrDefault().RQID == 0))
-               {
-                  DefaultTabPage003();
-               }
-
-               Cbmt_Gv.ActiveFilterString = "";
-            }
-         }
-         catch { }
-      }
+                Cbmt_Gv.ActiveFilterString = "";
+             }
+          }
+          catch { }
+       }
 
       private void DefaultTabPage003()
       {

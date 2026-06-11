@@ -29,79 +29,87 @@ namespace System.Scsc.Ui.OtherIncome
       private bool requery = default(bool);
       private string hBDay = "";
 
-      private void Execute_Query()
-      {
-         setOnDebt = false;
-         //if (tb_master.SelectedTab == tp_001)
-         {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            int pydt = PydtsBs1.Position;
-            int pcdt = PcdtBs1.Position;
+       private async void Execute_Query()
+       {
+          setOnDebt = false;
+          //if (tb_master.SelectedTab == tp_001)
+          {
+             int pydt = PydtsBs1.Position;
+             int pcdt = PcdtBs1.Position;
+             bool _showMyRqst = ShowRqst_PickButn.PickChecked;
+             string _currentUser = CurrentUser;
+             bool _linkMtod = LinkMtod_Cbx.Checked;
+             string _mdulName = GetType().Name;
+             string _sectName = GetType().Name.Substring(0, 3) + "_001_F";
 
-            var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "016" &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+             var data = await Task.Run(() =>
+             {
+                using (var db = new Data.iScscDataContext(ConnectionString))
+                {
+                   var Rqids = db.VF_Requests(new XElement("Request", new XAttribute("cretby", _showMyRqst ? _currentUser : "")))
+                      .Where(rqst =>
+                            rqst.RQTP_CODE == "016" &&
+                            rqst.RQST_STAT == "001" &&
+                            rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-            RqstBs1.DataSource =
-               iScsc.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID) &&
-                     rqst.MDUL_NAME == GetType().Name &&
-                     rqst.SECT_NAME == GetType().Name.Substring(0, 3) + "_001_F"
-               );
+                   var requests = db.Requests
+                      .Where(rqst =>
+                         Rqids.Contains(rqst.RQID) &&
+                         rqst.MDUL_NAME == _mdulName &&
+                         rqst.SECT_NAME == _sectName)
+                      .ToList();
 
-            var _expnIndx = ExpnBs1.Position;
+                   var expenses = _linkMtod ? null :
+                      db.Expenses.Where(ex =>
+                         ex.Regulation.REGL_STAT == "002" && ex.Regulation.TYPE == "001" &&
+                         ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+                         ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
+                         ex.EXPN_STAT == "002"
+                      ).ToList();
 
-            //if (!LinkCochPydt_Cbx.Checked)
-            if (!LinkMtod_Cbx.Checked)
-               ExpnBs1.DataSource =
-                  iScsc.Expenses.Where(ex =>
-                     ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-                     ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
-                     ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-                     ex.EXPN_STAT == "002" /* هزینه های فعال */
-                  );
+                   var docs = db.Modual_Reports.Where(m => m.MDUL_NAME == _mdulName && m.STAT == "002").ToList();
 
-            Expn_Gv.TopRowIndex = _expnIndx;
+                   var fighters = db.Fighters
+                      .Where(f =>
+                         f.CONF_STAT == "002" &&
+                         Rqids.Contains((long)f.RQST_RQID) &&
+                         Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101)
+                      .OrderBy(f => f.FGPB_TYPE_DNRM)
+                      .ToList();
 
-            DocsBs1.DataSource = iScsc.Modual_Reports.Where(m => m.MDUL_NAME == GetType().Name && m.STAT == "002");
+                   return new { Rqids = Rqids, Requests = requests, Expenses = expenses, Docs = docs, Fighters = fighters };
+                }
+             });
 
-            // 1397/05/15 * بدست آوردن شماره پرونده های درگیر در تمدید
-            FighsBs1.DataSource = 
-               iScsc.Fighters
-               .Where(f => 
-                  f.CONF_STAT == "002" &&
-                  Rqids.Contains((long)f.RQST_RQID) &&
-                  /*&& (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "004" || 
-                   *    f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")*/ 
-                  /*(Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || 
-                      (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&*/
-                  Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101)
-               .OrderBy(f => f.FGPB_TYPE_DNRM);
-            //FighBs1.DataSource = iScsc.Fighters.Where(f => );
+             iScsc = new Data.iScscDataContext(ConnectionString);
 
-            Grop_FLP.Controls.Clear();
-            var allItems = new Button();
+             RqstBs1.DataSource = data.Requests;
 
-            allItems.Text = "همه موارد";
-            allItems.Tag = 0;
+             var _expnIndx = ExpnBs1.Position;
+             if (!_linkMtod)
+                ExpnBs1.DataSource = data.Expenses;
+             Expn_Gv.TopRowIndex = _expnIndx;
 
-            allItems.Click += GropButn_Click;
-            Grop_FLP.Controls.Add(allItems);
+             DocsBs1.DataSource = data.Docs;
+             FighsBs1.DataSource = data.Fighters;
 
-            ExpnBs1.List.OfType<Data.Expense>().OrderBy(e => e.GROP_CODE).GroupBy(e => e.Group_Expense1).ToList().ForEach(
-               g =>
-               {
-                  var b = new Button() { AutoSize = true };
-                  if (g.Key != null)
-                  {
-                     b.Text = g.Key.GROP_DESC;
-                     b.Tag = g.Key.CODE;
-                  }
-                  else
+             Grop_FLP.Controls.Clear();
+             var allItems = new Button();
+             allItems.Text = "همه موارد";
+             allItems.Tag = 0;
+             allItems.Click += GropButn_Click;
+             Grop_FLP.Controls.Add(allItems);
+
+             ExpnBs1.List.OfType<Data.Expense>().OrderBy(e => e.GROP_CODE).GroupBy(e => e.Group_Expense1).ToList().ForEach(
+                g =>
+                {
+                   var b = new Button() { AutoSize = true };
+                   if (g.Key != null)
+                   {
+                      b.Text = g.Key.GROP_DESC;
+                      b.Tag = g.Key.CODE;
+                   }
+                   else
                      b.Text = "سایر موارد";                  
                   b.Click += GropButn_Click;
                   Grop_FLP.Controls.Add(b);

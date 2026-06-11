@@ -25,73 +25,101 @@ namespace System.Scsc.Ui.OtherIncome
 
       private bool requery = default(bool);
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var moduleName = GetType().Name;
+         var sectPrefix = moduleName.Substring(0, 3);
+
          if (tb_master.SelectedTab == tp_001)
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            var Rqids = iScsc.VF_Requests(new XElement("Request"))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "001" &&
-                     (rqst.RQTT_CODE == "008" || rqst.RQTT_CODE == "004") &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+            var requests = await Task.Run(() =>
+            {
+               using (var dc = new Data.iScscDataContext(ConnectionString))
+               {
+                  var Rqids = dc.VF_Requests(new XElement("Request"))
+                     .Where(rqst =>
+                           rqst.RQTP_CODE == "001" &&
+                           (rqst.RQTT_CODE == "008" || rqst.RQTT_CODE == "004") &&
+                           rqst.RQST_STAT == "001" &&
+                           rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-            RqstBs1.DataSource =
-               iScsc.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID) &&
-                     rqst.MDUL_NAME == GetType().Name &&
-                     rqst.SECT_NAME == GetType().Name.Substring(0, 3) + "_001_F"
-               );
+                  return dc.Requests
+                     .Where(
+                        rqst =>
+                           Rqids.Contains(rqst.RQID) &&
+                           rqst.MDUL_NAME == moduleName &&
+                           rqst.SECT_NAME == sectPrefix + "_001_F"
+                     ).ToList();
+               }
+            });
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            RqstBs1.DataSource = requests;
          }
          else if (tb_master.SelectedTab == tp_002)
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            var Rqids = iScsc.VF_Requests(new XElement("Request"))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "009" &&
-                     (rqst.RQTT_CODE == "008" || rqst.RQTT_CODE == "004") &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+            List<Data.Expense> expenses = null;
+            var requests = await Task.Run(() =>
+            {
+               using (var dc = new Data.iScscDataContext(ConnectionString))
+               {
+                  var Rqids = dc.VF_Requests(new XElement("Request"))
+                     .Where(rqst =>
+                           rqst.RQTP_CODE == "009" &&
+                           (rqst.RQTT_CODE == "008" || rqst.RQTT_CODE == "004") &&
+                           rqst.RQST_STAT == "001" &&
+                           rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-            RqstBs2.DataSource =
-               iScsc.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID) &&
-                     rqst.MDUL_NAME == GetType().Name &&
-                     rqst.SECT_NAME == GetType().Name.Substring(0, 3) + "_002_F"
-               );
+                  var reqs = dc.Requests
+                     .Where(
+                        rqst =>
+                           Rqids.Contains(rqst.RQID) &&
+                           rqst.MDUL_NAME == moduleName &&
+                           rqst.SECT_NAME == sectPrefix + "_002_F"
+                     ).ToList();
+
+                  expenses = dc.Expenses.Where(ex =>
+                     ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+                     ex.Expense_Type.Request_Requester.RQTP_CODE == "009" &&
+                     ex.Expense_Type.Request_Requester.RQTT_CODE == "008" &&
+                     ex.EXPN_STAT == "002" /* هزینه های فعال */
+                  ).ToList();
+
+                  return reqs;
+               }
+            });
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            RqstBs2.DataSource = requests;
 
             // فرداخوانی اطلاعات کلاس ها
-            ExpnBs1.DataSource =
-               iScsc.Expenses.Where(ex =>
-                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-                  ex.Expense_Type.Request_Requester.RQTP_CODE == "009" &&
-                  ex.Expense_Type.Request_Requester.RQTT_CODE == "008" &&
-                  ex.EXPN_STAT == "002" /* هزینه های فعال */
-               );
+            ExpnBs1.DataSource = expenses;
          }
          else if (tb_master.SelectedTab == tp_003)
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            var Rqids = iScsc.VF_Requests(new XElement("Request"))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "019" &&
-                     rqst.RQTT_CODE == "008" &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+            var requests = await Task.Run(() =>
+            {
+               using (var dc = new Data.iScscDataContext(ConnectionString))
+               {
+                  var Rqids = dc.VF_Requests(new XElement("Request"))
+                     .Where(rqst =>
+                           rqst.RQTP_CODE == "019" &&
+                           rqst.RQTT_CODE == "008" &&
+                           rqst.RQST_STAT == "001" &&
+                           rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-            RqstBs3.DataSource =
-               iScsc.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID) &&
-                     rqst.MDUL_NAME == GetType().Name &&
-                     rqst.SECT_NAME == GetType().Name.Substring(0, 3) + "_003_F"
-               );
+                  return dc.Requests
+                     .Where(
+                        rqst =>
+                           Rqids.Contains(rqst.RQID) &&
+                           rqst.MDUL_NAME == moduleName &&
+                           rqst.SECT_NAME == sectPrefix + "_003_F"
+                     ).ToList();
+               }
+            });
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            RqstBs3.DataSource = requests;
          }
       }
 

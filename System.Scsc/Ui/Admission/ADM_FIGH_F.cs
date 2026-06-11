@@ -27,44 +27,47 @@ namespace System.Scsc.Ui.Admission
       private int rqstindex = default(int);
       private long? cbmtcode = null, ctgycode = null;
 
-      private void Execute_Query()
-      {
-         setOnDebt = false;
-         try
-         {
-            if (true)
-            {
-               iScsc = new Data.iScscDataContext(ConnectionString);
+       private async void Execute_Query()
+       {
+          setOnDebt = false;
+          try
+          {
+             if (true)
+             {
+                rqstindex = RqstBs1.Position;
+                bool _showMyRqst = ShowRqst_PickButn.PickChecked;
+                string _currentUser = CurrentUser;
 
-               rqstindex = RqstBs1.Position;
+                var data = await Task.Run(() =>
+                {
+                   using (var db = new Data.iScscDataContext(ConnectionString))
+                   {
+                      var Rqids = db.VF_Requests(new XElement("Request", new XAttribute("cretby", _showMyRqst ? _currentUser : "")))
+                         .Where(rqst =>
+                               rqst.RQTP_CODE == "001" &&
+                               rqst.RQST_STAT == "001" &&
+                               (rqst.RQTT_CODE == "001" || rqst.RQTT_CODE == "004" || rqst.RQTT_CODE == "005" || rqst.RQTT_CODE == "006") &&
+                               rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-               var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
-                  .Where(rqst =>
-                        rqst.RQTP_CODE == "001" &&
-                        rqst.RQST_STAT == "001" &&
-                        (rqst.RQTT_CODE == "001" || rqst.RQTT_CODE == "004" || rqst.RQTT_CODE == "005" || rqst.RQTT_CODE == "006") &&
-                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+                      var requests = db.Requests
+                         .Where(rqst => Rqids.Contains(rqst.RQID))
+                         .OrderByDescending(rqst => rqst.RQST_DATE)
+                         .ToList();
 
-               RqstBs1.DataSource =
-                  iScsc.Requests
-                  .Where(
-                     rqst =>
-                        Rqids.Contains(rqst.RQID)
-                  )
-                  .OrderByDescending(
-                     rqst =>
-                        rqst.RQST_DATE
-                  );
+                      return new { Requests = requests };
+                   }
+                });
 
-               RqstBs1.Position = rqstindex;
+                iScsc = new Data.iScscDataContext(ConnectionString);
 
-               // 1401/05/21 * Clear Advertising Campaing Items
-               //AdvpBs1.List.Clear();
-               Cbmt_Gv.ActiveFilterString = "";
-            }
-         }
-         catch { }
-      }
+                RqstBs1.DataSource = data.Requests;
+                RqstBs1.Position = rqstindex;
+
+                Cbmt_Gv.ActiveFilterString = "";
+             }
+          }
+          catch { }
+       }
 
       private void RqstBs1_CurrentChanged(object sender, EventArgs e)
       {

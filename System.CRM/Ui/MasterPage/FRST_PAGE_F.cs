@@ -27,11 +27,19 @@ namespace System.CRM.Ui.MasterPage
       private long fileno, projrqstrqid;
       private string formCaller;
 
-      private void Execute_Query()
-      {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         ServBs.DataSource = iCRM.Services.Where(s => Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101 && s.CONF_STAT == "002");
-      }
+       private async void Execute_Query()
+       {
+          var data = await Task.Run(() =>
+          {
+             using (var db = new Data.iCRMDataContext(ConnectionString))
+             {
+                return db.Services.Where(s => Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101 && s.CONF_STAT == "002").ToList();
+             }
+          });
+
+          iCRM = new Data.iCRMDataContext(ConnectionString);
+          ServBs.DataSource = data;
+       }
 
       #region basedefinition
       private void rb_stngdfin_Click(object sender, EventArgs e)

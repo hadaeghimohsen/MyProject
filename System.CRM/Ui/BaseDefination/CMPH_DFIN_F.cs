@@ -68,10 +68,18 @@ namespace System.CRM.Ui.BaseDefination
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return ctx.Companies.Where(c => c.RECD_STAT == "002" && c.HOST_STAT == "002").ToList();
+            }
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         CmphBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002" && c.HOST_STAT == "002");
+         CmphBs.DataSource = result;
          requery = false;
       }
 

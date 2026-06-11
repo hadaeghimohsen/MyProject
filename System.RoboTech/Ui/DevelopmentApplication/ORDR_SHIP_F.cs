@@ -29,29 +29,35 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-         OrdrBs.DataSource =
-            iRoboTech.Orders.Where(o => o.Robot.Organ.STAT == "002" && o.Robot.STAT == "002" && o.ORDR_TYPE == "004" && o.ORDR_STAT == "004");
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var ordrs = db.Orders.Where(o => o.Robot.Organ.STAT == "002" && o.Robot.STAT == "002" && o.ORDR_TYPE == "004" && o.ORDR_STAT == "004").ToList();
+            return new { ordrs };
+         });
 
-         if (OrdrBs.List.OfType<Data.Order>().Any(o => o.HOW_SHIP == "000"))
-            OrdrShip000Bs.DataSource = OrdrBs.List.OfType<Data.Order>().Where(o => o.HOW_SHIP == "000");
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         OrdrBs.DataSource = result.ordrs;
+
+         if (result.ordrs.Any(o => o.HOW_SHIP == "000"))
+            OrdrShip000Bs.DataSource = result.ordrs.Where(o => o.HOW_SHIP == "000").ToList();
          else
             OrdrShip000Bs.List.Clear();
 
-         if (OrdrBs.List.OfType<Data.Order>().Any(o => o.HOW_SHIP == "001"))
-            OrdrShip001Bs.DataSource = OrdrBs.List.OfType<Data.Order>().Where(o => o.HOW_SHIP == "001");
+         if (result.ordrs.Any(o => o.HOW_SHIP == "001"))
+            OrdrShip001Bs.DataSource = result.ordrs.Where(o => o.HOW_SHIP == "001").ToList();
          else
             OrdrShip001Bs.List.Clear();
 
-         if (OrdrBs.List.OfType<Data.Order>().Any(o => o.HOW_SHIP == "002"))
-            OrdrShip002Bs.DataSource = OrdrBs.List.OfType<Data.Order>().Where(o => o.HOW_SHIP == "002");
+         if (result.ordrs.Any(o => o.HOW_SHIP == "002"))
+            OrdrShip002Bs.DataSource = result.ordrs.Where(o => o.HOW_SHIP == "002").ToList();
          else
             OrdrShip002Bs.List.Clear();
 
-         if (OrdrBs.List.OfType<Data.Order>().Any(o => o.HOW_SHIP == "003"))
-            OrdrShip003Bs.DataSource = OrdrBs.List.OfType<Data.Order>().Where(o => o.HOW_SHIP == "003");
+         if (result.ordrs.Any(o => o.HOW_SHIP == "003"))
+            OrdrShip003Bs.DataSource = result.ordrs.Where(o => o.HOW_SHIP == "003").ToList();
          else
             OrdrShip003Bs.List.Clear();
 

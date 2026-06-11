@@ -31,9 +31,8 @@ namespace System.ISP.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iISP = new Data.iISPDataContext(ConnectionString);
          int _Rqrq = RqrqBs.Position;
          int _Extp = ExtpBs.Position;
          int _Expn = ExpnBs.Position;
@@ -41,8 +40,15 @@ namespace System.ISP.Ui.BaseDefination
          int _Dcsp = DcspBs.Position;
          int _Rqdc = RqdcBs.Position;
 
-         RqrqBs.DataSource = iISP.Request_Requesters.Where(rqrq => rqrq.Regulation == crntRegulation);
-         
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iISPDataContext(ConnectionString);
+            var rqrqs = db.Request_Requesters.Where(rqrq => rqrq.Regulation == crntRegulation).ToList();
+            return new { rqrqs };
+         });
+
+         iISP = new Data.iISPDataContext(ConnectionString);
+         RqrqBs.DataSource = result.rqrqs;
          RqrqBs.Position = _Rqrq;
          ExtpBs.Position = _Extp;
          ExpnBs.Position = _Expn;

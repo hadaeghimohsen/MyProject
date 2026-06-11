@@ -58,10 +58,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          iProject = new Data.iProjectDataContext(ConnectionString);
-         UserGatewayBs.DataSource = iProject.User_Gateways.Where(ug => ug.User.USERDB.ToUpper() == CurrentUser.ToUpper() && ug.VALD_TYPE == "002"); 
+         var result = await Task.Run(() => iProject.User_Gateways.Where(ug => ug.User.USERDB.ToUpper() == CurrentUser.ToUpper() && ug.VALD_TYPE == "002").ToList());
+         UserGatewayBs.DataSource = result;
       }
 
       private void PackageUserGatewayBs_CurrentChanged(object sender, EventArgs e)

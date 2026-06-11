@@ -27,25 +27,40 @@ namespace System.CRM.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         if(tb_master.SelectedTab == tp_001)
+         int b = BtrfBs.Position;
+         int t = TrfdBs.Position;
+         int a = SrtpBs.Position;
+         bool isTab001 = tb_master.SelectedTab == tp_001;
+         bool isTab002 = tb_master.SelectedTab == tp_002;
+         
+         var result = await Task.Run(() =>
          {
-            int b = BtrfBs.Position;
-            int t = TrfdBs.Position;
-            BtrfBs.DataSource = iCRM.Base_Tariffs;
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return new
+               {
+                  BaseTariffs = ctx.Base_Tariffs.ToList(),
+                  ServiceTypes = ctx.Service_Types.ToList(),
+               };
+            }
+         });
+         
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         if (isTab001)
+         {
+            BtrfBs.DataSource = result.BaseTariffs;
             BtrfBs.Position = b;
             TrfdBs.Position = t;
          }
-         else if (tb_master.SelectedTab == tp_002)
+         else if (isTab002)
          {
-            int a = SrtpBs.Position;
-            
-            SrtpBs.DataSource = iCRM.Service_Types;
-            
+            SrtpBs.DataSource = result.ServiceTypes;
             SrtpBs.Position = a;
          }
+         
+         requery = false;
       }
 
       private void Refresh_Clicked(object sender, EventArgs e)

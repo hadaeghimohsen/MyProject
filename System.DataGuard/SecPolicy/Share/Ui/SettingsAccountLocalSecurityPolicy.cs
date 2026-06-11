@@ -60,10 +60,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          iProject = new Data.iProjectDataContext(ConnectionString);
-         SecurityManagmentBs.DataSource = iProject.Security_Managments;
+         var result = await Task.Run(() => iProject.Security_Managments.ToList());
+         SecurityManagmentBs.DataSource = result;
       }
 
       private void SecurityManagmentBs_ListChanged(object sender, ListChangedEventArgs e)

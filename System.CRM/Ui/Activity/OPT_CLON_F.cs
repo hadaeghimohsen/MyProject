@@ -25,13 +25,23 @@ namespace System.CRM.Ui.Activity
       private string srpbtype = "001";
       private bool islock = false;
 
-      private void Execute_Query()
-      {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         ServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002" && Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101 && s.FILE_NO == fileno);
-         CompBs.DataSource = iCRM.Companies;
-         requery = false;
-      }
+       private async void Execute_Query()
+       {
+          long _fileno = fileno;
+          var result = await Task.Run(() =>
+          {
+             using (var ctx = new Data.iCRMDataContext(ConnectionString))
+             {
+                var servs = ctx.Services.Where(s => s.CONF_STAT == "002" && Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101 && s.FILE_NO == _fileno).ToList();
+                var comps = ctx.Companies.ToList();
+                return new { servs, comps };
+             }
+          });
+          iCRM = new Data.iCRMDataContext(ConnectionString);
+          ServBs.DataSource = result.servs;
+          CompBs.DataSource = result.comps;
+          requery = false;
+       }
 
       private void Btn_Back_Click(object sender, EventArgs e)
       {

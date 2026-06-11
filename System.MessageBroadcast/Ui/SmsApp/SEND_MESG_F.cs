@@ -57,13 +57,23 @@ namespace System.MessageBroadcast.Ui.SmsApp
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         int sms = SmsSendedBs.Position;
+         int dmsg = DMsgBs.Position;
+
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iProjectDataContext(ConnectionString);
+            var smsBoxes = db.Sms_Message_Boxes.ToList();
+            var defMsgs = db.Default_Messages.ToList();
+            return new { smsBoxes, defMsgs };
+         });
+
          iProject = new Data.iProjectDataContext(ConnectionString);
          if (Tb_Master.SelectedTab == tp_004)
          {
-            int sms = SmsSendedBs.Position;
-            SmsSendedBs.DataSource = iProject.Sms_Message_Boxes;
+            SmsSendedBs.DataSource = result.smsBoxes;
             SmsSendedBs.Position = sms;
 
             if(xinput.Attribute("filtering") != null)
@@ -81,8 +91,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
          }
          else if(Tb_Master.SelectedTab == tp_005 || Tb_Master.SelectedTab == tp_001)
          {
-            int dmsg = DMsgBs.Position;
-            DMsgBs.DataSource = iProject.Default_Messages;
+            DMsgBs.DataSource = result.defMsgs;
             DMsgBs.Position = dmsg;
          }
          NewSms_Pn.Visible = false;

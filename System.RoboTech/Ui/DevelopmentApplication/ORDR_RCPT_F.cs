@@ -31,24 +31,30 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-         OdstBs.DataSource =
-            iRoboTech.Order_States.Where(os => os.Order.Robot.Organ.STAT == "002" && os.Order.Robot.STAT == "002" && os.Order.ORDR_STAT == "001" && os.AMNT_TYPE == "005");
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var odsts = db.Order_States.Where(os => os.Order.Robot.Organ.STAT == "002" && os.Order.Robot.STAT == "002" && os.Order.ORDR_STAT == "001" && os.AMNT_TYPE == "005").ToList();
+            return new { odsts };
+         });
 
-         if (OdstBs.List.OfType<Data.Order_State>().Any(od => od.CONF_STAT == "003"))
-            Rcpt003Bs.DataSource = OdstBs.List.OfType<Data.Order_State>().Where(od => od.CONF_STAT == "003");
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         OdstBs.DataSource = result.odsts;
+
+         if (result.odsts.Any(od => od.CONF_STAT == "003"))
+            Rcpt003Bs.DataSource = result.odsts.Where(od => od.CONF_STAT == "003").ToList();
          else
             Rcpt003Bs.List.Clear();
 
-         if (OdstBs.List.OfType<Data.Order_State>().Any(od => od.CONF_STAT == "002"))
-            Rcpt002Bs.DataSource = OdstBs.List.OfType<Data.Order_State>().Where(od => od.CONF_STAT == "002");
+         if (result.odsts.Any(od => od.CONF_STAT == "002"))
+            Rcpt002Bs.DataSource = result.odsts.Where(od => od.CONF_STAT == "002").ToList();
          else
             Rcpt002Bs.List.Clear();
 
-         if (OdstBs.List.OfType<Data.Order_State>().Any(od => od.CONF_STAT == "001"))
-            Rcpt001Bs.DataSource = OdstBs.List.OfType<Data.Order_State>().Where(od => od.CONF_STAT == "001");
+         if (result.odsts.Any(od => od.CONF_STAT == "001"))
+            Rcpt001Bs.DataSource = result.odsts.Where(od => od.CONF_STAT == "001").ToList();
          else
             Rcpt001Bs.List.Clear();
 

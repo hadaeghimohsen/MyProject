@@ -23,10 +23,23 @@ namespace System.MessageBroadcast.Ui.MasterPage
 
       private bool _PingStatus;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         SmsBs.DataSource = iProject.Message_Broad_Settings.Where(m => m.TYPE == "001" && (m.LINE_TYPE == "001" || m.LINE_TYPE == "002") && m.DFLT_STAT == "002");
-         HostBs.DataSource = iProject.Gateways.Where(g => g.CONF_STAT == "002" && g.VALD_TYPE_DNRM == "002" && g.AUTH_TYPE_DNRM == "002");
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            {
+               return new
+               {
+                  MessageBroadSettings = ctx.Message_Broad_Settings.Where(m => m.TYPE == "001" && (m.LINE_TYPE == "001" || m.LINE_TYPE == "002") && m.DFLT_STAT == "002").ToList(),
+                  Gateways = ctx.Gateways.Where(g => g.CONF_STAT == "002" && g.VALD_TYPE_DNRM == "002" && g.AUTH_TYPE_DNRM == "002").ToList(),
+               };
+            }
+         });
+         
+         iProject = new Data.iProjectDataContext(ConnectionString);
+         SmsBs.DataSource = result.MessageBroadSettings;
+         HostBs.DataSource = result.Gateways;
       }
 
       private void SmsBs_CurrentChanged(object sender, EventArgs e)

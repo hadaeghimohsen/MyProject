@@ -31,18 +31,23 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-
          int orgn = OrgnBs.Position;
          int robo = RoboBs.Position;
          int rspg = RspgBs.Position;
          int rsgm = RsgmBs.Position;
          int rsgd = RsgdBs.Position;
-        
-         OrgnBs.DataSource = iRoboTech.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID));
 
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var organs = db.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID)).ToList();
+            return new { organs };
+         });
+
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         OrgnBs.DataSource = result.organs;
          OrgnBs.Position = orgn;
          RoboBs.Position = robo;
          RspgBs.Position = rspg;

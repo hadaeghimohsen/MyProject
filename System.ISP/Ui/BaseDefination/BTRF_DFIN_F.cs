@@ -27,14 +27,22 @@ namespace System.ISP.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iISP = new Data.iISPDataContext(ConnectionString);
+         int b = BtrfBs.Position;
+         int t = TrfdBs.Position;
+
          if(tb_master.SelectedTab == tp_001)
          {
-            int b = BtrfBs.Position;
-            int t = TrfdBs.Position;
-            BtrfBs.DataSource = iISP.Base_Tariffs;
+            var result = await Task.Run(() =>
+            {
+               var db = new Data.iISPDataContext(ConnectionString);
+               var btrfs = db.Base_Tariffs.ToList();
+               return new { btrfs };
+            });
+
+            iISP = new Data.iISPDataContext(ConnectionString);
+            BtrfBs.DataSource = result.btrfs;
             BtrfBs.Position = b;
             TrfdBs.Position = t;
          }

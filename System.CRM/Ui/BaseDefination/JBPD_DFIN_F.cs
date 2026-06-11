@@ -29,13 +29,25 @@ namespace System.CRM.Ui.BaseDefination
       private long jobpcode;
       private XElement xinput;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         JbpdBs1.DataSource = iCRM.Job_Personel_Dashboards;
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return new
+               {
+                  JobPersonelDashboards = ctx.Job_Personel_Dashboards.ToList(),
+                  JobPersonnels = ctx.Job_Personnels.ToList(),
+                  MainStates = ctx.Main_States.ToList(),
+               };
+            }
+         });
 
-         JobpBs1.DataSource = iCRM.Job_Personnels;
-         MsttBs1.DataSource = iCRM.Main_States;
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         JbpdBs1.DataSource = result.JobPersonelDashboards;
+         JobpBs1.DataSource = result.JobPersonnels;
+         MsttBs1.DataSource = result.MainStates;
          requery = false;
       }
 

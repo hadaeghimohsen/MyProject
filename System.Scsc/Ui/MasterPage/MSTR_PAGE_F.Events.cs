@@ -364,15 +364,25 @@ namespace System.Scsc.Ui.MasterPage
       #endregion
 
       #region
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         requestTypeBindingSource.DataSource = iScsc.Request_Types;
-         requesterTypeBindingSource.DataSource = iScsc.Requester_Types;
-         dSUBBindingSource.DataSource = iScsc.D_SUBs;
-         vFCashierBindingSource.DataSource = iScsc.VF_Cashiers;
+         var result = await Task.Run(() =>
+         {
+            var dc = new Data.iScscDataContext(ConnectionString);
+            return new
+            {
+               Request_Types = dc.Request_Types.ToList(),
+               Requester_Types = dc.Requester_Types.ToList(),
+               D_SUBs = dc.D_SUBs.ToList(),
+               VF_Cashiers = dc.VF_Cashiers.ToList()
+            };
+         });
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         requestTypeBindingSource.DataSource = result.Request_Types;
+         requesterTypeBindingSource.DataSource = result.Requester_Types;
+         dSUBBindingSource.DataSource = result.D_SUBs;
+         vFCashierBindingSource.DataSource = result.VF_Cashiers;
          /*
-         vF_AndRequestResultBindingSource.DataSource =
-            iScsc.VF_AndRequest(
                new XElement("Process",
                   new XElement("Condition",
                      new XAttribute("subsys", ""),

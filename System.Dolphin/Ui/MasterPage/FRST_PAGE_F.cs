@@ -21,8 +21,12 @@ namespace System.Dolphin.Ui.MasterPage
 
       private string formCaller;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         await Task.Run(() =>
+         {
+            // No database queries in this form
+         });
       }
 
       #region Settings

@@ -33,12 +33,13 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          iProject = new Data.iProjectDataContext(ConnectionString);
          if (Pos_Device != null)
          {
-            PosBs.DataSource = iProject.Pos_Devices.FirstOrDefault(p => p.PSID == Pos_Device.PSID);
+            var result = await Task.Run(() => iProject.Pos_Devices.FirstOrDefault(p => p.PSID == Pos_Device.PSID));
+            PosBs.DataSource = result;
          }
          else
          {

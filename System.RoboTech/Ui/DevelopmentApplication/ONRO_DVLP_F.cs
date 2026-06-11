@@ -33,10 +33,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-
          int orgn = OrgnBs.Position;
          int robo = RoboBs.Position;
          int prbt = PrbtBs.Position;
@@ -44,9 +42,17 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          int ordr25stp2 = Ordr25Stp2Bs.Position;
          int ordt4stp2 = Ordt4Stp2Bs.Position;
 
-         OrgnBs.DataSource = iRoboTech.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID));
-         RcbaBs.DataSource = iRoboTech.Robot_Card_Bank_Accounts.Where(i => i.ACNT_TYPE == "002" && i.ORDR_TYPE == "004" && i.ACNT_STAT == "002");
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var organs = db.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID)).ToList();
+            var rcba = db.Robot_Card_Bank_Accounts.Where(i => i.ACNT_TYPE == "002" && i.ORDR_TYPE == "004" && i.ACNT_STAT == "002").ToList();
+            return new { organs, rcba };
+         });
 
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         OrgnBs.DataSource = result.organs;
+         RcbaBs.DataSource = result.rcba;
          OrgnBs.Position = orgn;
          RoboBs.Position = robo;
          PrbtBs.Position = prbt;

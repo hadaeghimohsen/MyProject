@@ -35,28 +35,33 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-
          int orgn = OrgnBs.Position;
          int robo = RoboBs.Position;
          int rbpr = RbprBs.Position;
-
-         OrgnBs.DataSource = iRoboTech.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID));
-
-         OrgnBs.Position = orgn;
-         RoboBs.Position = robo;
-         RbprBs.Position = rbpr;
-
          int grop = VGexpBs.Position;
          int brnd = VBexpBs.Position;
          int unit = UnitBs.Position;
 
-         VGexpBs.DataSource = iRoboTech.V_Group_Expenses.Where(g => g.GROP_TYPE == "001");
-         VBexpBs.DataSource = iRoboTech.V_Group_Expenses.Where(g => g.GROP_TYPE == "002");
-         UnitBs.DataSource = iRoboTech.App_Base_Defines.Where(u => u.ENTY_NAME == "PRODUCTUNIT_INFO");
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var organs = db.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID)).ToList();
+            var vgexp = db.V_Group_Expenses.Where(g => g.GROP_TYPE == "001").ToList();
+            var vbexp = db.V_Group_Expenses.Where(g => g.GROP_TYPE == "002").ToList();
+            var appBase = db.App_Base_Defines.Where(u => u.ENTY_NAME == "PRODUCTUNIT_INFO").ToList();
+            return new { organs, vgexp, vbexp, appBase };
+         });
 
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         OrgnBs.DataSource = result.organs;
+         OrgnBs.Position = orgn;
+         RoboBs.Position = robo;
+         RbprBs.Position = rbpr;
+         VGexpBs.DataSource = result.vgexp;
+         VBexpBs.DataSource = result.vbexp;
+         UnitBs.DataSource = result.appBase;
          VGexpBs.Position = grop;
          VBexpBs.Position = brnd;
          UnitBs.Position = unit;

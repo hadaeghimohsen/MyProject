@@ -32,18 +32,22 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var ordrs = db.Orders.Where(o => o.CODE == ordrcode).ToList();
+            var ordr = ordrs.FirstOrDefault();
+            var jobs = db.Jobs.Where(j => j.ROBO_RBID == ordr.SRBT_ROBO_RBID && j.ORDR_TYPE == "019").ToList();
+            return new { ordrs, ordr, jobs };
+         });
+
          iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-         OrdrBs.DataSource =
-            iRoboTech.Orders.Where(o => o.CODE == ordrcode);
-
-         var ordr = OrdrBs.Current as Data.Order;
-
-         JobBs.DataSource = iRoboTech.Jobs.Where(j => j.ROBO_RBID == ordr.SRBT_ROBO_RBID && j.ORDR_TYPE == "019");
-
+         OrdrBs.DataSource = result.ordrs;
+         var ordr = result.ordr;
+         JobBs.DataSource = result.jobs;
          TotlAlpk_Lb.Text = PrjbBs.List.OfType<Data.Personal_Robot_Job>().Where(p => p.STAT == "002").Count().ToString();
-
          requery = false;
       }
 

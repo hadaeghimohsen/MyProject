@@ -35,17 +35,23 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var srrm = db.Service_Robot_Replay_Messages
+               .Where(
+                  m => 
+                     m.SRBT_SERV_FILE_NO == servFileNo &&
+                     m.SRBT_ROBO_RBID == roboRbid &&
+                     (ordtOrdrCode != 0 ? (m.ORDT_ORDR_CODE == ordtOrdrCode && m.ORDT_RWNO == ordtRwno) : true)
+               ).OrderByDescending(m => m.CRET_DATE).FirstOrDefault();
+            return new { srrm };
+         });
+
          iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-         SrrmBs.DataSource = 
-            iRoboTech.Service_Robot_Replay_Messages
-            .Where(
-               m => 
-                  m.SRBT_SERV_FILE_NO == servFileNo &&
-                  m.SRBT_ROBO_RBID == roboRbid &&
-                  (ordtOrdrCode != 0 ? (m.ORDT_ORDR_CODE == ordtOrdrCode && m.ORDT_RWNO == ordtRwno) : true)
-             ).OrderByDescending(m => m.CRET_DATE).FirstOrDefault();
+         SrrmBs.DataSource = result.srrm;
       }
 
       private void Tsb_SubmitChange_Click(object sender, EventArgs e)

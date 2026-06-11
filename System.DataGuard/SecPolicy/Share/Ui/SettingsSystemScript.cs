@@ -69,17 +69,36 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
-      {
-         iProject = new Data.iProjectDataContext(ConnectionString);
-         if(Tb_Master.SelectedTab == tp_001)
-         {
-            int scp = ScrpBs.Position;
-            SubSysBs.DataSource = iProject.Sub_Systems.Where(s => s.STAT == "002" && s.SUB_SYS == subsys);
-            ScrpBs.Position = scp;
-         }
-         requery = false;
-      }
+       private async void Execute_Query()
+       {
+          var currentTab = Tb_Master.SelectedTab;
+          var currentSubsys = subsys;
+          int scp = ScrpBs.Position;
+          
+          var result = await Task.Run(() =>
+          {
+             using (var db = new Data.iProjectDataContext(ConnectionString))
+             {
+                if (currentTab == tp_001)
+                {
+                   return new
+                   {
+                      SubSystems = db.Sub_Systems.Where(s => s.STAT == "002" && s.SUB_SYS == currentSubsys).ToList(),
+                      ScrpIndex = scp
+                   };
+                }
+                return null;
+             }
+          });
+
+          if (result != null)
+          {
+             iProject = new Data.iProjectDataContext(ConnectionString);
+             SubSysBs.DataSource = result.SubSystems;
+             ScrpBs.Position = result.ScrpIndex;
+          }
+          requery = false;
+       }
 
       private void AddScript_Butn_Click(object sender, EventArgs e)
       {

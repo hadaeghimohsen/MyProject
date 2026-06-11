@@ -24,12 +24,20 @@ namespace System.CRM.Ui.Activity
       private bool requery = false;
       private long code;
 
-      private void Execute_Query()
-      {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         ParentCompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002" && c.CODE == code);
-         requery = false;
-      }
+       private async void Execute_Query()
+       {
+          long _code = code;
+          var result = await Task.Run(() =>
+          {
+             using (var ctx = new Data.iCRMDataContext(ConnectionString))
+             {
+                return ctx.Companies.Where(c => c.RECD_STAT == "002" && c.CODE == _code).ToList();
+             }
+          });
+          iCRM = new Data.iCRMDataContext(ConnectionString);
+          ParentCompBs.DataSource = result;
+          requery = false;
+       }
 
       private void Btn_Back_Click(object sender, EventArgs e)
       {

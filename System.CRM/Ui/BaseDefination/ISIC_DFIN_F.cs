@@ -27,19 +27,34 @@ namespace System.CRM.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         if (tb_master.SelectedTab == tp_001)
+         int g = ISCGBs1.Position;
+         int a = ISCABs1.Position;
+         int p = ISCPBs1.Position;
+         bool isTab001 = tb_master.SelectedTab == tp_001;
+         
+         var result = await Task.Run(() =>
          {
-            int g = ISCGBs1.Position;
-            int a = ISCABs1.Position;
-            int p = ISCPBs1.Position;
-            ISCGBs1.DataSource = iCRM.Isic_Groups;
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return new
+               {
+                  IsicGroups = ctx.Isic_Groups.ToList(),
+               };
+            }
+         });
+         
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         if (isTab001)
+         {
+            ISCGBs1.DataSource = result.IsicGroups;
             ISCGBs1.Position = g;
             ISCABs1.Position = a;
             ISCPBs1.Position = p;
          }
+         
+         requery = false;
       }
 
       private void Refresh_Clicked(object sender, EventArgs e)

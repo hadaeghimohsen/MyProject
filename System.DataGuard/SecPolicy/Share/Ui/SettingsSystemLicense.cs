@@ -65,19 +65,34 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
-      {
-         iProject = new Data.iProjectDataContext(ConnectionString);
-         if(Tb_Master.SelectedTab == tp_001)
-         {
-            int subsys = SubSysBs.Position;
-            SubSysBs.DataSource = iProject.Sub_Systems.Where(s => s.STAT == "002");
-            SubSysBs.Position = subsys;
+       private async void Execute_Query()
+       {
+          var currentTab = Tb_Master.SelectedTab;
+          
+          if (currentTab == tp_001)
+          {
+             int subsys = SubSysBs.Position;
+             
+             var result = await Task.Run(() =>
+             {
+                using (var db = new Data.iProjectDataContext(ConnectionString))
+                {
+                   return new
+                   {
+                      SubSystems = db.Sub_Systems.Where(s => s.STAT == "002").ToList(),
+                      Gateways = db.Gateways.Where(g => g.CONF_STAT == "002").ToList(),
+                      SubSysIndex = subsys
+                   };
+                }
+             });
 
-            GatewayBs.DataSource = iProject.Gateways.Where(g => g.CONF_STAT == "002");
-         }
-         requery = false;
-      }
+             iProject = new Data.iProjectDataContext(ConnectionString);
+             SubSysBs.DataSource = result.SubSystems;
+             SubSysBs.Position = result.SubSysIndex;
+             GatewayBs.DataSource = result.Gateways;
+          }
+          requery = false;
+       }
 
       #region Request License Key
       private string MtoS(DateTime dt)

@@ -29,13 +29,24 @@ namespace System.CRM.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         
          int b = MsttBs.Position;
          int t = SsttBs.Position;
-         MsttBs.DataSource = iCRM.Main_States;
+         
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return new
+               {
+                  MainStates = ctx.Main_States.ToList(),
+               };
+            }
+         });
+         
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         MsttBs.DataSource = result.MainStates;
          MsttBs.Position = b;
          SsttBs.Position = t;
          

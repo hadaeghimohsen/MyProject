@@ -19,12 +19,20 @@ namespace System.Scsc.Ui.Organ
       }
       bool requery = false;
 
-      private void Execute_Query(bool runAllQuery)
+      private async void Execute_Query(bool runAllQuery)
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
          int orgn = OrgnBs1.Position;
          int bcds = BcdsBs1.Position;
-         OrgnBs1.DataSource = iScsc.Organs;
+         var result = await Task.Run(() =>
+         {
+            var dc = new Data.iScscDataContext(ConnectionString);
+            return new
+            {
+               Organs = dc.Organs.ToList()
+            };
+         });
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         OrgnBs1.DataSource = result.Organs;
          OrgnBs1.Position = orgn;
          BcdsBs1.Position = bcds;
 

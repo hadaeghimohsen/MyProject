@@ -29,14 +29,28 @@ namespace System.CRM.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         if(tb_master.SelectedTab == tp_001)
+         int b = ApbsBs.Position;
+         int t = SApbBs.Position;
+         string tableNameLocal = tableName;
+         bool isTab001 = tb_master.SelectedTab == tp_001;
+         
+         var result = await Task.Run(() =>
          {
-            int b = ApbsBs.Position;
-            int t = SApbBs.Position;
-            ApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == tableName && a.REF_CODE == null);
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return new
+               {
+                  AppBaseDefines = ctx.App_Base_Defines.Where(a => a.ENTY_NAME == tableNameLocal && a.REF_CODE == null).ToList(),
+               };
+            }
+         });
+         
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         if (isTab001)
+         {
+            ApbsBs.DataSource = result.AppBaseDefines;
             ApbsBs.Position = b;
             SApbBs.Position = t;
          }

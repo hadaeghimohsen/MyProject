@@ -27,15 +27,30 @@ namespace System.CRM.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         if(tb_master.SelectedTab == tp_001)
+         int c = EpitBs.Position;
+         bool isTab001 = tb_master.SelectedTab == tp_001;
+         
+         var result = await Task.Run(() =>
          {
-            int c = EpitBs.Position;
-            EpitBs.DataSource = iCRM.Expense_Items;
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return new
+               {
+                  ExpenseItems = ctx.Expense_Items.ToList(),
+               };
+            }
+         });
+         
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         if (isTab001)
+         {
+            EpitBs.DataSource = result.ExpenseItems;
             EpitBs.Position = c;
          }
+         
+         requery = false;
       }
 
       private void Refresh_Clicked(object sender, EventArgs e)

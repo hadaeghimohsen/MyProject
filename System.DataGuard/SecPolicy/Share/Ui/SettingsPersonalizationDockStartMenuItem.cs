@@ -28,10 +28,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          iProject = new Data.iProjectDataContext(ConnectionString);
-         PackageUserGatewayBs.DataSource = iProject.Package_Instance_User_Gateways.Where(piug => piug == Piug); 
+         var result = await Task.Run(() => iProject.Package_Instance_User_Gateways.Where(piug => piug == Piug).ToList());
+         PackageUserGatewayBs.DataSource = result;
       }
 
       private void PackageUserGatewayBs_CurrentChanged(object sender, EventArgs e)

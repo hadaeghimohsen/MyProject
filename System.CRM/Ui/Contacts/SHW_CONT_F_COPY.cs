@@ -40,7 +40,7 @@ namespace System.CRM.Ui.Contacts
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
@@ -50,83 +50,104 @@ namespace System.CRM.Ui.Contacts
 
             LeadActn_Butn.Buttons.OfType<EditorButton>().FirstOrDefault(b => b.Tag != null && b.Tag.ToString() == (onoftag == "on" ? "101" : "001")).Visible = false;
 
-            iCRM = new Data.iCRMDataContext(ConnectionString);
-            if (Filter_Butn.Tag != null)
-            {
-               var Qxml = Filter_Butn.Tag as XElement;
+            string filterTag = Filter_Butn.Tag != null ? Filter_Butn.Tag.ToString() : null;
+            string frstName = FrstName_Txt.Text;
+            string lastName = LastName_Txt.Text;
+            string sexType = BothSex_Rb.Checked ? "" : Men_Rb.Checked ? "001" : "002";
+            string cellPhon = CellPhon_Txt.Text;
+            string tellPhon = TellPhon_Txt.Text;
+            string natlCode = NatlCode_Txt.Text;
+            string servNo = ServNo_Txt.Text;
+            string postAddr = PostAddr_Txt.Text;
+            string cordX = CordX_Txt.Text;
+            string cordY = CordY_Txt.Text;
+            string radsNumb = Radius_Txt.Text;
+            string emalAddr = EmalAddr_Txt.Text;
+            string confDate = ConfDate_Dat.Value.HasValue ? ConfDate_Dat.Value.Value.Date.ToString("yyyy-MM-dd") : "";
+            string mainStat = MainStat_Lov.EditValue?.ToString() ?? "";
+            string subStat = SubStat_Lov.EditValue?.ToString() ?? "";
+            long compCode = compcode;
+            string onofTag = onoftag;
 
-               Qxml.Add(
-                     new XElement("Service",
-                        new XAttribute("srpbtype", "002"),
-                        new XAttribute("onoftag", onoftag),
-                        new XAttribute("frstname", FrstName_Txt.Text),
-                        new XAttribute("lastname", LastName_Txt.Text),
-                        new XAttribute("sextype", BothSex_Rb.Checked ? "" : Men_Rb.Checked ? "001" : "002"),
-                        new XAttribute("cellphon", CellPhon_Txt.Text),
-                        new XAttribute("tellphon", TellPhon_Txt.Text),
-                        new XAttribute("natlcode", NatlCode_Txt.Text),
-                        new XAttribute("servno", ServNo_Txt.Text),
-                        new XAttribute("postaddr", PostAddr_Txt.Text),
-                        new XAttribute("cordx", CordX_Txt.Text),
-                        new XAttribute("cordy", CordY_Txt.Text),
-                        new XAttribute("radsnumb", Radius_Txt.Text),
-                        new XAttribute("emaladdr", EmalAddr_Txt.Text),
-                        new XAttribute("confdate", ConfDate_Dat.Value.HasValue ? ConfDate_Dat.Value.Value.Date.ToString("yyyy-MM-dd") : ""),
-                        new XElement("Requests",
-                           new XAttribute("cont", 1),
-                           new XAttribute("allany", "any"),
-                           new XElement("Request",
-                              new XAttribute("mainstat", MainStat_Lov.EditValue ?? ""),
-                              new XAttribute("substat", SubStat_Lov.EditValue ?? "")
-                           )
-                        )
-                     ),
-                     new XElement("Company",
-                        new XAttribute("code", compcode)
-                     )
-               );
-
-               ServBs.DataSource =
-                  iCRM.VF_Services(
-                     Qxml
-                  );               
-            }
-            else
+            var result = await Task.Run(() =>
             {
-               ServBs.DataSource =
-                  iCRM.VF_Services(
-                     new XElement("Query",
+               using (var ctx = new Data.iCRMDataContext(ConnectionString))
+               {
+                  XElement queryXml;
+                  if (!string.IsNullOrEmpty(filterTag))
+                  {
+                     queryXml = XElement.Parse(filterTag);
+                     queryXml.Add(
                         new XElement("Service",
                            new XAttribute("srpbtype", "002"),
-                           new XAttribute("onoftag", onoftag),
-                           new XAttribute("frstname", FrstName_Txt.Text),
-                           new XAttribute("lastname", LastName_Txt.Text),
-                           new XAttribute("sextype", BothSex_Rb.Checked ? "" : Men_Rb.Checked ? "001" : "002"),
-                           new XAttribute("cellphon", CellPhon_Txt.Text),
-                           new XAttribute("tellphon", TellPhon_Txt.Text),
-                           new XAttribute("natlcode", NatlCode_Txt.Text),
-                           new XAttribute("servno", ServNo_Txt.Text),
-                           new XAttribute("postaddr", PostAddr_Txt.Text),
-                           new XAttribute("cordx", CordX_Txt.Text),
-                           new XAttribute("cordy", CordY_Txt.Text),
-                           new XAttribute("radsnumb", Radius_Txt.Text),
-                           new XAttribute("emaladdr", EmalAddr_Txt.Text),
-                           new XAttribute("confdate", ConfDate_Dat.Value.HasValue ? ConfDate_Dat.Value.Value.Date.ToString("yyyy-MM-dd") : ""),
+                           new XAttribute("onoftag", onofTag),
+                           new XAttribute("frstname", frstName),
+                           new XAttribute("lastname", lastName),
+                           new XAttribute("sextype", sexType),
+                           new XAttribute("cellphon", cellPhon),
+                           new XAttribute("tellphon", tellPhon),
+                           new XAttribute("natlcode", natlCode),
+                           new XAttribute("servno", servNo),
+                           new XAttribute("postaddr", postAddr),
+                           new XAttribute("cordx", cordX),
+                           new XAttribute("cordy", cordY),
+                           new XAttribute("radsnumb", radsNumb),
+                           new XAttribute("emaladdr", emalAddr),
+                           new XAttribute("confdate", confDate),
                            new XElement("Requests",
                               new XAttribute("cont", 1),
                               new XAttribute("allany", "any"),
                               new XElement("Request",
-                                 new XAttribute("mainstat", MainStat_Lov.EditValue ?? ""),
-                                 new XAttribute("substat", SubStat_Lov.EditValue ?? "")
+                                 new XAttribute("mainstat", mainStat),
+                                 new XAttribute("substat", subStat)
                               )
                            )
                         ),
                         new XElement("Company",
-                           new XAttribute("code", compcode)
+                           new XAttribute("code", compCode)
                         )
-                     )
-                  );
-            }
+                     );
+                  }
+                  else
+                  {
+                     queryXml = new XElement("Query",
+                        new XElement("Service",
+                           new XAttribute("srpbtype", "002"),
+                           new XAttribute("onoftag", onofTag),
+                           new XAttribute("frstname", frstName),
+                           new XAttribute("lastname", lastName),
+                           new XAttribute("sextype", sexType),
+                           new XAttribute("cellphon", cellPhon),
+                           new XAttribute("tellphon", tellPhon),
+                           new XAttribute("natlcode", natlCode),
+                           new XAttribute("servno", servNo),
+                           new XAttribute("postaddr", postAddr),
+                           new XAttribute("cordx", cordX),
+                           new XAttribute("cordy", cordY),
+                           new XAttribute("radsnumb", radsNumb),
+                           new XAttribute("emaladdr", emalAddr),
+                           new XAttribute("confdate", confDate),
+                           new XElement("Requests",
+                              new XAttribute("cont", 1),
+                              new XAttribute("allany", "any"),
+                              new XElement("Request",
+                                 new XAttribute("mainstat", mainStat),
+                                 new XAttribute("substat", subStat)
+                              )
+                           )
+                        ),
+                        new XElement("Company",
+                           new XAttribute("code", compCode)
+                        )
+                     );
+                  }
+
+                  return ctx.VF_Services(queryXml).ToList();
+               }
+            });
+
+            iCRM = new Data.iCRMDataContext(ConnectionString);
+            ServBs.DataSource = result;
          }
          catch { }
          finally

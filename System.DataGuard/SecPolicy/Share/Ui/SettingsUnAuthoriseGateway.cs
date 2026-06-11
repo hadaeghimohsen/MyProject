@@ -33,20 +33,49 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          );
       }
 
-      private void Execute_Query()
-      {
-         iProject = new Data.iProjectDataContext(ConnectionString);
-         GatewayBs.DataSource = iProject.Gateways.Where(g => g.AUTH_TYPE_DNRM == "001");
-         CreateGatewayMenu();
-         UserGatewayBs.Clear();
-         GatewayInfo_Lbl.Text = "";
-         if(UserGateway_Gv.Tag != null)
-         {
-            var gateway = UserGateway_Gv.Tag as Data.Gateway;
-            GatewayInfo_Lbl.Text = string.Format("{0}<br><color=DimGray><size=10>{1}</size></color><br>", gateway.COMP_NAME_DNRM, gateway.IP_DNRM);
-            UserGatewayBs.DataSource = iProject.User_Gateways.Where(ug => ug.Gateway == gateway && ug.RWNO == iProject.User_Gateways.Where(ugt => ugt.Gateway == gateway && ugt.USER_ID == ug.USER_ID).Max(ugt => ugt.RWNO));
-         }
-      }
+       private async void Execute_Query()
+       {
+          var taggedGateway = UserGateway_Gv.Tag as Data.Gateway;
+          
+          var result = await Task.Run(() =>
+          {
+             using (var db = new Data.iProjectDataContext(ConnectionString))
+             {
+                var gateways = db.Gateways.Where(g => g.AUTH_TYPE_DNRM == "001").ToList();
+                Data.Gateway gateway = null;
+                List<Data.User_Gateway> userGateways = null;
+                
+                if (taggedGateway != null)
+                {
+                   gateway = gateways.FirstOrDefault(g => g.MAC_ADRS == taggedGateway.MAC_ADRS);
+                   if (gateway != null)
+                   {
+                      userGateways = db.User_Gateways.Where(ug => ug.Gateway == gateway && ug.RWNO == db.User_Gateways.Where(ugt => ugt.Gateway == gateway && ugt.USER_ID == ug.USER_ID).Max(ugt => ugt.RWNO)).ToList();
+                   }
+                }
+                
+                return new
+                {
+                   Gateways = gateways,
+                   TaggedGateway = gateway,
+                   UserGateways = userGateways
+                };
+             }
+          });
+
+          iProject = new Data.iProjectDataContext(ConnectionString);
+          GatewayBs.DataSource = result.Gateways;
+          CreateGatewayMenu();
+          UserGatewayBs.Clear();
+          GatewayInfo_Lbl.Text = "";
+          
+          if (result.TaggedGateway != null)
+          {
+             GatewayInfo_Lbl.Text = string.Format("{0}<br><color=DimGray><size=10>{1}</size></color><br>", result.TaggedGateway.COMP_NAME_DNRM, result.TaggedGateway.IP_DNRM);
+             UserGatewayBs.DataSource = result.UserGateways;
+             UserGateway_Gv.Tag = result.TaggedGateway;
+          }
+       }
 
       private void CreateGatewayMenu()
       {

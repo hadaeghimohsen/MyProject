@@ -30,10 +30,17 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var menu = db.Menu_Ussds.FirstOrDefault(m => m.MUID == muid);
+            return new { menu };
+         });
+
          iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-         MenuBs.DataSource = iRoboTech.Menu_Ussds.FirstOrDefault(m => m.MUID == muid);
+         MenuBs.DataSource = result.menu;
       }
 
       private void Tsb_SubmitChange_Click(object sender, EventArgs e)

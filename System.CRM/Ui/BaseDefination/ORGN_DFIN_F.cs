@@ -27,16 +27,32 @@ namespace System.CRM.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         if(tb_master.SelectedTab == tp_001)
+         int c = OrgnBs.Position;
+         bool isTab001 = tb_master.SelectedTab == tp_001;
+         
+         var result = await Task.Run(() =>
          {
-            int c = OrgnBs.Position;
-            OrgnBs.DataSource = iCRM.Organs;
-            RqrqBs.DataSource = iCRM.Request_Requesters.Where(rq => rq.Regulation.REGL_STAT == "002" && rq.Regulation.TYPE == "001");
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return new
+               {
+                  Organs = ctx.Organs.ToList(),
+                  RequestRequesters = ctx.Request_Requesters.Where(rq => rq.Regulation.REGL_STAT == "002" && rq.Regulation.TYPE == "001").ToList(),
+               };
+            }
+         });
+         
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         if (isTab001)
+         {
+            OrgnBs.DataSource = result.Organs;
+            RqrqBs.DataSource = result.RequestRequesters;
             OrgnBs.Position = c;
          }
+         
+         requery = false;
       }
 
       private void Refresh_Clicked(object sender, EventArgs e)

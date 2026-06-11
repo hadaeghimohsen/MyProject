@@ -27,13 +27,23 @@ namespace System.CRM.Ui.Activity
       private long rqstrqid;
       private bool needclose = true;
 
-      private void Execute_Query()
-      {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         ServBs.DataSource = iCRM.Services.Where(s => s.FILE_NO == fileno);
-         JobpBs.DataSource = iCRM.Job_Personnels.Where(jp => jp.STAT == "002");
-         requery = false;
-      }
+       private async void Execute_Query()
+       {
+          long _fileno = fileno;
+          var result = await Task.Run(() =>
+          {
+             using (var ctx = new Data.iCRMDataContext(ConnectionString))
+             {
+                var servs = ctx.Services.Where(s => s.FILE_NO == _fileno).ToList();
+                var jobps = ctx.Job_Personnels.Where(jp => jp.STAT == "002").ToList();
+                return new { servs, jobps };
+             }
+          });
+          iCRM = new Data.iCRMDataContext(ConnectionString);
+          ServBs.DataSource = result.servs;
+          JobpBs.DataSource = result.jobps;
+          requery = false;
+       }
 
       private bool Apply()
       {

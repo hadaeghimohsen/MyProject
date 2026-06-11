@@ -26,12 +26,20 @@ namespace System.CRM.Ui.Activity
       private bool needclose = true;
       private long rqstrqid, projrqstrqid;
 
-      private void Execute_Query()
-      {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         ServBs.DataSource = iCRM.Services.Where(s => /*s.SRPB_TYPE_DNRM == srpbtype*/ s.FILE_NO == fileno && s.CONF_STAT == "002" && Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101);
-         requery = false;
-      }
+       private async void Execute_Query()
+       {
+          long _fileno = fileno;
+          var result = await Task.Run(() =>
+          {
+             using (var ctx = new Data.iCRMDataContext(ConnectionString))
+             {
+                return ctx.Services.Where(s => /*s.SRPB_TYPE_DNRM == srpbtype*/ s.FILE_NO == _fileno && s.CONF_STAT == "002" && Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101).ToList();
+             }
+          });
+          iCRM = new Data.iCRMDataContext(ConnectionString);
+          ServBs.DataSource = result;
+          requery = false;
+       }
 
       private bool Apply()
       {

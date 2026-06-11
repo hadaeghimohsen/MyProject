@@ -29,11 +29,19 @@ namespace System.ISP.Ui.Payment
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iISP = new Data.iISPDataContext(ConnectionString);
+         var crntPymt = PymtBs1.Current as Data.Payment;
 
-         PymtBs1.DataSource = iISP.Payments.Where(p => p == PymtBs1.Current);
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iISPDataContext(ConnectionString);
+            var pymts = db.Payments.Where(p => p == crntPymt).ToList();
+            return new { pymts };
+         });
+
+         iISP = new Data.iISPDataContext(ConnectionString);
+         PymtBs1.DataSource = result.pymts;
          Te_TotlDebtAmnt.EditValue = (PymtBs1.Current as Data.Payment).SUM_EXPN_PRIC + (PymtBs1.Current as Data.Payment).SUM_EXPN_EXTR_PRCT;
          Te_TotlRemnAmnt.EditValue = (PymtBs1.Current as Data.Payment).SUM_EXPN_PRIC + (PymtBs1.Current as Data.Payment).SUM_EXPN_EXTR_PRCT - PmmtBs1.List.OfType<Data.Payment_Method>().Sum(pm => pm.AMNT);
 

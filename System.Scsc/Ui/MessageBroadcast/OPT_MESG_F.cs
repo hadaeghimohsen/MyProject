@@ -25,10 +25,11 @@ namespace System.Scsc.Ui.MessageBroadcast
 
       private bool requery = false;
 
-      private void Execute_Query(bool runAllQuery)
+      private async void Execute_Query(bool runAllQuery)
       {
          try
          {
+            await Task.Run(() => { });
             iScsc = new Data.iScscDataContext(ConnectionString);
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }

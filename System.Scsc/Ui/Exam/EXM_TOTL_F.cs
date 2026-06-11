@@ -22,19 +22,23 @@ namespace System.Scsc.Ui.Exam
 
       private bool requery = default(bool);
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          if (tb_master.SelectedTab == tp_001)
          {
+            var result = await Task.Run(() =>
+            {
+               var dc = new Data.iScscDataContext(ConnectionString);
+               return dc.Requests
+                  .Where(
+                     rqst =>
+                        rqst.RQTP_CODE == "007" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.SUB_SYS == 1
+                  ).ToList();
+            });
             iScsc = new Data.iScscDataContext(ConnectionString);
-            RqstBs1.DataSource =
-               iScsc.Requests
-               .Where(
-                  rqst =>
-                     rqst.RQTP_CODE == "007" &&                     
-                     rqst.RQST_STAT == "001" &&
-                     rqst.SUB_SYS == 1
-               );
+            RqstBs1.DataSource = result;
          }
       }
 

@@ -28,14 +28,25 @@ namespace System.CRM.Ui.BaseDefination
       private string formcaller;
       private XElement xinput;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return new
+               {
+                  JobPersonnelRelations = ctx.Job_Personnel_Relations.ToList(),
+                  JobPersonnels = ctx.Job_Personnels.ToList(),
+                  AppBaseDefines = ctx.App_Base_Defines.Where(a => a.ENTY_NAME == "COMPANYCHART_INFO").ToList(),
+               };
+            }
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         JbprBs1.DataSource = iCRM.Job_Personnel_Relations;
-
-         JobpBs1.DataSource = iCRM.Job_Personnels;
-         ApbsBs1.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "COMPANYCHART_INFO");
-
+         JbprBs1.DataSource = result.JobPersonnelRelations;
+         JobpBs1.DataSource = result.JobPersonnels;
+         ApbsBs1.DataSource = result.AppBaseDefines;
          requery = false;
       }
 

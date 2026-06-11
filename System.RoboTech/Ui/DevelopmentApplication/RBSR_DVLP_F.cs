@@ -24,10 +24,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-
          int orgn = OrgnBs.Position;
          int robo = RoboBs.Position;
          int srbt = SrbtBs.Position;
@@ -36,9 +34,16 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          int srrmcopy = SrrmCopyBs.Position;
          int srmgcopy = SrmgCopyBs.Position;
          int srup = SrupBs.Position;
-         
-         OrgnBs.DataSource = iRoboTech.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID));
 
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var organs = db.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID)).ToList();
+            return new { organs };
+         });
+
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         OrgnBs.DataSource = result.organs;
          OrgnBs.Position = orgn;
          RoboBs.Position = robo;
          SrbtBs.Position = srbt;

@@ -27,16 +27,24 @@ namespace System.ISP.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iISP = new Data.iISPDataContext(ConnectionString);
+         int c = CntyBs.Position;
+         int p = PrvnBs.Position;
+         int r = RegnBs.Position;
+         int a = AgncBs.Position;
+
          if(tb_master.SelectedTab == tp_001)
          {
-            int c = CntyBs.Position;
-            int p = PrvnBs.Position;
-            int r = RegnBs.Position;
-            int a = AgncBs.Position;
-            CntyBs.DataSource = iISP.Countries;
+            var result = await Task.Run(() =>
+            {
+               var db = new Data.iISPDataContext(ConnectionString);
+               var cntys = db.Countries.ToList();
+               return new { cntys };
+            });
+
+            iISP = new Data.iISPDataContext(ConnectionString);
+            CntyBs.DataSource = result.cntys;
             CntyBs.Position = c;
             PrvnBs.Position = p;
             RegnBs.Position = r;

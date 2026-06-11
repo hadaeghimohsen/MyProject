@@ -66,10 +66,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          iProject = new Data.iProjectDataContext(ConnectionString);
-         UserBs.DataSource = iProject.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper());
+         var result = await Task.Run(() => iProject.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper()).ToList());
+         UserBs.DataSource = result;
       }
 
       private void UserBs_ListChanged(object sender, ListChangedEventArgs e)

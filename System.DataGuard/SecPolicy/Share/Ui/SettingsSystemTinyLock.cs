@@ -63,21 +63,37 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
-      {
-         iProject = new Data.iProjectDataContext(ConnectionString);
-         int serv = ServBs.Position;
-         int oprt = OprtBs.Position;
-         int tiny = TinyBs.Position;
-         int tnss = TnssBs.Position;
-         ServBs.DataSource = iProject.Services;
-         ServBs.Position = serv;
-         OprtBs.Position = oprt;
-         TinyBs.Position = tiny;
-         TnssBs.Position = tnss;
+       private async void Execute_Query()
+       {
+          int serv = ServBs.Position;
+          int oprt = OprtBs.Position;
+          int tiny = TinyBs.Position;
+          int tnss = TnssBs.Position;
+          
+          var result = await Task.Run(() =>
+          {
+             using (var db = new Data.iProjectDataContext(ConnectionString))
+             {
+                return new
+                {
+                   Services = db.Services.ToList(),
+                   ServIndex = serv,
+                   OprtIndex = oprt,
+                   TinyIndex = tiny,
+                   TnssIndex = tnss
+                };
+             }
+          });
 
-         requery = false;
-      }
+          iProject = new Data.iProjectDataContext(ConnectionString);
+          ServBs.DataSource = result.Services;
+          ServBs.Position = result.ServIndex;
+          OprtBs.Position = result.OprtIndex;
+          TinyBs.Position = result.TinyIndex;
+          TnssBs.Position = result.TnssIndex;
+
+          requery = false;
+       }
 
       private void SubmitChanges_Butn_Click(object sender, EventArgs e)
       {

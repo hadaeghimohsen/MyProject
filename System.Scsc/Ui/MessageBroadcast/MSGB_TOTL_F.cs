@@ -33,51 +33,100 @@ namespace System.Scsc.Ui.MessageBroadcast
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            var dc = new Data.iScscDataContext(ConnectionString);
+            return new
+            {
+               Msg1 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "001"),
+               Msg2 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "002"),
+               Msg3 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "003"),
+               Msg4 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "004"),
+               Msg5 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "005"),
+               Msg6 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "006"),
+               Msg7 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "007"),
+               Msg8 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "008"),
+               Msg9 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "009"),
+               Msg10 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "010"),
+               Msg11 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "011"),
+               Msg12 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "012"),
+               Msg13 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "013"),
+               Msg14 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "014"),
+               Msg15 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "015"),
+               Msg16 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "016"),
+               Msg17 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "017"),
+               Msg18 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "018"),
+               Msg19 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "019"),
+               Msg20 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "020"),
+               Msg21 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "021"),
+               Msg22 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "022"),
+               Msg23 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "023"),
+               Msg24 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "024"),
+               Msg25 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "025"),
+               Msg26 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "026"),
+               Msg27 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "027"),
+               Msg28 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "028"),
+               Msg29 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "029"),
+               Msg30 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "030"),
+               Msg31 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "031"),
+               Msg32 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "032"),
+               Msg33 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "033"),
+               Msg34 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "034"),
+               Msg35 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "035"),
+               Msg36 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "036"),
+               Msg37 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "037"),
+               Msg38 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "038"),
+               Msg39 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "039"),
+               Msg40 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "040"),
+               Msg41 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "041"),
+               Msg42 = dc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "042")
+            };
+         });
          iScsc = new Data.iScscDataContext(ConnectionString);
-         MsgbBs1.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "001");
-         MsgbBs4.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "002");
-         MsgbBs2.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "003");
-         MsgbBs3.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "004");         
-         MsgbBs5.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "005");
-         MsgbBs6.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "006");
-         MsgbBs7.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "007");
-         MsgbBs8.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "008");
-         MsgbBs9.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "009");
-         MsgbBs10.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "010");
-         MsgbBs11.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "011");
-         MsgbBs12.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "012");
-         MsgbBs13.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "013");
-         MsgbBs14.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "014");
-         MsgbBs15.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "015");
-         MsgbBs16.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "016");
-         MsgbBs17.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "017");
-         MsgbBs18.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "018");
-         MsgbBs19.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "019");
-         MsgbBs20.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "020");
-         MsgbBs21.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "021");
-         MsgbBs22.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "022");
-         MsgbBs23.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "023");
-         MsgbBs24.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "024");
-         MsgbBs25.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "025");
-         MsgbBs26.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "026");
-         MsgbBs27.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "027");
-         MsgbBs28.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "028");
-         MsgbBs29.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "029");
-         MsgbBs30.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "030");
-         MsgbBs31.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "031");
-         MsgbBs32.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "032");
-         MsgbBs33.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "033");
-         MsgbBs34.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "034");
-         MsgbBs35.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "035");
-         MsgbBs36.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "036");
-         MsgbBs37.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "037");
-         MsgbBs38.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "038");
-         MsgbBs39.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "039");
-         MsgbBs40.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "040");
-         MsgbBs41.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "041");
-         MsgbBs42.DataSource = iScsc.Message_Broadcasts.FirstOrDefault(m => m.MSGB_TYPE == "042");
+         MsgbBs1.DataSource = result.Msg1;
+         MsgbBs4.DataSource = result.Msg2;
+         MsgbBs2.DataSource = result.Msg3;
+         MsgbBs3.DataSource = result.Msg4;         
+         MsgbBs5.DataSource = result.Msg5;
+         MsgbBs6.DataSource = result.Msg6;
+         MsgbBs7.DataSource = result.Msg7;
+         MsgbBs8.DataSource = result.Msg8;
+         MsgbBs9.DataSource = result.Msg9;
+         MsgbBs10.DataSource = result.Msg10;
+         MsgbBs11.DataSource = result.Msg11;
+         MsgbBs12.DataSource = result.Msg12;
+         MsgbBs13.DataSource = result.Msg13;
+         MsgbBs14.DataSource = result.Msg14;
+         MsgbBs15.DataSource = result.Msg15;
+         MsgbBs16.DataSource = result.Msg16;
+         MsgbBs17.DataSource = result.Msg17;
+         MsgbBs18.DataSource = result.Msg18;
+         MsgbBs19.DataSource = result.Msg19;
+         MsgbBs20.DataSource = result.Msg20;
+         MsgbBs21.DataSource = result.Msg21;
+         MsgbBs22.DataSource = result.Msg22;
+         MsgbBs23.DataSource = result.Msg23;
+         MsgbBs24.DataSource = result.Msg24;
+         MsgbBs25.DataSource = result.Msg25;
+         MsgbBs26.DataSource = result.Msg26;
+         MsgbBs27.DataSource = result.Msg27;
+         MsgbBs28.DataSource = result.Msg28;
+         MsgbBs29.DataSource = result.Msg29;
+         MsgbBs30.DataSource = result.Msg30;
+         MsgbBs31.DataSource = result.Msg31;
+         MsgbBs32.DataSource = result.Msg32;
+         MsgbBs33.DataSource = result.Msg33;
+         MsgbBs34.DataSource = result.Msg34;
+         MsgbBs35.DataSource = result.Msg35;
+         MsgbBs36.DataSource = result.Msg36;
+         MsgbBs37.DataSource = result.Msg37;
+         MsgbBs38.DataSource = result.Msg38;
+         MsgbBs39.DataSource = result.Msg39;
+         MsgbBs40.DataSource = result.Msg40;
+         MsgbBs41.DataSource = result.Msg41;
+         MsgbBs42.DataSource = result.Msg42;
 
          requery = false;
       }

@@ -27,14 +27,23 @@ namespace System.ISP.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iISP = new Data.iISPDataContext(ConnectionString);
+         int c = OrgnBs.Position;
+
          if(tb_master.SelectedTab == tp_001)
          {
-            int c = OrgnBs.Position;
-            OrgnBs.DataSource = iISP.Organs;
-            RqrqBs.DataSource = iISP.Request_Requesters.Where(rq => rq.Regulation.REGL_STAT == "002" && rq.Regulation.TYPE == "001");
+            var result = await Task.Run(() =>
+            {
+               var db = new Data.iISPDataContext(ConnectionString);
+               var orgns = db.Organs.ToList();
+               var rqrqs = db.Request_Requesters.Where(rq => rq.Regulation.REGL_STAT == "002" && rq.Regulation.TYPE == "001").ToList();
+               return new { orgns, rqrqs };
+            });
+
+            iISP = new Data.iISPDataContext(ConnectionString);
+            OrgnBs.DataSource = result.orgns;
+            RqrqBs.DataSource = result.rqrqs;
             OrgnBs.Position = c;
          }
       }

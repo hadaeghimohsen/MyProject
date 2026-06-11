@@ -34,10 +34,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          iProject = new Data.iProjectDataContext(ConnectionString);
-         UserBs.DataSource = iProject.Users.Where(u => u == User).ToList(); 
+         var result = await Task.Run(() => iProject.Users.Where(u => u == User).ToList());
+         UserBs.DataSource = result;
       }
 
       private void SubmitChange_Butn_Click(object sender, EventArgs e)

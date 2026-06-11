@@ -33,10 +33,20 @@ namespace System.CRM.Ui.Contract
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         long contractId = cnid;
+         
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return ctx.Contract_Lines.Where(cl => cl.CONT_CNID == contractId).ToList();
+            }
+         });
+         
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         ClinBs.DataSource = iCRM.Contract_Lines.Where(cl => cl.CONT_CNID == cnid);
+         ClinBs.DataSource = result;
       }
 
 

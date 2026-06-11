@@ -32,34 +32,46 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-
          int orgn = OrgnBs.Position;
          int robo = RoboBs.Position;
          int prsn = PrsnBs.Position;
          int ordr = OrdrBs.Position;
          int ordt = OrdtBs.Position;
          int odst = OdstBs.Position;
-        
-         OrgnBs.DataSource = iRoboTech.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID));
 
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var organs = db.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID)).ToList();
+            var intrApbs = db.App_Base_Defines.Where(a => a.ENTY_NAME == "INTRODUCTION_INFO").ToList();
+            var jobApbs = db.App_Base_Defines.Where(a => a.ENTY_NAME == "JOBS_INFO").ToList();
+            var ordrStatApbs = db.App_Base_Defines.Where(a => a.ENTY_NAME == "ORDERSTATS_INFO").ToList();
+            var ordrApbs = db.App_Base_Defines.Where(a => a.ENTY_NAME == "ORDER_INFO").ToList();
+            var ghit = db.Group_Header_Items.ToList();
+            var damtp = db.D_AMTPs.ToList();
+            var dodst = db.D_ODSTs.ToList();
+            var dysno = db.D_YSNOs.ToList();
+            return new { organs, intrApbs, jobApbs, ordrStatApbs, ordrApbs, ghit, damtp, dodst, dysno };
+         });
+
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         OrgnBs.DataSource = result.organs;
          OrgnBs.Position = orgn;
          RoboBs.Position = robo;
          PrsnBs.Position = prsn;
          OrdrBs.Position = ordr;
          OrdtBs.Position = ordt;
          OdstBs.Position = odst;
-
-         IntrApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "INTRODUCTION_INFO");
-         JobApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "JOBS_INFO");
-         OrdrStatApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "ORDERSTATS_INFO");
-         OrdrApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "ORDER_INFO");
-         GhitBs.DataSource = iRoboTech.Group_Header_Items;
-         DamtpBs.DataSource = iRoboTech.D_AMTPs;
-         DodstBs.DataSource = iRoboTech.D_ODSTs;
-         DysnoBs.DataSource = iRoboTech.D_YSNOs;
+         IntrApbsBs.DataSource = result.intrApbs;
+         JobApbsBs.DataSource = result.jobApbs;
+         OrdrStatApbsBs.DataSource = result.ordrStatApbs;
+         OrdrApbsBs.DataSource = result.ordrApbs;
+         GhitBs.DataSource = result.ghit;
+         DamtpBs.DataSource = result.damtp;
+         DodstBs.DataSource = result.dodst;
+         DysnoBs.DataSource = result.dysno;
          requery = false;
       }
 

@@ -25,11 +25,17 @@ namespace System.CRM.Ui.Activity
       private bool requery = false;
       private bool needclose = true;
 
-      private void Execute_Query()
-      {
-         iCRM = new Data.iCRMDataContext(ConnectionString);         
-         requery = false;
-      }
+       private async void Execute_Query()
+       {
+          await Task.Run(() =>
+          {
+             using (var ctx = new Data.iCRMDataContext(ConnectionString))
+             {
+                requery = false;
+             }
+          });
+          iCRM = new Data.iCRMDataContext(ConnectionString);
+       }
 
       private void Btn_Back_Click(object sender, EventArgs e)
       {

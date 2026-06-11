@@ -28,21 +28,36 @@ namespace System.CRM.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         if(tb_master.SelectedTab == tp_001)
+         int c = CntyBs.Position;
+         int p = PrvnBs.Position;
+         int r = RegnBs.Position;
+         int a = CompBs.Position;
+         bool isTab001 = tb_master.SelectedTab == tp_001;
+         
+         var result = await Task.Run(() =>
          {
-            int c = CntyBs.Position;
-            int p = PrvnBs.Position;
-            int r = RegnBs.Position;
-            int a = CompBs.Position;
-            CntyBs.DataSource = iCRM.Countries;
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return new
+               {
+                  Countries = ctx.Countries.ToList(),
+               };
+            }
+         });
+         
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         if (isTab001)
+         {
+            CntyBs.DataSource = result.Countries;
             CntyBs.Position = c;
             PrvnBs.Position = p;
             RegnBs.Position = r;
             CompBs.Position = a;
          }
+         
+         requery = false;
       }
 
       private void Refresh_Clicked(object sender, EventArgs e)

@@ -96,10 +96,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          iProject = new Data.iProjectDataContext(ConnectionString);
-         UserBs.DataSource = iProject.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper());
+         var result = await Task.Run(() => iProject.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper()).ToList());
+         UserBs.DataSource = result;
       }
 
       private void UserBs_ListChanged(object sender, ListChangedEventArgs e)
@@ -511,11 +512,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
 
          /*******************************************
-         * ?¯???û³?£?RotatePic       
-         * ?¯??¹¦??£???×??¼?¬£¬??µ???±£´??????¾µ??¼?¬?ë°´µ??¸??·½??²»?¬     
-         * ?¯???ë²?£?BmpBuf---??×??°µ??¸??×?·û´®
-         * ?¯??³?²?£?ResBuf---??×???µ??¸??×?·û´®
-         * ?¯??·µ»?£???
+         * ?ï¿½???ï¿½ï¿½?ï¿½?RotatePic       
+         * ?ï¿½??ï¿½ï¿½??ï¿½???ï¿½??ï¿½?ï¿½ï¿½ï¿½??ï¿½???ï¿½ï¿½ï¿½??????ï¿½ï¿½??ï¿½?ï¿½?ë°´ï¿½??ï¿½??ï¿½ï¿½??ï¿½ï¿½?ï¿½     
+         * ?ï¿½???ï¿½?ï¿½?BmpBuf---??ï¿½??ï¿½ï¿½??ï¿½??ï¿½?ï¿½ï¿½ï¿½ï¿½
+         * ?ï¿½??ï¿½?ï¿½?ï¿½?ResBuf---??ï¿½???ï¿½??ï¿½??ï¿½?ï¿½ï¿½ï¿½ï¿½
+         * ?ï¿½??ï¿½ï¿½ï¿½?ï¿½???
          *********************************************/
          public static void RotatePic(byte[] BmpBuf, int width, int height, ref byte[] ResBuf)
          {
@@ -543,12 +544,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
 
          /*******************************************
-         * ?¯???û³?£?StructToBytes       
-         * ?¯??¹¦??£?½«½?¹¹??×?»¯³???·û??×?·û´®??×é     
-         * ?¯???ë²?£?StructObj---±»×?»¯µ?½?¹¹??
-         *           Size---±»×?»¯µ?½?¹¹??µ?´???
-         * ?¯??³?²?£???
-         * ?¯??·µ»?£?½?¹¹??×?»¯??µ???×é
+         * ?ï¿½???ï¿½ï¿½?ï¿½?StructToBytes       
+         * ?ï¿½??ï¿½ï¿½??ï¿½?ï¿½ï¿½ï¿½?ï¿½ï¿½??ï¿½?ï¿½ï¿½ï¿½???ï¿½ï¿½??ï¿½?ï¿½ï¿½ï¿½ï¿½??ï¿½ï¿½     
+         * ?ï¿½???ï¿½?ï¿½?StructObj---ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½?ï¿½ï¿½??
+         *           Size---ï¿½ï¿½ï¿½?ï¿½ï¿½ï¿½?ï¿½?ï¿½ï¿½??ï¿½?ï¿½???
+         * ?ï¿½??ï¿½?ï¿½?ï¿½???
+         * ?ï¿½??ï¿½ï¿½ï¿½?ï¿½?ï¿½?ï¿½ï¿½??ï¿½?ï¿½ï¿½??ï¿½???ï¿½ï¿½
          *********************************************/
          public static byte[] StructToBytes(object StructObj, int Size)
          {
@@ -594,13 +595,13 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
 
          /*******************************************
-         * ?¯???û³?£?GetBitmap       
-         * ?¯??¹¦??£?½«´«½??´µ???¾?±£´????¼?¬     
-         * ?¯???ë²?£?buffer---?¼?¬??¾?
-         *           nWidth---?¼?¬µ???¶?
-         *           nHeight---?¼?¬µ?¸?¶?
-         * ?¯??³?²?£???
-         * ?¯??·µ»?£???
+         * ?ï¿½???ï¿½ï¿½?ï¿½?GetBitmap       
+         * ?ï¿½??ï¿½ï¿½??ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½??ï¿½ï¿½???ï¿½?ï¿½ï¿½ï¿½????ï¿½?ï¿½     
+         * ?ï¿½???ï¿½?ï¿½?buffer---?ï¿½?ï¿½??ï¿½?
+         *           nWidth---?ï¿½?ï¿½ï¿½???ï¿½?
+         *           nHeight---?ï¿½?ï¿½ï¿½?ï¿½?ï¿½?
+         * ?ï¿½??ï¿½?ï¿½?ï¿½???
+         * ?ï¿½??ï¿½ï¿½ï¿½?ï¿½???
          *********************************************/
          public static void GetBitmap(byte[] buffer, int nWidth, int nHeight, ref MemoryStream ms)
          {
@@ -617,7 +618,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
                int w = (((nWidth + 3) / 4) * 4);
 
-               //?¼?¬?·???¢
+               //?ï¿½?ï¿½?ï¿½???ï¿½
                BmpInfoHeader.biSize = Marshal.SizeOf(BmpInfoHeader);
                BmpInfoHeader.biWidth = nWidth;
                BmpInfoHeader.biHeight = nHeight;
@@ -630,7 +631,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                BmpInfoHeader.biClrUsed = m_nColorTableEntries;
                BmpInfoHeader.biClrImportant = m_nColorTableEntries;
 
-               //??¼??·???¢
+               //??ï¿½??ï¿½???ï¿½
                BmpHeader.bfType = 0x4D42;
                BmpHeader.bfOffBits = 14 + Marshal.SizeOf(BmpInfoHeader) + BmpInfoHeader.biClrUsed * 4;
                BmpHeader.bfSize = BmpHeader.bfOffBits + ((((w * BmpInfoHeader.biBitCount + 31) / 32) * 4) * BmpInfoHeader.biHeight);
@@ -640,7 +641,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                ms.Write(StructToBytes(BmpHeader, 14), 0, 14);
                ms.Write(StructToBytes(BmpInfoHeader, Marshal.SizeOf(BmpInfoHeader)), 0, Marshal.SizeOf(BmpInfoHeader));
 
-               //µ÷??°????¢
+               //ï¿½ï¿½??ï¿½????ï¿½
                for (ColorIndex = 0; ColorIndex < m_nColorTableEntries; ColorIndex++)
                {
                   ColorMask[ColorIndex].redmask = (byte)ColorIndex;
@@ -651,7 +652,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   ms.Write(StructToBytes(ColorMask[ColorIndex], Marshal.SizeOf(ColorMask[ColorIndex])), 0, Marshal.SizeOf(ColorMask[ColorIndex]));
                }
 
-               //?¼?¬??×?£¬½â¾??¸???¼?¬µ¹?¢µ????â
+               //?ï¿½?ï¿½??ï¿½?ï¿½ï¿½ï¿½ï¿½??ï¿½???ï¿½?ï¿½ï¿½ï¿½?ï¿½ï¿½????ï¿½
                RotatePic(buffer, nWidth, nHeight, ref ResBuf);
 
                byte[] filter = null;
@@ -676,13 +677,13 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
 
          /*******************************************
-         * ?¯???û³?£?WriteBitmap       
-         * ?¯??¹¦??£?½«´«½??´µ???¾?±£´????¼?¬     
-         * ?¯???ë²?£?buffer---?¼?¬??¾?
-         *           nWidth---?¼?¬µ???¶?
-         *           nHeight---?¼?¬µ?¸?¶?
-         * ?¯??³?²?£???
-         * ?¯??·µ»?£???
+         * ?ï¿½???ï¿½ï¿½?ï¿½?WriteBitmap       
+         * ?ï¿½??ï¿½ï¿½??ï¿½?ï¿½ï¿½ï¿½ï¿½ï¿½??ï¿½ï¿½???ï¿½?ï¿½ï¿½ï¿½????ï¿½?ï¿½     
+         * ?ï¿½???ï¿½?ï¿½?buffer---?ï¿½?ï¿½??ï¿½?
+         *           nWidth---?ï¿½?ï¿½ï¿½???ï¿½?
+         *           nHeight---?ï¿½?ï¿½ï¿½?ï¿½?ï¿½?
+         * ?ï¿½??ï¿½?ï¿½?ï¿½???
+         * ?ï¿½??ï¿½ï¿½ï¿½?ï¿½???
          *********************************************/
          public static void WriteBitmap(byte[] buffer, int nWidth, int nHeight)
          {
@@ -698,7 +699,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                BITMAPINFOHEADER BmpInfoHeader = new BITMAPINFOHEADER();
                MASK[] ColorMask = new MASK[m_nColorTableEntries];
                int w = (((nWidth + 3) / 4) * 4);
-               //?¼?¬?·???¢
+               //?ï¿½?ï¿½?ï¿½???ï¿½
                BmpInfoHeader.biSize = Marshal.SizeOf(BmpInfoHeader);
                BmpInfoHeader.biWidth = nWidth;
                BmpInfoHeader.biHeight = nHeight;
@@ -711,7 +712,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                BmpInfoHeader.biClrUsed = m_nColorTableEntries;
                BmpInfoHeader.biClrImportant = m_nColorTableEntries;
 
-               //??¼??·???¢
+               //??ï¿½??ï¿½???ï¿½
                BmpHeader.bfType = 0x4D42;
                BmpHeader.bfOffBits = 14 + Marshal.SizeOf(BmpInfoHeader) + BmpInfoHeader.biClrUsed * 4;
                BmpHeader.bfSize = BmpHeader.bfOffBits + ((((w * BmpInfoHeader.biBitCount + 31) / 32) * 4) * BmpInfoHeader.biHeight);
@@ -724,7 +725,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                TmpBinaryWriter.Write(StructToBytes(BmpHeader, 14));
                TmpBinaryWriter.Write(StructToBytes(BmpInfoHeader, Marshal.SizeOf(BmpInfoHeader)));
 
-               //µ÷??°????¢
+               //ï¿½ï¿½??ï¿½????ï¿½
                for (ColorIndex = 0; ColorIndex < m_nColorTableEntries; ColorIndex++)
                {
                   ColorMask[ColorIndex].redmask = (byte)ColorIndex;
@@ -735,10 +736,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   TmpBinaryWriter.Write(StructToBytes(ColorMask[ColorIndex], Marshal.SizeOf(ColorMask[ColorIndex])));
                }
 
-               //?¼?¬??×?£¬½â¾??¸???¼?¬µ¹?¢µ????â
+               //?ï¿½?ï¿½??ï¿½?ï¿½ï¿½ï¿½ï¿½??ï¿½???ï¿½?ï¿½ï¿½ï¿½?ï¿½ï¿½????ï¿½
                RotatePic(buffer, nWidth, nHeight, ref ResBuf);
 
-               //?´?¼?¬
+               //?ï¿½?ï¿½?ï¿½
                //TmpBinaryWriter.Write(ResBuf);
                byte[] filter = null;
                if (w - nWidth > 0)

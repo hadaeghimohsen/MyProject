@@ -20,8 +20,9 @@ namespace System.Scsc.Ui.FingerPrint
          InitializeComponent();
       }
 
-      private void Execute_Query(bool runAll)
+      private async void Execute_Query(bool runAll)
       {
+         await Task.Run(() => { });
          SRCH_BUTN01_Click(null, null);
       }
 

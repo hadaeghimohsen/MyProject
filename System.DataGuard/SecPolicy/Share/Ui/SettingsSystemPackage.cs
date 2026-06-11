@@ -62,44 +62,94 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
-      {
-         iProject = new Data.iProjectDataContext(ConnectionString);
-         if(Tb_Master.SelectedTab == tp_001)
-         {
-            int subsys = SubSysBs.Position;
-            int package = PackageBs.Position;
-            SubSysBs.DataSource = iProject.Sub_Systems.Where(s => s.STAT == "002");
-            SubSysBs.Position = subsys;
-            PackageBs.Position = package;
-         }
-         else if (Tb_Master.SelectedTab == tp_002)
-         {
-            int subsys = SubSysBs.Position;
-            int package = PackageBs.Position;
-            int packageactivity = PackageActivityBs.Position;
-            int subitem = SubSysItemBs.Position;
-            SubSysBs.DataSource = iProject.Sub_Systems.Where(s => s.STAT == "002");
-            SubSysBs.Position = subsys;
-            PackageBs.Position = package;
-            PackageActivityBs.Position = packageactivity;
-            SubSysItemBs.Position = subitem;
-         }
-         else if (Tb_Master.SelectedTab == tp_003)
-         {
-            int subsys = SubSysBs.Position;
-            int package = PackageBs.Position;
-            int packageinstance = PackageInstanceBs.Position;
-            int packinstusergateway = PackageUserGatewayBs.Position;
-            SubSysBs.DataSource = iProject.Sub_Systems.Where(s => s.STAT == "002");
-            UserGatewayBs.DataSource = iProject.User_Gateways.Where(ug => ug.VALD_TYPE == "002");
-            SubSysBs.Position = subsys;
-            PackageBs.Position = package;
-            PackageInstanceBs.Position = packageinstance;
-            PackageUserGatewayBs.Position = packinstusergateway;
+       private async void Execute_Query()
+       {
+          var currentTab = Tb_Master.SelectedTab;
+          
+          if (currentTab == tp_001)
+          {
+             int subsys = SubSysBs.Position;
+             int package = PackageBs.Position;
+             
+             var result = await Task.Run(() =>
+             {
+                using (var db = new Data.iProjectDataContext(ConnectionString))
+                {
+                   return new
+                   {
+                      SubSystems = db.Sub_Systems.Where(s => s.STAT == "002").ToList(),
+                      SubSysIndex = subsys,
+                      PackageIndex = package
+                   };
+                }
+             });
 
-         }
-      }
+             iProject = new Data.iProjectDataContext(ConnectionString);
+             SubSysBs.DataSource = result.SubSystems;
+             SubSysBs.Position = result.SubSysIndex;
+             PackageBs.Position = result.PackageIndex;
+          }
+          else if (currentTab == tp_002)
+          {
+             int subsys = SubSysBs.Position;
+             int package = PackageBs.Position;
+             int packageactivity = PackageActivityBs.Position;
+             int subitem = SubSysItemBs.Position;
+             
+             var result = await Task.Run(() =>
+             {
+                using (var db = new Data.iProjectDataContext(ConnectionString))
+                {
+                   return new
+                   {
+                      SubSystems = db.Sub_Systems.Where(s => s.STAT == "002").ToList(),
+                      SubSysIndex = subsys,
+                      PackageIndex = package,
+                      PackageActivityIndex = packageactivity,
+                      SubSysItemIndex = subitem
+                   };
+                }
+             });
+
+             iProject = new Data.iProjectDataContext(ConnectionString);
+             SubSysBs.DataSource = result.SubSystems;
+             SubSysBs.Position = result.SubSysIndex;
+             PackageBs.Position = result.PackageIndex;
+             PackageActivityBs.Position = result.PackageActivityIndex;
+             SubSysItemBs.Position = result.SubSysItemIndex;
+          }
+          else if (currentTab == tp_003)
+          {
+             int subsys = SubSysBs.Position;
+             int package = PackageBs.Position;
+             int packageinstance = PackageInstanceBs.Position;
+             int packinstusergateway = PackageUserGatewayBs.Position;
+             
+             var result = await Task.Run(() =>
+             {
+                using (var db = new Data.iProjectDataContext(ConnectionString))
+                {
+                   return new
+                   {
+                      SubSystems = db.Sub_Systems.Where(s => s.STAT == "002").ToList(),
+                      UserGateways = db.User_Gateways.Where(ug => ug.VALD_TYPE == "002").ToList(),
+                      SubSysIndex = subsys,
+                      PackageIndex = package,
+                      PackageInstanceIndex = packageinstance,
+                      PackageUserGatewayIndex = packinstusergateway
+                   };
+                }
+             });
+
+             iProject = new Data.iProjectDataContext(ConnectionString);
+             SubSysBs.DataSource = result.SubSystems;
+             UserGatewayBs.DataSource = result.UserGateways;
+             SubSysBs.Position = result.SubSysIndex;
+             PackageBs.Position = result.PackageIndex;
+             PackageInstanceBs.Position = result.PackageInstanceIndex;
+             PackageUserGatewayBs.Position = result.PackageUserGatewayIndex;
+          }
+       }
 
       private void AddPackage_Butn_Click(object sender, EventArgs e)
       {

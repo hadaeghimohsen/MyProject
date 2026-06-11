@@ -30,33 +30,44 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       }
 
 
-      private void Execute_Query(bool allrunning)
-      {
-         iProject = new Data.iProjectDataContext(ConnectionString);
-         if (allrunning || tb_master.SelectedTab == tp_001)
-         {
-            int subsys_indx = SubSysBs1.Position;
-            int pakg_indx = PakgBs1.Position;
-            int pkac_indx = PkacBs1.Position;
-            int pkin_indx = PkinBs1.Position;
-            int piug_indx = PiugBs1.Position;
-            
-            SubSysBs1.DataSource = iProject.Sub_Systems;
+       private async void Execute_Query(bool allrunning)
+       {
+          var currentTab = tb_master.SelectedTab;
+          
+          var result = await Task.Run(() =>
+          {
+             using (var db = new Data.iProjectDataContext(ConnectionString))
+             {
+                if (allrunning || currentTab == tp_001)
+                {
+                   return new
+                   {
+                      SubSystems = db.Sub_Systems.ToList(),
+                      SubSysIndex = SubSysBs1.Position,
+                      PakgIndex = PakgBs1.Position,
+                      PkacIndex = PkacBs1.Position,
+                      PkinIndex = PkinBs1.Position,
+                      PiugIndex = PiugBs1.Position
+                   };
+                }
+                return null;
+             }
+          });
 
-            SubSysBs1.Position = subsys_indx;
-            PakgBs1.Position = pakg_indx;
-            PkacBs1.Position = pkac_indx;
-            PkinBs1.Position = pkin_indx;
-            PiugBs1.Position = piug_indx;
+          if (result != null)
+          {
+             iProject = new Data.iProjectDataContext(ConnectionString);
+             SubSysBs1.DataSource = result.SubSystems;
+             SubSysBs1.Position = result.SubSysIndex;
+             PakgBs1.Position = result.PakgIndex;
+             PkacBs1.Position = result.PkacIndex;
+             PkinBs1.Position = result.PkinIndex;
+             PiugBs1.Position = result.PiugIndex;
 
-            PIUG1.ActiveFilterString = "STAT = '002'";
-            PKIN1.ActiveFilterString = "STAT = '002'";
-         }
-         else if (allrunning || tb_master.SelectedTab == tp_002)
-         {
-
-         }
-      }
+             PIUG1.ActiveFilterString = "STAT = '002'";
+             PKIN1.ActiveFilterString = "STAT = '002'";
+          }
+       }
 
       private void SubSysBs1_CurrentChanged(object sender, EventArgs e)
       {

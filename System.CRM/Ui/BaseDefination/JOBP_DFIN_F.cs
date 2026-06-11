@@ -23,16 +23,29 @@ namespace System.CRM.Ui.BaseDefination
 
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
          int jobs = JobBs1.Position;
          int jbps = JbpsBs1.Position;
          int user = vUserBs1.Position;
-         JobBs1.DataSource = iCRM.Jobs;
+         
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return new
+               {
+                  Jobs = ctx.Jobs.ToList(),
+                  VUsers = ctx.V_Users.ToList(),
+               };
+            }
+         });
+         
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         JobBs1.DataSource = result.Jobs;
          JobBs1.Position = jobs;
          JbpsBs1.Position = jbps;
-         vUserBs1.DataSource = iCRM.V_Users;
+         vUserBs1.DataSource = result.VUsers;
          vUserBs1.Position = user;
       }
 

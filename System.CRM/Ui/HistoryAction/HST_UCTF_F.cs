@@ -32,11 +32,19 @@ namespace System.CRM.Ui.HistoryAction
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iCRMDataContext(ConnectionString);
+            return new
+            {
+               Items = db.App_Base_Defines.Where(a => a.ENTY_NAME == "CONTACT_INFO" && a.REF_CODE == null).ToList()
+            };
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         
-         ApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "CONTACT_INFO" && a.REF_CODE == null);
+         ApbsBs.DataSource = result.Items;
       }
 
       private void ApbsList_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

@@ -68,107 +68,247 @@ namespace System.CRM.Ui.HistoryAction
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            if(Tb_Master.SelectedTab == tp_001)
-            {
-               srchtype = RqstChng_Pn.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked).Tag.ToString();
-               #region Request
-               switch (srchtype)
-	            {
-                  case "001":
-                     RqstChngBs.DataSource = 
-                        from rq in iCRM.VF_Request_Changing(null, null, null, null)
-                        where rq.SAVE_DATE.Value.Date < DateTime.Now.Date
-                           && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
-                        orderby rq.SAVE_DATE descending
-                        select rq;
-                     break;
-                  case "002":
-                     RqstChngBs.DataSource =
-                        from rq in iCRM.VF_Request_Changing(null, null, null, null)
-                        where rq.SAVE_DATE.Value.Date == DateTime.Now.Date
-                           && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
-                        orderby rq.SAVE_DATE descending
-                        select rq;
-                     break;
-                  case "003":
-                     if(RqstToDate_Date.Value.HasValue)
-                        datetime = RqstToDate_Date.Value.Value;
-                     else
-                        RqstToDate_Date.Value = datetime = DateTime.Now.AddDays(-1);
+            var selectedTab = Tb_Master.SelectedTab;
+            string resultTab = "";
+            string rqstChngSrchType = "";
+            string advSrchType = "";
+            DateTime? rqstToDate = null;
+            DateTime? advRqstToDate = null;
+            XElement Qxml = null;
+            string rqidText = "";
+            bool upRqstChecked = false;
 
-                     RqstChngBs.DataSource =
-                        from rq in iCRM.VF_Request_Changing(null, null, null, null)
-                        where rq.SAVE_DATE.Value.Date == datetime.Date
-                           && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
-                        orderby rq.SAVE_DATE descending
-                        select rq;
-                     break;
+            if (selectedTab == tp_001)
+            {
+               resultTab = "tp_001";
+               rqstChngSrchType = RqstChng_Pn.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked).Tag.ToString();
+               if (rqstChngSrchType == "003")
+               {
+                  if (RqstToDate_Date.Value.HasValue)
+                     rqstToDate = RqstToDate_Date.Value.Value;
+                  else
+                  {
+                     RqstToDate_Date.Value = DateTime.Now.AddDays(-1);
+                     rqstToDate = DateTime.Now.AddDays(-1);
+                  }
                }
-               #endregion
             }
-            else if(Tb_Master.SelectedTab == tp_002)
+            else if (selectedTab == tp_002)
             {
-               RqstFind_Butn_Click(null, null);
+               resultTab = "tp_002";
+               rqidText = Rqid_Txt.Text;
+               upRqstChecked = UpRqst_Rb.Checked;
             }
-            else if(Tb_Master.SelectedTab == tp_003)
+            else if (selectedTab == tp_003)
             {
-               srchtype = AdvSearchRqstChng_Pn.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked).Tag.ToString();
-               var Qxml =
+               resultTab = "tp_003";
+               advSrchType = AdvSearchRqstChng_Pn.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked).Tag.ToString();
+               var textSearch = TextSearch_Txt.Text;
+               var btn2Tag = TextSearch_Txt.Properties.Buttons[2].Tag as XElement;
+               var btn3Tag = TextSearch_Txt.Properties.Buttons[3].Tag as XElement;
+
+               Qxml =
                   new XElement("Search",
                      new XElement("Query_String",
-                        new XAttribute("textsrch", string.Format("%{0}%", TextSearch_Txt.Text.Replace(' ', '%')))
+                        new XAttribute("textsrch", string.Format("%{0}%", textSearch.Replace(' ', '%')))
                      )
                   );
 
-               if (TextSearch_Txt.Properties.Buttons[2].Tag != null)
-                  Qxml.Add(TextSearch_Txt.Properties.Buttons[2].Tag as XElement);
+               if (btn2Tag != null)
+                  Qxml.Add(btn2Tag);
                else
                   Qxml.Add(new XElement("Tags", new XAttribute("cont", 0)));
 
-               if (TextSearch_Txt.Properties.Buttons[3].Tag != null)
-                  Qxml.Add(TextSearch_Txt.Properties.Buttons[3].Tag as XElement);
+               if (btn3Tag != null)
+                  Qxml.Add(btn3Tag);
                else
                   Qxml.Add(new XElement("Regions", new XAttribute("cont", 0)));
 
-
-               #region Request
-               switch (srchtype)
+               if (advSrchType == "003")
                {
-                  case "001":
-                     AdvSearchRqstChngBs.DataSource =
-                        from rq in iCRM.VF_Advance_Search_Request_Changing(Qxml)
-                        where rq.SAVE_DATE.Value.Date < DateTime.Now.Date
-                           && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
-                        orderby rq.SAVE_DATE descending
-                        select rq;
-                     break;
-                  case "002":
-                     AdvSearchRqstChngBs.DataSource =
-                        from rq in iCRM.VF_Advance_Search_Request_Changing(Qxml)
-                        where rq.SAVE_DATE.Value.Date == DateTime.Now.Date
-                           && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
-                        orderby rq.SAVE_DATE descending
-                        select rq;
-                     break;
-                  case "003":
-                     if (AdvSearchRqstToDate_Date.Value.HasValue)
-                        datetime = AdvSearchRqstToDate_Date.Value.Value;
-                     else
-                        AdvSearchRqstToDate_Date.Value = datetime = DateTime.Now.AddDays(-1);
-
-                     AdvSearchRqstChngBs.DataSource =
-                        from rq in iCRM.VF_Advance_Search_Request_Changing(Qxml)
-                        where rq.SAVE_DATE.Value.Date == datetime.Date
-                           && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
-                        orderby rq.SAVE_DATE descending
-                        select rq;
-                     break;
+                  if (AdvSearchRqstToDate_Date.Value.HasValue)
+                     advRqstToDate = AdvSearchRqstToDate_Date.Value.Value;
+                  else
+                  {
+                     AdvSearchRqstToDate_Date.Value = DateTime.Now.AddDays(-1);
+                     advRqstToDate = DateTime.Now.AddDays(-1);
+                  }
                }
-               #endregion
+            }
+
+            var result = await Task.Run(() =>
+            {
+               var db = new Data.iCRMDataContext(ConnectionString);
+
+               if (resultTab == "tp_001")
+               {
+                  switch (rqstChngSrchType)
+                  {
+                     case "001":
+                        return new
+                        {
+                           RqstChngItems = (from rq in db.VF_Request_Changing(null, null, null, null)
+                              where rq.SAVE_DATE.Value.Date < DateTime.Now.Date
+                                 && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
+                              orderby rq.SAVE_DATE descending
+                              select rq).ToList(),
+                           AdvSearchItems = (List<Data.VF_Advance_Search_Request_ChangingResult>)null,
+                           RqstItems = (List<Data.Request>)null
+                        };
+                     case "002":
+                        return new
+                        {
+                           RqstChngItems = (from rq in db.VF_Request_Changing(null, null, null, null)
+                              where rq.SAVE_DATE.Value.Date == DateTime.Now.Date
+                                 && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
+                              orderby rq.SAVE_DATE descending
+                              select rq).ToList(),
+                           AdvSearchItems = (List<Data.VF_Advance_Search_Request_ChangingResult>)null,
+                           RqstItems = (List<Data.Request>)null
+                        };
+                     case "003":
+                        return new
+                        {
+                           RqstChngItems = (from rq in db.VF_Request_Changing(null, null, null, null)
+                              where rq.SAVE_DATE.Value.Date == rqstToDate.Value.Date
+                                 && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
+                              orderby rq.SAVE_DATE descending
+                              select rq).ToList(),
+                           AdvSearchItems = (List<Data.VF_Advance_Search_Request_ChangingResult>)null,
+                           RqstItems = (List<Data.Request>)null
+                        };
+                     default:
+                        return new
+                        {
+                           RqstChngItems = (List<Data.VF_Request_ChangingResult>)null,
+                           AdvSearchItems = (List<Data.VF_Advance_Search_Request_ChangingResult>)null,
+                           RqstItems = (List<Data.Request>)null
+                        };
+                  }
+               }
+               else if (resultTab == "tp_002")
+               {
+                  List<Data.Request> rqstItems = null;
+                  if (!string.IsNullOrEmpty(rqidText.Trim()))
+                  {
+                     if (upRqstChecked)
+                     {
+                        var query = db.ExecuteQuery<long>(string.Format(@"WITH RqstTree AS
+                        (
+                           SELECT R.RQID, R.RQST_RQID
+                             FROM dbo.Request R
+                            WHERE R.RQID = {0}
+
+                            UNION ALL
+
+                           SELECT Rl.RQID, Rl.Rqst_RQID
+                             FROM dbo.Request RL, RqstTree
+                            WHERE RqstTree.Rqst_Rqid = RL.Rqid
+                        )
+                        SELECT * 
+                          FROM RqstTree
+                        ", rqidText));
+                        rqstItems = (from r in db.Requests where query.ToList().Contains(r.RQID) select r).ToList();
+                     }
+                     else
+                     {
+                        var query = db.ExecuteQuery<long>(string.Format(@"WITH RqstTree(Rqid) AS
+                        (
+                           SELECT R.RQID
+                             FROM dbo.Request R
+                            WHERE R.RQID = {0}
+    
+                            UNION ALL
+    
+                           SELECT Rl.RQID
+                             FROM dbo.Request RL, RqstTree
+                            WHERE RqstTree.Rqid = RL.RQST_RQID
+                        )
+                        SELECT * 
+                          FROM RqstTree
+                        ", rqidText));
+                        rqstItems = (from r in db.Requests where query.ToList().Contains(r.RQID) select r).ToList();
+                     }
+                  }
+                  return new
+                  {
+                     RqstChngItems = (List<Data.VF_Request_ChangingResult>)null,
+                     AdvSearchItems = (List<Data.VF_Advance_Search_Request_ChangingResult>)null,
+                     RqstItems = rqstItems
+                  };
+               }
+               else if (resultTab == "tp_003")
+               {
+                  switch (advSrchType)
+                  {
+                     case "001":
+                        return new
+                        {
+                           RqstChngItems = (List<Data.VF_Request_ChangingResult>)null,
+                           AdvSearchItems = (from rq in db.VF_Advance_Search_Request_Changing(Qxml)
+                              where rq.SAVE_DATE.Value.Date < DateTime.Now.Date
+                                 && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
+                              orderby rq.SAVE_DATE descending
+                              select rq).ToList(),
+                           RqstItems = (List<Data.Request>)null
+                        };
+                     case "002":
+                        return new
+                        {
+                           RqstChngItems = (List<Data.VF_Request_ChangingResult>)null,
+                           AdvSearchItems = (from rq in db.VF_Advance_Search_Request_Changing(Qxml)
+                              where rq.SAVE_DATE.Value.Date == DateTime.Now.Date
+                                 && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
+                              orderby rq.SAVE_DATE descending
+                              select rq).ToList(),
+                           RqstItems = (List<Data.Request>)null
+                        };
+                     case "003":
+                        return new
+                        {
+                           RqstChngItems = (List<Data.VF_Request_ChangingResult>)null,
+                           AdvSearchItems = (from rq in db.VF_Advance_Search_Request_Changing(Qxml)
+                              where rq.SAVE_DATE.Value.Date == advRqstToDate.Value.Date
+                                 && rq.CRET_BY.ToUpper() == CurrentUser.ToUpper()
+                              orderby rq.SAVE_DATE descending
+                              select rq).ToList(),
+                           RqstItems = (List<Data.Request>)null
+                        };
+                     default:
+                        return new
+                        {
+                           RqstChngItems = (List<Data.VF_Request_ChangingResult>)null,
+                           AdvSearchItems = (List<Data.VF_Advance_Search_Request_ChangingResult>)null,
+                           RqstItems = (List<Data.Request>)null
+                        };
+                  }
+               }
+
+               return new
+               {
+                  RqstChngItems = (List<Data.VF_Request_ChangingResult>)null,
+                  AdvSearchItems = (List<Data.VF_Advance_Search_Request_ChangingResult>)null,
+                  RqstItems = (List<Data.Request>)null
+               };
+            });
+
+            iCRM = new Data.iCRMDataContext(ConnectionString);
+
+            if (resultTab == "tp_001")
+            {
+               RqstChngBs.DataSource = result.RqstChngItems;
+            }
+            else if (resultTab == "tp_002")
+            {
+               RqstBs.DataSource = result.RqstItems;
+            }
+            else if (resultTab == "tp_003")
+            {
+               AdvSearchRqstChngBs.DataSource = result.AdvSearchItems;
             }
          }
          catch { }

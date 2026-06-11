@@ -31,11 +31,23 @@ namespace System.Scsc.Ui.Cash
          );
       }
 
-      private void Execute_Query(bool runAllQuery)
+      private async void Execute_Query(bool runAllQuery)
       {
+         var result = await Task.Run(() =>
+         {
+            using (var context = new Data.iScscDataContext(ConnectionString))
+            {
+               return new
+               {
+                  Figh = context.Fighters.FirstOrDefault(f => f.FILE_NO == fileno),
+                  Pydt = context.Payment_Details.FirstOrDefault(pd => pd.CODE == pydtcode)
+               };
+            }
+         });
+
          iScsc = new Data.iScscDataContext(ConnectionString);
-         FighBs.DataSource = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == fileno);
-         PydtBs.DataSource = iScsc.Payment_Details.FirstOrDefault(pd => pd.CODE == pydtcode);
+         FighBs.DataSource = result.Figh;
+         PydtBs.DataSource = result.Pydt;
          requery = false;
       }
 

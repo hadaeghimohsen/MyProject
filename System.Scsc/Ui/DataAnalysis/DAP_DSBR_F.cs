@@ -34,18 +34,18 @@ namespace System.Scsc.Ui.DataAnalysis
          Execute_Query();
       }      
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          switch (Tc_Master.SelectedTabPage.Name)
          {
             case "tp_001":
-               new Threading.Thread(TabPage001_Starting).Start();
+               await Task.Run(() => TabPage001_Starting());
                break;
             case "tp_002":
-               new Threading.Thread(TabPage002_Starting).Start();
+               await Task.Run(() => TabPage002_Starting());
                break;
             case "tp_003":
-               new Threading.Thread(TabPage003_Starting).Start();
+               await Task.Run(() => TabPage003_Starting());
                break;
             default:
                break;

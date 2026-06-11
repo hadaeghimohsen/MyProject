@@ -32,10 +32,20 @@ namespace System.Scsc.Ui.BaseDefinition
          );
       }      
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         long _code = code;
+
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               return db.Club_Methods.FirstOrDefault(cm => cm.CODE == _code);
+            }
+         });
+
          iScsc = new Data.iScscDataContext(ConnectionString);
-         CbmtBs1.DataSource = iScsc.Club_Methods.FirstOrDefault(cm => cm.CODE == code);
+         CbmtBs1.DataSource = result;
       }
 
       private void SubmitChange_Butn_Click(object sender, EventArgs e)

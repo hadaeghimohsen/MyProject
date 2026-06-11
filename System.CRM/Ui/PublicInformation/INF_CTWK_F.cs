@@ -34,21 +34,39 @@ namespace System.CRM.Ui.PublicInformation
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         if (fileno != 0)
+         var result = await Task.Run(() =>
          {
-            CtifBs.DataSource = iCRM.Contact_Infos.Where(sc => sc.SERV_FILE_NO == fileno);
-            WkifBs.DataSource = iCRM.Weekday_Infos.Where(sw => sw.SERV_FILE_NO == fileno);
-         }
-         else if(compcode != 0)
-         {
-            CtifBs.DataSource = iCRM.Contact_Infos.Where(sc => sc.COMP_CODE == compcode);
-            WkifBs.DataSource = iCRM.Weekday_Infos.Where(sw => sw.COMP_CODE == compcode);
-         }
+            using (var iCRM = new Data.iCRMDataContext(ConnectionString))
+            {
+               List<Data.Contact_Info> ctifList;
+               List<Data.Weekday_Info> wkifList;
+               if (fileno != 0)
+               {
+                  ctifList = iCRM.Contact_Infos.Where(sc => sc.SERV_FILE_NO == fileno).ToList();
+                  wkifList = iCRM.Weekday_Infos.Where(sw => sw.SERV_FILE_NO == fileno).ToList();
+               }
+               else if (compcode != 0)
+               {
+                  ctifList = iCRM.Contact_Infos.Where(sc => sc.COMP_CODE == compcode).ToList();
+                  wkifList = iCRM.Weekday_Infos.Where(sw => sw.COMP_CODE == compcode).ToList();
+               }
+               else
+               {
+                  ctifList = new List<Data.Contact_Info>();
+                  wkifList = new List<Data.Weekday_Info>();
+               }
 
-         ApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "CONTACT_INFO" && a.REF_CODE == null);
+               var apbsList = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "CONTACT_INFO" && a.REF_CODE == null).ToList();
+               return new { ctifList, wkifList, apbsList };
+            }
+         });
+
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         CtifBs.DataSource = result.ctifList;
+         WkifBs.DataSource = result.wkifList;
+         ApbsBs.DataSource = result.apbsList;
 
          foreach (var wkdy in WkifBs.List.OfType<Data.Weekday_Info>())
          {

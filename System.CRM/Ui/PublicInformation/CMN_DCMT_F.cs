@@ -32,10 +32,20 @@ namespace System.CRM.Ui.PublicInformation
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var rqroRef = Rqro;
+         var result = await Task.Run(() =>
+         {
+            using (var iCRM = new Data.iCRMDataContext(ConnectionString))
+            {
+               var query = iCRM.Receive_Documents.Where(rd => rd.Request_Row == rqroRef).ToList();
+               return new { query };
+            }
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         RcdcBs.DataSource = iCRM.Receive_Documents.Where(rd => rd.Request_Row == Rqro);
+         RcdcBs.DataSource = result.query;
          requery = false;
       }
 

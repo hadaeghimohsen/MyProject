@@ -36,65 +36,62 @@ namespace System.CRM.Ui.HistoryAction
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
             srchtype = Optn_Pn.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked).Tag.ToString();
-            switch (srchtype)
+
+            DateTime? rqstToDate = null;
+            if (srchtype == "006")
             {
-               case "001":
-                  EmalBs.DataSource =
-                     iCRM.Emails
-                     .Where(l =>
-                        l.SERV_FILE_NO == fileno
-                     );                     
-                  break;
-               case "002":
-                  EmalBs.DataSource =
-                     iCRM.Emails
-                     .Where(l =>
-                        l.SERV_FILE_NO == fileno &&
-                        l.SEND_DATE.Value.Date >= DateTime.Now.AddMonths(-1)
-                     );                     
-                  break;
-               case "003":
-                  EmalBs.DataSource =
-                     iCRM.Emails
-                     .Where(l =>
-                        l.SERV_FILE_NO == fileno &&
-                        l.SEND_DATE.Value.Date >= DateTime.Now.AddDays(-7)
-                     );                     
-                  break;
-               case "004":
-                  EmalBs.DataSource =
-                     iCRM.Emails
-                     .Where(l =>
-                        l.SERV_FILE_NO == fileno &&
-                        l.SEND_DATE.Value.Date == DateTime.Now.AddDays(-1).Date
-                     );                     
-                  break;
-               case "005":
-                  EmalBs.DataSource =
-                     iCRM.Emails
-                     .Where(l =>
-                        l.SERV_FILE_NO == fileno &&
-                        l.SEND_DATE.Value.Date == DateTime.Now.Date
-                     );                     
-                  break;
-               case "006":
-                  if (!RqstToDate_Date.Value.HasValue)                     
-                     RqstToDate_Date.Value = DateTime.Now;
-                  EmalBs.DataSource =
-                     iCRM.Emails
-                     .Where(l =>
-                        l.SERV_FILE_NO == fileno &&
-                        l.SEND_DATE.Value.Date == RqstToDate_Date.Value.Value.Date
-                     );
-                  break;
-               default:
-                  break;
+               if (!RqstToDate_Date.Value.HasValue)
+                  RqstToDate_Date.Value = DateTime.Now;
+               rqstToDate = RqstToDate_Date.Value;
             }
+
+            var result = await Task.Run(() =>
+            {
+               var db = new Data.iCRMDataContext(ConnectionString);
+               switch (srchtype)
+               {
+                  case "001":
+                     return new
+                     {
+                        Items = db.Emails.Where(l => l.SERV_FILE_NO == fileno).ToList()
+                     };
+                  case "002":
+                     return new
+                     {
+                        Items = db.Emails.Where(l => l.SERV_FILE_NO == fileno && l.SEND_DATE.Value.Date >= DateTime.Now.AddMonths(-1)).ToList()
+                     };
+                  case "003":
+                     return new
+                     {
+                        Items = db.Emails.Where(l => l.SERV_FILE_NO == fileno && l.SEND_DATE.Value.Date >= DateTime.Now.AddDays(-7)).ToList()
+                     };
+                  case "004":
+                     return new
+                     {
+                        Items = db.Emails.Where(l => l.SERV_FILE_NO == fileno && l.SEND_DATE.Value.Date == DateTime.Now.AddDays(-1).Date).ToList()
+                     };
+                  case "005":
+                     return new
+                     {
+                        Items = db.Emails.Where(l => l.SERV_FILE_NO == fileno && l.SEND_DATE.Value.Date == DateTime.Now.Date).ToList()
+                     };
+                  case "006":
+                     return new
+                     {
+                        Items = db.Emails.Where(l => l.SERV_FILE_NO == fileno && l.SEND_DATE.Value.Date == rqstToDate.Value.Date).ToList()
+                     };
+                  default:
+                     return new { Items = (List<Data.Email>)null };
+               }
+            });
+
+            iCRM = new Data.iCRMDataContext(ConnectionString);
+            EmalBs.DataSource = result.Items;
          }
          catch (Exception exc)
          {

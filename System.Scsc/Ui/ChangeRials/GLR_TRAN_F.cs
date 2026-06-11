@@ -31,23 +31,29 @@ namespace System.Scsc.Ui.ChangeRials
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
+            var result = await Task.Run(() =>
+            {
+               using (var context = new Data.iScscDataContext(ConnectionString))
+               {
+                  return context.Requests
+                     .FirstOrDefault(r =>
+                        r.Request_Rows
+                        .Any(rr =>
+                           rr.Gain_Loss_Rials1
+                           .Any(g => g.GLID == _glid)));
+               }
+            });
 
-            RqstBs1.DataSource = 
-               iScsc.Requests
-               .FirstOrDefault(r => 
-                  r.Request_Rows
-                  .Any(rr => 
-                     rr.Gain_Loss_Rials1
-                     .Any(g => g.GLID == _glid)));
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            RqstBs1.DataSource = result;
 
             requery = false;
          }
-         catch (Exception ) { }         
+         catch (Exception ) { }
       }
 
       private void GlrlBs1_CurrentChanged(object sender, EventArgs e)

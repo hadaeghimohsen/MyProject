@@ -29,11 +29,21 @@ namespace System.Scsc.Ui.Notifications
          );
       }
 
-      private void Execute_Query(bool runAllQuery)
+      private async void Execute_Query(bool runAllQuery)
       {
          SnmtBs1.List.Clear();
+         var fighFileNo = Convert.ToInt64(FIGH_FILE_NOTextEdit.EditValue);
+
+         var result = await Task.Run(() =>
+         {
+            using (var context = new Data.iScscDataContext(ConnectionString))
+            {
+               return context.Fighters.First(f => f.FILE_NO == fighFileNo);
+            }
+         });
+
          iScsc = new Data.iScscDataContext(ConnectionString);
-         FighBs1.DataSource = iScsc.Fighters.First(f => f.FILE_NO == Convert.ToInt64(FIGH_FILE_NOTextEdit.EditValue));
+         FighBs1.DataSource = result;
       }
 
       private void FighBs1_CurrentChanged(object sender, EventArgs e)

@@ -86,12 +86,25 @@ namespace System.Scsc.Ui.Cash
          }
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          if (tb_master.SelectedTab == tp_002)
          {
-            VCashBs1.DataSource = iScsc.VF_Cashiers.ToList();
-            te_IN.Text = iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
+            var result = await Task.Run(() =>
+            {
+               using (var context = new Data.iScscDataContext(ConnectionString))
+               {
+                  return new
+                  {
+                     Cashiers = context.VF_Cashiers.ToList(),
+                     CurrentUser = context.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")))
+                  };
+               }
+            });
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            VCashBs1.DataSource = result.Cashiers;
+            te_IN.Text = result.CurrentUser;
          }
       }
 

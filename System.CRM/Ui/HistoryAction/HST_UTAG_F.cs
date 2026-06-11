@@ -34,12 +34,19 @@ namespace System.CRM.Ui.HistoryAction
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iCRMDataContext(ConnectionString);
+            return new
+            {
+               Items = db.App_Base_Defines.Where(a => a.ENTY_NAME == "TAG").ToList()
+            };
+         });
 
-         TagBs1.DataSource =
-            iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "TAG");
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         TagBs1.DataSource = result.Items;
 
          requery = false;
       }

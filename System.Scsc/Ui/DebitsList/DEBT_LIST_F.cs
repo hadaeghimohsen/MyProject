@@ -21,26 +21,36 @@ namespace System.Scsc.Ui.DebitsList
 
       bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         long _fileno = fileno;
+
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               db.CommandTimeout = int.MaxValue;
+               return db.VF_Last_Info_Fighter(_fileno, null, null, null, null, null, null, null, null, null, null, null, null, null, null).
+                  Where(f =>
+                     f.DEBT_DNRM != 0 ||
+                     db.Requests.
+                     Where(r =>
+                        db.VF_Request_Changing(f.FILE_NO).
+                        Where(rc => rc.RQTT_CODE != "004").
+                        Select(rc => rc.RQID).Contains(r.RQID) &&
+                        r.Payments.
+                        Any(p =>
+                           ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT + p.SUM_REMN_PRIC) -
+                            (p.SUM_RCPT_EXPN_PRIC ?? 0 + p.SUM_RCPT_EXPN_EXTR_PRCT ?? 0 + p.SUM_RCPT_REMN_PRIC ?? 0 + p.SUM_PYMT_DSCN_DNRM ?? 0)) > 0 ||
+                           p.Payment_Details.Any(pd => pd.PAY_STAT == "001"))
+                     ).Count() > 0
+                  ).ToList();
+            }
+         });
+
          iScsc = new Data.iScscDataContext(ConnectionString);
          iScsc.CommandTimeout = int.MaxValue;
-         vF_Last_Info_FighterResultBs1.DataSource = 
-            iScsc.VF_Last_Info_Fighter(fileno, null, null,null, null, null, null, null, null, null, null, null, null, null, null).
-            Where(f => 
-               f.DEBT_DNRM != 0 ||
-               iScsc.Requests.
-               Where(r =>
-                  iScsc.VF_Request_Changing(f.FILE_NO).
-                  Where(rc => rc.RQTT_CODE != "004").
-                  Select(rc => rc.RQID).Contains(r.RQID) &&
-                  r.Payments.
-                  Any(p =>
-                     ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT + p.SUM_REMN_PRIC) -
-                      (p.SUM_RCPT_EXPN_PRIC ?? 0 + p.SUM_RCPT_EXPN_EXTR_PRCT ?? 0 + p.SUM_RCPT_REMN_PRIC ?? 0 + p.SUM_PYMT_DSCN_DNRM ?? 0)) > 0 ||
-                     p.Payment_Details.Any(pd => pd.PAY_STAT == "001"))
-               ).Count() > 0
-            );
+         vF_Last_Info_FighterResultBs1.DataSource = result;
       }
 
       private void Btn_Back_Click(object sender, EventArgs e)

@@ -35,19 +35,29 @@ namespace System.CRM.Ui.PublicInformation
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
+         var result = await Task.Run(() =>
+         {
+            using (var iCRM = new Data.iCRMDataContext(ConnectionString))
+            {
+               var servList = iCRM.Services.Where(s => s.CONF_STAT == "002").ToList();
+               var compList = iCRM.Companies.Where(c => c.RECD_STAT == "002").ToList();
+               var rlatList = iCRM.Relation_Infos.Where(sc => sc.SERV_FILE_NO == fileno).ToList();
+               var apbsList = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "RELATION_INFO" && a.REF_CODE == null).ToList();
+               return new { servList, compList, rlatList, apbsList };
+            }
+         });
 
-         ServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
-         CompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002");
-         
-         RlatBs.DataSource = iCRM.Relation_Infos.Where(sc => sc.SERV_FILE_NO == fileno);         
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         ServBs.DataSource = result.servList;
+         CompBs.DataSource = result.compList;
+         RlatBs.DataSource = result.rlatList;
          Serv_Lov.EditValue = fileno;
 
          Serv_Rb_CheckedChanged(null, null);
 
-         ApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "RELATION_INFO" && a.REF_CODE == null);
+         ApbsBs.DataSource = result.apbsList;
 
          requery = false;
       }      

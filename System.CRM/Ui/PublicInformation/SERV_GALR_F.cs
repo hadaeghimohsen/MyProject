@@ -32,10 +32,19 @@ namespace System.CRM.Ui.PublicInformation
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iProject = new Data.iCRMDataContext(ConnectionString);
-         UserBs.DataSource = iProject.Services.Where(s => s == serv).ToList(); 
+         var servRef = serv;
+         var result = await Task.Run(() =>
+         {
+            using (var iProject = new Data.iCRMDataContext(ConnectionString))
+            {
+               var query = iProject.Services.Where(s => s == servRef).ToList();
+               return new { query };
+            }
+         });
+
+         UserBs.DataSource = result.query;
       }
 
       private void SubmitChange_Butn_Click(object sender, EventArgs e)

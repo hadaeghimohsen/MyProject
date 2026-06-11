@@ -36,72 +36,62 @@ namespace System.CRM.Ui.HistoryAction
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
             srchtype = Optn_Pn.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked).Tag.ToString();
-            switch (srchtype)
-            {
-               case "001":
-                  FinrBs.DataSource =
-                     iCRM.Final_Results
-                     .Where(l =>
-                        l.SERV_FILE_NO == fileno &&
-                        l.FINR_TYPE_STAT == "001"
-                     );                     
-                  break;
-               case "002":
-                  FinrBs.DataSource =
-                     iCRM.Final_Results
-                     .Where(l =>
-                        l.SERV_FILE_NO == fileno &&
-                        l.FINR_TYPE_STAT == "001" &&
-                        l.CRET_DATE.Value.Date >= DateTime.Now.AddMonths(-1)
-                     );                     
-                  break;
-               case "003":
-                  FinrBs.DataSource =
-                     iCRM.Final_Results
-                     .Where(l =>
-                        l.SERV_FILE_NO == fileno &&
-                        l.FINR_TYPE_STAT == "001" &&
-                        l.CRET_DATE.Value.Date >= DateTime.Now.AddDays(-7)
-                     );                     
-                  break;
-               case "004":
-                  FinrBs.DataSource =
-                     iCRM.Final_Results
-                     .Where(l =>
-                        l.SERV_FILE_NO == fileno &&
-                        l.FINR_TYPE_STAT == "001" &&
-                        l.CRET_DATE.Value.Date == DateTime.Now.AddDays(-1).Date
-                     );                     
-                  break;
-               case "005":
-                  FinrBs.DataSource =
-                     iCRM.Final_Results
-                     .Where(l =>
-                        l.SERV_FILE_NO == fileno &&
-                        l.FINR_TYPE_STAT == "001" &&
-                        l.CRET_DATE.Value.Date == DateTime.Now.Date
-                     );                     
-                  break;
-               case "006":
-                  if (!RqstToDate_Date.Value.HasValue)                     
-                     RqstToDate_Date.Value = DateTime.Now;
 
-                  FinrBs.DataSource =
-                     iCRM.Final_Results
-                     .Where(l =>
-                        l.SERV_FILE_NO == fileno &&
-                        l.FINR_TYPE_STAT == "001" &&
-                        l.CRET_DATE.Value.Date == RqstToDate_Date.Value.Value.Date
-                     );
-                  break;
-               default:
-                  break;
+            DateTime? rqstToDate = null;
+            if (srchtype == "006")
+            {
+               if (!RqstToDate_Date.Value.HasValue)
+                  RqstToDate_Date.Value = DateTime.Now;
+               rqstToDate = RqstToDate_Date.Value;
             }
+
+            var result = await Task.Run(() =>
+            {
+               var db = new Data.iCRMDataContext(ConnectionString);
+               switch (srchtype)
+               {
+                  case "001":
+                     return new
+                     {
+                        Items = db.Final_Results.Where(l => l.SERV_FILE_NO == fileno && l.FINR_TYPE_STAT == "001").ToList()
+                     };
+                  case "002":
+                     return new
+                     {
+                        Items = db.Final_Results.Where(l => l.SERV_FILE_NO == fileno && l.FINR_TYPE_STAT == "001" && l.CRET_DATE.Value.Date >= DateTime.Now.AddMonths(-1)).ToList()
+                     };
+                  case "003":
+                     return new
+                     {
+                        Items = db.Final_Results.Where(l => l.SERV_FILE_NO == fileno && l.FINR_TYPE_STAT == "001" && l.CRET_DATE.Value.Date >= DateTime.Now.AddDays(-7)).ToList()
+                     };
+                  case "004":
+                     return new
+                     {
+                        Items = db.Final_Results.Where(l => l.SERV_FILE_NO == fileno && l.FINR_TYPE_STAT == "001" && l.CRET_DATE.Value.Date == DateTime.Now.AddDays(-1).Date).ToList()
+                     };
+                  case "005":
+                     return new
+                     {
+                        Items = db.Final_Results.Where(l => l.SERV_FILE_NO == fileno && l.FINR_TYPE_STAT == "001" && l.CRET_DATE.Value.Date == DateTime.Now.Date).ToList()
+                     };
+                  case "006":
+                     return new
+                     {
+                        Items = db.Final_Results.Where(l => l.SERV_FILE_NO == fileno && l.FINR_TYPE_STAT == "001" && l.CRET_DATE.Value.Date == rqstToDate.Value.Date).ToList()
+                     };
+                  default:
+                     return new { Items = (List<Data.Final_Result>)null };
+               }
+            });
+
+            iCRM = new Data.iCRMDataContext(ConnectionString);
+            FinrBs.DataSource = result.Items;
          }
          catch (Exception exc)
          {

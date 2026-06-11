@@ -25,17 +25,24 @@ namespace System.Scsc.Ui.Company
 
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-
             int _cnty = CntyBs.Position;
             int _prvn = PrvnBs.Position;
             int _regn = RegnBs.Position;
 
-            CntyBs.DataSource = iScsc.Countries;
+            var result = await Task.Run(() =>
+            {
+               using (var context = new Data.iScscDataContext(ConnectionString))
+               {
+                  return context.Countries.ToList();
+               }
+            });
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            CntyBs.DataSource = result;
 
             CntyBs.Position = _cnty;
             PrvnBs.Position = _prvn;

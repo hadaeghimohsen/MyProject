@@ -33,17 +33,21 @@ namespace System.Scsc.Ui.Attendance
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
-         
          int dres = DresBs1.Position;
-         
-         ComaBs1.DataSource = iScsc.Computer_Actions;
-         
-         DresBs1.Position = dres;
 
-         //DresBlnk_Gv.ActiveFilterString = "ORDR Is Null";
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               return db.Computer_Actions.ToList();
+            }
+         });
+
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         ComaBs1.DataSource = result;
+         DresBs1.Position = dres;
 
          requery = false;
       }

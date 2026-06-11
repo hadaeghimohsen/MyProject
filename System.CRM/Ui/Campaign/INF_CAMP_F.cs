@@ -33,8 +33,28 @@ namespace System.CRM.Ui.Campaign
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var _campcode = campcode;
+         var result = await Task.Run(() =>
+         {
+            using (var iCRM = new Data.iCRMDataContext(ConnectionString))
+            {
+               List<Data.Campaign> campList = null;
+               Data.Job_Personnel firstJp = null;
+               if (_campcode != null)
+               {
+                  campList = iCRM.Campaigns.Where(c => c.CMID == _campcode).ToList();
+               }
+               else
+               {
+                  var jpList = iCRM.Job_Personnels.Where(o => o.STAT == "002").ToList();
+                  firstJp = jpList.FirstOrDefault();
+               }
+               return new { campList, firstJp };
+            }
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
 
          //CmptBs.List.Clear();
@@ -43,17 +63,17 @@ namespace System.CRM.Ui.Campaign
          {
             int cmdf = CampBs.Position;
 
-            CampBs.DataSource = iCRM.Campaigns.Where(c => c.CMID == campcode);
+            CampBs.DataSource = result.campList;
 
             CampBs.Position = cmdf;
          }
          else
          {
-            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
+            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002").ToList();
             CampBs.AddNew();
             var camp = CampBs.Current as Data.Campaign;
 
-            camp.OWNR_CODE = JobpBs.List.OfType<Data.Job_Personnel>().FirstOrDefault(jp => jp.USER_NAME == CurrentUser).CODE;
+            camp.OWNR_CODE = result.firstJp.CODE;
             camp.TEMP = "001";
             camp.STAT = "001";
             camp.TYPE = "001";

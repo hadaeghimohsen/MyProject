@@ -33,12 +33,21 @@ namespace System.Scsc.Ui.BaseDefinition
          );
       }      
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
          int coch = CochBs1.Position;
          int mtod = MtodBs1.Position;
          int club = ClubBs1.Position;
+
+         await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               // Query logic moved to background
+            }
+         });
+
+         iScsc = new Data.iScscDataContext(ConnectionString);
          RequeryClubMethod_Butn_Click(null, null);
          CochBs1.Position = coch;
          MtodBs1.Position = mtod;

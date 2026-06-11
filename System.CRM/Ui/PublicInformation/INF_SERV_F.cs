@@ -34,10 +34,20 @@ namespace System.CRM.Ui.PublicInformation
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         SrvcBs.DataSource = iCRM.Service_Contacts.Where(sc => sc.SERV_FILE_NO == fileno);
-         SrvwBs.DataSource = iCRM.Service_Weekdays.Where(sw => sw.SERV_FILE_NO == fileno);
+         var result = await Task.Run(() =>
+         {
+            using (var iCRM = new Data.iCRMDataContext(ConnectionString))
+            {
+               var srvcList = iCRM.Service_Contacts.Where(sc => sc.SERV_FILE_NO == fileno).ToList();
+               var srvwList = iCRM.Service_Weekdays.Where(sw => sw.SERV_FILE_NO == fileno).ToList();
+               return new { srvcList, srvwList };
+            }
+         });
+
+         SrvcBs.DataSource = result.srvcList;
+         SrvwBs.DataSource = result.srvwList;
 
          foreach (var wkdy in SrvwBs.List.OfType<Data.Service_Weekday>())
          {

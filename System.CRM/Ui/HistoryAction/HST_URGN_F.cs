@@ -34,12 +34,19 @@ namespace System.CRM.Ui.HistoryAction
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iCRMDataContext(ConnectionString);
+            return new
+            {
+               Items = db.Regions.Distinct().ToList()
+            };
+         });
 
-         RegnBs1.DataSource =
-            iCRM.Regions.Distinct();
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         RegnBs1.DataSource = result.Items;
 
          requery = false;
       }

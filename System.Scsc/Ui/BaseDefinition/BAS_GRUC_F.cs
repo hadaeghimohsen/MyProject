@@ -31,10 +31,20 @@ namespace System.Scsc.Ui.BaseDefinition
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var clubRef = Club;
+
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               return db.User_Club_Fgacs.Where(uc => uc.Club == clubRef && uc.REC_STAT == "002").ToList();
+            }
+         });
+
          iScsc = new Data.iScscDataContext(ConnectionString);
-         UserClubBs.DataSource = iScsc.User_Club_Fgacs.Where(uc => uc.Club == Club && uc.REC_STAT == "002");
+         UserClubBs.DataSource = result;
       }
 
       private void GrantUserToClub_Butn_Click(object sender, EventArgs e)

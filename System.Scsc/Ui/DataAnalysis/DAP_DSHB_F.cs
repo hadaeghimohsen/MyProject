@@ -17,9 +17,17 @@ namespace System.Scsc.Ui.DataAnalysis
          InitializeComponent();
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         
+         await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               // Empty query
+            }
+         });
+
+         iScsc = new Data.iScscDataContext(ConnectionString);
       }
    }
 }

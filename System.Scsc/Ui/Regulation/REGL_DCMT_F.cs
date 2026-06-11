@@ -130,7 +130,7 @@ namespace System.Scsc.Ui.Regulation
          }
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          var CrntRqrq = RqrqBs.Position;
          var CrntExtp = ExtpBs.Position;
@@ -140,8 +140,18 @@ namespace System.Scsc.Ui.Regulation
          var crntexts = ExtsBs.Position;
          var crntcexc = CexcBs.Position;
          var crntbcds = BcdsBs1.Position;
+         var reglCurrent = ReglBs.Current;
+
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               return db.Request_Requesters.Where(rg => rg.Regulation == (Data.Regulation)reglCurrent).OrderBy(rq => rq.RQTP_CODE).ThenBy(rq => rq.RQTT_CODE).ToList();
+            }
+         });
+
          iScsc = new Data.iScscDataContext(ConnectionString);
-         RqrqBs.DataSource = iScsc.Request_Requesters.Where(rg => rg.Regulation == (Data.Regulation)ReglBs.Current).OrderBy(rq => rq.RQTP_CODE).ThenBy(rq => rq.RQTT_CODE);
+         RqrqBs.DataSource = result;
          GV_RQRQ.TopRowIndex = CrntRqrq;
          RqrqBs.Position = CrntRqrq;
          RqrqBs.MoveNext();

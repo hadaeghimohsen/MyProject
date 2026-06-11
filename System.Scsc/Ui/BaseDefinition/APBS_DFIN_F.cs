@@ -29,22 +29,41 @@ namespace System.Scsc.Ui.BaseDefinition
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var selectedTab = tb_master.SelectedTab;
+         int apbsPos = ApbsBs.Position;
+         int sapbPos = SApbBs.Position;
+         int unitPos = UnitBs.Position;
+         string _tableName = tableName;
+
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               if (selectedTab == tp_001)
+               {
+                  return new { type = 1, apbs = db.App_Base_Defines.Where(a => a.ENTY_NAME == _tableName && a.REF_CODE == null).ToList() };
+               }
+               else if (selectedTab == tp_002)
+               {
+                  return new { type = 2, units = db.App_Base_Defines.Where(un => un.ENTY_NAME == "PRODUCTUNIT_INFO").ToList() };
+               }
+               return new { type = 0 };
+            }
+         });
+
          iScsc = new Data.iScscDataContext(ConnectionString);
-         if(tb_master.SelectedTab == tp_001)
+         if (result.type == 1)
          {
-            int b = ApbsBs.Position;
-            int t = SApbBs.Position;
-            ApbsBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == tableName && a.REF_CODE == null);
-            ApbsBs.Position = b;
-            SApbBs.Position = t;
+            ApbsBs.DataSource = result.apbs;
+            ApbsBs.Position = apbsPos;
+            SApbBs.Position = sapbPos;
          }
-         else if (tb_master.SelectedTab == tp_002)
+         else if (result.type == 2)
          {
-            int u = UnitBs.Position;
-            UnitBs.DataSource = iScsc.App_Base_Defines.Where(un => un.ENTY_NAME == "PRODUCTUNIT_INFO");
-            UnitBs.Position = u;
+            UnitBs.DataSource = result.units;
+            UnitBs.Position = unitPos;
          }
 
          requery = false;

@@ -25,10 +25,19 @@ namespace System.CRM.Ui.PublicInformation
       private string srpbtype = "001";
       private bool islock = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            using (var iCRM = new Data.iCRMDataContext(ConnectionString))
+            {
+               var query = iCRM.Services.Where(s => s.CONF_STAT == "002" && Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101 && s.FILE_NO == fileno).ToList();
+               return new { query };
+            }
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         ServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002" && Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101 && s.FILE_NO == fileno);
+         ServBs.DataSource = result.query;
          requery = false;
       }
 

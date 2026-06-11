@@ -18,40 +18,74 @@ namespace System.Scsc.Ui.DataAnalysis
          InitializeComponent();
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var selectedTab = tc_master.SelectedTab;
+         bool yearLov1Empty = Year_Lov1.Items.Count == 0;
+         int yearLov1Index = Year_Lov1.SelectedIndex;
+         object yearLov1Item = Year_Lov1.SelectedItem;
+         bool yearLov2Empty = Year_Lov2.Items.Count == 0;
+         int yearLov2Index = Year_Lov2.SelectedIndex;
+         object yearLov2Item = Year_Lov2.SelectedItem;
+
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               if (selectedTab == tp_001)
+               {
+                  if (yearLov1Empty)
+                  {
+                     var srdList = db.VD_SaleReceiptDiscounts.ToList();
+                     var years = srdList.Select(srd => (object)srd.YEAR).Distinct().ToArray();
+                     return new { type = 1, srdList, years, loadAll = true };
+                  }
+                  else if (yearLov1Index >= 0)
+                  {
+                     var srdList = db.VD_SaleReceiptDiscounts.Where(srd => srd.YEAR.ToString() == yearLov1Item.ToString()).ToList();
+                     return new { type = 1, srdList, years = (object[])null, loadAll = false };
+                  }
+                  return new { type = 0 };
+               }
+               else if (selectedTab == tp_002)
+               {
+                  if (yearLov2Empty)
+                  {
+                     var rqstList = db.Requests.ToList();
+                     var years = rqstList.Select(r => (object)r.YEAR).Distinct().ToArray();
+                     return new { type = 2, rqstList, years, loadAll = true };
+                  }
+                  else if (yearLov2Index >= 0)
+                  {
+                     var rqstList = db.Requests.Where(r => r.YEAR.ToString() == yearLov2Item.ToString()).ToList();
+                     return new { type = 2, rqstList, years = (object[])null, loadAll = false };
+                  }
+                  return new { type = 0 };
+               }
+               else if (selectedTab == tp_003)
+               {
+                  return new { type = 3, tells = db.V_CellPhonCollections.ToList() };
+               }
+               return new { type = 0 };
+            }
+         });
+
          iScsc = new Data.iScscDataContext(ConnectionString);
-         if (tc_master.SelectedTab == tp_001)
+         if (result.type == 1)
          {
-            if (Year_Lov1.Items.Count == 0)
-            {
-               vdSrdBs1.DataSource = iScsc.VD_SaleReceiptDiscounts;
-               Year_Lov1.Items.AddRange(vdSrdBs1.List.OfType<Data.VD_SaleReceiptDiscount>().Select(srd => (object)srd.YEAR).Distinct().ToArray());
-            }
-            else if (Year_Lov1.SelectedIndex >= 0)
-               vdSrdBs1.DataSource = iScsc.VD_SaleReceiptDiscounts.Where(srd => srd.YEAR.ToString() == Year_Lov1.SelectedItem.ToString());
-            
-            /*Year_Lov1.Items.Clear();
-
-            Year_Lov1.Items.AddRange(vdSrdBs1.List.OfType<Data.VD_SaleReceiptDiscount>().Select(srd => (object)srd.YEAR).Distinct().ToArray());*/
+            vdSrdBs1.DataSource = result.srdList;
+            if (result.loadAll && result.years != null)
+               Year_Lov1.Items.AddRange(result.years);
          }
-         else if(tc_master.SelectedTab == tp_002)
+         else if (result.type == 2)
          {
-            if (Year_Lov2.Items.Count == 0)
-            {
-               RqstBs2.DataSource = iScsc.Requests;
-               Year_Lov2.Items.AddRange(RqstBs2.List.OfType<Data.Request>().Select(r => (object)r.YEAR).Distinct().ToArray());
-            }
-            else if (Year_Lov2.SelectedIndex >= 0)
-               RqstBs2.DataSource = iScsc.Requests.Where(r => r.YEAR.ToString() == Year_Lov2.SelectedItem.ToString());
-
-            /*Year_Lov2.Items.Clear();
-
-            Year_Lov2.Items.AddRange(RqstBs2.List.OfType<Data.Request>().Select(r => (object)r.YEAR).Distinct().ToArray());*/
+            RqstBs2.DataSource = result.rqstList;
+            if (result.loadAll && result.years != null)
+               Year_Lov2.Items.AddRange(result.years);
          }
-         else if (tc_master.SelectedTab == tp_003)
+         else if (result.type == 3)
          {
-            TellsBs3.DataSource = iScsc.V_CellPhonCollections;
+            TellsBs3.DataSource = result.tells;
          }
       }
 

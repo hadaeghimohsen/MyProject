@@ -22,22 +22,89 @@ namespace System.Scsc.Ui.ReceiptAnnouncement
 
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         bool isTab1 = tb_master.SelectedTab == tp_001;
+         bool isTab2 = tb_master.SelectedTab == tp_002;
+
+         bool cb_cashincometoday_Status = cb_cashincometoday.Status;
+         var Pdt_CashInPaymentFromDate_Value = Pdt_CashInPaymentFromDate.Value;
+         var Pdt_CashInPaymentToDate_Value = Pdt_CashInPaymentToDate.Value;
+         bool Tpb_PayIn_IsChecked = Tpb_PayIn.PickChecked;
+         bool Tpb_CanclePayIn_IsChecked = Tpb_CanclePayIn.PickChecked;
+
+         bool cb_cashoutcometoday_Status = cb_cashoutcometoday.Status;
+         var Pdt_CashOutPaymentFromDate_Value = Pdt_CashOutPaymentFromDate.Value;
+         var Pdt_CashOutPaymentToDate_Value = Pdt_CashOutPaymentToDate.Value;
+         bool Tpb_PayTrn_IsChecked = Tpb_PayTrn.PickChecked;
+         bool Tpb_PayOut_IsChecked = Tpb_PayOut.PickChecked;
+         bool Tpb_CancelPayOut_IsChecked = Tpb_CancelPayOut.PickChecked;
+
+         var result = await Task.Run(() =>
+         {
+            using (var context = new Data.iScscDataContext(ConnectionString))
+            {
+               var currentUser = context.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
+
+               List<Data.Receipt_Announcement> rcanList = null;
+               List<Data.Receipt_Announcement> payShared = null;
+               List<Data.V_User> vUsers = null;
+
+               if (isTab1)
+               {
+                  if (cb_cashincometoday_Status)
+                     rcanList = context.Receipt_Announcements.Where(ra => ra.ACTN_DATE.Date == DateTime.Now.Date && ra.RCAN_STAT == "005" && ra.TO_USER == currentUser).ToList();
+                  else
+                     rcanList = context.Receipt_Announcements.Where(ra =>
+                        ra.ACTN_DATE.Date <= (Pdt_CashInPaymentFromDate_Value ?? DateTime.Now.Date) &&
+                        ra.ACTN_DATE.Date >= (Pdt_CashInPaymentToDate_Value ?? DateTime.Now.AddYears(-100).Date) &&
+                        ra.RCAN_STAT == "005" &&
+                        ra.TO_USER == currentUser).ToList();
+
+                  if (Tpb_PayIn_IsChecked)
+                     payShared = context.Receipt_Announcements.Where(ra => ra.TO_USER == currentUser && ra.RCAN_STAT == "003").ToList();
+                  else if (Tpb_CanclePayIn_IsChecked)
+                     payShared = context.Receipt_Announcements.Where(ra => ra.TO_USER == currentUser && ra.RCAN_STAT == "004").ToList();
+               }
+               else if (isTab2)
+               {
+                  vUsers = context.V_Users.Where(u => u.USER_DB != currentUser).ToList();
+
+                  if (cb_cashoutcometoday_Status)
+                     rcanList = context.Receipt_Announcements.Where(ra => ra.ACTN_DATE.Date == DateTime.Now.Date && ra.RCAN_STAT == "003" && ra.TO_USER == currentUser).ToList();
+                  else
+                     rcanList = context.Receipt_Announcements.Where(ra =>
+                        ra.ACTN_DATE.Date <= (Pdt_CashOutPaymentFromDate_Value ?? DateTime.Now.Date) &&
+                        ra.ACTN_DATE.Date >= (Pdt_CashOutPaymentToDate_Value ?? DateTime.Now.AddYears(-100).Date) &&
+                        ra.RCAN_STAT == "003" &&
+                        ra.TO_USER == currentUser).ToList();
+
+                  if (Tpb_PayTrn_IsChecked)
+                     payShared = context.Receipt_Announcements.Where(ra => ra.FROM_USER == currentUser && ra.RCAN_STAT == "005").ToList();
+                  else if (Tpb_PayOut_IsChecked)
+                     payShared = context.Receipt_Announcements.Where(ra => ra.FROM_USER == currentUser && ra.RCAN_STAT == "001").ToList();
+                  else if (Tpb_CancelPayOut_IsChecked)
+                     payShared = context.Receipt_Announcements.Where(ra => ra.FROM_USER == currentUser && ra.RCAN_STAT == "004").ToList();
+               }
+
+               return new { rcanList, payShared, vUsers };
+            }
+         });
+
          iScsc = new Data.iScscDataContext(ConnectionString);
-         if (tb_master.SelectedTab == tp_001)
+
+         if (isTab1)
          {
-            mb_QueryPayIn_Click(null, null);
-            Tpb_PayIn_PickCheckedChange(null);
-            Tpb_CanclePayIn_PickCheckedChange(null);
+            RcanBs1.DataSource = result.rcanList;
+            if (result.payShared != null)
+               PaySharedBs1.DataSource = result.payShared;
          }
-         else if (tb_master.SelectedTab == tp_002)
+         else if (isTab2)
          {
-            VUserBs1.DataSource = iScsc.V_Users.Where(u => u.USER_DB != iScsc.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001"))));
-            mb_QueryPayOut_Click(null, null);
-            Tpb_PayTrn_PickCheckedChange(null);
-            Tpb_PayOut_PickCheckedChange(null);
-            Tpb_CancelPayOut_PickCheckedChange(null);
+            VUserBs1.DataSource = result.vUsers;
+            RcanBs1.DataSource = result.rcanList;
+            if (result.payShared != null)
+               PaySharedBs1.DataSource = result.payShared;
          }
       }
 

@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -25,7 +25,7 @@ namespace System.Scsc.Ui.KioskStation
 
       private bool requery = default(bool);
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          
       }

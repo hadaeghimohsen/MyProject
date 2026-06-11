@@ -34,15 +34,26 @@ namespace System.CRM.Ui.Campaign
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            CampBs.DataSource = iCRM.Campaigns.Where(c => (mkltcode == null || c.Marketing_List_Campaigns.Any(mc => mc.MKLT_MLID == mkltcode)));
+            var mkltcodeRef = mkltcode;
+            var result = await Task.Run(() =>
+            {
+               using (var iCRM = new Data.iCRMDataContext(ConnectionString))
+               {
+                  var campList = iCRM.Campaigns.Where(c => (mkltcodeRef == null || c.Marketing_List_Campaigns.Any(mc => mc.MKLT_MLID == mkltcodeRef))).ToList();
+                  return new { campList };
+               }
+            });
+
+            CampBs.DataSource = result.campList;
                
             requery = false;
          }
-         catch { }         
+         catch { }
+      }         
       }
 
       #region Menu

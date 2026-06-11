@@ -32,10 +32,19 @@ namespace System.CRM.Ui.PublicInformation
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            using (var iCRM = new Data.iCRMDataContext(ConnectionString))
+            {
+               var query = iCRM.VF_Request_Document(fileno).ToList();
+               return new { query };
+            }
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         vRqdcBs.DataSource = iCRM.VF_Request_Document(fileno);
+         vRqdcBs.DataSource = result.query;
          requery = false;
       }      
 

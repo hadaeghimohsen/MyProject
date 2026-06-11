@@ -21,12 +21,25 @@ namespace System.Scsc.Ui.Financial.ShowChanges
 
       //bool requery = false;
 
-      private void Execute_Query(bool runAllQuery)
+      private async void Execute_Query(bool runAllQuery)
       {
          if (tb_master.SelectedTab == tp_001 || runAllQuery)
          {
-            RqstBs1.DataSource = iScsc.Requests.FirstOrDefault(r => r.RQID == Rqid);
-            FighBs1.DataSource = iScsc.Fighters.Where(f => f.Request_Rows.Where(rr => rr.RQST_RQID == Rqid && rr.FIGH_FILE_NO == FileNo).Any());
+            var result = await Task.Run(() =>
+            {
+               using (var context = new Data.iScscDataContext(ConnectionString))
+               {
+                  return new
+                  {
+                     Rqst = context.Requests.FirstOrDefault(r => r.RQID == Rqid),
+                     FighList = context.Fighters.Where(f => f.Request_Rows.Where(rr => rr.RQST_RQID == Rqid && rr.FIGH_FILE_NO == FileNo).Any()).ToList()
+                  };
+               }
+            });
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            RqstBs1.DataSource = result.Rqst;
+            FighBs1.DataSource = result.FighList;
          }
       }
 

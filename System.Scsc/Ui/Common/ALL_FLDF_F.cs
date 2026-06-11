@@ -24,7 +24,7 @@ namespace System.Scsc.Ui.Common
 
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          iScsc = new Data.iScscDataContext(ConnectionString);
          dynamic figh = vF_Last_Info_FighterBs.Current as Data.VF_Last_Info_FighterResult;

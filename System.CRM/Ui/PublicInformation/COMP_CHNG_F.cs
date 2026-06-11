@@ -25,17 +25,29 @@ namespace System.CRM.Ui.PublicInformation
       private long code;
       private string formtype;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var _formtype = formtype;
+         var _code = code;
+         var result = await Task.Run(() =>
+         {
+            using (var iCRM = new Data.iCRMDataContext(ConnectionString))
+            {
+               List<Data.Company> compList;
+               if (_formtype == "edit")
+               {
+                  compList = iCRM.Companies.Where(c => c.RECD_STAT == "002" && c.CODE == _code).ToList();
+               }
+               else
+               {
+                  compList = iCRM.Companies.Where(c => c.RECD_STAT == "002" && c.CODE == 0).ToList();
+               }
+               return new { compList };
+            }
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         if (formtype == "edit")
-         {
-            CompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002" && c.CODE == code);
-         }
-         else
-         {
-            CompBs.DataSource = iCRM.Companies.Where(c => c.RECD_STAT == "002" && c.CODE == 0);
-         }
+         CompBs.DataSource = result.compList;
          requery = false;
       }
 

@@ -26,14 +26,25 @@ namespace System.CRM.Ui.CommonInformation
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            using (var iCRM = new Data.iCRMDataContext(ConnectionString))
+            {
+               var serv = iCRM.Services.FirstOrDefault(s => s.FILE_NO == fileno);
+               var srpb = iCRM.Service_Publics.FirstOrDefault(p => p.RECT_CODE == "004" && p.SERV_FILE_NO == fileno && serv.SRPB_RWNO_DNRM == p.RWNO);
+               var logcalls = iCRM.VF_LogCalls(new XElement("LogCall", new XAttribute("fileno", fileno))).ToList();
+               var trackAttn = iCRM.VF_TrackAttendances(new XElement("TrackAttendance", new XAttribute("fileno", fileno))).ToList();
+               return new { serv, srpb, logcalls, trackAttn };
+            }
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         ServsBs1.DataSource = iCRM.Services.FirstOrDefault(s => s.FILE_NO == fileno);
-         var serv = ServsBs1.Current as Data.Service;
-         SrpbBs1.DataSource = iCRM.Service_Publics.FirstOrDefault(p => p.RECT_CODE == "004" && p.SERV_FILE_NO == fileno && serv.SRPB_RWNO_DNRM == p.RWNO);
-         vfLogcallsBs3.DataSource = iCRM.VF_LogCalls(new XElement("LogCall", new XAttribute("fileno", fileno)));
-         vfTrackAttn.DataSource = iCRM.VF_TrackAttendances(new XElement("TrackAttendance", new XAttribute("fileno", fileno)));
+         ServsBs1.DataSource = result.serv;
+         SrpbBs1.DataSource = result.srpb;
+         vfLogcallsBs3.DataSource = result.logcalls;
+         vfTrackAttn.DataSource = result.trackAttn;
       }
 
       private void SubmitChange_Butn_Click(object sender, EventArgs e)

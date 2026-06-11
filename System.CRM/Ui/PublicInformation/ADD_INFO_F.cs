@@ -35,28 +35,44 @@ namespace System.CRM.Ui.PublicInformation
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            using (var iCRM = new Data.iCRMDataContext(ConnectionString))
+            {
+               List<Data.Extra_Info> exifList;
+               if (fileno != 0)
+               {
+                  exifList =
+                     iCRM.Extra_Infos
+                     .Where(ai =>
+                        ai.SERV_FILE_NO == fileno &&
+                        ai.EXIF_CODE == null
+                     ).ToList();
+               }
+               else if (compcode != 0)
+               {
+                  exifList =
+                     iCRM.Extra_Infos
+                     .Where(ai =>
+                        ai.COMP_CODE == compcode &&
+                        ai.EXIF_CODE == null
+                     ).ToList();
+               }
+               else
+               {
+                  exifList = new List<Data.Extra_Info>();
+               }
+
+               var apbsList = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "EXTRA_INFO" && a.REF_CODE == null).ToList();
+               return new { exifList, apbsList };
+            }
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         if(fileno != 0)
-         {
-            ExifBs.DataSource =
-               iCRM.Extra_Infos
-               .Where(ai =>
-                  ai.SERV_FILE_NO == fileno &&
-                  ai.EXIF_CODE == null
-               );
-         }
-         else if(compcode != 0)
-         {
-            ExifBs.DataSource =
-               iCRM.Extra_Infos
-               .Where(ai =>
-                  ai.COMP_CODE == compcode &&
-                  ai.EXIF_CODE == null
-               );
-         }
-         ApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "EXTRA_INFO" && a.REF_CODE == null);
+         ExifBs.DataSource = result.exifList;
+         ApbsBs.DataSource = result.apbsList;
          requery = false;
       }
 

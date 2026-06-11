@@ -18,21 +18,42 @@ namespace System.Scsc.Ui.DataAnalysis
          InitializeComponent();
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
+         var selectedTab = tc_master.SelectedTab;
 
-         if(tc_master.SelectedTab == tp_001)
+         var result = await Task.Run(() =>
          {
-            vSaleBs1.DataSource = iScsc.V_Sales;
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               if (selectedTab == tp_001)
+               {
+                  return new { type = 1, vSales = db.V_Sales.ToList() };
+               }
+               else if (selectedTab == tp_002)
+               {
+                  return new { type = 2, vRcpts = db.V_ReceiptPayments.ToList() };
+               }
+               else if (selectedTab == tp_003)
+               {
+                  return new { type = 3, vPyds = db.V_DiscountPayments.ToList() };
+               }
+               return new { type = 0 };
+            }
+         });
+
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         if (result.type == 1)
+         {
+            vSaleBs1.DataSource = result.vSales;
          }
-         else if (tc_master.SelectedTab == tp_002)
+         else if (result.type == 2)
          {
-            vRcptBs2.DataSource = iScsc.V_ReceiptPayments;
+            vRcptBs2.DataSource = result.vRcpts;
          }
-         else if(tc_master.SelectedTab == tp_003)
+         else if (result.type == 3)
          {
-            vPydsBs3.DataSource = iScsc.V_DiscountPayments;
+            vPydsBs3.DataSource = result.vPyds;
          }
       }
 

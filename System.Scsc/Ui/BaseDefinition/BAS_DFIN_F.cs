@@ -71,131 +71,216 @@ namespace System.Scsc.Ui.BaseDefinition
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         // Capture UI state BEFORE Task.Run
+         var selectedTab = Tb_Master.SelectedTab;
+         int incomePos = InComeEpitBs1.Position;
+         int outcomePos = OutComeEpitBs1.Position;
+         int mtodPos = MtodBs1.Position;
+         int ctgyPos = CtgyBs1.Position;
+         int cPos = CntyBs1.Position;
+         int pPos = PrvnBs1.Position;
+         int rPos = RegnBs1.Position;
+         int dPos = CndoBs1.Position;
+         int bPos = CblkBs1.Position;
+         int uPos = CuntBs1.Position;
+         int cbmtPos = CbmtBs1.Position;
+         int clubPos = ClubBs1.Position;
+         int cbmt2Pos = CbmtBs2.Position;
+         int hldyPos = HldyBs.Position;
+         int comaPos = ComaBs.Position;
+         int exdvPos = ExdvBs.Position;
+         bool _fetchagine = fetchagine;
+
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               if (selectedTab == tp_001)
+               {
+                  return new { type = 1, cashes = db.Cashes.ToList() };
+               }
+               else if (selectedTab == tp_002)
+               {
+                  return new { type = 2, incomeItems = db.Expense_Items.Where(epit => epit.TYPE == "001").ToList(), outcomeItems = db.Expense_Items.Where(epit => epit.TYPE == "002").ToList() };
+               }
+               else if (selectedTab == tp_003)
+               {
+                  return new
+                  {
+                     type = 3,
+                     incomeItems = db.Expense_Items.Where(epit => epit.TYPE == "001").ToList(),
+                     methods = db.Methods.ToList(),
+                     clubs = db.Clubs.ToList(),
+                     coaches = db.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003").ToList()
+                  };
+               }
+               else if (selectedTab == tp_004)
+               {
+                  return new { type = 4, countries = db.Countries.ToList() };
+               }
+               else if (selectedTab == tp_005)
+               {
+                  if (_fetchagine)
+                  {
+                     return new
+                     {
+                        type = 5,
+                        coaches = db.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003").ToList(),
+                        methods = db.Methods.ToList(),
+                        clubs = db.Clubs.ToList()
+                     };
+                  }
+                  return new { type = 5 };
+               }
+               else if (selectedTab == tp_006)
+               {
+                  return new
+                  {
+                     type = 6,
+                     clubs = db.Clubs.ToList(),
+                     coaches2 = db.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && Convert.ToInt32(c.ACTV_TAG_DNRM) >= 101).ToList(),
+                     methods = db.Methods.Where(m => m.MTOD_STAT == "002").ToList()
+                  };
+               }
+               else if (selectedTab == tp_007)
+               {
+                  return new { type = 7, holidays = db.Holidays.Where(h => h.HLDY_DATE.Value.Date >= DateTime.Now.Date).ToList() };
+               }
+               else if (selectedTab == tp_008)
+               {
+                  return new { type = 8, computerActions = db.Computer_Actions.ToList(), methods = db.Methods.ToList() };
+               }
+               else if (selectedTab == tp_009)
+               {
+                  return new
+                  {
+                     type = 9,
+                     clubs = db.Clubs.ToList(),
+                     expenses = db.Expenses.Where(ex =>
+                        ex.Regulation.REGL_STAT == "002" && ex.Regulation.TYPE == "001" &&
+                        ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+                        ex.EXPN_STAT == "002").ToList()
+                  };
+               }
+               else if (selectedTab == tp_010)
+               {
+                  return new
+                  {
+                     type = 10,
+                     externalDevices = db.External_Devices.ToList(),
+                     dDevCs = db.D_DEVCs.ToList(),
+                     dConNs = db.D_CONNs.ToList(),
+                     dCycRs = db.D_CYCRs.ToList(),
+                     methods = db.Methods.Where(m => m.MTOD_STAT == "002").ToList(),
+                     expenses = db.Expenses.Where(ex =>
+                        ex.Regulation.REGL_STAT == "002" && ex.Regulation.TYPE == "001" &&
+                        ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+                        ex.EXPN_STAT == "002").ToList()
+                  };
+               }
+               else if (selectedTab == tp_011)
+               {
+                  return new
+                  {
+                     type = 11,
+                     templates = db.Templates.ToList(),
+                     templateItems = db.Template_Items.Where(ti => ti.RECD_STAT == "002").ToList()
+                  };
+               }
+               return new { type = 0 };
+            }
+         });
+
+         // Re-create the field on UI thread
          iScsc = new Data.iScscDataContext(ConnectionString);
-         if (Tb_Master.SelectedTab == tp_001)
+
+         // Bind results to BindingSources on UI thread (after await)
+         if (result.type == 1)
          {
-            CashBs1.DataSource = iScsc.Cashes;
+            CashBs1.DataSource = result.cashes;
          }
-         else if (Tb_Master.SelectedTab == tp_002)
+         else if (result.type == 2)
          {
-            int income = InComeEpitBs1.Position;
-            int outcome = OutComeEpitBs1.Position;
-            InComeEpitBs1.DataSource = iScsc.Expense_Items.Where(epit => epit.TYPE == "001");
-            OutComeEpitBs1.DataSource = iScsc.Expense_Items.Where(epit => epit.TYPE == "002");
-            InComeEpitBs1.Position = income;
-            OutComeEpitBs1.Position = outcome;
+            InComeEpitBs1.DataSource = result.incomeItems;
+            OutComeEpitBs1.DataSource = result.outcomeItems;
+            InComeEpitBs1.Position = incomePos;
+            OutComeEpitBs1.Position = outcomePos;
          }
-         else if (Tb_Master.SelectedTab == tp_003)
+         else if (result.type == 3)
          {
-            int mtod = MtodBs1.Position;
-            int ctgy = CtgyBs1.Position;
-            InComeEpitBs1.DataSource = iScsc.Expense_Items.Where(epit => epit.TYPE == "001");
+            InComeEpitBs1.DataSource = result.incomeItems;
             if (InComeEpitBs1.List.OfType<Data.Expense_Item>().Any(ei => ei.EPIT_DESC.Contains("شهریه")))
                ExpnEpit_Lov.EditValue = InComeEpitBs1.List.OfType<Data.Expense_Item>().FirstOrDefault(ei => ei.EPIT_DESC.Contains("شهریه")).CODE;
 
-            MtodBs1.DataSource = iScsc.Methods;
-            Mtod_Gv.TopRowIndex = mtod;
-            MtodBs1.Position = mtod;
-            Ctgy_Gv.TopRowIndex = ctgy;
-            CtgyBs1.Position = ctgy;
+            MtodBs1.DataSource = result.methods;
+            Mtod_Gv.TopRowIndex = mtodPos;
+            MtodBs1.Position = mtodPos;
+            Ctgy_Gv.TopRowIndex = ctgyPos;
+            CtgyBs1.Position = ctgyPos;
 
-            ClubBs1.DataSource = iScsc.Clubs;
-            CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
+            ClubBs1.DataSource = result.clubs;
+            CochBs1.DataSource = result.coaches;
          }
-         else if (Tb_Master.SelectedTab == tp_004)
+         else if (result.type == 4)
          {
-            int c = CntyBs1.Position;
-            int p = PrvnBs1.Position;
-            int r = RegnBs1.Position;
-            int d = CndoBs1.Position;
-            int b = CblkBs1.Position;
-            int u = CuntBs1.Position;
-            CntyBs1.DataSource = iScsc.Countries;
-            CntyBs1.Position = c;
-            PrvnBs1.Position = p;
-            RegnBs1.Position = r;
-            CndoBs1.Position = d;
-            CblkBs1.Position = b;
-            CuntBs1.Position = u;
+            CntyBs1.DataSource = result.countries;
+            CntyBs1.Position = cPos;
+            PrvnBs1.Position = pPos;
+            RegnBs1.Position = rPos;
+            CndoBs1.Position = dPos;
+            CblkBs1.Position = bPos;
+            CuntBs1.Position = uPos;
          }
-         else if (Tb_Master.SelectedTab == tp_005)
+         else if (result.type == 5)
          {
-            if (fetchagine)
+            if (_fetchagine)
             {
-               int cbmt = CbmtBs1.Position;
-               CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
-               CbmtBs1.Position = cbmt;
-               MtodBs1.DataSource = iScsc.Methods;
-               ClubBs1.DataSource = iScsc.Clubs;
-               //CreateCoachMenu();
-            }
-            else
-            {
-               //CochCbmtInfo();
+               CochBs1.DataSource = result.coaches;
+               CbmtBs1.Position = cbmtPos;
+               MtodBs1.DataSource = result.methods;
+               ClubBs1.DataSource = result.clubs;
             }
          }
-         else if (Tb_Master.SelectedTab == tp_006)
+         else if (result.type == 6)
          {
-            int club = ClubBs1.Position;
-            int cbmt = CbmtBs2.Position;
-            ClubBs1.DataSource = iScsc.Clubs;
-            CochBs2.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003" && Convert.ToInt32(c.ACTV_TAG_DNRM) >= 101);
-            MtodBs1.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
-            ClubBs1.Position = club;
-            //Cbmt_Gv.TopRowIndex = cbmt;
-            CbmtBs2.Position = cbmt;
+            ClubBs1.DataSource = result.clubs;
+            CochBs2.DataSource = result.coaches2;
+            MtodBs1.DataSource = result.methods;
+            ClubBs1.Position = clubPos;
+            CbmtBs2.Position = cbmt2Pos;
          }
-         else if (Tb_Master.SelectedTab == tp_007)
+         else if (result.type == 7)
          {
-            int hldy = HldyBs.Position;
-            HldyBs.DataSource = iScsc.Holidays.Where(h => h.HLDY_DATE.Value.Date >= DateTime.Now.Date);
-            HldyBs.Position = hldy;
+            HldyBs.DataSource = result.holidays;
+            HldyBs.Position = hldyPos;
          }
-         else if (Tb_Master.SelectedTab == tp_008)
+         else if (result.type == 8)
          {
-            int coma = ComaBs.Position;
-            ComaBs.DataSource = iScsc.Computer_Actions;
-            ComaBs.Position = coma;
-
-            MtodBs1.DataSource = iScsc.Methods;
+            ComaBs.DataSource = result.computerActions;
+            ComaBs.Position = comaPos;
+            MtodBs1.DataSource = result.methods;
          }
-         else if (Tb_Master.SelectedTab == tp_009)
+         else if (result.type == 9)
          {
-            ClubBs3.DataSource = iScsc.Clubs;
-
-            ExpnBs.DataSource =
-               iScsc.Expenses.Where(ex =>
-                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-                  ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
-                     //ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-                  ex.EXPN_STAT == "002" /* هزینه های فعال */
-               );
+            ClubBs3.DataSource = result.clubs;
+            ExpnBs.DataSource = result.expenses;
          }
-         else if (Tb_Master.SelectedTab == tp_010)
+         else if (result.type == 10)
          {
-            int exdv = ExdvBs.Position;
-            ExdvBs.DataSource = iScsc.External_Devices;
-            ExdvBs.Position = exdv;
-
-            DDevcBs.DataSource = iScsc.D_DEVCs;
-            DConnBs.DataSource = iScsc.D_CONNs;
-            DCycrBs.DataSource = iScsc.D_CYCRs;
-            MtodBs1.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
-
-            ExpnBs.DataSource =
-               iScsc.Expenses.Where(ex =>
-                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-                  ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
-                     //ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-                  ex.EXPN_STAT == "002" /* هزینه های فعال */
-               );
+            ExdvBs.DataSource = result.externalDevices;
+            ExdvBs.Position = exdvPos;
+            DDevcBs.DataSource = result.dDevCs;
+            DConnBs.DataSource = result.dConNs;
+            DCycrBs.DataSource = result.dCycRs;
+            MtodBs1.DataSource = result.methods;
+            ExpnBs.DataSource = result.expenses;
          }
-         else if (Tb_Master.SelectedTab == tp_011)
+         else if (result.type == 11)
          {
-            TmplBs.DataSource = iScsc.Templates;
-            TmpiBs.DataSource = iScsc.Template_Items.Where(ti => ti.RECD_STAT == "002");
+            TmplBs.DataSource = result.templates;
+            TmpiBs.DataSource = result.templateItems;
          }
 
          requery = false;

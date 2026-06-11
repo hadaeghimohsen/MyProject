@@ -31,15 +31,29 @@ namespace System.Scsc.Ui.Notifications
       private string attnsystype = "002";
       private string attnignrtype = "001";
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          if (tb_master.SelectedTab == tp_002)
          {
             Pb_FileNo2.PickChecked = true;
             if (formStatus == "RunInForeground")
             {
-               FighBs2.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
-               CochBs2.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003") /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+               var uclbU = Fga_Uclb_U;
+               var result = await Task.Run(() =>
+               {
+                  using (var context = new Data.iScscDataContext(ConnectionString))
+                  {
+                     return new
+                     {
+                        FighList = context.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" && (uclbU.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => uclbU.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101).ToList(),
+                        CochList = context.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003") && (uclbU.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => uclbU.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101).ToList()
+                     };
+                  }
+               });
+
+               iScsc = new Data.iScscDataContext(ConnectionString);
+               FighBs2.DataSource = result.FighList;
+               CochBs2.DataSource = result.CochList;
             }
          }
       }

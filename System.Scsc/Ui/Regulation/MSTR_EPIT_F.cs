@@ -21,14 +21,21 @@ namespace System.Scsc.Ui.Regulation
       }
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
-
          int _grop = Grop3Bs.Position;
+         var gropList = GropBs2.List.OfType<Data.Group_Expense>().Where(g => g.GROP_TYPE == "001").ToList();
 
-         Grop3Bs.DataSource = GropBs2.List.OfType<Data.Group_Expense>().Where(g => g.GROP_TYPE == "001");
+         await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               // Data context created for future use
+            }
+         });
 
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         Grop3Bs.DataSource = gropList;
          Grop3Bs.Position = _grop;
       }
 

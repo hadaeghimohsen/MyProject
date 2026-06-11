@@ -32,18 +32,37 @@ namespace System.Scsc.Ui.BaseDefinition
          );
       }      
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
          int prod = ProdBs.Position;
-         EpitBs.DataSource = iScsc.Expense_Items.Where(e => e.CODE == epitcode);
+         long? _epitcode = epitcode;
+         long? _pydtcode = pydtcode;
+
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               var epitItems = db.Expense_Items.Where(e => e.CODE == _epitcode).ToList();
+               Data.Payment_Detail pydt = null;
+               string servName = null;
+               if (_pydtcode != null)
+               {
+                  pydt = db.Payment_Details.Where(pd => pd.CODE == _pydtcode).FirstOrDefault();
+                  if (pydt != null)
+                     servName = pydt.Request_Row.Fighter.NAME_DNRM;
+               }
+               return new { epitItems, pydt, servName };
+            }
+         });
+
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         EpitBs.DataSource = result.epitItems;
          ProdBs.Position = prod;
 
-         if (pydtcode != null)
+         if (_pydtcode != null)
          {
-            PydtBs.DataSource = iScsc.Payment_Details.Where(pd => pd.CODE == pydtcode);
-            var pydt = PydtBs.Current as Data.Payment_Detail;
-            ServName_Lb.Text = pydt.Request_Row.Fighter.NAME_DNRM;
+            PydtBs.DataSource = new List<Data.Payment_Detail> { result.pydt };
+            ServName_Lb.Text = result.servName;
          }
          else
             PydtBs.List.Clear();

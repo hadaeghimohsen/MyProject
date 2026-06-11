@@ -32,64 +32,89 @@ namespace System.Scsc.Ui.Notifications
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-
             FromAttnDate_Date.Value = FromAttnDate_Date.Value.HasValue ? FromAttnDate_Date.Value.Value : DateTime.Now;
             if (!ToAttnDate_Date.Value.HasValue)
                ToAttnDate_Date.Value = FromAttnDate_Date.Value;
 
-            if (Tb_Master.SelectedTab == tp_001)
-            {
+            bool isTab1 = Tb_Master.SelectedTab == tp_001;
+            bool isTab2 = Tb_Master.SelectedTab == tp_002;
+            var fromDate = FromAttnDate_Date.Value.Value.Date;
+            var toDate = ToAttnDate_Date.Value.Value.Date;
+            bool cbmtEmpty = CBMT_CODE_GridLookUpEdit.EditValue == null || CBMT_CODE_GridLookUpEdit.EditValue.ToString() == "";
+            long? cbmtcode = cbmtEmpty ? (long?)null : (long?)CBMT_CODE_GridLookUpEdit.EditValue;
+            var cbmtobj = cbmtEmpty ? null : CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.CODE == cbmtcode);
+            bool cochPkb = Coch_Pkb.PickChecked;
+            bool mtodPkb = Mtod_Pkb.PickChecked;
+            bool cbmtPkb = Cbmt_Pkb.PickChecked;
+            var uclbU = Fga_Uclb_U;
 
-               if (CBMT_CODE_GridLookUpEdit.EditValue == null || CBMT_CODE_GridLookUpEdit.EditValue.ToString() == "")
-                  AttnBs1.DataSource =
-                     iScsc.Attendances
-                     .Where(a =>
-                        a.ATTN_DATE.Date >= FromAttnDate_Date.Value.Value.Date &&
-                        a.ATTN_DATE.Date <= ToAttnDate_Date.Value.Value.Date &&
-                        a.ATTN_STAT == "002" &&
-                        Fga_Uclb_U.Contains(a.CLUB_CODE)
-                     );
-               else
+            var result = await Task.Run(() =>
+            {
+               using (var context = new Data.iScscDataContext(ConnectionString))
                {
-                  var cbmtcode = (long?)CBMT_CODE_GridLookUpEdit.EditValue;
-                  var cbmtobj = CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.CODE == cbmtcode);
+                  if (isTab1)
+                  {
+                     if (cbmtEmpty)
+                     {
+                        return new
+                        {
+                           AttnList = context.Attendances.Where(a =>
+                              a.ATTN_DATE.Date >= fromDate &&
+                              a.ATTN_DATE.Date <= toDate &&
+                              a.ATTN_STAT == "002" &&
+                              uclbU.Contains(a.CLUB_CODE)).ToList(),
+                           MbspList = (object)null
+                        };
+                     }
+                     else
+                     {
+                        return new
+                        {
+                           AttnList = context.Attendances.Where(a =>
+                              a.ATTN_DATE.Date >= fromDate &&
+                              a.ATTN_DATE.Date <= toDate &&
+                              (cochPkb == false || a.COCH_FILE_NO == cbmtobj.COCH_FILE_NO) &&
+                              (mtodPkb == false || a.MTOD_CODE_DNRM == cbmtobj.MTOD_CODE) &&
+                              (cbmtPkb == false || a.CBMT_CODE_DNRM == cbmtobj.CODE) &&
+                              a.ATTN_STAT == "002" &&
+                              uclbU.Contains(a.CLUB_CODE)).ToList(),
+                           MbspList = (object)null
+                        };
+                     }
+                  }
+                  else if (isTab2)
+                  {
+                     return new
+                     {
+                        AttnList = (object)null,
+                        MbspList = context.V_Total_Member_Ships.Where(h =>
+                           fromDate >= h.STRT_DATE.Value.Date &&
+                           toDate <= h.END_DATE.Value.Date &&
+                           !context.Attendances.Any(a =>
+                              a.FIGH_FILE_NO == h.FILE_NO &&
+                              a.CBMT_CODE_DNRM == h.CBMT_CODE &&
+                              a.MBSP_RWNO_DNRM == h.MBSP_RWNO &&
+                              a.COCH_FILE_NO == h.COCH_FILE_NO &&
+                              a.ATTN_STAT == "002")).ToList()
+                     };
+                  }
 
-                  AttnBs1.DataSource =
-                     iScsc.Attendances
-                     .Where(a =>
-                        a.ATTN_DATE.Date >= FromAttnDate_Date.Value.Value.Date &&
-                        a.ATTN_DATE.Date <= ToAttnDate_Date.Value.Value.Date &&
-                        (Coch_Pkb.PickChecked == false || a.COCH_FILE_NO == cbmtobj.COCH_FILE_NO) &&
-                        (Mtod_Pkb.PickChecked == false || a.MTOD_CODE_DNRM == cbmtobj.MTOD_CODE) &&
-                        (Cbmt_Pkb.PickChecked == false || a.CBMT_CODE_DNRM == cbmtobj.CODE) &&
-                        a.ATTN_STAT == "002" &&
-                        Fga_Uclb_U.Contains(a.CLUB_CODE)
-                     );
+                  return new { AttnList = (object)null, MbspList = (object)null };
                }
-            }
-            else if (Tb_Master.SelectedTab == tp_002)
-            {
-               VSTMbspBs.DataSource =
-                  iScsc.V_Total_Member_Ships
-                  .Where(h =>
-                     FromAttnDate_Date.Value.Value.Date >= h.STRT_DATE.Value.Date &&
-                     ToAttnDate_Date.Value.Value.Date <= h.END_DATE.Value.Date &&
-                     !iScsc.Attendances
-                     .Any(a =>
-                        a.FIGH_FILE_NO == h.FILE_NO &&
-                        a.CBMT_CODE_DNRM == h.CBMT_CODE &&
-                        a.MBSP_RWNO_DNRM == h.MBSP_RWNO &&
-                        a.COCH_FILE_NO == h.COCH_FILE_NO &&
-                        a.ATTN_STAT == "002"
-                     )
-                  );
-            }
-      }catch(Exception exc)
+            });
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+
+            if (isTab1)
+               AttnBs1.DataSource = result.AttnList;
+            else if (isTab2)
+               VSTMbspBs.DataSource = result.MbspList;
+         }
+         catch(Exception exc)
          {
             CBMT_CODE_GridLookUpEdit.EditValue = null;
             Execute_Query();

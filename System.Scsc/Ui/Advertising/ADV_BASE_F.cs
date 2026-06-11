@@ -25,14 +25,22 @@ namespace System.Scsc.Ui.Advertising
       private bool requery = false;
       private int index = default(int);
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {         
          try
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-
             int _ixAdvp = AdvpBs.Position;
-            AdvpBs.DataSource = iScsc.Advertising_Parameters;
+
+            var result = await Task.Run(() =>
+            {
+               using (var db = new Data.iScscDataContext(ConnectionString))
+               {
+                  return db.Advertising_Parameters.ToList();
+               }
+            });
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            AdvpBs.DataSource = result;
             AdvpBs.Position = _ixAdvp;
 
             Advc2_Gv.ActiveFilterString = string.Format("RECD_STAT = '002' AND CELL_PHON != ''");

@@ -19,15 +19,23 @@ namespace System.CRM.Ui.Notification
          InitializeComponent();
       }
 
-      private void Execute_Query()
-      { 
+      private async void Execute_Query()
+      {
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iCRMDataContext(ConnectionString);
+            return new
+            {
+               Items = db.Requests
+                  .Where(r =>
+                     r.RQST_STAT == "001" &&
+                     r.Job_Personnel.USER_NAME == CurrentUser
+                  ).ToList()
+            };
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         RqstBs1.DataSource =
-            iCRM.Requests
-            .Where(r => 
-               r.RQST_STAT == "001" &&
-               r.Job_Personnel.USER_NAME == CurrentUser
-            );
+         RqstBs1.DataSource = result.Items;
       }
 
       private void ACTN_BUTN_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)

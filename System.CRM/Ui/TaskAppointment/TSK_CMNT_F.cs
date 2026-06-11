@@ -34,11 +34,21 @@ namespace System.CRM.Ui.TaskAppointment
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         CmntBs1.DataSource = iCRM.Comments.Where(t => t.RQRO_RQST_RQID == rqid);
+         var _rqid = rqid;
 
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iCRMDataContext(ConnectionString))
+            {
+               var comments = db.Comments.Where(t => t.RQRO_RQST_RQID == _rqid).ToList();
+               return new { Comments = comments };
+            }
+         });
+
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         CmntBs1.DataSource = result.Comments;
          requery = false;
       }
 

@@ -23,12 +23,22 @@ namespace System.CRM.Ui.Notification
 
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iCRMDataContext(ConnectionString);
+            var items = db.Mentions.Where(r => r.Job_Personnel.USER_NAME.ToLower() == CurrentUser.ToLower() && r.MNTN_DATE.HasValue/*&& r.ALRM_DATE.Value.Date <= DateTime.Now.Date*/).ToList();
+            db.Job_Personnels.FirstOrDefault(jp => jp.USER_NAME.ToLower() == CurrentUser.ToLower()).MNTN_STAT = "001";
+            db.SubmitChanges();
+            return new
+            {
+               Items = items
+            };
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         MntnBs.DataSource = iCRM.Mentions.Where(r => r.Job_Personnel.USER_NAME.ToLower() == CurrentUser.ToLower() && r.MNTN_DATE.HasValue/*&& r.ALRM_DATE.Value.Date <= DateTime.Now.Date*/);
-         iCRM.Job_Personnels.FirstOrDefault(jp => jp.USER_NAME.ToLower() == CurrentUser.ToLower()).MNTN_STAT = "001";
-         iCRM.SubmitChanges();
+         MntnBs.DataSource = result.Items;
          requery = false;
       }
 

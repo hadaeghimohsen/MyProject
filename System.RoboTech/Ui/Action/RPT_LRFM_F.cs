@@ -19,10 +19,17 @@ namespace System.RoboTech.Ui.Action
          InitializeComponent();
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var mdrps = db.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002").ToList();
+            return new { mdrps };
+         });
+
          iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-         MdrpBs1.DataSource = iRoboTech.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002");
+         MdrpBs1.DataSource = result.mdrps;
       }
       private void mb_reloading_Click(object sender, EventArgs e)
       {

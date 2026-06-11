@@ -35,12 +35,19 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-
          int ordt = Ordt4Bs.Position;
-         RoboBs.DataSource = iRoboTech.Robots.Where(r => Fga_Ugov_U.Contains(r.Organ.OGID) && r.RBID == 401);
+
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var robots = db.Robots.Where(r => Fga_Ugov_U.Contains(r.Organ.OGID) && r.RBID == 401).ToList();
+            return new { robots };
+         });
+
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         RoboBs.DataSource = result.robots;
          Ordt4Bs.Position = ordt;
 
          requery = false;

@@ -29,21 +29,29 @@ namespace System.RoboTech.Ui.BaseDefinition
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-
          int isic = IsicBs.Position;
          int grph = GrphBs.Position;
          int ghit = GhitBs.Position;
          int apbs = ApbsBs.Position;
+         string _entityname = entityname;
 
-         IsicBs.DataSource = iRoboTech.Isic_Categories;
-         GrphBs.DataSource = iRoboTech.Group_Headers;
-         if(entityname == "")
-            ApbsBs.DataSource = iRoboTech.App_Base_Defines;
-         else
-            ApbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == entityname);
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var isics = db.Isic_Categories.ToList();
+            var grphs = db.Group_Headers.ToList();
+            var apbsList = _entityname == ""
+               ? db.App_Base_Defines.ToList()
+               : db.App_Base_Defines.Where(a => a.ENTY_NAME == _entityname).ToList();
+            return new { isics, grphs, apbsList };
+         });
+
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         IsicBs.DataSource = result.isics;
+         GrphBs.DataSource = result.grphs;
+         ApbsBs.DataSource = result.apbsList;
 
          IsicBs.Position = isic;
          GrphBs.Position = grph;

@@ -60,24 +60,41 @@ namespace System.CRM.Ui.FileServerStorage
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iCRMDataContext(ConnectionString);
+            List<Data.Send_File> items = null;
+            bool isEmailTab = Tb_Master.SelectedTab == tp_001;
+            if (isEmailTab)
+               items =
+                  db.Send_Files
+                  .Where(
+                     sf => 
+                        sf.SERV_FILE_NO == fileno && 
+                        ( 
+                           //sf.Request_Row.Request.Request1.Request_Rows.Any(rr => rr.Emails.FirstOrDefault().EMID == emid) ||
+                           //sf.Request_Row.Request.Request1.Request_Rows.Any(rr => rr.Tasks.FirstOrDefault().TKID == tkid) ||
+                           sf.Request_Row.Request.Request2.RQID == rqstrqid ||
+                           sf.CMNT_CMID == cmid
+                        )
+                  ).ToList();
+            else
+               items = db.Send_Files.Where(em => em.SHER_TEAM == "002").ToList();
+
+            return new
+            {
+               Items = items,
+               IsEmailTab = isEmailTab
+            };
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         if (Tb_Master.SelectedTab == tp_001)
-            EmalRqstFileBs.DataSource = 
-               iCRM.Send_Files
-               .Where(
-                  sf => 
-                     sf.SERV_FILE_NO == fileno && 
-                     ( 
-                        //sf.Request_Row.Request.Request1.Request_Rows.Any(rr => rr.Emails.FirstOrDefault().EMID == emid) ||
-                        //sf.Request_Row.Request.Request1.Request_Rows.Any(rr => rr.Tasks.FirstOrDefault().TKID == tkid) ||
-                        sf.Request_Row.Request.Request2.RQID == rqstrqid ||
-                        sf.CMNT_CMID == cmid
-                     )
-               );
+         if (result.IsEmailTab)
+            EmalRqstFileBs.DataSource = result.Items;
          else
-            ShareFileBs.DataSource = iCRM.Send_Files.Where(em => em.SHER_TEAM == "002");
+            ShareFileBs.DataSource = result.Items;
          requery = false;
       }
 

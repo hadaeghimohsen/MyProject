@@ -27,25 +27,32 @@ namespace System.RoboTech.Ui.BaseDefinition
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-         if(tb_master.SelectedTab == tp_001)
+         bool isTab001 = tb_master.SelectedTab == tp_001;
+         bool isTab002 = tb_master.SelectedTab == tp_002;
+         int uo = isTab001 ? UserOrgnBs.Position : 0;
+         int urlf = isTab002 ? UrlfBs.Position : 0;
+
+         var result = await Task.Run(() =>
          {
-            int uo = UserOrgnBs.Position;
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var userOrgns = isTab001 ? db.User_Organ_Fgacs.ToList() : null;
+            var urlfs = isTab002 ? db.User_RobotListener_Fgacs.ToList() : null;
+            return new { userOrgns, urlfs };
+         });
 
-            UserOrgnBs.DataSource = iRoboTech.User_Organ_Fgacs;
-
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         if(isTab001)
+         {
+            UserOrgnBs.DataSource = result.userOrgns;
             UserOrgnBs.Position = uo;
          }
-         else if (tb_master.SelectedTab == tp_002)
+         else if (isTab002)
          {
-            int urlf = UrlfBs.Position;
-
-            UrlfBs.DataSource = iRoboTech.User_RobotListener_Fgacs;
-
+            UrlfBs.DataSource = result.urlfs;
             UrlfBs.Position = urlf;
-         }         
+         }
       }
 
       private void SubmitChanged_Clicked(object sender, EventArgs e)

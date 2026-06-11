@@ -34,18 +34,34 @@ namespace System.CRM.Ui.TaskAppointment
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         
-         if(rqid != 0)
-            TagBs1.DataSource = iCRM.Tags.Where(t => t.RQRO_RQST_RQID == rqid);
-         else if(fileno != 0)
-            TagBs1.DataSource = iCRM.Tags.Where(t => t.SERV_FILE_NO == fileno);
-         else if(compcode != 0)
-            TagBs1.DataSource = iCRM.Tags.Where(t => t.COMP_CODE_DNRM == compcode);
+         var _rqid = rqid;
+         var _fileno = fileno;
+         var _compcode = compcode;
 
-         ApbsBs.DataSource = iCRM.App_Base_Defines.Where(a => a.ENTY_NAME == "TAG");
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iCRMDataContext(ConnectionString))
+            {
+               List<Data.Tag> tags = null;
+               if (_rqid != 0)
+                  tags = db.Tags.Where(t => t.RQRO_RQST_RQID == _rqid).ToList();
+               else if (_fileno != 0)
+                  tags = db.Tags.Where(t => t.SERV_FILE_NO == _fileno).ToList();
+               else if (_compcode != 0)
+                  tags = db.Tags.Where(t => t.COMP_CODE_DNRM == _compcode).ToList();
+
+               var apbs = db.App_Base_Defines.Where(a => a.ENTY_NAME == "TAG").ToList();
+
+               return new { Tags = tags, Apbs = apbs };
+            }
+         });
+
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         if (result.Tags != null)
+            TagBs1.DataSource = result.Tags;
+         ApbsBs.DataSource = result.Apbs;
          requery = false;
       }
 

@@ -34,11 +34,20 @@ namespace System.CRM.Ui.TaskAppointment
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         ColbBs.DataSource = iCRM.Collaborators.FirstOrDefault(c => c.CLID == clid);
+         var _clid = clid;
 
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iCRMDataContext(ConnectionString))
+            {
+               return db.Collaborators.FirstOrDefault(c => c.CLID == _clid);
+            }
+         });
+
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         ColbBs.DataSource = result;
          requery = false;
       }
 

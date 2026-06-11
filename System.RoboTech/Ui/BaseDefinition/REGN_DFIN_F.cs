@@ -27,16 +27,21 @@ namespace System.RoboTech.Ui.BaseDefinition
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-
          int cnty = CntyBs.Position;
          int prvn = PrvnBs.Position;
          int regn = RegnBs.Position;
 
-         CntyBs.DataSource = iRoboTech.Countries;
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var countries = db.Countries.ToList();
+            return new { countries };
+         });
 
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         CntyBs.DataSource = result.countries;
          CntyBs.Position = cnty;
          PrvnBs.Position = prvn;
          RegnBs.Position = regn;

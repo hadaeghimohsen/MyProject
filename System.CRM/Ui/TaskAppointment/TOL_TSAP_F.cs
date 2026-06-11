@@ -67,113 +67,170 @@ namespace System.CRM.Ui.TaskAppointment
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            if(Tb_Master.SelectedTab == tp_001)
-            {
-               srchtype = Apon_Pn.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked).Tag.ToString();
-               #region Appointment
-               switch (srchtype)
-	            {
-                  case "001":
-                     AponBs.DataSource = 
-                        from ap in iCRM.Appointments
-                        join cl in iCRM.Collaborators on ap.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
-                        where ap.FROM_DATE.Value.Date < DateTime.Now.Date
-                           && cl.Job_Personnel.USER_NAME.ToUpper() == CurrentUser.ToUpper()
-                        select ap;
-                     break;
-                  case "002":
-                     AponBs.DataSource = 
-                        from ap in iCRM.Appointments
-                        join cl in iCRM.Collaborators on ap.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
-                        where ap.FROM_DATE.Value.Date == DateTime.Now.Date
-                           && cl.Job_Personnel.USER_NAME.ToUpper() == CurrentUser.ToUpper()
-                        select ap;
-                     break;
-                  case "003":
-                     if(AppointmentToDate_Date.Value.HasValue)
-                        datetime = AppointmentToDate_Date.Value.Value;
-                     else
-                     {
-                        AppointmentToDate_Date.Value = datetime = DateTime.Now.AddDays(1);
-                     }
+            bool isTab001 = Tb_Master.SelectedTab == tp_001;
+            bool isTab002 = Tb_Master.SelectedTab == tp_002;
+            string _currentUser = CurrentUser;
+            DateTime now = DateTime.Now;
 
-                     AponBs.DataSource = 
-                        from ap in iCRM.Appointments
-                        join cl in iCRM.Collaborators on ap.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
-                        where ap.FROM_DATE.Value.Date >= datetime
-                           && cl.Job_Personnel.USER_NAME.ToUpper() == CurrentUser.ToUpper()
-                        select ap;
-                     break;
-               }
-               #endregion
-            }
-            else if(Tb_Master.SelectedTab == tp_002)
+            string apSrchType = null;
+            DateTime apDatetime = datetime;
+            bool apToDateHasValue = false;
+            DateTime apToDateValue = DateTime.MinValue;
+            if (isTab001)
             {
-               srchtype = Task_Pn.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked).Tag.ToString();
-               #region Task
-               switch (srchtype)
+               apSrchType = Apon_Pn.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked).Tag.ToString();
+               if (apSrchType == "003")
                {
-                  case "001":
-                     TaskBs.DataSource =
-                        from tk in iCRM.Tasks
-                        join cl in iCRM.Collaborators on tk.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
-                        where tk.DUE_DATE.Value.Date < DateTime.Now.Date
-                           && cl.Job_Personnel.USER_NAME.ToUpper() == CurrentUser.ToUpper()
-                        select tk;
-                     break;
-                  case "002":
-                     TaskBs.DataSource =
-                        from tk in iCRM.Tasks
-                        join cl in iCRM.Collaborators on tk.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
-                        where tk.DUE_DATE.Value.Date == DateTime.Now.Date
-                           && cl.Job_Personnel.USER_NAME.ToUpper() == CurrentUser.ToUpper()
-                        select tk;
-                     break;
-                  case "003":
-                     if (TaskToDate_Date.Value.HasValue)
-                        datetime = TaskToDate_Date.Value.Value;
-                     else
-                     {
-                        TaskToDate_Date.Value = datetime = DateTime.Now.AddDays(1);
-                     }
-
-                     TaskBs.DataSource =
-                        from tk in iCRM.Tasks
-                        join cl in iCRM.Collaborators on tk.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
-                        where tk.DUE_DATE.Value.Date >= datetime.Date
-                           && cl.Job_Personnel.USER_NAME.ToUpper() == CurrentUser.ToUpper()
-                        select tk;
-                     break;
-                  case "004":
-                     TaskBs.DataSource =
-                        from tk in iCRM.Tasks
-                        join cl in iCRM.Collaborators on tk.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
-                        where (tk.TASK_STAT == "001" || tk.TASK_STAT == "002")
-                           && cl.Job_Personnel.USER_NAME.ToUpper() == CurrentUser.ToUpper()
-                        select tk;
-                     break;
-                  case "005":
-                     TaskBs.DataSource =
-                        from tk in iCRM.Tasks
-                        join cl in iCRM.Collaborators on tk.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
-                        where (tk.TASK_STAT == "003")
-                           && cl.Job_Personnel.USER_NAME.ToUpper() == CurrentUser.ToUpper()
-                        select tk;
-                     break;
-                  case "006":
-                     TaskBs.DataSource =
-                        from tk in iCRM.Tasks
-                        join cl in iCRM.Collaborators on tk.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
-                        where (tk.TASK_STAT == "004")
-                           && cl.Job_Personnel.USER_NAME.ToUpper() == CurrentUser.ToUpper()
-                        select tk;
-                     break;
+                  apToDateHasValue = AppointmentToDate_Date.Value.HasValue;
+                  if (apToDateHasValue)
+                     apDatetime = AppointmentToDate_Date.Value.Value;
+                  else
+                  {
+                     apDatetime = now.AddDays(1);
+                  }
                }
-               #endregion
+            }
+
+            string tkSrchType = null;
+            DateTime tkDatetime = datetime;
+            bool tkToDateHasValue = false;
+            DateTime tkToDateValue = DateTime.MinValue;
+            if (isTab002)
+            {
+               tkSrchType = Task_Pn.Controls.OfType<RadioButton>().FirstOrDefault(rb => rb.Checked).Tag.ToString();
+               if (tkSrchType == "003")
+               {
+                  tkToDateHasValue = TaskToDate_Date.Value.HasValue;
+                  if (tkToDateHasValue)
+                     tkDatetime = TaskToDate_Date.Value.Value;
+                  else
+                  {
+                     tkDatetime = now.AddDays(1);
+                  }
+               }
+            }
+
+            var result = await Task.Run(() =>
+            {
+               using (var db = new Data.iCRMDataContext(ConnectionString))
+               {
+                  List<Data.Appointment> appointments = null;
+                  List<Data.Task> tasks = null;
+
+                  if (isTab001)
+                  {
+                     #region Appointment
+                     switch (apSrchType)
+                     {
+                        case "001":
+                           appointments =
+                              (from ap in db.Appointments
+                               join cl in db.Collaborators on ap.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
+                               where ap.FROM_DATE.Value.Date < now.Date
+                                  && cl.Job_Personnel.USER_NAME.ToUpper() == _currentUser.ToUpper()
+                               select ap).ToList();
+                           break;
+                        case "002":
+                           appointments =
+                              (from ap in db.Appointments
+                               join cl in db.Collaborators on ap.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
+                               where ap.FROM_DATE.Value.Date == now.Date
+                                  && cl.Job_Personnel.USER_NAME.ToUpper() == _currentUser.ToUpper()
+                               select ap).ToList();
+                           break;
+                        case "003":
+                           appointments =
+                              (from ap in db.Appointments
+                               join cl in db.Collaborators on ap.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
+                               where ap.FROM_DATE.Value.Date >= apDatetime
+                                  && cl.Job_Personnel.USER_NAME.ToUpper() == _currentUser.ToUpper()
+                               select ap).ToList();
+                           break;
+                     }
+                     #endregion
+                  }
+                  else if (isTab002)
+                  {
+                     #region Task
+                     switch (tkSrchType)
+                     {
+                        case "001":
+                           tasks =
+                              (from tk in db.Tasks
+                               join cl in db.Collaborators on tk.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
+                               where tk.DUE_DATE.Value.Date < now.Date
+                                  && cl.Job_Personnel.USER_NAME.ToUpper() == _currentUser.ToUpper()
+                               select tk).ToList();
+                           break;
+                        case "002":
+                           tasks =
+                              (from tk in db.Tasks
+                               join cl in db.Collaborators on tk.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
+                               where tk.DUE_DATE.Value.Date == now.Date
+                                  && cl.Job_Personnel.USER_NAME.ToUpper() == _currentUser.ToUpper()
+                               select tk).ToList();
+                           break;
+                        case "003":
+                           tasks =
+                              (from tk in db.Tasks
+                               join cl in db.Collaborators on tk.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
+                               where tk.DUE_DATE.Value.Date >= tkDatetime.Date
+                                  && cl.Job_Personnel.USER_NAME.ToUpper() == _currentUser.ToUpper()
+                               select tk).ToList();
+                           break;
+                        case "004":
+                           tasks =
+                              (from tk in db.Tasks
+                               join cl in db.Collaborators on tk.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
+                               where (tk.TASK_STAT == "001" || tk.TASK_STAT == "002")
+                                  && cl.Job_Personnel.USER_NAME.ToUpper() == _currentUser.ToUpper()
+                               select tk).ToList();
+                           break;
+                        case "005":
+                           tasks =
+                              (from tk in db.Tasks
+                               join cl in db.Collaborators on tk.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
+                               where (tk.TASK_STAT == "003")
+                                  && cl.Job_Personnel.USER_NAME.ToUpper() == _currentUser.ToUpper()
+                               select tk).ToList();
+                           break;
+                        case "006":
+                           tasks =
+                              (from tk in db.Tasks
+                               join cl in db.Collaborators on tk.RQRO_RQST_RQID equals cl.RQRO_RQST_RQID
+                               where (tk.TASK_STAT == "004")
+                                  && cl.Job_Personnel.USER_NAME.ToUpper() == _currentUser.ToUpper()
+                               select tk).ToList();
+                           break;
+                     }
+                     #endregion
+                  }
+
+                  return new { Appointments = appointments, Tasks = tasks };
+               }
+            });
+
+            iCRM = new Data.iCRMDataContext(ConnectionString);
+
+            if (isTab001)
+            {
+               if (apSrchType == "003" && !AppointmentToDate_Date.Value.HasValue)
+               {
+                  datetime = AppointmentToDate_Date.Value = apDatetime;
+               }
+               AponBs.DataSource = result.Appointments;
+            }
+            else if (isTab002)
+            {
+               if (tkSrchType == "003" && !TaskToDate_Date.Value.HasValue)
+               {
+                  datetime = TaskToDate_Date.Value = tkDatetime;
+               }
+               TaskBs.DataSource = result.Tasks;
             }
          }
          catch { }

@@ -34,11 +34,21 @@ namespace System.CRM.Ui.MarketingList
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            MkltBs.DataSource = iCRM.Marketing_Lists.Where(m => (campcode == null || m.Marketing_List_Campaigns.Any(mc => mc.CAMP_CMID == campcode)));
+            var result = await Task.Run(() =>
+            {
+               var db = new Data.iCRMDataContext(ConnectionString);
+               var items = db.Marketing_Lists.Where(m => (campcode == null || m.Marketing_List_Campaigns.Any(mc => mc.CAMP_CMID == campcode))).ToList();
+               return new
+               {
+                  Items = items
+               };
+            });
+
+            MkltBs.DataSource = result.Items;
                
             requery = false;
          }

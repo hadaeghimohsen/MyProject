@@ -35,175 +35,190 @@ namespace System.CRM.Ui.Goals
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         DateTime StrtDate = DateTime.Now, EndDate = DateTime.Now;
-         switch (leadShow)
+         var result = await Task.Run(() =>
          {
-            case "1":
-               LeadBs.List.Clear();
-               break;
-            case "2":
-               LeadBs.List.Clear();
-               break;
-            case "3":
-               LeadBs.List.Clear();
-               break;
-            case "4":
-               LeadBs.DataSource =
-                  iCRM.Leads.Where(
-                     l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
-                       && l.Request_Row.Request.RQST_STAT != "003"
-                       && l.Request_Row.Request.SSTT_CODE == 1
-                       && l.CAMP_CMID == null
-                     );
-               break;
-            case "5":
-               LeadBs.DataSource =
-                  iCRM.Leads.Where(
-                     l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
-                       && l.Request_Row.Request.RQST_STAT != "003"
-                       && l.Request_Row.Request.SSTT_CODE == 1
-                       && (l.STAT != "009" && l.STAT != "010")
-                     );
+            var db = new Data.iCRMDataContext(ConnectionString);
+            DateTime StrtDate = DateTime.Now, EndDate = DateTime.Now;
+            List<Data.Lead> items = null;
+            switch (leadShow)
+            {
+               case "1":
+                  items = new List<Data.Lead>();
+                  break;
+               case "2":
+                  items = new List<Data.Lead>();
+                  break;
+               case "3":
+                  items = new List<Data.Lead>();
+                  break;
+               case "4":
+                  items =
+                     db.Leads.Where(
+                        l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
+                          && l.Request_Row.Request.RQST_STAT != "003"
+                          && l.Request_Row.Request.SSTT_CODE == 1
+                          && l.CAMP_CMID == null
+                        ).ToList();
+                  break;
+               case "5":
+                  items =
+                     db.Leads.Where(
+                        l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
+                          && l.Request_Row.Request.RQST_STAT != "003"
+                          && l.Request_Row.Request.SSTT_CODE == 1
+                          && (l.STAT != "009" && l.STAT != "010")
+                        ).ToList();
 
-               break;
-            case "6":
-               switch (DateTime.Now.DayOfWeek)
-	            {
-                  case DayOfWeek.Saturday:                     
-                     break;
-                  case DayOfWeek.Sunday:
-                     StrtDate = DateTime.Now.AddDays(-1);
-                     break;
-                  case DayOfWeek.Monday:
-                     StrtDate = DateTime.Now.AddDays(-2);
-                     break;
-                  case DayOfWeek.Tuesday:
-                     StrtDate = DateTime.Now.AddDays(-3);
-                     break;
-                  case DayOfWeek.Wednesday:
-                     StrtDate = DateTime.Now.AddDays(-4);
-                     break;
-                  case DayOfWeek.Thursday:
-                     StrtDate = DateTime.Now.AddDays(-5);
-                     break;
-                  case DayOfWeek.Friday:
-                     StrtDate = DateTime.Now.AddDays(-6);
-                     break;
-                  default:
-                     break;
-	            }
-               LeadBs.DataSource =
-                  iCRM.Leads.Where(
-                     l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
-                       && l.Request_Row.Request.RQST_STAT != "003"
-                       && l.Request_Row.Request.SSTT_CODE == 1
-                       && (l.STAT != "009" && l.STAT != "010")
-                       && (l.CRET_DATE.Value.Date >= StrtDate)
-                     );
-               break;
-            case "7":
-               switch (DateTime.Now.DayOfWeek)
-	            {
-                  case DayOfWeek.Saturday:
-                     StrtDate = DateTime.Now.AddDays(-7);
-                     EndDate = DateTime.Now.AddDays(-1);
-                     break;
-                  case DayOfWeek.Sunday:
-                     StrtDate = DateTime.Now.AddDays(-8);
-                     EndDate = DateTime.Now.AddDays(-2);
-                     break;
-                  case DayOfWeek.Monday:
-                     StrtDate = DateTime.Now.AddDays(-9);
-                     EndDate = DateTime.Now.AddDays(-3);
-                     break;
-                  case DayOfWeek.Tuesday:
-                     StrtDate = DateTime.Now.AddDays(-10);
-                     EndDate = DateTime.Now.AddDays(-4);
-                     break;
-                  case DayOfWeek.Wednesday:
-                     StrtDate = DateTime.Now.AddDays(-11);
-                     EndDate = DateTime.Now.AddDays(-5);
-                     break;
-                  case DayOfWeek.Thursday:
-                     StrtDate = DateTime.Now.AddDays(-12);
-                     EndDate = DateTime.Now.AddDays(-6);
-                     break;
-                  case DayOfWeek.Friday:
-                     StrtDate = DateTime.Now.AddDays(-13);
-                     EndDate = DateTime.Now.AddDays(-7);
-                     break;
-                  default:
-                     break;
-	            }
-               LeadBs.DataSource =
-                  iCRM.Leads.Where(
-                     l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
-                       && l.Request_Row.Request.RQST_STAT != "003"
-                       && l.Request_Row.Request.SSTT_CODE == 1
-                       && (l.STAT != "009" && l.STAT != "010")
-                       && (l.CRET_DATE.Value.Date >= StrtDate)
-                       && (l.CRET_DATE.Value.Date <= EndDate)
-                     );
+                  break;
+               case "6":
+                  switch (DateTime.Now.DayOfWeek)
+	               {
+                     case DayOfWeek.Saturday:                     
+                        break;
+                     case DayOfWeek.Sunday:
+                        StrtDate = DateTime.Now.AddDays(-1);
+                        break;
+                     case DayOfWeek.Monday:
+                        StrtDate = DateTime.Now.AddDays(-2);
+                        break;
+                     case DayOfWeek.Tuesday:
+                        StrtDate = DateTime.Now.AddDays(-3);
+                        break;
+                     case DayOfWeek.Wednesday:
+                        StrtDate = DateTime.Now.AddDays(-4);
+                        break;
+                     case DayOfWeek.Thursday:
+                        StrtDate = DateTime.Now.AddDays(-5);
+                        break;
+                     case DayOfWeek.Friday:
+                        StrtDate = DateTime.Now.AddDays(-6);
+                        break;
+                     default:
+                        break;
+	               }
+                  items =
+                     db.Leads.Where(
+                        l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
+                          && l.Request_Row.Request.RQST_STAT != "003"
+                          && l.Request_Row.Request.SSTT_CODE == 1
+                          && (l.STAT != "009" && l.STAT != "010")
+                          && (l.CRET_DATE.Value.Date >= StrtDate)
+                        ).ToList();
+                  break;
+               case "7":
+                  switch (DateTime.Now.DayOfWeek)
+	               {
+                     case DayOfWeek.Saturday:
+                        StrtDate = DateTime.Now.AddDays(-7);
+                        EndDate = DateTime.Now.AddDays(-1);
+                        break;
+                     case DayOfWeek.Sunday:
+                        StrtDate = DateTime.Now.AddDays(-8);
+                        EndDate = DateTime.Now.AddDays(-2);
+                        break;
+                     case DayOfWeek.Monday:
+                        StrtDate = DateTime.Now.AddDays(-9);
+                        EndDate = DateTime.Now.AddDays(-3);
+                        break;
+                     case DayOfWeek.Tuesday:
+                        StrtDate = DateTime.Now.AddDays(-10);
+                        EndDate = DateTime.Now.AddDays(-4);
+                        break;
+                     case DayOfWeek.Wednesday:
+                        StrtDate = DateTime.Now.AddDays(-11);
+                        EndDate = DateTime.Now.AddDays(-5);
+                        break;
+                     case DayOfWeek.Thursday:
+                        StrtDate = DateTime.Now.AddDays(-12);
+                        EndDate = DateTime.Now.AddDays(-6);
+                        break;
+                     case DayOfWeek.Friday:
+                        StrtDate = DateTime.Now.AddDays(-13);
+                        EndDate = DateTime.Now.AddDays(-7);
+                        break;
+                     default:
+                        break;
+	               }
+                  items =
+                     db.Leads.Where(
+                        l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
+                          && l.Request_Row.Request.RQST_STAT != "003"
+                          && l.Request_Row.Request.SSTT_CODE == 1
+                          && (l.STAT != "009" && l.STAT != "010")
+                          && (l.CRET_DATE.Value.Date >= StrtDate)
+                          && (l.CRET_DATE.Value.Date <= EndDate)
+                        ).ToList();
 
-               break;
-            case "8":
-               LeadBs.DataSource =
-                  iCRM.Leads.Where(
-                     l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
-                       && l.Request_Row.Request.RQST_STAT != "003"
-                       && l.Request_Row.Request.SSTT_CODE == 1
-                       && (l.STAT != "009" && l.STAT != "010")
-                       && (l.Job_Personnel.USER_NAME == CurrentUser)
-                     );
+                  break;
+               case "8":
+                  items =
+                     db.Leads.Where(
+                        l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
+                          && l.Request_Row.Request.RQST_STAT != "003"
+                          && l.Request_Row.Request.SSTT_CODE == 1
+                          && (l.STAT != "009" && l.STAT != "010")
+                          && (l.Job_Personnel.USER_NAME == CurrentUser)
+                        ).ToList();
 
-               break;
-            case "9":
-               LeadBs.DataSource =
-                  iCRM.Leads.Where(
-                     l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
-                       && l.Request_Row.Request.RQST_STAT != "003"
-                       && l.Request_Row.Request.SSTT_CODE == 1
-                       && (l.STAT == "009" || l.STAT == "010")
-                     );
+                  break;
+               case "9":
+                  items =
+                     db.Leads.Where(
+                        l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
+                          && l.Request_Row.Request.RQST_STAT != "003"
+                          && l.Request_Row.Request.SSTT_CODE == 1
+                          && (l.STAT == "009" || l.STAT == "010")
+                        ).ToList();
 
-               break;
-            case "10":
-               LeadBs.DataSource =
-                  iCRM.Leads.Where(
-                     l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
-                       && l.Request_Row.Request.RQST_STAT != "003"
-                       && l.Request_Row.Request.SSTT_CODE == 1
-                       && l.CAMP_CMID != null
-                     );
+                  break;
+               case "10":
+                  items =
+                     db.Leads.Where(
+                        l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
+                          && l.Request_Row.Request.RQST_STAT != "003"
+                          && l.Request_Row.Request.SSTT_CODE == 1
+                          && l.CAMP_CMID != null
+                        ).ToList();
 
-               break;
-            case "11":
-               LeadBs.List.Clear();
-               break;
-            case "12":
-               LeadBs.DataSource =
-                  iCRM.Leads.Where(
-                     l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
-                       && l.Request_Row.Request.RQST_STAT != "003"
-                       && l.Request_Row.Request.SSTT_CODE == 1
-                       && l.CRET_DATE.Value.Date <= DateTime.Now.AddMonths(-6)
-                     );
-               break;
-            case "13":
-               LeadBs.DataSource =
-                  iCRM.Leads.Where(
-                     l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
-                       && l.Request_Row.Request.RQST_STAT != "003"
-                       && l.Request_Row.Request.SSTT_CODE == 1
-                     );
-               break;
-            case "14":
-               LeadBs.List.Clear();
-               break;
-         }         
+                  break;
+               case "11":
+                  items = new List<Data.Lead>();
+                  break;
+               case "12":
+                  items =
+                     db.Leads.Where(
+                        l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
+                          && l.Request_Row.Request.RQST_STAT != "003"
+                          && l.Request_Row.Request.SSTT_CODE == 1
+                          && l.CRET_DATE.Value.Date <= DateTime.Now.AddMonths(-6)
+                        ).ToList();
+                  break;
+               case "13":
+                  items =
+                     db.Leads.Where(
+                        l => (l.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (l.COMP_CODE ?? 0))
+                          && l.Request_Row.Request.RQST_STAT != "003"
+                          && l.Request_Row.Request.SSTT_CODE == 1
+                        ).ToList();
+                  break;
+               case "14":
+                  items = new List<Data.Lead>();
+                  break;
+            }
+
+            return new
+            {
+               Items = items
+            };
+         });
+
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         if (result.Items != null)
+            LeadBs.DataSource = result.Items;
+         else
+            LeadBs.List.Clear();
       }
 
 

@@ -37,10 +37,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-
          int orgn = OrgnBs.Position;
          int robo = RoboBs.Position;
          int wlet = WletBs.Position;
@@ -48,18 +46,29 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          int r24s = O24sBs.Position;
          int r24e = O24eBs.Position;
 
-         OrgnBs.DataSource = iRoboTech.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID));
-         
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var organs = db.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID)).ToList();
+            var txfes = db.Transaction_Fees.Where(t => t.TXFE_TYPE != "002").ToList();
+            var o24s = db.Orders.Where(o => o.ORDR_TYPE == "024" && o.ORDR_STAT == "001").ToList();
+            var o24e = db.Orders.Where(o => o.ORDR_TYPE == "024" && o.ORDR_STAT == "004").ToList();
+            var o13s = db.Orders.Where(o => o.ORDR_TYPE == "013" && o.ORDR_STAT == "001").ToList();
+            return new { organs, txfes, o24s, o24e, o13s };
+         });
+
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         OrgnBs.DataSource = result.organs;
 
          OrgnBs.Position = orgn;
          RoboBs.Position = robo;
          WletBs.Position = wlet;
          SrbtBs.Position = srbt;
-         ATxfeBs.DataSource = iRoboTech.Transaction_Fees.Where(t => t.TXFE_TYPE != "002");
+         ATxfeBs.DataSource = result.txfes;
 
-         O24sBs.DataSource = iRoboTech.Orders.Where(o => o.ORDR_TYPE == "024" && o.ORDR_STAT == "001");
-         O24eBs.DataSource = iRoboTech.Orders.Where(o => o.ORDR_TYPE == "024" && o.ORDR_STAT == "004");
-         O13sBs.DataSource = iRoboTech.Orders.Where(o => o.ORDR_TYPE == "013" && o.ORDR_STAT == "001");
+         O24sBs.DataSource = result.o24s;
+         O24eBs.DataSource = result.o24e;
+         O13sBs.DataSource = result.o13s;
 
          requery = false;
       }

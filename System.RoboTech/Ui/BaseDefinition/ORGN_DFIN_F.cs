@@ -27,10 +27,8 @@ namespace System.RoboTech.Ui.BaseDefinition
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-
          int orgn = OrgnBs.Position;
          int robot = RoboBs.Position;
          int userorgn = UserOrgnBs.Position;
@@ -39,8 +37,15 @@ namespace System.RoboTech.Ui.BaseDefinition
          int prjb = PrjbBs.Position;
          int pjsr = PjsrBs.Position;
 
-         OrgnBs.DataSource = iRoboTech.Organs;
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var organs = db.Organs.ToList();
+            return new { organs };
+         });
 
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         OrgnBs.DataSource = result.organs;
          OrgnBs.Position = orgn;
          RoboBs.Position = robot;
          UserOrgnBs.Position = userorgn;

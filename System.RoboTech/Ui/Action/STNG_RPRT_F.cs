@@ -24,11 +24,17 @@ namespace System.RoboTech.Ui.Action
       private bool requery = false;
       private XElement xinput;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var mdrps = db.Modual_Reports.Where(mr => mr.MDUL_NAME == xinput.Attribute("modul").Value).ToList();
+            return new { mdrps };
+         });
 
-         MdrpBs.DataSource = iRoboTech.Modual_Reports.Where(mr => mr.MDUL_NAME == xinput.Attribute("modul").Value);
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+         MdrpBs.DataSource = result.mdrps;
 
          requery = false;
       }

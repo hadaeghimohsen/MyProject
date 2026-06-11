@@ -32,10 +32,8 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
-
          int trbs = TrbsBs.Position;
          int unit = UnitBs.Position;
          int rbsc = RbscBs.Position;
@@ -45,14 +43,30 @@ namespace System.RoboTech.Ui.DevelopmentApplication
          int srbt = SrbtBs.Position;
          int sral = SralBs.Position;
          int domn = DomainBs.Position;
+         string _tableName = TableName;
 
-         TrbsBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "TREEBASEACCOUNT_INFO");
-         UnitBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "PRODUCTUNIT_INFO");
-         RbscBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "SECTION_INFO");
-         RbssBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == "STORESPEC_INFO");
-         OrgnBs.DataSource = iRoboTech.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID));
-         ExtrServBs.DataSource = iRoboTech.V_External_Services;
-         DomainBs.DataSource = iRoboTech.App_Base_Defines.Where(a => a.ENTY_NAME == TableName);
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iRoboTechDataContext(ConnectionString);
+            var trbsList = db.App_Base_Defines.Where(a => a.ENTY_NAME == "TREEBASEACCOUNT_INFO").ToList();
+            var units = db.App_Base_Defines.Where(a => a.ENTY_NAME == "PRODUCTUNIT_INFO").ToList();
+            var rbscs = db.App_Base_Defines.Where(a => a.ENTY_NAME == "SECTION_INFO").ToList();
+            var rbsss = db.App_Base_Defines.Where(a => a.ENTY_NAME == "STORESPEC_INFO").ToList();
+            var organs = db.Organs.Where(o => Fga_Ugov_U.Contains(o.OGID)).ToList();
+            var extServs = db.V_External_Services.ToList();
+            var domains = db.App_Base_Defines.Where(a => a.ENTY_NAME == _tableName).ToList();
+            return new { trbsList, units, rbscs, rbsss, organs, extServs, domains };
+         });
+
+         iRoboTech = new Data.iRoboTechDataContext(ConnectionString);
+
+         TrbsBs.DataSource = result.trbsList;
+         UnitBs.DataSource = result.units;
+         RbscBs.DataSource = result.rbscs;
+         RbssBs.DataSource = result.rbsss;
+         OrgnBs.DataSource = result.organs;
+         ExtrServBs.DataSource = result.extServs;
+         DomainBs.DataSource = result.domains;
 
          TrbsBs.Position = trbs;
          UnitBs.Position = unit;

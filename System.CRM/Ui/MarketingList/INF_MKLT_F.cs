@@ -33,23 +33,45 @@ namespace System.CRM.Ui.MarketingList
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
+         var result = await Task.Run(() =>
+         {
+            var db = new Data.iCRMDataContext(ConnectionString);
+            List<Data.Marketing_List> mkltItems = null;
+            List<Data.Job_Personnel> jpItems = null;
 
-         //CmptBs.List.Clear();
+            //CmptBs.List.Clear();
+
+            if (mkltcode != null)
+            {
+               mkltItems = db.Marketing_Lists.Where(m => m.MLID == mkltcode).ToList();
+            }
+            else
+            {
+               jpItems = db.Job_Personnels.Where(o => o.STAT == "002").ToList();
+            }
+
+            return new
+            {
+               MkltItems = mkltItems,
+               JpItems = jpItems
+            };
+         });
+
+         iCRM = new Data.iCRMDataContext(ConnectionString);
 
          if (mkltcode != null)
          {
             int cmdf = MkltBs.Position;
 
-            MkltBs.DataSource = iCRM.Marketing_Lists.Where(m => m.MLID == mkltcode);
+            MkltBs.DataSource = result.MkltItems;
 
             MkltBs.Position = cmdf;
          }
          else
          {
-            JobpBs.DataSource = iCRM.Job_Personnels.Where(o => o.STAT == "002");
+            JobpBs.DataSource = result.JpItems;
             MkltBs.AddNew();
             var mklt = MkltBs.Current as Data.Marketing_List;
 

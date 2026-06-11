@@ -26,22 +26,31 @@ namespace System.Scsc.Ui.ChangeRials
 
       private int rqstindex = default(int);
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {         
          try
          {
-            //if (tb_master.SelectedTab == tp_001)
+            bool pickChecked = ShowRqst_PickButn.PickChecked;
+            string currentUser = CurrentUser;
+
+            rqstindex = RqstBs1.Position;
+
+            List<long> Rqids = null;
+            await Task.Run(() =>
+            {
+               using (var iScsc = new Data.iScscDataContext(ConnectionString))
+               {
+                  Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", pickChecked ? currentUser : "")))
+                     .Where(rqst =>
+                          rqst.RQTP_CODE == "020" &&
+                          rqst.RQST_STAT == "001" &&
+                          rqst.RQTT_CODE == "004" &&
+                          rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+               }
+            });
+
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
-
-               rqstindex = RqstBs1.Position;
-
-               var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
-                  .Where(rqst =>
-                        rqst.RQTP_CODE == "020" &&
-                        rqst.RQST_STAT == "001" &&
-                        rqst.RQTT_CODE == "004" &&
-                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
                RqstBs1.DataSource =
                   iScsc.Requests

@@ -21,17 +21,27 @@ namespace System.Scsc.Ui.ChangeRials
 
       bool requery = false;
 
-      private void Execute_Query(bool runAllQuery)
+      private async void Execute_Query(bool runAllQuery)
       {
-         if (tb_master.SelectedTab == tp_001 || runAllQuery)
+         bool isTabSelected = tb_master.SelectedTab == tp_001 || runAllQuery;
+
+         List<long> Rqids = null;
+         await Task.Run(() =>
+         {
+            using (var iScsc = new Data.iScscDataContext(ConnectionString))
+            {
+               Rqids = iScsc.VF_Requests(new XElement("Request"))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "020" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+            }
+         });
+
+         if (isTabSelected)
          {
             iScsc = new Data.iScscDataContext(ConnectionString);
-            var Rqids = iScsc.VF_Requests(new XElement("Request"))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "020" &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.RQTT_CODE == "004" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
             RqstBs1.DataSource =
                iScsc.Requests

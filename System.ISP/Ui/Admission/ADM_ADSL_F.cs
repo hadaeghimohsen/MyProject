@@ -32,30 +32,39 @@ namespace System.ISP.Ui.Admission
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iISP = new Data.iISPDataContext(ConnectionString);
+         var selectedTab = tb_master.SelectedTab;
+
          if(tb_master.SelectedTab == tp_001)
          {
+            var result = await Task.Run(() =>
+            {
+               using (var db = new Data.iISPDataContext(ConnectionString))
+               {
+                  var Rqids = db.VF_Requests(new XElement("Request"))
+                     .Where(rqst =>
+                           rqst.RQTP_CODE == "001" &&
+                           rqst.RQST_STAT == "001" &&
+                           rqst.RQTT_CODE == "001" &&
+                           rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+                  var requests = db.Requests
+                     .Where(
+                        rqst =>
+                           Rqids.Contains(rqst.RQID)
+                     )
+                     .OrderByDescending(
+                        rqst => 
+                           rqst.RQST_DATE
+                     ).ToList();
+
+                  return new { requests };
+               }
+            });
+
             iISP = new Data.iISPDataContext(ConnectionString);
-            var Rqids = iISP.VF_Requests(new XElement("Request"))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "001" &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.RQTT_CODE == "001" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
-
-            RqstBs1.DataSource =
-               iISP.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID)
-               )
-               .OrderByDescending(
-                  rqst => 
-                     rqst.RQST_DATE
-               );
-
+            RqstBs1.DataSource = result.requests;
             RqstBs1.Position = rqstindx;
          }
       }

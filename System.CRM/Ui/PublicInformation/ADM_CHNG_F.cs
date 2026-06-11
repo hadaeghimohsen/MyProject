@@ -33,32 +33,44 @@ namespace System.CRM.Ui.PublicInformation
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         if(tb_master.SelectedTab == tp_001)
+         var selectedTab = tb_master.SelectedTab;
+         var pickChecked = ShowRqst_PickButn.PickChecked;
+         var _currentUser = CurrentUser;
+
+         if(selectedTab == tp_001)
          {
+            var result = await Task.Run(() =>
+            {
+               using (var db = new Data.iCRMDataContext(ConnectionString))
+               {
+                  var Rqids = db.VF_Requests(new XElement("Request", new XAttribute("cretby", pickChecked ? _currentUser : "")))
+                     .Where(rqst =>
+                           rqst.RQTP_CODE == "002" &&
+                           rqst.RQST_STAT == "001" &&
+                           rqst.RQTT_CODE == "004" &&
+                           rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+                  var requests = db.Requests
+                     .Where(
+                        rqst =>
+                           Rqids.Contains(rqst.RQID)
+                     )
+                     .OrderByDescending(
+                        rqst => 
+                           rqst.RQST_DATE
+                     ).ToList();
+
+                  var services = db.Services.ToList();
+
+                  return new { requests, services };
+               }
+            });
+
             iCRM = new Data.iCRMDataContext(ConnectionString);
-            var Rqids = iCRM.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "002" &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.RQTT_CODE == "004" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
-
-            RqstBs1.DataSource =
-               iCRM.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID)
-               )
-               .OrderByDescending(
-                  rqst => 
-                     rqst.RQST_DATE
-               );
-
-            ServsBs1.DataSource = iCRM.Services;
-
+            RqstBs1.DataSource = result.requests;
+            ServsBs1.DataSource = result.services;
             RqstBs1.Position = rqstindx;
          }
       }

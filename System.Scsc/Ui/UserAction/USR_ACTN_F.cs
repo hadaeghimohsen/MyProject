@@ -22,7 +22,7 @@ namespace System.Scsc.Ui.UserAction
 
       private List<string> rqtps = new List<string> { "001", "009", "016" };
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
@@ -36,29 +36,55 @@ namespace System.Scsc.Ui.UserAction
             Lbl_ThirdDay.Text = GetPersianDate(AttnDate_Date.Value.Value.AddDays(3));
             #endregion
 
-            var Rqids = iScsc.VF_Requests(new XElement("Request"))
-                  .Where(rqst =>
-                        rqst.RQST_STAT == "002" &&
-                        rqst.RQTT_CODE == "001" &&
-                        rqtps.Contains(rqst.RQTP_CODE) &&
-                        rqst.SAVE_DATE.Value.Date == AttnDate_Date.Value.Value.Date &&
-                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+            var attnDate = AttnDate_Date.Value.Value.Date;
+            var rqtpsLocal = rqtps;
+            var uclbCodes = Fga_Uclb_U;
 
-            var v_RqstsToday =
-               iScsc.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID)
-               );
+            List<long> Rqids = null;
+            var v_RqstsToday = await Task.Run(() =>
+            {
+               using (var iScsc = new Data.iScscDataContext(ConnectionString))
+               {
+                  Rqids = iScsc.VF_Requests(new XElement("Request"))
+                        .Where(rqst =>
+                              rqst.RQST_STAT == "002" &&
+                              rqst.RQTT_CODE == "001" &&
+                              rqtpsLocal.Contains(rqst.RQTP_CODE) &&
+                              rqst.SAVE_DATE.Value.Date == attnDate &&
+                              rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+                  return iScsc.Requests
+                  .Where(
+                     rqst =>
+                        Rqids.Contains(rqst.RQID)
+                  ).ToList();
+               }
+            });
 
             //var v_RqstsToday = iScsc.Requests.Where(r => rqtps.Contains(r.RQTP_CODE) && r.RQTT_CODE == "001" && r.RQST_STAT == "002" && r.SAVE_DATE.Value.Date == AttnDate_Date.Value.Value.Date);
-            Lbl_NewMember.Text = v_RqstsToday.Where(r => r.RQTP_CODE == "001" && Fga_Uclb_U.Contains(r.Request_Rows.FirstOrDefault().Fighter.CLUB_CODE_DNRM) && Convert.ToInt32(r.Request_Rows.FirstOrDefault().Fighter.ACTV_TAG_DNRM) >= 101  ).Count().ToString();
-            Lbl_RetryMember.Text = v_RqstsToday.Where(r => r.RQTP_CODE == "009" && Fga_Uclb_U.Contains(r.Request_Rows.FirstOrDefault().Fighter.CLUB_CODE_DNRM) && Convert.ToInt32(r.Request_Rows.FirstOrDefault().Fighter.ACTV_TAG_DNRM) >= 101).Count().ToString();
-            Lbl_Shopping.Text = v_RqstsToday.Where(r => r.RQTP_CODE == "016" && Fga_Uclb_U.Contains(r.Request_Rows.FirstOrDefault().Fighter.CLUB_CODE_DNRM) && Convert.ToInt32(r.Request_Rows.FirstOrDefault().Fighter.ACTV_TAG_DNRM) >= 101).Count().ToString();
-            AttnBs1.DataSource = iScsc.Attendances.Where(a => a.ATTN_DATE.Date == AttnDate_Date.Value.Value.Date && Fga_Uclb_U.Contains(a.CLUB_CODE));
-            Lbl_AllGetKeys.Text = AttnBs1.List.OfType<Data.Attendance>().Where(a => a.DERS_NUMB != null).Count().ToString();
-            Lbl_AllLockKeys.Text = AttnBs1.List.OfType<Data.Attendance>().Where(a => a.DERS_NUMB != null && a.EXIT_TIME == null).Count().ToString();
-            var v_PayAmnt = iScsc.Payment_Methods.Where(p => p.ACTN_DATE.Value.Date == AttnDate_Date.Value.Value.Date && Fga_Uclb_U.Contains(p.Request_Row.Fighter.CLUB_CODE_DNRM));
+            Lbl_NewMember.Text = v_RqstsToday.Where(r => r.RQTP_CODE == "001" && uclbCodes.Contains(r.Request_Rows.FirstOrDefault().Fighter.CLUB_CODE_DNRM) && Convert.ToInt32(r.Request_Rows.FirstOrDefault().Fighter.ACTV_TAG_DNRM) >= 101  ).Count().ToString();
+            Lbl_RetryMember.Text = v_RqstsToday.Where(r => r.RQTP_CODE == "009" && uclbCodes.Contains(r.Request_Rows.FirstOrDefault().Fighter.CLUB_CODE_DNRM) && Convert.ToInt32(r.Request_Rows.FirstOrDefault().Fighter.ACTV_TAG_DNRM) >= 101).Count().ToString();
+            Lbl_Shopping.Text = v_RqstsToday.Where(r => r.RQTP_CODE == "016" && uclbCodes.Contains(r.Request_Rows.FirstOrDefault().Fighter.CLUB_CODE_DNRM) && Convert.ToInt32(r.Request_Rows.FirstOrDefault().Fighter.ACTV_TAG_DNRM) >= 101).Count().ToString();
+
+            var attendanceList = await Task.Run(() =>
+            {
+               using (var iScsc = new Data.iScscDataContext(ConnectionString))
+               {
+                  return iScsc.Attendances.Where(a => a.ATTN_DATE.Date == attnDate && uclbCodes.Contains(a.CLUB_CODE)).ToList();
+               }
+            });
+            AttnBs1.DataSource = attendanceList;
+
+            Lbl_AllGetKeys.Text = attendanceList.Where(a => a.DERS_NUMB != null).Count().ToString();
+            Lbl_AllLockKeys.Text = attendanceList.Where(a => a.DERS_NUMB != null && a.EXIT_TIME == null).Count().ToString();
+
+            var v_PayAmnt = await Task.Run(() =>
+            {
+               using (var iScsc = new Data.iScscDataContext(ConnectionString))
+               {
+                  return iScsc.Payment_Methods.Where(p => p.ACTN_DATE.Value.Date == attnDate && uclbCodes.Contains(p.Request_Row.Fighter.CLUB_CODE_DNRM)).ToList();
+               }
+            });
             if (v_PayAmnt.Count() > 0)
             {
                if (v_PayAmnt.Where(p => p.RCPT_MTOD == "001").Count() > 0)
@@ -107,7 +133,14 @@ namespace System.Scsc.Ui.UserAction
                Lbl_TotalMenPosAmnt.Text = "0";
                Lbl_TotalWomenPosAmnt.Text = "0";
             }
-            var v_DiscountAmnt = iScsc.Payment_Discounts.Where(p => p.CRET_DATE.Value.Date == AttnDate_Date.Value.Value.Date && p.Request_Row.Request.RQST_STAT != "003" && Fga_Uclb_U.Contains(p.Request_Row.Fighter.CLUB_CODE_DNRM));
+
+            var v_DiscountAmnt = await Task.Run(() =>
+            {
+               using (var iScsc = new Data.iScscDataContext(ConnectionString))
+               {
+                  return iScsc.Payment_Discounts.Where(p => p.CRET_DATE.Value.Date == attnDate && p.Request_Row.Request.RQST_STAT != "003" && uclbCodes.Contains(p.Request_Row.Fighter.CLUB_CODE_DNRM)).ToList();
+               }
+            });
             if (v_DiscountAmnt.Count() > 0)
             {
                Lbl_DiscountAmnt.Text = string.Format("{0:n0}", v_DiscountAmnt.Sum(p => p.AMNT ?? 0));
@@ -127,14 +160,20 @@ namespace System.Scsc.Ui.UserAction
                Lbl_TotalWomenDiscountAmnt.Text = "0";               
             }
             
-            Lbl_TotalMenAttn.Text = AttnBs1.List.OfType<Data.Attendance>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "001").Count().ToString();
-            Lbl_TotalWomenAttn.Text = AttnBs1.List.OfType<Data.Attendance>().Where(a => a.Fighter1.SEX_TYPE_DNRM == "002").Count().ToString();
-            Lbl_TotalMenGetKeys.Text = AttnBs1.List.OfType<Data.Attendance>().Where(a => a.DERS_NUMB != null && a.Fighter1.SEX_TYPE_DNRM == "001").Count().ToString();
-            Lbl_TotalMenLockKeys.Text = AttnBs1.List.OfType<Data.Attendance>().Where(a => a.DERS_NUMB != null && a.EXIT_TIME == null && a.Fighter1.SEX_TYPE_DNRM == "001").Count().ToString();
-            Lbl_TotalWomenGetKeys.Text = AttnBs1.List.OfType<Data.Attendance>().Where(a => a.DERS_NUMB != null && a.Fighter1.SEX_TYPE_DNRM == "002").Count().ToString();
-            Lbl_TotalWomenLockKeys.Text = AttnBs1.List.OfType<Data.Attendance>().Where(a => a.DERS_NUMB != null && a.EXIT_TIME == null && a.Fighter1.SEX_TYPE_DNRM == "002").Count().ToString();
+            Lbl_TotalMenAttn.Text = attendanceList.Where(a => a.Fighter1.SEX_TYPE_DNRM == "001").Count().ToString();
+            Lbl_TotalWomenAttn.Text = attendanceList.Where(a => a.Fighter1.SEX_TYPE_DNRM == "002").Count().ToString();
+            Lbl_TotalMenGetKeys.Text = attendanceList.Where(a => a.DERS_NUMB != null && a.Fighter1.SEX_TYPE_DNRM == "001").Count().ToString();
+            Lbl_TotalMenLockKeys.Text = attendanceList.Where(a => a.DERS_NUMB != null && a.EXIT_TIME == null && a.Fighter1.SEX_TYPE_DNRM == "001").Count().ToString();
+            Lbl_TotalWomenGetKeys.Text = attendanceList.Where(a => a.DERS_NUMB != null && a.Fighter1.SEX_TYPE_DNRM == "002").Count().ToString();
+            Lbl_TotalWomenLockKeys.Text = attendanceList.Where(a => a.DERS_NUMB != null && a.EXIT_TIME == null && a.Fighter1.SEX_TYPE_DNRM == "002").Count().ToString();
             
-            var v_Fighs = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM));
+            var v_Fighs = await Task.Run(() =>
+            {
+               using (var iScsc = new Data.iScscDataContext(ConnectionString))
+               {
+                  return iScsc.Fighters.Where(f => f.CONF_STAT == "002" && uclbCodes.Contains(f.CLUB_CODE_DNRM)).ToList();
+               }
+            });
             if (v_Fighs.Count() > 0)
             {
                Lbl_AllPhoneSave.Text = v_Fighs.Where(f => f.CELL_PHON_DNRM != null && f.CELL_PHON_DNRM.Length >= 10).Count().ToString();
@@ -145,7 +184,15 @@ namespace System.Scsc.Ui.UserAction
                Lbl_AllPhoneSave.Text = "0";
                Lbl_AllPhoneSavePercent.Text = "0%";
             }
-            Lbl_RqstNotEnd.Text = iScsc.Requests.Where(r => r.RQST_STAT == "001").Count().ToString();
+
+            var rqstNotEndCount = await Task.Run(() =>
+            {
+               using (var iScsc = new Data.iScscDataContext(ConnectionString))
+               {
+                  return iScsc.Requests.Where(r => r.RQST_STAT == "001").Count();
+               }
+            });
+            Lbl_RqstNotEnd.Text = rqstNotEndCount.ToString();
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }

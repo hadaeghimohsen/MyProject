@@ -33,18 +33,25 @@ namespace System.Scsc.Ui.WarrantyService
          );
       }      
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
-         
          int rqstindex = RqstBs.Position;
 
-         var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
-            .Where(rqst =>
-                  rqst.RQTP_CODE == "031" &&
-                  rqst.RQST_STAT == "001" &&
-                  rqst.RQTT_CODE == "004" &&
-                  rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+         List<long> Rqids = null;
+         await Task.Run(() =>
+         {
+            using (var iScsc = new Data.iScscDataContext(ConnectionString))
+            {
+               Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "031" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.RQTT_CODE == "004" &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+            }
+         });
+
+         iScsc = new Data.iScscDataContext(ConnectionString);
 
          RqstBs.DataSource =
             iScsc.Requests

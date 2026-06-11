@@ -21,13 +21,25 @@ namespace System.Scsc.Ui.UserAction
 
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         var Rqids = 
-            iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
-            .Where(rqst =>
-                  rqst.RQST_STAT == "001" &&                        
-                  rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+         bool pickChecked = ShowRqst_PickButn.PickChecked;
+         string currentUser = CurrentUser;
+
+         List<long> Rqids = null;
+         await Task.Run(() =>
+         {
+            using (var iScsc = new Data.iScscDataContext(ConnectionString))
+            {
+               Rqids =
+                  iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", pickChecked ? currentUser : "")))
+                  .Where(rqst =>
+                        rqst.RQST_STAT == "001" &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+            }
+         });
+
+         iScsc = new Data.iScscDataContext(ConnectionString);
 
          RqstBs1.DataSource =
             iScsc.Requests
@@ -35,11 +47,7 @@ namespace System.Scsc.Ui.UserAction
                rqst =>
                   Rqids.Contains(rqst.RQID)
             );
-            //.OrderByDescending(
-            //   rqst =>
-            //      rqst.RQST_DATE
-            //);
-         
+
          requery = false;
       }
 

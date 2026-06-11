@@ -23,33 +23,46 @@ namespace System.CRM.Ui.Activity
       private bool requery = false;
       private int rqstindx = 0;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         if (tb_master.SelectedTab == tp_001)
-         {            
-            iCRM = new Data.iCRMDataContext(ConnectionString);
+         var selectedTab = tb_master.SelectedTab;
+         var allRequestTglIsOn = AllRequest_Tgl.IsOn;
+         var allJobWorkTgIsOn = AllJobWork_Tg.IsOn;
+         var _currentUser = CurrentUser;
+
+         if (selectedTab == tp_001)
+         {
             rqstindx = RqstBs1.Position;
-            var Rqids = iCRM.VF_Requests(new XElement("Request"))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "006" &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.RQTT_CODE == "004" &&
-                     (AllRequest_Tgl.IsOn ? true : rqst.CRET_BY == CurrentUser) &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-            RqstBs1.DataSource =
-               iCRM.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID) &&
-                     (AllJobWork_Tg.IsOn ? true : rqst.Job_Personnel.USER_NAME == CurrentUser)
-               )
-               .OrderByDescending(
-                  rqst =>
-                     rqst.RQST_DATE
-               );
+            var result = await Task.Run(() =>
+            {
+               using (var db = new Data.iCRMDataContext(ConnectionString))
+               {
+                  var Rqids = db.VF_Requests(new XElement("Request"))
+                     .Where(rqst =>
+                           rqst.RQTP_CODE == "006" &&
+                           rqst.RQST_STAT == "001" &&
+                           rqst.RQTT_CODE == "004" &&
+                           (allRequestTglIsOn ? true : rqst.CRET_BY == _currentUser) &&
+                           rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
+                  var requests = db.Requests
+                     .Where(
+                        rqst =>
+                           Rqids.Contains(rqst.RQID) &&
+                           (allJobWorkTgIsOn ? true : rqst.Job_Personnel.USER_NAME == _currentUser)
+                     )
+                     .OrderByDescending(
+                        rqst =>
+                           rqst.RQST_DATE
+                     ).ToList();
+
+                  return new { requests };
+               }
+            });
+
+            iCRM = new Data.iCRMDataContext(ConnectionString);
+            RqstBs1.DataSource = result.requests;
             RqstBs1.Position = rqstindx;
          }
       }

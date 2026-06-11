@@ -25,21 +25,33 @@ namespace System.Scsc.Ui.Admission
       private bool requery = default(bool);
       private int rqstindex = default(int);
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          setOnDebt = false;
          try
          {
-            if (tb_master.SelectedTab == tp_003)
+            bool isTabSelected = tb_master.SelectedTab == tp_003;
+            bool pickChecked = ShowRqst_PickButn.PickChecked;
+            string currentUser = CurrentUser;
+
+            List<long> Rqids = null;
+            await Task.Run(() =>
+            {
+               using (var iScsc = new Data.iScscDataContext(ConnectionString))
+               {
+                  Rqids = iScsc.VF_Requests(new XElement("Request"))
+                     .Where(rqst =>
+                          rqst.RQTP_CODE == "028" &&
+                          rqst.RQTT_CODE == "004" &&
+                          rqst.RQST_STAT == "001" &&
+                          (pickChecked ? rqst.CRET_BY == currentUser : true) &&
+                          rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+               }
+            });
+
+            if (isTabSelected)
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
-               var Rqids = iScsc.VF_Requests(new XElement("Request"))
-                  .Where(rqst =>
-                        rqst.RQTP_CODE == "028" &&
-                        rqst.RQTT_CODE == "004" &&
-                        rqst.RQST_STAT == "001" &&
-                        (ShowRqst_PickButn.PickChecked ? rqst.CRET_BY == CurrentUser : true) &&
-                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
                RqstBs1.DataSource =
                   iScsc.Requests
@@ -50,7 +62,7 @@ namespace System.Scsc.Ui.Admission
                   .OrderByDescending(
                      rqst =>
                         rqst.RQST_DATE
-                  ); 
+                  );
 
                RqstBs1.Position = rqstindex;
 

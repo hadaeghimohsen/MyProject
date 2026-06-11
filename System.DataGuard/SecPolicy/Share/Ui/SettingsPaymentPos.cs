@@ -92,8 +92,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       {
          var selectedTab = Tb_Master.SelectedTab;
          var posDevice = Pos_Device;
-         var fromDate = FromTranDate_Dt.Value?.Value.Date;
-         var toDate = ToTranDate_Dt.Value?.Value.Date;
+          DateTime? fromDate = FromTranDate_Dt.Value;
+          DateTime? toDate = ToTranDate_Dt.Value;
          var payConfChecked = PayConf_Rb.Checked;
          var payAllChecked = PayAll_Rb.Checked;
 

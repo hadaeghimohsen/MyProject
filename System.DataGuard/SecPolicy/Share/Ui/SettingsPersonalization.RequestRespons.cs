@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -172,7 +172,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                                  return;
                               #region Show Error
                               job.Status = StatusType.Failed;
-                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 33 امنیتی", "خطا دسترسی");
+                              MessageBox.Show(this, "??? - ??? ?????? ?? ???? 33 ??????", "??? ??????");
                               #endregion                           
                            })
                         },
@@ -223,7 +223,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                );
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          job.Status = StatusType.Successful;
       }
 

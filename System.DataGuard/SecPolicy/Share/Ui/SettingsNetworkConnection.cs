@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -54,7 +54,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally { Execute_Query(); }
       }
 
@@ -90,7 +90,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             var subsys = SubSysBs.Current as Data.Sub_System;
             if (subsys == null) return;
 
-            // نمایش اطلاعات ارتباط ها روی فرم
+            // ????? ??????? ?????? ?? ??? ???
             Computer_User_Status_Txt.Text = string.Format("<color=Blue>{0}</color><br><color=Green>{1}</color>", HostInfo.Attribute("name").Value, CurrentUser);
             var datasource = iProject.DataSources.FirstOrDefault(s => s.SUB_SYS == subsys.SUB_SYS);
             Server_Database_Status_Txt.Text = string.Format("<color=Black>{0}</color><br><color=Gray>{1}</color>", datasource.IPAddress, datasource.Database_Alias);

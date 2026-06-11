@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -56,7 +56,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally { Execute_Query(); }
       }
 
@@ -210,13 +210,13 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
                Form_Lov.EditValue = crntform.ID;
 
-               // نمایش کنترل های روی صفحه برای زبان منبع
+               // ????? ????? ??? ??? ???? ???? ???? ????
                SorcFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.FORM_ID == crntform.ID);
 
                var trgtregn = TrgtRegn_Lov.EditValue;
                if (trgtregn == null || trgtregn.ToString() == "") return;
 
-               // نمایش کنترل های روی صفحه برای زبان مقصد
+               // ????? ????? ??? ??? ???? ???? ???? ????
                TrgtFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.Form.SUB_SYS == (int)e.NewValue && fc.Form.EN_NAME == crntform.EN_NAME && fc.Form.Localization.REGN_LANG == trgtregn.ToString());
             }
             else if(Tb_SubSys.SelectedTab == tp_004)
@@ -244,7 +244,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                }
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void Form_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -256,16 +256,16 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             var crntform = FormBs.List.OfType<Data.Form>().FirstOrDefault(f => f.ID == (long)e.NewValue);
 
-            // نمایش کنترل های روی صفحه برای زبان منبع
+            // ????? ????? ??? ??? ???? ???? ???? ????
             SorcFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.FORM_ID == crntform.ID);
 
             var trgtregn = TrgtRegn_Lov.EditValue;
             if (trgtregn == null || trgtregn.ToString() == "") return;
 
-            // نمایش کنترل های روی صفحه برای زبان مقصد
+            // ????? ????? ??? ??? ???? ???? ???? ????
             TrgtFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.Form.SUB_SYS == (int)subsys && fc.Form.EN_NAME == crntform.EN_NAME && fc.Form.Localization.REGN_LANG == trgtregn.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void TrgtRegn_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -280,10 +280,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             var trgtregn = TrgtRegn_Lov.EditValue;
             if (trgtregn == null || trgtregn.ToString() == "") return;
 
-            // نمایش کنترل های روی صفحه برای زبان مقصد
+            // ????? ????? ??? ??? ???? ???? ???? ????
             TrgtFcntBs.DataSource = iProject.Form_Controls.Where(fc => fc.Form.SUB_SYS == (int)subsys && fc.Form.EN_NAME == crntform.EN_NAME && fc.Form.Localization.REGN_LANG == trgtregn.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void Compare_Duplicate_Butn_Click(object sender, EventArgs e)
@@ -379,7 +379,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             TrgtFcntBs.List.OfType<Data.Form_Control>().ToList().ForEach(fc => fc.TRAN_STAT = "001");
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void CompDuplDomn_Butn_Click(object sender, EventArgs e)
@@ -441,7 +441,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   break;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void TranDomn_Butn_Click(object sender, EventArgs e)
@@ -593,7 +593,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             TrgtFcntBs.Position = TrgtFcntBs.List.IndexOf(TrgtFcntBs.List.OfType<Data.Form_Control>().FirstOrDefault(fc => fc.NAME == sorcfcnt.NAME));
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void SorcDomnRegnBs_CurrentChanged(object sender, EventArgs e)
@@ -635,7 +635,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             }
             
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void TryAllTran_Butn_Click(object sender, EventArgs e)
@@ -658,18 +658,18 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             Form_Lov.EditValue = null;
 
-            // ترجمه کردن فرم های نرم افزار
+            // ????? ???? ??? ??? ??? ?????
             foreach (var form in FormBs.List.OfType<Data.Form>())
             {
                Form_Lov.EditValue = form.ID;
                Translate_Butn_Click(null, null);
             }
 
-            // ترجمه کردن دامنه های زیر سیستم
+            // ????? ???? ????? ??? ??? ?????
 
             TranDomn_Butn_Click(null, null);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
    }
 

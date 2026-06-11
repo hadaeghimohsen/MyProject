@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -54,7 +54,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally { Execute_Query(); }
       }
 
@@ -268,7 +268,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          try
          {
             var box = BoxBs.Current as Data.Box_Privilege;
-            if (box == null && MessageBox.Show(this, "آیا با حذف شی مورد نظر موافقید؟", "حذف جعبه های دسترسی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (box == null && MessageBox.Show(this, "??? ?? ??? ?? ???? ??? ????????", "??? ???? ??? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iProject.DeleteBoxPrivilege(
                new XElement("Box_Privilege",
@@ -508,7 +508,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             }
 
             if (p == null) return;
-            if (p != null && MessageBox.Show(this, "آیا با حذف شی مورد نظر موافقید؟", "حذف دسترسی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (p != null && MessageBox.Show(this, "??? ?? ??? ?? ???? ??? ????????", "??? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iProject.UpdatePrivilegeToBox(
                new XElement("PrivilegeToBox",
@@ -565,7 +565,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             var role = RoleBs.Current as Data.Role;
             if (role == null) return;
 
-            if (role != null && MessageBox.Show(this, "آیا با حذف شی مورد نظر موافقید؟", "حذف گروه دسترسی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (role != null && MessageBox.Show(this, "??? ?? ??? ?? ???? ??? ????????", "??? ???? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iProject.IUDRole(
                new XElement("Role",
@@ -942,7 +942,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                UserPrivilegeBs.DataSource = iProject.User_Privileges.Where(up => up.Sub_Sys == subsys.SUB_SYS && up.UserID == user.ID && up.IsVisible);
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void EnableDisabledUserPrivilege_Butn_Click(object sender, EventArgs e)

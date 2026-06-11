@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -85,7 +85,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally { Execute_Query(); }
       }
 
@@ -191,7 +191,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             pos.TabIndex = 1;
             pos.Tag = item;
             pos.Click += Pos_Click;
-            pos.Text = string.Format("{0}  {1}{4}<br><color=Gray><size=9>{2}</size></color><br>" + "<color=Green><size=9>{3}</size></color><br>", item.POS_DESC, item.POS_DFLT == "002" ? "<b>*</b>" : "", iProject.D_BANKs.FirstOrDefault(b => item.BANK_TYPE == b.VALU).DOMN_DESC + " : " + item.BNKB_CODE, "شماره حساب : " + item.BNKA_ACNT_NUMB, item.AUTO_COMM == "002" ? "<b>@</b>" : "");
+            pos.Text = string.Format("{0}  {1}{4}<br><color=Gray><size=9>{2}</size></color><br>" + "<color=Green><size=9>{3}</size></color><br>", item.POS_DESC, item.POS_DFLT == "002" ? "<b>*</b>" : "", iProject.D_BANKs.FirstOrDefault(b => item.BANK_TYPE == b.VALU).DOMN_DESC + " : " + item.BNKB_CODE, "????? ???? : " + item.BNKA_ACNT_NUMB, item.AUTO_COMM == "002" ? "<b>@</b>" : "");
             
             PosList_Flp.Controls.Add(pos);
          }
@@ -238,7 +238,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          );
       }
 
-      #region دستگاه های متصل
+      #region ?????? ??? ????
       public class DeviceInfo
       {
          public string IP { get; set; }
@@ -263,9 +263,9 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                iFgnrMstrIsCnct = iFngrMstr.Connect_Net(MasterDeviceIP_Txt.Text, Convert.ToInt32(MasterDevicePort_Txt.Text));               
 
                if (iFgnrMstrIsCnct)
-                  MessageBox.Show(this, "برقراری ارتباط با دستگاه با موفقیت انجام شد!", "Devicec", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                  MessageBox.Show(this, "??????? ?????? ?? ?????? ?? ?????? ????? ??!", "Devicec", MessageBoxButtons.OK, MessageBoxIcon.Information);
                else
-                  MessageBox.Show(this, "عدم برقراری با دستگاه!", "Devicec", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                  MessageBox.Show(this, "??? ??????? ?? ??????!", "Devicec", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
             else if(Usb_Rb.Checked)
             {
@@ -383,13 +383,13 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                var result = iFngrMstr.SSR_SetUserInfo(1, UserId_Txt.Text, UserId_Txt.Text, "", 0, true);
                if (iFngrMstr.StartEnrollEx(UserId_Txt.Text, Convert.ToInt32(FngrIndx_Txt.Text), 0))
                {
-                  MessageBox.Show("لطفا 3 باراثر انگشت خود را روی سنسور قرار دهید");
+                  MessageBox.Show("???? 3 ?????? ????? ??? ?? ??? ????? ???? ????");
                }
                else
                {
                   iFngrMstr.SSR_DelUserTmpExt(1, UserId_Txt.Text, 6);
                   iFngrMstr.DeleteUserInfoEx(1, Convert.ToInt32(UserId_Txt.Text));
-                  MessageBox.Show("دوباره امتحان کنید");
+                  MessageBox.Show("?????? ?????? ????");
                }
             }            
          }
@@ -403,7 +403,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با انجام عملیات ارسال اثر انگشت موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ????? ?????? ????? ??? ????? ????? ??????", "?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
             string tmpData = "";
             int tmplen = 0;
             int flag = 0;
@@ -416,7 +416,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             {
                tmpData = textFngr.Text;
             }
-            if (tmpData == null) { MessageBox.Show("اثر انگشتی ثبت نشده لطفا بررسی کنید"); return; }
+            if (tmpData == null) { MessageBox.Show("??? ?????? ??? ???? ???? ????? ????"); return; }
 
             foreach (var dev in DevInfoBs.List.OfType<DeviceInfo>())
             {
@@ -438,7 +438,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   dev.Oprt_Stat = "001";
                }
             }
-            //MessageBox.Show("ارسال اثر انگشت با موفقیت انجام شد");
+            //MessageBox.Show("????? ??? ????? ?? ?????? ????? ??");
          }
          catch (Exception exc)
          {
@@ -691,11 +691,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
 
          /*******************************************
-         * ؛¯ت‎أû³ئ£؛RotatePic       
-         * ؛¯ت‎¹¦ؤـ£؛ذ‎×ھح¼ئ¬£¬ؤ؟µؤتا±£´و؛حدشت¾µؤح¼ئ¬سë°´µؤض¸خئ·½دٍ²»ح¬     
-         * ؛¯ت‎بë²خ£؛BmpBuf---ذ‎×ھا°µؤض¸خئ×ض·û´®
-         * ؛¯ت‎³ِ²خ£؛ResBuf---ذ‎×ھ؛َµؤض¸خئ×ض·û´®
-         * ؛¯ت‎·µ»ط£؛خق
+         * ?�???��?�?RotatePic       
+         * ?�??��??�???�??�?���??�???���??????��??�?�?밴�??�??��??��?�     
+         * ?�???�?�?BmpBuf---??�??��??�??�?����
+         * ?�??�?�?�?ResBuf---??�???�??�??�?����
+         * ?�??���?�???
          *********************************************/
          public static void RotatePic(byte[] BmpBuf, int width, int height, ref byte[] ResBuf)
          {
@@ -723,12 +723,12 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
 
          /*******************************************
-         * ؛¯ت‎أû³ئ£؛StructToBytes       
-         * ؛¯ت‎¹¦ؤـ£؛½«½ل¹¹جه×ھ»¯³ةخق·û؛إ×ض·û´®ت‎×é     
-         * ؛¯ت‎بë²خ£؛StructObj---±»×ھ»¯µؤ½ل¹¹جه
-         *           Size---±»×ھ»¯µؤ½ل¹¹جهµؤ´َذ،
-         * ؛¯ت‎³ِ²خ£؛خق
-         * ؛¯ت‎·µ»ط£؛½ل¹¹جه×ھ»¯؛َµؤت‎×é
+         * ?�???��?�?StructToBytes       
+         * ?�??��??�?���?��??�?���???��??�?����??��     
+         * ?�???�?�?StructObj---���?���?�?��??
+         *           Size---���?���?�?��??�?�???
+         * ?�??�?�?�???
+         * ?�??���?�?�?��??�?��??�???��
          *********************************************/
          public static byte[] StructToBytes(object StructObj, int Size)
          {
@@ -774,13 +774,13 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
 
          /*******************************************
-         * ؛¯ت‎أû³ئ£؛GetBitmap       
-         * ؛¯ت‎¹¦ؤـ£؛½«´«½ّہ´µؤت‎¾ف±£´وخھح¼ئ¬     
-         * ؛¯ت‎بë²خ£؛buffer---ح¼ئ¬ت‎¾ف
-         *           nWidth---ح¼ئ¬µؤ؟ي¶ب
-         *           nHeight---ح¼ئ¬µؤ¸ك¶ب
-         * ؛¯ت‎³ِ²خ£؛خق
-         * ؛¯ت‎·µ»ط£؛خق
+         * ?�???��?�?GetBitmap       
+         * ?�??��??�?�����??��???�?���????�?�     
+         * ?�???�?�?buffer---?�?�??�?
+         *           nWidth---?�?��???�?
+         *           nHeight---?�?��?�?�?
+         * ?�??�?�?�???
+         * ?�??���?�???
          *********************************************/
          public static void GetBitmap(byte[] buffer, int nWidth, int nHeight, ref MemoryStream ms)
          {
@@ -797,7 +797,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
                int w = (((nWidth + 3) / 4) * 4);
 
-               //ح¼ئ¬ح·ذإد¢
+               //?�?�?�???�
                BmpInfoHeader.biSize = Marshal.SizeOf(BmpInfoHeader);
                BmpInfoHeader.biWidth = nWidth;
                BmpInfoHeader.biHeight = nHeight;
@@ -810,7 +810,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                BmpInfoHeader.biClrUsed = m_nColorTableEntries;
                BmpInfoHeader.biClrImportant = m_nColorTableEntries;
 
-               //خؤ¼‏ح·ذإد¢
+               //??�??�???�
                BmpHeader.bfType = 0x4D42;
                BmpHeader.bfOffBits = 14 + Marshal.SizeOf(BmpInfoHeader) + BmpInfoHeader.biClrUsed * 4;
                BmpHeader.bfSize = BmpHeader.bfOffBits + ((((w * BmpInfoHeader.biBitCount + 31) / 32) * 4) * BmpInfoHeader.biHeight);
@@ -820,7 +820,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                ms.Write(StructToBytes(BmpHeader, 14), 0, 14);
                ms.Write(StructToBytes(BmpInfoHeader, Marshal.SizeOf(BmpInfoHeader)), 0, Marshal.SizeOf(BmpInfoHeader));
 
-               //µ÷تش°هذإد¢
+               //��??�????�
                for (ColorIndex = 0; ColorIndex < m_nColorTableEntries; ColorIndex++)
                {
                   ColorMask[ColorIndex].redmask = (byte)ColorIndex;
@@ -831,7 +831,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   ms.Write(StructToBytes(ColorMask[ColorIndex], Marshal.SizeOf(ColorMask[ColorIndex])), 0, Marshal.SizeOf(ColorMask[ColorIndex]));
                }
 
-               //ح¼ئ¬ذ‎×ھ£¬½â¾ِض¸خئح¼ئ¬µ¹ء¢µؤختجâ
+               //?�?�??�?����??�???�?���?��????�
                RotatePic(buffer, nWidth, nHeight, ref ResBuf);
 
                byte[] filter = null;
@@ -856,13 +856,13 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          }
 
          /*******************************************
-         * ؛¯ت‎أû³ئ£؛WriteBitmap       
-         * ؛¯ت‎¹¦ؤـ£؛½«´«½ّہ´µؤت‎¾ف±£´وخھح¼ئ¬     
-         * ؛¯ت‎بë²خ£؛buffer---ح¼ئ¬ت‎¾ف
-         *           nWidth---ح¼ئ¬µؤ؟ي¶ب
-         *           nHeight---ح¼ئ¬µؤ¸ك¶ب
-         * ؛¯ت‎³ِ²خ£؛خق
-         * ؛¯ت‎·µ»ط£؛خق
+         * ?�???��?�?WriteBitmap       
+         * ?�??��??�?�����??��???�?���????�?�     
+         * ?�???�?�?buffer---?�?�??�?
+         *           nWidth---?�?��???�?
+         *           nHeight---?�?��?�?�?
+         * ?�??�?�?�???
+         * ?�??���?�???
          *********************************************/
          public static void WriteBitmap(byte[] buffer, int nWidth, int nHeight)
          {
@@ -878,7 +878,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                BITMAPINFOHEADER BmpInfoHeader = new BITMAPINFOHEADER();
                MASK[] ColorMask = new MASK[m_nColorTableEntries];
                int w = (((nWidth + 3) / 4) * 4);
-               //ح¼ئ¬ح·ذإد¢
+               //?�?�?�???�
                BmpInfoHeader.biSize = Marshal.SizeOf(BmpInfoHeader);
                BmpInfoHeader.biWidth = nWidth;
                BmpInfoHeader.biHeight = nHeight;
@@ -891,7 +891,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                BmpInfoHeader.biClrUsed = m_nColorTableEntries;
                BmpInfoHeader.biClrImportant = m_nColorTableEntries;
 
-               //خؤ¼‏ح·ذإد¢
+               //??�??�???�
                BmpHeader.bfType = 0x4D42;
                BmpHeader.bfOffBits = 14 + Marshal.SizeOf(BmpInfoHeader) + BmpInfoHeader.biClrUsed * 4;
                BmpHeader.bfSize = BmpHeader.bfOffBits + ((((w * BmpInfoHeader.biBitCount + 31) / 32) * 4) * BmpInfoHeader.biHeight);
@@ -904,7 +904,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                TmpBinaryWriter.Write(StructToBytes(BmpHeader, 14));
                TmpBinaryWriter.Write(StructToBytes(BmpInfoHeader, Marshal.SizeOf(BmpInfoHeader)));
 
-               //µ÷تش°هذإد¢
+               //��??�????�
                for (ColorIndex = 0; ColorIndex < m_nColorTableEntries; ColorIndex++)
                {
                   ColorMask[ColorIndex].redmask = (byte)ColorIndex;
@@ -915,10 +915,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   TmpBinaryWriter.Write(StructToBytes(ColorMask[ColorIndex], Marshal.SizeOf(ColorMask[ColorIndex])));
                }
 
-               //ح¼ئ¬ذ‎×ھ£¬½â¾ِض¸خئح¼ئ¬µ¹ء¢µؤختجâ
+               //?�?�??�?����??�???�?���?��????�
                RotatePic(buffer, nWidth, nHeight, ref ResBuf);
 
-               //ذ´ح¼ئ¬
+               //?�?�?�
                //TmpBinaryWriter.Write(ResBuf);
                byte[] filter = null;
                if (w - nWidth > 0)
@@ -966,7 +966,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      if(CardRedrDev_Sp.IsOpen)
                      {
                         butn.Tag = "open";
-                        butn.Text = "قطع ارتباط";
+                        butn.Text = "??? ??????";
                      }
                   }
                   break;
@@ -974,7 +974,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   if (CardRedrDev_Sp.IsOpen)
                   {
                      butn.Tag = "close";
-                     butn.Text = "اتصال به دستگاه کارتخوان";
+                     butn.Text = "????? ?? ?????? ????????";
                      CardRedrDev_Sp.Close();
                   }
                   break;
@@ -1017,7 +1017,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با انجام عملیات ارسال شماره کارت موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ????? ?????? ????? ????? ???? ????? ??????", "?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             foreach (var dev in DevInfoBs.List.OfType<DeviceInfo>())
             {
@@ -1053,7 +1053,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   dev.Oprt_Stat = "001";
                }
             }
-            //MessageBox.Show("ارسال شماره کارت به دستگاه با موفقیت انجام شد");
+            //MessageBox.Show("????? ????? ???? ?? ?????? ?? ?????? ????? ??");
          }
          catch (Exception exc)
          {
@@ -1065,7 +1065,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با انجام عملیات حذف اثر انگشت موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ????? ?????? ??? ??? ????? ????? ??????", "?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
             foreach (var dev in DevInfoBs.List.OfType<DeviceInfo>())
             {
                iFngrSlavIsCnct = iFngrSlav.Connect_Net(dev.IP, dev.Port);
@@ -1087,7 +1087,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   dev.Oprt_Stat = "001";
                }
             }
-            //MessageBox.Show("حذف اثر انگشت از دستگاه با موفقیت انجام شد");
+            //MessageBox.Show("??? ??? ????? ?? ?????? ?? ?????? ????? ??");
          }
          catch (Exception exc)
          {
@@ -1099,7 +1099,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با انجام عملیات حذف کامل کاربر موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ????? ?????? ??? ???? ????? ????? ??????", "?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
             foreach (var dev in DevInfoBs.List.OfType<DeviceInfo>())
             {
                iFngrSlavIsCnct = iFngrSlav.Connect_Net(dev.IP, dev.Port);
@@ -1121,7 +1121,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   dev.Oprt_Stat = "001";
                }
             }
-            //MessageBox.Show("حذف کامل اطلاعات کاربر از دستگاه با موفقیت انجام شد");
+            //MessageBox.Show("??? ???? ??????? ????? ?? ?????? ?? ?????? ????? ??");
          }
          catch (Exception exc)
          {
@@ -1133,7 +1133,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       {
          try
          {
-            if (!AutoOprt009_cb.Checked && MessageBox.Show(this, "آیا با انجام عملیات دریافت رکورد موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (!AutoOprt009_cb.Checked && MessageBox.Show(this, "??? ?? ????? ?????? ?????? ????? ????? ??????", "?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
             foreach (var dev in DevInfoBs.List.OfType<DeviceInfo>())
             {
                iFngrSlavIsCnct = iFngrSlav.Connect_Net(dev.IP, dev.Port);
@@ -1239,7 +1239,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                }
             }
             if(!AutoOprt009_cb.Checked)
-               MessageBox.Show("عملیات دریافت رکورد با موفقیت انجام شد");
+               MessageBox.Show("?????? ?????? ????? ?? ?????? ????? ??");
          }
          catch (Exception exc)
          {
@@ -1345,7 +1345,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با انجام عملیات ارسال شماره کارت موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ????? ?????? ????? ????? ???? ????? ??????", "?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             System.IO.StreamReader file =
                 new System.IO.StreamReader(IPDev_Ofd.FileName);
@@ -1394,7 +1394,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   dev.Oprt_Stat = "001";
                }
             }
-            //MessageBox.Show("ارسال شماره کارت به دستگاه با موفقیت انجام شد");
+            //MessageBox.Show("????? ????? ???? ?? ?????? ?? ?????? ????? ??");
          }
          catch (Exception exc)
          {

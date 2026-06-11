@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -106,7 +106,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          try
          {
             var aud = ((SimpleButton)sender).Tag as Data.Access_User_Datasource;
-            if (aud == null || MessageBox.Show(this, "آیا با تغییر پل ارتباطی موافق هستید؟", "تغییر پل ارتباطی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (aud == null || MessageBox.Show(this, "??? ?? ????? ?? ??????? ????? ??????", "????? ?? ???????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             aud.STAT = "002";
             AccessUserDatasourceBs.List.OfType<Data.Access_User_Datasource>().Where(a => a != aud).ToList().ForEach(a => a.STAT = "001");
             iProject.SubmitChanges();
@@ -123,7 +123,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             Back_Butn_Click(null, null);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
    }
 }

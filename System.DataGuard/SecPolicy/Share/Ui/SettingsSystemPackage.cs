@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -53,7 +53,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally { Execute_Query(); }
       }      
 
@@ -132,7 +132,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             var package = PackageBs.Current as Data.Package;
 
-            if (package == null || MessageBox.Show(this, "آیا با حذف پکیج موافق هستید؟", "حذف پکیج", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (package == null || MessageBox.Show(this, "??? ?? ??? ???? ????? ??????", "??? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iProject.Packages.DeleteOnSubmit(package);
 
@@ -157,7 +157,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             SubSysItemBs.MoveNext();
 
-            //اگر وجود داشته باشد دیگر نیازی به اضافه کردن نیست
+            //??? ???? ????? ???? ???? ????? ?? ????? ???? ????
             if (PackageActivityBs.List.OfType<Data.Package_Activity>().Any(pa => pa.Sub_System_Item == subi)) return;
 
             PackageActivityBs.AddNew();
@@ -171,7 +171,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             iProject.SubmitChanges();
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally
          {
             if(requery)
@@ -196,7 +196,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally
          {
             if(requery)
@@ -213,7 +213,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             var packageactivity = PackageActivityBs.Current as Data.Package_Activity;
 
-            if (packageactivity == null || MessageBox.Show(this, "آیا با حذف آیتم پکیج موافق هستید؟", "حذف آیتم پکیج", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (packageactivity == null || MessageBox.Show(this, "??? ?? ??? ???? ???? ????? ??????", "??? ???? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iProject.Package_Activities.DeleteOnSubmit(packageactivity);
 
@@ -245,7 +245,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally
          {
             if(requery)
@@ -262,7 +262,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             var packageinstance = PackageInstanceBs.Current as Data.Package_Instance;
 
-            if (packageinstance == null || MessageBox.Show(this, "آیا با حذف نمونه پکیج مشتری موافق هستید؟", "حذف نمونه پکیج مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (packageinstance == null || MessageBox.Show(this, "??? ?? ??? ????? ???? ????? ????? ??????", "??? ????? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iProject.Package_Instances.DeleteOnSubmit(packageinstance);
 
@@ -288,7 +288,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally
          {
             if (requery)
@@ -316,7 +316,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             PackageUserGatewayBs.EndEdit();
             iProject.SubmitChanges();
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally
          {
             if(requery)
@@ -333,7 +333,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             var packageinstanceusergateway = PackageUserGatewayBs.Current as Data.Package_Instance_User_Gateway;
 
-            if (packageinstanceusergateway == null || MessageBox.Show(this, "آیا با حذف نمونه پکیج سیستم مشتری موافق هستید؟", "حذف نمونه پکیج سیستم مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (packageinstanceusergateway == null || MessageBox.Show(this, "??? ?? ??? ????? ???? ????? ????? ????? ??????", "??? ????? ???? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iProject.Package_Instance_User_Gateways.DeleteOnSubmit(packageinstanceusergateway);
 

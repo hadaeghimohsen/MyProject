@@ -53,8 +53,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
                   foreach (var _audsid in Auds_Gv.GetSelectedRows())
                   {
-                     var _auds = Auds_Gv.GetRow(_audsid) as Data.Access_User_Datasource;
-                     iProject.ExecuteCommand(string.Format("DELETE Global.Access_User_Datasource WHERE Id = {0}", _auds.ID));
+                      var _auds = Auds_Gv.GetRow(_audsid) as Data.Access_User_Datasource;
+                      iProject.ExecuteCommand("DELETE Global.Access_User_Datasource WHERE Id = {0}", _auds.ID);
                   }
                   break;
             }            
@@ -104,7 +104,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      if (!AudsBs1.List.OfType<Data.Access_User_Datasource>().Any(a => a.USER_ID == _user.ID && a.DSRC_ID == _database.ID && a.HOST_NAME == _computer.CPU_SRNO_DNRM))
                      {
                         iProject.ExecuteCommand(
-                           string.Format("INSERT INTO Global.Access_User_Datasource (USER_ID, DSRC_ID, HOST_NAME, STAT, ACES_TYPE) VALUES({0}, {1}, '{2}', '002', '001')", _user.ID, _database.ID, _computer.CPU_SRNO_DNRM)
+                           "INSERT INTO Global.Access_User_Datasource (USER_ID, DSRC_ID, HOST_NAME, STAT, ACES_TYPE) VALUES({0}, {1}, {2}, '002', '001')", _user.ID, _database.ID, _computer.CPU_SRNO_DNRM
                         );
                      }
                   }
@@ -155,8 +155,8 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             if (MessageBox.Show(this, "آیا با پاک کردن اطلاعات دوره کاربر موافق هستید؟", "حذف دسترسی به دوره اطلاعات", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
             foreach (var _audsid in Auds_Gv.GetSelectedRows())
             {
-               var _auds = Auds_Gv.GetRow(_audsid) as Data.Access_User_Datasource;
-               iProject.ExecuteCommand(string.Format("DELETE Global.Access_User_Datasource WHERE Id = {0}", _auds.ID));
+                var _auds = Auds_Gv.GetRow(_audsid) as Data.Access_User_Datasource;
+                iProject.ExecuteCommand("DELETE Global.Access_User_Datasource WHERE Id = {0}", _auds.ID);
             }
             requery = true;
          }

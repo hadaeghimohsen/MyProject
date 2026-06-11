@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -49,7 +49,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally { Execute_Query(); }
       }
 
@@ -144,7 +144,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             iProject.SubmitChanges();
             SubmitChange_Butn.Visible = false;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void SecurityManagmentBs_ListChanged(object sender, ListChangedEventArgs e)

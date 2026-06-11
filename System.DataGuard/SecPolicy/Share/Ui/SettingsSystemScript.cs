@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -60,7 +60,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally { Execute_Query(); }
       }      
 
@@ -103,7 +103,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             var scrp = ScrpBs.Current as Data.Script;
             if (scrp == null) return;
 
-            if (MessageBox.Show(this, "حذف", "آیا با حذف رکورد موافق هستید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "???", "??? ?? ??? ????? ????? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             var rows = Scrp_Gv.GetSelectedRows();
 
@@ -171,7 +171,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             var scpp = ScppBs.Current as Data.Script_Parameter;
             if (scpp == null) return;
 
-            if (MessageBox.Show(this, "حذف", "آیا با حذف رکورد موافق هستید؟", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "???", "??? ?? ??? ????? ????? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             var rows = Scpp_Gv.GetSelectedRows();
 

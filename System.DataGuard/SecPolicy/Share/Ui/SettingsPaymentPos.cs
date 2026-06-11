@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -79,7 +79,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally { Execute_Query(); }
       }
 
@@ -262,24 +262,24 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             var pos = PosBs.Current as Data.Pos_Device;
             if(pos.ACTN_TYPE == "001")
             {
-               // حساب شخصی
+               // ???? ????
                Threading.Thread.Sleep(1000);
                
                posResult = _PcPosFactory.PosStarterPurchase(Amnt_Txt.EditValue.ToString(), null, "", "", 0, "", "", null, -1, null, -1);
             }
             else
             {
-               // حساب دولتی
+               // ???? ?????
                if(pos.BILL_FIND_TYPE == "001")
                {
-                  // شناسه مشترک
+                  // ????? ?????
                   Threading.Thread.Sleep(1000);
                   
                   posResult = _PcPosFactory.PosStarterPurchase(Amnt_Txt.EditValue.ToString(), null, "", "", 0, "", pos.BILL_NO, null, -1, null, -1);
                }
                else
                {
-                  // شناسه متفاوت
+                  // ????? ??????
                   var useraccesspos = iProject.User_Access_Pos.FirstOrDefault(uap => uap.User.USERDB.ToUpper() == CurrentUser.ToUpper() && uap.POSD_PSID == pos.PSID);
                   if ((useraccesspos.BILL_NO ?? "") == "")
                      useraccesspos.BILL_NO = pos.BILL_NO;
@@ -559,7 +559,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   break;
             }
 
-            // 1404/08/19 * پوز بانک ملت باید کد فاکتور هم براش ارسال کرد
+            // 1404/08/19 * ??? ???? ??? ???? ?? ?????? ?? ???? ????? ???
             if (rqid == 0) { rqid = pos.PSID; }
             Transaction TXN = new Transaction(connection);
             var posResult = TXN.Debits_Goods_And_Service(rqid.ToString(), "1", Amnt_Txt.EditValue.ToString(), "", "", "", false);
@@ -662,7 +662,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             _MabnaPcPos.request = req;
 
             int retCode = _MabnaPcPos.SendMessage(0);
-            if (retCode != 0) { throw new Exception("خطا در ارسال اطلاعات"); }
+            if (retCode != 0) { throw new Exception("??? ?? ????? ???????"); }
 
             retCode = _MabnaPcPos.ReceiveMessage(0);
             Tlid = MabnaCardAria_SaveTransactionLog(_MabnaPcPos);
@@ -939,17 +939,17 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             if (pos.ACTN_TYPE == "001")
             {
-               // حساب شخصی
+               // ???? ????
                //Threading.Thread.Sleep(1000);
 
                //_SadadPcPos.SyncSaleTransaction();
             }
             else
             {
-               // حساب دولتی
+               // ???? ?????
                if (pos.BILL_FIND_TYPE == "001")
                {
-                  // شناسه مشترک
+                  // ????? ?????
                   //Threading.Thread.Sleep(1000);
 
                   //posResult = _PcPosFactory.PosStarterPurchase(Amnt_Txt.EditValue.ToString(), null, "", "", 0, "", pos.BILL_NO, null, -1, null, -1);
@@ -957,7 +957,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                }
                else
                {
-                  // شناسه متفاوت
+                  // ????? ??????
                   var useraccesspos = iProject.User_Access_Pos.FirstOrDefault(uap => uap.User.USERDB.ToUpper() == CurrentUser.ToUpper() && uap.POSD_PSID == pos.PSID);
                   if ((useraccesspos.BILL_NO ?? "") == "")
                      useraccesspos.BILL_NO = pos.BILL_NO;

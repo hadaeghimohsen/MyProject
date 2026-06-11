@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -88,7 +88,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             ToEmail_Lst.Items.RemoveAt(ToEmail_Lst.SelectedIndex);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void DeleteFileAttach_Butn_Click(object sender, EventArgs e)
@@ -99,7 +99,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             FileAttach_Lst.Items.RemoveAt(FileAttach_Lst.SelectedIndex);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void ToEmail_Txt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -113,7 +113,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             ToEmail_Lst.Items.Add(ToEmail_Txt.Text);
             ToEmail_Txt.Text = "";
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void FileAttach_Txt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -147,7 +147,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   break;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void SendEmail_Butn_Click(object sender, EventArgs e)

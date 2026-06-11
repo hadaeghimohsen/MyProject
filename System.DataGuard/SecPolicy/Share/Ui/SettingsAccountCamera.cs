@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -48,7 +48,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             iProject.SubmitChanges();
             SubmitChange_Butn.Visible = false;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void UserBs_ListChanged(object sender, ListChangedEventArgs e)
@@ -87,7 +87,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   break;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void Tm_NewFrameProcess_Tick(object sender, EventArgs e)
@@ -159,7 +159,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                )
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
    }
 }

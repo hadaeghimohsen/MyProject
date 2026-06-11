@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -81,7 +81,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             if(iProject.Users.Any(u => u.USERDB.ToLower() == UserName_Be.Text.ToLower()))
             {
-               MessageBox.Show("نام کاربری قبلا در سیستم ثبت گردیده است. لطفا از گزینه دیگری استفاده کنید");
+               MessageBox.Show("??? ?????? ???? ?? ????? ??? ?????? ???. ???? ?? ????? ????? ??????? ????");
                return;
             }
 
@@ -118,7 +118,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   )
                );
             }
-            catch { }
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
 
             Back_Butn_Click(null, null);
          }

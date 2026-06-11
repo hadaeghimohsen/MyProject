@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -95,7 +95,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          rootTag = string.Format("<Grant>{0}{{0}}</Grant>", Role);
          globalFunctionCall = "Global.GrantPrivilegesToRole";
          privilege = "<Privilege>9</Privilege>";
-         explain = "مجوز دسترسی به {0} به گروه دسترسی ( {1} ) داده شد";
+         explain = "???? ?????? ?? {0} ?? ???? ?????? ( {1} ) ???? ??";
          pn_roles.Enabled = false;
          sb_removeprivilege.Enabled = sb_deactiveprivilege.Enabled = sb_activeprivilege.Enabled = false;
          pn_editprivilege.Visible = true;
@@ -112,7 +112,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          rootTag = string.Format("<Revoke>{0}{{0}}</Revoke>", Role);
          globalFunctionCall = "Global.RevokePrivilegesFromRole";
          privilege = "<Privilege>10</Privilege>";
-         explain = "مجوز دسترسی به {0} از گروه دسترسی ( {1} ) گرفته شد";
+         explain = "???? ?????? ?? {0} ?? ???? ?????? ( {1} ) ????? ??";
 
          pn_roles.Enabled = false;
          sb_addprivilege.Enabled = sb_deactiveprivilege.Enabled = sb_activeprivilege.Enabled = false;
@@ -128,7 +128,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          rootTag = string.Format("<Deactive>{0}{{0}}</Deactive>", Role);
          globalFunctionCall = "[Global].[DeactivePrivilegesToRole]";
          privilege = "<Privilege>11</Privilege>";
-         explain = "مجوز استفاده ازدسترسی {0} از گروه دسترسی ( {1} ) به صورت موقت مسدود شد";
+         explain = "???? ??????? ???????? {0} ?? ???? ?????? ( {1} ) ?? ???? ???? ????? ??";
 
          pn_roles.Enabled = false;         
          sb_addprivilege.Enabled = sb_removeprivilege.Enabled = sb_activeprivilege.Enabled = false;
@@ -146,7 +146,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          rootTag = string.Format("<Active>{0}{{0}}</Active>", Role);
          globalFunctionCall = "[Global].[ActivePrivilegesInRole]";
          privilege = "<Privilege>12</Privilege>";
-         explain = "مجوز استفاده ازدسترسی {0} به گروه دسترسی ( {1} ) برگردانده شد";
+         explain = "???? ??????? ???????? {0} ?? ???? ?????? ( {1} ) ????????? ??";
 
          pn_roles.Enabled = false;
          sb_addprivilege.Enabled = sb_removeprivilege.Enabled = sb_deactiveprivilege.Enabled = false;
@@ -321,7 +321,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          rootTag = string.Format("<Grant>{0}{{0}}</Grant>", User);
          globalFunctionCall = "Global.GrantPrivilegesToUser";
          privilege = "<Privilege>13</Privilege>";
-         explain = "مجوز دسترسی به {0} به کاربر ( {1} ) داده شد";
+         explain = "???? ?????? ?? {0} ?? ????? ( {1} ) ???? ??";
 
          pn_roles.Enabled = false;
          lv_users.Enabled = false;
@@ -340,7 +340,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          rootTag = string.Format("<Revoke>{0}{{0}}</Revoke>", User);
          globalFunctionCall = "Global.RevokePrivilegesFromUser";
          privilege = "<Privilege>14</Privilege>";
-         explain = "مجوز دسترسی به {0} از کاربر ( {1} ) گرفته شد";
+         explain = "???? ?????? ?? {0} ?? ????? ( {1} ) ????? ??";
 
          pn_roles.Enabled = false;
          lv_users.Enabled = false;
@@ -357,7 +357,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          rootTag = string.Format("<Deactive>{0}{{0}}</Deactive>", User);
          globalFunctionCall = "[Global].[DeactivePrivilegesToUser]";
          privilege = "<Privilege>15</Privilege>";
-         explain = "مجوز استفاده ازدسترسی {0} از کاربر ( {1} ) به صورت موقت مسدود شد";
+         explain = "???? ??????? ???????? {0} ?? ????? ( {1} ) ?? ???? ???? ????? ??";
 
          pn_roles.Enabled = false;
          lv_users.Enabled = false;
@@ -376,7 +376,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          rootTag = string.Format("<Active>{0}{{0}}</Active>", User);
          globalFunctionCall = "[Global].[ActivePrivilegesInUser]";
          privilege = "<Privilege>16</Privilege>";
-         explain = "مجوز استفاده ازدسترسی {0} به کاربر ( {1} ) برگردانده شد";
+         explain = "???? ??????? ???????? {0} ?? ????? ( {1} ) ????????? ??";
 
          pn_roles.Enabled = false;
          lv_users.Enabled = false;
@@ -551,7 +551,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             User = lv_users.SelectedItems[0].Tag.ToString();
             _DefaultGateway.Gateway(createLoadPrivilegesOfUser());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       #region Change User Profile
@@ -563,7 +563,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          rootTag = string.Format("<Grant>{0}{{0}}</Grant>", Role);
          globalFunctionCall = "DataGuard.GrantUsersToRole";
          privilege = "<Privilege>17</Privilege>";
-         explain = "مجوزهای دسترسی به گروه {0} به کاربر ( {1} ) داده شد";
+         explain = "??????? ?????? ?? ???? {0} ?? ????? ( {1} ) ???? ??";
          
          pn_roles.Enabled = false;
          sb_revokeuser.Enabled = sb_deactiveuser.Enabled = sb_activeuser.Enabled = sb_usersinglepropertymenu.Enabled = false;
@@ -582,7 +582,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          rootTag = string.Format("<Revoke>{0}{{0}}</Revoke>", Role);
          globalFunctionCall = "DataGuard.RevokeUsersFromRole";
          privilege = "<Privilege>18</Privilege>";
-         explain = "مجوز دسترسی به گروه {0} از کاربر ( {1} ) گرفته شد";
+         explain = "???? ?????? ?? ???? {0} ?? ????? ( {1} ) ????? ??";
 
          pn_roles.Enabled = false;
          sb_grantuser.Enabled = sb_deactiveuser.Enabled = sb_activeuser.Enabled = sb_usersinglepropertymenu.Enabled = false;
@@ -599,7 +599,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          rootTag = string.Format("<Deactive>{0}{{0}}</Deactive>", Role);
          globalFunctionCall = "DataGuard.DeactiveUsersFromRole";
          privilege = "<Privilege>19</Privilege>";
-         explain = "فعالیت کاربر {0} درگروه دسترسی ( {1} ) به حالت تعلیق درآمد";
+         explain = "?????? ????? {0} ?????? ?????? ( {1} ) ?? ???? ????? ?????";
 
          pn_roles.Enabled = false;
          sb_grantuser.Enabled = sb_revokeuser.Enabled = sb_activeuser.Enabled = sb_usersinglepropertymenu.Enabled = false;
@@ -618,7 +618,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          rootTag = string.Format("<Active>{0}{{0}}</Active>", Role);
          globalFunctionCall = "DataGuard.ActiveUsersFromRole";
          privilege = "<Privilege>20</Privilege>";
-         explain = "فعالیت کاربر {0} درگروه دسترسی ( {1} ) به حالت فعال درآمد";
+         explain = "?????? ????? {0} ?????? ?????? ( {1} ) ?? ???? ???? ?????";
 
          pn_roles.Enabled = false;
          sb_grantuser.Enabled = sb_revokeuser.Enabled = sb_deactiveuser.Enabled = sb_usersinglepropertymenu.Enabled = false;

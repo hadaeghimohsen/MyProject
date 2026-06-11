@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -54,7 +54,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally { Execute_Query(); }
       }      
 
@@ -192,7 +192,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             {               
                INST_DATE_Lbl.Text = MtoS((DateTime)subsys.INST_DATE);
                LICN_TRIL_DATE_Lbl.Text = MtoS((DateTime)subsys.LICN_TRIL_DATE);
-               LICN_TYPE_Lbl.Text = subsys.LICN_TYPE == "001" ? "آزمایشی محدود" : "اصلی";
+               LICN_TYPE_Lbl.Text = subsys.LICN_TYPE == "001" ? "??????? ?????" : "????";
 
                var dbfilesinfo = iProject.VF_DataBaseFileInfo(subsys.DB_NAME);
                LDF_Lbl.Text = NumToUnit(dbfilesinfo.Where(f => f.type == 1).Sum(f => f.size));
@@ -227,11 +227,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                   licndate = DateTime.Now;
 
                if ((licndate.Value.Date - DateTime.Now.Date).Days >= 15)
-                  Licnday_Lnk.Text = string.Format("پشتیبانی     ---     {0} روز", (licndate.Value.Date - DateTime.Now.Date).Days);
+                  Licnday_Lnk.Text = string.Format("????????     ---     {0} ???", (licndate.Value.Date - DateTime.Now.Date).Days);
                else if ((licndate.Value.Date - DateTime.Now.Date).Days <= 15 && (licndate.Value.Date - DateTime.Now.Date).Days >= 0)
-                  Licnday_Lnk.Text = "پشتیبانی رو به اتمام میباشد";
+                  Licnday_Lnk.Text = "???????? ?? ?? ????? ??????";
                else
-                  Licnday_Lnk.Text = string.Format("پشتیبانی به پایان رسیده است", (licndate.Value.Date - DateTime.Now.Date).Days);
+                  Licnday_Lnk.Text = string.Format("???????? ?? ????? ????? ???", (licndate.Value.Date - DateTime.Now.Date).Days);
 
                if ((licndate.Value.Date - DateTime.Now.Date).Days >= 15)
                {
@@ -434,7 +434,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally 
          { 
             if(requery)
@@ -451,7 +451,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          {
             var userquickaction = UserQiuckActionBs.Current as Data.Package_Instance_User_Qiuck_Action;
 
-            if (userquickaction == null || MessageBox.Show(this, "آیا با آیتم عملکردی سریع موافق هستید؟", "حذف آیتم عملکردی سریع", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (userquickaction == null || MessageBox.Show(this, "??? ?? ???? ??????? ???? ????? ??????", "??? ???? ??????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iProject.Package_Instance_User_Qiuck_Actions.DeleteOnSubmit(userquickaction);
 
@@ -644,7 +644,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                               if ((bool)output)
                                  return;
                               #region Show Error
-                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 39 امنیتی", "خطا دسترسی");
+                              MessageBox.Show(this, "??? - ??? ?????? ?? ???? 39 ??????", "??? ??????");
                               #endregion                           
                            })
                         },

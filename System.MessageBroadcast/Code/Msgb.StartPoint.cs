@@ -911,6 +911,5 @@ namespace System.MessageBroadcast.Code
             return SendRequest("/api/user/UserInfo", "GET", null, "ApiAccess");
          }
       }
-
    }
 }

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -56,7 +56,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally { Execute_Query(); }
       }      
 
@@ -505,7 +505,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                )
             );
 
-            MessageBox.Show("دستور با موفقیت اجرا شد");
+            MessageBox.Show("????? ?? ?????? ???? ??");
          }
          catch (Exception exc)
          {

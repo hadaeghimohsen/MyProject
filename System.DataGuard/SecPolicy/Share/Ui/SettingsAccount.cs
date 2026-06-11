@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -57,7 +57,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
          finally { Execute_Query(); }
       }
 
@@ -305,7 +305,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
          if((user.EMAL_ADRS == null || user.EMAL_ADRS == "") || (user.EMAL_PASS == null || user.EMAL_PASS == "") || (user.MAIL_SRVR == null || user.MAIL_SRVR == ""))
          {
-            MessageBox.Show(this, "اطلاعات ایمیل ارسال شما به درستی وارد نشده لطفا در قسمت تنظیمات ایمیل و سرور ایمیل بررسی کنید و مشکل را بر طرف کنید", "اطلاعات ایمیل و سرور ایمیل", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            MessageBox.Show(this, "??????? ????? ????? ??? ?? ????? ???? ???? ???? ?? ???? ??????? ????? ? ???? ????? ????? ???? ? ???? ?? ?? ??? ????", "??????? ????? ? ???? ?????", MessageBoxButtons.OK, MessageBoxIcon.Question);
             return;
          }
 

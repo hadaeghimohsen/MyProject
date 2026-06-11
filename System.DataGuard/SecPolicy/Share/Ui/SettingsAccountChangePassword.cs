@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -51,7 +51,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             iProject.SubmitChanges();
             Back_Butn_Click(null, null);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); }
       }
 
       private void UserBs_CurrentChanged(object sender, EventArgs e)

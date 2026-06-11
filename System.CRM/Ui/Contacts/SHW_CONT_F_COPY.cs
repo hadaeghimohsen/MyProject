@@ -64,8 +64,8 @@ namespace System.CRM.Ui.Contacts
             string radsNumb = Radius_Txt.Text;
             string emalAddr = EmalAddr_Txt.Text;
             string confDate = ConfDate_Dat.Value.HasValue ? ConfDate_Dat.Value.Value.Date.ToString("yyyy-MM-dd") : "";
-            string mainStat = MainStat_Lov.EditValue?.ToString() ?? "";
-            string subStat = SubStat_Lov.EditValue?.ToString() ?? "";
+            string mainStat = MainStat_Lov.EditValue != null ? MainStat_Lov.EditValue.ToString() : "";
+            string subStat = SubStat_Lov.EditValue != null ? SubStat_Lov.EditValue.ToString() : "";
             long compCode = compcode;
             string onofTag = onoftag;
 

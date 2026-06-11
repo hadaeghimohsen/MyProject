@@ -26,12 +26,14 @@ namespace System.CRM.Ui.Notification
 
       private async void Execute_Query()
       {
-         var result = await Task.Run(() =>
-         {
-            var db = new Data.iCRMDataContext(ConnectionString);
-            List<Data.Reminder> items = null;
-            bool isTypeInput = xinput != null && xinput.Attribute("type") != null;
-            string typeValue = xinput?.Attribute("type")?.Value;
+          var _xinput = xinput;
+
+          var result = await Task.Run(() =>
+          {
+             var db = new Data.iCRMDataContext(ConnectionString);
+             List<Data.Reminder> items = null;
+             bool isTypeInput = _xinput != null && _xinput.Attribute("type") != null;
+             string typeValue = isTypeInput ? _xinput.Attribute("type").Value : null;
 
             // 1396/09/07 * اگر برای نمایش اطلاعات گزینه های فیلترینگ گذاشته شده باشد
             if (isTypeInput)

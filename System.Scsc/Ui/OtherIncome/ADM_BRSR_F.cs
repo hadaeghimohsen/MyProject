@@ -26,7 +26,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private int rqstindex = default(int);
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          setOnDebt = false;
          try
@@ -35,33 +35,51 @@ namespace System.Scsc.Ui.OtherIncome
             {
                GC.Collect();
                GC.WaitForPendingFinalizers();
+
+               bool pickChecked = ShowRqst_PickButn.PickChecked;
+               int savedPosition = RqstBs1.Position;
+
+               var result = await Task.Run(() =>
+               {
+                  var db = new Data.iScscDataContext(ConnectionString);
+
+                  bool hasSetting = db.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002");
+
+                  var fighters = hasSetting
+                     ? db.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null)
+                         .OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE)
+                         .ToList()
+                     : null;
+
+                  var Rqids = db.VF_Requests(new XElement("Request", new XAttribute("cretby", pickChecked ? CurrentUser : "")))
+                     .Where(rqst =>
+                          rqst.RQTP_CODE == "025" &&
+                          rqst.RQST_STAT == "001" &&
+                          rqst.RQTT_CODE == "004" &&
+                          rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+                  var requests = db.Requests
+                     .Where(
+                        rqst =>
+                           Rqids.Contains(rqst.RQID)
+                     ).ToList();
+
+                  return new { fighters, requests };
+               });
+
                iScsc = new Data.iScscDataContext(ConnectionString);
-               if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))                  
-                  vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);
 
-               rqstindex = RqstBs1.Position;
+               if (result.fighters != null)
+                  vf_FighBs.DataSource = result.fighters;
 
-               var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
-                  .Where(rqst =>
-                        rqst.RQTP_CODE == "025" &&
-                        rqst.RQST_STAT == "001" &&
-                        rqst.RQTT_CODE == "004" &&
-                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
-
-               RqstBs1.DataSource =
-                  iScsc.Requests
-                  .Where(
-                     rqst =>
-                        Rqids.Contains(rqst.RQID)
-                  );
-
-               RqstBs1.Position = rqstindex;
+               RqstBs1.DataSource = result.requests;
+               RqstBs1.Position = savedPosition;
             }
          }
          catch { }
       }
 
-      private void Execute_Query_Force()
+      private async void Execute_Query_Force()
       {
          setOnDebt = false;
          try
@@ -70,27 +88,40 @@ namespace System.Scsc.Ui.OtherIncome
             {
                GC.Collect();
                GC.WaitForPendingFinalizers();
+
+               bool pickChecked = ShowRqst_PickButn.PickChecked;
+               int savedPosition = RqstBs1.Position;
+
+               var result = await Task.Run(() =>
+               {
+                  var db = new Data.iScscDataContext(ConnectionString);
+
+                  var fighters = db.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null)
+                     .OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE)
+                     .ToList();
+
+                  var Rqids = db.VF_Requests(new XElement("Request", new XAttribute("cretby", pickChecked ? CurrentUser : "")))
+                     .Where(rqst =>
+                          rqst.RQTP_CODE == "025" &&
+                          rqst.RQST_STAT == "001" &&
+                          rqst.RQTT_CODE == "004" &&
+                          rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+                  var requests = db.Requests
+                     .Where(
+                        rqst =>
+                           Rqids.Contains(rqst.RQID)
+                     ).ToList();
+
+                  return new { fighters, requests };
+               });
+
                iScsc = new Data.iScscDataContext(ConnectionString);
-               //if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))
-               vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);
 
-               rqstindex = RqstBs1.Position;
+               vf_FighBs.DataSource = result.fighters;
 
-               var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
-                  .Where(rqst =>
-                        rqst.RQTP_CODE == "025" &&
-                        rqst.RQST_STAT == "001" &&
-                        rqst.RQTT_CODE == "004" &&
-                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
-
-               RqstBs1.DataSource =
-                  iScsc.Requests
-                  .Where(
-                     rqst =>
-                        Rqids.Contains(rqst.RQID)
-                  );
-
-               RqstBs1.Position = rqstindex;
+               RqstBs1.DataSource = result.requests;
+               RqstBs1.Position = savedPosition;
             }
          }
          catch { }

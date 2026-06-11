@@ -24,29 +24,46 @@ namespace System.Scsc.Ui.BodyFitness
       private bool requery = default(bool);
       private bool setOnDebt = false;
 
-      private void Execute_Query()
-      {
-         if (tb_master.SelectedTab == tp_001)
-         {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            var Rqids = iScsc.VF_Requests(new XElement("Request"))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "018" &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+       private async void Execute_Query()
+       {
+          var selectedTabTp001 = tb_master.SelectedTab == tp_001;
+          var moduleName = GetType().Name;
+          var sectName = GetType().Name.Substring(0, 3) + "_001_F";
 
-            RqstBs1.DataSource =
-               iScsc.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID) &&
-                     rqst.MDUL_NAME == GetType().Name &&
-                     rqst.SECT_NAME == GetType().Name.Substring(0, 3) + "_001_F"
-               );
-         }
+          List<int> rqids = null;
+          List<Scsc.Data.Request> requests = null;
 
-         RqstBs1.Position = RqstIndex;
-      }
+          if (selectedTabTp001)
+          {
+             await Task.Run(() =>
+             {
+                var db = new Data.iScscDataContext(ConnectionString);
+
+                rqids = db.VF_Requests(new XElement("Request"))
+                   .Where(rqst =>
+                         rqst.RQTP_CODE == "018" &&
+                         rqst.RQST_STAT == "001" &&
+                         rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+                requests = db.Requests
+                   .Where(
+                      rqst =>
+                         rqids.Contains(rqst.RQID) &&
+                         rqst.MDUL_NAME == moduleName &&
+                         rqst.SECT_NAME == sectName
+                   ).ToList();
+             });
+          }
+
+          iScsc = new Data.iScscDataContext(ConnectionString);
+
+          if (selectedTabTp001)
+          {
+             RqstBs1.DataSource = requests;
+          }
+
+          RqstBs1.Position = RqstIndex;
+       }
 
       int RqstIndex;
       private void Get_Current_Record()

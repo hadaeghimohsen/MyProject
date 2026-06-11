@@ -26,319 +26,419 @@ namespace System.Scsc.Ui.ReportManager
       private string formName = "";
       private long? cochfileno = null, cbmtcode = null;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString) { CommandTimeout = 18000 };
          try
          {
-            if (tc_master.SelectedTab == tp_001)
+            var selectedTab = tc_master.SelectedTab;
+            var rqtps001 = Rqtp_Lov.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+            var rcmts001 = Rcmt_Lov.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+            var users001 = User_Lov.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+            long? fileno001 = null;
+            if (Figh_Lov.EditValue != null && Figh_Lov.EditValue.ToString() != "")
+               fileno001 = (long?)Figh_Lov.EditValue;
+            List<string> _slctPos001 = new List<string>();
+            foreach (int _sRow in Pos_Gv.GetSelectedRows())
             {
-               var rqtps = Rqtp_Lov.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
-               var rcmts = Rcmt_Lov.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
-               var users = User_Lov.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
-               long? fileno = null;
-               if (Figh_Lov.EditValue != null && Figh_Lov.EditValue.ToString() != "")
-                  fileno = (long?)Figh_Lov.EditValue;
-               
-               List<string> _slctPos = new List<string>();
-               foreach (int _sRow in Pos_Gv.GetSelectedRows())
+               _slctPos001.Add(((Data.V_Pos_Device)(Pos_Gv.GetRow(_sRow))).TERM_NO);
+            }
+            bool debtPayChecked = DebtPay_Cbx.Checked;
+            var manPosPayCheckState001 = ManPosPay_Cbx.CheckState;
+            bool slctPosChecked = SlctPos_Cbx.Checked;
+            var rqtps002 = Rqtp_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+            var users002 = User_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+            long? fileno002 = null;
+            if (Figh_Lov2.EditValue != null && Figh_Lov2.EditValue.ToString() != "")
+               fileno002 = (long?)Figh_Lov2.EditValue;
+            var rqtps003 = Rqtp_Lov3.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+            var users003 = User_Lov3.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+            long? fileno003 = null;
+            if (Figh_Lov3.EditValue != null && Figh_Lov3.EditValue.ToString() != "")
+               fileno003 = (long?)Figh_Lov3.EditValue;
+            bool pyds004Checked = Pyds004_Cb.Checked;
+            bool pyckExpireDateChecked = PyckExpireDate_Rb.Checked;
+            bool pyckRcptDateChecked = PyckRcptDate_Rb.Checked;
+            bool pyckCheckChecked = PyckCheck_Rb.Checked;
+            bool pyckInstallChecked = PyckInstall_Rb.Checked;
+            bool smsSend003Checked = SmsSend003_Rb.Checked;
+            bool smsSend001Checked = SmsSend001_Rb.Checked;
+            bool rqstFreeChecked = RqstFree_Cbx.Checked;
+            bool rqstIsDebtChecked = RqstIsDebt_Cbx.Checked;
+            bool rqstIsDsctChecked = RqstIsDsct_Cbx.Checked;
+            bool rqstMenChecked = RqstMen_Cbx.Checked;
+            bool rqstWomenChecked = RqstWomen_Cbx.Checked;
+            bool rqstCellPhonChecked = RqstCellPhon_Cbx.Checked;
+            string rqstCellPhonText = RqstCellPhon_Txt.Text;
+            bool rqstNatlCodeChecked = RqstNatlCode_Cbx.Checked;
+            string rqstNatlCodeText = RqstNatlCode_Txt.Text;
+            bool rqstFrstNameChecked = RqstFrstName_Cbx.Checked;
+            string rqstFrstNameText = RqstFrstName_Txt.Text;
+            bool rqstLastNameChecked = RqstLastName_Cbx.Checked;
+            string rqstLastNameText = RqstLastName_Txt.Text;
+            bool rqstOrgnChecked = RqstOrgn_Cbx.Checked;
+            object rqstOrgnCodeValue = RqstOrgnCode_Lov.EditValue;
+            bool rqstInvcNumbChecked = RqstInvcNumb_Cbx.Checked;
+            string rqstInvcNumbText = RqstInvcNumb_Txt.Text;
+            bool rqstCochChecked = RqstCoch_Cbx.Checked;
+            object rqstCochValue = RqstCoch_Lov.EditValue;
+
+            var results = await Task.Run(() =>
+            {
+               var _iScsc = new Data.iScscDataContext(ConnectionString) { CommandTimeout = 18000 };
+
+               if (selectedTab == tp_001)
                {
-                   _slctPos.Add(((Data.V_Pos_Device)(Pos_Gv.GetRow(_sRow))).TERM_NO);
+                  var pmmtData = _iScsc.Payment_Methods
+                     .Where(pm =>
+                        (pm.RCPT_MTOD != "005") &&
+                        (pm.Payment.PYMT_STAT != "002") &&
+                        (pm.ACTN_DATE.Value.Date >= FromDate1_Date.Value.Value.Date) &&
+                        (pm.ACTN_DATE.Value.Date <= ToDate1_Date.Value.Value.Date) &&
+                        (rqtps001.Count == 0 || rqtps001.Contains(pm.Request_Row.RQTP_CODE)) &&
+                        (rcmts001.Count == 0 || rcmts001.Contains(pm.RCPT_MTOD)) &&
+                        (users001.Count == 0 || (users001.Contains(pm.CRET_BY) /*|| users001.Contains(pm.MDFY_BY)*/)) &&
+                        (pm.Request_Row.FIGH_FILE_NO == (fileno001 ?? pm.Request_Row.FIGH_FILE_NO)) &&
+                        (Fga_Uclb_U.Contains(pm.Payment.CLUB_CODE_DNRM)) &&
+                        // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
+                        (cochfileno == null || pm.Payment.Payment_Details.Any(pd => pd.FIGH_FILE_NO == cochfileno)) &&
+                        (cbmtcode == null || pm.Payment.Payment_Details.Any(pd => pd.CBMT_CODE_DNRM == cbmtcode)) &&
+                        (!debtPayChecked || pm.CRET_DATE.Value.Date != pm.Payment.CRET_DATE.Value.Date) &&
+                        (manPosPayCheckState001 == CheckState.Indeterminate || (manPosPayCheckState001 == CheckState.Checked && pm.RCPT_MTOD == "003" && pm.TERM_NO != null && pm.CARD_NO != null) || (manPosPayCheckState001 == CheckState.Unchecked && pm.RCPT_MTOD == "003" && pm.TERM_NO == null)) &&
+                        (!slctPosChecked || _slctPos001.Contains(pm.TERM_NO))
+                     ).ToList();
+
+                  var glrdData = _iScsc.Gain_Loss_Rail_Details
+                     .Where(gd =>
+                        gd.Gain_Loss_Rial.CONF_STAT == "002" &&
+                        (gd.Gain_Loss_Rial.PAID_DATE.Value.Date >= FromDate1_Date.Value.Value.Date) &&
+                        (gd.Gain_Loss_Rial.PAID_DATE.Value.Date <= ToDate1_Date.Value.Value.Date) &&
+                        (users001.Count == 0 || (users001.Contains(gd.CRET_BY) || users001.Contains(gd.MDFY_BY))) &&
+                        (Fga_Uclb_U.Contains(gd.Gain_Loss_Rial.Fighter.CLUB_CODE_DNRM))
+                     ).ToList();
+
+                  return new { Tab = "001", PmmtData = (object)pmmtData, GlrdData = glrdData };
+               }
+               else if (selectedTab == tp_002)
+               {
+                  var pydtData = _iScsc.Payment_Details
+                     .Where(pd =>
+                        pd.Request_Row.Request.RQST_DATE.Value.Date >= FromDate2_Date.Value.Value.Date &&
+                        pd.Request_Row.Request.RQST_DATE.Value.Date <= ToDate2_Date.Value.Value.Date &&
+                        pd.Payment.PYMT_STAT != "002" &&
+                        pd.Request_Row.Request.RQST_STAT == "002" &&
+                        (rqtps002.Count == 0 || rqtps002.Contains(pd.Request_Row.RQTP_CODE)) &&
+                        (users002.Count == 0 || (users002.Contains(pd.CRET_BY) /*|| users002.Contains(pd.MDFY_BY)*/)) &&
+                        (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
+                        // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
+                        (fileno002 == null || pd.FIGH_FILE_NO == fileno002) &&
+                        (cochfileno == null || pd.FIGH_FILE_NO == cochfileno) &&
+                        (cbmtcode == null || pd.CBMT_CODE_DNRM == cbmtcode)
+                     ).ToList();
+
+                  var rpacData = _iScsc.Report_Actions.ToList();
+                  var mdrpData = _iScsc.Modual_Reports.Where(m => m.MDUL_NAME == "RPT_PYM1_F").ToList();
+
+                  return new { Tab = "002", PydtData = (object)pydtData, RpacData = rpacData, MdrpData = mdrpData };
+               }
+               else if (selectedTab == tp_003)
+               {
+                  var pydsData = _iScsc.Payment_Discounts
+                     .Where(pd =>
+                        /*pd.Request_Row.Request.RQST_DATE.Value.Date >= FromDate3_Date.Value.Value.Date &&
+                        pd.Request_Row.Request.RQST_DATE.Value.Date <= ToDate3_Date.Value.Value.Date &&*/
+                        pd.CRET_DATE.Value.Date >= FromDate3_Date.Value.Value.Date &&
+                        pd.CRET_DATE.Value.Date <= ToDate3_Date.Value.Value.Date &&
+                        pd.Request_Row.Request.RQST_STAT == "002" &&
+                        pd.Payment.PYMT_STAT != "002" &&
+                        (rqtps003.Count == 0 || rqtps003.Contains(pd.Request_Row.RQTP_CODE)) &&
+                        (users003.Count == 0 || (users003.Contains(pd.CRET_BY) /*|| users003.Contains(pd.MDFY_BY)*/)) &&
+                        (pd.STAT == "002") &&
+                        //(pd.AMNT_TYPE != "004" /* به جز ملبغ های مابه التفاوت */) &&
+                        (pd.Request_Row.FIGH_FILE_NO == (fileno003 ?? pd.Request_Row.FIGH_FILE_NO)) &&
+                        ((pyds004Checked && pd.AMNT_TYPE == "004") || (pyds004Checked == false && pd.AMNT_TYPE != "004")) &&
+                        (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
+                        // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
+                        (cochfileno == null || pd.Payment.Payment_Details.Any(pdt => pdt.FIGH_FILE_NO == cochfileno)) &&
+                        (cbmtcode == null || pd.Payment.Payment_Details.Any(pdt => pdt.CBMT_CODE_DNRM == cbmtcode))
+                     ).ToList();
+
+                  return new { Tab = "003", PydsData = (object)pydsData };
+               }
+               else if (selectedTab == tp_004)
+               {
+                  var msexData = _iScsc.Misc_Expenses
+                     .Where(me =>
+                        me.VALD_TYPE == "002" &&
+                        me.DELV_STAT == "002" &&
+                        me.DELV_DATE.Value.Date >= FromDate4_Date.Value.Value.Date &&
+                        me.DELV_DATE.Value.Date <= ToDate4_Date.Value.Value.Date &&
+                        (Fga_Uclb_U.Contains(me.CLUB_CODE)) &&
+                        // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
+                        (cochfileno == null || me.COCH_FILE_NO == cochfileno)
+                     ).ToList();
+
+                  return new { Tab = "004", MsexData = (object)msexData };
+               }
+               //else if (selectedTab == tp_005)
+               //{
+               //   var rqtps = Rqtp_Lov5.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+               //   var users = User_Lov5.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+
+               //   long? fileno = null;//, coch = null;
+
+               //   if (Figh_Lov5.EditValue != null && Figh_Lov5.EditValue.ToString() != "")
+               //      fileno = (long?)Figh_Lov5.EditValue;
+
+               //   PydtBs5.DataSource =
+               //      iScsc.Payment_Details
+               //      .Where(pd =>
+               //         pd.TRAN_DATE.Value.Date >= FromDate5_Date.Value.Value.Date &&
+               //         pd.TRAN_DATE.Value.Date <= ToDate5_Date.Value.Value.Date &&
+               //         pd.Payment.PYMT_STAT != "002" &&
+               //         /*pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay >= FromTime2_Te.Time.TimeOfDay &&
+               //         pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay <= ToTime2_Te.Time.TimeOfDay &&*/
+
+               //         pd.Request_Row.Request.RQST_STAT == "002" &&
+               //         (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
+               //         (users.Count == 0 || (users.Contains(pd.CRET_BY) || users.Contains(pd.MDFY_BY))) &&
+               //         (pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
+               //         (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM))
+               //      );
+               //}
+               else if (selectedTab == tp_006)
+               {
+                  var pmckData = _iScsc.Payment_Checks
+                     .Where(pc =>
+                        (
+                           pyckExpireDateChecked ?
+                           (pc.CHEK_DATE.Value.Date >= FromDate6_Date.Value.Value.Date &&
+                           pc.CHEK_DATE.Value.Date <= ToDate6_Date.Value.Value.Date)
+                           :
+                           true
+                        ) &&
+                        (
+                           pyckRcptDateChecked ?
+                           (pc.RCPT_DATE.Value.Date >= FromDate6_Date.Value.Value.Date &&
+                           pc.RCPT_DATE.Value.Date <= ToDate6_Date.Value.Value.Date)
+                           :
+                           true
+                        ) &&
+                        (pyckCheckChecked ?
+                           pc.AMNT_TYPE == "001" :
+                           (pyckInstallChecked ?
+                           pc.AMNT_TYPE == "002" :
+                           true)
+                        ) &&
+                        pc.Request_Row.Request.RQST_STAT == "002" &&
+                        pc.Payment.PYMT_STAT != "002" &&
+                        (Fga_Uclb_U.Contains(pc.Payment.CLUB_CODE_DNRM))
+                     ).ToList();
+
+                  return new { Tab = "006", PmckData = (object)pmckData };
+               }
+               else if (selectedTab == tp_007)
+               {
+                  var vsmsData = _iScsc.V_Sms_Message_Boxes
+                     .Where(s =>
+                        s.ACTN_DATE.Value.Date >= FromDate7_Date.Value.Value.Date &&
+                        s.ACTN_DATE.Value.Date <= ToDate7_Date.Value.Value.Date &&
+                        (smsSend003Checked ? true :
+                           (smsSend001Checked ? s.MESG_ID != null : s.MESG_ID == null)
+                        )
+                     ).ToList();
+
+                  return new { Tab = "007", VSmsData = (object)vsmsData };
+               }
+               else if (selectedTab == tp_008)
+               {
+                  var gpymData = _iScsc.Payment_Methods
+                     .Where(pm =>
+                        (pm.RCPT_MTOD == "005") &&
+                        (pm.Payment.PYMT_STAT != "002") &&
+                        (pm.ACTN_DATE.Value.Date >= FromDate1_Date.Value.Value.Date) &&
+                        (pm.ACTN_DATE.Value.Date <= ToDate1_Date.Value.Value.Date) &&
+                        //(rqtps.Count == 0 || rqtps.Contains(pm.Request_Row.RQTP_CODE)) &&
+                        //(rcmts.Count == 0 || rcmts.Contains(pm.RCPT_MTOD)) &&
+                        //(users.Count == 0 || (users.Contains(pm.CRET_BY) || users.Contains(pm.MDFY_BY))) &&
+                        //(pm.Request_Row.FIGH_FILE_NO == (fileno ?? pm.Request_Row.FIGH_FILE_NO)) &&
+                        (Fga_Uclb_U.Contains(pm.Payment.CLUB_CODE_DNRM))
+                           // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
+                        //(cochfileno == null || pm.Payment.Payment_Details.Any(pd => pd.FIGH_FILE_NO == cochfileno)) &&
+                        //(cbmtcode == null || pm.Payment.Payment_Details.Any(pd => pd.CBMT_CODE_DNRM == cbmtcode))
+                     ).ToList();
+
+                  return new { Tab = "008", GPymData = (object)gpymData };
+               }
+               else if (selectedTab == tp_009)
+               {
+                  var stisData = _iScsc.Statistics
+                     .Where(s =>
+                        s.STIS_DATE.Value.Date >= FromDate9_Date.Value.Value.Date &&
+                        s.STIS_DATE.Value.Date <= ToDate9_Date.Value.Value.Date &&
+                        s.STIS_STAT == "002"
+                     ).ToList();
+
+                  var rqroData = _iScsc.Request_Rows
+                     .Where(rr =>
+                        rr.Request.RQST_STAT != "003" &&
+                        rr.CRET_DATE.Value.Date >= FromDate9_Date.Value.Value.Date &&
+                        rr.CRET_DATE.Value.Date <= ToDate9_Date.Value.Value.Date).ToList();
+
+                  var loptData = _iScsc.Log_Operations
+                     .Where(lo =>
+                        lo.CRET_DATE.Value.Date >= FromDate9_Date.Value.Value.Date &&
+                        lo.CRET_DATE.Value.Date <= ToDate9_Date.Value.Value.Date
+                     ).ToList();
+
+                  return new { Tab = "009", StisData = (object)stisData, RqroData = rqroData, LOptData = loptData };
+               }
+               else if (selectedTab == tp_010)
+               {
+                  var pydt10Data = _iScsc.Payment_Details
+                     .Where(pd =>
+                        pd.EXTS_RSRV_DATE.Value.Date >= FromDate10_Date.Value.Value.Date &&
+                        pd.EXTS_RSRV_DATE.Value.Date <= ToDate10_Date.Value.Value.Date &&
+                        pd.Payment.PYMT_STAT != "002" &&
+                        pd.Request_Row.Request.RQST_STAT == "002" &&
+                        (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
+                        pd.EXTS_CODE != null
+                     ).ToList();
+
+                  return new { Tab = "010", Pydt10Data = (object)pydt10Data };
+               }
+               else if (selectedTab == tp_011)
+               {
+                  var pydt11Data = _iScsc.Payment_Details
+                     .Where(pd =>
+                        pd.EXPR_DATE.Value.Date >= FromDate11_Date.Value.Value.Date &&
+                        pd.EXPR_DATE.Value.Date <= ToDate11_Date.Value.Value.Date &&
+                        pd.Payment.PYMT_STAT != "002" &&
+                        pd.Request_Row.Request.RQST_STAT == "002" &&
+                        (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM))
+                     ).ToList();
+
+                  return new { Tab = "011", Pydt11Data = (object)pydt11Data };
+               }
+               else if (selectedTab == tp_012)
+               {
+                  var pydt12Data = _iScsc.Payment_Details
+                     .Where(pd =>
+                        pd.Request_Row.Request.RQST_DATE.Value.Date >= FromDate12_Date.Value.Value.Date &&
+                        pd.Request_Row.Request.RQST_DATE.Value.Date <= ToDate12_Date.Value.Value.Date &&
+                        pd.Payment.PYMT_STAT != "002" &&
+                        pd.Request_Row.Request.RQST_STAT == "002" &&
+                        (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
+                        pd.MBSP_RWNO != null
+                     ).ToList();
+
+                  return new { Tab = "012", Pydt12Data = (object)pydt12Data };
+               }
+               else if (selectedTab == tp_013)
+               {
+                  var vEvntData = _iScsc.V_Events
+                     .Where(ev =>
+                        ev.EVNT_DATE.Value.Date >= FromDate13_Date.Value.Value.Date &&
+                        ev.EVNT_DATE.Value.Date <= ToDate13_Date.Value.Value.Date
+                     ).ToList();
+
+                  var vCochEvntData = _iScsc.V_Coach_Events
+                     .Where(ev =>
+                        ev.EXPR_DATE.Value.Date >= FromDate13_Date.Value.Value.Date &&
+                        ev.EXPR_DATE.Value.Date <= ToDate13_Date.Value.Value.Date
+                     ).ToList();
+
+                  return new { Tab = "013", VEvntData = (object)vEvntData, VCochEvntData = vCochEvntData };
+               }
+               else if (selectedTab == tp_014)
+               {
+                  var rqst14Data = _iScsc.Requests
+                     .Where(r =>
+                        ((!rqstFreeChecked && r.RQTT_CODE == "001") ||
+                        (rqstFreeChecked && r.RQTT_CODE == "004" && (r.RQTP_CODE == "001" || r.RQTP_CODE == "009" || r.RQTP_CODE == "016"))) &&
+                        r.RQST_STAT == "002" &&
+                        r.INVC_DATE.Value.Date >= FromDate14_Date.Value.Value.Date &&
+                        r.INVC_DATE.Value.Date <= ToDate14_Date.Value.Value.Date &&
+                        (!rqstIsDebtChecked || r.Payments.Any(p => (p.SUM_EXPN_PRIC - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0)) &&
+                        (!rqstIsDsctChecked || r.Payments.Any(p => p.SUM_PYMT_DSCN_DNRM > 0)) &&
+                        (!rqstMenChecked || r.Request_Rows.Any(rr => rr.Fighter.SEX_TYPE_DNRM == "001")) &&
+                        (!rqstWomenChecked || r.Request_Rows.Any(rr => rr.Fighter.SEX_TYPE_DNRM == "002")) &&
+                        (!rqstCellPhonChecked || r.Request_Rows.Any(rr => rr.Fighter.CELL_PHON_DNRM.Contains(rqstCellPhonText))) &&
+                        (!rqstNatlCodeChecked || r.Request_Rows.Any(rr => rr.Fighter.NATL_CODE_DNRM.Contains(rqstNatlCodeText))) &&
+                        (!rqstFrstNameChecked || r.Request_Rows.Any(rr => rr.Fighter.FRST_NAME_DNRM.Contains(rqstFrstNameText))) &&
+                        (!rqstLastNameChecked || r.Request_Rows.Any(rr => rr.Fighter.LAST_NAME_DNRM.Contains(rqstLastNameText))) &&
+                        (!rqstOrgnChecked || rqstOrgnCodeValue == null || rqstOrgnCodeValue.ToString() == "" || r.Request_Rows.Any(rr => rqstOrgnCodeValue.ToString() == rr.Fighter.SUNT_CODE_DNRM)) &&
+                        (!rqstInvcNumbChecked || r.INVC_NUMB == rqstInvcNumbText.ToInt64()) &&
+                        (!rqstCochChecked || rqstCochValue == null || rqstCochValue.ToString() == "" || r.Payments.Any(p => p.Payment_Details.Any(pd => pd.FIGH_FILE_NO == rqstCochValue.ToString().ToInt64())))
+                     ).ToList();
+
+                  return new { Tab = "014", Rqst14Data = (object)rqst14Data };
                }
 
-               PmmtBs1.DataSource =
-                  iScsc.Payment_Methods
-                  .Where(pm =>
-                     (pm.RCPT_MTOD != "005") &&
-                     (pm.Payment.PYMT_STAT != "002") &&
-                     (pm.ACTN_DATE.Value.Date >= FromDate1_Date.Value.Value.Date ) &&
-                     (pm.ACTN_DATE.Value.Date <= ToDate1_Date.Value.Value.Date ) &&
-                     (rqtps.Count == 0 || rqtps.Contains(pm.Request_Row.RQTP_CODE)) &&
-                     (rcmts.Count == 0 || rcmts.Contains(pm.RCPT_MTOD)) &&
-                     (users.Count == 0 || (users.Contains(pm.CRET_BY) /*|| users.Contains(pm.MDFY_BY)*/)) &&
-                     (pm.Request_Row.FIGH_FILE_NO == (fileno ?? pm.Request_Row.FIGH_FILE_NO)) &&
-                     (Fga_Uclb_U.Contains(pm.Payment.CLUB_CODE_DNRM)) &&
-                     // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
-                     (cochfileno == null || pm.Payment.Payment_Details.Any(pd => pd.FIGH_FILE_NO == cochfileno)) &&
-                     (cbmtcode == null || pm.Payment.Payment_Details.Any(pd => pd.CBMT_CODE_DNRM == cbmtcode)) &&
-                     (!DebtPay_Cbx.Checked || pm.CRET_DATE.Value.Date != pm.Payment.CRET_DATE.Value.Date) &&
-                     (ManPosPay_Cbx.CheckState == CheckState.Indeterminate || (ManPosPay_Cbx.Checked && pm.RCPT_MTOD == "003" && pm.TERM_NO != null && pm.CARD_NO != null) || (!ManPosPay_Cbx.Checked && pm.RCPT_MTOD == "003" && pm.TERM_NO == null)) &&
-                     (!SlctPos_Cbx.Checked || _slctPos.Contains(pm.TERM_NO))
-                  );
+               return new { Tab = "" };
+            });
 
-               GlrdBs1.DataSource =
-                  iScsc.Gain_Loss_Rail_Details
-                  .Where(gd =>
-                     gd.Gain_Loss_Rial.CONF_STAT == "002" &&
-                     (gd.Gain_Loss_Rial.PAID_DATE.Value.Date >= FromDate1_Date.Value.Value.Date ) &&
-                     (gd.Gain_Loss_Rial.PAID_DATE.Value.Date <= ToDate1_Date.Value.Value.Date ) &&
-                     (users.Count == 0 || (users.Contains(gd.CRET_BY) || users.Contains(gd.MDFY_BY))) &&
-                     (Fga_Uclb_U.Contains(gd.Gain_Loss_Rial.Fighter.CLUB_CODE_DNRM))
-                  );
-            }
-            else if(tc_master.SelectedTab == tp_002)
+            iScsc = new Data.iScscDataContext(ConnectionString);
+
+            if (results.Tab == "001")
             {
-               var rqtps = Rqtp_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
-               var users = User_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
-
-               long? fileno = null;//, coch = null;               
-               if (Figh_Lov2.EditValue != null && Figh_Lov2.EditValue.ToString() != "")
-                  fileno = (long?)Figh_Lov2.EditValue;
-
-               PydtBs2.DataSource =
-                  iScsc.Payment_Details
-                  .Where(pd =>
-                     pd.Request_Row.Request.RQST_DATE.Value.Date >= FromDate2_Date.Value.Value.Date &&
-                     pd.Request_Row.Request.RQST_DATE.Value.Date <= ToDate2_Date.Value.Value.Date &&
-                     
-                     pd.Payment.PYMT_STAT != "002" &&
-                     /*pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay >= FromTime2_Te.Time.TimeOfDay &&
-                     pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay <= ToTime2_Te.Time.TimeOfDay &&*/
-                     
-                     pd.Request_Row.Request.RQST_STAT == "002" &&
-                     (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
-                     (users.Count == 0 || (users.Contains(pd.CRET_BY) /*|| users.Contains(pd.MDFY_BY)*/)) &&                     
-                     //(pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
-                     (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
-                     // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
-                     (fileno == null || pd.FIGH_FILE_NO == fileno) &&
-                     (cochfileno == null || pd.FIGH_FILE_NO == cochfileno) &&
-                     (cbmtcode == null || pd.CBMT_CODE_DNRM == cbmtcode)
-                  );
-
-               RpacBs.DataSource = iScsc.Report_Actions;
-               MdrpBs.DataSource = iScsc.Modual_Reports.Where(m => m.MDUL_NAME == "RPT_PYM1_F");
+               PmmtBs1.DataSource = results.PmmtData;
+               GlrdBs1.DataSource = results.GlrdData;
             }
-            else if (tc_master.SelectedTab == tp_003)
+            else if (results.Tab == "002")
             {
-               var rqtps = Rqtp_Lov3.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
-               var users = User_Lov3.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
-               long? fileno = null;
-               if (Figh_Lov3.EditValue != null && Figh_Lov3.EditValue.ToString() != "")
-                  fileno = (long?)Figh_Lov3.EditValue;
-
-               PydsBs3.DataSource =
-                  iScsc.Payment_Discounts
-                  .Where(pd =>
-                     /*pd.Request_Row.Request.RQST_DATE.Value.Date >= FromDate3_Date.Value.Value.Date &&
-                     pd.Request_Row.Request.RQST_DATE.Value.Date <= ToDate3_Date.Value.Value.Date &&*/
-                     pd.CRET_DATE.Value.Date >= FromDate3_Date.Value.Value.Date &&
-                     pd.CRET_DATE.Value.Date <= ToDate3_Date.Value.Value.Date &&
-                     pd.Request_Row.Request.RQST_STAT == "002" &&
-                     pd.Payment.PYMT_STAT != "002" &&
-                     (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
-                     (users.Count == 0 || (users.Contains(pd.CRET_BY) /*|| users.Contains(pd.MDFY_BY)*/)) &&
-                     (pd.STAT == "002") &&
-                     //(pd.AMNT_TYPE != "004" /* به جز ملبغ های مابه التفاوت */) &&
-                     (pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
-                     ((Pyds004_Cb.Checked && pd.AMNT_TYPE == "004") || (Pyds004_Cb.Checked == false && pd.AMNT_TYPE != "004")) &&
-                     (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
-                     // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
-                     (cochfileno == null || pd.Payment.Payment_Details.Any(pdt => pdt.FIGH_FILE_NO == cochfileno)) &&
-                     (cbmtcode == null || pd.Payment.Payment_Details.Any(pdt => pdt.CBMT_CODE_DNRM == cbmtcode))
-                  );
+               PydtBs2.DataSource = results.PydtData;
+               RpacBs.DataSource = results.RpacData;
+               MdrpBs.DataSource = results.MdrpData;
             }
-            else if(tc_master.SelectedTab == tp_004)
+            else if (results.Tab == "003")
             {
-               MsexBs4.DataSource =
-                  iScsc.Misc_Expenses
-                  .Where(me =>
-                     me.VALD_TYPE == "002" &&
-                     me.DELV_STAT == "002" &&
-                     me.DELV_DATE.Value.Date >= FromDate4_Date.Value.Value.Date &&
-                     me.DELV_DATE.Value.Date <= ToDate4_Date.Value.Value.Date  &&
-                     (Fga_Uclb_U.Contains(me.CLUB_CODE)) &&
-                     // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
-                     (cochfileno == null || me.COCH_FILE_NO == cochfileno)
-                  );
+               PydsBs3.DataSource = results.PydsData;
             }
-            //else if (tc_master.SelectedTab == tp_005)
+            else if (results.Tab == "004")
+            {
+               MsexBs4.DataSource = results.MsexData;
+            }
+            //else if (results.Tab == "005")
             //{
-            //   var rqtps = Rqtp_Lov5.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
-            //   var users = User_Lov5.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
-
-            //   long? fileno = null;//, coch = null;
-
-            //   if (Figh_Lov5.EditValue != null && Figh_Lov5.EditValue.ToString() != "")
-            //      fileno = (long?)Figh_Lov5.EditValue;
-
-            //   PydtBs5.DataSource =
-            //      iScsc.Payment_Details
-            //      .Where(pd =>
-            //         pd.TRAN_DATE.Value.Date >= FromDate5_Date.Value.Value.Date &&
-            //         pd.TRAN_DATE.Value.Date <= ToDate5_Date.Value.Value.Date &&
-            //         pd.Payment.PYMT_STAT != "002" &&
-            //         /*pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay >= FromTime2_Te.Time.TimeOfDay &&
-            //         pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay <= ToTime2_Te.Time.TimeOfDay &&*/
-
-            //         pd.Request_Row.Request.RQST_STAT == "002" &&
-            //         (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
-            //         (users.Count == 0 || (users.Contains(pd.CRET_BY) || users.Contains(pd.MDFY_BY))) &&
-            //         (pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
-            //         (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM))
-            //      );
             //}
-            else if(tc_master.SelectedTab == tp_006)
+            else if (results.Tab == "006")
             {
-               PmckBs.DataSource =
-                  iScsc.Payment_Checks
-                  .Where(pc =>
-                     (
-                        PyckExpireDate_Rb.Checked ? 
-                        (pc.CHEK_DATE.Value.Date >= FromDate6_Date.Value.Value.Date && 
-                        pc.CHEK_DATE.Value.Date <= ToDate6_Date.Value.Value.Date)
-                        :
-                        true
-                     ) &&
-                     (
-                        PyckRcptDate_Rb.Checked ? 
-                        (pc.RCPT_DATE.Value.Date >= FromDate6_Date.Value.Value.Date && 
-                        pc.RCPT_DATE.Value.Date <= ToDate6_Date.Value.Value.Date)
-                        :
-                        true
-                     ) &&
-                     (PyckCheck_Rb.Checked ? 
-                        pc.AMNT_TYPE == "001" : 
-                        (PyckInstall_Rb.Checked ? 
-                        pc.AMNT_TYPE == "002" :
-                        true)
-                     ) &&
-                     pc.Request_Row.Request.RQST_STAT == "002" &&
-                     pc.Payment.PYMT_STAT != "002" &&
-                     (Fga_Uclb_U.Contains(pc.Payment.CLUB_CODE_DNRM))
-                  );
+               PmckBs.DataSource = results.PmckData;
             }
-            else if (tc_master.SelectedTab == tp_007)
+            else if (results.Tab == "007")
             {
-               VSmsBs7.DataSource =
-                  iScsc.V_Sms_Message_Boxes
-                  .Where(s => 
-                     s.ACTN_DATE.Value.Date >= FromDate7_Date.Value.Value.Date && 
-                     s.ACTN_DATE.Value.Date <= ToDate7_Date.Value.Value.Date &&
-                     (SmsSend003_Rb.Checked ? true : 
-                        (SmsSend001_Rb.Checked ? s.MESG_ID != null : s.MESG_ID == null)
-                     )
-                  );
+               VSmsBs7.DataSource = results.VSmsData;
             }
-            else if(tc_master.SelectedTab == tp_008)
+            else if (results.Tab == "008")
             {
-               GPymBs.DataSource =
-                  iScsc.Payment_Methods
-                  .Where(pm =>
-                     (pm.RCPT_MTOD == "005") &&
-                     (pm.Payment.PYMT_STAT != "002") &&
-                     (pm.ACTN_DATE.Value.Date >= FromDate1_Date.Value.Value.Date) &&
-                     (pm.ACTN_DATE.Value.Date <= ToDate1_Date.Value.Value.Date) &&
-                     //(rqtps.Count == 0 || rqtps.Contains(pm.Request_Row.RQTP_CODE)) &&
-                     //(rcmts.Count == 0 || rcmts.Contains(pm.RCPT_MTOD)) &&
-                     //(users.Count == 0 || (users.Contains(pm.CRET_BY) || users.Contains(pm.MDFY_BY))) &&
-                     //(pm.Request_Row.FIGH_FILE_NO == (fileno ?? pm.Request_Row.FIGH_FILE_NO)) &&
-                     (Fga_Uclb_U.Contains(pm.Payment.CLUB_CODE_DNRM)) 
-                        // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
-                     //(cochfileno == null || pm.Payment.Payment_Details.Any(pd => pd.FIGH_FILE_NO == cochfileno)) &&
-                     //(cbmtcode == null || pm.Payment.Payment_Details.Any(pd => pd.CBMT_CODE_DNRM == cbmtcode))
-                  );
+               GPymBs.DataSource = results.GPymData;
             }
-            else if (tc_master.SelectedTab == tp_009)
+            else if (results.Tab == "009")
             {
-               StisBs.DataSource =
-                  iScsc.Statistics
-                  .Where( s => 
-                     s.STIS_DATE.Value.Date >= FromDate9_Date.Value.Value.Date &&
-                     s.STIS_DATE.Value.Date <= ToDate9_Date.Value.Value.Date &&
-                     s.STIS_STAT == "002"
-                  );
-
-               RqroBs.DataSource = 
-                  iScsc.Request_Rows
-                  .Where(rr => 
-                     rr.Request.RQST_STAT != "003" && 
-                     rr.CRET_DATE.Value.Date >= FromDate9_Date.Value.Value.Date &&
-                     rr.CRET_DATE.Value.Date <= ToDate9_Date.Value.Value.Date);
-
-               LOptBs.DataSource =
-                  iScsc.Log_Operations
-                  .Where(lo => 
-                     lo.CRET_DATE.Value.Date >= FromDate9_Date.Value.Value.Date &&
-                     lo.CRET_DATE.Value.Date <= ToDate9_Date.Value.Value.Date
-                  );
+               StisBs.DataSource = results.StisData;
+               RqroBs.DataSource = results.RqroData;
+               LOptBs.DataSource = results.LOptData;
             }
-            else if(tc_master.SelectedTab == tp_010)
+            else if (results.Tab == "010")
             {
-               PydtBs10.DataSource =
-                  iScsc.Payment_Details
-                  .Where(pd =>
-                     pd.EXTS_RSRV_DATE.Value.Date >= FromDate10_Date.Value.Value.Date &&
-                     pd.EXTS_RSRV_DATE.Value.Date <= ToDate10_Date.Value.Value.Date &&
-                     pd.Payment.PYMT_STAT != "002" &&
-                     pd.Request_Row.Request.RQST_STAT == "002" &&
-                     (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) && 
-                     pd.EXTS_CODE != null
-                  );
+               PydtBs10.DataSource = results.Pydt10Data;
             }
-            else if(tc_master.SelectedTab == tp_011)
+            else if (results.Tab == "011")
             {
-               PydtBs11.DataSource =
-                  iScsc.Payment_Details
-                  .Where(pd =>
-                     pd.EXPR_DATE.Value.Date >= FromDate11_Date.Value.Value.Date &&
-                     pd.EXPR_DATE.Value.Date <= ToDate11_Date.Value.Value.Date &&
-                     pd.Payment.PYMT_STAT != "002" &&
-                     pd.Request_Row.Request.RQST_STAT == "002" &&
-                     (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM))                     
-                  );
+               PydtBs11.DataSource = results.Pydt11Data;
             }
-            else if(tc_master.SelectedTab == tp_012)
+            else if (results.Tab == "012")
             {
-               PydtBs12.DataSource =
-                  iScsc.Payment_Details
-                  .Where(pd =>
-                     pd.Request_Row.Request.RQST_DATE.Value.Date >= FromDate12_Date.Value.Value.Date &&
-                     pd.Request_Row.Request.RQST_DATE.Value.Date <= ToDate12_Date.Value.Value.Date &&
-                     pd.Payment.PYMT_STAT != "002" &&
-                     pd.Request_Row.Request.RQST_STAT == "002" &&
-                     (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
-                     pd.MBSP_RWNO != null
-                  );
+               PydtBs12.DataSource = results.Pydt12Data;
             }
-            else if (tc_master.SelectedTab == tp_013)
+            else if (results.Tab == "013")
             {
-               vEvntBs.DataSource =
-                  iScsc.V_Events
-                  .Where(ev =>
-                     ev.EVNT_DATE.Value.Date >= FromDate13_Date.Value.Value.Date &&
-                     ev.EVNT_DATE.Value.Date <= ToDate13_Date.Value.Value.Date
-                  );
-
-               vCochEvntBs.DataSource =
-                  iScsc.V_Coach_Events
-                  .Where(ev =>
-                     ev.EXPR_DATE.Value.Date >= FromDate13_Date.Value.Value.Date &&
-                     ev.EXPR_DATE.Value.Date <= ToDate13_Date.Value.Value.Date
-                  );
+               vEvntBs.DataSource = results.VEvntData;
+               vCochEvntBs.DataSource = results.VCochEvntData;
             }
-            else if(tc_master.SelectedTab == tp_014)
+            else if (results.Tab == "014")
             {
-               Rqst14Bs.DataSource =
-                  iScsc.Requests
-                  .Where(r => 
-                     ((!RqstFree_Cbx.Checked && r.RQTT_CODE == "001") ||
-                     (RqstFree_Cbx.Checked && r.RQTT_CODE == "004" && (r.RQTP_CODE == "001" || r.RQTP_CODE == "009" || r.RQTP_CODE == "016") )) && 
-                     r.RQST_STAT == "002" &&
-                     r.INVC_DATE.Value.Date >= FromDate14_Date.Value.Value.Date &&
-                     r.INVC_DATE.Value.Date <= ToDate14_Date.Value.Value.Date &&
-                     (!RqstIsDebt_Cbx.Checked || r.Payments.Any(p => (p.SUM_EXPN_PRIC - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0)) &&
-                     (!RqstIsDsct_Cbx.Checked || r.Payments.Any(p => p.SUM_PYMT_DSCN_DNRM > 0)) &&
-                     (!RqstMen_Cbx.Checked || r.Request_Rows.Any(rr => rr.Fighter.SEX_TYPE_DNRM == "001")) &&
-                     (!RqstWomen_Cbx.Checked || r.Request_Rows.Any(rr => rr.Fighter.SEX_TYPE_DNRM == "002")) &&
-                     (!RqstCellPhon_Cbx.Checked || r.Request_Rows.Any(rr => rr.Fighter.CELL_PHON_DNRM.Contains(RqstCellPhon_Txt.Text))) &&
-                     (!RqstNatlCode_Cbx.Checked || r.Request_Rows.Any(rr => rr.Fighter.NATL_CODE_DNRM.Contains(RqstNatlCode_Txt.Text))) &&
-                     (!RqstFrstName_Cbx.Checked || r.Request_Rows.Any(rr => rr.Fighter.FRST_NAME_DNRM.Contains(RqstFrstName_Txt.Text))) &&
-                     (!RqstLastName_Cbx.Checked || r.Request_Rows.Any(rr => rr.Fighter.LAST_NAME_DNRM.Contains(RqstLastName_Txt.Text))) &&
-                     (!RqstOrgn_Cbx.Checked || RqstOrgnCode_Lov.EditValue == null || RqstOrgnCode_Lov.EditValue.ToString() == "" || r.Request_Rows.Any(rr => RqstOrgnCode_Lov.EditValue.ToString() == rr.Fighter.SUNT_CODE_DNRM)) &&
-                     (!RqstInvcNumb_Cbx.Checked || r.INVC_NUMB == RqstInvcNumb_Txt.Text.ToInt64()) &&
-                     (!RqstCoch_Cbx.Checked || RqstCoch_Lov.EditValue == null || RqstCoch_Lov.EditValue.ToString() == "" || r.Payments.Any(p => p.Payment_Details.Any(pd => pd.FIGH_FILE_NO == RqstCoch_Lov.EditValue.ToString().ToInt64())))
-                  );
+               Rqst14Bs.DataSource = results.Rqst14Data;
             }
          }
          catch { }

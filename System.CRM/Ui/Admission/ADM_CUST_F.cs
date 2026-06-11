@@ -37,37 +37,53 @@ namespace System.CRM.Ui.Admission
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         if(tb_master.SelectedTab == tp_001)
+         bool isSelectedTab = tb_master.SelectedTab == tp_001;
+         bool pickChecked = ShowRqst_PickButn.PickChecked;
+         int savedRqstindx = rqstindx;
+
+         if(isSelectedTab)
          {
-            //iCRM = new Data.iCRMDataContext(ConnectionString);
-            var Rqids = iCRM.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "001" &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.RQTT_CODE == "004" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+            var result = await Task.Run(() =>
+            {
+               using(var dbContext = new Data.iCRMDataContext(ConnectionString))
+               {
+                  var rqids = dbContext.VF_Requests(new XElement("Request", new XAttribute("cretby", pickChecked ? CurrentUser : "")))
+                     .Where(rqst =>
+                           rqst.RQTP_CODE == "001" &&
+                           rqst.RQST_STAT == "001" &&
+                           rqst.RQTT_CODE == "004" &&
+                           rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-            RqstBs1.DataSource =
-               iCRM.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID)
-               )
-               .OrderByDescending(
-                  rqst => 
-                     rqst.RQST_DATE
-               );
+                  var requests = dbContext.Requests
+                     .Where(
+                        rqst =>
+                           rqids.Contains(rqst.RQID)
+                     )
+                     .OrderByDescending(
+                        rqst =>
+                           rqst.RQST_DATE
+                     )
+                     .ToList();
 
-            RqstBs1.Position = rqstindx;
+                  return requests;
+               }
+            });
+
+            iCRM = new Data.iCRMDataContext(ConnectionString);
+            RqstBs1.DataSource = result;
+            RqstBs1.Position = savedRqstindx;
 
             // 1396/09/10 * اگر خروجی درخواست ها خالی باشد بایستی گزینه ستون نواحی اتوماتیک وار دوباره پر شود
             if(RqstBs1.Count == 0)
             {
                RqstBs1_AddingNew(null, null);
             }
+         }
+         else
+         {
+            iCRM = new Data.iCRMDataContext(ConnectionString);
          }
       }
 

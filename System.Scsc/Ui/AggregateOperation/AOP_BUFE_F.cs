@@ -32,69 +32,97 @@ namespace System.Scsc.Ui.AggregateOperation
       private bool isOnline = false;
       private List<Data.Aggregation_Operation_Detail> _listAodts = new List<Data.Aggregation_Operation_Detail>();
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
          agopindx = AgopBs1.Position;
          aodtindx = AodtBs1.Position;
-         if (SaveInfoStat_Rb.Checked)
-            AgopBs1.DataSource = iScsc.Aggregation_Operations.Where(a => a.OPRT_TYPE == "005" && (a.OPRT_STAT == "001" || a.OPRT_STAT == "002")).OrderByDescending(ag => ag.FROM_DATE);
-         else
+         bool saveInfoStat = SaveInfoStat_Rb.Checked;
+         DateTime? rprtFromDate = RprtFromDate_Dt.Value;
+         DateTime? rprtToDate = RprtToDate_Dt.Value;
+         var fgaUclbU = Fga_Uclb_U;
+
+         if (!saveInfoStat)
          {
             RprtFromDate_Dt.CommitChanges();
             RprtToDate_Dt.CommitChanges();
 
-            if (!RprtFromDate_Dt.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); RprtFromDate_Dt.Focus(); return; }
-            if (!RprtToDate_Dt.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); RprtFromDate_Dt.Focus(); return; }
-
-            AgopBs1.DataSource =
-               iScsc.Aggregation_Operations
-               .Where(a =>
-                  a.OPRT_TYPE == "005" &&
-                  a.OPRT_STAT == "004" &&
-                  (!RprtFromDate_Dt.Value.HasValue || a.FROM_DATE.Value.Date >= RprtFromDate_Dt.Value.Value.Date) &&
-                  (!RprtToDate_Dt.Value.HasValue || a.FROM_DATE.Value.Date <= RprtToDate_Dt.Value.Value.Date)
-                )
-               .OrderByDescending(ag => ag.FROM_DATE);
+            if (!rprtFromDate.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); RprtFromDate_Dt.Focus(); return; }
+            if (!rprtToDate.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); RprtFromDate_Dt.Focus(); return; }
          }
+
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               var agopList =
+                  saveInfoStat
+                     ? db.Aggregation_Operations.Where(a => a.OPRT_TYPE == "005" && (a.OPRT_STAT == "001" || a.OPRT_STAT == "002")).OrderByDescending(ag => ag.FROM_DATE).ToList()
+                     : db.Aggregation_Operations
+                         .Where(a =>
+                            a.OPRT_TYPE == "005" &&
+                            a.OPRT_STAT == "004" &&
+                            (!rprtFromDate.HasValue || a.FROM_DATE.Value.Date >= rprtFromDate.Value.Date) &&
+                            (!rprtToDate.HasValue || a.FROM_DATE.Value.Date <= rprtToDate.Value.Date)
+                         )
+                         .OrderByDescending(ag => ag.FROM_DATE).ToList();
+
+               var fighList = db.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (fgaUclbU.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => fgaUclbU.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101).ToList();
+
+               var clubList = db.Clubs.Where(c => fgaUclbU.Contains(c.CODE)).ToList();
+
+               var expnBufeList =
+                  db.Expenses.Where(ex =>
+                     ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+                     ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+                     ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
+                     ex.EXPN_STAT == "002" /* هزینه های فعال */
+                  ).ToList();
+
+               var extpDeskList =
+                  db.Expense_Types.Where(et =>
+                     et.Request_Requester.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && et.Request_Requester.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+                     et.Request_Requester.RQTP_CODE == "016" &&
+                     et.Request_Requester.RQTT_CODE == "007" &&
+                     et.Expenses.Any(ex => ex.EXPN_STAT == "002")
+                  ).ToList();
+
+               // 1401/01/03 * کنار مصطفی تو استخر هوابرد
+               bool runSearchCustTell = db.Settings.Any(s => fgaUclbU.Contains(s.CLUB_CODE) && s.RUN_QURY == "002");
+
+               var sunsList = db.App_Base_Defines.Where(a => a.ENTY_NAME == "Suns_Group").ToList();
+               var stngItem = db.Settings.FirstOrDefault();
+
+               return new
+               {
+                  AgopList = agopList,
+                  FighList = fighList,
+                  ClubList = clubList,
+                  ExpnBufeList = expnBufeList,
+                  ExtpDeskList = extpDeskList,
+                  RunSearchCustTell = runSearchCustTell,
+                  SunsList = sunsList,
+                  StngItem = stngItem
+               };
+            }
+         });
+
+         iScsc = new Data.iScscDataContext(ConnectionString);
+
+         AgopBs1.DataSource = result.AgopList;
          AgopBs1.Position = agopindx;
          AodtBs1.Position = aodtindx;
 
-         FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
-
-         ClubBs1.DataSource = iScsc.Clubs.Where(c => Fga_Uclb_U.Contains(c.CODE));
-
-         ExpnBufeBs1.DataSource =
-            iScsc.Expenses.Where(ex =>
-               ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-               ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
-               ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-               ex.EXPN_STAT == "002" /* هزینه های فعال */
-            );
-
-         ExtpDeskBs1.DataSource =
-            iScsc.Expense_Types.Where(et =>
-               et.Request_Requester.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && et.Request_Requester.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-               et.Request_Requester.RQTP_CODE == "016" &&
-               et.Request_Requester.RQTT_CODE == "007" &&
-               et.Expenses.Any(ex => ex.EXPN_STAT == "002")
-            );
-         
-         // 1398/12/17 * بخاطر اضافه شدن گزینه مربوط به نوع هزینه این گزینه اینجا بسته میشود
-         //ExpnDeskBs1.DataSource =
-         //   iScsc.Expenses.Where(ex =>
-         //      ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-         //      ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
-         //      ex.Expense_Type.Request_Requester.RQTT_CODE == "007" &&
-         //      ex.EXPN_STAT == "002" /* هزینه های فعال */
-         //   ).OrderBy(ed => ed.EXPN_DESC);
+         FighBs.DataSource = result.FighList;
+         ClubBs1.DataSource = result.ClubList;
+         ExpnBufeBs1.DataSource = result.ExpnBufeList;
+         ExtpDeskBs1.DataSource = result.ExtpDeskList;
 
          // 1401/01/03 * کنار مصطفی تو استخر هوابرد
-         if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))
+         if (result.RunSearchCustTell)
             SearchCustTell_Butn_Click(null, null);
 
-         SunsBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Suns_Group");
-         StngBs.DataSource = iScsc.Settings.FirstOrDefault();
+         SunsBs.DataSource = result.SunsList;
+         StngBs.DataSource = result.StngItem;
 
          requery = false;
       }

@@ -23,26 +23,37 @@ namespace System.Scsc.Ui.Insurance
 
       private bool requery = default(bool);
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          //if (tb_master.SelectedTab == tp_001)
          {
+            var pickChecked = ShowRqst_PickButn.PickChecked;
+            var currentUser = CurrentUser;
+
+            var result = await Task.Run(() =>
+            {
+               var db = new Data.iScscDataContext(ConnectionString);
+               var Rqids = db.VF_Requests(new XElement("Request", new XAttribute("cretby", pickChecked ? currentUser : "")))
+                  .Where(rqst =>
+                        rqst.RQTP_CODE == "012" &&
+                        rqst.RQST_STAT == "001" &&
+                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+               var requests = db.Requests
+                  .Where(
+                     rqst =>
+                        Rqids.Contains(rqst.RQID)
+                  ).ToList();
+
+               // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
+               var fighters = db.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID)).ToList();
+
+               return new { requests, fighters };
+            });
+
             iScsc = new Data.iScscDataContext(ConnectionString);
-            var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "012" &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
-
-            RqstBs1.DataSource =
-               iScsc.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID)
-               );
-
-            // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
-            FighsBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
+            RqstBs1.DataSource = result.requests;
+            FighsBs1.DataSource = result.fighters;
          }         
       }
 

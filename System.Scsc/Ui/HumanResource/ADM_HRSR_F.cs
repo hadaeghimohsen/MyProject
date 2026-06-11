@@ -25,30 +25,39 @@ namespace System.Scsc.Ui.HumanResource
 
       private int rqstindex = default(int);
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          setOnDebt = false;
          try
          {
             if (tb_master.SelectedTab == tp_001)
             {
-               iScsc = new Data.iScscDataContext(ConnectionString);
-
                rqstindex = RqstBs1.Position;
 
-               var Rqids = iScsc.VF_Requests(new XElement("Request"))
-                  .Where(rqst =>
-                        rqst.RQTP_CODE == "022" &&
-                        rqst.RQST_STAT == "001" &&
-                        rqst.RQTT_CODE == "004" &&
-                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+               var result = await Task.Run(() =>
+               {
+                  using (var iScsc = new Data.iScscDataContext(ConnectionString))
+                  {
+                     var Rqids = iScsc.VF_Requests(new XElement("Request"))
+                        .Where(rqst =>
+                              rqst.RQTP_CODE == "022" &&
+                              rqst.RQST_STAT == "001" &&
+                              rqst.RQTT_CODE == "004" &&
+                              rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-               RqstBs1.DataSource =
-                  iScsc.Requests
-                  .Where(
-                     rqst =>
-                        Rqids.Contains(rqst.RQID)
-                  );
+                     var requests = iScsc.Requests
+                        .Where(
+                           rqst =>
+                              Rqids.Contains(rqst.RQID)
+                        ).ToList();
+
+                     return new { Requests = requests };
+                  }
+               });
+
+               iScsc = new Data.iScscDataContext(ConnectionString);
+
+               RqstBs1.DataSource = result.Requests;
 
                RqstBs1.Position = rqstindex;
             }

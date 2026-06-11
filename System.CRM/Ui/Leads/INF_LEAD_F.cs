@@ -39,55 +39,66 @@ namespace System.CRM.Ui.Leads
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            iCRM = new Data.iCRMDataContext(ConnectionString);
-
             rqstindex = RqstBs.Position;
 
-            if (formType == "normal") // in process
+            var result = await Task.Run(() =>
             {
-               var Rqids = iCRM.VF_Requests(new XElement("Request", new XAttribute("cretby", queryAllRequest ? "" : CurrentUser)))
-                  .Where(rqst =>
-                        rqst.RQTP_CODE == "014" &&
-                        rqst.RQST_STAT == "001" &&
-                        rqst.RQTT_CODE == "004" &&
-                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+               var db = new Data.iCRMDataContext(ConnectionString);
 
-               RqstBs.DataSource =
-                  iCRM.Requests
-                  .Where(
-                     rqst =>
-                        Rqids.Contains(rqst.RQID)
-                  )
-                  .OrderByDescending(
-                     rqst =>
-                        rqst.RQST_DATE
-                  );
-            }
-            else if(formType == "showhistory") // ended
-            {
-               var Rqids = iCRM.VF_Requests(new XElement("Request", new XAttribute("cretby", queryAllRequest ? "" : CurrentUser)))
-                  .Where(rqst =>
-                        rqst.RQTP_CODE == "014" &&
-                        //rqst.RQST_STAT == "001" &&
-                        rqst.RQID == rqid &&
-                        rqst.RQTT_CODE == "004" &&
-                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+               if (formType == "normal") // in process
+               {
+                  var Rqids = db.VF_Requests(new XElement("Request", new XAttribute("cretby", queryAllRequest ? "" : CurrentUser)))
+                     .Where(rqst =>
+                           rqst.RQTP_CODE == "014" &&
+                           rqst.RQST_STAT == "001" &&
+                           rqst.RQTT_CODE == "004" &&
+                           rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-               RqstBs.DataSource =
-                  iCRM.Requests
-                  .Where(
-                     rqst =>
-                        Rqids.Contains(rqst.RQID)
-                  )
-                  .OrderByDescending(
-                     rqst =>
-                        rqst.RQST_DATE
-                  );
-            }
+                  var requests = db.Requests
+                     .Where(
+                        rqst =>
+                           Rqids.Contains(rqst.RQID)
+                     )
+                     .OrderByDescending(
+                        rqst =>
+                           rqst.RQST_DATE
+                     ).ToList();
+
+                  return new { Requests = requests };
+               }
+               else if (formType == "showhistory") // ended
+               {
+                  var Rqids = db.VF_Requests(new XElement("Request", new XAttribute("cretby", queryAllRequest ? "" : CurrentUser)))
+                     .Where(rqst =>
+                           rqst.RQTP_CODE == "014" &&
+                           //rqst.RQST_STAT == "001" &&
+                           rqst.RQID == rqid &&
+                           rqst.RQTT_CODE == "004" &&
+                           rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+                  var requests = db.Requests
+                     .Where(
+                        rqst =>
+                           Rqids.Contains(rqst.RQID)
+                     )
+                     .OrderByDescending(
+                        rqst =>
+                           rqst.RQST_DATE
+                     ).ToList();
+
+                  return new { Requests = requests };
+               }
+
+               return new { Requests = (List<Data.Request>)null };
+            });
+
+            iCRM = new Data.iCRMDataContext(ConnectionString);
+
+            RqstBs.DataSource = result.Requests;
             RqstBs.Position = rqstindex;
             requery = false;
          }

@@ -23,32 +23,45 @@ namespace System.Scsc.Ui.Admission
 
       private bool requery = default(bool);
 
-      private void Execute_Query()
-      {
-         iScsc = new Data.iScscDataContext(ConnectionString);
-         var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
-            .Where(rqst =>
-                  rqst.RQTP_CODE == "002" &&
-                  rqst.RQTT_CODE == "004" &&
-                  rqst.RQST_STAT == "001" &&
-                     //(ShowRqst_PickButn.PickChecked ? rqst.CRET_BY == CurrentUser : true) &&
-                  rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+       private async void Execute_Query()
+       {
+          var pickChecked = ShowRqst_PickButn.PickChecked;
+          var currentUser = CurrentUser;
 
-         RqstBs1.DataSource =
-            iScsc.Requests
-            .Where(
-               rqst =>
-                  Rqids.Contains(rqst.RQID)
-            )
-            .OrderByDescending(
-                  rqst =>
-                     rqst.RQST_DATE
-               );
+          var result = await Task.Run(() =>
+          {
+             using (var db = new Data.iScscDataContext(ConnectionString))
+             {
+                var Rqids = db.VF_Requests(new XElement("Request", new XAttribute("cretby", pickChecked ? currentUser : "")))
+                   .Where(rqst =>
+                         rqst.RQTP_CODE == "002" &&
+                         rqst.RQTT_CODE == "004" &&
+                         rqst.RQST_STAT == "001" &&
+                            //(ShowRqst_PickButn.PickChecked ? rqst.CRET_BY == CurrentUser : true) &&
+                         rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
 
-         // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
-         FighsBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
-         //RefDesc_Txt.EditValue = "";
-      }
+                var requests = db.Requests
+                   .Where(
+                      rqst =>
+                         Rqids.Contains(rqst.RQID)
+                   )
+                   .OrderByDescending(
+                         rqst =>
+                            rqst.RQST_DATE
+                      ).ToList();
+
+                // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
+                var fighters = db.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID)).ToList();
+                //RefDesc_Txt.EditValue = "";
+
+                return new { requests, fighters };
+             }
+          });
+
+          iScsc = new Data.iScscDataContext(ConnectionString);
+          RqstBs1.DataSource = result.requests;
+          FighsBs1.DataSource = result.fighters;
+       }
 
       int RqstIndex;
       private void Get_Current_Record()

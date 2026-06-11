@@ -32,7 +32,7 @@ namespace System.CRM.Ui.Competitor
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
@@ -40,8 +40,6 @@ namespace System.CRM.Ui.Competitor
                CompActn_Butn.Buttons.OfType<EditorButton>().FirstOrDefault(b => b.Tag != null && b.Visible == false).Visible = true;
 
             CompActn_Butn.Buttons.OfType<EditorButton>().FirstOrDefault(b => b.Tag != null && b.Tag.ToString() == (onoftag == "on" ? "002" : "001")).Visible = false;
-
-            iCRM = new Data.iCRMDataContext(ConnectionString);
 
             var Qxml = Filter_Butn.Tag as XElement;
             
@@ -93,8 +91,16 @@ namespace System.CRM.Ui.Competitor
             //      );
             //      break;
             //}
-            CmptBs.DataSource =
-               iCRM.VF_Companies(Qxml);
+            var cmptData = await Task.Run(() =>
+            {
+               using (var ctx = new Data.iCRMDataContext(ConnectionString))
+               {
+                  return ctx.VF_Companies(Qxml).ToList();
+               }
+            });
+
+            iCRM = new Data.iCRMDataContext(ConnectionString);
+            CmptBs.DataSource = cmptData;
             requery = false;
          }
          catch { }

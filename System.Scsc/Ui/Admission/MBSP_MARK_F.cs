@@ -34,13 +34,23 @@ namespace System.Scsc.Ui.Admission
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            using (var iScsc = new Data.iScscDataContext(ConnectionString))
+            {
+               var marks = iScsc.Member_Ship_Marks.Where(m => m.MBSP_FIGH_FILE_NO == fileno && m.MBSP_RWNO == rwno && m.MBSP_RECT_CODE == "004").ToList();
+
+               var apbs = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Member_ship_Mark").ToList();
+
+               return new { marks, apbs };
+            }
+         });
+
          iScsc = new Data.iScscDataContext(ConnectionString);
-
-         MbsmBs1.DataSource = iScsc.Member_Ship_Marks.Where(m => m.MBSP_FIGH_FILE_NO == fileno && m.MBSP_RWNO == rwno && m.MBSP_RECT_CODE == "004");
-
-         ApbsBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Member_ship_Mark");
+         MbsmBs1.DataSource = result.marks;
+         ApbsBs.DataSource = result.apbs;
          requery = false;
       }
 

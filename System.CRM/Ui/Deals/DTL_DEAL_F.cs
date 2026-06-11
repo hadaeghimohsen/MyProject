@@ -27,12 +27,20 @@ namespace System.CRM.Ui.Deals
       private bool islock = false;
       private long cashcode, rqstrqid, projrqstrqid;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-
          int pydt = PydtBs.Position;
-         PymtBs.DataSource = iCRM.Payments.FirstOrDefault(p => p.RQST_RQID == rqstrqid && p.CASH_CODE == cashcode);
+
+         var pymtData = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return ctx.Payments.FirstOrDefault(p => p.RQST_RQID == rqstrqid && p.CASH_CODE == cashcode);
+            }
+         });
+
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         PymtBs.DataSource = pymtData;
          PydtBs.Position = pydt;
          requery = false;
       }

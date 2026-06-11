@@ -24,12 +24,19 @@ namespace System.Scsc.Ui.AggregateOperation
       //private bool requery = false;
       private string attnsystype = "002";
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
+            await Task.Run(() =>
+            {
+               using (var dbContext = new Data.iScscDataContext(ConnectionString))
+               {
+                  // No queries to execute
+               }
+            });
+
             iScsc = new Data.iScscDataContext(ConnectionString);
-            
          }
          catch (Exception exc) { MessageBox.Show(exc.Message); }
       }      

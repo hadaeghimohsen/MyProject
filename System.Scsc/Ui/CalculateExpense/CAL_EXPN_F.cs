@@ -19,18 +19,36 @@ namespace System.Scsc.Ui.CalculateExpense
          InitializeComponent();
       }
       private bool requery = false;
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
+         bool isTab001 = tb_master.SelectedTab == tp_001;
+         bool isTab002 = tb_master.SelectedTab == tp_002;
 
-         if(tb_master.SelectedTab == tp_001)
+         var result = await Task.Run(() =>
          {
-            BcexBs.DataSource = iScsc.Base_Calculate_Expenses;
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               if (isTab001)
+               {
+                  var bcexItems = db.Base_Calculate_Expenses.ToList();
+                  return new { bcexItems };
+               }
+               else if (isTab002)
+               {
+                  var cexcItems = db.Calculate_Expense_Coaches.ToList();
+                  return new { cexcItems };
+               }
+               return (dynamic)null;
+            }
+         });
+
+         if (isTab001)
+         {
+            BcexBs.DataSource = result.bcexItems;
          }
-         else if (tb_master.SelectedTab == tp_002)
+         else if (isTab002)
          {
-            CexcBs.DataSource = iScsc.Calculate_Expense_Coaches;
-            //MtodBs.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
+            CexcBs.DataSource = result.cexcItems;
          }
 
          requery = false;

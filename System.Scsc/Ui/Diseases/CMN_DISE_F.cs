@@ -17,12 +17,18 @@ namespace System.Scsc.Ui.Diseases
          InitializeComponent();
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            diseases_TypeBindingSource.DataSource = iScsc.Diseases_Types;
+            var result = await Task.Run(() =>
+            {
+               using (var db = new Data.iScscDataContext(ConnectionString))
+               {
+                  return db.Diseases_Types.ToList();
+               }
+            });
+            diseases_TypeBindingSource.DataSource = result;
          }
          catch (Exception ex)
          {

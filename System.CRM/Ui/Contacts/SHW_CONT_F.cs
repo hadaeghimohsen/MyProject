@@ -33,12 +33,28 @@ namespace System.CRM.Ui.Contacts
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            iCRM = new Data.iCRMDataContext(ConnectionString);
             DateTime StrtDate = DateTime.Now, EndDate = DateTime.Now;
+            object servData = null;
+
+            if (contactShow == "4" || contactShow == "5")
+            {
+               servData = await Task.Run(() =>
+               {
+                  using (var ctx = new Data.iCRMDataContext(ConnectionString))
+                  {
+                     if (contactShow == "4")
+                        return (object)ctx.Services.Where(s => s.CONF_STAT == "002" && s.ONOF_TAG_DNRM.CompareTo("100") <= 0).ToList();
+                     else
+                        return (object)ctx.Services.Where(s => s.CONF_STAT == "002" && s.ONOF_TAG_DNRM.CompareTo("101") >= 0).ToList();
+                  }
+               });
+            }
+
+            iCRM = new Data.iCRMDataContext(ConnectionString);
             switch (contactShow)
             {
                case "1":
@@ -51,10 +67,10 @@ namespace System.CRM.Ui.Contacts
                   ServBs.List.Clear();
                   break;
                case "4":
-                  ServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002" && s.ONOF_TAG_DNRM.CompareTo("100") <= 0);
+                  ServBs.DataSource = servData;
                   break;
                case "5":
-                  ServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002" && s.ONOF_TAG_DNRM.CompareTo("101") >= 0);
+                  ServBs.DataSource = servData;
                   break;
                default:
                   break;

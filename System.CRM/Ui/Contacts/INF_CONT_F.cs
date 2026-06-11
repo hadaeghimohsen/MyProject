@@ -34,12 +34,21 @@ namespace System.CRM.Ui.Contacts
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         ServBs.DataSource = iCRM.Services.FirstOrDefault(s => s.FILE_NO == fileno );
+         var queryResult = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               var serv = ctx.Services.FirstOrDefault(s => s.FILE_NO == fileno);
+               var mstt = ctx.Main_States.ToList();
+               return new { serv, mstt };
+            }
+         });
 
-         MsttBs.DataSource = iCRM.Main_States;
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         ServBs.DataSource = queryResult.serv;
+         MsttBs.DataSource = queryResult.mstt;
          //RqstChngBs.DataSource = iCRM.VF_Request_Changing(null, fileno, null, null).OrderByDescending(r => r.SAVE_DATE).Take(5);
          //PymtSaveBs.DataSource = iCRM.VF_Save_Payments(null, fileno, null);
          requery = false;

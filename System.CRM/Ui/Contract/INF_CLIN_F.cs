@@ -39,17 +39,22 @@ namespace System.CRM.Ui.Contract
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            iCRM = new Data.iCRMDataContext(ConnectionString);
-
             cntrindex = CntrBs.Position;
 
-            CntrBs.DataSource =
-               iCRM.Contracts.Where(c => c.CNID == cnid);
-            
+            var cntrData = await Task.Run(() =>
+            {
+               using (var ctx = new Data.iCRMDataContext(ConnectionString))
+               {
+                  return ctx.Contracts.Where(c => c.CNID == cnid).ToList();
+               }
+            });
+
+            iCRM = new Data.iCRMDataContext(ConnectionString);
+            CntrBs.DataSource = cntrData;
             CntrBs.Position = cntrindex;
             requery = false;
          }

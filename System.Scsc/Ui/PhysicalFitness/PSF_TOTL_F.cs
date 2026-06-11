@@ -22,19 +22,31 @@ namespace System.Scsc.Ui.PhysicalFitness
 
       private bool requery = default(bool);
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         if (tb_master.SelectedTab == tp_001)
+         bool isTab001 = tb_master.SelectedTab == tp_001;
+
+         var result = await Task.Run(() =>
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            RqstBs1.DataSource =
-               iScsc.Requests
-               .Where(
-                  rqst =>
-                     rqst.RQTP_CODE == "005" &&                     
-                     rqst.RQST_STAT == "001" &&
-                     rqst.SUB_SYS == 1
-               );
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               if (isTab001)
+               {
+                  return db.Requests
+                     .Where(
+                        rqst =>
+                           rqst.RQTP_CODE == "005" &&
+                           rqst.RQST_STAT == "001" &&
+                           rqst.SUB_SYS == 1
+                     ).ToList();
+               }
+               return (List<Data.Request>)null;
+            }
+         });
+
+         if (isTab001)
+         {
+            RqstBs1.DataSource = result;
          }
       }
 

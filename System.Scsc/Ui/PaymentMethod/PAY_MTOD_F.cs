@@ -22,14 +22,25 @@ namespace System.Scsc.Ui.PaymentMethod
       }
       bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
          int pymt = PymtBs1.Position;
          int pydt = PydtBs3.Position;
          int pmtc = PmtcBs4.Position;
-         PymtBs1.DataSource = iScsc.Payments.Where(p => p == PymtBs1.Current);
-         PydtBs3.DataSource = iScsc.Payment_Details.Where(pd => pd.Payment == PymtBs1.Current && pd.ADD_QUTS == "002");
+
+         var result = await Task.Run(() =>
+         {
+            using (var dbContext = new Data.iScscDataContext(ConnectionString))
+            {
+               var currentPymt = dbContext.Payments.Where(p => p == PymtBs1.Current).ToList();
+               var pydtData = dbContext.Payment_Details.Where(pd => pd.Payment == PymtBs1.Current && pd.ADD_QUTS == "002").ToList();
+               return new { currentPymt, pydtData };
+            }
+         });
+
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         PymtBs1.DataSource = result.currentPymt;
+         PydtBs3.DataSource = result.pydtData;
          PymtBs1.Position = pymt;
          PydtBs3.Position = pydt;
          PmtcBs4.Position = pmtc;

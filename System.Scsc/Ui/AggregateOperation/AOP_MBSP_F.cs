@@ -25,12 +25,24 @@ namespace System.Scsc.Ui.AggregateOperation
       private long? cbmtcode;
       private DateTime? fromdate = null, todate = null;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
          agopindx = AgopBs1.Position;
          aodtindx = AodtBs1.Position;
-         AgopBs1.DataSource = iScsc.Aggregation_Operations.Where(a => a.OPRT_TYPE == "001" && (a.OPRT_STAT == "001" || a.OPRT_STAT == "002"));
+
+         var result = await Task.Run(() =>
+         {
+            using (var dbContext = new Data.iScscDataContext(ConnectionString))
+            {
+               var agopData = dbContext.Aggregation_Operations
+                  .Where(a => a.OPRT_TYPE == "001" && (a.OPRT_STAT == "001" || a.OPRT_STAT == "002"))
+                  .ToList();
+               return new { agopData };
+            }
+         });
+
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         AgopBs1.DataSource = result.agopData;
          AgopBs1.Position = agopindx;
          AodtBs1.Position = aodtindx;
          requery = false;

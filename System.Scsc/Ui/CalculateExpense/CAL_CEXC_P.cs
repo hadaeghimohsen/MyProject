@@ -21,20 +21,37 @@ namespace System.Scsc.Ui.CalculateExpense
 
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
-         if (tb_master.SelectedTab == tp_001)
+         bool isTab001 = tb_master.SelectedTab == tp_001;
+         bool hasFromDate = Delv_FromDate.Value.HasValue;
+         bool hasToDate = Delv_ToDate.Value.HasValue;
+         DateTime fromDate = hasFromDate ? Delv_FromDate.Value.Value.Date : DateTime.MinValue;
+         DateTime toDate = hasToDate ? Delv_ToDate.Value.Value.Date : DateTime.MaxValue;
+
+         var result = await Task.Run(() =>
          {
-            MsexBs.DataSource = 
-               iScsc.Misc_Expenses
-               .Where(m => 
-                           Fga_Urgn_U.Split(',').Contains(m.REGN_PRVN_CODE + m.REGN_CODE) && 
-                           Fga_Uclb_U.Contains(m.CLUB_CODE) && m.VALD_TYPE == "002" && 
-                           m.CALC_EXPN_TYPE == "001" &&
-                           m.DELV_DATE.Value.Date >= (Delv_FromDate.Value.HasValue ? Delv_FromDate.Value.Value.Date : m.DELV_DATE.Value.Date) &&
-                           m.DELV_DATE.Value.Date <= (Delv_ToDate.Value.HasValue ? Delv_ToDate.Value.Value.Date : m.DELV_DATE.Value.Date)
-               );
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               if (isTab001)
+               {
+                  var msexItems = db.Misc_Expenses
+                     .Where(m =>
+                        Fga_Urgn_U.Split(',').Contains(m.REGN_PRVN_CODE + m.REGN_CODE) &&
+                        Fga_Uclb_U.Contains(m.CLUB_CODE) && m.VALD_TYPE == "002" &&
+                        m.CALC_EXPN_TYPE == "001" &&
+                        m.DELV_DATE.Value.Date >= (hasFromDate ? fromDate : m.DELV_DATE.Value.Date) &&
+                        m.DELV_DATE.Value.Date <= (hasToDate ? toDate : m.DELV_DATE.Value.Date)
+                     ).ToList();
+                  return new { msexItems };
+               }
+               return (dynamic)null;
+            }
+         });
+
+         if (isTab001)
+         {
+            MsexBs.DataSource = result.msexItems;
          }
          requery = false;
       }

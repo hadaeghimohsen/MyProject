@@ -26,12 +26,23 @@ namespace System.CRM.Ui.Deals
       private long cashcode, rqid;
       private long rqstrqid, projrqstrqid;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var queryResult = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               var serv = ctx.Services.Where(s => s.FILE_NO == fileno).ToList();
+               var servs = ctx.Services.Where(s => s.CONF_STAT == "002" && Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101).ToList();
+               var comp = ctx.Companies.ToList();
+               return new { serv, servs, comp };
+            }
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         ServBs.DataSource = iCRM.Services.Where(s => s.FILE_NO == fileno);
-         ServsBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002" && Convert.ToInt32(s.ONOF_TAG_DNRM) >= 101);
-         CompBs.DataSource = iCRM.Companies;
+         ServBs.DataSource = queryResult.serv;
+         ServsBs.DataSource = queryResult.servs;
+         CompBs.DataSource = queryResult.comp;
          requery = false;
       }
 

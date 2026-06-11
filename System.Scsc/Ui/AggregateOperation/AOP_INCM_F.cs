@@ -25,22 +25,40 @@ namespace System.Scsc.Ui.AggregateOperation
       private long? cbmtcode;
       private DateTime? fromdate = null, todate = null;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
          agopindx = AgopBs1.Position;
          aodtindx = AodtBs1.Position;
-         AgopBs1.DataSource = iScsc.Aggregation_Operations.Where(a => a.OPRT_TYPE == "006" && (a.OPRT_STAT == "001" || a.OPRT_STAT == "002"));
+
+         var result = await Task.Run(() =>
+         {
+            using (var dbContext = new Data.iScscDataContext(ConnectionString))
+            {
+               var agopData = dbContext.Aggregation_Operations
+                  .Where(a => a.OPRT_TYPE == "006" && (a.OPRT_STAT == "001" || a.OPRT_STAT == "002"))
+                  .ToList();
+               var expnData = dbContext.Expenses
+                  .Where(ex =>
+                     ex.Regulation.REGL_STAT == "002" && ex.Regulation.TYPE == "001" &&
+                     ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
+                     ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
+                     ex.EXPN_STAT == "002"
+                  ).ToList();
+               var expnGroupData = expnData
+                  .OrderBy(e => e.GROP_CODE)
+                  .GroupBy(e => e.Group_Expense)
+                  .Select(g => new { Key = g.Key, Desc = g.Key != null ? g.Key.GROP_DESC : "سایر موارد", Code = g.Key != null ? (long?)g.Key.CODE : (long?)null })
+                  .ToList();
+               return new { agopData, expnData, expnGroupData };
+            }
+         });
+
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         AgopBs1.DataSource = result.agopData;
          AgopBs1.Position = agopindx;
          AodtBs1.Position = aodtindx;
 
-         ExpnBs1.DataSource =
-            iScsc.Expenses.Where(ex =>
-               ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
-               ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
-               ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-               ex.EXPN_STAT == "002" /* هزینه های فعال */
-            );        
+         ExpnBs1.DataSource = result.expnData;
 
          Grop_FLP.Controls.Clear();
          var allItems = new Button();
@@ -51,17 +69,12 @@ namespace System.Scsc.Ui.AggregateOperation
          allItems.Click += GropButn_Click;
          Grop_FLP.Controls.Add(allItems);
 
-         ExpnBs1.List.OfType<Data.Expense>().OrderBy(e => e.GROP_CODE).GroupBy(e => e.Group_Expense).ToList().ForEach(
+         result.expnGroupData.ForEach(
             g =>
             {
                var b = new Button();
-               if (g.Key != null)
-               {
-                  b.Text = g.Key.GROP_DESC;
-                  b.Tag = g.Key.CODE;
-               }
-               else
-                  b.Text = "سایر موارد";
+               b.Text = g.Desc;
+               b.Tag = g.Code;
                b.Click += GropButn_Click;
                Grop_FLP.Controls.Add(b);
             }

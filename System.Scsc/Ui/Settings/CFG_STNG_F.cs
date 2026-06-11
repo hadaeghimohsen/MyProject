@@ -24,20 +24,42 @@ namespace System.Scsc.Ui.Settings
       }
 
       bool requery = false;
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            if (tc_Settings.SelectedTab == tp_backuprestore)
+            bool isTabBackup = tc_Settings.SelectedTab == tp_backuprestore;
+            bool isTabPrint = tc_Settings.SelectedTab == tp_printmodual;
+
+            var result = await Task.Run(() =>
             {
-               StngBs1.DataSource = iScsc.Settings.Take(1);
+               using (var db = new Data.iScscDataContext(ConnectionString))
+               {
+                  if (isTabBackup)
+                  {
+                     var settings = db.Settings.Take(1).ToList();
+                     return new { settings };
+                  }
+                  else if (isTabPrint)
+                  {
+                     var mdrpReports = db.Modual_Reports.Where(mr => mr.MDUL_NAME == Modul_Name && mr.SECT_NAME == Section_Name).ToList();
+                     return new { mdrpReports };
+                  }
+                  return (dynamic)null;
+               }
+            });
+
+            if (isTabBackup)
+            {
+               StngBs1.DataSource = result.settings;
 
                Execute_ClubShare_Query();
             }
-            else if (tc_Settings.SelectedTab == tp_printmodual)
+            else if (isTabPrint)
             {
-               Execute_ModualReport_Query();
+               var _0 = MdrpBs1.Position;
+               MdrpBs1.DataSource = result.mdrpReports;
+               MdrpBs1.Position = _0;
             }
          }
          catch { }

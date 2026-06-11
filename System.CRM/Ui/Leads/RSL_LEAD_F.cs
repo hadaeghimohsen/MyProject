@@ -36,13 +36,20 @@ namespace System.CRM.Ui.Leads
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            iCRM = new Data.iCRMDataContext(ConnectionString);
+            var leadData = await Task.Run(() =>
+            {
+               using (var ctx = new Data.iCRMDataContext(ConnectionString))
+               {
+                  return ctx.Leads.Where(l => l.LDID == ldid).ToList();
+               }
+            });
 
-            LeadBs.DataSource = iCRM.Leads.Where(l => l.LDID == ldid);            
+            iCRM = new Data.iCRMDataContext(ConnectionString);
+            LeadBs.DataSource = leadData;
 
             requery = false;
          }

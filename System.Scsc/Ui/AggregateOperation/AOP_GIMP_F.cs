@@ -24,12 +24,21 @@ namespace System.Scsc.Ui.AggregateOperation
       private bool requery = false;
       private string fngrprnt = "";
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
+         var result = await Task.Run(() =>
+         {
+            using (var dbContext = new Data.iScscDataContext(ConnectionString))
+            {
+               var agopData = dbContext.Aggregation_Operations
+                  .Where(a => a.OPRT_TYPE == "007" && (a.OPRT_STAT == "001" || a.OPRT_STAT == "002"))
+                  .ToList();
+               return new { agopData };
+            }
+         });
 
-         AgopBs1.DataSource = iScsc.Aggregation_Operations.Where(a => a.OPRT_TYPE == "007" && (a.OPRT_STAT == "001" || a.OPRT_STAT == "002"));
-         
+         iScsc = new Data.iScscDataContext(ConnectionString);
+         AgopBs1.DataSource = result.agopData;
          requery = false;
       }
 

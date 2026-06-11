@@ -32,24 +32,39 @@ namespace System.Scsc.Ui.Admission
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
+            var result = await Task.Run(() =>
+            {
+               using (var iScsc = new Data.iScscDataContext(ConnectionString))
+               {
+                  var mbsp004 = iScsc.Member_Ships.FirstOrDefault(mb => mb.RWNO == mbsprwno && mb.RECT_CODE == "004" && mb.FIGH_FILE_NO == fileno);
+                  var cbmt = mbsp004.Fighter_Public.Club_Method;
+                  var cochName = cbmt.Fighter.NAME_DNRM;
+                  var mtodDesc = mbsp004.Fighter_Public.Method.MTOD_DESC;
+                  var ctgyDesc = mbsp004.Fighter_Public.Category_Belt.CTGY_DESC;
+                  var strtTime = cbmt.STRT_TIME.ToString().Substring(0, 5);
+                  var endTime = cbmt.END_TIME.ToString().Substring(0, 5);
+
+                  var cbmtList = iScsc.Club_Methods.Where(cm => cm.MTOD_STAT == "002" /*&& cm.MTOD_CODE == mbsp.Fighter_Public.MTOD_CODE*/).ToList();
+
+                  var mbsp002 = iScsc.Member_Ships.FirstOrDefault(mb => mb.RQRO_RQST_RQID == mbsp004.RQRO_RQST_RQID && mb.RECT_CODE == "002" && mb.FIGH_FILE_NO == fileno);
+
+                  return new { mbsp004, cochName, mtodDesc, ctgyDesc, strtTime, endTime, cbmtList, mbsp002 };
+               }
+            });
+
             iScsc = new Data.iScscDataContext(ConnectionString);
-            Mbsp004Bs.DataSource = iScsc.Member_Ships.FirstOrDefault(mb => mb.RWNO == mbsprwno && mb.RECT_CODE == "004" && mb.FIGH_FILE_NO == fileno);
-            var mbsp = Mbsp004Bs.Current as Data.Member_Ship;
-
-            var cbmt = mbsp.Fighter_Public.Club_Method;
-            CochName_Txt.EditValue = cbmt.Fighter.NAME_DNRM;
-            MtodDesc_Txt.EditValue = mbsp.Fighter_Public.Method.MTOD_DESC;
-            CtgyDesc_Txt.EditValue = mbsp.Fighter_Public.Category_Belt.CTGY_DESC;
-            StrtTime_Txt.EditValue = cbmt.STRT_TIME.ToString().Substring(0, 5);
-            EndTime_Txt.EditValue = cbmt.END_TIME.ToString().Substring(0, 5);
-
-            CbmtBs1.DataSource = iScsc.Club_Methods.Where(cm => cm.MTOD_STAT == "002" /*&& cm.MTOD_CODE == mbsp.Fighter_Public.MTOD_CODE*/);
-
-            Mbsp002Bs.DataSource = iScsc.Member_Ships.FirstOrDefault(mb => mb.RQRO_RQST_RQID == mbsp.RQRO_RQST_RQID && mb.RECT_CODE == "002" && mb.FIGH_FILE_NO == fileno);
+            Mbsp004Bs.DataSource = result.mbsp004;
+            CochName_Txt.EditValue = result.cochName;
+            MtodDesc_Txt.EditValue = result.mtodDesc;
+            CtgyDesc_Txt.EditValue = result.ctgyDesc;
+            StrtTime_Txt.EditValue = result.strtTime;
+            EndTime_Txt.EditValue = result.endTime;
+            CbmtBs1.DataSource = result.cbmtList;
+            Mbsp002Bs.DataSource = result.mbsp002;
          }
          catch (Exception ) { }
          requery = false;

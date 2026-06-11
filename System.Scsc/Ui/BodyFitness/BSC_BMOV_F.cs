@@ -20,15 +20,28 @@ namespace System.Scsc.Ui.BodyFitness
 
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         if(tb_master.SelectedTab == tp_001)
-         {
-            iScsc = new Data.iScscDataContext(ConnectionString);
+         bool isTab001 = tb_master.SelectedTab == tp_001;
+         int _0 = BbfmBs1.Position;
+         int _1 = PbfmBs1.Position;
 
-            int _0 = BbfmBs1.Position;
-            int _1 = PbfmBs1.Position;
-            BbfmBs1.DataSource = iScsc.Basic_Body_Fitness_Movements;
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               if (isTab001)
+               {
+                  var bbfmItems = db.Basic_Body_Fitness_Movements.ToList();
+                  return new { bbfmItems };
+               }
+               return (dynamic)null;
+            }
+         });
+
+         if (isTab001)
+         {
+            BbfmBs1.DataSource = result.bbfmItems;
             BbfmBs1.Position = _0;
             PbfmBs1.Position = _1;
 

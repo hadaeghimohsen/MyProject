@@ -20,11 +20,21 @@ namespace System.Scsc.Ui.EnablingDisabling.ShowChanges
          InitializeComponent();
       }
 
-      private void Execute_Query(bool runAllQuery)
+      private async void Execute_Query(bool runAllQuery)
       {
-         if(tb_master.SelectedTab == tp_001 || runAllQuery)
+         var selectedTab = tb_master.SelectedTab;
+         if(selectedTab == tp_001 || runAllQuery)
          {
-            RqstBs1.DataSource = iScsc.Requests.FirstOrDefault(r => r.RQID == Rqid);
+            var result = await Task.Run(() =>
+            {
+               using (var iScsc = new Data.iScscDataContext(ConnectionString))
+               {
+                  return iScsc.Requests.FirstOrDefault(r => r.RQID == Rqid);
+               }
+            });
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            RqstBs1.DataSource = result;
          }
       }
 

@@ -22,23 +22,28 @@ namespace System.Scsc.Ui.MethodClubCard
 
       private bool requery = default(bool);
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          if (tb_master.SelectedTab == tp_001)
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            var Rqids = iScsc.VF_Requests(new XElement("Request"))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "010" &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+            var result = await Task.Run(() =>
+            {
+               using (var dbContext = new Data.iScscDataContext(ConnectionString))
+               {
+                  var Rqids = dbContext.VF_Requests(new XElement("Request"))
+                     .Where(rqst =>
+                           rqst.RQTP_CODE == "010" &&
+                           rqst.RQST_STAT == "001" &&
+                           rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+                  var rqstData = dbContext.Requests
+                     .Where(rqst => Rqids.Contains(rqst.RQID))
+                     .ToList();
+                  return new { rqstData };
+               }
+            });
 
-            RqstBs1.DataSource =
-               iScsc.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID)
-               );
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            RqstBs1.DataSource = result.rqstData;
          }
       }
 

@@ -20,48 +20,59 @@ namespace System.Scsc.Ui.Settings
       }
       bool requery = default(bool);
 
-      private void Execute_Query(bool runQueryAllTabPage)
+      private async void Execute_Query(bool runQueryAllTabPage)
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
-         if(tc_master.SelectedTab == tp_001 || runQueryAllTabPage)
+         bool isTab001 = tc_master.SelectedTab == tp_001 || runQueryAllTabPage;
+         bool isTab002 = tc_master.SelectedTab == tp_002 || runQueryAllTabPage;
+         bool isTab003 = tc_master.SelectedTab == tp_003 || runQueryAllTabPage;
+
+         int _c1 = CntyBs1.Position;
+         int _p1 = PrvnBs1.Position;
+         int _r1 = RegnBs1.Position;
+         int _c2 = CntyBs2.Position;
+         int _p2 = PrvnBs2.Position;
+         int _r2 = RegnBs2.Position;
+         int _cb = ClubBs2.Position;
+         int _cbmt = CbmtBs2.Position;
+         int _cb3 = ClubBs3.Position;
+         int _u = VUserBs2.Position;
+         int _fur = FURgnBs3.Position;
+         int _fuc = FUClbBs3.Position;
+
+         var result = await Task.Run(() =>
          {
-            int _c = CntyBs1.Position;
-            int _p = PrvnBs1.Position;
-            int _r = RegnBs1.Position;
-            CntyBs1.DataSource = iScsc.Countries;
-            CntyBs1.Position = _c;
-            PrvnBs1.Position = _p;
-            RegnBs1.Position = _r;
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               var countries = db.Countries.ToList();
+               var users = isTab003 ? db.V_Users.ToList() : null;
+               return new { countries, users };
+            }
+         });
+
+         if (isTab001)
+         {
+            CntyBs1.DataSource = result.countries;
+            CntyBs1.Position = _c1;
+            PrvnBs1.Position = _p1;
+            RegnBs1.Position = _r1;
          }
-         if(tc_master.SelectedTab == tp_002 || runQueryAllTabPage)
+         if (isTab002)
          {
-            int _c = CntyBs2.Position;
-            int _p = PrvnBs2.Position;
-            int _r = RegnBs2.Position;
-            int _cb = ClubBs2.Position;
-            int _cbmt = CbmtBs2.Position;
-            CntyBs2.DataSource = iScsc.Countries;
-            CntyBs2.Position = _c;
-            PrvnBs2.Position = _p;
-            RegnBs2.Position = _r;
+            CntyBs2.DataSource = result.countries;
+            CntyBs2.Position = _c2;
+            PrvnBs2.Position = _p2;
+            RegnBs2.Position = _r2;
             ClubBs2.Position = _cb;
             CbmtBs2.Position = _cbmt;
          }
-         if(tc_master.SelectedTab == tp_003 || runQueryAllTabPage)
+         if (isTab003)
          {
-            int _c = CntyBs2.Position;
-            int _p = PrvnBs2.Position;
-            int _r = RegnBs2.Position;
-            int _cb = ClubBs3.Position;
-            int _u = VUserBs2.Position;
-            int _fur = FURgnBs3.Position;
-            int _fuc = FUClbBs3.Position;
-            CntyBs2.DataSource = iScsc.Countries;
-            VUserBs2.DataSource = iScsc.V_Users;
-            CntyBs2.Position = _c;
-            PrvnBs2.Position = _p;
-            RegnBs2.Position = _r;
-            ClubBs3.Position = _cb;
+            CntyBs2.DataSource = result.countries;
+            VUserBs2.DataSource = result.users;
+            CntyBs2.Position = _c2;
+            PrvnBs2.Position = _p2;
+            RegnBs2.Position = _r2;
+            ClubBs3.Position = _cb3;
             VUserBs2.Position = _u;
             FURgnBs3.Position = _fur;
             FUClbBs3.Position = _fuc;

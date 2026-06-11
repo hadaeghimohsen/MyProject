@@ -23,45 +23,70 @@ namespace System.Scsc.Ui.OtherIncome
 
       private bool requery = default(bool);
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         if (tb_master.SelectedTab == tp_001)
+         var selectedTab = tb_master.SelectedTab;
+         if (selectedTab == tp_001)
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            var Rqids = iScsc.VF_Requests(new XElement("Request"))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "016" &&
-                     rqst.RQTT_CODE == "007" &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+            var moduleName = GetType().Name;
+            var sectName = moduleName.Substring(0, 3) + "_001_F";
 
-            RqstBs1.DataSource =
-               iScsc.Requests
-               .Where(
-                  rqst =>
-                     Rqids.Contains(rqst.RQID) &&
-                     rqst.MDUL_NAME == GetType().Name &&
-                     rqst.SECT_NAME == GetType().Name.Substring(0, 3) + "_001_F"
-               );
+            var result = await Task.Run(() =>
+            {
+               using (var iScsc = new Data.iScscDataContext(ConnectionString))
+               {
+                  var Rqids = iScsc.VF_Requests(new XElement("Request"))
+                     .Where(rqst =>
+                           rqst.RQTP_CODE == "016" &&
+                           rqst.RQTT_CODE == "007" &&
+                           rqst.RQST_STAT == "001" &&
+                           rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+                  var requests = iScsc.Requests
+                     .Where(
+                        rqst =>
+                           Rqids.Contains(rqst.RQID) &&
+                           rqst.MDUL_NAME == moduleName &&
+                           rqst.SECT_NAME == sectName
+                     ).ToList();
+
+                  return new { requests };
+               }
+            });
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            RqstBs1.DataSource = result.requests;
          }
-         else if(tb_master.SelectedTab == tp_002)
+         else if(selectedTab == tp_002)
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-            var Rqids = iScsc.VF_Requests(new XElement("Request"))
-               .Where(rqst =>
-                     rqst.RQTP_CODE == "016" &&
-                     rqst.RQTT_CODE == "007" &&
-                     rqst.RQST_STAT == "001" &&
-                     rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+            var moduleName = GetType().Name;
+            var sectName = moduleName.Substring(0, 3) + "_001_F";
 
-            SnmtBs2.DataSource =
-               iScsc.Session_Meetings
-               .Where(
-                  s =>
-                     Rqids.Contains(s.Session.Member_Ship.Request_Row.Request.RQID) &&
-                     s.Session.Member_Ship.Request_Row.Request.MDUL_NAME == GetType().Name &&
-                     s.Session.Member_Ship.Request_Row.Request.SECT_NAME == GetType().Name.Substring(0, 3) + "_001_F"
-               );
+            var result = await Task.Run(() =>
+            {
+               using (var iScsc = new Data.iScscDataContext(ConnectionString))
+               {
+                  var Rqids = iScsc.VF_Requests(new XElement("Request"))
+                     .Where(rqst =>
+                           rqst.RQTP_CODE == "016" &&
+                           rqst.RQTT_CODE == "007" &&
+                           rqst.RQST_STAT == "001" &&
+                           rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+                  var meetings = iScsc.Session_Meetings
+                     .Where(
+                        s =>
+                           Rqids.Contains(s.Session.Member_Ship.Request_Row.Request.RQID) &&
+                           s.Session.Member_Ship.Request_Row.Request.MDUL_NAME == moduleName &&
+                           s.Session.Member_Ship.Request_Row.Request.SECT_NAME == sectName
+                     ).ToList();
+
+                  return new { meetings };
+               }
+            });
+
+            iScsc = new Data.iScscDataContext(ConnectionString);
+            SnmtBs2.DataSource = result.meetings;
          }
       }
 

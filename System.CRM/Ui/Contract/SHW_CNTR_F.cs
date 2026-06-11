@@ -35,58 +35,77 @@ namespace System.CRM.Ui.Contract
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);         
+         var queryResult = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               switch (contractShow)
+               {
+                  case "1":
+                     return (object)null;
+                  case "2":
+                     return (object)ctx.Contracts.Where(
+                        c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
+                           && c.Request_Row.Request.RQST_STAT != "003"
+                        //&& c.Request_Row.Request.SSTT_CODE == 1
+                     ).ToList();
+                  case "3":
+                     return (object)ctx.Contracts.Where(
+                        c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
+                           && c.Request_Row.Request.RQST_STAT != "003"
+                           && c.STAT == "016"
+                        //&& c.Request_Row.Request.SSTT_CODE == 1
+                     ).ToList();
+                  case "4":
+                     return (object)ctx.Contracts.Where(
+                        c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
+                           && c.Request_Row.Request.RQST_STAT != "003"
+                           && c.Job_Personnel.USER_NAME == CurrentUser
+                           //&& c.Request_Row.Request.SSTT_CODE == 1
+                     ).ToList();
+                  case "5":
+                     return (object)ctx.Contracts.Where(
+                        c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
+                           && c.Request_Row.Request.RQST_STAT != "003"
+                           //&& c.Request_Row.Request.SSTT_CODE == 1
+                           && (c.STAT == "007" || c.STAT == "015" || c.STAT == "017" || c.STAT == "018")
+                           && (c.END_DATE.Value.Date < DateTime.Now.Date)
+                     ).ToList();
+                  case "6":
+                     return (object)ctx.Contracts.Where(
+                        c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
+                           && c.Request_Row.Request.RQST_STAT != "003"
+                           //&& c.Request_Row.Request.SSTT_CODE == 1
+                           && (c.STAT == "007")
+                     ).ToList();
+                  default:
+                     return (object)null;
+               }
+            }
+         });
+
+         iCRM = new Data.iCRMDataContext(ConnectionString);
          switch (contractShow)
          {
             case "1":
                ContBs.List.Clear();
                break;
             case "2":
-               ContBs.DataSource =
-                  iCRM.Contracts.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                  //&& c.Request_Row.Request.SSTT_CODE == 1
-                     );
+               ContBs.DataSource = queryResult;
                break;
             case "3":
-               ContBs.DataSource =
-                  iCRM.Contracts.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       && c.STAT == "016"
-                  //&& c.Request_Row.Request.SSTT_CODE == 1
-                     );
+               ContBs.DataSource = queryResult;
                break;
             case "4":
-               ContBs.DataSource =
-                  iCRM.Contracts.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       && c.Job_Personnel.USER_NAME == CurrentUser
-                       //&& c.Request_Row.Request.SSTT_CODE == 1
-                     );
+               ContBs.DataSource = queryResult;
                break;
-            case "5":               
-               ContBs.DataSource =
-                  iCRM.Contracts.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                       //&& c.Request_Row.Request.SSTT_CODE == 1
-                       && (c.STAT == "007" || c.STAT == "015" || c.STAT == "017" || c.STAT == "018")
-                       && (c.END_DATE.Value.Date < DateTime.Now.Date)
-                     );
+            case "5":
+               ContBs.DataSource = queryResult;
                break;
             case "6":
-               ContBs.DataSource =
-                  iCRM.Contracts.Where(
-                     c => (c.COMP_CODE ?? 0) == (compcode != 0 ? compcode : (c.COMP_CODE ?? 0))
-                       && c.Request_Row.Request.RQST_STAT != "003"
-                        //&& c.Request_Row.Request.SSTT_CODE == 1
-                       && (c.STAT == "007")
-                     );
+               ContBs.DataSource = queryResult;
                break;
          }         
       }

@@ -25,7 +25,7 @@ namespace System.Scsc.Ui.ReportManager
          );
       }
 
-      private void Execute_Query(bool runAllQuery)
+      private async void Execute_Query(bool runAllQuery)
       {
          //if(tb_master.SelectedTab == tp_001 || runAllQuery)
          {

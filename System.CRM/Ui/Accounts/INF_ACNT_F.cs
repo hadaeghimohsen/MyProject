@@ -36,13 +36,23 @@ namespace System.CRM.Ui.Acounts
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var queryResult = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               var comp = ctx.Companies.FirstOrDefault(c => c.CODE == compcode);
+               var mstt = ctx.Main_States.ToList();
+               return new { comp, mstt };
+            }
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         CompBs.DataSource = iCRM.Companies.FirstOrDefault(c => c.CODE == compcode );
+         CompBs.DataSource = queryResult.comp;
          //RqstChngBs.DataSource = iCRM.VF_Request_Changing(null, null, compcode, null).OrderByDescending(r => r.SAVE_DATE).Take(5);
          //PymtSaveBs.DataSource = iCRM.VF_Save_Payments(null, null, compcode, null);
-         MsttBs.DataSource = iCRM.Main_States;
+         MsttBs.DataSource = queryResult.mstt;
 
          requery = false;
       }

@@ -32,13 +32,20 @@ namespace System.CRM.Ui.Acounts
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
+            var compData = await Task.Run(() =>
+            {
+               using (var ctx = new Data.iCRMDataContext(ConnectionString))
+               {
+                  return ctx.Companies.Where(c => c.RECD_STAT == "002").ToList();
+               }
+            });
+
             iCRM = new Data.iCRMDataContext(ConnectionString);
-            CompBs.DataSource =
-               iCRM.Companies.Where(c => c.RECD_STAT == "002");
+            CompBs.DataSource = compData;
                
             requery = false;
          }

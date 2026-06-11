@@ -26,9 +26,17 @@ namespace System.Scsc.Ui.Reason
       string rqtpcode;
 
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         RsrqBs1.DataSource = iScsc.Reason_Requests.Where(rsrq => rsrq.Request_Row == RqroBs1.Current);
+         var currentRequestRow = RqroBs1.Current;
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               return db.Reason_Requests.Where(rsrq => rsrq.Request_Row == currentRequestRow).ToList();
+            }
+         });
+         RsrqBs1.DataSource = result;
       }
 
       private void RsrqGv1_Bn_ButtonClick(object sender, DevExpress.XtraEditors.NavigatorButtonClickEventArgs e)

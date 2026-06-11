@@ -19,10 +19,16 @@ namespace System.Scsc.Ui.ReportManager
          InitializeComponent();
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
-         MdrpBs1.DataSource = iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002");
+         var result = await Task.Run(() =>
+         {
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               return db.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002").ToList();
+            }
+         });
+         MdrpBs1.DataSource = result;
       }
       private void mb_reloading_Click(object sender, EventArgs e)
       {

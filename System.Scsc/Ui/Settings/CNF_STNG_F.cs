@@ -24,22 +24,44 @@ namespace System.Scsc.Ui.Settings
 
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
-         if(tc_master.SelectedTab == tp_001)
+         bool isTab001 = tc_master.SelectedTab == tp_001;
+         bool isTab002 = tc_master.SelectedTab == tp_002;
+         int si = StngBs1.Position;
+         int c = CashBs1.Position;
+         int e = EpitBs1.Position;
+
+         var result = await Task.Run(() =>
          {
-            ClubBs1.DataSource = iScsc.Clubs;
-            int si = StngBs1.Position;
-            StngBs1.DataSource = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE));
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               if (isTab001)
+               {
+                  var clubs = db.Clubs.ToList();
+                  var settings = db.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE)).ToList();
+                  return new { clubs, settings };
+               }
+               else if (isTab002)
+               {
+                  var cashes = db.Cashes.ToList();
+                  var expenseItems = db.Expense_Items.ToList();
+                  return new { cashes, expenseItems };
+               }
+               return (dynamic)null;
+            }
+         });
+
+         if (isTab001)
+         {
+            ClubBs1.DataSource = result.clubs;
+            StngBs1.DataSource = result.settings;
             StngBs1.Position = si;
          }
-         else if(tc_master.SelectedTab == tp_002)
+         else if (isTab002)
          {
-            int c = CashBs1.Position;
-            int e = EpitBs1.Position;
-            CashBs1.DataSource = iScsc.Cashes;
-            EpitBs1.DataSource = iScsc.Expense_Items;
+            CashBs1.DataSource = result.cashes;
+            EpitBs1.DataSource = result.expenseItems;
             CashBs1.Position = c;
             EpitBs1.Position = e;
          }

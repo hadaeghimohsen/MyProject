@@ -33,18 +33,29 @@ namespace System.CRM.Ui.Competitor
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         int cmdf = CmdfBs.Position;
+         object cmptData = null;
+
+         if (cmptcode != null)
+         {
+            cmptData = await Task.Run(() =>
+            {
+               using (var ctx = new Data.iCRMDataContext(ConnectionString))
+               {
+                  return ctx.Companies.Where(c => c.CODE == cmptcode).ToList();
+               }
+            });
+         }
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
 
          //CmptBs.List.Clear();
 
          if (cmptcode != null)
          {
-            int cmdf = CmdfBs.Position;
-
-            CmptBs.DataSource = iCRM.Companies.Where(c => c.CODE == cmptcode);
-
+            CmptBs.DataSource = cmptData;
             CmdfBs.Position = cmdf;
          }
          else

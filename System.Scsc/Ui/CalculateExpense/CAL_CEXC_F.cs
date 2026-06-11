@@ -21,16 +21,36 @@ namespace System.Scsc.Ui.CalculateExpense
 
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iScsc = new Data.iScscDataContext(ConnectionString);
-         if (tb_master.SelectedTab == tp_001)
+         bool isTab001 = tb_master.SelectedTab == tp_001;
+         bool isTab002 = tb_master.SelectedTab == tp_002;
+
+         var result = await Task.Run(() =>
          {
-            MsexBs.DataSource = iScsc.Misc_Expenses.Where(m => Fga_Urgn_U.Split(',').Contains(m.REGN_PRVN_CODE + m.REGN_CODE) && Fga_Uclb_U.Contains(m.CLUB_CODE) && m.VALD_TYPE == "001" && m.CALC_EXPN_TYPE == "001");
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               if (isTab001)
+               {
+                  var msexItems = db.Misc_Expenses.Where(m => Fga_Urgn_U.Split(',').Contains(m.REGN_PRVN_CODE + m.REGN_CODE) && Fga_Uclb_U.Contains(m.CLUB_CODE) && m.VALD_TYPE == "001" && m.CALC_EXPN_TYPE == "001").ToList();
+                  return new { msexItems };
+               }
+               else if (isTab002)
+               {
+                  var mosxItems = db.Misc_Expenses.Where(m => Fga_Urgn_U.Split(',').Contains(m.REGN_PRVN_CODE + m.REGN_CODE) && Fga_Uclb_U.Contains(m.CLUB_CODE) && m.VALD_TYPE == "001" && m.CALC_EXPN_TYPE == "002").ToList();
+                  return new { mosxItems };
+               }
+               return (dynamic)null;
+            }
+         });
+
+         if (isTab001)
+         {
+            MsexBs.DataSource = result.msexItems;
          }
-         else if (tb_master.SelectedTab == tp_002)
+         else if (isTab002)
          {
-            MosxBs2.DataSource = iScsc.Misc_Expenses.Where(m => Fga_Urgn_U.Split(',').Contains(m.REGN_PRVN_CODE + m.REGN_CODE) && Fga_Uclb_U.Contains(m.CLUB_CODE) && m.VALD_TYPE == "001" && m.CALC_EXPN_TYPE == "002");
+            MosxBs2.DataSource = result.mosxItems;
          }
       }
 

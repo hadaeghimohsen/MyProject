@@ -26,43 +26,44 @@ namespace System.Scsc.Ui.ReportManager
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         if(tb_master.SelectedPage == tp_001)
+         bool isTab001 = tb_master.SelectedPage == tp_001;
+         bool isTab002 = tb_master.SelectedPage == tp_002;
+         bool isTab003 = tb_master.SelectedPage == tp_003;
+         bool isTab004 = tb_master.SelectedPage == tp_004;
+         bool isTab005 = tb_master.SelectedPage == tp_005;
+         bool isTab006 = tb_master.SelectedPage == tp_006;
+         bool isTab007 = tb_master.SelectedPage == tp_007;
+
+         var result = await Task.Run(() =>
          {
-            VFAcrpBs1.DataSource = iScsc.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13921122234205 && ar.UNIT_ID == 13941030181632);
-            VFAcpfBs1.DataSource = iScsc.VF_Access_Profilers.Where(ar => ar.SUB_SYS == 5);
-         }
-         else if (tb_master.SelectedPage == tp_002)
-         {
-            VFAcrpBs1.DataSource = iScsc.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13921205230916 && ar.UNIT_ID == 13941030181632);
-            VFAcpfBs1.DataSource = iScsc.VF_Access_Profilers.Where(ar => ar.SUB_SYS == 5);
-         }
-         else if(tb_master.SelectedPage == tp_003)
-         {
-            VFAcrpBs1.DataSource = iScsc.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13941030181543 && ar.UNIT_ID == 13941030181632);
-            VFAcpfBs1.DataSource = iScsc.VF_Access_Profilers.Where(ar => ar.SUB_SYS == 5);
-         }
-         else if(tb_master.SelectedPage == tp_004)
-         {
-            VFAcrpBs1.DataSource = iScsc.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13941030181608 && ar.UNIT_ID == 13941030181632);
-            VFAcpfBs1.DataSource = iScsc.VF_Access_Profilers.Where(ar => ar.SUB_SYS == 5);
-         }
-         else if (tb_master.SelectedPage == tp_005)
-         {
-            VFAcrpBs1.DataSource = iScsc.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13921122234205 && (ar.UNIT_ID == 13941030181655 || ar.UNIT_ID == 13941030181710)).OrderBy(ar => new { ar.UNIT_ID });
-            VFAcpfBs1.DataSource = iScsc.VF_Access_Profilers.Where(ar => ar.SUB_SYS == 5);
-         }
-         else if (tb_master.SelectedPage == tp_006)
-         {
-            VFAcrpBs1.DataSource = iScsc.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13921205230916 && (ar.UNIT_ID == 13941030181655 || ar.UNIT_ID == 13941030181710)).OrderBy(ar => new { ar.UNIT_ID });
-            VFAcpfBs1.DataSource = iScsc.VF_Access_Profilers.Where(ar => ar.SUB_SYS == 5);
-         }
-         else if (tb_master.SelectedPage == tp_007)
-         {
-            VFAcrpBs1.DataSource = iScsc.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13941030181608 && (ar.UNIT_ID == 13941030181655 || ar.UNIT_ID == 13941030181710)).OrderBy(ar => new { ar.UNIT_ID });
-            VFAcpfBs1.DataSource = iScsc.VF_Access_Profilers.Where(ar => ar.SUB_SYS == 5);
-         }
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               var profilers = db.VF_Access_Profilers.Where(ar => ar.SUB_SYS == 5).ToList();
+               List<Data.VF_Access_Report> reports = null;
+
+               if (isTab001)
+                  reports = db.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13921122234205 && ar.UNIT_ID == 13941030181632).ToList();
+               else if (isTab002)
+                  reports = db.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13921205230916 && ar.UNIT_ID == 13941030181632).ToList();
+               else if (isTab003)
+                  reports = db.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13941030181543 && ar.UNIT_ID == 13941030181632).ToList();
+               else if (isTab004)
+                  reports = db.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13941030181608 && ar.UNIT_ID == 13941030181632).ToList();
+               else if (isTab005)
+                  reports = db.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13921122234205 && (ar.UNIT_ID == 13941030181655 || ar.UNIT_ID == 13941030181710)).OrderBy(ar => new { ar.UNIT_ID }).ToList();
+               else if (isTab006)
+                  reports = db.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13921205230916 && (ar.UNIT_ID == 13941030181655 || ar.UNIT_ID == 13941030181710)).OrderBy(ar => new { ar.UNIT_ID }).ToList();
+               else if (isTab007)
+                  reports = db.VF_Access_Reports.Where(ar => ar.SUB_SYS == 5 && ar.TYPE_ID == 13941030181608 && (ar.UNIT_ID == 13941030181655 || ar.UNIT_ID == 13941030181710)).OrderBy(ar => new { ar.UNIT_ID }).ToList();
+
+               return new { reports, profilers };
+            }
+         });
+
+         VFAcrpBs1.DataSource = result.reports;
+         VFAcpfBs1.DataSource = result.profilers;
       }
 
       private void Btn_RunReport_Click(object sender, EventArgs e)

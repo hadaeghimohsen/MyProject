@@ -25,12 +25,10 @@ namespace System.Scsc.Ui.Warehouse
 
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
-            iScsc = new Data.iScscDataContext(ConnectionString);
-
             int _epit = EpitBs.Position;
             int _ulnf = UlnfBs.Position;
             int _ulns = UlnsBs.Position;
@@ -38,10 +36,24 @@ namespace System.Scsc.Ui.Warehouse
             int _wtag = WtagBs.Position;
             int _wexpn = WExpnBs.Position;
 
-            EpitBs.DataSource = iScsc.Expense_Items.Where(i => i.TYPE == "001" && i.RQTP_CODE == "016" && i.RQTT_CODE == "001");
-            ReglBs.DataSource = iScsc.Regulations.Where(r => r.REGL_STAT == "002" && r.TYPE == "001");
+            bool isTab001 = Master_Tc.SelectedTab == tp_001;
 
-            if (Master_Tc.SelectedTab == tp_001)
+            var result = await Task.Run(() =>
+            {
+               using (var db = new Data.iScscDataContext(ConnectionString))
+               {
+                  var epitItems = db.Expense_Items.Where(i => i.TYPE == "001" && i.RQTP_CODE == "016" && i.RQTT_CODE == "001").ToList();
+                  var reglItems = db.Regulations.Where(r => r.REGL_STAT == "002" && r.TYPE == "001").ToList();
+                  var ulnfItems = db.User_Link_Fighters.Where(u => u.USER_DB == CurrentUser).ToList();
+                  var ulnsItems = db.User_Link_Sections.Where(u => u.USER_DB == CurrentUser).ToList();
+                  return new { epitItems, reglItems, ulnfItems, ulnsItems };
+               }
+            });
+
+            EpitBs.DataSource = result.epitItems;
+            ReglBs.DataSource = result.reglItems;
+
+            if (isTab001)
             {
                FindWrhs_Butn_Click(null, null);
                ExpnStat_Cbx_CheckedChanged(null, null);
@@ -51,9 +63,8 @@ namespace System.Scsc.Ui.Warehouse
 
             }
 
-
-            UlnfBs.DataSource = iScsc.User_Link_Fighters.Where(u => u.USER_DB == CurrentUser);
-            UlnsBs.DataSource = iScsc.User_Link_Sections.Where(u => u.USER_DB == CurrentUser);
+            UlnfBs.DataSource = result.ulnfItems;
+            UlnsBs.DataSource = result.ulnsItems;
 
             UlnfBs.Position = _ulnf;
             UlnsBs.Position = _ulns;

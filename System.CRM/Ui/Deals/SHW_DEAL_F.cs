@@ -36,13 +36,20 @@ namespace System.CRM.Ui.Deals
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
          try
          {
+            var pymtData = await Task.Run(() =>
+            {
+               using (var ctx = new Data.iCRMDataContext(ConnectionString))
+               {
+                  return ctx.VF_Save_Payments(null, null, null, null).ToList();
+               }
+            });
+
             iCRM = new Data.iCRMDataContext(ConnectionString);
-            PymtBs.DataSource =
-               iCRM.VF_Save_Payments(null, null, null, null);
+            PymtBs.DataSource = pymtData;
          }
          catch { }
       }

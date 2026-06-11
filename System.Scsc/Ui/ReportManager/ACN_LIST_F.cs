@@ -26,16 +26,30 @@ namespace System.Scsc.Ui.ReportManager
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         if (tb_master.SelectedPage == tp_001)
+         bool isTab001 = tb_master.SelectedPage == tp_001;
+
+         var result = await Task.Run(() =>
          {
-            AcntBs1.DataSource = 
-               iScsc.Accounts
-               .Where(a => 
-                  Fga_Urgn_U.Split(',').Contains(a.REGN_PRVN_CODE + a.REGN_CODE) && 
-                  Fga_Uclb_U.Contains(a.CLUB_CODE) 
-               );
+            using (var db = new Data.iScscDataContext(ConnectionString))
+            {
+               if (isTab001)
+               {
+                  var accounts = db.Accounts
+                     .Where(a =>
+                        Fga_Urgn_U.Split(',').Contains(a.REGN_PRVN_CODE + a.REGN_CODE) &&
+                        Fga_Uclb_U.Contains(a.CLUB_CODE)
+                     ).ToList();
+                  return new { accounts };
+               }
+               return (dynamic)null;
+            }
+         });
+
+         if (isTab001)
+         {
+            AcntBs1.DataSource = result.accounts;
 
             LB_AllInCome.Text = "جمع درآمد کل : " + ((long)AcntBs1.List.OfType<Data.Account>().Where(a => a.AMNT_TYPE == "002").Sum(a => a.SUM_AMNT)).ToString("n0") + " ریال";
             LB_AllOutCome.Text = "جمع هزینه کل : " + ((long)AcntBs1.List.OfType<Data.Account>().Where(a => a.AMNT_TYPE == "001").Sum(a => a.SUM_AMNT)).ToString("n0") + " ریال";

@@ -33,8 +33,16 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         await Task.Run(() =>
+         {
+            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            {
+               // No database query needed, just initializing UI state
+            }
+         });
+
          iProject = new Data.iProjectDataContext(ConnectionString);
          UserTitleName_Txt.Text = UserName_Be.Text = NewPassword_Be.Text = ReenterNewPassword_Be.Text = "";
       }

@@ -20,17 +20,29 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
       private bool requery = false;
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iProject = new Data.iProjectDataContext(ConnectionString);
-
          int usr = UserBs1.Position;
          int dats = DatSBs1.Position;
          int auds = AudsBs1.Position;
 
-         UserBs1.DataSource = iProject.Users.Where(u => u.IsVisible);
-         DatSBs1.DataSource = iProject.DataSources.Where(d => d.IsVisible && d.Database_Alias != null && d.Sub_System.INST_STAT == "002" && d.Sub_System.STAT == "002");
-         AudsBs1.DataSource = iProject.Access_User_Datasources;
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            {
+               return new
+               {
+                  Users = ctx.Users.Where(u => u.IsVisible).ToList(),
+                  DataSources = ctx.DataSources.Where(d => d.IsVisible && d.Database_Alias != null && d.Sub_System.INST_STAT == "002" && d.Sub_System.STAT == "002").ToList(),
+                  AccessUserDatasources = ctx.Access_User_Datasources.ToList()
+               };
+            }
+         });
+
+         iProject = new Data.iProjectDataContext(ConnectionString);
+         UserBs1.DataSource = result.Users;
+         DatSBs1.DataSource = result.DataSources;
+         AudsBs1.DataSource = result.AccessUserDatasources;
 
          UserBs1.Position = usr;
          DatSBs1.Position = dats;

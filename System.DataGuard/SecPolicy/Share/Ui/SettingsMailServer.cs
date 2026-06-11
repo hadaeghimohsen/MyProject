@@ -62,16 +62,30 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {         
+         var selectedTab = Tb_Master.SelectedTab;
+
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            {
+               return new
+               {
+                  MailServers1 = selectedTab == tp_001 ? ctx.Mail_Servers.Where(ms => ms.EMAL_SRVR == "001").ToList() : null,
+                  MailServers2 = selectedTab == tp_002 ? ctx.Mail_Servers.Where(ms => ms.EMAL_SRVR == "002").ToList() : null
+               };
+            }
+         });
+
          iProject = new Data.iProjectDataContext(ConnectionString);
-         if (Tb_Master.SelectedTab == tp_001)
+         if (selectedTab == tp_001)
          {
-            MailServerBs.DataSource = iProject.Mail_Servers.Where(ms => ms.EMAL_SRVR == "001");
+            MailServerBs.DataSource = result.MailServers1;
          }
-         else if (Tb_Master.SelectedTab == tp_002)
+         else if (selectedTab == tp_002)
          {
-            MailServerBs.DataSource = iProject.Mail_Servers.Where(ms => ms.EMAL_SRVR == "002");
+            MailServerBs.DataSource = result.MailServers2;
          }
       }
 

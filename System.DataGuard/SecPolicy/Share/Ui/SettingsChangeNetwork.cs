@@ -38,13 +38,31 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var userParam = User;
+         var subSysParam = SubSys;
+         var hostNameParam = HostName;
+
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            {
+               return new
+               {
+                  User = ctx.Users.FirstOrDefault(u => u.USERDB.ToLower() == userParam.ToLower()),
+                  SubSys = ctx.Sub_Systems.FirstOrDefault(s => s.SUB_SYS == subSysParam),
+                  Gateway = ctx.Gateways.FirstOrDefault(g => g.MAC_ADRS == hostNameParam),
+                  AccessUserDatasources = ctx.Access_User_Datasources.Where(aud => aud.User.USERDB.ToLower() == userParam.ToLower() && aud.DataSource.SUB_SYS == subSysParam && aud.HOST_NAME == hostNameParam).ToList()
+               };
+            }
+         });
+
          iProject = new Data.iProjectDataContext(ConnectionString);
-         UserBs.DataSource = iProject.Users.FirstOrDefault(u => u.USERDB.ToLower() == User.ToLower());
-         SubSysBs.DataSource = iProject.Sub_Systems.FirstOrDefault(s => s.SUB_SYS == SubSys);
-         GatewayBs.DataSource = iProject.Gateways.FirstOrDefault(g => g.MAC_ADRS == HostName);
-         AccessUserDatasourceBs.DataSource = iProject.Access_User_Datasources.Where(aud => aud.User.USERDB.ToLower() == User.ToLower() && aud.DataSource.SUB_SYS == SubSys && aud.HOST_NAME == HostName);
+         UserBs.DataSource = result.User;
+         SubSysBs.DataSource = result.SubSys;
+         GatewayBs.DataSource = result.Gateway;
+         AccessUserDatasourceBs.DataSource = result.AccessUserDatasources;
 
          var user = UserBs.Current as Data.User;
          if (user.USER_IMAG == null)

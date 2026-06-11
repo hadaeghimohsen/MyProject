@@ -63,39 +63,53 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iProject = new Data.iProjectDataContext(ConnectionString);
-         if (Tb_Master.SelectedTab == tp_001)
+         var selectedTab = Tb_Master.SelectedTab;
+         int subsysPos = SubSysBs.Position;
+         int rolePos = RoleBs.Position;
+         int privilegePos = PrivilegeBs.Position;
+         int boxpPos = BoxBs.Position;
+         int pboxPos = BoxPrivilegeBs.Position;
+         int rpPos = RolePrivilegeBs.Position;
+         int ruPos = RoleUserBs.Position;
+         int upPos = UserPrivilegeBs.Position;
+         int userPos = UserBs.Position;
+
+         var result = await Task.Run(() =>
          {
-            UserBs.DataSource = iProject.Users/*.Where(u => u.USERDB.ToUpper() != CurrentUser.ToUpper())*/;
+            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            {
+               return new
+               {
+                  Users = (selectedTab == tp_001 || selectedTab == tp_004 || selectedTab == tp_005) ? ctx.Users/*.Where(u => u.USERDB.ToUpper() != CurrentUser.ToUpper())*/.ToList() : null,
+                  SubSystems = (selectedTab == tp_002 || selectedTab == tp_003 || selectedTab == tp_004 || selectedTab == tp_005) ? ctx.Sub_Systems.Where(s => s.INST_STAT == "002").ToList() : null
+               };
+            }
+         });
+
+         iProject = new Data.iProjectDataContext(ConnectionString);
+         if (selectedTab == tp_001)
+         {
+            UserBs.DataSource = result.Users;
             CreateUserMenu();
          }
-         else if (Tb_Master.SelectedTab == tp_002 || Tb_Master.SelectedTab == tp_003 || Tb_Master.SelectedTab == tp_004 || Tb_Master.SelectedTab == tp_005)
+         else if (selectedTab == tp_002 || selectedTab == tp_003 || selectedTab == tp_004 || selectedTab == tp_005)
          {
-            int subsys = SubSysBs.Position;
-            int role = RoleBs.Position;
-            int privilege = PrivilegeBs.Position;
-            int boxp = BoxBs.Position;
-            int pbox = BoxPrivilegeBs.Position;
-            int rp = RolePrivilegeBs.Position;
-            int ru = RoleUserBs.Position;
-            int up = UserPrivilegeBs.Position;
-            SubSysBs.DataSource = iProject.Sub_Systems.Where(s => s.INST_STAT == "002");
-            SubSysBs.Position = subsys;
-            RoleBs.Position = role;
-            PrivilegeBs.Position = privilege;
-            BoxBs.Position = boxp;
-            BoxPrivilegeBs.Position = pbox;
-            RolePrivilegeBs.Position = rp;
-            RoleUserBs.Position = ru;
-            UserPrivilegeBs.Position = up;
+            SubSysBs.DataSource = result.SubSystems;
+            SubSysBs.Position = subsysPos;
+            RoleBs.Position = rolePos;
+            PrivilegeBs.Position = privilegePos;
+            BoxBs.Position = boxpPos;
+            BoxPrivilegeBs.Position = pboxPos;
+            RolePrivilegeBs.Position = rpPos;
+            RoleUserBs.Position = ruPos;
+            UserPrivilegeBs.Position = upPos;
 
-            if (Tb_Master.SelectedTab == tp_004 || Tb_Master.SelectedTab == tp_005)
+            if (selectedTab == tp_004 || selectedTab == tp_005)
             {
-               int user = UserBs.Position;
-               UserBs.DataSource = iProject.Users;//.Where(u => u.USERDB.ToUpper() != CurrentUser.ToUpper());
-               UserBs.Position = user;
+               UserBs.DataSource = result.Users;
+               UserBs.Position = userPos;
             }
          }
       }

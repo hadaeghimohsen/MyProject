@@ -28,16 +28,27 @@ namespace System.CRM.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
-         
-         StngBs.DataSource = iCRM.Settings.FirstOrDefault(s => s.USER_NAME == CurrentUser);
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return new
+               {
+                  Setting = ctx.Settings.FirstOrDefault(s => s.USER_NAME == CurrentUser),
+                  SignDigtTemplates = ctx.Templates.Where(t => t.TEMP_TYPE == "003").ToList(),
+                  EmalTemplates = ctx.Templates.Where(t => t.TEMP_TYPE == "002").ToList(),
+                  SmsTemplates = ctx.Templates.Where(t => t.TEMP_TYPE == "001").ToList()
+               };
+            }
+         });
 
-         SignDigtTempBs.DataSource = iCRM.Templates.Where(t => t.TEMP_TYPE == "003");
-         EmalTempBs.DataSource = iCRM.Templates.Where(t => t.TEMP_TYPE == "002");
-         SmsTempBs.DataSource = iCRM.Templates.Where(t => t.TEMP_TYPE == "001");
-         
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         StngBs.DataSource = result.Setting;
+         SignDigtTempBs.DataSource = result.SignDigtTemplates;
+         EmalTempBs.DataSource = result.EmalTemplates;
+         SmsTempBs.DataSource = result.SmsTemplates;
       }
 
       private void Refresh_Clicked(object sender, EventArgs e)

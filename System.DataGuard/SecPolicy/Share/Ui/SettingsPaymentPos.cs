@@ -88,27 +88,52 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iProject = new Data.iProjectDataContext(ConnectionString);
-         if (Pos_Device != null)
+         var selectedTab = Tb_Master.SelectedTab;
+         var posDevice = Pos_Device;
+         var fromDate = FromTranDate_Dt.Value?.Value.Date;
+         var toDate = ToTranDate_Dt.Value?.Value.Date;
+         var payConfChecked = PayConf_Rb.Checked;
+         var payAllChecked = PayAll_Rb.Checked;
+
+         var result = await Task.Run(() =>
          {
-            PosBs.DataSource = iProject.Pos_Devices.FirstOrDefault(p => p.PSID == Pos_Device.PSID);
+            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            {
+               Data.Pos_Device pos = null;
+               if (posDevice != null)
+               {
+                  pos = ctx.Pos_Devices.FirstOrDefault(p => p.PSID == posDevice.PSID);
+               }
+
+               List<Data.Transaction_Log> transactions = null;
+               if (selectedTab == tp_002 && pos != null && fromDate.HasValue && toDate.HasValue)
+               {
+                  transactions = ctx.Transaction_Logs.Where(
+                     t => t.TRAN_DATE.Value.Date >= fromDate.Value &&
+                          t.TRAN_DATE.Value.Date <= toDate.Value &&
+                          t.PAY_STAT == (payConfChecked ? "002" : (payAllChecked ? t.PAY_STAT : "001")) &&
+                          t.POSD_PSID == pos.PSID
+                  ).ToList();
+               }
+
+               return new { PosDevice = pos, Transactions = transactions };
+            }
+         });
+
+         iProject = new Data.iProjectDataContext(ConnectionString);
+         if (result.PosDevice != null)
+         {
+            PosBs.DataSource = result.PosDevice;
          }
 
-         if (Tb_Master.SelectedTab == tp_002)
+         if (selectedTab == tp_002)
          {
             var pos = PosBs.Current as Data.Pos_Device;
             if (pos == null) return;
 
-            TranBs.DataSource =
-               iProject.Transaction_Logs.Where(
-                  t => t.TRAN_DATE.Value.Date >= FromTranDate_Dt.Value.Value.Date &&
-                       t.TRAN_DATE.Value.Date <= ToTranDate_Dt.Value.Value.Date &&
-                       t.PAY_STAT == (PayConf_Rb.Checked ? "002" : (PayAll_Rb.Checked ? t.PAY_STAT : "001")) &&
-                       t.POSD_PSID == pos.PSID
-
-               );
+            TranBs.DataSource = result.Transactions;
          }
 
          requery = false;

@@ -28,28 +28,33 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          );
       }
 
-      private void Execute_Query(bool allrunning)
+      private async void Execute_Query(bool allrunning)
       {
+         var selectedTab = tb_master.SelectedTab;
+
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            {
+               return new
+               {
+                  SecurityManagments = (selectedTab == tp_001 || allrunning) ? ctx.Security_Managments.ToList() : null,
+                  GatewaysApproved = (selectedTab == tp_002 || allrunning) ? ctx.Gateways.Where(g => g.CONF_STAT == "002" && g.VALD_TYPE_DNRM == "002" && g.AUTH_TYPE_DNRM == "002").ToList() : null,
+                  GatewaysBlocked = (selectedTab == tp_003 || allrunning) ? ctx.Gateways.Where(g => g.AUTH_TYPE_DNRM == "003").ToList() : null,
+                  GatewaysUnauthorized = (selectedTab == tp_004 || allrunning) ? ctx.Gateways.Where(g => g.AUTH_TYPE_DNRM == "001").ToList() : null
+               };
+            }
+         });
+
          iProject = new Data.iProjectDataContext(ConnectionString);
-         if (tb_master.SelectedTab == tp_001 || allrunning)
-         {
-            ScmgBs1.DataSource = iProject.Security_Managments;
-         }
-         if (tb_master.SelectedTab == tp_002 || allrunning)
-         {
-            // کامپیوتر های تایید شده و مجاز برای کار
-            GtwyBs2.DataSource = iProject.Gateways.Where(g => g.CONF_STAT == "002" && g.VALD_TYPE_DNRM == "002" && g.AUTH_TYPE_DNRM == "002");
-         }
-         if (tb_master.SelectedTab == tp_003 || allrunning)
-         {
-            // کامپیوتر های بلوکه شده
-            GtwyBs3.DataSource = iProject.Gateways.Where(g => g.AUTH_TYPE_DNRM == "003");
-         }
-         if (tb_master.SelectedTab == tp_004 || allrunning)
-         {
-            // کامپیوتر های غیرمجاز
-            GtwyBs4.DataSource = iProject.Gateways.Where(g => g.AUTH_TYPE_DNRM == "001"); ;
-         }
+         if (selectedTab == tp_001 || allrunning)
+            ScmgBs1.DataSource = result.SecurityManagments;
+         if (selectedTab == tp_002 || allrunning)
+            GtwyBs2.DataSource = result.GatewaysApproved;
+         if (selectedTab == tp_003 || allrunning)
+            GtwyBs3.DataSource = result.GatewaysBlocked;
+         if (selectedTab == tp_004 || allrunning)
+            GtwyBs4.DataSource = result.GatewaysUnauthorized;
       }
 
       private void GtwyBs2_CurrentChanged(object sender, EventArgs e)

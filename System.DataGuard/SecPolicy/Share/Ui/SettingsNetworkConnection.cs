@@ -63,23 +63,38 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var selectedTab = Tb_Master.SelectedTab;
+         int userPos = user;
+         int datasourcePos = datasource;
+
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            {
+               return new
+               {
+                  SubSystems = selectedTab == tp_001 ? ctx.Sub_Systems.ToList() : null,
+                  Users = selectedTab == tp_002 ? ctx.Users.ToList() : null,
+                  DataSources = selectedTab == tp_002 ? ctx.DataSources.Where(d => d.SUB_SYS != null).ToList() : null
+               };
+            }
+         });
+
          iProject = new Data.iProjectDataContext(ConnectionString);
-         if(Tb_Master.SelectedTab == tp_001)
+         if (selectedTab == tp_001)
          {
             int subsys = SubSysBs.Position;
-            SubSysBs.DataSource = iProject.Sub_Systems;
+            SubSysBs.DataSource = result.SubSystems;
             SubSysBs.Position = subsys;
          }
-         else if(Tb_Master.SelectedTab == tp_002)
+         else if (selectedTab == tp_002)
          {
-            //user = UserBs.Position;
-            //datasource = DatasourceBs.Position;
-            UserBs.DataSource = iProject.Users;
-            DatasourceBs.DataSource = iProject.DataSources.Where(d => d.SUB_SYS != null);
-            UserBs.Position = user;
-            DatasourceBs.Position = datasource;
+            UserBs.DataSource = result.Users;
+            DatasourceBs.DataSource = result.DataSources;
+            UserBs.Position = userPos;
+            DatasourceBs.Position = datasourcePos;
          }
       }
 

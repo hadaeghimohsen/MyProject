@@ -40,17 +40,30 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iProject = new Data.iProjectDataContext(ConnectionString);
-         UserBs.DataSource = iProject.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper()).ToList();
-         if(emailtype == "feedback")
+         var result = await Task.Run(() =>
          {
-            ToEmail_Lst.Items.Add(iProject.Sub_Systems.FirstOrDefault(s => s.SUB_SYS == subsys).SUPR_EMAL);
+            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            {
+               return new
+               {
+                  Users = ctx.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper()).ToList(),
+                  SupprEmail = ctx.Sub_Systems.FirstOrDefault(s => s.SUB_SYS == subsys)?.SUPR_EMAL
+               };
+            }
+         });
+
+         iProject = new Data.iProjectDataContext(ConnectionString);
+         UserBs.DataSource = result.Users;
+         if (emailtype == "feedback")
+         {
+            if (result.SupprEmail != null)
+               ToEmail_Lst.Items.Add(result.SupprEmail);
             ToEmail_Txt.Properties.ReadOnly = true;
             DeleteEmail_Butn.Enabled = false;
          }
-         else if(emailtype == "normal")
+         else if (emailtype == "normal")
          {
             ToEmail_Txt.Properties.ReadOnly = false;
             DeleteEmail_Butn.Enabled = true;

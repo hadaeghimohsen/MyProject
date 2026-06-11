@@ -59,18 +59,27 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var selectedTab = Tb_Master.SelectedTab;
+
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            {
+               return new
+               {
+                  SmsConf = selectedTab == tp_002 ? ctx.Message_Broad_Settings.ToList() : null,
+                  Users = selectedTab == tp_002 ? ctx.Users.ToList() : null
+               };
+            }
+         });
+
          iProject = new Data.iProjectDataContext(ConnectionString);
-
-         if(Tb_Master.SelectedTab == tp_001)
+         if (selectedTab == tp_002)
          {
-
-         }
-         else if(Tb_Master.SelectedTab == tp_002)
-         {
-            SmsConfBs.DataSource = iProject.Message_Broad_Settings;
-            UserBs.DataSource = iProject.Users;
+            SmsConfBs.DataSource = result.SmsConf;
+            UserBs.DataSource = result.Users;
          }
       }
 

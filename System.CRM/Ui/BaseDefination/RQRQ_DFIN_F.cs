@@ -31,9 +31,8 @@ namespace System.CRM.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iCRM = new Data.iCRMDataContext(ConnectionString);
          int _Rqrq = RqrqBs.Position;
          int _Extp = ExtpBs.Position;
          int _Expn = ExpnBs.Position;
@@ -41,11 +40,21 @@ namespace System.CRM.Ui.BaseDefination
          int _Dcsp = DcspBs.Position;
          int _Rqdc = RqdcBs.Position;
 
-         RqrqBs.DataSource = iCRM.Request_Requesters.Where(rqrq => rqrq.Regulation == crntRegulation);
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return new { RequestRequesters = ctx.Request_Requesters.Where(rqrq => rqrq.Regulation == crntRegulation).ToList() };
+            }
+         });
+
+         iCRM = new Data.iCRMDataContext(ConnectionString);
+         RqrqBs.DataSource = result.RequestRequesters;
          
          RqrqBs.Position = _Rqrq;
          ExtpBs.Position = _Extp;
          ExpnBs.Position = _Expn;
+         ExcsBs.Position = _Excs;
          DcspBs.Position = _Dcsp;
          RqdcBs.Position = _Rqdc;
       }

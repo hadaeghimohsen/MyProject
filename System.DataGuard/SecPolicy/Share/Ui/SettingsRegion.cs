@@ -65,20 +65,32 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
-         iProject = new Data.iProjectDataContext(ConnectionString);
-         if (Tb_Master.SelectedTab == tp_001)
-         {
-            UserBs.DataSource = iProject.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper());
-         }
-         else if (Tb_Master.SelectedTab == tp_002)
-         {
-            var subsys = SubSys_Lov.EditValue;
-            var sorcform = Form_Lov.EditValue;
-            
-            SubSysBs.DataSource = iProject.Sub_Systems.Where(s => s.STAT == "002");
+         var selectedTab = Tb_Master.SelectedTab;
+         var subsys = SubSys_Lov.EditValue;
+         var sorcform = Form_Lov.EditValue;
 
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            {
+               return new
+               {
+                  Users = selectedTab == tp_001 ? ctx.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper()).ToList() : null,
+                  SubSystems = selectedTab == tp_002 ? ctx.Sub_Systems.Where(s => s.STAT == "002").ToList() : null
+               };
+            }
+         });
+
+         iProject = new Data.iProjectDataContext(ConnectionString);
+         if (selectedTab == tp_001)
+         {
+            UserBs.DataSource = result.Users;
+         }
+         else if (selectedTab == tp_002)
+         {
+            SubSysBs.DataSource = result.SubSystems;
             //if (subsys == null || subsys.ToString() == "") subsys = 0;
             //SubSys_Lov.EditValue = 0;
          }

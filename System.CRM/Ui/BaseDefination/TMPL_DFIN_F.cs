@@ -33,10 +33,18 @@ namespace System.CRM.Ui.BaseDefination
          );
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iCRMDataContext(ConnectionString))
+            {
+               return new { Templates = ctx.Templates.ToList() };
+            }
+         });
+
          iCRM = new Data.iCRMDataContext(ConnectionString);
-         TempBs.DataSource = iCRM.Templates;
+         TempBs.DataSource = result.Templates;
          requery = false;
       }
 

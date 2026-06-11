@@ -63,24 +63,38 @@ namespace System.DataGuard.SecPolicy.Share.Ui
          SwitchButtonsTabPage(sender);
       }
 
-      private void Execute_Query()
+      private async void Execute_Query()
       {
+         var selectedTab = Tb_Master.SelectedTab;
+
+         var result = await Task.Run(() =>
+         {
+            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            {
+               return new
+               {
+                  SubSystems = (selectedTab == tp_001 || selectedTab == tp_005) ? ctx.Sub_Systems.Where(s => s.STAT == "002").ToList() : null,
+                  Users = (selectedTab == tp_002 || selectedTab == tp_003) ? ctx.Users.Where(u => u.USERDB == CurrentUser).ToList() : null
+               };
+            }
+         });
+
          iProject = new Data.iProjectDataContext(ConnectionString);
-         if(Tb_Master.SelectedTab == tp_001)
+         if (selectedTab == tp_001)
          {
             int subsys = SubSysBs.Position;
-            SubSysBs.DataSource = iProject.Sub_Systems.Where(s => s.STAT == "002");
+            SubSysBs.DataSource = result.SubSystems;
             SubSysBs.Position = subsys;
          }
-         else if (Tb_Master.SelectedTab == tp_002 || Tb_Master.SelectedTab == tp_003)
+         else if (selectedTab == tp_002 || selectedTab == tp_003)
          {
             int user = UserGatewayBs.Position;
             int packinstuser = PackageUserGatewayBs.Position;
-            UsersBs.DataSource = iProject.Users.Where(u => u.USERDB == CurrentUser);
+            UsersBs.DataSource = result.Users;
             UserGatewayBs.Position = user;
             PackageUserGatewayBs.Position = packinstuser;
          }
-         else if(Tb_Master.SelectedTab == tp_004)
+         else if (selectedTab == tp_004)
          {
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost",
@@ -151,10 +165,10 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                )
             );
          }
-         else if(Tb_Master.SelectedTab == tp_005)
+         else if (selectedTab == tp_005)
          {
-            if(SubSysBs.Count == 0)
-               SubSysBs.DataSource = iProject.Sub_Systems.Where(s => s.STAT == "002");
+            if (SubSysBs.Count == 0)
+               SubSysBs.DataSource = result.SubSystems;
          }
          requery = false;
       }

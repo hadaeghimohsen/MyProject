@@ -53,7 +53,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                return new
                {
                   Users = ctx.Users.Where(u => u.USERDB.ToUpper() == _currentUser.ToUpper()).ToList(),
-                  SupprEmail = ctx.Sub_Systems.FirstOrDefault(s => s.SUB_SYS == _subsys)?.SUPR_EMAL
+                  SupprEmail = ctx.Sub_Systems.Where(s => s.SUB_SYS == _subsys).Select(s => s.SUPR_EMAL).FirstOrDefault()
                };
             }
          });

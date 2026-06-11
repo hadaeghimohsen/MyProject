@@ -42,14 +42,18 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
       private async void Execute_Query()
       {
+         var _currentUser = CurrentUser;
+         var _subsys = subsys;
+         var _connectionString = ConnectionString;
+
          var result = await Task.Run(() =>
          {
-            using (var ctx = new Data.iProjectDataContext(ConnectionString))
+            using (var ctx = new Data.iProjectDataContext(_connectionString))
             {
                return new
                {
-                  Users = ctx.Users.Where(u => u.USERDB.ToUpper() == CurrentUser.ToUpper()).ToList(),
-                  SupprEmail = ctx.Sub_Systems.FirstOrDefault(s => s.SUB_SYS == subsys)?.SUPR_EMAL
+                  Users = ctx.Users.Where(u => u.USERDB.ToUpper() == _currentUser.ToUpper()).ToList(),
+                  SupprEmail = ctx.Sub_Systems.FirstOrDefault(s => s.SUB_SYS == _subsys)?.SUPR_EMAL
                };
             }
          });
@@ -77,19 +81,20 @@ namespace System.DataGuard.SecPolicy.Share.Ui
 
          if (user.USER_IMAG == null)
          {
-            byte[] bytes = null;
-            MemoryStream ms = new MemoryStream();
-            Image img = global::System.DataGuard.Properties.Resources.IMAGE_1429;
-            img.Save(ms, ImageFormat.Bmp);
-            bytes = ms.ToArray();
-
-            user.USER_IMAG = bytes;
+            using (var ms = new MemoryStream())
+            {
+               Image img = global::System.DataGuard.Properties.Resources.IMAGE_1429;
+               img.Save(ms, ImageFormat.Bmp);
+               user.USER_IMAG = ms.ToArray();
+            }
             ImageAccount_Pb.Image = global::System.DataGuard.Properties.Resources.IMAGE_1429;
          }
          else
          {
-            var stream = new MemoryStream(user.USER_IMAG.ToArray());
-            ImageAccount_Pb.Image = Image.FromStream(stream);
+            using (var stream = new MemoryStream(user.USER_IMAG.ToArray()))
+            {
+               ImageAccount_Pb.Image = Image.FromStream(stream);
+            }
          }         
       }
 

@@ -279,19 +279,7 @@ namespace System.JobRouting.Jobs
             //WhereIsInputData = WhereIsInputDataType.Here;
          }
       }
-      public void AppendJobInHere(Job jobs)
-      {
-      }
-      public void AppendJobToLastOwner(Job job)
-      {
-         var owners = OwnerDefineWorkWith;
-         while (owners.Count != 0)
-         {
-            owners = owners[0].OwnerDefineWorkWith;
-         }
-         owners.Add(job);
-      }
-      public void HowToCrashJob(Job current)
+       public void HowToCrashJob(Job current)
       {
          Error = current.Error;
          Message = current.Message;

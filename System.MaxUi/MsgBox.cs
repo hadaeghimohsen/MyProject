@@ -106,7 +106,7 @@ namespace System.MaxUi
             return _buttonResult;
         }
 
-        public static DialogResult Show(string message, string title, Buttons buttons, Icon icon)
+        public static DialogResult Show(string message, string title, Buttons buttons, MsgIcon icon)
         {
             _msgBox = new MsgBox();
             _msgBox._lblMessage.Text = message;
@@ -121,7 +121,7 @@ namespace System.MaxUi
             return _buttonResult;
         }
 
-        public static DialogResult Show(string message, string title, Buttons buttons, Icon icon, AnimateStyle style)
+        public static DialogResult Show(string message, string title, Buttons buttons, MsgIcon icon, AnimateStyle style)
         {
             _msgBox = new MsgBox();
             _msgBox._lblMessage.Text = message;
@@ -253,40 +253,40 @@ namespace System.MaxUi
             }
         }
 
-        private static void InitIcon(Icon icon)
+        private static void InitIcon(MsgIcon icon)
         {
             switch (icon)
             {
-                case MsgBox.Icon.Application:
+                case MsgBox.MsgIcon.Application:
                     _msgBox._picIcon.Image = SystemIcons.Application.ToBitmap();
                     _msgBox._lblMessage.ForeColor = Color.White;
                     break;
 
-                case MsgBox.Icon.Exclamation:
+                case MsgBox.MsgIcon.Exclamation:
                     _msgBox._picIcon.Image = SystemIcons.Exclamation.ToBitmap();
                     _msgBox._lblMessage.ForeColor = Color.White;
                     break;
 
-                case MsgBox.Icon.Error:
+                case MsgBox.MsgIcon.Error:
                     _msgBox._picIcon.Image = SystemIcons.Error.ToBitmap();
                     _msgBox._lblMessage.ForeColor = Color.OrangeRed;
                     break;
 
-                case MsgBox.Icon.Info:
+                case MsgBox.MsgIcon.Info:
                     _msgBox._picIcon.Image = SystemIcons.Information.ToBitmap();
                     _msgBox._lblMessage.ForeColor = Color.White;
                     break;
 
-                case MsgBox.Icon.Question:
+                case MsgBox.MsgIcon.Question:
                     _msgBox._picIcon.Image = SystemIcons.Question.ToBitmap();
                     _msgBox._lblMessage.ForeColor = Color.YellowGreen;
                     break;
 
-                case MsgBox.Icon.Shield:
+                case MsgBox.MsgIcon.Shield:
                     _msgBox._picIcon.Image = SystemIcons.Shield.ToBitmap();
                     break;
 
-                case MsgBox.Icon.Warning:
+                case MsgBox.MsgIcon.Warning:
                     _msgBox._picIcon.Image = SystemIcons.Warning.ToBitmap();
                     _msgBox._lblMessage.ForeColor = Color.PaleVioletRed;
                     break;
@@ -480,7 +480,7 @@ namespace System.MaxUi
             YesNoCancel=6
         }
 
-        public enum Icon 
+        public enum MsgIcon
         {
             Application = 1,
             Exclamation = 2,

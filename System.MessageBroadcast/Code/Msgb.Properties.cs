@@ -16,15 +16,15 @@ namespace System.MessageBroadcast.Code
       #region Variable Block
       Data.iProjectDataContext iProject;
       string ConnectionString;
-      /// <summary>
-      /// وظیفه این تایمر این می باشد که بتوانیم پیام های آماده ارسال برای سامانه اس ام اس ای را ارسال کنیم.
-      /// </summary>
-      private Timer _SenderBgwk;
+       /// <summary>
+       /// وظیفه این تایمر این می باشد که بتوانیم پیام های آماده ارسال برای سامانه اس ام اس ای را ارسال کنیم.
+       /// </summary>
+       private System.Windows.Forms.Timer _SenderBgwk;
 
-      /// <summary>
-      /// وظیفه این تایمر این می باشد که بتوانیم به زیر سیستم های مختلف این دستور را ارسال کنیم که آیا گزینه ای برای ارسال پیام اختصاصی داریم یا خیر
-      /// </summary>
-      private Timer _CustBgwk;
+       /// <summary>
+       /// وظیفه این تایمر این می باشد که بتوانیم به زیر سیستم های مختلف این دستور را ارسال کنیم که آیا گزینه ای برای ارسال پیام اختصاصی داریم یا خیر
+       /// </summary>
+       private System.Windows.Forms.Timer _CustBgwk;
       
       private bool SmsWorkerStat = true;
       private bool _JustToday = true;

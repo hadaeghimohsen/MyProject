@@ -236,10 +236,7 @@ namespace System.CRM.Ui.Contacts
             iCRM.SubmitChanges();
             requery = true;
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DeleteNote_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -248,7 +245,7 @@ namespace System.CRM.Ui.Contacts
             }
          }
       }
-      #endregion
+       #endregion
 
       #region Service Button
       private void AddLogCall_Butn_Click(object sender, EventArgs e)
@@ -279,7 +276,7 @@ namespace System.CRM.Ui.Contacts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+                   catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AddLogCall_Butn_Click error: " + ex.ToString()); }
       }
 
       private void ChangeServiceType_Butn_Click(object sender, EventArgs e)
@@ -403,7 +400,7 @@ namespace System.CRM.Ui.Contacts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CloneService_Butn_Click error: " + ex.ToString()); }
       }
 
       private void SendEmail_Butn_Click(object sender, EventArgs e)
@@ -435,7 +432,7 @@ namespace System.CRM.Ui.Contacts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SendEmail_Butn_Click error: " + ex.ToString()); }
       }
 
       private void EditService_Butn_Click(object sender, EventArgs e)
@@ -1031,7 +1028,7 @@ namespace System.CRM.Ui.Contacts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AddDeals_Butn_Click error: " + ex.ToString()); }
       }
 
       private void Pymt_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -1446,10 +1443,7 @@ namespace System.CRM.Ui.Contacts
             );
             requery = true;
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CnclRqst_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if(requery)
@@ -1506,10 +1500,7 @@ namespace System.CRM.Ui.Contacts
                );
 
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PymtSaveBs_DataSourceChanged error: " + ex.ToString()); }
       }
 
       private void Rb_RequestDocument_Click(object sender, EventArgs e)
@@ -1535,7 +1526,7 @@ namespace System.CRM.Ui.Contacts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Rb_RequestDocument_Click error: " + ex.ToString()); }
       }
 
       private void CallLog_Gv_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
@@ -1696,7 +1687,7 @@ namespace System.CRM.Ui.Contacts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Rb_RequestDocument_Click error: " + ex.ToString()); }
       }
 
       private void RqstRelatedService_Butn_Click(object sender, EventArgs e)
@@ -1836,7 +1827,7 @@ namespace System.CRM.Ui.Contacts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Lb_Comp_Click error: " + ex.ToString()); }
       }
 
       private void Gis_Butn_Click(object sender, EventArgs e)
@@ -1951,7 +1942,7 @@ namespace System.CRM.Ui.Contacts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Lb_Comp_Click error: " + ex.ToString()); }
       }
 
       private void NewProj_Butn_Click(object sender, EventArgs e)
@@ -2246,7 +2237,7 @@ namespace System.CRM.Ui.Contacts
             );
 
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ImageProfile_Butn_Click error: " + ex.ToString()); }
       }
    }
 }

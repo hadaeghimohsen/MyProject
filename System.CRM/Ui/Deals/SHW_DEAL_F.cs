@@ -44,7 +44,7 @@ namespace System.CRM.Ui.Deals
             PymtBs.DataSource =
                iCRM.VF_Save_Payments(null, null, null, null);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
       }
 
       private Image GetProfileImage(long servfileno)
@@ -168,9 +168,9 @@ namespace System.CRM.Ui.Deals
                        });
                   _DefaultGateway.Gateway(_InteractWithCRM);
                }
-               catch { }
-            }
-            else if (serv.SRPB_TYPE_DNRM == "002")
+                catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_servicerelatedpayment_Click error: " + ex.ToString()); }
+             }
+             else if (serv.SRPB_TYPE_DNRM == "002")
             {
                // Contact
                try
@@ -184,10 +184,10 @@ namespace System.CRM.Ui.Deals
                        });
                   _DefaultGateway.Gateway(_InteractWithCRM);
                }
-               catch { }
-            }
-         }
-         catch { }
+                catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_servicerelatedpayment_Click error: " + ex.ToString()); }
+             }
+          }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_servicerelatedpayment_Click error: " + ex.ToString()); }
       }
 
       private void rb_pymtstag00i_Click(object sender, EventArgs e)
@@ -202,11 +202,11 @@ namespace System.CRM.Ui.Deals
                  new List<Job>
                        {                  
                          new Job(SendType.Self, 44 /* Execute Inf_Deal_F */),                
-                         new Job(SendType.SelfToUserInterface, "INF_DEAL_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Payment", new XAttribute("pymtstag", rb.Tag))},
-                       });
-            _DefaultGateway.Gateway(_InteractWithCRM);
-         }
-         catch { }
+                          new Job(SendType.SelfToUserInterface, "INF_DEAL_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Payment", new XAttribute("pymtstag", rb.Tag))},
+                        });
+             _DefaultGateway.Gateway(_InteractWithCRM);
+          }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_pymtstag00i_Click error: " + ex.ToString()); }
       }
    }
 }

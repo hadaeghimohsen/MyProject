@@ -74,7 +74,7 @@ namespace System.CRM.Ui.Deals
                         _DefaultGateway.Gateway(_InteractWithCRM);
                      }
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DealActn_Butn_ButtonClick error: " + ex.ToString()); }
                   #endregion
                   break;
                case 5: // Clone
@@ -263,7 +263,7 @@ namespace System.CRM.Ui.Deals
                        });
                   _DefaultGateway.Gateway(_InteractWithCRM);
                }
-               catch { }
+               catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_servicerelatedpayment_Click error: " + ex.ToString()); }
             }
             else if (serv.SRPB_TYPE_DNRM == "002")
             {
@@ -279,10 +279,10 @@ namespace System.CRM.Ui.Deals
                        });
                   _DefaultGateway.Gateway(_InteractWithCRM);
                }
-               catch { }
+               catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_servicerelatedpayment_Click error: " + ex.ToString()); }
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_servicerelatedpayment_Click error: " + ex.ToString()); }
       }
    }
 }

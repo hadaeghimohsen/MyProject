@@ -81,7 +81,7 @@ namespace System.CRM.Ui.Competitor
                   control.EditValue = null;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ObjectBaseEdit_ButtonPressed error: " + ex.ToString()); }
       }
 
       private void CmptBs_CurrentChanged(object sender, EventArgs e)
@@ -98,7 +98,7 @@ namespace System.CRM.Ui.Competitor
                RegnBs.DataSource = iCRM.Regions.Where(r => r.PRVN_CNTY_CODE == cmpt.REGN_PRVN_CNTY_CODE && r.PRVN_CODE == cmpt.REGN_PRVN_CODE);
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CmptBs_CurrentChanged error: " + ex.ToString()); }
       }
 
       private void SubmitChange_Butn_Click(object sender, EventArgs e)
@@ -171,7 +171,7 @@ namespace System.CRM.Ui.Competitor
          {
             PrvnBs.DataSource = iCRM.Provinces.Where(p => p.CNTY_CODE == e.NewValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Cnty_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void Prvn_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -180,7 +180,7 @@ namespace System.CRM.Ui.Competitor
          {
             RegnBs.DataSource = iCRM.Regions.Where(r => r.PRVN_CODE == e.NewValue.ToString() && r.PRVN_CNTY_CODE == Cnty_Lov.EditValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Prvn_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void AddCmdf_Butn_Click(object sender, EventArgs e)

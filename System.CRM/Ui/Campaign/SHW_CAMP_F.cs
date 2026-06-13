@@ -42,7 +42,7 @@ namespace System.CRM.Ui.Campaign
                
             requery = false;
          }
-         catch { }         
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
       }
 
       #region Menu

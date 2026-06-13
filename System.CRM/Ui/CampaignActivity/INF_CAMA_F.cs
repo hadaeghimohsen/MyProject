@@ -90,7 +90,7 @@ namespace System.CRM.Ui.CampaignActivity
                   control.EditValue = null;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ObjectBaseEdit_ButtonPressed error: " + ex.ToString()); }
       }
 
       private void CmptBs_CurrentChanged(object sender, EventArgs e)

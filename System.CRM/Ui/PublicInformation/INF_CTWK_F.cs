@@ -246,7 +246,7 @@ namespace System.CRM.Ui.PublicInformation
                  })
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Email_Butn_Click error: " + ex.ToString()); }
       }
 
       private void Mesg_Butn_Click(object sender, EventArgs e)
@@ -277,7 +277,7 @@ namespace System.CRM.Ui.PublicInformation
                   })
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Mesg_Butn_Click error: " + ex.ToString()); }
       }
    }
 }

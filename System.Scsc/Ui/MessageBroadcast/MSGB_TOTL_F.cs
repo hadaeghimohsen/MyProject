@@ -579,15 +579,17 @@ namespace System.Scsc.Ui.MessageBroadcast
                new DataColumn("Value", typeof(object))
             });
 
-         StreamReader sr = new StreamReader(ofd_selector.FileName);
-         string line;
-         while ((line = sr.ReadLine()) != null)
+         using (StreamReader sr = new StreamReader(ofd_selector.FileName))
          {
-            if ( line != "" )
+            string line;
+            while ((line = sr.ReadLine()) != null)
             {
-               DataRow dr = dt.NewRow();
-               dr["Value"] = line;
-               dt.Rows.Add(dr);
+               if ( line != "" )
+               {
+                  DataRow dr = dt.NewRow();
+                  dr["Value"] = line;
+                  dt.Rows.Add(dr);
+               }
             }
          }
 

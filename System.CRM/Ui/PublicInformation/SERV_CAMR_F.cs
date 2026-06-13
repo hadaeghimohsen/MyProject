@@ -72,7 +72,7 @@ namespace System.CRM.Ui.PublicInformation
             );
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SubmitChange_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if(requery)
@@ -137,7 +137,7 @@ namespace System.CRM.Ui.PublicInformation
                   break;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LOV_VideoSrc_ButtonClick error: " + ex.ToString()); }
       }
 
       private void Tm_NewFrameProcess_Tick(object sender, EventArgs e)
@@ -208,7 +208,7 @@ namespace System.CRM.Ui.PublicInformation
             //   )
             //);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("TakeImage_Butn_Click error: " + ex.ToString()); }
       }
-   }
+}
 }

@@ -126,7 +126,7 @@ namespace System.CRM.Ui.Activity
          {
             PrvnBs.DataSource = iCRM.Provinces.Where(p => p.CNTY_CODE == e.NewValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Cnty_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void Prvn_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -135,7 +135,7 @@ namespace System.CRM.Ui.Activity
          {
             RegnBs.DataSource = iCRM.Regions.Where(r => r.PRVN_CODE == e.NewValue.ToString() && r.PRVN_CNTY_CODE == Cnty_Lov.EditValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Prvn_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void Iscg_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -144,7 +144,7 @@ namespace System.CRM.Ui.Activity
          {
             IscaBs.DataSource = iCRM.Isic_Activities.Where(a => a.ISCG_CODE == e.NewValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Iscg_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void Isca_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -153,7 +153,7 @@ namespace System.CRM.Ui.Activity
          {
             IscpBs.DataSource = iCRM.Isic_Products.Where(p => p.ISCA_CODE == e.NewValue.ToString() && p.ISCA_ISCG_CODE == Iscg_Lov.EditValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Isca_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void DfltStat_Butn_Click(object sender, EventArgs e)

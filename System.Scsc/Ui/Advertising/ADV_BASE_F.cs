@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -39,7 +39,7 @@ namespace System.Scsc.Ui.Advertising
             Advc3_Gv.ActiveFilterString = string.Format("RECD_STAT = '003' AND CELL_PHON != ''");
             requery = false;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
          finally { requery = false; }
       }
 
@@ -59,7 +59,7 @@ namespace System.Scsc.Ui.Advertising
             var _advp = AdvpBs.AddNew() as Data.Advertising_Parameter;
             if (_advp == null) return;
 
-            _advp.ADVP_NAME = "عنوان تخفیف";
+            _advp.ADVP_NAME = "????? ?????";
             _advp.RECD_TYPE = "001";
             _advp.DSCT_TYPE = "001";
             _advp.STAT = "002";
@@ -83,7 +83,7 @@ namespace System.Scsc.Ui.Advertising
             var _advp = AdvpBs.Current as Data.Advertising_Parameter;
             if (_advp == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             iScsc.Advertising_Parameters.DeleteOnSubmit(_advp);
             iScsc.SubmitChanges();
@@ -283,17 +283,17 @@ namespace System.Scsc.Ui.Advertising
                   );
                }
 
-            // 1401/07/19 * روزهای سرنگونی نظام کثیف آخوندی
+            // 1401/07/19 * ?????? ??????? ???? ???? ??????
             if(StrtCyclDate_Cbx.Checked)
             {
-               if (!FromStrtCyclDate_Dt.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromStrtCyclDate_Dt.Focus(); return; }
-               if (!ToStrtCyclDate_Dt.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToStrtCyclDate_Dt.Focus(); return; }
+               if (!FromStrtCyclDate_Dt.Value.HasValue) { MessageBox.Show("????? ???? ?? ???? ????"); FromStrtCyclDate_Dt.Focus(); return; }
+               if (!ToStrtCyclDate_Dt.Value.HasValue) { MessageBox.Show("????? ????? ?? ???? ????"); ToStrtCyclDate_Dt.Focus(); return; }
             }
 
             if (EndCyclDate_Cbx.Checked)
             {
-               if (!FromEndCyclDate_Dt.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromEndCyclDate_Dt.Focus(); return; }
-               if (!ToEndCyclDate_Dt.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToEndCyclDate_Dt.Focus(); return; }
+               if (!FromEndCyclDate_Dt.Value.HasValue) { MessageBox.Show("????? ???? ?? ???? ????"); FromEndCyclDate_Dt.Focus(); return; }
+               if (!ToEndCyclDate_Dt.Value.HasValue) { MessageBox.Show("????? ????? ?? ???? ????"); ToEndCyclDate_Dt.Focus(); return; }
             }
 
             iScsc.CRET_ADVP_P(
@@ -446,7 +446,7 @@ namespace System.Scsc.Ui.Advertising
             var _advp = AdvpBs.Current as Data.Advertising_Parameter;
             if (_advp == null) return;
 
-            if (MessageBox.Show(this, "آیا با ثبت کدهای تخفیف برای مشتریان موافق هستید؟", "ارسال کد تخفیف", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ???? ??????? ????? ??????", "????? ?? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             if (_advp.TEMP_TMID == null)
             {
@@ -492,7 +492,7 @@ namespace System.Scsc.Ui.Advertising
 
                var _advp = AdvpBs.Current as Data.Advertising_Parameter;              
 
-               // نمایش تعداد کارت تخفیف های ثبت شده
+               // ????? ????? ???? ????? ??? ??? ???
                var _dscts =
                   iScsc.Fighter_Discount_Cards
                   .Where(d => d.ADVP_CODE == _advp.CODE
@@ -509,8 +509,8 @@ namespace System.Scsc.Ui.Advertising
                            new List<object>
                            {
                               ToolTipIcon.Info,
-                              string.Format("تعداد {0} کد تخفیف برای مشتریان ثبت شد", _dscts.Count()),
-                              "ثبت کد تخفیف",
+                              string.Format("????? {0} ?? ????? ???? ??????? ??? ??", _dscts.Count()),
+                              "??? ?? ?????",
                               2000
                            }
                      }
@@ -529,20 +529,20 @@ namespace System.Scsc.Ui.Advertising
 
             FilePath_Txt.Text = SlctFile_Ofd.FileName;            
 
-            StreamReader sr = new StreamReader(SlctFile_Ofd.FileName);
-            string line;
-            while ((line = sr.ReadLine()) != null)
+            using (StreamReader sr = new StreamReader(SlctFile_Ofd.FileName))
             {
-               if (line != "")
+               string line;
+               while ((line = sr.ReadLine()) != null)
                {
-                  if(CellList_Cxl.FindString(line) < 0)
+                  if (line != "")
                   {
-                     CellList_Cxl.Items.Add(line);
+                     if(CellList_Cxl.FindString(line) < 0)
+                     {
+                        CellList_Cxl.Items.Add(line);
+                     }
                   }
                }
             }
-
-            sr.Close();
          }
          catch (Exception exc)
          {
@@ -557,7 +557,7 @@ namespace System.Scsc.Ui.Advertising
             if (CellList_Cxl.CheckedItems.Count == 0)
                return;
 
-            if (MessageBox.Show(this, "آیا با حذف آیتم های انتخاب شده جدول موافق هستید؟", "حذف آیتم", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ???? ??? ?????? ??? ???? ????? ??????", "??? ????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             foreach (var item in CellList_Cxl.CheckedItems.OfType<string>().ToList())
             {
@@ -574,7 +574,7 @@ namespace System.Scsc.Ui.Advertising
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با حذف همه آیتم های جدول موافق هستید؟", "حذف آیتم", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ??? ???? ??? ???? ????? ??????", "??? ????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             CellList_Cxl.Items.Clear();
          }
@@ -713,7 +713,7 @@ namespace System.Scsc.Ui.Advertising
             var _advp = AdvpBs.Current as Data.Advertising_Parameter;
             if (_advp == null) return;
 
-            if (MessageBox.Show(this, "آیا با ثبت کدهای تخفیف برای شماره تلفنها موافق هستید؟", "ارسال کد تخفیف", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ???? ????? ?????? ????? ??????", "????? ?? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             if (TempDsct_Lov.EditValue == null || TempDsct_Lov.EditValue.ToString() == "")
             {
@@ -746,7 +746,7 @@ namespace System.Scsc.Ui.Advertising
 
                var _advp = AdvpBs.Current as Data.Advertising_Parameter;
 
-               // نمایش تعداد کارت تخفیف های ثبت شده
+               // ????? ????? ???? ????? ??? ??? ???
                var _dscts =
                   iScsc.Advertising_Campaigns
                   .Where(d => d.ADVP_CODE == _advp.CODE
@@ -763,8 +763,8 @@ namespace System.Scsc.Ui.Advertising
                            new List<object>
                            {
                               ToolTipIcon.Info,
-                              string.Format("تعداد {0} کد تخفیف برای شماره موبایل ثبت شد", _dscts.Count()),
-                              "ثبت کد تخفیف",
+                              string.Format("????? {0} ?? ????? ???? ????? ?????? ??? ??", _dscts.Count()),
+                              "??? ?? ?????",
                               2000
                            }
                      }

@@ -61,7 +61,7 @@ namespace System.CRM.Ui.Contacts
             }
             //ServBs.DataSource = iCRM.Services.Where(s => s.CONF_STAT == "002");
          }
-         catch (Exception exc) { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
       }
 
       private void Serv_Gv_DoubleClick(object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace System.CRM.Ui.Contacts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Serv_Gv_DoubleClick error: " + ex.ToString()); }
       }
 
       private void ContactShow_Btn_Click(object sender, EventArgs e)

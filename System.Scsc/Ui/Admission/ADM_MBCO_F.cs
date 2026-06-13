@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -60,12 +60,12 @@ namespace System.Scsc.Ui.Admission
                }
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
       }
 
       private void DefaultTabPage003()
       {
-         /* تنظیم کردن ناحیه و استان قابل دسترس */
+         /* ????? ???? ????? ? ????? ???? ????? */
          RQTT_CODE_LookUpEdit3.EditValue = "001";
       }
 
@@ -109,7 +109,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با انصراف تمدید مشتری مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ?????? ????? ????? ????? ??????", "?????!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             var Rqst = RqstBs1.Current as Data.Request;
 
@@ -128,7 +128,7 @@ namespace System.Scsc.Ui.Admission
                      )
                   )
                );
-               //MessageBox.Show(this, "تمدید مشتری لغو گردید");
+               //MessageBox.Show(this, "????? ????? ??? ?????");
             }
             requery = true;
          }
@@ -391,7 +391,7 @@ namespace System.Scsc.Ui.Admission
          {            
             if (tb_master.SelectedTab == tp_003)
             {
-               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "?????? ?????? ? ????? ????? ???? ????? ????", "?????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -399,7 +399,7 @@ namespace System.Scsc.Ui.Admission
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
+                  MessageBox.Show(this, "???? ????? ??? ???? ????? ?????? ???");
                   return;
                }*/
 
@@ -457,7 +457,7 @@ namespace System.Scsc.Ui.Admission
                                        return;
                                     #region Show Error
                                     setOnDebt = false;
-                                    MessageBox.Show("خطا - خطا - عدم دسترسی به ردیف 192 سطوح امینتی");
+                                    MessageBox.Show("??? - ??? - ??? ?????? ?? ???? 192 ???? ??????");
                                     #endregion                           
                                  })
                               },
@@ -471,7 +471,7 @@ namespace System.Scsc.Ui.Admission
 
             if (tb_master.SelectedTab == tp_003)
             {
-               if (MessageBox.Show(this, "عملیات بدهکاری و ذخیره نهایی کردن انجام شود؟", "بدهکاری و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "?????? ??????? ? ????? ????? ???? ????? ????", "??????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -493,7 +493,7 @@ namespace System.Scsc.Ui.Admission
          if (e.Column.FieldName == "TIME_DESC" && e.IsGetData)
          {
             var h = ((TimeSpan)view.GetListSourceRowCellValue(e.ListSourceRowIndex, "END_TIME")).Hours;
-            e.Value = h >= 0 && h < 12 ? "صبح" : h >= 12 && h < 15 ? "ظهر" : h >= 15 && h < 18 ? "بعد ظهر" : h >= 18 ? "عصر" : "نام مشخص";
+            e.Value = h >= 0 && h < 12 ? "???" : h >= 12 && h < 15 ? "???" : h >= 15 && h < 18 ? "??? ???" : h >= 18 ? "???" : "??? ????";
          }
       }
 
@@ -577,7 +577,7 @@ namespace System.Scsc.Ui.Admission
                CbmtCode_GridView003.ActiveFilterString = string.Format("[Method.CODE] = {0}", MtodCode_LookupEdit003.EditValue);
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("MtodCode_LookupEdit001_EditValueChanged error: " + ex.ToString()); }
       }
 
       private void RqstBnADocPicProfile1_Click(object sender, EventArgs e)
@@ -598,7 +598,7 @@ namespace System.Scsc.Ui.Admission
                            && r.REGL_STAT == "002"
                            && rqrq.RQTP_CODE == rqst.RQTP_CODE
                            && rqrq.RQTT_CODE == rqst.RQTT_CODE
-                           && rqdc.DCMT_DSID == 13930903120048833 // عکس 4*3
+                           && rqdc.DCMT_DSID == 13930903120048833 // ??? 4*3
                            && rcdc.RQRO_RQST_RQID == rqst.RQID
                            && rcdc.RQRO_RWNO == 1
                         select rcdc).FirstOrDefault();
@@ -648,7 +648,7 @@ namespace System.Scsc.Ui.Admission
                  var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "009" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && /*exp.MTOD_CODE == mtodcode &&*/ exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
 
                  StrtDate_DateTime003.Value = DateTime.Now;
-                 //if (MessageBox.Show(this, "تعداد جلسات با احتساب یک روز در میان می باشد؟", "مشخص شدن تاریخ پایان", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                 //if (MessageBox.Show(this, "????? ????? ?? ?????? ?? ??? ?? ???? ?? ?????", "???? ??? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                  //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(2 * (expn.NUMB_OF_ATTN_MONT - 1)));
                  //else
                  //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(expn.NUMB_OF_ATTN_MONT ?? 30));
@@ -658,7 +658,7 @@ namespace System.Scsc.Ui.Admission
          }
          catch (Exception )
          {
-            MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
+            MessageBox.Show("?? ???? ???? ??? ? ????? ????? ????? ? ??????? ???????? ?? ????? ???? ????. ???? ???? ???? ?? ????? ? ????? ????");
          }
 
       }
@@ -695,7 +695,7 @@ namespace System.Scsc.Ui.Admission
       private void CrntDate_Butn_Click(object sender, EventArgs e)
       {
          var strtdate = StrtDate_DateTime003.Value;
-         if (strtdate != null && MessageBox.Show(this, "آیا تاریخ شروع را میخواهید اصلاح کنید", "اصلاح تاریخ شروع", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+         if (strtdate != null && MessageBox.Show(this, "??? ????? ???? ?? ???????? ????? ????", "????? ????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
          StrtDate_DateTime003.Value = DateTime.Now;
       }
 

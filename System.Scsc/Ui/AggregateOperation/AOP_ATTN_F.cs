@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -94,7 +94,6 @@ namespace System.Scsc.Ui.AggregateOperation
          FromDate_Dt.Value = null;
          crnt.FROM_DATE = crnt.TO_DATE = null;
       }
-
 
       private void ClearAll_Butn_Click(object sender, EventArgs e)
       {
@@ -297,7 +296,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             RqstBs2.DataSource = iScsc.Requests.First(r => r == crnt.Request);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AodtBs1_CurrentChanged error: " + ex.ToString()); }
       }
 
       private void EndRqst_Butn_Click(object sender, EventArgs e)
@@ -354,7 +353,7 @@ namespace System.Scsc.Ui.AggregateOperation
             AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().ToList().ForEach(a => { a.COCH_FILE_NO = cochfileno; a.ATTN_TYPE = "005"; });
             iScsc.SubmitChanges();
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CochAttn_Butn_Click error: " + ex.ToString()); }
       }
 
       private void OnAttn_Butn_Click(object sender, EventArgs e)
@@ -364,7 +363,7 @@ namespace System.Scsc.Ui.AggregateOperation
             AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().ToList().ForEach(a => a.ATTN_TYPE = "001");
             iScsc.SubmitChanges();
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("OnAttn_Butn_Click error: " + ex.ToString()); }
       }
 
       private void OffAttn_Butn_Click(object sender, EventArgs e)
@@ -374,7 +373,7 @@ namespace System.Scsc.Ui.AggregateOperation
             AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().ToList().ForEach(a => a.ATTN_TYPE = "002");
             iScsc.SubmitChanges();
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("OffAttn_Butn_Click error: " + ex.ToString()); }
       }
 
       private void CbmtCode_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -398,7 +397,7 @@ namespace System.Scsc.Ui.AggregateOperation
                rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CbmtCode_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void AgopBs1_CurrentChanged(object sender, EventArgs e)
@@ -407,7 +406,7 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             CbmtCode_Lov_EditValueChanging(null, null);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AgopBs1_CurrentChanged error: " + ex.ToString()); }
       }
    }
 }

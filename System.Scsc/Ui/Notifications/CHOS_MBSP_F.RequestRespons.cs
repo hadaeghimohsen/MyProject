@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -290,7 +290,7 @@ namespace System.Scsc.Ui.Notifications
 
             CochBs1.DataSource = iScsc.Fighters.Where(c => c.FGPB_TYPE_DNRM == "003");
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Actn_CalF_P error: " + ex.ToString()); }
          finally
          {
             Execute_Query();

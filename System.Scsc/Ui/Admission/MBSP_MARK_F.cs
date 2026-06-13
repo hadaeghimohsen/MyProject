@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -77,7 +77,7 @@ namespace System.Scsc.Ui.Admission
          {
             var mbsm = MbsmBs1.Current as Data.Member_Ship_Mark;
             if (mbsm == null) return;
-            if (MessageBox.Show(this, "آیا با حذف برچسب و نشانه موافق هستید؟", "حذف برچسب و نشانه", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ????? ? ????? ????? ??????", "??? ????? ? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.Member_Ship_Marks.DeleteOnSubmit(mbsm);
 
@@ -85,9 +85,8 @@ namespace System.Scsc.Ui.Admission
 
             requery = true;
          }
-         catch (Exception exc)
-         {            
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Del_Butn_Click error: " + ex.ToString()); }
+
          finally
          {
             if(requery)
@@ -106,7 +105,7 @@ namespace System.Scsc.Ui.Admission
                case 1:
                   if (ApbsList_Lov.EditValue == null || ApbsList_Lov.EditValue.ToString() == "") { ApbsList_Lov.Focus(); return; }
 
-                  if (MbsmBs1.List.OfType<Data.Member_Ship_Mark>().Any(t => t.MARK_CODE == (long)ApbsList_Lov.EditValue)) { MessageBox.Show("این آیتم قبلا ثبت شده است"); return; }
+                  if (MbsmBs1.List.OfType<Data.Member_Ship_Mark>().Any(t => t.MARK_CODE == (long)ApbsList_Lov.EditValue)) { MessageBox.Show("??? ???? ???? ??? ??? ???"); return; }
                   
                   MbsmBs1.AddNew();
 

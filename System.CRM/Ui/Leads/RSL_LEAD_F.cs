@@ -46,7 +46,7 @@ namespace System.CRM.Ui.Leads
 
             requery = false;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
       }
 
       #region Campatitor

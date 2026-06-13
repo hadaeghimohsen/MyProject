@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -36,16 +36,16 @@ namespace System.Scsc.Ui.AggregateOperation
 
          ExpnBs1.DataSource =
             iScsc.Expenses.Where(ex =>
-               ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+               ex.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && ex.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
                ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-               ex.EXPN_STAT == "002" /* هزینه های فعال */
+               ex.EXPN_STAT == "002" /* ????? ??? ???? */
             );        
 
          Grop_FLP.Controls.Clear();
          var allItems = new Button();
 
-         allItems.Text = "همه موارد";
+         allItems.Text = "??? ?????";
          allItems.Tag = 0;
 
          allItems.Click += GropButn_Click;
@@ -61,7 +61,7 @@ namespace System.Scsc.Ui.AggregateOperation
                   b.Tag = g.Key.CODE;
                }
                else
-                  b.Text = "سایر موارد";
+                  b.Text = "???? ?????";
                b.Click += GropButn_Click;
                Grop_FLP.Controls.Add(b);
             }
@@ -395,7 +395,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             RqstBs1.DataSource = aodt.Request;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AodtBs1_CurrentChanged error: " + ex.ToString()); }
       }
 
       private void EndRqst_Butn_Click(object sender, EventArgs e)
@@ -469,7 +469,7 @@ namespace System.Scsc.Ui.AggregateOperation
          }
          catch (Exception)
          {
-            MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
+            MessageBox.Show("?? ???? ???? ??? ? ????? ????? ????? ? ??????? ???????? ?? ????? ???? ????. ???? ???? ???? ?? ????? ? ????? ????");
          }
       }
 
@@ -507,7 +507,7 @@ namespace System.Scsc.Ui.AggregateOperation
          }
          catch (Exception)
          {
-            MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
+            MessageBox.Show("?? ???? ???? ??? ? ????? ????? ????? ? ??????? ???????? ?? ????? ???? ????. ???? ???? ???? ?? ????? ? ????? ????");
          }
       }
 
@@ -629,23 +629,23 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            PydsType_Butn.Text = PydsType_Butn.Tag.ToString() == "0" ? "مبلغی" : "درصدی";
+            PydsType_Butn.Text = PydsType_Butn.Tag.ToString() == "0" ? "?????" : "?????";
             PydsType_Butn.Tag = PydsType_Butn.Tag.ToString() == "0" ? "1" : "0";
 
             if (PydsType_Butn.Tag.ToString() == "0")
             {
-               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "درصد تخفیف";
+               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "???? ?????";
                PydsAmnt_Txt.Properties.MaxLength = 3;
             }
             else
             {
-               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "مبلغ تخفیف";
+               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "???? ?????";
                PydsAmnt_Txt.Properties.MaxLength = 0;
             }
             PydsAmnt_Txt.Focus();
 
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PydsType_Butn_Click error: " + ex.ToString()); }
       }
 
       private void PydtBn1_ButtonClick(object sender, NavigatorButtonClickEventArgs e)
@@ -719,7 +719,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با پاک کردن هزینه درخواست موافقید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ???? ????? ??????? ????????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             /* Do Delete Payment_Detail */
             var Crnt = PydtsBs1.Current as Data.Payment_Detail;
             var rqst = RqstBs1.Current as Data.Request;
@@ -898,7 +898,7 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             CblkBs1.DataSource = iScsc.Cando_Blocks.Where(b => b.CNDO_CODE == e.NewValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Cndo_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void Cblk_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -907,9 +907,8 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             CuntBs1.DataSource = iScsc.Cando_Block_Units.Where(u => u.BLOK_CNDO_CODE == Cndo_Lov.EditValue.ToString() && u.BLOK_CODE == e.NewValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Cblk_Lov_EditValueChanging error: " + ex.ToString()); }
       }   
    
-
    }
 }

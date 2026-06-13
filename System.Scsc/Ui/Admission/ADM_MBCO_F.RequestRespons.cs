@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
@@ -86,11 +86,11 @@ namespace System.Scsc.Ui.Admission
                                              <ol>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F10</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از سیستم</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ?????</font></li>
                                                 </ul>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F9</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از محیط کاربری</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ???? ??????</font></li>
                                                 </ul>
                                              </ol>
                                        </p>
@@ -254,7 +254,7 @@ namespace System.Scsc.Ui.Admission
 
             isFirstLoaded = true;
          }            
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LoadData error: " + ex.ToString()); }
          //Execute_Query();
          #endregion
 
@@ -272,7 +272,7 @@ namespace System.Scsc.Ui.Admission
             iScsc = new Data.iScscDataContext(ConnectionString);
             
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LoadDataSource error: " + ex.ToString()); }
          job.Status = StatusType.Successful;
       }
 
@@ -308,7 +308,7 @@ namespace System.Scsc.Ui.Admission
             else
                Execute_Query();
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Actn_CalF_P error: " + ex.ToString()); }
          job.Status = StatusType.Successful;
       }
 
@@ -331,7 +331,7 @@ namespace System.Scsc.Ui.Admission
          var refno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("refno").Value;
          var actndate = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("actndate").Value;
 
-         // ثبت نام
+         // ??? ???
          if(rqtpcode == "001")
          {
             iScsc.PAY_MSAV_P(

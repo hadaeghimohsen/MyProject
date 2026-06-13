@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -90,7 +90,7 @@ namespace System.Scsc.Ui.CalculateCalorie
          {
             Lbl_TTDesc.Text = string.Format("{0:N0}, {1:N0}", (int.Parse(TRAN_TIME_TextBox.Text) / 60), (int.Parse(TRAN_TIME_TextBox.Text) % 60));
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("tRAN_TIMETextBox_TextChanged error: " + ex.ToString()); }
       }
    }
 }

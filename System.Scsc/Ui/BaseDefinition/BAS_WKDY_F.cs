@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -177,7 +177,7 @@ namespace System.Scsc.Ui.BaseDefinition
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", cbmt.COCH_FILE_NO)) }
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CochInfo_Butn_Click error: " + ex.ToString()); }
       }
    }
 }

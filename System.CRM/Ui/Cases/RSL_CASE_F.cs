@@ -46,8 +46,8 @@ namespace System.CRM.Ui.Cases
 
             requery = false;
          }
-         catch { }
-      }      
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
+      }
 
       private void SubmitChange_Butn_Click(object sender, EventArgs e)
       {

@@ -51,7 +51,7 @@ namespace System.CRM.Ui.FileServerStorage
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SwitchButtonsTabPage error: " + ex.ToString()); }
          finally { Execute_Query(); }
       }
 

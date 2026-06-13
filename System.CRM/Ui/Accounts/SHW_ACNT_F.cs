@@ -42,7 +42,7 @@ namespace System.CRM.Ui.Acounts
                
             requery = false;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
          finally
          {
             Comp_Gv.BestFitColumns();
@@ -131,10 +131,10 @@ namespace System.CRM.Ui.Acounts
                         _DefaultGateway.Gateway(_InteractWithCRM);
                      }
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LeadActn_Butn_ButtonClick case 0 error: " + ex.ToString()); }
                   #endregion
                   break;
-               case 1: // Clone
+                case 1: // Clone
                   #region Clone
                   try
                   {
@@ -154,10 +154,10 @@ namespace System.CRM.Ui.Acounts
                           });
                      _DefaultGateway.Gateway(_InteractWithCRM);
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LeadActn_Butn_ButtonClick case 1 error: " + ex.ToString()); }
                   #endregion
                   break;
-               case 2: // Delete
+                case 2: // Delete
                   #region Delete
                   try
                   {
@@ -277,10 +277,7 @@ namespace System.CRM.Ui.Acounts
                   break;
             }
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LeadActn_Butn_ButtonClick error: " + ex.ToString()); }
       }
 
       private void CompBs_CurrentChanged(object sender, EventArgs e)
@@ -325,8 +322,7 @@ namespace System.CRM.Ui.Acounts
                ++i;
             }
          }
-         catch
-         {}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CompBs_CurrentChanged error: " + ex.ToString()); }
       }
 
       private Image GetProfileImage(long servfileno)
@@ -368,9 +364,9 @@ namespace System.CRM.Ui.Acounts
                        });
                   _DefaultGateway.Gateway(_InteractWithCRM);
                }
-               catch { }
-            }
-            else if(serv.SRPB_TYPE_DNRM == "002")
+               catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_relatedservice_Click inner lead error: " + ex.ToString()); }
+             }
+             else if(serv.SRPB_TYPE_DNRM == "002")
             {
                // Contact
                try
@@ -384,10 +380,10 @@ namespace System.CRM.Ui.Acounts
                        });
                   _DefaultGateway.Gateway(_InteractWithCRM);
                }
-               catch { }
-            }
-         }
-         catch { }
+               catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_relatedservice_Click inner2 error: " + ex.ToString()); }
+             }
+          }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_relatedservice_Click error: " + ex.ToString()); }
       }
 
       private void rb_4th_Click(object sender, EventArgs e)
@@ -415,8 +411,7 @@ namespace System.CRM.Ui.Acounts
             _DefaultGateway.Gateway(_InteractWithCRM);
 
          }
-         catch
-         { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_4th_Click error: " + ex.ToString()); }
       }
 
       private void AddComp_Butn_Click(object sender, EventArgs e)

@@ -64,7 +64,7 @@ namespace System.CRM.Ui.Contract
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch {}         
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ContractLine_Gv_DoubleClick error: " + ex.ToString()); }
       }
       #endregion
 

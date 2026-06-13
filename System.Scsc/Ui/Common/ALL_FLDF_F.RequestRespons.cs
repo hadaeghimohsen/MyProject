@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -90,11 +90,11 @@ namespace System.Scsc.Ui.Common
                                              <ol>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F10</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از سیستم</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ?????</font></li>
                                                 </ul>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F9</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از محیط کاربری</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ???? ??????</font></li>
                                                 </ul>
                                              </ol>
                                        </p>
@@ -153,7 +153,6 @@ namespace System.Scsc.Ui.Common
          {
             Btn_Pblc_Click(null, null);
          }
-
 
          job.Status = StatusType.Successful;
       }
@@ -1078,7 +1077,7 @@ namespace System.Scsc.Ui.Common
                                  job.Status = StatusType.Successful;
                               else
                               {
-                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 260 سطوح امینتی", "عدم دسترسی");
+                                 MessageBox.Show("??? - ??? ?????? ?? ???? 260 ???? ??????", "??? ??????");
                                  job.Status = StatusType.Failed;
                               }
                            })
@@ -1127,7 +1126,7 @@ namespace System.Scsc.Ui.Common
                UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482; 
             }
 
-            // 1395/11/26 * اگر مشترک غیرفعال باشد باید از لیست مربوط به مشترکین غیرفعال استفاده کرد
+            // 1395/11/26 * ??? ????? ??????? ???? ???? ?? ???? ????? ?? ??????? ??????? ??????? ???
             var crntinfo = iScsc.Fighters.First(f => f.FILE_NO == _fileno);
             if (Convert.ToInt32(crntinfo.ACTV_TAG_DNRM) <= 100)
                vF_Last_Info_FighterBs.DataSource = iScsc.VF_Last_Info_Deleted_Fighter(_fileno, null, null, null, null, null, null, null, null, null, null, null, null, null);
@@ -1145,7 +1144,7 @@ namespace System.Scsc.Ui.Common
                NameDnrm_Lb.Image = System.Scsc.Properties.Resources.IMAGE_1621;
             }
 
-            // 1397/05/14 * بررسی اینکه مشترک قفل می باشد
+            // 1397/05/14 * ????? ????? ????? ??? ?? ????
             if(crntinfo.FIGH_STAT == "002")
             {
                Rqid_Txt.BackColor = RqtpDesc_Txt.BackColor = FighStat_Txt.BackColor = SystemColors.Control;
@@ -1169,7 +1168,6 @@ namespace System.Scsc.Ui.Common
             SaveDcmt_Txt.Text = imag.Where(id => id.IMAG.Length > 100).Count().ToString();
             NullDcmt_Txt.Text = (Convert.ToInt32(TotlDcmt_Txt.Text) - Convert.ToInt32(SaveDcmt_Txt.Text)).ToString();
                
-
             //vF_All_Info_FightersBs.DataSource = iScsc.VF_All_Info_Fighters(fileno).OrderByDescending(f => f.RWNO);
             //////vF_SavePaymentsBs.DataSource = iScsc.VF_Payments(null, null, fileno, null, null, null, null).OrderByDescending(p => p.ISSU_DATE);
             
@@ -1187,13 +1185,13 @@ namespace System.Scsc.Ui.Common
 
             if(Convert.ToInt32(crntinfo.ACTV_TAG_DNRM) <= 100)
             {
-               // غیر فعال
+               // ??? ????
                aCTV_TAGTextBox.BackColor = Color.PaleVioletRed;
                aCTV_TAGTextBox.ForeColor = Color.White;
             }
             else
             {
-               // فعال
+               // ????
                aCTV_TAGTextBox.BackColor = Color.YellowGreen;
                aCTV_TAGTextBox.ForeColor = Color.Black;
             }
@@ -1229,10 +1227,10 @@ namespace System.Scsc.Ui.Common
             //   Mbfz_pn.Visible = false;
             //}
 
-            // 1396/10/13 * نمایش لیست دوره های ثبت نام شده
+            // 1396/10/13 * ????? ???? ???? ??? ??? ??? ???
             MbspBs.DataSource = iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == _fileno && mb.RECT_CODE == "004" && (mb.TYPE == "001" || mb.TYPE == "005"));
-            // 1402/07/25 * اگر گزینه تمدید اتومات فعال باشد چک میکنیم که آیا مشتری دوره فعال دارد یا خیر
-            // اگر نداشته باشد باید مشتری را به فرم تمدید رجوع دهیم برای سرعت عمل بیشتر در زمان شارژ کارت
+            // 1402/07/25 * ??? ????? ????? ?????? ???? ???? ?? ?????? ?? ??? ????? ???? ???? ???? ?? ???
+            // ??? ?????? ???? ???? ????? ?? ?? ??? ????? ???? ???? ???? ???? ??? ????? ?? ???? ???? ????
             //if(AutoProt_Chk.Checked)
             //{
             //   if(!MbspBs.List.OfType<Data.Member_Ship>()
@@ -1257,32 +1255,32 @@ namespace System.Scsc.Ui.Common
             //   }
             //}
             
-            //1399/12/06 * نمایش اطلاعات یادداشت
+            //1399/12/06 * ????? ??????? ???????
             NoteBs.DataSource = iScsc.Notes.Where(n => n.FIGH_FILE_NO == _fileno);
-            // مبلغ بدهی
+            // ???? ????
             PayDebtAmnt_Txt.Text = DebtDnrm_TextBox.Text;           
 
-            // 1400/09/17 * مشخص شدن آیتم های درآمدی اعتباری
+            // 1400/09/17 * ???? ??? ???? ??? ?????? ???????
             var pydts = iScsc.Payment_Details.Where(pd => pd.EXPR_DATE != null && pd.Request_Row.FIGH_FILE_NO == _fileno && pd.Request_Row.Request.RQST_STAT == "002");
             PivBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date >= DateTime.Now && pd.EXPR_DATE.Value.Date != pd.CRET_DATE.Value.Date);
             PinvBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date < DateTime.Now && pd.EXPR_DATE.Value.Date != pd.CRET_DATE.Value.Date);
 
-            // 1400/09/21 * گروه بندی
+            // 1400/09/21 * ???? ????
             FGrpBs.DataSource = iScsc.Fighter_Groupings.Where(g => g.FIGH_FILE_NO == _fileno);
             DGrpBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Grouping");
 
-            // 1401/05/04 * نتیجه تماس
+            // 1401/05/04 * ????? ????
             CallBs.DataSource = iScsc.Fighter_Calls.Where(c => c.FIGH_FILE_NO == _fileno).ToList();
             DRCalBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call");
             DRSurBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_Call_Survey");
 
-            // 1401/05/19 * ارتباطات مشتریان
+            // 1401/05/19 * ???????? ???????
             DFRltBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Fighter_RelationShip");
 
             // 1402/11/01
             RtoaBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Payment_To_Another_Account");
 
-            // 1401/03/27 * پر کردن شماره تلفن های ارتباطی با مشتری
+            // 1401/03/27 * ?? ???? ????? ???? ??? ??????? ?? ?????
             CellPhon_Lsbx.Items.Clear();
             if (crntinfo.CELL_PHON_DNRM != null && crntinfo.CELL_PHON_DNRM.Length >= 9)
                CellPhon_Lsbx.Items.Add(crntinfo.CELL_PHON_DNRM);
@@ -1302,7 +1300,7 @@ namespace System.Scsc.Ui.Common
             FgdcBs.DataSource = iScsc.Fighter_Discount_Cards.Where(fd => fd.FIGH_FILE_NO == _fileno);
             MtodBs.DataSource = iScsc.Methods.Where(m => m.MTOD_STAT == "002");
 
-            // 1401/05/05 * بارگذاری اطلاعات قالب های پیامی
+            // 1401/05/05 * ???????? ??????? ???? ??? ?????
             TempBs.DataSource = iScsc.Templates;
 
             RefImgProf_Rb.ImageVisiable = true;
@@ -1341,7 +1339,6 @@ namespace System.Scsc.Ui.Common
             {
                RefCode_Rlt.Visible = false;
             }
-
 
             CServBs.DataSource =
                iScsc.ExecuteQuery<Data.Fighter>(
@@ -1451,7 +1448,6 @@ namespace System.Scsc.Ui.Common
             if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
                Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
             
-
             /*vF_TestBs.DataSource = iScsc.VF_Test(fileno);
             vF_CampititionBs.DataSource = iScsc.VF_Campitition(fileno);
             vF_Physical_FitnessBs.DataSource = iScsc.VF_Physical_Fitness(fileno).OrderByDescending(p => p.RWNO);
@@ -1463,7 +1459,7 @@ namespace System.Scsc.Ui.Common
             commandfinished:
             ;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LoadData error: " + ex.ToString()); }
          job.Status = StatusType.Successful;
       }
 
@@ -1525,7 +1521,7 @@ namespace System.Scsc.Ui.Common
             if (regl.AMNT_TYPE == "002")
                amnt /= 10;
 
-            // این گزینه برای حالتی می باشد که کل مبلغ پرداخت به صورت کامل روی دستگاه پایانه فروش قرار میگیرد
+            // ??? ????? ???? ????? ?? ???? ?? ?? ???? ?????? ?? ???? ???? ??? ?????? ?????? ???? ???? ??????
             if (UsePos_Cb.Checked)
             {
                iScsc.PAY_MSAV_P(
@@ -1548,7 +1544,7 @@ namespace System.Scsc.Ui.Common
                   )
                );
             }
-            // این گزینه برای پرداختی پایانه ای هست که به صورت کامل پرداخت نمی شود
+            // ??? ????? ???? ??????? ?????? ?? ??? ?? ?? ???? ???? ?????? ??? ???
             else
             {
                iScsc.PAY_MSAV_P(
@@ -1617,10 +1613,10 @@ namespace System.Scsc.Ui.Common
                long amnt = 0;
 
                if (debt > paydebt)
-                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
                   amnt = paydebt;
                else
-                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -1649,7 +1645,7 @@ namespace System.Scsc.Ui.Common
             }
 
             Refresh_Butn_Click(null, null);
-            //// این گزینه برای حالتی می باشد که کل مبلغ پرداخت به صورت کامل روی دستگاه پایانه فروش قرار میگیرد
+            //// ??? ????? ???? ????? ?? ???? ?? ?? ???? ?????? ?? ???? ???? ??? ?????? ?????? ???? ???? ??????
             //if (UsePos_Cb.Checked)
             //{
             //   iScsc.PAY_MSAV_P(
@@ -1671,7 +1667,7 @@ namespace System.Scsc.Ui.Common
             //      )
             //   );
             //}
-            //// این گزینه برای پرداختی پایانه ای هست که به صورت کامل پرداخت نمی شود
+            //// ??? ????? ???? ??????? ?????? ?? ??? ?? ?? ???? ???? ?????? ??? ???
             //else
             //{
             //   iScsc.PAY_MSAV_P(

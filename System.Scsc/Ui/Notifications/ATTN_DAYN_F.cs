@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -147,7 +147,7 @@ namespace System.Scsc.Ui.Notifications
                         }
                      );
 
-                     // 1402/10/21 * باز کردن کمدهای همراهان
+                     // 1402/10/21 * ??? ???? ?????? ???????
                      if (iScsc.Dresser_Attendances.Any(da => da.ATTN_CODE == _attn.CODE && da.DRAT_CODE != null))
                      {
                         new Thread(new ThreadStart(() => OpenDresPart_Tmr_Tick(_attn.CODE))).Start();
@@ -189,7 +189,7 @@ namespace System.Scsc.Ui.Notifications
                   {
                      if (_attn.EXIT_TIME != null)
                      {
-                        if (MessageBox.Show(this, "با پاک کردن ساعت خروج مشتری موافق هستید؟", "پاک کردن ساعت خروج دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                        if (MessageBox.Show(this, "?? ??? ???? ???? ???? ????? ????? ??????", "??? ???? ???? ???? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                         iScsc.ExecuteCommand(string.Format("UPDATE dbo.Attendance SET Exit_Time = NULL WHERE Code = {0};", _attn.CODE));
                         requery = true;
                      }
@@ -197,7 +197,7 @@ namespace System.Scsc.Ui.Notifications
 
                   if (_attn.EXIT_TIME == null)
                   {
-                     if (MessageBox.Show(this, "با خروج دستی مشتری موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                     if (MessageBox.Show(this, "?? ???? ???? ????? ????? ??????", "????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                      iScsc.INS_ATTN_P(_attn.CLUB_CODE, _attn.FIGH_FILE_NO, null, null, "003", _attn.MBSP_RWNO_DNRM, "001", "002");
                      requery = true;
                   }
@@ -206,12 +206,12 @@ namespace System.Scsc.Ui.Notifications
                   if (_attn.ATTN_STAT == "002")
                   {
                      bool _ctrlHold = ModifierKeys.HasFlag(Keys.Control);
-                     if (MessageBox.Show(this, "با ابطال رکورد مشتری مشتری موافق هستید؟", "ابطال رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                     if (MessageBox.Show(this, "?? ????? ????? ????? ????? ????? ??????", "????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                      iScsc.UPD_ATTN_P(
                         new XElement("Process",
                            new XElement("Attendance",
                               new XAttribute("code", _attn.CODE),
-                              new XAttribute("type", "001") // ابطال رکورد مشتری
+                              new XAttribute("type", "001") // ????? ????? ?????
                            )
                         )
                      );
@@ -230,8 +230,8 @@ namespace System.Scsc.Ui.Notifications
          }
          catch (Exception exc)
          {
-            //MsgBox.Show(exc.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            MessageBox.Show(this, exc.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //MsgBox.Show(exc.Message, "???", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, exc.Message, "???", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
          finally
          {
@@ -264,22 +264,22 @@ namespace System.Scsc.Ui.Notifications
                );
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("OpenDresPart_Tmr_Tick error: " + ex.ToString()); }
       } 
 
       private void Btn_AutoExitAttn_Click(object sender, EventArgs e)
       {
          try
          {
-            if (MessageBox.Show(this, "با خروج دستی همه مشترییان موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "?? ???? ???? ??? ???????? ????? ??????", "????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             iScsc.AUTO_AEXT_P(new XElement("Process"));
             requery = true;
          }
          catch (Exception ex)
          {
             //MessageBox.Show(ex.Message);
-            //var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            MessageBox.Show(this, ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //var result = MsgBox.Show(ex.Message, "???", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, ex.Message, "???", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
          finally
          {
@@ -403,7 +403,7 @@ namespace System.Scsc.Ui.Notifications
 
                      ServProFile_Rb.Tag = _attn.FIGH_FILE_NO;
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AttnBs1_CurrentChanged error: " + ex.ToString()); }
                }
                else
                {
@@ -432,7 +432,7 @@ namespace System.Scsc.Ui.Notifications
 
                      CochProFile_Rb.Tag = _attn.COCH_FILE_NO;
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AttnBs1_CurrentChanged error: " + ex.ToString()); }
                }
                else
                {
@@ -459,9 +459,9 @@ namespace System.Scsc.Ui.Notifications
 
             if (LoadInfo_Cbx.Checked)
             {
-               // 1403/01/23 * بارگذاری خدمات وابسته
+               // 1403/01/23 * ???????? ????? ??????
                PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.MBSP_FIGH_FILE_NO == _attn.FIGH_FILE_NO && pd.MBSP_RECT_CODE == "004" && pd.MBSP_RWNO == _attn.MBSP_RWNO_DNRM);
-               // 1403/01/23 * بارگذاری سوابق جلسات گذشته
+               // 1403/01/23 * ???????? ????? ????? ?????
                AllCyclAttnBs1.DataSource = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == _attn.FIGH_FILE_NO && a.MBSP_RWNO_DNRM == _attn.MBSP_RWNO_DNRM && a.ATTN_STAT == "002" && a.EXIT_TIME != null);
                OldAttnGetWrstBs.DataSource = AllCyclAttnBs1.List.OfType<Data.Attendance>().Any(a => a.CODE != _attn.CODE && a.Attendance_Wrists.Any(aw => aw.STAT == "001"));
             }

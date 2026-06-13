@@ -141,7 +141,7 @@ namespace System.CRM.Ui.Activity
                )
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("TemplateText_Butn_Click error: " + ex.ToString()); }
       }
 
       private void UserMentioned_Butn_Click(object sender, EventArgs e)

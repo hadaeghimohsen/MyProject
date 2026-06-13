@@ -114,8 +114,8 @@ namespace System.Reporting.ReportUnitType.Ui
          {
             var xmlReport = lv_reportfiles.SelectedItems[0].Tag.ToString();
             txt_reportaddress.Text = XDocument.Parse(xmlReport).Element("Report").Value;
-         }
-         catch { }
+          }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("lv_reportfiles_SelectedIndexChanged error: " + ex.ToString()); }
       }
 
       private void sb_commit_Click(object sender, EventArgs e)

@@ -783,8 +783,11 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             HttpWebResponse webResponse = FormUpload.MultipartFormDataPost(postURL, userAgent, postParameters);
 
             // Process response
-            StreamReader responseReader = new StreamReader(webResponse.GetResponseStream());
-            string fullResponse = responseReader.ReadToEnd();
+            string fullResponse;
+            using (StreamReader responseReader = new StreamReader(webResponse.GetResponseStream()))
+            {
+               fullResponse = responseReader.ReadToEnd();
+            }
             dynamic result = JsonConvert.DeserializeObject(fullResponse);
             webResponse.Close();
             ordr.CRTB_SEND_STAT = "002";

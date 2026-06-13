@@ -282,12 +282,12 @@ namespace System.CRM.Ui.MasterPage
             }
 
          }
-         catch { }
-         job.Status = StatusType.Successful;
-      }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PostOnWall error: " + ex.ToString()); }
+          job.Status = StatusType.Successful;
+       }
 
-      /// <summary>
-      /// Code 09
+       /// <summary>
+       /// Code 09
       /// </summary>
       /// <param name="job"></param>
       private void TakeOnWall(Job job)
@@ -381,7 +381,7 @@ namespace System.CRM.Ui.MasterPage
                Refreshing_Butn_Click(null, null);
             }
          }
-         catch (Exception exc){}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SetNotification error: " + ex.ToString()); }
       }
 
       /// <summary>
@@ -432,7 +432,7 @@ namespace System.CRM.Ui.MasterPage
                   Lb_Mention.Visible = false;
             }
          }
-         catch (Exception exc) { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SetMention error: " + ex.ToString()); }
       }
 
       /// <summary>

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -58,7 +58,7 @@ namespace System.Scsc.Ui.OtherIncome
                RqstBs1.Position = rqstindex;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
       }
 
       private void Execute_Query_Force()
@@ -93,7 +93,7 @@ namespace System.Scsc.Ui.OtherIncome
                RqstBs1.Position = rqstindex;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query_Force error: " + ex.ToString()); }
       }
 
       private void RqstBs1_CurrentChanged(object sender, EventArgs e)
@@ -141,7 +141,7 @@ namespace System.Scsc.Ui.OtherIncome
 
             if (FngrPrnt_Txt.Text == "")
             {
-               if (MessageBox.Show(this, "کد شناسایی خالی میباشد آیا مایل به ایجاد کد پیش فرض هستید؟", "هشدار کد شناسایی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+               if (MessageBox.Show(this, "?? ??????? ???? ?????? ??? ???? ?? ????? ?? ??? ??? ??????", "????? ?? ???????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                   MaxF_Butn001_Click(null, null);
                else
                {
@@ -208,7 +208,7 @@ namespace System.Scsc.Ui.OtherIncome
                         )
                      );
                else if (Rqst.RQST_STAT == "002") return;
-               //MessageBox.Show(this, "مشتریی جدید در سیستم ثبت گردید");
+               //MessageBox.Show(this, "?????? ???? ?? ????? ??? ?????");
                requery = true;
 
             }
@@ -236,7 +236,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با انصراف درخواست مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ?????? ??????? ????? ??????", "?????!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             var Rqst = RqstBs1.Current as Data.Request;
 
@@ -255,7 +255,7 @@ namespace System.Scsc.Ui.OtherIncome
                      )
                   )
                );
-               //MessageBox.Show(this, "مشتری حذف گردید!");
+               //MessageBox.Show(this, "????? ??? ?????!");
             }
             requery = true;
             //tc_pblc.SelectedTab = tp_pblcinfo;
@@ -311,7 +311,7 @@ namespace System.Scsc.Ui.OtherIncome
                   );
                }
 
-               // 1397/05/26 * اگر درخواست گزینه های جانبی داشته باشد باید شماره پرونده ها رو به فرم های مربوطه ارسال کنیم
+               // 1397/05/26 * ??? ??????? ????? ??? ????? ????? ???? ???? ????? ?????? ?? ?? ?? ??? ??? ?????? ????? ????
                string followups = "";
                if (OthrExpnInfo_Ckbx.Checked)
                   followups += "OIC_TOTL_F;";
@@ -396,7 +396,7 @@ namespace System.Scsc.Ui.OtherIncome
          }
          catch (Exception )
          {
-            MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
+            MessageBox.Show("?? ???? ???? ??? ? ????? ????? ????? ? ??????? ???????? ?? ????? ???? ????. ???? ???? ???? ?? ????? ? ????? ????");
          }
       }
 
@@ -443,7 +443,7 @@ namespace System.Scsc.Ui.OtherIncome
                            && r.REGL_STAT == "002"
                            && rqrq.RQTP_CODE == rqst.RQTP_CODE
                            && rqrq.RQTT_CODE == rqst.RQTT_CODE
-                           && rqdc.DCMT_DSID == 13930903120048833 // عکس 4*3
+                           && rqdc.DCMT_DSID == 13930903120048833 // ??? 4*3
                            && rcdc.RQRO_RQST_RQID == rqst.RQID
                            && rcdc.RQRO_RWNO == 1
                         select rcdc).FirstOrDefault();
@@ -588,9 +588,8 @@ namespace System.Scsc.Ui.OtherIncome
             DeptBs1.DataSource = iScsc.Departments.Where(d => d.ORGN_CODE == crntorgn);*/
             //OrgnBs1.Position = SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue);
          }
-         catch
-         {
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("sUNT_BUNT_DEPT_ORGN_CODELookUpEdit_Popup error: " + ex.ToString()); }
+
       }
 
       private void sUNT_BUNT_DEPT_CODELookUpEdit_Popup(object sender, EventArgs e)
@@ -602,9 +601,8 @@ namespace System.Scsc.Ui.OtherIncome
             BuntBs1.DataSource = iScsc.Base_Units.Where(b => b.DEPT_CODE == crntdept && b.DEPT_ORGN_CODE == crntorgn);*/
             //DeptBs1.Position = SUNT_BUNT_DEPT_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_DEPT_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_DEPT_CODELookUpEdit.EditValue);
          }
-         catch
-         {
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("sUNT_BUNT_DEPT_CODELookUpEdit_Popup error: " + ex.ToString()); }
+
       }
 
       private void sUNT_BUNT_CODELookUpEdit_Popup(object sender, EventArgs e)
@@ -617,9 +615,8 @@ namespace System.Scsc.Ui.OtherIncome
             SuntBs1.DataSource = iScsc.Sub_Units.Where(s => s.BUNT_CODE == crntbunt && s.BUNT_DEPT_CODE == crntdept && s.BUNT_DEPT_ORGN_CODE == crntorgn);*/
             //BuntBs1.Position = SUNT_BUNT_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_CODELookUpEdit.EditValue);
          }
-         catch
-         {
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("sUNT_BUNT_CODELookUpEdit_Popup error: " + ex.ToString()); }
+
       }
 
       private void BTN_MBSP_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -681,7 +678,7 @@ namespace System.Scsc.Ui.OtherIncome
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", CrntFigh.FILE_NO)) }
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("UserProFile_Rb_Click error: " + ex.ToString()); }
       }
 
       private void OthrInCm_Butn_Click(object sender, EventArgs e)
@@ -699,7 +696,7 @@ namespace System.Scsc.Ui.OtherIncome
                      })
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("OthrInCm_Butn_Click error: " + ex.ToString()); }
       }
 
       private void colActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -740,7 +737,7 @@ namespace System.Scsc.Ui.OtherIncome
                   );
                   break;
                case 2:
-                  if (MessageBox.Show(this, "آیا با حذف مشتری موافق هستید؟", "عملیات حذف موقت مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "?????? ??? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "Localhost",
                         new List<Job>
@@ -849,22 +846,22 @@ namespace System.Scsc.Ui.OtherIncome
          {
             if(SrchType_Cbx.Checked)
                PBLC.FindFilterText = CellPhon_Txt.Text;
-            // اگر تعداد کاراکتر از 11 تا کمتر باشد هیچ گونه مقایسه ای انجام نشود
+            // ??? ????? ??????? ?? 11 ?? ???? ???? ??? ???? ?????? ?? ????? ????
             #region Comment
             //if (e.NewValue.ToString().Length < 11) return;
 
             //var _qury = vf_FighBs.List.OfType<Data.VF_Last_Info_FighterResult>().Where(f => f.CELL_PHON_DNRM != null && f.CELL_PHON_DNRM.Contains(e.NewValue.ToString()));
             
-            //// 1400/05/03 * اگر خروجی بدست آماده فقط یک کاربر داشته باشد 
+            //// 1400/05/03 * ??? ????? ???? ????? ??? ?? ????? ????? ???? 
             //if(_qury != null && _qury.Count() == 1)
             //{
             //   var _rslt = 
             //      string.Format(
-            //         "براساس ورودی شماره موبایل توسط شما یک مشخصه کاربری پیدا شده که به شرح زیر میباشد" + "\n" + 
-            //         "{0} با شماره موبایل {1} و کد شناسایی {2} در حال حاضر قابل دسترس میباشد، آیا مایل به جای گذاری کد شناسایی جدید میباشید؟",
+            //         "?????? ????? ????? ?????? ???? ??? ?? ????? ?????? ???? ??? ?? ?? ??? ??? ??????" + "\n" + 
+            //         "{0} ?? ????? ?????? {1} ? ?? ??????? {2} ?? ??? ???? ???? ????? ??????? ??? ???? ?? ??? ????? ?? ??????? ???? ????????",
             //         _qury.FirstOrDefault().NAME_DNRM, _qury.FirstOrDefault().CELL_PHON_DNRM, _qury.FirstOrDefault().FNGR_PRNT_DNRM
             //      );
-            //   if (MessageBox.Show(this, _rslt, "جایگزینی کد شناسایی برای مشتری", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            //   if (MessageBox.Show(this, _rslt, "???????? ?? ??????? ???? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             //   //CELL_PHON_TextEdit.EditValue = _qury.FirstOrDefault().CELL_PHON_DNRM;
             //   //Btn_RqstRqt1_Click(null, null);
@@ -900,13 +897,12 @@ namespace System.Scsc.Ui.OtherIncome
             //      );
             //   }
 
-            //   // 1397/05/26 * اگر درخواست گزینه های جانبی داشته باشد باید شماره پرونده ها رو به فرم های مربوطه ارسال کنیم
+            //   // 1397/05/26 * ??? ??????? ????? ??? ????? ????? ???? ???? ????? ?????? ?? ?? ?? ??? ??? ?????? ????? ????
             //   string followups = "";
             //   if (OthrExpnInfo_Ckbx.Checked)
             //      followups += "OIC_TOTL_F;";
             //   if (ChargeCredit_Ckbx.Checked)
             //      followups += "GLR_INDC_F;";
-
 
             //   #region 3th
             //   if (OthrExpnInfo_Ckbx.Checked)
@@ -978,7 +974,7 @@ namespace System.Scsc.Ui.OtherIncome
             if (_qury.Count() > 0)
             {
                PBLC.FindFilterText = CellPhon_Txt.Text;
-               //throw new Exception("این شماره همراه قبلا درون سیستم ثبت شده است، لطفا لیست خود را چک کنید");
+               //throw new Exception("??? ????? ????? ???? ???? ????? ??? ??? ???? ???? ???? ??? ?? ?? ????");
             }
          }
          catch (Exception exc)
@@ -1006,7 +1002,7 @@ namespace System.Scsc.Ui.OtherIncome
             if (_qury.Count() > 0)
             {
                PBLC.FindFilterText = NatlCode_Txt.Text;
-               //throw new Exception("این شماره کد ملی قبلا درون سیستم ثبت شده است، لطفا لیست خود را چک کنید");
+               //throw new Exception("??? ????? ?? ??? ???? ???? ????? ??? ??? ???? ???? ???? ??? ?? ?? ????");
             }
          }
          catch (Exception exc)
@@ -1059,7 +1055,7 @@ namespace System.Scsc.Ui.OtherIncome
                                        if ((bool)output)
                                           return;
                                        #region Show Error
-                                       MessageBox.Show("خطا: عدم دسترسی به کد 171");
+                                       MessageBox.Show("???: ??? ?????? ?? ?? 171");
                                        #endregion                           
                                     })
                                  },
@@ -1074,7 +1070,7 @@ namespace System.Scsc.Ui.OtherIncome
                                        if ((bool)output)
                                           return;
                                        #region Show Error
-                                       MessageBox.Show("خطا: عدم دسترسی به کد 175");
+                                       MessageBox.Show("???: ??? ?????? ?? ?? 175");
                                        #endregion                           
                                     })
                                  }

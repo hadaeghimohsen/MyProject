@@ -90,7 +90,7 @@ namespace System.CRM.Ui.MarketingList
                   control.EditValue = null;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ObjectBaseEdit_ButtonPressed error: " + ex.ToString()); }
       }
 
       private void CmptBs_CurrentChanged(object sender, EventArgs e)
@@ -481,9 +481,7 @@ namespace System.CRM.Ui.MarketingList
 
             requery = true;
          }
-         catch (Exception exc)
-         {
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SaveServ_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)

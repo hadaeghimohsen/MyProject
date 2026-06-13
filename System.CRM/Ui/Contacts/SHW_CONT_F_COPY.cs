@@ -128,7 +128,7 @@ namespace System.CRM.Ui.Contacts
                   );
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
          finally
          {            
             Serv_Gv.BestFitColumns();
@@ -166,7 +166,7 @@ namespace System.CRM.Ui.Contacts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ImageProfile_Butn_Click error: " + ex.ToString()); }
       }
 
       private void LeadActn_Butn_ButtonClick(object sender, ButtonPressedEventArgs e)
@@ -226,10 +226,10 @@ namespace System.CRM.Ui.Contacts
                           });
                      _DefaultGateway.Gateway(_InteractWithCRM);
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LeadActn_Butn_ButtonClick case 1 error: " + ex.ToString()); }
                   #endregion
                   break;
-               case 2: // Clone
+                case 2: // Clone
                   #region Clone
                   try
                   {
@@ -249,10 +249,10 @@ namespace System.CRM.Ui.Contacts
                           });
                      _DefaultGateway.Gateway(_InteractWithCRM);
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LeadActn_Butn_ButtonClick case 2 error: " + ex.ToString()); }
                   #endregion
                   break;
-               case 3: // Delete
+                case 3: // Delete
                   #region Delete
                   try
                   {
@@ -375,10 +375,7 @@ namespace System.CRM.Ui.Contacts
                   break;
             }
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LeadActn_Butn_ButtonClick error: " + ex.ToString()); }
       }
 
       private void ServBs_CurrentChanged(object sender, EventArgs e)
@@ -541,7 +538,7 @@ namespace System.CRM.Ui.Contacts
                )
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ShowServiceDetail_Butn_Click error: " + ex.ToString()); }
       }
 
       private void Tag_Butn_Click(object sender, EventArgs e)

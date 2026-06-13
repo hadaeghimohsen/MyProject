@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -56,7 +56,7 @@ namespace System.Scsc.Ui.Admission.ShowChanges
          if (e.Column.FieldName == "TIME_DESC" && e.IsGetData)
          {
             var h = ((TimeSpan)view.GetListSourceRowCellValue(e.ListSourceRowIndex, "END_TIME")).Hours;
-            e.Value = h >= 0 && h < 12 ? "صبح" : h >= 12 && h < 15 ? "ظهر" : h >= 15 && h < 18 ? "بعد ظهر" : h >= 18 ? "عصر" : "نام مشخص";
+            e.Value = h >= 0 && h < 12 ? "???" : h >= 12 && h < 15 ? "???" : h >= 15 && h < 18 ? "??? ???" : h >= 18 ? "???" : "??? ????";
          }
       }
 
@@ -170,9 +170,8 @@ namespace System.Scsc.Ui.Admission.ShowChanges
          {
             OrgnBs1.Position = SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue);
          }
-         catch
-         {
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("sUNT_BUNT_DEPT_ORGN_CODELookUpEdit_Popup error: " + ex.ToString()); }
+
       }
 
       private void sUNT_BUNT_DEPT_CODELookUpEdit_Popup(object sender, EventArgs e)
@@ -181,9 +180,8 @@ namespace System.Scsc.Ui.Admission.ShowChanges
          {
             DeptBs1.Position = SUNT_BUNT_DEPT_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_DEPT_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_DEPT_CODELookUpEdit.EditValue);
          }
-         catch
-         {
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("sUNT_BUNT_DEPT_CODELookUpEdit_Popup error: " + ex.ToString()); }
+
       }
 
       private void sUNT_BUNT_CODELookUpEdit_Popup(object sender, EventArgs e)
@@ -192,9 +190,8 @@ namespace System.Scsc.Ui.Admission.ShowChanges
          {
             BuntBs1.Position = SUNT_BUNT_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_CODELookUpEdit.EditValue);
          }
-         catch
-         {
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("sUNT_BUNT_CODELookUpEdit_Popup error: " + ex.ToString()); }
+
       }
    }
 }

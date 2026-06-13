@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
@@ -191,7 +191,6 @@ namespace System.Scsc.Ui.ReportManager
          }
          #endregion
 
-
          job.Status = StatusType.Successful;
       }
 
@@ -266,7 +265,7 @@ namespace System.Scsc.Ui.ReportManager
             //MdrpBs1.DataSource = iScsc.Modual_Reports.Where(mr => mr.MDUL_NAME == ModualName && mr.SECT_NAME == SectionName && mr.STAT == "002");
             Execute_Query();
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LoadData error: " + ex.ToString()); }
          job.Status = StatusType.Successful;
       }
 

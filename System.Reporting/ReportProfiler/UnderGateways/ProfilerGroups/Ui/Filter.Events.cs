@@ -22,20 +22,22 @@ namespace System.Reporting.ReportProfiler.UnderGateways.ProfilerGroups.Ui
                new DataColumn("Value", typeof(object))
             });
 
-         StreamReader sr = new StreamReader(ofd_selector.FileName);
-         string line;
-         while((line = sr.ReadLine()) != null)
+         using (StreamReader sr = new StreamReader(ofd_selector.FileName))
          {
-            if (               
-               line != "" &&
-               getChekInptVald(line, "list") == line &&
-               getChekInptVald(line, "min") == line &&
-               getChekInptVald(line, "max") == line
-            )
+            string line;
+            while((line = sr.ReadLine()) != null)
             {
-               DataRow dr = dt.NewRow();
-               dr["Value"] = line;
-               dt.Rows.Add(dr);
+               if (               
+                  line != "" &&
+                  getChekInptVald(line, "list") == line &&
+                  getChekInptVald(line, "min") == line &&
+                  getChekInptVald(line, "max") == line
+               )
+               {
+                  DataRow dr = dt.NewRow();
+                  dr["Value"] = line;
+                  dt.Rows.Add(dr);
+               }
             }
          }
 

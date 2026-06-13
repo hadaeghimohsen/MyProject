@@ -213,7 +213,7 @@ namespace System.CRM.Ui.Acounts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+                   catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AddLogCall_Butn_Click error: " + ex.ToString()); }
       }      
 
       private void DeleteRecycleCompany_Butn_Click(object sender, EventArgs e)
@@ -295,7 +295,7 @@ namespace System.CRM.Ui.Acounts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+                   catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AddSubCompany_Butn_Click error: " + ex.ToString()); }
       }
 
       private void SendEmailLastRelatedService_Butn_Click(object sender, EventArgs e)
@@ -324,7 +324,7 @@ namespace System.CRM.Ui.Acounts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+                   catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SendEmailLastRelatedService_Butn_Click error: " + ex.ToString()); }
       }
 
       private void EditCompany_Butn_Click(object sender, EventArgs e)
@@ -1178,7 +1178,7 @@ namespace System.CRM.Ui.Acounts
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+                   catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AddDeals_Butn_Click error: " + ex.ToString()); }
       }
 
       private void Pymt_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -1327,10 +1327,7 @@ namespace System.CRM.Ui.Acounts
                );
 
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PymtSaveBs_DataSourceChanged error: " + ex.ToString()); }
       }
 
       private void CallLog_Gv_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
@@ -2035,7 +2032,7 @@ namespace System.CRM.Ui.Acounts
                   control.EditValue = null;
             }
          }
-         catch { }
+                   catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ObjectBaseEdit_ButtonPressed error: " + ex.ToString()); }
       }
 
       private void Cnty_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -2044,7 +2041,7 @@ namespace System.CRM.Ui.Acounts
          {
             PrvnBs.DataSource = iCRM.Provinces.Where(p => p.CNTY_CODE == e.NewValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Cnty_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void Prvn_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -2053,7 +2050,7 @@ namespace System.CRM.Ui.Acounts
          {
             RegnBs.DataSource = iCRM.Regions.Where(r => r.PRVN_CODE == e.NewValue.ToString() && r.PRVN_CNTY_CODE == Cnty_Lov.EditValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Prvn_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void IsicGrop_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -2062,7 +2059,7 @@ namespace System.CRM.Ui.Acounts
          {
             IsicActvBs.DataSource = iCRM.Isic_Activities.Where(a => a.ISCG_CODE == e.NewValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("IsicGrop_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void IsicActv_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -2071,7 +2068,7 @@ namespace System.CRM.Ui.Acounts
          {
             IsicProdBs.DataSource = iCRM.Isic_Products.Where(p => p.ISCA_CODE == e.NewValue.ToString() && p.ISCA_ISCG_CODE == IsicGrop_Lov.EditValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("IsicActv_Lov_EditValueChanging error: " + ex.ToString()); }
       }
-   }
+}
 }

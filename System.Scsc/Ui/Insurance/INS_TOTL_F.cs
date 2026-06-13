@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -41,7 +41,7 @@ namespace System.Scsc.Ui.Insurance
                      Rqids.Contains(rqst.RQID)
                );
 
-            // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
+            // 1396/11/02 * ???? ????? ????? ?????? ??? ????? ?? ?????
             FighsBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
          }         
       }
@@ -168,7 +168,7 @@ namespace System.Scsc.Ui.Insurance
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با انصراف درخواست مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ?????? ??????? ????? ??????", "?????!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             var Rqst = RqstBs1.Current as Data.Request;
 
@@ -199,7 +199,7 @@ namespace System.Scsc.Ui.Insurance
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
-               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               // 1397/05/16 * ??? ???????? ???? ?????? ???? ??? ????? ?? ??????
                if (RqstBs1.List.Count == 0)
                   RqstBnExit1_Click(null, null);
                else
@@ -294,7 +294,7 @@ namespace System.Scsc.Ui.Insurance
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
-               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               // 1397/05/16 * ??? ???????? ???? ?????? ???? ??? ????? ?? ??????
                if (RqstBs1.List.Count == 0)
                   RqstBnExit1_Click(null, null);
                else
@@ -431,7 +431,7 @@ namespace System.Scsc.Ui.Insurance
          {
             //if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "عملیات پرداخت به صورت نقدی و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "?????? ?????? ?? ???? ???? ? ????? ????? ???? ????? ????", "?????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -456,11 +456,9 @@ namespace System.Scsc.Ui.Insurance
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
+                  MessageBox.Show(this, "???? ????? ??? ???? ????? ?????? ???");
                   return;
                }*/
-
-
 
                /* Loop For Print After Pay */
                RqstBnPrintAfterPay_Click(null, null);
@@ -481,7 +479,7 @@ namespace System.Scsc.Ui.Insurance
          {
             //if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "عملیات پرداخت توسط کارتخوان و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "?????? ?????? ???? ???????? ? ????? ????? ???? ????? ????", "?????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -548,7 +546,7 @@ namespace System.Scsc.Ui.Insurance
                }
                else
                {
-                  // 1397/01/07 * ثبت دستی مبلغ به صورت پایانه فروش
+                  // 1397/01/07 * ??? ???? ???? ?? ???? ?????? ????
                   foreach (Data.Payment pymt in PymtsBs1)
                   {
                      iScsc.PAY_MSAV_P(
@@ -626,18 +624,18 @@ namespace System.Scsc.Ui.Insurance
       {
          //try
          //{
-         //   PydsType_Butn.Text = PydsType_Butn.Tag.ToString() == "0" ? "مبلغی" : "درصدی";
+         //   PydsType_Butn.Text = PydsType_Butn.Tag.ToString() == "0" ? "?????" : "?????";
          //   PydsType_Butn.Tag = PydsType_Butn.Tag.ToString() == "0" ? "1" : "0";
          //   if (PydsType_Lov.EditValue != null || PydsType_Lov.EditValue.ToString() != "") PydsType_Lov.EditValue = "002";
 
          //   if (PydsType_Butn.Tag.ToString() == "0")
          //   {
-         //      PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "درصد تخفیف";
+         //      PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "???? ?????";
          //      PydsAmnt_Txt.Properties.MaxLength = 3;
          //   }
          //   else
          //   {
-         //      PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "مبلغ تخفیف";
+         //      PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "???? ?????";
          //      PydsAmnt_Txt.Properties.MaxLength = 0;
          //   }
          //   PydsAmnt_Txt.Focus();
@@ -649,14 +647,14 @@ namespace System.Scsc.Ui.Insurance
       {
          try
          {
-            RcmtType_Butn.Text = RcmtType_Butn.Tag.ToString() == "0" ? "POS" : "نقدی";
+            RcmtType_Butn.Text = RcmtType_Butn.Tag.ToString() == "0" ? "POS" : "????";
             RcmtType_Butn.Tag = RcmtType_Butn.Tag.ToString() == "0" ? "1" : "0";
             PymtAmnt_Txt.Focus();
             var pymt = PymtsBs1.Current as Data.Payment;
             if (pymt == null) return;
             PymtAmnt_Txt.EditValue = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RcmtType_Butn_Click error: " + ex.ToString()); }
       }
 
       private void SavePyds_Butn_Click(object sender, EventArgs e)
@@ -778,7 +776,7 @@ namespace System.Scsc.Ui.Insurance
                      if (regl.AMNT_TYPE == "002")
                         PymtAmnt_Txt.EditValue = Convert.ToInt64( PymtAmnt_Txt.EditValue ) * 10;
 
-                     // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
+                     // ?? ??? ????? ???? ??? ??????? ?????? ?? ??? ?? ?????? ????? ??????? ??? ??? ?????? ???
                      UsePos_Cb.Checked = false;
 
                      _DefaultGateway.Gateway(
@@ -891,11 +889,11 @@ namespace System.Scsc.Ui.Insurance
             debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
             dpstamnt = pymt.Request.Request_Rows.FirstOrDefault().Fighter.DPST_AMNT_DNRM;
 
-            if (dpstamnt == 0) { MessageBox.Show(this, "مبلغ سپرده مشتری صفر میباشد", "عدم موجودی سپرده مشتری"); return; }
-            // 1401/02/04 * بروزرسانی مبلغ سپرده مشتری
+            if (dpstamnt == 0) { MessageBox.Show(this, "???? ????? ????? ??? ??????", "??? ?????? ????? ?????"); return; }
+            // 1401/02/04 * ????????? ???? ????? ?????
             if (dpstamnt - pymt.Payment_Methods.Where(pm => pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT) <= 0)
             {
-               MessageBox.Show(this, "مبلغ اعتبار سپرده برای مشتری وجود ندارد", "عدم موجودی سپرده مشتری"); return;
+               MessageBox.Show(this, "???? ?????? ????? ???? ????? ???? ?????", "??? ?????? ????? ?????"); return;
             }
             else
             {
@@ -912,16 +910,16 @@ namespace System.Scsc.Ui.Insurance
                {
                   mesg =
                      string.Format(
-                        ">> مبلغ {0} {1} به صورت >> کسر از سپرده << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                        ">> ???? {0} {1} ?? ???? >> ??? ?? ????? << ?? ????? {2} ?? ????? ????? {3}  ???? ??????",
                         string.Format("{0:n0}", debtamnt),
                         DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
-                        "امروز",
+                        "?????",
                         CurrentUser);
                   mesg += Environment.NewLine;
                }
-               mesg += ">> ذخیره و پایان درخواست";
+               mesg += ">> ????? ? ????? ???????";
 
-               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, mesg, "?????? ??? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
             }
 
             foreach (Data.Payment pymt1 in PymtsBs1)
@@ -985,16 +983,16 @@ namespace System.Scsc.Ui.Insurance
                {
                   mesg =
                      string.Format(
-                        ">> مبلغ {0} {1} به صورت >> کارت به کارت << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                        ">> ???? {0} {1} ?? ???? >> ???? ?? ???? << ?? ????? {2} ?? ????? ????? {3}  ???? ??????",
                         string.Format("{0:n0}", debtamnt),
                         DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
-                        "امروز",
+                        "?????",
                         CurrentUser);
                   mesg += Environment.NewLine;
                }
-               mesg += ">> ذخیره و پایان درخواست";
+               mesg += ">> ????? ? ????? ???????";
 
-               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, mesg, "?????? ??? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
             }
 
             foreach (Data.Payment pymt in PymtsBs1)

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.JobRouting.Jobs;
@@ -322,11 +322,9 @@ namespace System.Scsc.Ui.Notifications
          if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
             Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
 
-
          finishcommand:
          CbmtBs1.DataSource = iScsc.Club_Methods.Where(cm => cm.MTOD_STAT == "002");
          
-
          job.Status = StatusType.Successful;
       }
 
@@ -377,7 +375,7 @@ namespace System.Scsc.Ui.Notifications
                fileno = xinput.Attribute("fileno").Value;
                AttnDate_Date.Value = Convert.ToDateTime(xinput.Attribute("attndate").Value);
 
-               // 1396/07/16 * اضافه شدن 
+               // 1396/07/16 * ????? ??? 
                if (xinput.Attribute("attncode") != null)
                   attncode = Convert.ToInt64(xinput.Attribute("attncode").Value);
                else
@@ -399,7 +397,7 @@ namespace System.Scsc.Ui.Notifications
             else
                gateControl = false;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Actn_CalF_P error: " + ex.ToString()); }
          finally
          {
             Execute_Query();
@@ -443,10 +441,10 @@ namespace System.Scsc.Ui.Notifications
                long amnt = 0;
 
                if (debt > paydebt)
-                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
                   amnt = paydebt;
                else
-                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(

@@ -98,7 +98,7 @@ namespace System.CRM.Ui.Acounts
                iCRM.VF_Companies(Qxml);
             requery = false;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
          finally
          {
             Comp_Gv.BestFitColumns();
@@ -187,10 +187,10 @@ namespace System.CRM.Ui.Acounts
                         _DefaultGateway.Gateway(_InteractWithCRM);
                      }
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LeadActn_Butn_ButtonClick case 0 error: " + ex.ToString()); }
                   #endregion
                   break;
-               case 1: // Clone
+                case 1: // Clone
                   #region Clone
                   try
                   {
@@ -210,10 +210,10 @@ namespace System.CRM.Ui.Acounts
                           });
                      _DefaultGateway.Gateway(_InteractWithCRM);
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LeadActn_Butn_ButtonClick case 1 error: " + ex.ToString()); }
                   #endregion
                   break;
-               case 2: // Delete
+                case 2: // Delete
                   #region Delete
                   try
                   {
@@ -333,10 +333,7 @@ namespace System.CRM.Ui.Acounts
                   break;
             }
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LeadActn_Butn_ButtonClick error: " + ex.ToString()); }
       }
 
       private void CompBs_CurrentChanged(object sender, EventArgs e)
@@ -424,26 +421,26 @@ namespace System.CRM.Ui.Acounts
                        });
                   _DefaultGateway.Gateway(_InteractWithCRM);
                }
-               catch { }
-            }
-            else if(serv.SRPB_TYPE_DNRM == "002")
-            {
-               // Contact
-               try
-               {
-                  Job _InteractWithCRM =
-                    new Job(SendType.External, "Localhost",
-                       new List<Job>
-                       {                  
-                         new Job(SendType.Self, 34 /* Execute Inf_Cont_F */),                
-                         new Job(SendType.SelfToUserInterface, "INF_CONT_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Service", new XAttribute("fileno", relatedservice))},
-                       });
-                  _DefaultGateway.Gateway(_InteractWithCRM);
-               }
-               catch { }
-            }
-         }
-         catch { }
+               catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_relatedservice_Click inner1 error: " + ex.ToString()); }
+             }
+             else if(serv.SRPB_TYPE_DNRM == "002")
+             {
+                // Contact
+                try
+                {
+                   Job _InteractWithCRM =
+                     new Job(SendType.External, "Localhost",
+                        new List<Job>
+                        {                  
+                          new Job(SendType.Self, 34 /* Execute Inf_Cont_F */),                
+                          new Job(SendType.SelfToUserInterface, "INF_CONT_F", 10 /* Execute ACTN_CALF_P */){Input = new XElement("Service", new XAttribute("fileno", relatedservice))},
+                        });
+                   _DefaultGateway.Gateway(_InteractWithCRM);
+                }
+                catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_relatedservice_Click inner2 error: " + ex.ToString()); }
+             }
+          }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("rb_relatedservice_Click error: " + ex.ToString()); }
       }
 
       private void rb_4th_Click(object sender, EventArgs e)

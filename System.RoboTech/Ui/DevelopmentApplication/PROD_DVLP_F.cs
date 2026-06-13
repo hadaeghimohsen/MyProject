@@ -2288,36 +2288,34 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if (response.StatusCode == HttpStatusCode.OK)
             {
                Stream receiveStream = response.GetResponseStream();
-               StreamReader readStream = null;
 
-               if (String.IsNullOrWhiteSpace(response.CharacterSet))
-                  readStream = new StreamReader(receiveStream);
-               else
-                  readStream = new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet));
+               using (StreamReader readStream = String.IsNullOrWhiteSpace(response.CharacterSet)
+                  ? new StreamReader(receiveStream)
+                  : new StreamReader(receiveStream, Encoding.GetEncoding(response.CharacterSet)))
+               {
+                  var htmlDoc = new HtmlAgilityPack.HtmlDocument();
+                  htmlDoc.LoadHtml(readStream.ReadToEnd());
 
-               var htmlDoc = new HtmlAgilityPack.HtmlDocument();
-               htmlDoc.LoadHtml(readStream.ReadToEnd());
+                  var htmlBody = htmlDoc.DocumentNode.SelectNodes("//table/tbody/tr");
 
-               var htmlBody = htmlDoc.DocumentNode.SelectNodes("//table/tbody/tr");
-
-               iRoboTech.GET_CSOR_P(
-                  new XElement("Robot_Currency_Source",
-                      new XAttribute("code", csor.CODE),
-                      new XElement("Currencies",
-                          htmlBody.Take(32)
-                          .Select(c => 
-                              new XElement("Currency", 
-                                  new XAttribute("data", c.InnerText.Replace("\n", "#"))
-                              )
-                          )
-                          
-                      )
-                  )
-               );
+                  iRoboTech.GET_CSOR_P(
+                     new XElement("Robot_Currency_Source",
+                         new XAttribute("code", csor.CODE),
+                         new XElement("Currencies",
+                             htmlBody.Take(32)
+                             .Select(c => 
+                                 new XElement("Currency", 
+                                     new XAttribute("data", c.InnerText.Replace("\n", "#"))
+                                 )
+                             )
+                             
+                         )
+                     )
+                  );
+               }
 
                requery = true;
                response.Close();
-               readStream.Close();
             }
          }
          catch (Exception exc)

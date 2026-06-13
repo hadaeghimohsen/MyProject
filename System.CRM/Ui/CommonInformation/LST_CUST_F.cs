@@ -41,7 +41,7 @@ namespace System.CRM.Ui.CommonInformation
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("INF_Butn_ButtonClick error: " + ex.ToString()); }
       }
    }
 }

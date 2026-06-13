@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
@@ -20,7 +20,6 @@ namespace System.Scsc.Ui.HumanResource
       private List<long?> Fga_Uclb_U;
       private string formCaller;
       private bool isFirstLoaded = false;
-
 
       public void SendRequest(Job job)
       {
@@ -86,11 +85,11 @@ namespace System.Scsc.Ui.HumanResource
                                              <ol>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F10</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از سیستم</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ?????</font></li>
                                                 </ul>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F9</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از محیط کاربری</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ???? ??????</font></li>
                                                 </ul>
                                              </ol>
                                        </p>
@@ -270,13 +269,13 @@ namespace System.Scsc.Ui.HumanResource
             
             isFirstLoaded = true;
          }
-         catch { }         
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LoadData error: " + ex.ToString()); }
 
       //Execute_Query();
          #endregion
 
       finishcommand:
-         FighBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "002" ||f.FGPB_TYPE_DNRM == "003" || f.FGPB_TYPE_DNRM == "004" )  /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای") && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false))*/ && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+         FighBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "002" ||f.FGPB_TYPE_DNRM == "003" || f.FGPB_TYPE_DNRM == "004" )  /*&& !f.NAME_DNRM.Contains("?????, ???? ??") && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false))*/ && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          job.Status = StatusType.Successful;
       }
 
@@ -290,7 +289,7 @@ namespace System.Scsc.Ui.HumanResource
             iScsc = new Data.iScscDataContext(ConnectionString);
             DstpBs1.DataSource = iScsc.Diseases_Types;            
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LoadDataSource error: " + ex.ToString()); }
          job.Status = StatusType.Successful;
       }
 
@@ -341,7 +340,7 @@ namespace System.Scsc.Ui.HumanResource
             else
                Execute_Query();
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Actn_CalF_P error: " + ex.ToString()); }
          job.Status = StatusType.Successful;
       }
 
@@ -364,7 +363,7 @@ namespace System.Scsc.Ui.HumanResource
          var refno = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("refno").Value;
          var actndate = RcevXData.Element("Request").Element("Payment").Element("Payment_Method").Attribute("actndate").Value;
 
-         // ثبت نام
+         // ??? ???
          if (rqtpcode == "001")
          {
             iScsc.PAY_MSAV_P(

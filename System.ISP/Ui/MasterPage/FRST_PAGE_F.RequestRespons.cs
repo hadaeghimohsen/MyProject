@@ -246,15 +246,15 @@ namespace System.ISP.Ui.MasterPage
             }
 
          }
-         catch { }
-         job.Status = StatusType.Successful;
-      }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PostOnWall error: " + ex.ToString()); }
+          job.Status = StatusType.Successful;
+       }
 
-      /// <summary>
-      /// Code 09
-      /// </summary>
-      /// <param name="job"></param>
-      private void TakeOnWall(Job job)
+       /// <summary>
+       /// Code 09
+       /// </summary>
+       /// <param name="job"></param>
+       private void TakeOnWall(Job job)
       {
          try
          {

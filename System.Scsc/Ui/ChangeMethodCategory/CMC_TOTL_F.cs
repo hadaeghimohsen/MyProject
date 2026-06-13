@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -129,7 +129,7 @@ namespace System.Scsc.Ui.ChangeMethodCategory
             Data.Request Rqst = RqstBs1.Current as Data.Request;
             if (Rqst == null) return;
 
-            if (MessageBox.Show(this, "آیا با انصراف دادن درخواست موافق هستید؟", "هشدار", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ?????? ???? ??????? ????? ??????", "?????", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             iScsc.CNCL_RQST_F(
                new XElement("Process",
                   new XElement("Request",
@@ -239,7 +239,7 @@ namespace System.Scsc.Ui.ChangeMethodCategory
 
             CtgyBs1.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == (long?)Mtod_LookUpEdit.EditValue);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Mtod_LookUpEdit_EditValueChanged error: " + ex.ToString()); }
       }
 
       private void RqstBnExit1_Click(object sender, EventArgs e)
@@ -348,7 +348,7 @@ namespace System.Scsc.Ui.ChangeMethodCategory
          {
             if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "?????? ?????? ? ????? ????? ???? ????? ????", "?????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -356,7 +356,7 @@ namespace System.Scsc.Ui.ChangeMethodCategory
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "تمام هزینه های بدهی هنرجو پرداخت شده");
+                  MessageBox.Show(this, "???? ????? ??? ???? ????? ?????? ???");
                   return;
                }*/
 

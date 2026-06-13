@@ -164,10 +164,7 @@ namespace System.CRM.Ui.Activity
                newcolb.JOBP_CODE = jobpcode;
             }
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("JobpCode_Lov_ButtonClick error: " + ex.ToString()); }
       }
 
       private string GetDateTimeString(DateTime? dt)
@@ -208,7 +205,7 @@ namespace System.CRM.Ui.Activity
                requery = true;
             
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SelectColor_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -281,7 +278,7 @@ namespace System.CRM.Ui.Activity
 
             rqst.TASK_STAT = rqst.TASK_STAT == null ? "001" : rqst.TASK_STAT;            
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("TaskBs_CurrentChanged error: " + ex.ToString()); }
       }
 
       private void Tg_DeadLine_Toggled(object sender, EventArgs e)
@@ -402,7 +399,7 @@ namespace System.CRM.Ui.Activity
                requery = true;
 
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Tag_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -453,7 +450,7 @@ namespace System.CRM.Ui.Activity
                requery = true;
 
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AttachFile_butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -506,7 +503,7 @@ namespace System.CRM.Ui.Activity
                requery = true;
 
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Comment_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)

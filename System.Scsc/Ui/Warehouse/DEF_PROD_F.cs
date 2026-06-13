@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -51,7 +51,6 @@ namespace System.Scsc.Ui.Warehouse
 
             }
 
-
             UlnfBs.DataSource = iScsc.User_Link_Fighters.Where(u => u.USER_DB == CurrentUser);
             UlnsBs.DataSource = iScsc.User_Link_Sections.Where(u => u.USER_DB == CurrentUser);
 
@@ -100,7 +99,7 @@ namespace System.Scsc.Ui.Warehouse
             var _epit = EpitBs.Current as Data.Expense_Item;
             if (_epit == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.DEL_EPIT_P(_epit.CODE);
             requery = true;
@@ -226,7 +225,7 @@ namespace System.Scsc.Ui.Warehouse
                foreach (var expn in ExpnBs.List.OfType<Data.Expense>())
                {
                   expn.EXPN_DESC =
-                     string.Format("{0} {1}، {2}",
+                     string.Format("{0} {1}? {2}",
                      ExtpDesc_Cbx.Checked ? expn.Expense_Type.Expense_Item.EPIT_DESC : "",
                      MtodDesc_Cbx.Checked ? expn.Method.MTOD_DESC : "",
                      CtgyDesc_Cbx.Checked ? expn.Category_Belt.CTGY_DESC : ""
@@ -239,14 +238,14 @@ namespace System.Scsc.Ui.Warehouse
                if (expn == null) return;
 
                expn.EXPN_DESC =
-                  string.Format("{0} {1}، {2}",
+                  string.Format("{0} {1}? {2}",
                   ExtpDesc_Cbx.Checked ? expn.Expense_Type.Expense_Item.EPIT_DESC : "",
                   MtodDesc_Cbx.Checked ? expn.Method.MTOD_DESC : "",
                   CtgyDesc_Cbx.Checked ? expn.Category_Belt.CTGY_DESC : ""
                );
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SetDescExpn_Butn_Click error: " + ex.ToString()); }
       }
 
       private void SaveComp_Butn_Click(object sender, EventArgs e)
@@ -333,7 +332,7 @@ namespace System.Scsc.Ui.Warehouse
 
             if (_wrhs.WRHS_STAT == "002") return;
 
-            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
 
             iScsc.Warehouses.DeleteOnSubmit(_wrhs);
 
@@ -415,16 +414,16 @@ namespace System.Scsc.Ui.Warehouse
 
             if (WhdtBs.List.OfType<Data.Warehouse_Detail>().Any(wd => wd.UNIT_APBS_CODE == null || wd.SECT_APBS_CODE == null || wd.FIGH_FILE_NO == null || wd.PRIC == 0 || (wd.WEGH == 0 && wd.QNTY == 0)))
             {
-               MessageBox.Show("بعضی از آیتم و فیلدهای ردیف های فاکتور درست وارد نشده لطفا اطلاعات را وارد کنید");
+               MessageBox.Show("???? ?? ???? ? ??????? ???? ??? ?????? ???? ???? ???? ???? ??????? ?? ???? ????");
                return;
             }
             else if (WhdtBs.List.OfType<Data.Warehouse_Detail>().Any(wd => wd.QNTY != 0 && wd.WEGH != 0))
             {
-               MessageBox.Show("هر ردیف فاکتور فقط اجازه ذخیره کردن تعداد یا وزن را دارید هر دو مورد اطلاعات وارد کنید بی معنی میباشد");
+               MessageBox.Show("?? ???? ?????? ??? ????? ????? ???? ????? ?? ??? ?? ????? ?? ?? ???? ??????? ???? ???? ?? ???? ??????");
                return;
             }
 
-            if (MessageBox.Show(this, "آیا با ذخیره کردن فاکتور موافق هستید؟", "نهایی کردن فاکتور", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ????? ???? ?????? ????? ??????", "????? ???? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
 
             WrhsBs.EndEdit();
             _wrhs.WRHS_STAT = "002";
@@ -559,7 +558,7 @@ namespace System.Scsc.Ui.Warehouse
                   var _whdt = WhdtBs.Current as Data.Warehouse_Detail;
                   if (_whdt == null) return;
 
-                  if((_whdt.FIGH_FILE_NO == null) || (_whdt.FIGH_FILE_NO != _ulnf.FIGH_FILE_NO && MessageBox.Show(this, "آیا با تغییر شخص ردیف فاکتور موافق هستید؟", "تغییر شخص ردیف فاکتور", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                  if((_whdt.FIGH_FILE_NO == null) || (_whdt.FIGH_FILE_NO != _ulnf.FIGH_FILE_NO && MessageBox.Show(this, "??? ?? ????? ??? ???? ?????? ????? ??????", "????? ??? ???? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
                   {
                      iScsc.ExecuteCommand(
                         string.Format("UPDATE dbo.Warehouse_Detail SET FIGH_FILE_NO = {0} WHERE CODE = {1};", _ulnf.FIGH_FILE_NO, _whdt.CODE)
@@ -567,7 +566,7 @@ namespace System.Scsc.Ui.Warehouse
                   }                  
                   break;
                case 1:
-                  if (WhdtBs.List.OfType<Data.Warehouse_Detail>().Any(wd => wd.FIGH_FILE_NO != null && wd.FIGH_FILE_NO != _ulnf.FIGH_FILE_NO) && MessageBox.Show(this, "آیا با تغییر تمام ردیف فاکتور با این شخص موافق هستید؟", "تغییر تمام ردیف فاکتور با شخص", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+                  if (WhdtBs.List.OfType<Data.Warehouse_Detail>().Any(wd => wd.FIGH_FILE_NO != null && wd.FIGH_FILE_NO != _ulnf.FIGH_FILE_NO) && MessageBox.Show(this, "??? ?? ????? ???? ???? ?????? ?? ??? ??? ????? ??????", "????? ???? ???? ?????? ?? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
                   iScsc.ExecuteCommand(
                      string.Format("UPDATE dbo.Warehouse_Detail SET FIGH_FILE_NO = {0} WHERE WRHS_CODE = {1};", _ulnf.FIGH_FILE_NO, _wrhs.CODE)
@@ -705,7 +704,7 @@ namespace System.Scsc.Ui.Warehouse
                   var _whdt = WhdtBs.Current as Data.Warehouse_Detail;
                   if (_whdt == null) return;
 
-                  if ((_whdt.SECT_APBS_CODE == null) || (_whdt.SECT_APBS_CODE != _ulns.SECT_APBS_CODE && MessageBox.Show(this, "آیا با تغییر بخش ردیف فاکتور موافق هستید؟", "تغییر بخش ردیف فاکتور", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
+                  if ((_whdt.SECT_APBS_CODE == null) || (_whdt.SECT_APBS_CODE != _ulns.SECT_APBS_CODE && MessageBox.Show(this, "??? ?? ????? ??? ???? ?????? ????? ??????", "????? ??? ???? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes))
                   {
                      iScsc.ExecuteCommand(
                         string.Format("UPDATE dbo.Warehouse_Detail SET Sect_Apbs_Code = {0} WHERE CODE = {1};", _ulns.SECT_APBS_CODE, _whdt.CODE)
@@ -713,7 +712,7 @@ namespace System.Scsc.Ui.Warehouse
                   }
                   break;
                case 1:
-                  if (WhdtBs.List.OfType<Data.Warehouse_Detail>().Any(wd => wd.SECT_APBS_CODE != null && wd.SECT_APBS_CODE != _ulns.SECT_APBS_CODE) && MessageBox.Show(this, "آیا با تغییر تمام ردیف فاکتور با این بخش موافق هستید؟", "تغییر تمام ردیف فاکتور با بخش", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+                  if (WhdtBs.List.OfType<Data.Warehouse_Detail>().Any(wd => wd.SECT_APBS_CODE != null && wd.SECT_APBS_CODE != _ulns.SECT_APBS_CODE) && MessageBox.Show(this, "??? ?? ????? ???? ???? ?????? ?? ??? ??? ????? ??????", "????? ???? ???? ?????? ?? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
                   iScsc.ExecuteCommand(
                      string.Format("UPDATE dbo.Warehouse_Detail SET Sect_Apbs_Code = {0} WHERE WRHS_CODE = {1};", _ulns.SECT_APBS_CODE, _wrhs.CODE)
@@ -743,7 +742,7 @@ namespace System.Scsc.Ui.Warehouse
             var _whdt = WhdtBs.Current as Data.Warehouse_Detail;
             if (_whdt == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.Warehouse_Details.DeleteOnSubmit(_whdt);
             iScsc.SubmitChanges();
@@ -768,12 +767,12 @@ namespace System.Scsc.Ui.Warehouse
 
             if (WhdtBs.List.OfType<Data.Warehouse_Detail>().Any(wd => wd.UNIT_APBS_CODE == null || wd.SECT_APBS_CODE == null || wd.FIGH_FILE_NO == null || wd.PRIC == 0 || (wd.WEGH == 0 && wd.QNTY == 0)))
             {
-               MessageBox.Show("بعضی از آیتم و فیلدهای ردیف های فاکتور درست وارد نشده لطفا اطلاعات را وارد کنید");
+               MessageBox.Show("???? ?? ???? ? ??????? ???? ??? ?????? ???? ???? ???? ???? ??????? ?? ???? ????");
                return;
             }
             else if(WhdtBs.List.OfType<Data.Warehouse_Detail>().Any(wd => wd.QNTY != 0 && wd.WEGH != 0))
             {
-               MessageBox.Show("هر ردیف فاکتور فقط اجازه ذخیره کردن تعداد یا وزن را دارید هر دو مورد اطلاعات وارد کنید بی معنی میباشد");
+               MessageBox.Show("?? ???? ?????? ??? ????? ????? ???? ????? ?? ??? ?? ????? ?? ?? ???? ??????? ???? ???? ?? ???? ??????");
                return;
             }
 
@@ -832,7 +831,7 @@ namespace System.Scsc.Ui.Warehouse
             var _wexpn = WhdtBs.Current as Data.Warehouse_Expense;
             if (_wexpn == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.Warehouse_Expenses.DeleteOnSubmit(_wexpn);
             iScsc.SubmitChanges();
@@ -936,7 +935,7 @@ namespace System.Scsc.Ui.Warehouse
             var _wtag = WtagBs.Current as Data.Warehouse_Tag;
             if (_wtag == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.Warehouse_Tags.DeleteOnSubmit(_wtag);
             iScsc.SubmitChanges();

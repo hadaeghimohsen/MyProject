@@ -46,7 +46,7 @@ namespace System.CRM.Ui.PublicInformation
             iProject.SubmitChanges();
             SubmitChange_Butn.Visible = false;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SubmitChange_Butn_Click error: " + ex.ToString()); }
       }
 
       private void UserBs_ListChanged(object sender, ListChangedEventArgs e)
@@ -83,7 +83,7 @@ namespace System.CRM.Ui.PublicInformation
                )
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Sb_Profile1_Click error: " + ex.ToString()); }
       }
 
       private void SelectImage_Butn_Click(object sender, EventArgs e)

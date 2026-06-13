@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -289,7 +289,7 @@ namespace System.Scsc.Ui.OtherIncome
                Data.Request Rqst = RqstBs1.Current as Data.Request;
                if (Rqst == null) return;
 
-               if (MessageBox.Show(this, "آیا با انصراف دادن درخواست موافق هستید؟", "هشدار", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "??? ?? ?????? ???? ??????? ????? ??????", "?????", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                iScsc.CNCL_RQST_F(
                   new XElement("Process",
                      new XElement("Request",
@@ -303,7 +303,7 @@ namespace System.Scsc.Ui.OtherIncome
                Data.Request Rqst = RqstBs2.Current as Data.Request;
                if (Rqst == null) return;
 
-               if (MessageBox.Show(this, "آیا با انصراف دادن درخواست موافق هستید؟", "هشدار", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "??? ?? ?????? ???? ??????? ????? ??????", "?????", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                iScsc.CNCL_RQST_F(
                   new XElement("Process",
                      new XElement("Request",
@@ -317,7 +317,7 @@ namespace System.Scsc.Ui.OtherIncome
                Data.Request Rqst = RqstBs3.Current as Data.Request;
                if (Rqst == null) return;
 
-               if (MessageBox.Show(this, "آیا با انصراف دادن درخواست موافق هستید؟", "هشدار", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "??? ?? ?????? ???? ??????? ????? ??????", "?????", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                iScsc.CNCL_RQST_F(
                   new XElement("Process",
                      new XElement("Request",
@@ -478,7 +478,7 @@ namespace System.Scsc.Ui.OtherIncome
 
                if (Rqst.SEND_EXPN == "001")
                {
-                  /* ثبت با هزینه */
+                  /* ??? ?? ????? */
                   Txt_TotlSesn002.Properties.ReadOnly = false;
                   ExpnCode_LookupEdit002.Properties.ReadOnly = false;
 
@@ -487,7 +487,7 @@ namespace System.Scsc.Ui.OtherIncome
                }
                else if (Rqst.SEND_EXPN == "002")
                {
-                  /* ثبت بدون هزینه */
+                  /* ??? ???? ????? */
                   Txt_TotlSesn002.Properties.ReadOnly = true;
                   ExpnCode_LookupEdit002.Properties.ReadOnly = true;
 
@@ -791,7 +791,7 @@ namespace System.Scsc.Ui.OtherIncome
          {
             if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "?????? ?????? ? ????? ????? ???? ????? ????", "?????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -799,7 +799,7 @@ namespace System.Scsc.Ui.OtherIncome
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "تمام هزینه های بدهی هنرجو پرداخت شده");
+                  MessageBox.Show(this, "???? ????? ??? ???? ????? ?????? ???");
                   return;
                }*/
 
@@ -824,7 +824,7 @@ namespace System.Scsc.Ui.OtherIncome
             }
             else if (tb_master.SelectedTab == tp_002)
             {
-               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "?????? ?????? ? ????? ????? ???? ????? ????", "?????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs2.Current as Data.Request;
                if (rqst == null) return;
@@ -832,7 +832,7 @@ namespace System.Scsc.Ui.OtherIncome
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "تمام هزینه های بدهی هنرجو پرداخت شده");
+                  MessageBox.Show(this, "???? ????? ??? ???? ????? ?????? ???");
                   return;
                }*/
 
@@ -857,7 +857,7 @@ namespace System.Scsc.Ui.OtherIncome
             }
             else if (tb_master.SelectedTab == tp_003)
             {
-               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "?????? ?????? ? ????? ????? ???? ????? ????", "?????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs3.Current as Data.Request;
                if (rqst == null) return;
@@ -885,7 +885,7 @@ namespace System.Scsc.Ui.OtherIncome
                   break;
                case DevExpress.XtraEditors.NavigatorButtonType.Remove:
                   e.Handled = true;
-                  if (MessageBox.Show(this, "آیا با پاک کردن هزینه درخواست موافقید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "??? ?? ??? ???? ????? ??????? ????????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                   /* Do Delete Payment_Detail */
                   var Crnt  = PydtsBs1.Current as Data.Payment_Detail;
                   var rqst = RqstBs1.Current as Data.Request;
@@ -955,7 +955,7 @@ namespace System.Scsc.Ui.OtherIncome
             switch (se.Number)
             {
                case 515:
-                  MessageBox.Show("لطفا گزینه های ستاره دار را حتما وارد کنید");
+                  MessageBox.Show("???? ????? ??? ????? ??? ?? ???? ???? ????");
                   break;
                default:
                   MessageBox.Show(se.Message);
@@ -1118,7 +1118,7 @@ namespace System.Scsc.Ui.OtherIncome
          {
             if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "با انجام عملیات تسویه حساب دیگر قادر به تغییر نیستید؟ آیا عملیات تسویه حساب انجام شود", "انجام عملیات تسویه حساب", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "?? ????? ?????? ????? ???? ???? ???? ?? ????? ??????? ??? ?????? ????? ???? ????? ???", "????? ?????? ????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                Scsc.Data.Request Rqst = RqstBs1.Current as Scsc.Data.Request;
 
                if (Rqst.RQID == 0) return;
@@ -1133,7 +1133,7 @@ namespace System.Scsc.Ui.OtherIncome
             }
             else if(tb_master.SelectedTab == tp_002)
             {
-               if (MessageBox.Show(this, "با انجام عملیات تسویه حساب دیگر قادر به تغییر نیستید؟ آیا عملیات تسویه حساب انجام شود", "انجام عملیات تسویه حساب", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "?? ????? ?????? ????? ???? ???? ???? ?? ????? ??????? ??? ?????? ????? ???? ????? ???", "????? ?????? ????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                Scsc.Data.Request Rqst = RqstBs2.Current as Scsc.Data.Request;
 
                if (Rqst.RQID == 0) return;
@@ -1190,7 +1190,7 @@ namespace System.Scsc.Ui.OtherIncome
          if (e.Column.FieldName == "TIME_DESC" && e.IsGetData)
          {
             var h = ((TimeSpan)view.GetListSourceRowCellValue(e.ListSourceRowIndex, "END_TIME")).Hours;
-            e.Value = h >= 0 && h < 12 ? "صبح" : h >= 12 && h < 15 ? "ظهر" : h >= 15 && h < 18 ? "بعد ظهر" : h >= 18 ? "عصر" : "نام مشخص";
+            e.Value = h >= 0 && h < 12 ? "???" : h >= 12 && h < 15 ? "???" : h >= 15 && h < 18 ? "??? ???" : h >= 18 ? "???" : "??? ????";
          }
       }
 
@@ -1284,9 +1284,8 @@ namespace System.Scsc.Ui.OtherIncome
          {
             OrgnBs1.Position = SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue);
          }
-         catch
-         {
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("sUNT_BUNT_DEPT_ORGN_CODELookUpEdit_Popup error: " + ex.ToString()); }
+
       }
 
       private void sUNT_BUNT_DEPT_CODELookUpEdit_Popup(object sender, EventArgs e)
@@ -1295,9 +1294,8 @@ namespace System.Scsc.Ui.OtherIncome
          {
             DeptBs1.Position = SUNT_BUNT_DEPT_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_DEPT_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_DEPT_CODELookUpEdit.EditValue);
          }
-         catch
-         {
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("sUNT_BUNT_DEPT_CODELookUpEdit_Popup error: " + ex.ToString()); }
+
       }
 
       private void sUNT_BUNT_CODELookUpEdit_Popup(object sender, EventArgs e)
@@ -1306,15 +1304,14 @@ namespace System.Scsc.Ui.OtherIncome
          {
             BuntBs1.Position = SUNT_BUNT_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_CODELookUpEdit.EditValue);
          }
-         catch
-         {
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("sUNT_BUNT_CODELookUpEdit_Popup error: " + ex.ToString()); }
+
       }
 
       private void LL_MoreInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
       {
          Pn_MoreInfo.Visible = !Pn_MoreInfo.Visible;
-         LL_MoreInfo.Text = Pn_MoreInfo.Visible ? "- کمتر ( F3 )" : "+ بیشتر ( F3 )";
+         LL_MoreInfo.Text = Pn_MoreInfo.Visible ? "- ???? ( F3 )" : "+ ????? ( F3 )";
          if (Pn_MoreInfo.Visible)
          {
             Gb_Info.Height = 458;
@@ -1374,7 +1371,7 @@ namespace System.Scsc.Ui.OtherIncome
                                        return;
                                     #region Show Error
                                     setOnDebt = false;
-                                    MessageBox.Show("خطا - خطا - عدم دسترسی به ردیف 192 سطوح امینتی");
+                                    MessageBox.Show("??? - ??? - ??? ?????? ?? ???? 192 ???? ??????");
                                     #endregion                           
                                  })
                               },
@@ -1389,12 +1386,11 @@ namespace System.Scsc.Ui.OtherIncome
             if (tb_master.SelectedTab == tp_001)
             {
                
-               if (MessageBox.Show(this, "عملیات بدهکاری و ذخیره نهایی کردن انجام شود؟", "بدهکاری و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "?????? ??????? ? ????? ????? ???? ????? ????", "??????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
                var pymt = PymtsBs1.Current as Data.Payment;
-
 
                /* Loop For Print After Pay */
                RqstBnPrintAfterPay_Click(null, null);

@@ -51,17 +51,19 @@ namespace System.Setup.Ui.LTR.Server
             
             if (WinAuth_Rb.Checked)
             {
-               var con = new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text));
-               con.Open();
-               con.Close();
+               using (var con = new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text)))
+               {
+                  con.Open();
+               }
             }
             else
             {
                if (Username_Txt.Text == "") { Username_Txt.Focus(); return; }
                if (Password_Txt.Text == "") { Password_Txt.Focus(); return; }
-               var con = new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text));
-               con.Open();
-               con.Close();
+               using (var con = new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text)))
+               {
+                  con.Open();
+               }
             }
 
             Connect_Butn.Tag = true;
@@ -163,10 +165,15 @@ namespace System.Setup.Ui.LTR.Server
             //if ((_CheckSubSysInstallation.Output as XElement).Attribute("status").Value == "notvalid") { MessageBox.Show("The Application is not valid for install on Server"); return; }
 
             /// IF CUSTOMER CAN INSTALL SUBSYSTEM GOTO RESTORE BACKUP DATABASE
-            SqlCommand cmd =
-                new SqlCommand(
-                   string.Format(
-                   @"RESTORE DATABASE [{0}] FROM  DISK = @p0 WITH  FILE = 1,  
+            SqlCommand cmd = new SqlCommand();
+            using (var con = WinAuth_Rb.Checked ? 
+               new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text))
+               :
+               new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text)))
+            {
+               cmd.Connection = con;
+               cmd.CommandText = string.Format(
+                  @"RESTORE DATABASE [{0}] FROM  DISK = @p0 WITH  FILE = 1,  
                      MOVE N'{1}' TO N'{2}\{0}.mdf',  
                      MOVE N'{1}_Blob' TO N'{2}\{0}_Blob.ndf',  
                      MOVE N'{1}_log' TO N'{2}\{0}_Log.ldf',  
@@ -174,16 +181,11 @@ namespace System.Setup.Ui.LTR.Server
                         CreateTestDemoDatabase_Cb.Checked ? backName + "001" : backName,
                         backName,
                         CreateTestDemoDatabase_Cb.Checked ? PathTargetDbFile_Txt.Text : PathTargetDbFile_Txt.Text
-                   ),
-                   WinAuth_Rb.Checked ? 
-                      new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text))
-                      :
-                      new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text))
-                );
-            cmd.Parameters.AddWithValue("@p0", BackupFile_Txt.Text);
-            cmd.Connection.Open();
-            cmd.ExecuteNonQuery();
-            cmd.Connection.Close();
+                  );
+               cmd.Parameters.AddWithValue("@p0", BackupFile_Txt.Text);
+               con.Open();
+               cmd.ExecuteNonQuery();
+            }
 
             // 2nd Step Empty Database for Ready to Use
             /// GET HOST INFO
@@ -219,16 +221,16 @@ namespace System.Setup.Ui.LTR.Server
                      ).ToString()
                }
             );
-            cmd.Connection = 
-               WinAuth_Rb.Checked ? 
-                     new SqlConnection(string.Format("server={0};database={1};Integrated Security=True", Server_Txt.Text, CreateTestDemoDatabase_Cb.Checked ? backName + "001" : backName))
-                     :
-                     new SqlConnection(string.Format("server={0};database={1};Persist Security Info=True;User ID={2};Password={3}", Server_Txt.Text, CreateTestDemoDatabase_Cb.Checked ? backName + "001" : backName, Username_Txt.Text, Password_Txt.Text));
-
-            cmd.CommandTimeout = 18000;
-            cmd.Connection.Open();
-            cmd.ExecuteNonQuery();
-            cmd.Connection.Close();
+            using (var con = WinAuth_Rb.Checked ? 
+                  new SqlConnection(string.Format("server={0};database={1};Integrated Security=True", Server_Txt.Text, CreateTestDemoDatabase_Cb.Checked ? backName + "001" : backName))
+                  :
+                  new SqlConnection(string.Format("server={0};database={1};Persist Security Info=True;User ID={2};Password={3}", Server_Txt.Text, CreateTestDemoDatabase_Cb.Checked ? backName + "001" : backName, Username_Txt.Text, Password_Txt.Text)))
+            {
+               cmd.Connection = con;
+               cmd.CommandTimeout = 18000;
+               con.Open();
+               cmd.ExecuteNonQuery();
+            }
 
             RestoredbStatus_Lb.Appearance.Image = System.Setup.Properties.Resources.IMAGE_1609;
             RestoredbStatus_Lb.Text = "Restore db welldone!";
@@ -294,25 +296,25 @@ namespace System.Setup.Ui.LTR.Server
             //StringCollection dbFilePath = new StringCollection();
             //dbFilePath.AddRange(DatabaseFiles_Lst.Items.OfType<string>().ToArray());
             //iServer.AttachDatabase(ChooseSubSys_Lov.SelectedItem.ToString(), dbFilePath);
-            SqlCommand attachdb =
-                new SqlCommand(
-                   @"EXEC sp_attach_db @dbname = @p0,   
+            SqlCommand attachdb = new SqlCommand { CommandType = CommandType.Text };
+            using (var con = WinAuth_Rb.Checked ?
+               new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text))
+               :
+               new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text)))
+            {
+               attachdb.Connection = con;
+               attachdb.CommandText = @"EXEC sp_attach_db @dbname = @p0,   
                        @filename1 = @p1,   
                        @filename2 = @p2,
-                       @filename3 = @p3",
-                   WinAuth_Rb.Checked ?
-                      new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text))
-                      :
-                      new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text))
-                ) { CommandType = CommandType.Text };
-            attachdb.Parameters.AddWithValue("@p0", ChooseSubSys_Lov.Text);
-            attachdb.Parameters.AddWithValue("@p1", DatabaseFiles_Lst.Items[0]);
-            attachdb.Parameters.AddWithValue("@p2", DatabaseFiles_Lst.Items[1]);
-            attachdb.Parameters.AddWithValue("@p3", DatabaseFiles_Lst.Items[2]);
+                       @filename3 = @p3";
+               attachdb.Parameters.AddWithValue("@p0", ChooseSubSys_Lov.Text);
+               attachdb.Parameters.AddWithValue("@p1", DatabaseFiles_Lst.Items[0]);
+               attachdb.Parameters.AddWithValue("@p2", DatabaseFiles_Lst.Items[1]);
+               attachdb.Parameters.AddWithValue("@p3", DatabaseFiles_Lst.Items[2]);
 
-            attachdb.Connection.Open();
-            attachdb.ExecuteNonQuery();
-            attachdb.Connection.Close();
+               con.Open();
+               attachdb.ExecuteNonQuery();
+            }
 
             if (AttachEmptydb_Cb.Checked || ChooseSubSys_Lov.Text == "iProject")
             {
@@ -336,16 +338,16 @@ namespace System.Setup.Ui.LTR.Server
                         ).ToString()
                   }
                );
-               attachdb.Connection =
-                  WinAuth_Rb.Checked ?
-                        new SqlConnection(string.Format("server={0};database={1};Integrated Security=True", Server_Txt.Text, ChooseSubSys_Lov.Text))
-                        :
-                        new SqlConnection(string.Format("server={0};database={1};Persist Security Info=True;User ID={2};Password={3}", Server_Txt.Text, ChooseSubSys_Lov.Text, Username_Txt.Text, Password_Txt.Text));
-
-               attachdb.CommandTimeout = 18000;
-               attachdb.Connection.Open();
-               attachdb.ExecuteNonQuery();
-               attachdb.Connection.Close();
+               using (var con = WinAuth_Rb.Checked ?
+                     new SqlConnection(string.Format("server={0};database={1};Integrated Security=True", Server_Txt.Text, ChooseSubSys_Lov.Text))
+                     :
+                     new SqlConnection(string.Format("server={0};database={1};Persist Security Info=True;User ID={2};Password={3}", Server_Txt.Text, ChooseSubSys_Lov.Text, Username_Txt.Text, Password_Txt.Text)))
+               {
+                  attachdb.Connection = con;
+                  attachdb.CommandTimeout = 18000;
+                  con.Open();
+                  attachdb.ExecuteNonQuery();
+               }
             }
 
             AttachRespons_Lb.Text = "Attach database files successfully!";
@@ -365,9 +367,10 @@ namespace System.Setup.Ui.LTR.Server
          try
          {
             // First Step * connect to database iProject with scott user
-            var con = new SqlConnection(string.Format("server={0};database=iProject;Persist Security Info=True;User ID=scott;Password=abcABC123!@#", Server_Txt.Text));
-            con.Open();
-            con.Close();
+            using (var con = new SqlConnection(string.Format("server={0};database=iProject;Persist Security Info=True;User ID=scott;Password=abcABC123!@#", Server_Txt.Text)))
+            {
+               con.Open();
+            }
 
             // Second Step * Create Odbc Connection With iProject Dsn Name
             var _odbcConnection =

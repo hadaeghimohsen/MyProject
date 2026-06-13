@@ -167,10 +167,7 @@ namespace System.CRM.Ui.Activity
                newcolb.JOBP_CODE = jobpcode;
             }
          }
-         catch (Exception exc)
-         {
-
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("JobpCode_Lov_ButtonClick error: " + ex.ToString()); }
       }
 
       private void AponBs_CurrentChanged(object sender, EventArgs e)
@@ -203,8 +200,7 @@ namespace System.CRM.Ui.Activity
 
             AllDay_Tg_Toggled(AllDay_Tg, null);
          }
-         catch (Exception exc)
-         {}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AponBs_CurrentChanged error: " + ex.ToString()); }
       }
 
       private void AllDay_Tg_Toggled(object sender, EventArgs e)
@@ -448,7 +444,7 @@ namespace System.CRM.Ui.Activity
             else
                requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SelectColor_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)

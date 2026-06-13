@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -60,7 +60,7 @@ namespace System.Scsc.Ui.BaseDefinition
                sb.Appearance.BackColor = Color.LightGray;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("QWkdy00i_Butn_Click error: " + ex.ToString()); }
       }
 
       private void RequeryClubMethod_Butn_Click(object sender, EventArgs e)
@@ -153,7 +153,7 @@ namespace System.Scsc.Ui.BaseDefinition
          if (Tb_Master.SelectedTab == tp_001 || Tb_Master.SelectedTab == tp_002)
          {
             CochName2_Lb.Text = CochName1_Lb.Text = cbmt.Fighter.NAME_DNRM;
-            //FngrPrnt1_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "نامشخص" : cbmt.Fighter.FNGR_PRNT_DNRM;
+            //FngrPrnt1_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "??????" : cbmt.Fighter.FNGR_PRNT_DNRM;
 
             CbmtwkdyBs1.DataSource = cbmt.Club_Method_Weekdays.ToList();
 
@@ -252,7 +252,7 @@ namespace System.Scsc.Ui.BaseDefinition
                }
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Cbmt_Gv_CustomUnboundColumnData error: " + ex.ToString()); }
       }
 
       private void tb_cbmt1_SelectedIndexChanged(object sender, EventArgs e)
@@ -349,7 +349,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AddNewMbsp_Butn_LinkClicked error: " + ex.ToString()); }
       }
 
       private void GropMbsp_Butn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -393,7 +393,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("GropMbsp_Butn_LinkClicked error: " + ex.ToString()); }
       }
 
       private void GropAttn_Butn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -437,7 +437,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("GropAttn_Butn_LinkClicked error: " + ex.ToString()); }
       }
 
       private void Submit_Butn_Click(object sender, EventArgs e)
@@ -478,7 +478,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
             Back_Butn_Click(null, null);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Submit_Butn_Click error: " + ex.ToString()); }
       }
 
       private void ClearParm_Butn_Click(object sender, EventArgs e)
@@ -585,7 +585,7 @@ namespace System.Scsc.Ui.BaseDefinition
                                     AfterChangedOutput = new Action<object>((output) => {
                                        if ((bool)output)
                                           return;
-                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 231 سطوح امینتی", "عدم دسترسی");
+                                       MessageBox.Show("??? - ??? ?????? ?? ???? 231 ???? ??????", "??? ??????");
                                     })
                                  },
                                  #endregion
@@ -632,7 +632,7 @@ namespace System.Scsc.Ui.BaseDefinition
                sb.Appearance.BackColor = Color.LightGray;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Wkdy00i_Butn_Click error: " + ex.ToString()); }
       }
 
       private void RunInsTime_Butn_Click(object sender, EventArgs e)
@@ -792,7 +792,7 @@ namespace System.Scsc.Ui.BaseDefinition
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", CrntFigh.FILE_NO)) }
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("HL_INVSFILENO_ButtonClick error: " + ex.ToString()); }
       }
 
       private void vF_Last_Info_FighterResultGridControl_DoubleClick(object sender, EventArgs e)
@@ -819,7 +819,7 @@ namespace System.Scsc.Ui.BaseDefinition
             case 1:
                if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh.FILE_NO && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
 
-               // 1396/10/14 * بررسی اینکه آیا مشتری چند کلاس ثبت نام کرده است
+               // 1396/10/14 * ????? ????? ??? ????? ??? ???? ??? ??? ???? ???
                //if (iScsc.Member_Ships.Where(mb => mb.FIGH_FILE_NO == figh.FILE_NO && mb.RECT_CODE == "004" && mb.TYPE == "001" && mb.END_DATE.Value.Date >= DateTime.Now.Date && (mb.RWNO == 1 || mb.Request_Row.RQTT_CODE == "001") && (mb.NUMB_OF_ATTN_MONT > 0 && mb.NUMB_OF_ATTN_MONT > mb.SUM_ATTN_MONT_DNRM)).Count() >= 2)
                //{
                //   _DefaultGateway.Gateway(
@@ -851,7 +851,7 @@ namespace System.Scsc.Ui.BaseDefinition
                //   );
                break;
             case 2:
-               if (MessageBox.Show(this, "آیا با حذف مشتری موافق هستید؟", "عملیات حذف موقت مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "?????? ??? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",
                      new List<Job>
@@ -875,8 +875,8 @@ namespace System.Scsc.Ui.BaseDefinition
                );
                break;
             case 4:
-               if (figh.FNGR_PRNT_DNRM == "" && !(figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "برای عضو مورد نظر هیچ کد انگشتی وارد نشده، لطفا کد عضو را از طریق تغییرات مشخصات عمومی تغییر لازم را اعمال کنید"); return; }
-               if (figh.COCH_FILE_NO_DNRM == null && !(figh.FGPB_TYPE_DNRM == "009" || figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "برای عضو شما مربی و ساعت کلاسی مشخصی وجود ندارد که مشخص کنیم در چه کلاس حضوری ثبت کنیم"); return; }
+               if (figh.FNGR_PRNT_DNRM == "" && !(figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "???? ??? ???? ??? ??? ?? ?????? ???? ????? ???? ?? ??? ?? ?? ???? ??????? ?????? ????? ????? ???? ?? ????? ????"); return; }
+               if (figh.COCH_FILE_NO_DNRM == null && !(figh.FGPB_TYPE_DNRM == "009" || figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "???? ??? ??? ???? ? ???? ????? ????? ???? ????? ?? ???? ???? ?? ?? ???? ????? ??? ????"); return; }
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",
                      new List<Job>
@@ -886,10 +886,10 @@ namespace System.Scsc.Ui.BaseDefinition
                );
                break;
             case 5:
-               if (figh.FNGR_PRNT_DNRM == "" && !(figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "برای عضو مورد نظر هیچ کد انگشتی وارد نشده، لطفا کد عضو را از طریق تغییرات مشخصات عمومی تغییر لازم را اعمال کنید"); return; }
-               if (figh.COCH_FILE_NO_DNRM == null && !(figh.FGPB_TYPE_DNRM == "009" || figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "برای عضو شما مربی و ساعت کلاسی مشخصی وجود ندارد که مشخص کنیم در چه کلاس حضوری ثبت کنیم"); return; }
+               if (figh.FNGR_PRNT_DNRM == "" && !(figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "???? ??? ???? ??? ??? ?? ?????? ???? ????? ???? ?? ??? ?? ?? ???? ??????? ?????? ????? ????? ???? ?? ????? ????"); return; }
+               if (figh.COCH_FILE_NO_DNRM == null && !(figh.FGPB_TYPE_DNRM == "009" || figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "???? ??? ??? ???? ? ???? ????? ????? ???? ????? ?? ???? ???? ?? ?? ???? ????? ??? ????"); return; }
 
-               /* 1395/03/15 * اگر سیستم بتواند حضوری را برای فرد ذخیره کند باید عملیات نمایش ورود فرد را آماده کنیم. */
+               /* 1395/03/15 * ??? ????? ?????? ????? ?? ???? ??? ????? ??? ???? ?????? ????? ???? ??? ?? ????? ????. */
                var attnNotfSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_NOTF_STAT == "002").FirstOrDefault();
                if (attnNotfSetting != null && attnNotfSetting.ATTN_NOTF_STAT == "002" && figh.FILE_NO != 0 && iScsc.Attendances.Any(a => figh.FILE_NO == a.FIGH_FILE_NO && a.ATTN_DATE.Date == DateTime.Now.Date))
                {
@@ -935,7 +935,7 @@ namespace System.Scsc.Ui.BaseDefinition
                         })
                   );
                }
-               catch { }
+               catch (Exception ex) { System.Diagnostics.Debug.WriteLine("colActn_Butn_ButtonClick error: " + ex.ToString()); }
                break;
             default:
                break;

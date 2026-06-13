@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.JobRouting.Jobs;
@@ -114,11 +114,11 @@ namespace System.Scsc.Ui.MasterPage
                                              <ol>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F10</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از سیستم</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ?????</font></li>
                                                 </ul>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F9</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از محیط کاربری</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ???? ??????</font></li>
                                                 </ul>
                                              </ol>
                                        </p>
@@ -198,26 +198,26 @@ namespace System.Scsc.Ui.MasterPage
 
                            if ((licndate.Date - DateTime.Now.Date).Days >= 15)
                            {
-                              Licnday_Lnk.Text = string.Format("پشتیبانی     ---     {0} روز", (licndate.Date - DateTime.Now.Date).Days);
+                              Licnday_Lnk.Text = string.Format("????????     ---     {0} ???", (licndate.Date - DateTime.Now.Date).Days);
                               Licnday_Lnk.LinkColor = Color.Green;
                            }
                            else if ((licndate.Date - DateTime.Now.Date).Days.IsBetween(0, 7))
                            {
-                              //Licnday_Lnk.Text = "پشتیبانی نرم افزار شما کمتر 7 روز دیگر به اتمام میرسد، در صورت عدم پرداخت مبلغ پشتیبانی دیگر قادر به استفاده از نرم افزار و ثبت اطلاعات نیستید" + Environment.NewLine +
-                              //                   "فقط دقت داشته باشید که لایسنس جدید نرم افزار فقط و فقط بر اساس شماره پیگیری واریز وجه بانکی شما قابل تمدید میباشد" + Environment.NewLine + Environment.NewLine +
-                              //                   string.Format("تعداد روز باقیمانده     ---     {0} روز", (licndate.Date - DateTime.Now.Date).Days);
-                              Licnday_Lnk.Text = "پشتیبانی نرم افزار شما کمتر 7 روز دیگر به اتمام میرسد" + Environment.NewLine + Environment.NewLine +
-                                                 string.Format("تعداد روز باقیمانده     ---     {0} روز", (licndate.Date - DateTime.Now.Date).Days);
+                              //Licnday_Lnk.Text = "???????? ??? ????? ??? ???? 7 ??? ???? ?? ????? ?????? ?? ???? ??? ?????? ???? ???????? ???? ???? ?? ??????? ?? ??? ????? ? ??? ??????? ??????" + Environment.NewLine +
+                              //                   "??? ??? ????? ????? ?? ?????? ???? ??? ????? ??? ? ??? ?? ???? ????? ?????? ????? ??? ????? ??? ???? ????? ??????" + Environment.NewLine + Environment.NewLine +
+                              //                   string.Format("????? ??? ?????????     ---     {0} ???", (licndate.Date - DateTime.Now.Date).Days);
+                              Licnday_Lnk.Text = "???????? ??? ????? ??? ???? 7 ??? ???? ?? ????? ?????" + Environment.NewLine + Environment.NewLine +
+                                                 string.Format("????? ??? ?????????     ---     {0} ???", (licndate.Date - DateTime.Now.Date).Days);
                               Licnday_Lnk.LinkColor = Color.Red;
                            }
                            else if ((licndate.Date - DateTime.Now.Date).Days.IsBetween(0, 15))
                            {
-                              Licnday_Lnk.Text = "پشتیبانی رو به اتمام میباشد";
+                              Licnday_Lnk.Text = "???????? ?? ?? ????? ??????";
                               Licnday_Lnk.LinkColor = Color.Red;
                            }
                            else
                            {
-                              Licnday_Lnk.Text = string.Format("پشتیبانی به پایان رسیده است", (licndate.Date - DateTime.Now.Date).Days);
+                              Licnday_Lnk.Text = string.Format("???????? ?? ????? ????? ???", (licndate.Date - DateTime.Now.Date).Days);
                               Licnday_Lnk.LinkColor = Color.Red;
                            }
 
@@ -242,7 +242,7 @@ namespace System.Scsc.Ui.MasterPage
                }
             );            
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Get error: " + ex.ToString()); }
          job.Status = StatusType.Successful;
       }
 
@@ -265,11 +265,11 @@ namespace System.Scsc.Ui.MasterPage
 
          //Tm_ShowTime_Tick(null, null);         
 
-         // 1400/12/14 * بررسی اینکه نرم افزار تاریخ سر رسید پرداخت عقب افتاده نداشته باشد
+         // 1400/12/14 * ????? ????? ??? ????? ????? ?? ???? ?????? ??? ?????? ?????? ????
          var _SubSys = iScsc.V_SubSies.FirstOrDefault();
          if (_SubSys.EXPR_INST_DATE == null || _SubSys.EXPR_INST_DATE == "")
          {
-            MessageBox.Show("محتوای اطلاعات خالی میباشد", "خطای انقضای ماهیانه محصول", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            MessageBox.Show("?????? ??????? ???? ??????", "???? ?????? ??????? ?????", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
             Application.Exit();
             Process.GetCurrentProcess().Kill();
@@ -289,8 +289,8 @@ namespace System.Scsc.Ui.MasterPage
 
                         if ((ExprInstDate.Date - DateTime.Now.Date).Days < 0)
                         {
-                           MessageBox.Show("خطای کد فعال ساز:" + Environment.NewLine + "سیستم شما به دلیل عدم دریافت کد فعال ساز سیستم گیت و کمد آنلاین غیر فعال شده است." + Environment.NewLine + "جهت دریافت کد فعال ساز با شماره 09919004540 تماس بگیرید.", "خطای عدم فعالسازی سخت افزار شرکت نورو", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                           //MessageBox.Show("تاریخ اعتبار شما به پایان رسیده", "خطای انقضای ماهیانه محصول", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                           MessageBox.Show("???? ?? ???? ???:" + Environment.NewLine + "????? ??? ?? ???? ??? ?????? ?? ???? ??? ????? ??? ? ??? ?????? ??? ???? ??? ???." + Environment.NewLine + "??? ?????? ?? ???? ??? ?? ????? 09919004540 ???? ??????.", "???? ??? ???????? ??? ????? ???? ????", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                           //MessageBox.Show("????? ?????? ??? ?? ????? ?????", "???? ?????? ??????? ?????", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
                            Application.Exit();
                            Process.GetCurrentProcess().Kill();
@@ -399,7 +399,7 @@ namespace System.Scsc.Ui.MasterPage
          //try { spc_desktopnew.Panel1.BackgroundImage = Image.FromFile(@".\Media\SubSys\Scsc\Desktop\Wallpaper\Wallpaper.jpg"); }
          //catch { }
          
-         //FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+         //FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("?????, ???? ??")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          if (isFirstLoaded) goto finishcommand;
          isFirstLoaded = true;
 
@@ -420,7 +420,6 @@ namespace System.Scsc.Ui.MasterPage
          DysnoBs.DataSource = iScsc.D_YSNOs;         
          DSondBs.DataSource = iScsc.D_SONDs;
          
-
          finishcommand:
          VCompBs.DataSource = iScsc.V_Computers;
          ANoteBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Note_Tag_Info");
@@ -428,10 +427,10 @@ namespace System.Scsc.Ui.MasterPage
          UserBs.DataSource = iScsc.V_Users;
          ExpnBs.DataSource =
             iScsc.Expenses.Where(ex =>
-               ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
+               ex.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && ex.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
                ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                   //ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-               ex.EXPN_STAT == "002" /* هزینه های فعال */
+               ex.EXPN_STAT == "002" /* ????? ??? ???? */
             );
          Execute_Query();
          FormHandle = this.Handle;
@@ -453,7 +452,7 @@ namespace System.Scsc.Ui.MasterPage
                {
                   c.Dock = DockStyle.Fill;
                   c.Visible = true;
-                  // 1401/08/07 * پایان حکومت آخوندی ضحاک خامنه ای حروم زاده
+                  // 1401/08/07 * ????? ????? ?????? ???? ????? ?? ???? ????
                   if (spc_desktopnew.Panel1.Controls.IndexOf(c) == -1)
                      spc_desktopnew.Panel1.Controls.Add(c);
                   spc_desktopnew.Panel1.Controls.SetChildIndex(c, 0);
@@ -462,14 +461,14 @@ namespace System.Scsc.Ui.MasterPage
             {
                obj.Dock = DockStyle.Fill;
                obj.Visible = true;
-               // 1401/08/07 * پایان حکومت آخوندی ضحاک خامنه ای حروم زاده
+               // 1401/08/07 * ????? ????? ?????? ???? ????? ?? ???? ????
                if (spc_desktopnew.Panel1.Controls.IndexOf(obj) == -1)
                   spc_desktopnew.Panel1.Controls.Add(obj);
                spc_desktopnew.Panel1.Controls.SetChildIndex(obj, 0);
             }
 
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PostOnWall error: " + ex.ToString()); }
          job.Status = StatusType.Successful;
       }
 
@@ -547,7 +546,7 @@ namespace System.Scsc.Ui.MasterPage
                OnAttTransactionEx((job.Input as XElement).Attribute("fngrprnt").Value);
                attnsystype = "002";
             }
-            catch { }
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Actn_CalF_P error: " + ex.ToString()); }
          }
          else if (job.Input != null && (job.Input as XElement).Attribute("type").Value == "gatecontrol")
          {
@@ -698,7 +697,7 @@ namespace System.Scsc.Ui.MasterPage
             axCZKEM1.SetStrCardNumber(CardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
             if (axCZKEM1.SSR_SetUserInfo(iMachineNumber, EnrollNumber, NameDnrm, "", 0, bEnabled))//upload the user's information(card number included)
             {
-               //MessageBox.Show("کارت شما در سیستم ثبت گردید");
+               //MessageBox.Show("???? ??? ?? ????? ??? ?????");
                //FngrPrnt_Txt.Text = EnrollNumber;
                //if (CardNumb_Text.Text == "") CardNumb_Text.Text = "0";
                //CardNumb_Text.Text = (Convert.ToInt64(CardNumb_Text.Text) + 1).ToString();
@@ -803,7 +802,7 @@ namespace System.Scsc.Ui.MasterPage
       private void ShowMessageOnLCD(Job job)
       {
          var message = (job.Input as XElement).Value;
-         // بررسی اینکه آیا دستگاه انگشتی متصل می باشد
+         // ????? ????? ??? ?????? ?????? ???? ?? ????
          if (Fp1DevIsConnected)
          {
             //axCZKEM1.ClearLCD();
@@ -811,7 +810,7 @@ namespace System.Scsc.Ui.MasterPage
             goto L_End;
          }
 
-         // بررسی اینکه آیا دستگاه بارکد خوان متصل می باشد
+         // ????? ????? ??? ?????? ????? ???? ???? ?? ????
          //if (Sp_Barcode.IsOpen)
          //{
          //   Sp_Barcode.WriteLine(message);
@@ -831,7 +830,7 @@ namespace System.Scsc.Ui.MasterPage
          try
          {
             var xinput = job.Input as XElement;
-            // بررسی اینکه آیا دستگاه انگشتی متصل می باشد
+            // ????? ????? ??? ?????? ?????? ???? ?? ????
             if (Fp1DevIsConnected || Fp2DevIsConnected || Fp3DevIsConnected || Fp4DevIsConnected || Fp5DevIsConnected || Fp6DevIsConnected)
             {
                var result = false;
@@ -886,15 +885,15 @@ namespace System.Scsc.Ui.MasterPage
                      job.Output = SetDataToDev(xinput.Attribute("enrollnumb").Value, new List<string> { xinput.Attribute("fngrprntupdate").Value, xinput.Attribute("fngrprnt").Value, xinput.Attribute("faceupdate").Value, xinput.Attribute("face").Value });
                      break;
                }
-               //if (result) MessageBox.Show(this, "عملیات با موفقیت انجام شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               //if (result) MessageBox.Show(this, "?????? ?? ?????? ????? ??", "????? ??????", MessageBoxButtons.OK, MessageBoxIcon.Information);
                //else
                //{
-               //   MessageBox.Show(this, "عملیات با شکست مواجه شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               //   MessageBox.Show(this, "?????? ?? ???? ????? ??", "????? ??????", MessageBoxButtons.OK, MessageBoxIcon.Error);
                //}
                //goto L_End;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DeviceControlFunction error: " + ex.ToString()); }
          //L_End:
          job.Status = StatusType.Successful;
       }
@@ -977,7 +976,7 @@ namespace System.Scsc.Ui.MasterPage
                                           new XAttribute("chatid", _chatid),
                                           new XAttribute("command", "textmesg"),
                                           new XAttribute("rbid", 391),
-                                          //new XAttribute("mesg", "✅ رسید ارسالی مورد تایید واقع شد")
+                                          //new XAttribute("mesg", "? ???? ?????? ???? ????? ???? ??")
                                           new XElement("Respons",
                                                 new XElement("Message",
                                                    new XAttribute("order", 1),
@@ -1021,7 +1020,7 @@ namespace System.Scsc.Ui.MasterPage
             var cmnd = xinput.Attribute("cmnd").Value;
             var param = xinput.Attribute("param").Value;
 
-            // اگر اتفاق جدیدی درون سیستم پایگاه داده رخ داده باشد بتوانیم آخرین اطلاعات را بازیابی کنیم
+            // ??? ????? ????? ???? ????? ?????? ???? ?? ???? ???? ??????? ????? ??????? ?? ??????? ????
             iScsc = new Data.iScscDataContext(ConnectionString);
             var fighs = iScsc.Fighters.Where(f => f.CHAT_ID_DNRM == @chatid);
 
@@ -1030,7 +1029,7 @@ namespace System.Scsc.Ui.MasterPage
                job.Output =
                   new XElement("Output",
                      new XAttribute("resultcode", -10001),
-                     new XAttribute("resultdesc", "مشتری با کد شما قابل شناسایی نیست"),
+                     new XAttribute("resultdesc", "????? ?? ?? ??? ???? ??????? ????"),
                      new XAttribute("mesgtype", "1"),
                      new XAttribute("mesgdesc", "Text")
                   );
@@ -1042,7 +1041,7 @@ namespace System.Scsc.Ui.MasterPage
                job.Output =
                   new XElement("Output",
                      new XAttribute("resultcode", -10002),
-                     new XAttribute("resultdesc", "با کد دستگاه شما *بیش از یک مشتری* وجود دارد، لطفا با قسمت پذیرش صحبت کنید"),
+                     new XAttribute("resultdesc", "?? ?? ?????? ??? *??? ?? ?? ?????* ???? ????? ???? ?? ???? ????? ???? ????"),
                      new XAttribute("mesgtype", "1"),
                      new XAttribute("mesgdesc", "Text")
                   );
@@ -1052,7 +1051,7 @@ namespace System.Scsc.Ui.MasterPage
 
             var figh = fighs.FirstOrDefault();
 
-            // 1402/08/13 * قفل انلاین
+            // 1402/08/13 * ??? ??????
             if(cmnd == "opendres-tryopen")
             {
                if (RSignalOpen_Butn.Tag == null)
@@ -1075,17 +1074,17 @@ namespace System.Scsc.Ui.MasterPage
                var _attn = iScsc.Attendances.FirstOrDefault(a => a.FIGH_FILE_NO == figh.FILE_NO && a.EXIT_TIME == null && a.ATTN_STAT == "002" && a.ATTN_DATE.Date == DateTime.Now.Date);
                if(_attn != null)
                {
-                  // ثبت ساعت باز کردن کمد            
+                  // ??? ???? ??? ???? ???            
                   iScsc.INS_DART_P(_attn.CODE, null, null);
 
-                  // اینجا باید شماره سریال پورت را پیدا کنیم و پیام را بهش ارسال کنیم
+                  // ????? ???? ????? ????? ???? ?? ???? ???? ? ???? ?? ??? ????? ????
                   var dresrattn = iScsc.Dresser_Attendances.FirstOrDefault(da => da.ATTN_CODE == _attn.CODE && da.DRAT_CODE == null);
 
                   cmnd = "opendres";
                   var _dres = iScsc.Dressers.FirstOrDefault(d => d.Computer_Action.COMP_NAME == xHost.Attribute("name").Value && d.REC_STAT == "002" && d.CODE == dresrattn.Dresser.CODE);
                   param = string.Format("{0},{1},{2},{3}", _dres.CODE, _dres.DRES_NUMB, _dres.IP_ADRS, _dres.CMND_SEND);
 
-                  // 1402/10/21 * باز کردن کمدهای همراهان
+                  // 1402/10/21 * ??? ???? ?????? ???????
                   if (iScsc.Dresser_Attendances.Any(da => da.ATTN_CODE == _attn.CODE && da.DRAT_CODE != null))
                   {                     
                      Partners_Butn.Visible = PartnerDresNum_Butn.Visible = PrtnrPos_Butn.Visible = true;
@@ -1103,7 +1102,7 @@ namespace System.Scsc.Ui.MasterPage
                   job.Output =
                      new XElement("Output",
                         new XAttribute("resultcode", 10001),
-                        new XAttribute("resultdesc", "لطفا *☝️ انگشت خود* را *سه مرتبه* به صورت *متوالی* در قسمت سنسور دستگاه قرار دهید."),
+                        new XAttribute("resultdesc", "???? *?? ????? ???* ?? *?? ?????* ?? ???? *??????* ?? ???? ????? ?????? ???? ????."),
                         new XAttribute("mesgtype", "1"),
                         new XAttribute("mesgdesc", "Text")
                      );
@@ -1113,7 +1112,7 @@ namespace System.Scsc.Ui.MasterPage
                   job.Output =
                      new XElement("Output",
                         new XAttribute("resultcode", 10002),
-                        new XAttribute("resultdesc", "اثر انگشت شما از سیستم اثر انگشتی *پاک* شد"),
+                        new XAttribute("resultdesc", "??? ????? ??? ?? ????? ??? ?????? *???* ??"),
                         new XAttribute("mesgtype", "1"),
                         new XAttribute("mesgdesc", "Text")
                      );
@@ -1128,14 +1127,14 @@ namespace System.Scsc.Ui.MasterPage
                         });
                   _DefaultGateway.Gateway(_InteractWithScsc);
 
-                  // نمایش اطلاعات ورود و خروج
+                  // ????? ??????? ???? ? ????
                   var attn = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == figh.FNGR_PRNT_DNRM && a.ATTN_DATE == DateTime.Now.Date && a.MBSP_RWNO_DNRM == param.Split(',')[1].ToInt16()).OrderByDescending(a => a.CRET_DATE).FirstOrDefault();
                   if(attn == null)
                   {
                      job.Output =
                         new XElement("Output",
                            new XAttribute("resultcode", -10003),
-                           new XAttribute("resultdesc", "ورود و خروج شما با خطا مواجه شد"),
+                           new XAttribute("resultdesc", "???? ? ???? ??? ?? ??? ????? ??"),
                            new XAttribute("mesgtype", "1"),
                            new XAttribute("mesgdesc", "Text")
                         );
@@ -1146,16 +1145,16 @@ namespace System.Scsc.Ui.MasterPage
                      if (attn.EXIT_TIME == null)
                         resultdesc = 
                            string.Format("{0} {1} {2}",
-                              "📥 ورود شما در ساعت",
+                              "?? ???? ??? ?? ????",
                               attn.ENTR_TIME.Value.ToString().Substring(0, 5),
-                              "ثبت شد"                              
+                              "??? ??"                              
                            );
                      else
                         resultdesc =
                            string.Format("{0} {1} {2}",
-                              "📤 خروج شما در ساعت",
+                              "?? ???? ??? ?? ????",
                               attn.EXIT_TIME.Value.ToString().Substring(0, 5),
-                              "ثبت شد"
+                              "??? ??"
                            );
 
                      job.Output =
@@ -1187,7 +1186,7 @@ namespace System.Scsc.Ui.MasterPage
                   job.Output =
                      new XElement("Output",
                         new XAttribute("resultcode", 10004),
-                        new XAttribute("resultdesc", "درخواست باز شدن گیت انجام شد"),
+                        new XAttribute("resultdesc", "??????? ??? ??? ??? ????? ??"),
                         new XAttribute("mesgtype", "1"),
                         new XAttribute("mesgdesc", "Text")
                      );
@@ -1212,7 +1211,7 @@ namespace System.Scsc.Ui.MasterPage
                   job.Output =
                      new XElement("Output",
                         new XAttribute("resultcode", 10004),
-                        new XAttribute("resultdesc", "درخواست بسته شدن گیت انجام شد"),
+                        new XAttribute("resultdesc", "??????? ???? ??? ??? ????? ??"),
                         new XAttribute("mesgtype", "1"),
                         new XAttribute("mesgdesc", "Text")
                      );
@@ -1240,7 +1239,7 @@ namespace System.Scsc.Ui.MasterPage
                   job.Output =
                      new XElement("Output",
                         new XAttribute("resultcode", 10004),
-                        new XAttribute("resultdesc", string.Format("درخواست باز شدن قفل کمد شماره {0} انجام شد", param.Split(',')[1])),
+                        new XAttribute("resultdesc", string.Format("??????? ??? ??? ??? ??? ????? {0} ????? ??", param.Split(',')[1])),
                         new XAttribute("mesgtype", "1"),
                         new XAttribute("mesgdesc", "Text")
                      );
@@ -1267,7 +1266,7 @@ namespace System.Scsc.Ui.MasterPage
                   job.Output =
                      new XElement("Output",
                         new XAttribute("resultcode", 10004),
-                        new XAttribute("resultdesc", string.Format("درخواست باز شدن میز به سیستم ارسال شد")),
+                        new XAttribute("resultdesc", string.Format("??????? ??? ??? ??? ?? ????? ????? ??")),
                         new XAttribute("mesgtype", "1"),
                         new XAttribute("mesgdesc", "Text")
                      );
@@ -1293,7 +1292,7 @@ namespace System.Scsc.Ui.MasterPage
                   job.Output =
                      new XElement("Output",
                         new XAttribute("resultcode", 10004),
-                        new XAttribute("resultdesc", string.Format("درخواست بسته شدن میز به سیستم ارسال شد")),
+                        new XAttribute("resultdesc", string.Format("??????? ???? ??? ??? ?? ????? ????? ??")),
                         new XAttribute("mesgtype", "1"),
                         new XAttribute("mesgdesc", "Text")
                      );
@@ -1319,7 +1318,7 @@ namespace System.Scsc.Ui.MasterPage
                   job.Output =
                      new XElement("Output",
                         new XAttribute("resultcode", 10004),
-                        new XAttribute("resultdesc", string.Format("درخواست تسویه حساب نقدی میز(ها) به سیستم ارسال شد")),
+                        new XAttribute("resultdesc", string.Format("??????? ????? ???? ???? ???(??) ?? ????? ????? ??")),
                         new XAttribute("mesgtype", "1"),
                         new XAttribute("mesgdesc", "Text")
                      );
@@ -1345,7 +1344,7 @@ namespace System.Scsc.Ui.MasterPage
                   job.Output =
                      new XElement("Output",
                         new XAttribute("resultcode", 10004),
-                        new XAttribute("resultdesc", string.Format("درخواست باز و بسته کردن میز به سیستم ارسال شد")),
+                        new XAttribute("resultdesc", string.Format("??????? ??? ? ???? ???? ??? ?? ????? ????? ??")),
                         new XAttribute("mesgtype", "1"),
                         new XAttribute("mesgdesc", "Text")
                      );
@@ -1363,4 +1362,3 @@ namespace System.Scsc.Ui.MasterPage
       }
    }
 }
-

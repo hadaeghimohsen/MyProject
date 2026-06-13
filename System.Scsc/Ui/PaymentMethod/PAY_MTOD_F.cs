@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -58,7 +58,7 @@ namespace System.Scsc.Ui.PaymentMethod
                   break;
                case DevExpress.XtraEditors.NavigatorButtonType.Remove:
                   e.Handled = true;
-                  if (MessageBox.Show(this, "آیا با پاک کردن پرداختی موافقید؟", " حذف آیتم پرداخت", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "??? ?? ??? ???? ??????? ????????", " ??? ???? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                   var Pmmt = PmmtBs1.Current as Data.Payment_Method;
                   iScsc.PAY_MSAV_P(
                      new XElement("Payment",
@@ -74,9 +74,9 @@ namespace System.Scsc.Ui.PaymentMethod
                   requery = true;                  
                   break;
                case DevExpress.XtraEditors.NavigatorButtonType.EndEdit:
-                  /* اگر از اطلاعاتی که می خواهیم ذخیره کنیم یکی از طریق پوز باشد باید ابتدا عملیات پوز را انجام دهیم 
-                   * البته به ترتیب و اطلاعات بدست آماده از پوز رو یکی بررسی میکنیم. البته شرط وارد شدن به آیتم بعدی این هست که
-                   * تمامی ردیف ها به درستی کار خود را انجام داده باشند
+                  /* ??? ?? ???????? ?? ?? ?????? ????? ???? ??? ?? ???? ??? ???? ???? ????? ?????? ??? ?? ????? ???? 
+                   * ????? ?? ????? ? ??????? ???? ????? ?? ??? ?? ??? ????? ??????. ????? ??? ???? ??? ?? ???? ???? ??? ??? ??
+                   * ????? ???? ?? ?? ????? ??? ??? ?? ????? ???? ?????
                    */
                   //bool oprt = true;
 
@@ -112,17 +112,17 @@ namespace System.Scsc.Ui.PaymentMethod
 
                   //if(!oprt)
                   //{
-                  //   MessageBox.Show("عملیات پرداخت کارت خوان ناموفق بوده");
+                  //   MessageBox.Show("?????? ?????? ???? ???? ?????? ????");
                   //   return;
                   //}
-                  // 1395/08/10 * چک کردن این مبلغ پرداختی از سپرده مشتری بیشتر نباشد
+                  // 1395/08/10 * ?? ???? ??? ???? ??????? ?? ????? ????? ????? ?????
                   var figh = iScsc.Fighters.First(f => f.Request_Rows.Any(rr => rr.RQST_RQID == (PymtBs1.Current as Data.Payment).RQST_RQID));
                   if (figh.DEBT_DNRM < 0)
                   {
                      var crntpay = PmmtBs1.Current as Data.Payment_Method;
                      if (iScsc.Payment_Methods.Where(pm => pm.PYMT_RQST_RQID == (PymtBs1.Current as Data.Payment).RQST_RQID && pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT) + (crntpay.RCPT_MTOD == "005" ? crntpay.AMNT : 0) > -1 * figh.DEBT_DNRM)
                      {
-                        MessageBox.Show(this, "مبلغ برداشتی از حساب مشتری بیش از مبلغ سپرده می باشد", "");
+                        MessageBox.Show(this, "???? ??????? ?? ???? ????? ??? ?? ???? ????? ?? ????", "");
                         return;
                      }
                   }
@@ -178,7 +178,7 @@ namespace System.Scsc.Ui.PaymentMethod
             switch (se.Number)
             {
                case 515:
-                  MessageBox.Show("لطفا گزینه های ستاره دار را حتما وارد کنید");
+                  MessageBox.Show("???? ????? ??? ????? ??? ?? ???? ???? ????");
                   break;
                default:
                   MessageBox.Show(se.Message);
@@ -217,7 +217,7 @@ namespace System.Scsc.Ui.PaymentMethod
 
             if (pyds == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف شی مورد نظر موافقید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ?? ???? ??? ????????", "?????? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             if (pyds.RWNO != 0)
             {
@@ -284,7 +284,7 @@ namespace System.Scsc.Ui.PaymentMethod
 
             if (pydt == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف شی مورد نظر موافقید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ?? ???? ??? ????????", "?????? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             if (pydt.CODE != 0)
             {
@@ -316,7 +316,7 @@ namespace System.Scsc.Ui.PaymentMethod
             var oldRec = iScsc.Payment_Details.Where(pd => pd.Payment == PymtBs1.Current);
             if(newRec.Join(oldRec, n => n.EXPN_CODE, o => o.EXPN_CODE, (n, o) => n.EXPN_CODE).Any())
             {
-               MessageBox.Show("برای این نوع درآمد قبلا ردیف به صورت سیستمی یا دستی وارد شده لطفا آیتم درآمدی دیگری را انتخاب کنید");
+               MessageBox.Show("???? ??? ??? ????? ???? ???? ?? ???? ?????? ?? ???? ???? ??? ???? ???? ?????? ????? ?? ?????? ????");
                return;
             }
             iScsc.SubmitChanges();
@@ -357,7 +357,7 @@ namespace System.Scsc.Ui.PaymentMethod
             {
                if ((long)DEBT_DNRMTextEdit.EditValue + Convert.ToInt64(e.NewValue) > 0)
                {
-                  MessageBox.Show("میزان مبلغ وارد شده برای تخفیف از میزان سپرده مشتری بیشتر می باشد");
+                  MessageBox.Show("????? ???? ???? ??? ???? ????? ?? ????? ????? ????? ????? ?? ????");
                   e.Cancel = true;
                }
                else
@@ -379,13 +379,13 @@ namespace System.Scsc.Ui.PaymentMethod
             var pymt = iScsc.Payments.FirstOrDefault(p => p == PymtBs1.Current);
             if(pymt.SUM_EXPN_PRIC <= 0)
             {
-               MessageBox.Show("هزینه برای مشتری صفر میباشد. نیازی به محاسبه تخفیف مانده حساب نیست");
+               MessageBox.Show("????? ???? ????? ??? ??????. ????? ?? ?????? ????? ????? ???? ????");
                return;
             }
 
             if (pymt.SUM_EXPN_PRIC - Convert.ToInt32(CashByDeposit_Txt002.EditValue) < 0)
             {
-               if (MessageBox.Show(this, "مبلغ تخفیف وارد شده بیشتر از مبلغ هزینه جاری می باشد. آیا مایل به پایاپای کردن مبلغ تخفیف با مانده بدهی می باشید؟", "مبلغ بیرون از سقف بدهی", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "???? ????? ???? ??? ????? ?? ???? ????? ???? ?? ????. ??? ???? ?? ??????? ???? ???? ????? ?? ????? ???? ?? ??????", "???? ????? ?? ??? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
                    CashByDeposit_Txt002.EditValue = pymt.SUM_EXPN_PRIC;
             }
 
@@ -396,9 +396,9 @@ namespace System.Scsc.Ui.PaymentMethod
                despositamnt.Payment = pymt;
                despositamnt.RQRO_RWNO = 1;
 
-               despositamnt.AMNT_TYPE = "003"; // تخفیف بابت مبلغ بستانکاری
+               despositamnt.AMNT_TYPE = "003"; // ????? ???? ???? ?????????
                despositamnt.AMNT = Convert.ToInt32(CashByDeposit_Txt002.EditValue);
-               despositamnt.PYDS_DESC = "تخفیف بخاطر مانده حساب از قبل";
+               despositamnt.PYDS_DESC = "????? ????? ????? ???? ?? ???";
                despositamnt.STAT = "002";
 
                iScsc.SubmitChanges();
@@ -443,7 +443,7 @@ namespace System.Scsc.Ui.PaymentMethod
 
             if (pmtc == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف شی مورد نظر موافقید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ?? ???? ??? ????????", "?????? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             if (pmtc.RWNO != 0)
             {
@@ -497,7 +497,7 @@ namespace System.Scsc.Ui.PaymentMethod
             if(pmtc.CHEK_TYPE == "002")return;
             if(pmtc.RCPT_DATE == null)
             {
-               MessageBox.Show("تاریخ پرداخت مشخص نیست");
+               MessageBox.Show("????? ?????? ???? ????");
                return;
             }
 
@@ -518,7 +518,7 @@ namespace System.Scsc.Ui.PaymentMethod
                var crntpay = PmmtBs1.Current as Data.Payment_Method;
                if (iScsc.Payment_Methods.Where(pm => pm.PYMT_RQST_RQID == (PymtBs1.Current as Data.Payment).RQST_RQID && pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT) + (crntpay.RCPT_MTOD == "005" ? crntpay.AMNT : 0) > -1 * figh.DEBT_DNRM)
                {
-                  MessageBox.Show(this, "مبلغ برداشتی از حساب مشتری بیش از مبلغ سپرده می باشد", "");
+                  MessageBox.Show(this, "???? ??????? ?? ???? ????? ??? ?? ???? ????? ?? ????", "");
                   return;
                }
             }
@@ -584,7 +584,7 @@ namespace System.Scsc.Ui.PaymentMethod
 
             if(crnt.CHEK_TYPE == "002")
             {
-               MessageBox.Show("جک هایی که پرداخت شده اند دیگر فادر به برگشت نیستند");
+               MessageBox.Show("?? ???? ?? ?????? ??? ??? ???? ???? ?? ????? ??????");
                return;
             }
 
@@ -622,7 +622,7 @@ namespace System.Scsc.Ui.PaymentMethod
             PydsSave_Butn_Click(null, null);
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SaveDiscountAmnt_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if(requery)
@@ -646,7 +646,7 @@ namespace System.Scsc.Ui.PaymentMethod
                var pyds = PydsBs2.Current as Data.Payment_Discount;
                pyds.AMNT = Convert.ToInt32(Te_TotlRemnAmnt.EditValue);
                pyds.AMNT_TYPE = "004";
-               pyds.PYDS_DESC = "کسر مبلغ مابه التفاوت شهریه";
+               pyds.PYDS_DESC = "??? ???? ???? ??????? ?????";
 
                PydsBs2.EndEdit();
             }
@@ -657,7 +657,7 @@ namespace System.Scsc.Ui.PaymentMethod
 
                if(pymt.Request.RQTP_CODE == "009")
                {
-                  // 1396/08/18 * اگر درخواست تمدید باشد و فرد بخواهد از کلاسی به کلاس دیگر تغییر جلسه بدهد می توانیم محاسبه مبلغ مابه التفاوت را مشخص کنیم
+                  // 1396/08/18 * ??? ??????? ????? ???? ? ??? ?????? ?? ????? ?? ???? ???? ????? ???? ???? ?? ?????? ?????? ???? ???? ??????? ?? ???? ????
                   var rqstchng = iScsc.VF_Request_Changing(pymt.Request.Request_Rows.FirstOrDefault().FIGH_FILE_NO).Where(r => r.RQTT_CODE != "004" && (r.RQTP_CODE == "001" || r.RQTP_CODE == "009")).OrderByDescending(r => r.SAVE_DATE).FirstOrDefault();
                   if (rqstchng == null) return;
 
@@ -683,7 +683,7 @@ namespace System.Scsc.Ui.PaymentMethod
                   var pyds = PydsBs2.Current as Data.Payment_Discount;
                   pyds.AMNT = Convert.ToInt32(sumrcptpric);
                   pyds.AMNT_TYPE = "004";
-                  pyds.PYDS_DESC = "کسر مبلغ مابه التفاوت شهریه پرداختی از قبل بابت جابه جایی کلاس";
+                  pyds.PYDS_DESC = "??? ???? ???? ??????? ????? ??????? ?? ??? ???? ???? ???? ????";
 
                   PydsBs2.EndEdit();
                }
@@ -692,7 +692,7 @@ namespace System.Scsc.Ui.PaymentMethod
             PydsSave_Butn_Click(null, null);
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SaveDifferenceAmnt_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -62,10 +62,9 @@ namespace System.Scsc.Ui.BaseDefinition
             int sex = 0;
             if (SexType_Lov.EditValue == null || !int.TryParse(SexType_Lov.EditValue.ToString(), out sex)) { SexType_Lov.Focus(); return; }
             
-
-            // 1404/08/10 * اگر مربی تکراری ثبت داره میکنه
+            // 1404/08/10 * ??? ???? ?????? ??? ???? ?????
             var _existsCoch = iScsc.Fighters.Any(a => a.CONF_STAT == "002" && a.FGPB_TYPE_DNRM == "003" && a.FRST_NAME_DNRM.Contains(FrstName_Txt.Text) && a.LAST_NAME_DNRM.Contains(LastName_Txt.Text));
-            if (_existsCoch && MessageBox.Show(this, "با این مشخصات قبلا این پرسنل ثبت شده، آیا نیاز به بررسی میبینید؟", "خطای ثبت تکراری", MessageBoxButtons.YesNo) == DialogResult.Yes) return;            
+            if (_existsCoch && MessageBox.Show(this, "?? ??? ?????? ???? ??? ????? ??? ???? ??? ???? ?? ????? ????????", "???? ??? ??????", MessageBoxButtons.YesNo) == DialogResult.Yes) return;            
 
             iScsc.ADM_MSAV_F(
                new XElement("Process",
@@ -167,9 +166,9 @@ namespace System.Scsc.Ui.BaseDefinition
             int sex = 0;
             if (SexType_Lov.EditValue == null || !int.TryParse(SexType_Lov.EditValue.ToString(), out sex)) { SexType_Lov.Focus(); return; }
 
-            // 1404/08/10 * اگر مربی تکراری ثبت داره میکنه
+            // 1404/08/10 * ??? ???? ?????? ??? ???? ?????
             var _existsCoch = iScsc.Fighters.Any(a => a.CONF_STAT == "002" && a.FGPB_TYPE_DNRM == "003" && a.FRST_NAME_DNRM.Contains(FrstName_Txt.Text) && a.LAST_NAME_DNRM.Contains(LastName_Txt.Text));
-            if (_existsCoch && MessageBox.Show(this, "با این مشخصات قبلا این پرسنل ثبت شده، آیا نیاز به بررسی میبینید؟", "خطای ثبت تکراری", MessageBoxButtons.YesNo) == DialogResult.Yes) return;
+            if (_existsCoch && MessageBox.Show(this, "?? ??? ?????? ???? ??? ????? ??? ???? ??? ???? ?? ????? ????????", "???? ??? ??????", MessageBoxButtons.YesNo) == DialogResult.Yes) return;
 
             iScsc.ADM_MSAV_F(
                new XElement("Process",
@@ -283,7 +282,7 @@ namespace System.Scsc.Ui.BaseDefinition
             //   }
             //);
          }
-         catch{ }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDeleteFngrPrnt1_Click error: " + ex.ToString()); }
       }
 
       private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
@@ -304,7 +303,7 @@ namespace System.Scsc.Ui.BaseDefinition
                }
             );
          }
-         catch{ }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnEnrollFngrPrnt2_Click error: " + ex.ToString()); }
       }
 
       private void RqstBnDeleteFngrPrnt2_Click(object sender, EventArgs e)
@@ -325,7 +324,7 @@ namespace System.Scsc.Ui.BaseDefinition
                }
             );
          }
-         catch{ }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDeleteFngrPrnt2_Click error: " + ex.ToString()); }
       }
       #endregion
 
@@ -377,7 +376,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   })
             );
          }
-         catch (Exception exc) { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CopyFngrDevc_Btn_Click error: " + ex.ToString()); }
       }
    }
 }

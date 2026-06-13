@@ -748,28 +748,28 @@ namespace MyProject.Programs.Ui
             size = settings[2];
             alignment = settings[3];
          }
-         catch { }
-         finally
-         {
-            if (InvokeRequired)
-               Invoke(new Action<UserControl>(c =>
-               {
-                  c.Visible = true;
-                  Controls.Add(c);
-                  Controls.SetChildIndex(c, 0);
-               }), uc);
-            else
-            {
-               uc.Visible = true;
-               Controls.Add(uc);
-               Controls.SetChildIndex(uc, 0);
-            }
-         }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SetTopPosition error: " + ex.ToString()); }
+          finally
+          {
+             if (InvokeRequired)
+                Invoke(new Action<UserControl>(c =>
+                {
+                   c.Visible = true;
+                   Controls.Add(c);
+                   Controls.SetChildIndex(c, 0);
+                }), uc);
+             else
+             {
+                uc.Visible = true;
+                Controls.Add(uc);
+                Controls.SetChildIndex(uc, 0);
+             }
+          }
 
-         switch (state)
-         {
-            case "dock":
-               uc.Dock = DockStyle.Top;
+          switch (state)
+          {
+             case "dock":
+                uc.Dock = DockStyle.Top;
                return;
             case "default":
             case "off-screen":
@@ -838,83 +838,83 @@ namespace MyProject.Programs.Ui
             alignment = settings[3];
 
          }
-         catch { }
-         finally
-         {
-            if (InvokeRequired)
-               Invoke(new Action<UserControl>(c =>
-               {
-                  c.Visible = true;
-                  Controls.Add(c);
-                  Controls.SetChildIndex(c, 0);
-               }), uc);
-            else
-            {
-               uc.Visible = true;
-               Controls.Add(uc);
-               Controls.SetChildIndex(uc, 0);
-            }
-         }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SetLeftPosition error: " + ex.ToString()); }
+          finally
+          {
+             if (InvokeRequired)
+                Invoke(new Action<UserControl>(c =>
+                {
+                   c.Visible = true;
+                   Controls.Add(c);
+                   Controls.SetChildIndex(c, 0);
+                }), uc);
+             else
+             {
+                uc.Visible = true;
+                Controls.Add(uc);
+                Controls.SetChildIndex(uc, 0);
+             }
+          }
 
-         switch (state)
-         {
-            case "dock":
-               uc.Dock = DockStyle.Left;
-               return;
-            case "default":
-            case "off-screen":
-               uc.Dock = DockStyle.None;
-               uc.Left = -uc.Width;
-               uc.Anchor = AnchorStyles.Left;
-               break;
-            case "in-screen":
-               uc.Dock = DockStyle.None;
-               uc.Left = 0;
-               uc.Anchor = AnchorStyles.Left;
-               break;
-         }
+          switch (state)
+          {
+             case "dock":
+                uc.Dock = DockStyle.Left;
+                return;
+             case "default":
+             case "off-screen":
+                uc.Dock = DockStyle.None;
+                uc.Left = -uc.Width;
+                uc.Anchor = AnchorStyles.Left;
+                break;
+             case "in-screen":
+                uc.Dock = DockStyle.None;
+                uc.Left = 0;
+                uc.Anchor = AnchorStyles.Left;
+                break;
+          }
 
-         switch (size)
-         {
-            case "normal":
-               break;
-            case "default":
-            case "stretch":
-               uc.Top = 0;
-               uc.Height = Height;
-               uc.Anchor = uc.Anchor | AnchorStyles.Top | AnchorStyles.Bottom;
-               return;
-         }
+          switch (size)
+          {
+             case "normal":
+                break;
+             case "default":
+             case "stretch":
+                uc.Top = 0;
+                uc.Height = Height;
+                uc.Anchor = uc.Anchor | AnchorStyles.Top | AnchorStyles.Bottom;
+                return;
+          }
 
-         switch (alignment)
-         {
-            case "default":
-            case "near":
-               uc.Top = 0;
-               uc.Anchor = uc.Anchor | AnchorStyles.Top;
-               break;
-            case "center":
-               uc.Top = Height / 2 - uc.Height / 2;
-               break;
-            case "far":
-               uc.Top = Height - uc.Height;
-               uc.Anchor = uc.Anchor | AnchorStyles.Bottom;
-               break;
-         }
-      }
+          switch (alignment)
+          {
+             case "default":
+             case "near":
+                uc.Top = 0;
+                uc.Anchor = uc.Anchor | AnchorStyles.Top;
+                break;
+             case "center":
+                uc.Top = Height / 2 - uc.Height / 2;
+                break;
+             case "far":
+                uc.Top = Height - uc.Height;
+                uc.Anchor = uc.Anchor | AnchorStyles.Bottom;
+                break;
+          }
+       }
 
-      /// <summary>
-      /// set user control location on wall
-      /// </summary>
-      /// <param name="uc">user control</param>
-      /// <param name="settings">
-      /// Bnf : Location:State:Size:Alignment
-      ///  Location : { top, left, bottom, right, cntrhrz, cntrvrt, (x,y) }
-      ///     State : { default, dock, off-screen, in-screen } default is off-screen
-      ///      Size : { default, normal, stretch } default is stretch
-      /// Alignment : { default, near, center, far } default is near
-      /// </param>
-      private void SetBottomPosition(UserControl uc, string[] settings)
+       /// <summary>
+       /// set user control location on wall
+       /// </summary>
+       /// <param name="uc">user control</param>
+       /// <param name="settings">
+       /// Bnf : Location:State:Size:Alignment
+       ///  Location : { top, left, bottom, right, cntrhrz, cntrvrt, (x,y) }
+       ///     State : { default, dock, off-screen, in-screen } default is off-screen
+       ///      Size : { default, normal, stretch } default is stretch
+       /// Alignment : { default, near, center, far } default is near
+       /// </param>
+       private void SetBottomPosition(UserControl uc, string[] settings)
       {
          string state = "";
          string size = "";
@@ -927,28 +927,28 @@ namespace MyProject.Programs.Ui
             alignment = settings[3];
 
          }
-         catch { }
-         finally
-         {
-            if (InvokeRequired)
-               Invoke(new Action<UserControl>(c =>
-               {
-                  c.Visible = true;
-                  Controls.Add(c);
-                  Controls.SetChildIndex(c, 0);
-               }), uc);
-            else
-            {
-               uc.Visible = true;
-               Controls.Add(uc);
-               Controls.SetChildIndex(uc, 0);
-            }
-         }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SetBottomPosition error: " + ex.ToString()); }
+          finally
+          {
+             if (InvokeRequired)
+                Invoke(new Action<UserControl>(c =>
+                {
+                   c.Visible = true;
+                   Controls.Add(c);
+                   Controls.SetChildIndex(c, 0);
+                }), uc);
+             else
+             {
+                uc.Visible = true;
+                Controls.Add(uc);
+                Controls.SetChildIndex(uc, 0);
+             }
+          }
 
-         switch (state)
-         {
-            case "dock":
-               uc.Dock = DockStyle.Bottom;
+          switch (state)
+          {
+             case "dock":
+                uc.Dock = DockStyle.Bottom;
                return;
             case "default":
             case "off-screen":
@@ -1016,28 +1016,28 @@ namespace MyProject.Programs.Ui
             alignment = settings[3];
 
          }
-         catch { }
-         finally
-         {
-            if (InvokeRequired)
-               Invoke(new Action<UserControl>(c =>
-               {
-                  c.Visible = true;
-                  Controls.Add(c);
-                  Controls.SetChildIndex(c, 0);
-               }), uc);
-            else
-            {
-               uc.Visible = true;
-               Controls.Add(uc);
-               Controls.SetChildIndex(uc, 0);
-            }
-         }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SetRightPosition error: " + ex.ToString()); }
+          finally
+          {
+             if (InvokeRequired)
+                Invoke(new Action<UserControl>(c =>
+                {
+                   c.Visible = true;
+                   Controls.Add(c);
+                   Controls.SetChildIndex(c, 0);
+                }), uc);
+             else
+             {
+                uc.Visible = true;
+                Controls.Add(uc);
+                Controls.SetChildIndex(uc, 0);
+             }
+          }
 
-         switch (state)
-         {
-            case "dock":
-               uc.Dock = DockStyle.Right;
+          switch (state)
+          {
+             case "dock":
+                uc.Dock = DockStyle.Right;
                return;
             case "default":
             case "off-screen":
@@ -1098,26 +1098,26 @@ namespace MyProject.Programs.Ui
          {
             size = settings[1];
          }
-         catch { }
-         finally
-         {
-            if (InvokeRequired)
-               Invoke(new Action<UserControl>(c =>
-               {
-                  c.Visible = true;
-                  if (c.Parent == null)
-                     Controls.Add(c);
-                  Controls.SetChildIndex(c, 0);
-               }), uc);
-            else
-            {
-               uc.Visible = true;
-               if (uc.Parent == null)
-                  Controls.Add(uc);
-               Controls.SetChildIndex(uc, 0);
-            }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SetCenterHorizontal error: " + ex.ToString()); }
+          finally
+          {
+             if (InvokeRequired)
+                Invoke(new Action<UserControl>(c =>
+                {
+                   c.Visible = true;
+                   if (c.Parent == null)
+                      Controls.Add(c);
+                   Controls.SetChildIndex(c, 0);
+                }), uc);
+             else
+             {
+                uc.Visible = true;
+                if (uc.Parent == null)
+                   Controls.Add(uc);
+                Controls.SetChildIndex(uc, 0);
+             }
 
-         }
+          }
 
          switch (size)
          {
@@ -1153,29 +1153,29 @@ namespace MyProject.Programs.Ui
          {
             size = settings[1];
          }
-         catch { }
-         finally
-         {
-            if (InvokeRequired)
-               Invoke(new Action<UserControl>(c =>
-               {
-                  c.Visible = true;
-                  Controls.Add(c);
-                  Controls.SetChildIndex(c, 0);
-               }), uc);
-            else
-            {
-               uc.Visible = true;
-               Controls.Add(uc);
-               Controls.SetChildIndex(uc, 0);
-            }
-         }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SetCenterVertical error: " + ex.ToString()); }
+          finally
+          {
+             if (InvokeRequired)
+                Invoke(new Action<UserControl>(c =>
+                {
+                   c.Visible = true;
+                   Controls.Add(c);
+                   Controls.SetChildIndex(c, 0);
+                }), uc);
+             else
+             {
+                uc.Visible = true;
+                Controls.Add(uc);
+                Controls.SetChildIndex(uc, 0);
+             }
+          }
 
-         switch (size)
-         {
-            case "normal":
-               uc.Top = Height / 2 - uc.Height / 2;
-               uc.Left = Width / 2 - uc.Width / 2;
+          switch (size)
+          {
+             case "normal":
+                uc.Top = Height / 2 - uc.Height / 2;
+                uc.Left = Width / 2 - uc.Width / 2;
                uc.Anchor = AnchorStyles.None;
                break;
             case "default":

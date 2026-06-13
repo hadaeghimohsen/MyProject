@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -26,7 +26,7 @@ namespace System.Scsc.Ui.Common
       int index = 0;
       private bool requery = false;
 
-      // متغیرهای سطح کلاس
+      // ???????? ??? ????
       private int currentSkip = 0;
       private int totalRecordsCount = 0;
       private bool allDataLoaded = false;
@@ -50,7 +50,7 @@ namespace System.Scsc.Ui.Common
             //   );
             //}
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("HL_INVSFILENO_ButtonClick error: " + ex.ToString()); }
       }
 
       private void Btn_Back_Click(object sender, EventArgs e)
@@ -118,7 +118,7 @@ namespace System.Scsc.Ui.Common
                if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh.FILE_NO && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
                break;
             case 2:
-               if (MessageBox.Show(this, "آیا با حذف مشتری موافق هستید؟", "عملیات حذف موقت مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "?????? ??? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",
                      new List<Job>
@@ -142,8 +142,8 @@ namespace System.Scsc.Ui.Common
                );
                break;
             case 4:
-               if (figh.FNGR_PRNT_DNRM == "" && !(figh.TYPE == "002" || figh.TYPE == "003")) { MessageBox.Show(this, "برای عضو مورد نظر هیچ کد انگشتی وارد نشده، لطفا کد عضو را از طریق تغییرات مشخصات عمومی تغییر لازم را اعمال کنید"); return; }
-               if (figh.COCH_FILE_NO == null && !(figh.TYPE == "009" || figh.TYPE == "002" || figh.TYPE == "003" || figh.TYPE == "004")) { MessageBox.Show(this, "برای عضو شما مربی و ساعت کلاسی مشخصی وجود ندارد که مشخص کنیم در چه کلاس حضوری ثبت کنیم"); return; }
+               if (figh.FNGR_PRNT_DNRM == "" && !(figh.TYPE == "002" || figh.TYPE == "003")) { MessageBox.Show(this, "???? ??? ???? ??? ??? ?? ?????? ???? ????? ???? ?? ??? ?? ?? ???? ??????? ?????? ????? ????? ???? ?? ????? ????"); return; }
+               if (figh.COCH_FILE_NO == null && !(figh.TYPE == "009" || figh.TYPE == "002" || figh.TYPE == "003" || figh.TYPE == "004")) { MessageBox.Show(this, "???? ??? ??? ???? ? ???? ????? ????? ???? ????? ?? ???? ???? ?? ?? ???? ????? ??? ????"); return; }
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",
                      new List<Job>
@@ -153,10 +153,10 @@ namespace System.Scsc.Ui.Common
                );
                break;
             case 5:
-               if (figh.FNGR_PRNT_DNRM == "" && !(figh.TYPE == "002" || figh.TYPE == "003")) { MessageBox.Show(this, "برای عضو مورد نظر هیچ کد انگشتی وارد نشده، لطفا کد عضو را از طریق تغییرات مشخصات عمومی تغییر لازم را اعمال کنید"); return; }
-               if (figh.COCH_FILE_NO == null && !(figh.TYPE == "009" || figh.TYPE == "002" || figh.TYPE == "003" || figh.TYPE == "004")) { MessageBox.Show(this, "برای عضو شما مربی و ساعت کلاسی مشخصی وجود ندارد که مشخص کنیم در چه کلاس حضوری ثبت کنیم"); return; }
+               if (figh.FNGR_PRNT_DNRM == "" && !(figh.TYPE == "002" || figh.TYPE == "003")) { MessageBox.Show(this, "???? ??? ???? ??? ??? ?? ?????? ???? ????? ???? ?? ??? ?? ?? ???? ??????? ?????? ????? ????? ???? ?? ????? ????"); return; }
+               if (figh.COCH_FILE_NO == null && !(figh.TYPE == "009" || figh.TYPE == "002" || figh.TYPE == "003" || figh.TYPE == "004")) { MessageBox.Show(this, "???? ??? ??? ???? ? ???? ????? ????? ???? ????? ?? ???? ???? ?? ?? ???? ????? ??? ????"); return; }
 
-               /* 1395/03/15 * اگر سیستم بتواند حضوری را برای فرد ذخیره کند باید عملیات نمایش ورود فرد را آماده کنیم. */
+               /* 1395/03/15 * ??? ????? ?????? ????? ?? ???? ??? ????? ??? ???? ?????? ????? ???? ??? ?? ????? ????. */
                var attnNotfSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_NOTF_STAT == "002").FirstOrDefault();
                if (attnNotfSetting != null && attnNotfSetting.ATTN_NOTF_STAT == "002" && figh.FILE_NO != 0 && iScsc.Attendances.Any(a => figh.FILE_NO == a.FIGH_FILE_NO && a.ATTN_DATE.Date == DateTime.Now.Date))
                {
@@ -202,7 +202,7 @@ namespace System.Scsc.Ui.Common
                         })
                   );
                }
-               catch { }
+               catch (Exception ex) { System.Diagnostics.Debug.WriteLine("colActn_Butn_ButtonClick error: " + ex.ToString()); }
                break;
             default:
                break;
@@ -231,7 +231,7 @@ namespace System.Scsc.Ui.Common
                if (iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh.FILE_NO && (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")) == null) return;
                break;
             case 2:
-               if (MessageBox.Show(this, "آیا با حذف مشتری موافق هستید؟", "عملیات حذف موقت مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "?????? ??? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",
                      new List<Job>
@@ -255,8 +255,8 @@ namespace System.Scsc.Ui.Common
                );
                break;
             case 4:
-               if (figh.FNGR_PRNT_DNRM == "" && !(figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "برای عضو مورد نظر هیچ کد انگشتی وارد نشده، لطفا کد عضو را از طریق تغییرات مشخصات عمومی تغییر لازم را اعمال کنید"); return; }
-               if (figh.COCH_FILE_NO_DNRM == null && !(figh.FGPB_TYPE_DNRM == "009" || figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "برای عضو شما مربی و ساعت کلاسی مشخصی وجود ندارد که مشخص کنیم در چه کلاس حضوری ثبت کنیم"); return; }
+               if (figh.FNGR_PRNT_DNRM == "" && !(figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "???? ??? ???? ??? ??? ?? ?????? ???? ????? ???? ?? ??? ?? ?? ???? ??????? ?????? ????? ????? ???? ?? ????? ????"); return; }
+               if (figh.COCH_FILE_NO_DNRM == null && !(figh.FGPB_TYPE_DNRM == "009" || figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "???? ??? ??? ???? ? ???? ????? ????? ???? ????? ?? ???? ???? ?? ?? ???? ????? ??? ????"); return; }
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "Localhost",
                      new List<Job>
@@ -266,10 +266,10 @@ namespace System.Scsc.Ui.Common
                );
                break;
             case 5:
-               if (figh.FNGR_PRNT_DNRM == "" && !(figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "برای عضو مورد نظر هیچ کد انگشتی وارد نشده، لطفا کد عضو را از طریق تغییرات مشخصات عمومی تغییر لازم را اعمال کنید"); return; }
-               if (figh.COCH_FILE_NO_DNRM == null && !(figh.FGPB_TYPE_DNRM == "009" || figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "برای عضو شما مربی و ساعت کلاسی مشخصی وجود ندارد که مشخص کنیم در چه کلاس حضوری ثبت کنیم"); return; }
+               if (figh.FNGR_PRNT_DNRM == "" && !(figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "???? ??? ???? ??? ??? ?? ?????? ???? ????? ???? ?? ??? ?? ?? ???? ??????? ?????? ????? ????? ???? ?? ????? ????"); return; }
+               if (figh.COCH_FILE_NO_DNRM == null && !(figh.FGPB_TYPE_DNRM == "009" || figh.FGPB_TYPE_DNRM == "002" || figh.FGPB_TYPE_DNRM == "003" || figh.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "???? ??? ??? ???? ? ???? ????? ????? ???? ????? ?? ???? ???? ?? ?? ???? ????? ??? ????"); return; }
 
-               /* 1395/03/15 * اگر سیستم بتواند حضوری را برای فرد ذخیره کند باید عملیات نمایش ورود فرد را آماده کنیم. */
+               /* 1395/03/15 * ??? ????? ?????? ????? ?? ???? ??? ????? ??? ???? ?????? ????? ???? ??? ?? ????? ????. */
                var attnNotfSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_NOTF_STAT == "002").FirstOrDefault();
                if (attnNotfSetting != null && attnNotfSetting.ATTN_NOTF_STAT == "002" && figh.FILE_NO != 0 && iScsc.Attendances.Any(a => figh.FILE_NO == a.FIGH_FILE_NO && a.ATTN_DATE.Date == DateTime.Now.Date))
                {
@@ -315,7 +315,7 @@ namespace System.Scsc.Ui.Common
                         })
                   );
                }
-               catch { }
+               catch (Exception ex) { System.Diagnostics.Debug.WriteLine("colActn1_Butn_ButtonClick error: " + ex.ToString()); }
                break;
             default:
                break;
@@ -380,7 +380,7 @@ namespace System.Scsc.Ui.Common
 
       private void TrnsFngrPrnt_Butn_Click(object sender, EventArgs e)
       {         
-         if (MessageBox.Show(this, "آیا با انتقال شناسایی کارت اعضا به دستگاه موافق هستید؟", "عملیات انتقال", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+         if (MessageBox.Show(this, "??? ?? ?????? ??????? ???? ???? ?? ?????? ????? ??????", "?????? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
          foreach (Data.VF_Last_Info_FighterResult figh in vF_Fighs.List.OfType<Data.VF_Last_Info_FighterResult>().Where(f => f.END_DATE < DateTime.Now))
          {
             _DefaultGateway.Gateway(
@@ -456,7 +456,7 @@ namespace System.Scsc.Ui.Common
                      && (SuntCode == null || f.SUNT_CODE_DNRM == SuntCode)
                      ).OrderByDescending(f => f.MBSP_END_DATE).Count();
 
-                  // تعداد رکورد اولیه (مثلاً همون مقدار NumericUpDown)
+                  // ????? ????? ????? (????? ???? ????? NumericUpDown)
                   int take = (int)FtchRows_Nud.Value;
 
                   FighBs.DataSource =
@@ -482,10 +482,10 @@ namespace System.Scsc.Ui.Common
                      .Take(take)
                      .ToList();
 
-                  // به روز رسانی وضعیت
+                  // ?? ??? ????? ?????
                   currentSkip = take;
 
-                  // فعال/غیرفعال کردن دکمه بعدی
+                  // ????/??????? ???? ???? ????
                   LoadNextPage_Btn.Enabled = currentSkip < totalRecordsCount;
 
                   allDataLoaded = false;
@@ -496,8 +496,8 @@ namespace System.Scsc.Ui.Common
                   {
                      RsltFngrPrnt_Lb.Text =
                         string.Format(
-                           "شناسه دار : " + "{0}" + Environment.NewLine +
-                           "غیر شناسه دار : " + "{1}",
+                           "????? ??? : " + "{0}" + Environment.NewLine +
+                           "??? ????? ??? : " + "{1}",
                            FighBs.List.OfType<Data.Fighter>().Where(f => f.FNGR_PRNT_DNRM != "" && f.FNGR_PRNT_DNRM != null).Count(),
                            FighBs.List.OfType<Data.Fighter>().Where(f => f.FNGR_PRNT_DNRM == "" || f.FNGR_PRNT_DNRM == null).Count()
                         );
@@ -557,7 +557,7 @@ namespace System.Scsc.Ui.Common
 
             if(nextPage.Any())
             {
-               // اضافه کردن به BindingSource موجود (بدون پاک کردن قبلی‌ها)
+               // ????? ???? ?? BindingSource ????? (???? ??? ???? ???????)
                foreach (var fighter in nextPage)
                {
                   FighBs.Add(fighter);
@@ -567,12 +567,12 @@ namespace System.Scsc.Ui.Common
 
                currentSkip += nextPage.Count;
 
-               // بررسی اتمام داده‌ها
+               // ????? ????? ???????
                if (currentSkip >= totalRecordsCount)
                {
                   allDataLoaded = true;
                   LoadNextPage_Btn.Enabled = false;
-                  //MessageBox.Show("تمام رکوردها بارگذاری شدند!", "پایان",
+                  //MessageBox.Show("???? ??????? ???????? ????!", "?????",
                   //                MessageBoxButtons.OK, MessageBoxIcon.Information);
                }
             }
@@ -649,7 +649,7 @@ namespace System.Scsc.Ui.Common
                }
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("vF_Last_Info_FighterResultBindingSource_CurrentChanged error: " + ex.ToString()); }
       }
 
       private void MbspBs_CurrentChanged(object sender, EventArgs e)
@@ -665,7 +665,7 @@ namespace System.Scsc.Ui.Common
             else
                rqid = mbsp.RQRO_RQST_RQID;
 
-            MbspValdType_Butn.Text = mbsp.VALD_TYPE == "001" ? "فعال کردن" : "غیرفعال کردن";
+            MbspValdType_Butn.Text = mbsp.VALD_TYPE == "001" ? "???? ????" : "??????? ????";
 
             ExpnAmnt_Txt.EditValue = iScsc.Payment_Details.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => (pd.EXPN_PRIC + pd.EXPN_EXTR_PRCT) * pd.QNTY);
             DscnAmnt_Txt.EditValue = iScsc.Payment_Discounts.Where(pd => pd.PYMT_RQST_RQID == rqid).Sum(pd => pd.AMNT);
@@ -673,9 +673,8 @@ namespace System.Scsc.Ui.Common
             DebtPymtAmnt_Txt.EditValue = Convert.ToInt64(ExpnAmnt_Txt.EditValue) - (Convert.ToInt64(PymtAmnt_Txt.EditValue) + Convert.ToInt64(DscnAmnt_Txt.EditValue));
             PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.Request_Row.Request.RQST_STAT == "002" && pd.MBSP_FIGH_FILE_NO == mbsp.FIGH_FILE_NO && pd.MBSP_RWNO == mbsp.RWNO);
          }
-         catch
-         {
-         }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("MbspBs_CurrentChanged error: " + ex.ToString()); }
+
       }
 
       private void GlobCodeDnrm_Txt_DoubleClick(object sender, EventArgs e)
@@ -707,13 +706,13 @@ namespace System.Scsc.Ui.Common
 
             if (mbsp.TYPE == "005")
             {
-               MessageBox.Show(this, "شما اجازه غیرفعال کردن رکورد بلوکه کردن را ندارید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               MessageBox.Show(this, "??? ????? ??????? ???? ????? ????? ???? ?? ??????", "???", MessageBoxButtons.OK, MessageBoxIcon.Error);
                return;
             }
 
             if (mbsp.VALD_TYPE == "002")
             {
-               if (MessageBox.Show(this, "آیا با غیرفعال کردن دوره موافق هستید؟", "غیرفعال کردن دوره", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "??? ?? ??????? ???? ???? ????? ??????", "??????? ???? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
                iScsc.ExecuteCommand(string.Format("UPDATE Member_Ship SET Vald_Type = '001' WHERE Rqro_Rqst_Rqid = {0};", mbsp.RQRO_RQST_RQID));
             }
@@ -721,11 +720,11 @@ namespace System.Scsc.Ui.Common
             {
                if (MbspBs.List.OfType<Data.Member_Ship>().Any(m => m.RWNO > mbsp.RWNO && m.TYPE == "005"))
                {
-                  MessageBox.Show(this, "شما اجازه فعال کردن دوره ابطال شده توسط فرآیند بلوکه کردن را ندارید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  MessageBox.Show(this, "??? ????? ???? ???? ???? ????? ??? ???? ?????? ????? ???? ?? ??????", "???", MessageBoxButtons.OK, MessageBoxIcon.Error);
                   return;
                }
 
-               if (MessageBox.Show(this, "آیا با فعال کردن دوره موافق هستید؟", "فعال کردن دوره", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "??? ?? ???? ???? ???? ????? ??????", "???? ???? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
                iScsc.ExecuteCommand(string.Format("UPDATE Member_Ship SET Vald_Type = '002' WHERE Rqro_Rqst_Rqid = {0};", mbsp.RQRO_RQST_RQID));
             }
@@ -768,7 +767,7 @@ namespace System.Scsc.Ui.Common
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("MbspInfo_Butn_Click error: " + ex.ToString()); }
       }
 
       private void AttnMbsp_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -807,7 +806,7 @@ namespace System.Scsc.Ui.Common
                                        if ((bool)output)
                                           return;
                                        _chckAces = false;
-                                       MessageBox.Show(this, "عدم دسترسی به ردیف 290 امنیتی", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
+                                       MessageBox.Show(this, "??? ?????? ?? ???? 290 ??????", "???", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
                                     })
                                  }
                                  #endregion                        
@@ -828,7 +827,7 @@ namespace System.Scsc.Ui.Common
                            new XElement("Log",
                                new XAttribute("fileno", _mbsp.FIGH_FILE_NO),
                                new XAttribute("type", "011"),
-                               new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _figh.NAME_DNRM + " یک جلسه به صورت دستی کم کرد")
+                               new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _figh.NAME_DNRM + " ?? ???? ?? ???? ???? ?? ???")
                            )
                         );
                         requery = true;
@@ -856,7 +855,7 @@ namespace System.Scsc.Ui.Common
                                        if ((bool)output)
                                           return;
                                        _chckAces = false;
-                                       MessageBox.Show(this, "عدم دسترسی به ردیف 289 امنیتی", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
+                                       MessageBox.Show(this, "??? ?????? ?? ???? 289 ??????", "???", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
                                     })
                                  }
                                  #endregion                        
@@ -877,7 +876,7 @@ namespace System.Scsc.Ui.Common
                            new XElement("Log",
                                new XAttribute("fileno", _mbsp.FIGH_FILE_NO),
                                new XAttribute("type", "012"),
-                               new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _figh.NAME_DNRM + " یک جلسه به صورت دستی برگشت داد")
+                               new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _figh.NAME_DNRM + " ?? ???? ?? ???? ???? ????? ???")
                            )
                         );
                         requery = true;
@@ -960,7 +959,7 @@ namespace System.Scsc.Ui.Common
                               AfterChangedOutput = new Action<object>((output) => {
                                  if ((bool)output)
                                     return;
-                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 231 سطوح امینتی", "عدم دسترسی");
+                                 MessageBox.Show("??? - ??? ?????? ?? ???? 231 ???? ??????", "??? ??????");
                               })
                            },
                            #endregion
@@ -998,7 +997,7 @@ namespace System.Scsc.Ui.Common
               //   )
               //);
           }
-          catch { }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Mbsp_Rwno_Text_DoubleClick error: " + ex.ToString()); }
       }
 
       #region Finger Print Device Operation
@@ -1029,7 +1028,7 @@ namespace System.Scsc.Ui.Common
             );
 
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnEnrollFngrPrnt1_Click error: " + ex.ToString()); }
       }
 
       private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
@@ -1057,7 +1056,7 @@ namespace System.Scsc.Ui.Common
             );
 
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDeleteFngrPrnt1_Click error: " + ex.ToString()); }
       }
 
       private void RqstBnDuplicateFngrPrnt1_Click(object sender, EventArgs e)
@@ -1089,26 +1088,26 @@ namespace System.Scsc.Ui.Common
             Fngr_Cbx.Checked = Face_Cbx.Checked = true;
             GetDataFromDevice_Butn_Click(null, null);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDuplicateFngrPrnt1_Click error: " + ex.ToString()); }
       }
 
       private void RqstBnDeleteFngrNewEnrollPrnt1_Click(object sender, EventArgs e)
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با حذف اثر انگشت از مشتری و اختصاص برای کاربر جدید موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ??? ????? ?? ????? ? ?????? ???? ????? ???? ????? ??????", "?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             var figh = FighBs.Current as Data.Fighter;
             if (figh == null) return;
             if (figh.FNGR_PRNT_DNRM == "") { return; }
 
-            // اثر انگشت را از دستگاه پاک میکنیم
+            // ??? ????? ?? ?? ?????? ??? ??????
             RqstBnDeleteFngrPrnt1_Click(null, null);
 
-            // ابتدا کد انگشتی را از مشتری میگیریم
+            // ????? ?? ?????? ?? ?? ????? ???????
             ClearFingerPrint_Butn_Click(null, null);
 
-            // باز کردن فرم ثبت نام برای مشتری جدید
+            // ??? ???? ??? ??? ??? ???? ????? ????
             _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",
                   new List<Job>
@@ -1166,7 +1165,7 @@ namespace System.Scsc.Ui.Common
                );
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnEnrollFngrPrnt2_Click error: " + ex.ToString()); }
       }
 
       private void RqstBnDeleteFngrPrnt2_Click(object sender, EventArgs e)
@@ -1210,7 +1209,7 @@ namespace System.Scsc.Ui.Common
                );
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDeleteFngrPrnt2_Click error: " + ex.ToString()); }
       }
       #endregion
 
@@ -1379,7 +1378,7 @@ namespace System.Scsc.Ui.Common
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("MbspMark_Butn_Click error: " + ex.ToString()); }
       }
 
       private void SmsHist_Butn_Click(object sender, EventArgs e)
@@ -1448,7 +1447,7 @@ namespace System.Scsc.Ui.Common
                        UPDATE SET T.STAT = '002';", figh.FILE_NO
                )
             );
-            MessageBox.Show("عملیات استثناء ورود با موفقیت فعال شد");
+            MessageBox.Show("?????? ??????? ???? ?? ?????? ???? ??");
          }
          catch (Exception exc)
          {
@@ -1484,7 +1483,7 @@ namespace System.Scsc.Ui.Common
                        UPDATE SET T.STAT = '001';", figh.FILE_NO
                )
             );
-            MessageBox.Show("عملیات استثناء ورود با موفقیت غیرفعال شد");
+            MessageBox.Show("?????? ??????? ???? ?? ?????? ??????? ??");
          }
          catch (Exception exc)
          {
@@ -1507,15 +1506,15 @@ namespace System.Scsc.Ui.Common
                figh = FighBs.Current as Data.Fighter;
             }
 
-            // اگر مشترکی وجود نداشته باشد
+            // ??? ?????? ???? ?????? ????
             if (figh == null) return;
-            // اگر مشتری بدهی نداشته باشد
+            // ??? ????? ???? ?????? ????
             if (figh.DEBT_DNRM == 0) return;
-            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
             //if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
-            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            // ???? ?????? ????? ?? ???? ???? ?? ????
             if (paydebt > figh.DEBT_DNRM) return;
 
             var vf_SavePayment =
@@ -1527,10 +1526,10 @@ namespace System.Scsc.Ui.Common
                long amnt = 0;
 
                if (debt > paydebt)
-                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
                   amnt = paydebt;
                else
-                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -1577,18 +1576,18 @@ namespace System.Scsc.Ui.Common
                __figh = FighBs.Current as Data.Fighter;
             }
 
-            // اگر مشترکی وجود نداشته باشد
+            // ??? ?????? ???? ?????? ????
             if (__figh == null) return;
-            // اگر مشتری بدهی نداشته باشد
+            // ??? ????? ???? ?????? ????
             if (__figh.DEBT_DNRM == 0) return;
-            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
             //if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
-            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            // ???? ?????? ????? ?? ???? ???? ?? ????
             if (paydebt > __figh.DEBT_DNRM) return;
 
-            // مشخص شدن پوز
+            // ???? ??? ???
             var VPosBs1 = iScsc.V_Pos_Devices;//.Where(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value);
             var UsePos_Cb = true;
             var DefPos = VPosBs1.FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value);
@@ -1621,10 +1620,10 @@ namespace System.Scsc.Ui.Common
                if (regl.AMNT_TYPE == "002")
                   paydebt = paydebt * 10;
 
-               // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
+               // ?? ??? ????? ???? ??? ??????? ?????? ?? ??? ?? ?????? ????? ??????? ??? ??? ?????? ???
                UsePos_Cb = false;
 
-               // 1404/12/16 * بدست آوردن درخواست بدهکار برای ارسال شماره درخواست به پوز
+               // 1404/12/16 * ???? ????? ??????? ?????? ???? ????? ????? ??????? ?? ???
                var __rqstDebt = iScsc.VF_Request_Changing(__figh.FILE_NO).OrderByDescending(a => a.DEBT_DNRM).FirstOrDefault();
 
                _DefaultGateway.Gateway(
@@ -1670,10 +1669,10 @@ namespace System.Scsc.Ui.Common
                   long amnt = 0;
 
                   if (debt > paydebt)
-                     // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                     // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
                      amnt = paydebt;
                   else
-                     // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                     // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
                      amnt = debt;
 
                   iScsc.PAY_MSAV_P(
@@ -1721,15 +1720,15 @@ namespace System.Scsc.Ui.Common
                figh = FighBs.Current as Data.Fighter;
             }
 
-            // اگر مشترکی وجود نداشته باشد
+            // ??? ?????? ???? ?????? ????
             if (figh == null) return;
-            // اگر مشتری بدهی نداشته باشد
+            // ??? ????? ???? ?????? ????
             if (figh.DEBT_DNRM == 0) return;
-            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
             //if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
-            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            // ???? ?????? ????? ?? ???? ???? ?? ????
             if (paydebt > figh.DEBT_DNRM) return;
 
             var vf_SavePayment =
@@ -1741,10 +1740,10 @@ namespace System.Scsc.Ui.Common
                long amnt = 0;
 
                if (debt > paydebt)
-                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
                   amnt = paydebt;
                else
-                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -1791,15 +1790,15 @@ namespace System.Scsc.Ui.Common
                figh = FighBs.Current as Data.Fighter;
             }
 
-            // اگر مشترکی وجود نداشته باشد
+            // ??? ?????? ???? ?????? ????
             if (figh == null) return;
-            // اگر مشتری بدهی نداشته باشد
+            // ??? ????? ???? ?????? ????
             if (figh.DEBT_DNRM == 0) return;
-            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
             //if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt_Txt.Text.Replace(",", ""));
-            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            // ???? ?????? ????? ?? ???? ???? ?? ????
             if (paydebt > figh.DEBT_DNRM) return;
 
             var vf_SavePayment =
@@ -1811,10 +1810,10 @@ namespace System.Scsc.Ui.Common
                long amnt = 0;
 
                if (debt > paydebt)
-                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
                   amnt = paydebt;
                else
-                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -1863,7 +1862,7 @@ namespace System.Scsc.Ui.Common
 
             if (figh == null) return;            
 
-            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
             if (figh.FIGH_STAT == "001") return;
             var paydeposite = Convert.ToInt64(PayDepositeAmnt_Tsmi.Text.Replace(",", ""));
             if (paydeposite == 0) return;
@@ -1879,11 +1878,11 @@ namespace System.Scsc.Ui.Common
                      ),
                      new XElement("Gain_Loss_Rials",
                         new XAttribute("glid", 0),
-                        new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
+                        new XAttribute("type", "002" /* ??? ???? ???? ????? ???? ??????? */),
                         new XAttribute("amnt", paydeposite),
                         new XAttribute("paiddate", ""),
                         new XAttribute("dpststat", "002"),
-                        new XAttribute("resndesc", "افزایش سپرده در فرم کنترل میز"),
+                        new XAttribute("resndesc", "?????? ????? ?? ??? ????? ???"),
                         new XElement("Gain_Loss_Rial_Detials",
                            new XElement("Gain_Loss_Rial_Detial",
                               new XAttribute("rwno", 1),
@@ -1950,7 +1949,7 @@ namespace System.Scsc.Ui.Common
             }
             if (figh == null) return;            
 
-            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
             if (figh.FIGH_STAT == "001") return;
             var paydeposite = Convert.ToInt64(PayDepositeAmnt_Tsmi.Text.Replace(",", ""));
             if (paydeposite == 0) return;
@@ -1966,11 +1965,11 @@ namespace System.Scsc.Ui.Common
                      ),
                      new XElement("Gain_Loss_Rials",
                         new XAttribute("glid", 0),
-                        new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
+                        new XAttribute("type", "002" /* ??? ???? ???? ????? ???? ??????? */),
                         new XAttribute("amnt", paydeposite),
                         new XAttribute("paiddate", ""),
                         new XAttribute("dpststat", "002"),
-                        new XAttribute("resndesc", "افزایش سپرده در فرم کنترل میز"),
+                        new XAttribute("resndesc", "?????? ????? ?? ??? ????? ???"),
                         new XElement("Gain_Loss_Rial_Detials",
                            new XElement("Gain_Loss_Rial_Detial",
                               new XAttribute("rwno", 1),
@@ -2028,7 +2027,7 @@ namespace System.Scsc.Ui.Common
             var figh = vF_Fighs.Current as Data.VF_Last_Info_FighterResult;
             if (figh == null) return;
 
-            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
+            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
             if (figh.FIGH_STAT == "001") return;
 
             Job _InteractWithScsc =
@@ -2135,7 +2134,7 @@ namespace System.Scsc.Ui.Common
                }
             }
 
-            MessageBox.Show("اطلاعات با موفقیت ذخیره شد");
+            MessageBox.Show("??????? ?? ?????? ????? ??");
          }
          catch (Exception exc)
          {
@@ -2156,84 +2155,84 @@ namespace System.Scsc.Ui.Common
             var _LastInfo = FighBs.Current as Data.Fighter;
             var _dbLastInfo = iScsc.VF_Last_Info_Fighter(_LastInfo.FILE_NO, null, null, null, null, null, null, null, null, null, null, null, null, null, null).FirstOrDefault();
 
-            string _chngClmn = ""; //= "ستون هایی که شما تغییر داده اید :" + Environment.NewLine;
+            string _chngClmn = ""; //= "???? ???? ?? ??? ????? ???? ??? :" + Environment.NewLine;
             bool _savedb = false;
 
             if (_LastInfo.CELL_PHON_DNRM != null && _LastInfo.CELL_PHON_DNRM != _dbLastInfo.CELL_PHON_DNRM)
             {
-               _chngClmn += string.Format("شماره تلفن همراه" + " : {0}", _LastInfo.CELL_PHON_DNRM) + Environment.NewLine;
+               _chngClmn += string.Format("????? ???? ?????" + " : {0}", _LastInfo.CELL_PHON_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
             if (_LastInfo.TELL_PHON_DNRM != null && _LastInfo.TELL_PHON_DNRM != _dbLastInfo.TELL_PHON_DNRM)
             {
-               _chngClmn += string.Format("شماره تلفن ثابت" + " : {0}", _LastInfo.TELL_PHON_DNRM) + Environment.NewLine;
+               _chngClmn += string.Format("????? ???? ????" + " : {0}", _LastInfo.TELL_PHON_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
             if (_LastInfo.DAD_CELL_PHON_DNRM != null && _LastInfo.DAD_CELL_PHON_DNRM != _dbLastInfo.DAD_CELL_PHON_DNRM)
             {
-               _chngClmn += string.Format("شماره تلفن همراه پدر" + " : {0}", _LastInfo.DAD_CELL_PHON_DNRM) + Environment.NewLine;
+               _chngClmn += string.Format("????? ???? ????? ???" + " : {0}", _LastInfo.DAD_CELL_PHON_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
             if (_LastInfo.MOM_CELL_PHON_DNRM != null && _LastInfo.MOM_CELL_PHON_DNRM != _dbLastInfo.MOM_CELL_PHON_DNRM)
             {
-               _chngClmn += string.Format("شماره تلفن همراه مادر" + " : {0}", _LastInfo.MOM_CELL_PHON_DNRM) + Environment.NewLine;
+               _chngClmn += string.Format("????? ???? ????? ????" + " : {0}", _LastInfo.MOM_CELL_PHON_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
             if (_LastInfo.SUNT_CODE_DNRM != null && _LastInfo.SUNT_CODE_DNRM != _dbLastInfo.SUNT_CODE)
             {
-               _chngClmn += string.Format("اطلاعات سازمان" + " : {0}", _LastInfo.SUNT_CODE_DNRM) + Environment.NewLine;
+               _chngClmn += string.Format("??????? ??????" + " : {0}", _LastInfo.SUNT_CODE_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
             if (_LastInfo.GLOB_CODE_DNRM != null && _LastInfo.GLOB_CODE_DNRM != _dbLastInfo.GLOB_CODE)
             {
-               _chngClmn += string.Format("کد پرسنلی" + " : {0}", _LastInfo.GLOB_CODE_DNRM) + Environment.NewLine;
+               _chngClmn += string.Format("?? ??????" + " : {0}", _LastInfo.GLOB_CODE_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
             if (_LastInfo.NATL_CODE_DNRM != null && _LastInfo.NATL_CODE_DNRM != _dbLastInfo.NATL_CODE)
             {
-               _chngClmn += string.Format("کد ملی" + " : {0}", _LastInfo.NATL_CODE_DNRM) + Environment.NewLine;
+               _chngClmn += string.Format("?? ???" + " : {0}", _LastInfo.NATL_CODE_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
             if (_LastInfo.SERV_NO_DNRM != null && _LastInfo.SERV_NO_DNRM != _dbLastInfo.SERV_NO_DNRM)
             {
-               _chngClmn += string.Format("کد اشتراک" + " : {0}", _LastInfo.SERV_NO_DNRM) + Environment.NewLine;
+               _chngClmn += string.Format("?? ??????" + " : {0}", _LastInfo.SERV_NO_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
             if (_LastInfo.CHAT_ID_DNRM != null && _LastInfo.CHAT_ID_DNRM != _dbLastInfo.CHAT_ID_DNRM)
             {
-               _chngClmn += string.Format("کد بله" + " : {0}", _LastInfo.CHAT_ID_DNRM) + Environment.NewLine;
+               _chngClmn += string.Format("?? ???" + " : {0}", _LastInfo.CHAT_ID_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
             if (_LastInfo.DAD_CHAT_ID_DNRM != null && _LastInfo.DAD_CHAT_ID_DNRM != _dbLastInfo.DAD_CHAT_ID_DNRM)
             {
-               _chngClmn += string.Format("کد بله پدر" + " : {0}", _LastInfo.DAD_CHAT_ID_DNRM) + Environment.NewLine;
+               _chngClmn += string.Format("?? ??? ???" + " : {0}", _LastInfo.DAD_CHAT_ID_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
             if (_LastInfo.MOM_CHAT_ID_DNRM != null && _LastInfo.MOM_CHAT_ID_DNRM != _dbLastInfo.MOM_CHAT_ID_DNRM)
             {
-               _chngClmn += string.Format("کد بله مادر" + " : {0}", _LastInfo.MOM_CHAT_ID_DNRM) + Environment.NewLine;
+               _chngClmn += string.Format("?? ??? ????" + " : {0}", _LastInfo.MOM_CHAT_ID_DNRM) + Environment.NewLine;
                _savedb = true;
             }
 
             if (_LastInfo.INSR_DATE_DNRM != null && _LastInfo.INSR_DATE_DNRM != _dbLastInfo.INSR_DATE_DNRM)
             {
-               _chngClmn += string.Format("تاریخ بیمه" + " : {0}", _LastInfo.INSR_DATE_DNRM.Value.ToString("yyyy-MM-dd")) + Environment.NewLine;
+               _chngClmn += string.Format("????? ????" + " : {0}", _LastInfo.INSR_DATE_DNRM.Value.ToString("yyyy-MM-dd")) + Environment.NewLine;
                _savedb = true;
             }
 
             if (!_savedb) return;
 
-            if (MessageBox.Show(this, "آیا با ذخیره کردن اطلاعات موافق هستید؟" + Environment.NewLine + _chngClmn, "ثبت اطلاعات", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ????? ???? ??????? ????? ??????" + Environment.NewLine + _chngClmn, "??? ???????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             iScsc.SCVF_PBLC_P(
                new XElement("Fighter",
@@ -2424,7 +2423,7 @@ namespace System.Scsc.Ui.Common
             if(RefCode_Lov.EditValue == null || RefCode_Lov.EditValue.ToString() == "")return;
             var _chldServ = RServBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)RefCode_Lov.EditValue);
 
-            if (MessageBox.Show(this, "آیا با ثبت جایگاه برای مشتری موافق هستید؟ درصورت ثبت جایگاه به هیچ عنوان قابل تغییر نیست", "ثبت جایگاه سازمانی", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ?????? ???? ????? ????? ?????? ?????? ??? ?????? ?? ??? ????? ???? ????? ????", "??? ?????? ???????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             switch (e.Button.Index)
             {
@@ -2438,7 +2437,7 @@ namespace System.Scsc.Ui.Common
                          _rootServ.FILE_NO
                      )
                   );
-                  MessageBox.Show(this, "اطلاعات با موفقیت در جایگاه سمت چپ ذخیره شد، لطفا صفحه خود را دوباره بارگذاری کنید");
+                  MessageBox.Show(this, "??????? ?? ?????? ?? ?????? ??? ?? ????? ??? ???? ???? ??? ?? ?????? ???????? ????");
                   break;
                case 2:
                   iScsc.ExecuteCommand(
@@ -2450,7 +2449,7 @@ namespace System.Scsc.Ui.Common
                          _rootServ.FILE_NO
                      )
                   );
-                  MessageBox.Show(this, "اطلاعات با موفقیت در جایگاه سمت راست ذخیره شد، لطفا صفحه خود را دوباره بارگذاری کنید");
+                  MessageBox.Show(this, "??????? ?? ?????? ?? ?????? ??? ???? ????? ??? ???? ???? ??? ?? ?????? ???????? ????");
                   break;
                default:
                   break;
@@ -2463,7 +2462,6 @@ namespace System.Scsc.Ui.Common
             MessageBox.Show(exc.Message);
          }
       }
-
 
       private void FngrDevOpr_Tmr_Tick(object sender, EventArgs e)
       {
@@ -2486,7 +2484,7 @@ namespace System.Scsc.Ui.Common
 
             if (_crntServ != null)
             {
-               // در اولین مرحله پیدا کردن اطلاعات مشتریان
+               // ?? ????? ????? ???? ???? ??????? ???????
                var _Servs =
                   FighBs.List.OfType<Data.Fighter>()
                   .Where(s => s.FILE_NO == _crntServ.FILE_NO);
@@ -2510,13 +2508,13 @@ namespace System.Scsc.Ui.Common
                      {
                         Invoke(new Action(() =>
                         {
-                           RsltOprDev_Txt.Text = string.Format("پردازش اطلاعات دریافت " + "*{0}*" + "...", _serv.NAME_DNRM);
+                           RsltOprDev_Txt.Text = string.Format("?????? ??????? ?????? " + "*{0}*" + "...", _serv.NAME_DNRM);
                            //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
                         }));
                      }
                      else
                      {
-                        RsltOprDev_Txt.Text = string.Format("پردازش اطلاعات دریافت " + "*{0}*" + "...", _serv.NAME_DNRM);
+                        RsltOprDev_Txt.Text = string.Format("?????? ??????? ?????? " + "*{0}*" + "...", _serv.NAME_DNRM);
                         //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
                      }
 
@@ -2544,7 +2542,7 @@ namespace System.Scsc.Ui.Common
                                              Invoke(new Action(() => {
                                                 if (_data == null)
                                                 {
-                                                   RsltOprDev_Txt.Text = string.Format("هیچ داده ای برای مشتری " + "*{0}*" + " پیدا نشد", _serv.NAME_DNRM);
+                                                   RsltOprDev_Txt.Text = string.Format("??? ???? ?? ???? ????? " + "*{0}*" + " ???? ???", _serv.NAME_DNRM);
                                                 }
                                                 else
                                                 {
@@ -2564,12 +2562,12 @@ namespace System.Scsc.Ui.Common
                                                          (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";")
                                                       );
                                                       
-                                                      RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
+                                                      RsltOprDev_Txt.Text = string.Format("???? ???? ????? " + "*{0}*" + " ????? ??", _serv.NAME_DNRM);
                                                       RsltOprDev_Txt.BackColor = Color.LimeGreen;
                                                    }
                                                    else
                                                    { 
-                                                      RsltOprDev_Txt.Text = string.Format("هیچ داده ای برای مشتری " + "*{0}*" + " پیدا نشد", _serv.NAME_DNRM);
+                                                      RsltOprDev_Txt.Text = string.Format("??? ???? ?? ???? ????? " + "*{0}*" + " ???? ???", _serv.NAME_DNRM);
                                                       RsltOprDev_Txt.BackColor = Color.FromArgb(224,224,224);
                                                    }
                                                 }                                                
@@ -2579,7 +2577,7 @@ namespace System.Scsc.Ui.Common
                                           {
                                              if (_data == null)
                                              {
-                                                RsltOprDev_Txt.Text = string.Format("هیچ داده ای برای مشتری " + "*{0}*" + " پیدا نشد", _serv.NAME_DNRM);
+                                                RsltOprDev_Txt.Text = string.Format("??? ???? ?? ???? ????? " + "*{0}*" + " ???? ???", _serv.NAME_DNRM);
                                              }
                                              else
                                              {
@@ -2599,12 +2597,12 @@ namespace System.Scsc.Ui.Common
                                                       (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";")
                                                    );
 
-                                                   RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
+                                                   RsltOprDev_Txt.Text = string.Format("???? ???? ????? " + "*{0}*" + " ????? ??", _serv.NAME_DNRM);
                                                    RsltOprDev_Txt.BackColor = Color.LimeGreen;
                                                 }
                                                 else
                                                 { 
-                                                   RsltOprDev_Txt.Text = string.Format("هیچ داده ای برای مشتری " + "*{0}*" + " پیدا نشد", _serv.NAME_DNRM);
+                                                   RsltOprDev_Txt.Text = string.Format("??? ???? ?? ???? ????? " + "*{0}*" + " ???? ???", _serv.NAME_DNRM);
                                                    RsltOprDev_Txt.BackColor = Color.FromArgb(224, 224, 224);
                                                 }
                                              }                                             
@@ -2629,7 +2627,7 @@ namespace System.Scsc.Ui.Common
                      {
                         Invoke(new Action(() =>
                         {
-                           RsltOprDev_Txt.Text = string.Format("پردازش اطلاعات ارسال " + "*{0}*" + "...", _serv.NAME_DNRM);
+                           RsltOprDev_Txt.Text = string.Format("?????? ??????? ????? " + "*{0}*" + "...", _serv.NAME_DNRM);
                            FngrPrntImgProc_Lb.BackColor = (_imgFngr != null && (_imgFngr.IMAG != null && _imgFngr.IMAG.Length > 100)) ? Color.Lime : Color.FromArgb(224, 224, 224);
                            FaceImgProc_Lb.BackColor = (_imgFngr != null && (_imgFngr.IMAG != null && _imgFngr.IMAG.Length > 100)) ? Color.Lime : Color.FromArgb(224, 224, 224);
                            //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
@@ -2637,7 +2635,7 @@ namespace System.Scsc.Ui.Common
                      }
                      else
                      {
-                        RsltOprDev_Txt.Text = string.Format("پردازش اطلاعات ارسال " + "*{0}*" + "...", _serv.NAME_DNRM);
+                        RsltOprDev_Txt.Text = string.Format("?????? ??????? ????? " + "*{0}*" + "...", _serv.NAME_DNRM);
                         //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
                         FngrPrntImgProc_Lb.BackColor = (_imgFngr != null && (_imgFngr.IMAG != null && _imgFngr.IMAG.Length > 100)) ? Color.Lime : Color.FromArgb(224, 224, 224);
                         FaceImgProc_Lb.BackColor = (_imgFngr != null && (_imgFngr.IMAG != null && _imgFngr.IMAG.Length > 100)) ? Color.Lime : Color.FromArgb(224, 224, 224);
@@ -2670,12 +2668,12 @@ namespace System.Scsc.Ui.Common
                                           {
                                              if (!_data)
                                              {
-                                                RsltOprDev_Txt.Text = string.Format("هیچ داده ای برای مشتری " + "*{0}*" + " پیدا نشد", _serv.NAME_DNRM);
+                                                RsltOprDev_Txt.Text = string.Format("??? ???? ?? ???? ????? " + "*{0}*" + " ???? ???", _serv.NAME_DNRM);
                                                 RsltOprDev_Txt.BackColor = Color.FromArgb(224, 224, 224);
                                              }
                                              else
                                              { 
-                                                RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
+                                                RsltOprDev_Txt.Text = string.Format("???? ???? ????? " + "*{0}*" + " ????? ??", _serv.NAME_DNRM);
                                                 RsltOprDev_Txt.BackColor = Color.LimeGreen;
                                              }
                                           }
@@ -2684,12 +2682,12 @@ namespace System.Scsc.Ui.Common
                                              Invoke(new Action(() => {
                                                 if (!_data)
                                                 {
-                                                   RsltOprDev_Txt.Text = string.Format("هیچ داده ای برای مشتری " + "*{0}*" + " پیدا نشد", _serv.NAME_DNRM);
+                                                   RsltOprDev_Txt.Text = string.Format("??? ???? ?? ???? ????? " + "*{0}*" + " ???? ???", _serv.NAME_DNRM);
                                                    RsltOprDev_Txt.BackColor = Color.FromArgb(224, 224, 224);
                                                 }
                                                 else
                                                 { 
-                                                   RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
+                                                   RsltOprDev_Txt.Text = string.Format("???? ???? ????? " + "*{0}*" + " ????? ??", _serv.NAME_DNRM);
                                                    RsltOprDev_Txt.BackColor = Color.LimeGreen;
                                                 }
                                              }));                                             
@@ -2708,13 +2706,13 @@ namespace System.Scsc.Ui.Common
                      {
                         Invoke(new Action(() =>
                         {
-                           RsltOprDev_Txt.Text = string.Format("پردازش حذف اطلاعات " + "*{0}*" + "...", _serv.NAME_DNRM);
+                           RsltOprDev_Txt.Text = string.Format("?????? ??? ??????? " + "*{0}*" + "...", _serv.NAME_DNRM);
                            //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
                         }));
                      }
                      else
                      {
-                        RsltOprDev_Txt.Text = string.Format("پردازش حذف اطلاعات " + "*{0}*" + "...", _serv.NAME_DNRM);
+                        RsltOprDev_Txt.Text = string.Format("?????? ??? ??????? " + "*{0}*" + "...", _serv.NAME_DNRM);
                         //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
                      }
 
@@ -2758,7 +2756,7 @@ namespace System.Scsc.Ui.Common
 
             FngrDevOpr_Tmr.Tag = "";
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("FngrDevOpr_Tmr_Tick error: " + ex.ToString()); }
          finally
          {
             Monitor.Exit(_locker);
@@ -2774,7 +2772,7 @@ namespace System.Scsc.Ui.Common
 
       private void SetDataToDevice_Butn_Click(object sender, EventArgs e)
       {
-         if (MessageBox.Show(this, "آیا با ارسال اطلاعات به دستگاه موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+         if (MessageBox.Show(this, "??? ?? ????? ??????? ?? ?????? ????? ??????", "?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
          FngrDevOpr_Tmr.Tag = "set";
          FngrDevOpr_Tmr.Enabled = true;
          GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = false;
@@ -2855,7 +2853,7 @@ namespace System.Scsc.Ui.Common
                   List<Data.Fighter> _slcts = new List<Data.Fighter>();
                   if (SlctProcRecds_Rb.Checked)
                   {
-                     // اگر تعداد ردیف های درون جدول از عدد شروع ما کمتر باشد دیگر نیازی به پردازش نیست 
+                     // ??? ????? ???? ??? ???? ???? ?? ??? ???? ?? ???? ???? ???? ????? ?? ?????? ???? 
                      if (Serv_Gv.RowCount >= (int)SlctFromProcRecds_Nud.Value)
                      {
                         var _len = SlctToProcRecds_Nud.Value;
@@ -2863,7 +2861,7 @@ namespace System.Scsc.Ui.Common
 
                         if (SlctTop_Rb.Checked)
                         {
-                           // قراردادن تعداد رکرودهایی که درون بازه قرار دارند
+                           // ???????? ????? ????????? ?? ???? ???? ???? ?????
                            for (int i = (int)(SlctFromProcRecds_Nud.Value - 1), j = 0;  (_rmnd > _len ? _len : _rmnd) > j ; i++, j++)
                            {
                               _slcts.Add(Serv_Gv.GetRow(i) as Data.Fighter);
@@ -2871,7 +2869,7 @@ namespace System.Scsc.Ui.Common
                         }
                         else if (SlctDown_Rb.Checked)
                         {
-                           // قراردادن تعداد رکرودهایی که درون بازه قرار دارند
+                           // ???????? ????? ????????? ?? ???? ???? ???? ?????
                            for (int i = (int)(Serv_Gv.RowCount - SlctFromProcRecds_Nud.Value), j = 0; (_rmnd > _len ? _len : _rmnd) > j; i--, j++)
                            {
                               _slcts.Add(Serv_Gv.GetRow(i) as Data.Fighter);
@@ -2880,7 +2878,7 @@ namespace System.Scsc.Ui.Common
                      }
                      else
                      {
-                        MessageBox.Show(this, "بازه انتخابی رکورد های [از ،تا] شما هیچ رکوردی را در بر نمیگیرد", "عدم وجود رکورد در بازه انتخابی شما", MessageBoxButtons.OK);
+                        MessageBox.Show(this, "???? ??????? ????? ??? [?? ???] ??? ??? ?????? ?? ?? ?? ???????", "??? ???? ????? ?? ???? ??????? ???", MessageBoxButtons.OK);
                         return;
                      }
                   }
@@ -2906,12 +2904,12 @@ namespace System.Scsc.Ui.Common
             {
                case "run":
                   RunCyclUpdDev_Butn.Tag = "stop";
-                  RunCyclUpdDev_Butn.Text = "توقف فرآیند...";
+                  RunCyclUpdDev_Butn.Text = "???? ??????...";
                   _runCycl = true;
                   break;
                case "stop":
                   RunCyclUpdDev_Butn.Tag = "run";
-                  RunCyclUpdDev_Butn.Text = "اجرای فرآیند...";
+                  RunCyclUpdDev_Butn.Text = "????? ??????...";
                   _runCycl = false;
                   break;
             }
@@ -2926,14 +2924,14 @@ namespace System.Scsc.Ui.Common
                   break;
                case 1:
                   // Send data to device
-                  if (MessageBox.Show(this, "آیا با ارسال اطلاعات به دستگاه موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "??? ?? ????? ??????? ?? ?????? ????? ??????", "?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
                   FngrDevOpr_Tmr.Tag = "set";
                   //FngrDevOpr_Tmr.Enabled = true;
                   GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = false;
                   break;
                case 3:
                   // Clear data to device
-                  if (MessageBox.Show(this, "آیا با حذف اطلاعات از دستگاه موافق هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "??? ?? ??? ??????? ?? ?????? ????? ??????", "?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
                   FngrDevOpr_Tmr.Tag = "del";
                   //FngrDevOpr_Tmr.Enabled = true;
                   GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = false;
@@ -2943,7 +2941,7 @@ namespace System.Scsc.Ui.Common
             //new Thread(() => CyclUpdtDev_Tmr_Tick(null, null)) { IsBackground = true }.Start();
             CyclUpdtDev_Tmr_Tick(null, null);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RunCyclUpdDev_Butn_Click error: " + ex.ToString()); }
       }
 
       private async void CyclUpdtDev_Tmr_Tick(object sender, EventArgs e)
@@ -2989,12 +2987,11 @@ namespace System.Scsc.Ui.Common
 
                GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = false;
 
-               
                await Task.Run(() => FngrDevOpr_Tmr_Tick(_serv, null));
             }
 
             RunCyclUpdDev_Butn.Tag = "run";
-            RunCyclUpdDev_Butn.Text = "اجرای فرآیند...";
+            RunCyclUpdDev_Butn.Text = "????? ??????...";
             _runCycl = false;
             GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = true;
             RsltOprDev_Txt.BackColor = SystemColors.Info;
@@ -3003,7 +3000,7 @@ namespace System.Scsc.Ui.Common
             _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\SUCCESS.wav";
             new Thread(AlarmShow).Start();
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CyclUpdtDev_Tmr_Tick error: " + ex.ToString()); }
       }
 
       WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
@@ -3018,7 +3015,7 @@ namespace System.Scsc.Ui.Common
                wplayer.URL = _wplayer_url;
                wplayer.controls.play();
             }
-            catch { }            
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AlarmShow error: " + ex.ToString()); }
 
             _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
             _evencolor = Color.YellowGreen; _oddcolor = Color.LimeGreen;
@@ -3041,7 +3038,7 @@ namespace System.Scsc.Ui.Common
                   break;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SendRecv_Cmbx_SelectedIndexChanged error: " + ex.ToString()); }
       }
 
       private void ExcpDebtActv_Butn_Click(object sender, EventArgs e)
@@ -3064,7 +3061,7 @@ namespace System.Scsc.Ui.Common
                        UPDATE SET T.STAT = '002';", figh.FILE_NO
                )
             );
-            MessageBox.Show("عملیات استثناء برای بدهی مشتری با موفقیت فعال شد");
+            MessageBox.Show("?????? ??????? ???? ???? ????? ?? ?????? ???? ??");
          }
          catch (Exception exc)
          {
@@ -3092,7 +3089,7 @@ namespace System.Scsc.Ui.Common
                        UPDATE SET T.STAT = '001';", figh.FILE_NO
                )
             );
-            MessageBox.Show("عملیات استثناء برای بدهی مشتری با موفقیت غیرفعال شد");
+            MessageBox.Show("?????? ??????? ???? ???? ????? ?? ?????? ??????? ??");
          }
          catch (Exception exc)
          {
@@ -3120,7 +3117,7 @@ namespace System.Scsc.Ui.Common
                        UPDATE SET T.STAT = '002';", figh.FILE_NO
                )
             );
-            MessageBox.Show("عملیات استثناء برای عدم دریافت کمد انلاین با موفقیت فعال شد");
+            MessageBox.Show("?????? ??????? ???? ??? ?????? ??? ?????? ?? ?????? ???? ??");
          }
          catch (Exception exc)
          {
@@ -3148,7 +3145,7 @@ namespace System.Scsc.Ui.Common
                        UPDATE SET T.STAT = '001';", figh.FILE_NO
                )
             );
-            MessageBox.Show("عملیات استثناء برای عدم دریافت کمد انلاین با موفقیت غیرفعال شد");
+            MessageBox.Show("?????? ??????? ???? ??? ?????? ??? ?????? ?? ?????? ??????? ??");
          }
          catch (Exception exc)
          {
@@ -3227,7 +3224,7 @@ namespace System.Scsc.Ui.Common
          {
             if(CurrentUser != "ARTAUSER")
             {
-               MessageBox.Show(this, "این گزینه فقط توسط نیرو پشتیبان شرکت انجام میشود، شرمنده برو بسلامت", "خطا - برو دست خدای مهربون", MessageBoxButtons.OK);
+               MessageBox.Show(this, "??? ????? ??? ???? ???? ??????? ???? ????? ?????? ?????? ??? ??????", "??? - ??? ??? ???? ??????", MessageBoxButtons.OK);
                return;
             }
 
@@ -3318,7 +3315,7 @@ namespace System.Scsc.Ui.Common
             var crnt = iScsc.Message_Broadcasts.FirstOrDefault(mb => mb.MSGB_TYPE == "005");
             if (crnt == null) return;
 
-            if (MessageBox.Show(this, "آیا با ارسال پیامک موافق هستین؟", "مجوز ارسال پیامک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ????? ????? ????? ??????", "???? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
 
             // Process for send sms
             if (RsltTxtSms_Txt.Text == "") return;
@@ -3369,11 +3366,11 @@ namespace System.Scsc.Ui.Common
          {
             if (CurrentUser != "ARTAUSER")
             {
-               MessageBox.Show(this, "این گزینه فقط توسط نیرو پشتیبان شرکت انجام میشود، شرمنده برو بسلامت", "خطا - برو دست خدای مهربون", MessageBoxButtons.OK);
+               MessageBox.Show(this, "??? ????? ??? ???? ???? ??????? ???? ????? ?????? ?????? ??? ??????", "??? - ??? ??? ???? ??????", MessageBoxButtons.OK);
                return;
             }
 
-            if(MessageBox.Show(this, "آیا با انجام عملیات مرتب سازی کد شناسایی مشترکین خود مطمئن هستید؟", "مرتب سازی کد شناسایی مشترکین", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes)return;
+            if(MessageBox.Show(this, "??? ?? ????? ?????? ???? ???? ?? ??????? ??????? ??? ????? ??????", "???? ???? ?? ??????? ???????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes)return;
 
             LastMbspEndDate_Dt.CommitChanges();
 
@@ -3416,6 +3413,5 @@ namespace System.Scsc.Ui.Common
          }
       }
 
-      
    }
 }

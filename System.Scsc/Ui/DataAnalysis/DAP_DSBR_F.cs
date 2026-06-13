@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -85,7 +85,7 @@ namespace System.Scsc.Ui.DataAnalysis
 
          #endregion
 
-         #region آمار مشترکین
+         #region ???? ???????
          PermServ_Lb.Text = FighBs.List.OfType<Data.Fighter>().Where(f => f.FGPB_TYPE_DNRM == "001").Count().ToString();
          FreeServ_Lb.Text = freefigh.Count().ToString();
             
@@ -98,7 +98,7 @@ namespace System.Scsc.Ui.DataAnalysis
          TotlDactMen_Lb.Text = (Convert.ToInt64(TotlMen_Lb.Text) - Convert.ToInt64(TotlActvMen_Lb.Text)).ToString();
          #endregion
 
-         #region آمار شماره موبایل مشترکین
+         #region ???? ????? ?????? ???????
          TotlPermCellPhon_Lb.Text = FighBs.List.OfType<Data.Fighter>().Where(f => f.FGPB_TYPE_DNRM == "001" && f.CELL_PHON_DNRM != null && f.CELL_PHON_DNRM.Length >= 10).Count().ToString();
          TotlFreeCellPhon_Lb.Text = freefigh.Count().ToString();
          TotlCellPhon_Lb.Text = (Convert.ToInt64(TotlPermCellPhon_Lb.Text) + Convert.ToInt64(TotlFreeCellPhon_Lb.Text)).ToString();
@@ -121,7 +121,7 @@ namespace System.Scsc.Ui.DataAnalysis
          );
          #endregion
 
-         #region آمار شماره ثابت مشترکین
+         #region ???? ????? ???? ???????
          TotlManTellPhon_Lb.Text = FighBs.List.OfType<Data.Fighter>().Where(f => f.FGPB_TYPE_DNRM == "001" && f.SEX_TYPE_DNRM == "001" && f.TELL_PHON_DNRM != null && f.TELL_PHON_DNRM.Length >= 4).Count().ToString();
          TotlMenTellPhon_Lb.Text = FighBs.List.OfType<Data.Fighter>().Where(f => f.FGPB_TYPE_DNRM == "001" && f.SEX_TYPE_DNRM == "002" && f.TELL_PHON_DNRM != null && f.TELL_PHON_DNRM.Length >= 4).Count().ToString();
          TotlTellPhon_Lb.Text = (Convert.ToInt64(TotlManTellPhon_Lb.Text) + Convert.ToInt64(TotlMenTellPhon_Lb.Text)).ToString();
@@ -142,7 +142,7 @@ namespace System.Scsc.Ui.DataAnalysis
          );
          #endregion
 
-         #region آمار سرپرستان مشترکین
+         #region ???? ???????? ???????
          TotlManCoch_Lb.Text = FighBs.List.OfType<Data.Fighter>().Where(f => f.FGPB_TYPE_DNRM == "003" && f.SEX_TYPE_DNRM == "001").Count().ToString();
          TotlMenCoch_Lb.Text = FighBs.List.OfType<Data.Fighter>().Where(f => f.FGPB_TYPE_DNRM == "003" && f.SEX_TYPE_DNRM == "002").Count().ToString();
          TotlCoch_Lb.Text = (Convert.ToInt64(TotlManCoch_Lb.Text) + Convert.ToInt64(TotlMenCoch_Lb.Text)).ToString();
@@ -162,7 +162,7 @@ namespace System.Scsc.Ui.DataAnalysis
          );
          #endregion
 
-         #region آمار بیمه مشترکین
+         #region ???? ???? ???????
          TotlManInsr_Lb.Text = FighBs.List.OfType<Data.Fighter>().Where(f => f.FGPB_TYPE_DNRM == "001" && f.SEX_TYPE_DNRM == "001" && f.INSR_DATE_DNRM != null && f.INSR_DATE_DNRM.Value.Date >= DateTime.Now.Date).Count().ToString();
          TotlMenInsr_Lb.Text = FighBs.List.OfType<Data.Fighter>().Where(f => f.FGPB_TYPE_DNRM == "001" && f.SEX_TYPE_DNRM == "002" && f.INSR_DATE_DNRM != null && f.INSR_DATE_DNRM.Value.Date >= DateTime.Now.Date).Count().ToString();
          TotlInsr_Lb.Text = (Convert.ToInt64(TotlManInsr_Lb.Text) + Convert.ToInt64(TotlMenInsr_Lb.Text)).ToString();
@@ -201,12 +201,12 @@ namespace System.Scsc.Ui.DataAnalysis
                TabPage002_Filling();
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("TabPage002_Starting error: " + ex.ToString()); }
       }
 
       private void TabPage002_Filling()
       {
-         #region آمار حضور و غیاب
+         #region ???? ???? ? ????
          TotlAttn_Lb.Text = AttnBs.List.OfType<Data.VF_StatisticAttendanceResult>().Sum(a => ((a._06_CONT ?? 0) + (a._07_CONT ?? 0) + (a._08_CONT ?? 0) + (a._09_CONT ?? 0) + (a._10_CONT ?? 0) + (a._11_CONT ?? 0) + (a._12_CONT ?? 0) + (a._13_CONT ?? 0) + (a._14_CONT ?? 0) + (a._15_CONT ?? 0) + (a._16_CONT ?? 0) + (a._17_CONT ?? 0) + (a._18_CONT ?? 0) + (a._19_CONT ?? 0) + (a._20_CONT ?? 0) + (a._21_CONT ?? 0) + (a._22_CONT ?? 0) + (a._23_CONT ?? 0))).ToString();
 
          PersianCalendar pc = new PersianCalendar();

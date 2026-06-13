@@ -91,7 +91,7 @@ namespace System.CRM.Ui.Contract
             RqstBs.Position = rqstindex;
             requery = false;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
       }
 
       private void RqstBs_CurrentChanged(object sender, EventArgs e)
@@ -114,7 +114,7 @@ namespace System.CRM.Ui.Contract
 
             RqstMsttColor_Butn.HoverColorA = RqstMsttColor_Butn.HoverColorB = RqstMsttColor_Butn.NormalColorA = RqstMsttColor_Butn.NormalColorB = ColorTranslator.FromHtml(rqst.COLR);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBs_CurrentChanged error: " + ex.ToString()); }
       }
 
       private void ObjectBaseEdit_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -147,7 +147,7 @@ namespace System.CRM.Ui.Contract
                );
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ObjectBaseEdit_ButtonPressed error: " + ex.ToString()); }
       }
 
       private void SubmitChange_Butn_Click(object sender, EventArgs e)
@@ -515,7 +515,7 @@ namespace System.CRM.Ui.Contract
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ShowContractLine_Butn_Click error: " + ex.ToString()); }
       }
       #endregion
 

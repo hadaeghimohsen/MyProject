@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
@@ -89,11 +89,11 @@ namespace System.Scsc.Ui.Insurance
                                              <ol>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F10</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از سیستم</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ?????</font></li>
                                                 </ul>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F9</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از محیط کاربری</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ???? ??????</font></li>
                                                 </ul>
                                              </ol>
                                        </p>
@@ -197,11 +197,9 @@ namespace System.Scsc.Ui.Insurance
          _DefaultGateway.Gateway(GetHostInfo);
          HostNameInfo = (XElement)GetHostInfo.Output;
 
-
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 08 /* Execute LangChangToFarsi */, SendType.Self)
          );
-
 
          #region Set Localization
          var regnlang = iScsc.V_User_Localization_Forms.Where(rl => rl.FORM_NAME == GetType().Name);
@@ -373,7 +371,6 @@ namespace System.Scsc.Ui.Insurance
          }
          #endregion
 
-
          job.Status = StatusType.Successful;
       }
 
@@ -482,7 +479,7 @@ namespace System.Scsc.Ui.Insurance
                   else
                      rqstRqid = 0;
 
-                  // 1401/02/04 * بررسی اینکه آیا مشتری درخواست قفل شده در این فرآیند را دارد یا خیر
+                  // 1401/02/04 * ????? ????? ??? ????? ??????? ??? ??? ?? ??? ?????? ?? ???? ?? ???
                   //ShowRqst_PickButn.PickChecked = false;
                   if (RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == fileno))) == -1)
                   {
@@ -492,7 +489,7 @@ namespace System.Scsc.Ui.Insurance
                   }
                   else
                   {
-                     // 1398/09/07 * پیدا کردن درخواست برای مشتری
+                     // 1398/09/07 * ???? ???? ??????? ???? ?????
                      RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == fileno)));
                      RqstBs1.List.OfType<Data.Request>().Where(r => r.RQID == 0).ToList().ForEach(r => RqstBs1.Remove(r));
                   }
@@ -518,7 +515,7 @@ namespace System.Scsc.Ui.Insurance
             else
                Execute_Query();
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Actn_CalF_P error: " + ex.ToString()); }
          job.Status = StatusType.Successful;
       }
 

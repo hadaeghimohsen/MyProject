@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -30,7 +30,6 @@ using EventBasedTCP;
 using System.Globalization;
 using DevExpress.XtraEditors;
 
-
 namespace System.Scsc.Ui.MasterPage
 {
    public partial class MAIN_PAGE_F : UserControl
@@ -60,10 +59,10 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            // اگر checkButton null باشد، کاری نمی‌کنیم
+            // ??? checkButton null ????? ???? ????????
             if (checkButton == null) return;
 
-            // ابتدا Checked همه آیتم‌های موجود در لیست را false می‌کنیم
+            // ????? Checked ??? ???????? ????? ?? ???? ?? false ???????
             foreach (var task in _runTask)
             {
                if (task.MainCheckButton != null)
@@ -72,16 +71,16 @@ namespace System.Scsc.Ui.MasterPage
                }
             }
 
-            // پیدا کردن آیتم با استفاده از LINQ
+            // ???? ???? ???? ?? ??????? ?? LINQ
             var existingItem = _runTask.FirstOrDefault(node => node.MainCheckButton == checkButton);
 
             if (existingItem != null)
             {
-               // حذف آیتم موجود و اضافه کردن به ابتدا
+               // ??? ???? ????? ? ????? ???? ?? ?????
                _runTask.Remove(existingItem);
                _runTask.AddFirst(existingItem);
 
-               // Checked آیتم منتقل شده را true می‌کنیم
+               // Checked ???? ????? ??? ?? true ???????
                if (existingItem.MainCheckButton != null)
                {
                   existingItem.MainCheckButton.Checked = true;
@@ -89,7 +88,7 @@ namespace System.Scsc.Ui.MasterPage
             }
             else
             {
-               // ایجاد آیتم جدید و اضافه کردن به ابتدا
+               // ????? ???? ???? ? ????? ???? ?? ?????
                _runTask.AddFirst(new RunTask
                {
                   MainCheckButton = checkButton,
@@ -98,7 +97,7 @@ namespace System.Scsc.Ui.MasterPage
                   TaskBarCheckButton = null
                });
 
-               // Checked آیتم جدید را true می‌کنیم
+               // Checked ???? ???? ?? true ???????
                if (checkButton != null)
                {
                   checkButton.Checked = true;
@@ -114,27 +113,27 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            // بررسی اولیه
+            // ????? ?????
             if (string.IsNullOrEmpty(uiPath) || _runTask == null || _runTask.Count == 0)
                return false;
 
-            // پیدا کردن آیتم
+            // ???? ???? ????
             var itemToRemove = _runTask.FirstOrDefault(node => node != null && node != null && node.UiPath == uiPath);
 
             if (itemToRemove == null)
                return false;
 
-            // false کردن Checked
+            // false ???? Checked
             if (itemToRemove.MainCheckButton != null)
                itemToRemove.MainCheckButton.Checked = false;
 
-            // حذف از لیست
+            // ??? ?? ????
             bool removed = _runTask.Remove(itemToRemove);
 
             if (!removed)
                return false;
 
-            // true کردن Checked اولین آیتم (اگر وجود داشته باشد)
+            // true ???? Checked ????? ???? (??? ???? ????? ????)
             if (_runTask.Count > 0 && _runTask.First != null && _runTask.First.Value != null)
             {
                if (_runTask.First.Value.MainCheckButton != null)
@@ -227,7 +226,7 @@ namespace System.Scsc.Ui.MasterPage
                HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
                HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
                HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
-               HeaderAttnButn_Tooltip.Text = string.Format("IP : {0}\r\nوضعیت : {1}", xdata.Attribute("ip").Value, Convert.ToBoolean(xdata.Attribute("stat").Value) ? "فعال" : "غیرفعال");
+               HeaderAttnButn_Tooltip.Text = string.Format("IP : {0}\r\n????? : {1}", xdata.Attribute("ip").Value, Convert.ToBoolean(xdata.Attribute("stat").Value) ? "????" : "???????");
                DetialAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
                DetialAttnButn_Tooltip.Appearance.Options.UseImage = true;
                DetialAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
@@ -237,7 +236,7 @@ namespace System.Scsc.Ui.MasterPage
                FooterAttnButn_Tooltip.Appearance.Options.UseImage = true;
                FooterAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
                FooterAttnButn_Tooltip.LeftIndent = 6;
-               FooterAttnButn_Tooltip.Text = string.Format("تیم پشتیبانی\r\nوضعیت اینترنت : {0}", CheckInternetConnection() ? "قعال" : "غیرفعال");
+               FooterAttnButn_Tooltip.Text = string.Format("??? ????????\r\n????? ??????? : {0}", CheckInternetConnection() ? "????" : "???????");
 
                SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
                SuperToolTips.Items.Add(DetialAttnButn_Tooltip);
@@ -248,17 +247,17 @@ namespace System.Scsc.Ui.MasterPage
                HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
                HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
                HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1561;
-               HeaderAttnButn_Tooltip.Text = string.Format("وضعیت دستگاه گیت : {0}", xdata.Attribute("stat").Value == "001" ? "غیرفعال" : "فعال");
+               HeaderAttnButn_Tooltip.Text = string.Format("????? ?????? ??? : {0}", xdata.Attribute("stat").Value == "001" ? "???????" : "????");
                //DetialAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
                //DetialAttnButn_Tooltip.Appearance.Options.UseImage = true;
                //DetialAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1067;
                //DetialAttnButn_Tooltip.LeftIndent = 6;
-               //DetialAttnButn_Tooltip.Text = "ارتباط متصل";
+               //DetialAttnButn_Tooltip.Text = "?????? ????";
                //FooterAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
                //FooterAttnButn_Tooltip.Appearance.Options.UseImage = true;
                //FooterAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1116;
                //FooterAttnButn_Tooltip.LeftIndent = 6;
-               //FooterAttnButn_Tooltip.Text = string.Format("تیم پشتیبانی\r\nوضعیت اینترنت : {0}", CheckInternetConnection() ? "قعال" : "غیرفعال");
+               //FooterAttnButn_Tooltip.Text = string.Format("??? ????????\r\n????? ??????? : {0}", CheckInternetConnection() ? "????" : "???????");
 
                SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
                //SuperToolTips.Items.Add(DetialAttnButn_Tooltip);
@@ -269,7 +268,7 @@ namespace System.Scsc.Ui.MasterPage
                HeaderAttnButn_Tooltip.Appearance.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
                HeaderAttnButn_Tooltip.Appearance.Options.UseImage = true;
                HeaderAttnButn_Tooltip.Image = global::System.Scsc.Properties.Resources.IMAGE_1607;
-               HeaderAttnButn_Tooltip.Text = string.Format("وضعیت دستگاه : {0}", Convert.ToBoolean(xdata.Attribute("stat").Value) ? "فعال" : "غیرفعال");
+               HeaderAttnButn_Tooltip.Text = string.Format("????? ?????? : {0}", Convert.ToBoolean(xdata.Attribute("stat").Value) ? "????" : "???????");
 
                SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
             }
@@ -291,7 +290,6 @@ namespace System.Scsc.Ui.MasterPage
 
                SuperToolTips.Items.Add(HeaderAttnButn_Tooltip);
             }
-
 
             return SuperToolTips;
          }
@@ -332,7 +330,7 @@ namespace System.Scsc.Ui.MasterPage
             {
                AttnType_Lov.EditValue = "001";
                this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
-               Tsp_AttnSys.Text = "سیستم بارکد خوان فعال";
+               Tsp_AttnSys.Text = "????? ????? ???? ????";
                Tsp_AttnSys.ForeColor = Color.Green;
                AttendanceSystemAlert_Butn.Tag = barCodeSetting.ATTN_SYST_TYPE;
             }
@@ -340,7 +338,7 @@ namespace System.Scsc.Ui.MasterPage
             {
                AttnType_Lov.EditValue = null;
                this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
-               Tsp_AttnSys.Text = "سیستم بارکد خوان غیرفعال";
+               Tsp_AttnSys.Text = "????? ????? ???? ???????";
                Tsp_AttnSys.ForeColor = Color.Red;
             }
          }
@@ -348,7 +346,7 @@ namespace System.Scsc.Ui.MasterPage
          {
             this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
             //MessageBox.Show(ex.Message);
-            Tsp_AttnSys.Text = "سیستم بارکد خوان غیرفعال";
+            Tsp_AttnSys.Text = "????? ????? ???? ???????";
             Tsp_AttnSys.ForeColor = Color.Red;
          }
       }
@@ -360,7 +358,7 @@ namespace System.Scsc.Ui.MasterPage
             if (Sp_Barcode.IsOpen)
             {
                Sp_Barcode.Close();
-               Tsp_AttnSys.Text = "سیستم بارکد خوان غیرفعال";
+               Tsp_AttnSys.Text = "????? ????? ???? ???????";
             }
          }
          catch (Exception ex)
@@ -412,10 +410,10 @@ namespace System.Scsc.Ui.MasterPage
 
             //enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
 
-            //1397/09/28 * مشخص کردن نوع ثبت حضور و غیاب که با دستگاه یا دستی
+            //1397/09/28 * ???? ???? ??? ??? ???? ? ???? ?? ?? ?????? ?? ????
             attnsystype = "002";
 
-            // 1397/05/08 * بررسی اینکه آیا در داده ورودی علاما غیرمجاز وجود دارد
+            // 1397/05/08 * ????? ????? ??? ?? ???? ????? ????? ??????? ???? ????
             if (enrollNumber.Like("%?%"))
                return;
 
@@ -432,16 +430,16 @@ namespace System.Scsc.Ui.MasterPage
                      enrollNumber = figh.FNGR_PRNT_DNRM;
                      if (enrollNumber.Length == 0)
                      {
-                        MessageBox.Show(string.Format("{0} فاقد کد انگشتی کارت می باشد لطفا جهت انتصاب کد انگشتی برای سیستم حضور و غیاب اقدام فرمایید", figh.NAME_DNRM));
+                        MessageBox.Show(string.Format("{0} ???? ?? ?????? ???? ?? ???? ???? ??? ?????? ?? ?????? ???? ????? ???? ? ???? ????? ???????", figh.NAME_DNRM));
                         oldenrollnumber = "";
                         return;
                      }
                   }
                }
-               catch { MessageBox.Show("داده خوانده شده از دستگاه قابل تبدیل به عددی را ندارد"); }
+               catch { MessageBox.Show("???? ?????? ??? ?? ?????? ???? ????? ?? ???? ?? ?????"); }
             }                       
 
-            // 1398/10/03 * سیستم کدینگ کارت برای نرم افزار برای مشتریان چموش
+            // 1398/10/03 * ????? ????? ???? ???? ??? ????? ???? ??????? ????
             //if(iScsc.Card_Datasources.Any())
             //{
             //   if(!iScsc.Card_Datasources.Any(cd => cd.FNGR_PRNT == enrollNumber))
@@ -477,26 +475,25 @@ namespace System.Scsc.Ui.MasterPage
 
             //enrollNumber = Regex.Replace(enrollNumber, "[^a-zA-Z][^0-9]", "");
 
-            //1397/09/28 * مشخص کردن نوع ثبت حضور و غیاب که با دستگاه یا دستی
+            //1397/09/28 * ???? ???? ??? ??? ???? ? ???? ?? ?? ?????? ?? ????
             attnsystype = "002";
 
-
-            // 1397/05/08 * بررسی اینکه آیا در داده ورودی علاما غیرمجاز وجود دارد
+            // 1397/05/08 * ????? ????? ??? ?? ???? ????? ????? ??????? ???? ????
             if (enrollNumber.Like("%?%"))
             {
                //FngrPrnt_Txt.BackColor = SystemColors.Info;
-               //FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "خطا در دریافت اطلاعات";
+               //FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "??? ?? ?????? ???????";
                return;
             }
             else
             {
                //FngrPrnt_Txt.BackColor = Color.White;
-               //FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "شماره ملی یا کد انگشتی";
+               //FngrPrnt_Txt.Properties.NullText = FngrPrnt_Txt.Properties.NullValuePrompt = "????? ??? ?? ?? ??????";
             }
 
             if (barCodeSetting.CLER_ZERO == "002")
                enrollNumber = enrollNumber.TrimStart('0');
-            //if (enrollNumber == oldenrollnumber && MessageBox.Show(this, "کارت مشترک دوباره قرار گرفته آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری کارت مشترک", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+            //if (enrollNumber == oldenrollnumber && MessageBox.Show(this, "???? ????? ?????? ???? ????? ??? ?? ?????? ?????? ???? ????? ???? ?????", "????? ???? ???? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
             //   return;
             //oldenrollnumber = enrollNumber;
 
@@ -522,13 +519,13 @@ namespace System.Scsc.Ui.MasterPage
                      enrollNumber = figh.FNGR_PRNT_DNRM;
                      if (enrollNumber.Length == 0)
                      {
-                        MessageBox.Show(string.Format("{0} فاقد کد انگشتی کارت می باشد لطفا جهت انتصاب کد انگشتی برای سیستم حضور و غیاب اقدام فرمایید", figh.NAME_DNRM));
+                        MessageBox.Show(string.Format("{0} ???? ?? ?????? ???? ?? ???? ???? ??? ?????? ?? ?????? ???? ????? ???? ? ???? ????? ???????", figh.NAME_DNRM));
                         oldenrollnumber = "";
                         return;
                      }
                   }
                }
-               catch { MessageBox.Show("داده خوانده شده از دستگاه قابل تبدیل به عددی را ندارد"); }
+               catch { MessageBox.Show("???? ?????? ??? ?? ?????? ???? ????? ?? ???? ?? ?????"); }
             }
 
             //var temp = Convert.ToInt64(enrollNumber);
@@ -540,7 +537,7 @@ namespace System.Scsc.Ui.MasterPage
 
             //MessageBox.Show(enrollNumber);
 
-            // 1398/10/03 * سیستم کدینگ کارت برای نرم افزار برای مشتریان چموش
+            // 1398/10/03 * ????? ????? ???? ???? ??? ????? ???? ??????? ????
             if (iScsc.Card_Datasources.Any())
             {
                if (!iScsc.Card_Datasources.Any(cd => cd.FNGR_PRNT == enrollNumber))
@@ -639,15 +636,15 @@ namespace System.Scsc.Ui.MasterPage
                   Sp_GateAttn.Write("in");
                }
             }
-            catch { }
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Open_Gate error: " + ex.ToString()); }
 
-            // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+            // ?? ??? ???? ?? ?????? ????? ???? ?? ??? ????? ?? ?? ???? ???? ?? ???? ?? ??????? ?? ?? ??? ????? ???? ?? ??? ?? ??? ???
             var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
 
-            // 1400/01/12 * اگر گیت به صورت دستی باز شود
+            // 1400/01/12 * ??? ??? ?? ???? ???? ??? ???
             if (xinput.Attribute("fngrprnt") == null)
             {
-               // 1404/06/31 * اگر سیستم برای دستگاه خاصی هدف قرار داده شده باشد
+               // 1404/06/31 * ??? ????? ???? ?????? ???? ??? ???? ???? ??? ????
                if (xinput.Attribute("trgtedevcode") != null)
                {
                   _gatesDevice = iScsc.External_Devices.Where(ed => ed.CODE == xinput.Attribute("trgtedevcode").Value.ToInt64());
@@ -678,28 +675,28 @@ namespace System.Scsc.Ui.MasterPage
                }
                #endregion
             }
-            else // اگر گیت به صورت اتومات باز شود مشتری حضور و غیاب کرده باشد
+            else // ??? ??? ?? ???? ?????? ??? ??? ????? ???? ? ???? ???? ????
             {
-               // 1404/06/31 * اگر سیستم برای دستگاه خاصی هدف قرار داده شده باشد
+               // 1404/06/31 * ??? ????? ???? ?????? ???? ??? ???? ???? ??? ????
                if (xinput.Attribute("trgtedevcode") != null)
                {
                   _gatesDevice = iScsc.External_Devices.Where(ed => ed.CODE == xinput.Attribute("trgtedevcode").Value.ToInt64());
                }
 
-               // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+               // ?? ??? ???? ?? ?????? ????? ???? ?? ??? ????? ?? ?? ???? ???? ?? ???? ?? ??????? ?? ?? ??? ????? ???? ?? ??? ?? ??? ???
                // 1400/01/11
-               // در اینجا باید مشخص کنیم که ایا گیت ها بر اساس رشته های مختلف باید واکنش نشان دهند یا خیر               
+               // ?? ????? ???? ???? ???? ?? ??? ??? ?? ?? ???? ???? ??? ????? ???? ????? ???? ???? ?? ???               
                if (_gatesDevice == null)
                {
                   // 1400/01/12
-                  // پیدا کردن گیت هایی که تردد گروه های مختلف را چک میکنند
+                  // ???? ???? ??? ???? ?? ???? ???? ??? ????? ?? ?? ??????
                   _gatesDevice = 
                      iScsc.External_Devices
                      .Where(d => 
                         (d.DEV_COMP_TYPE == "001" || d.DEV_COMP_TYPE == "003") && 
                         d.DEV_TYPE == "006" && 
                         d.STAT == "002" && 
-                        d.ACTN_TYPE != "010" && /* حضور و غیاب بلیط فروشی الکترونیک */
+                        d.ACTN_TYPE != "010" && /* ???? ? ???? ???? ????? ????????? */
                         d.MTOD_CODE == null && 
                         d.External_Device_Link_Methods
                         .Any(em => 
@@ -708,7 +705,7 @@ namespace System.Scsc.Ui.MasterPage
                       );
                   
                   // 1400/01/12
-                  // اگر گیت مانند باشگاه نیایش باشد همان مسیر قبلی را برایش انجام میدهیم
+                  // ??? ??? ????? ?????? ????? ???? ???? ???? ???? ?? ????? ????? ??????
                   if (_gatesDevice != null && _gatesDevice.Count() == 0)
                      _gatesDevice = 
                         iScsc.External_Devices
@@ -717,7 +714,7 @@ namespace System.Scsc.Ui.MasterPage
                            d.DEV_TYPE == "006" && 
                            _listIPHost.Contains(d.SERV_IP_ADRS) && 
                            d.STAT == "002" && 
-                           d.ACTN_TYPE != "010" && /* حضور و غیاب بلیط فروشی الکترونیک */
+                           d.ACTN_TYPE != "010" && /* ???? ? ???? ???? ????? ????????? */
                            d.MTOD_CODE == null);
 
                }
@@ -790,13 +787,13 @@ namespace System.Scsc.Ui.MasterPage
                );               
             }
             //MessageBox.Show("Gate is Open");
-         }catch(Exception ){}
+          }catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Open_Gate error: " + ex.ToString()); }
          finally
          {
             try
             {
                //GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
-               // 1404/03/30 ** لعنت به ج.ا. انسان کش، اسرائیل بزن که خوب میزنی، من به شخصه از کشتن این حرومی ها لذت میبرم بزن عزیزم بزن دمت گرم
+               // 1404/03/30 ** ???? ?? ?.?. ????? ??? ??????? ??? ?? ??? ?????? ?? ?? ???? ?? ???? ??? ????? ?? ??? ????? ??? ????? ??? ??? ???
                //System.Media.SoundPlayer opengatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
                //opengatesound.Play();
 
@@ -809,7 +806,7 @@ namespace System.Scsc.Ui.MasterPage
                   }
                );
             }
-            catch { }
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Open_Gate error: " + ex.ToString()); }
          }
       }
 
@@ -833,15 +830,15 @@ namespace System.Scsc.Ui.MasterPage
                   //MessageBox.Show("Gate is Close");  
                }
             }
-            catch { }
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Close_Gate error: " + ex.ToString()); }
 
-            // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+            // ?? ??? ???? ?? ?????? ????? ???? ?? ??? ????? ?? ?? ???? ???? ?? ???? ?? ??????? ?? ?? ??? ????? ???? ?? ??? ?? ??? ???
             var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
 
-            // 1400/01/12 * اگر گیت به صورت دستی باز شود
+            // 1400/01/12 * ??? ??? ?? ???? ???? ??? ???
             if (xinput.Attribute("fngrprnt") == null)
             {
-               // 1404/06/31 * اگر سیستم برای دستگاه خاصی هدف قرار داده شده باشد
+               // 1404/06/31 * ??? ????? ???? ?????? ???? ??? ???? ???? ??? ????
                if (xinput.Attribute("trgtedevcode") != null)
                {
                   _gatesDevice = iScsc.External_Devices.Where(ed => ed.CODE == xinput.Attribute("trgtedevcode").Value.ToInt64());
@@ -872,28 +869,28 @@ namespace System.Scsc.Ui.MasterPage
                }
                #endregion
             }
-            else // اگر گیت به صورت اتومات باز شود مشتری حضور و غیاب کرده باشد
+            else // ??? ??? ?? ???? ?????? ??? ??? ????? ???? ? ???? ???? ????
             {
-               // 1404/06/31 * اگر سیستم برای دستگاه خاصی هدف قرار داده شده باشد
+               // 1404/06/31 * ??? ????? ???? ?????? ???? ??? ???? ???? ??? ????
                if (xinput.Attribute("trgtedevcode") != null)
                {
                   _gatesDevice = iScsc.External_Devices.Where(ed => ed.CODE == xinput.Attribute("trgtedevcode").Value.ToInt64());
                }
 
-               // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+               // ?? ??? ???? ?? ?????? ????? ???? ?? ??? ????? ?? ?? ???? ???? ?? ???? ?? ??????? ?? ?? ??? ????? ???? ?? ??? ?? ??? ???
                // 1400/01/11
-               // در اینجا باید مشخص کنیم که ایا گیت ها بر اساس رشته های مختلف باید واکنش نشان دهند یا خیر               
+               // ?? ????? ???? ???? ???? ?? ??? ??? ?? ?? ???? ???? ??? ????? ???? ????? ???? ???? ?? ???               
                if (_gatesDevice == null)
                {
                   // 1400/01/12
-                  // یدا کردن گیت هایی که تردد گروه های مختلف را چک میکنند
+                  // ??? ???? ??? ???? ?? ???? ???? ??? ????? ?? ?? ??????
                   _gatesDevice = 
                      iScsc.External_Devices
                      .Where(d => 
                         (d.DEV_COMP_TYPE == "001" || d.DEV_COMP_TYPE == "003") && 
                         d.DEV_TYPE == "006" &&
                         d.STAT == "002" &&
-                        d.ACTN_TYPE != "010" && /* حضور و غیاب بلیط فروشی الکترونیک */
+                        d.ACTN_TYPE != "010" && /* ???? ? ???? ???? ????? ????????? */
                         d.MTOD_CODE == null && 
                         d.External_Device_Link_Methods
                         .Any(em => 
@@ -902,7 +899,7 @@ namespace System.Scsc.Ui.MasterPage
                       );
 
                   // 1400/01/12
-                  // اگر گیت مانند باشگاه نیایش باشد همان مسیر قبلی را برایش انجام میدهیم
+                  // ??? ??? ????? ?????? ????? ???? ???? ???? ???? ?? ????? ????? ??????
                   if (_gatesDevice != null && _gatesDevice.Count() == 0)
                      _gatesDevice = 
                         iScsc.External_Devices
@@ -911,7 +908,7 @@ namespace System.Scsc.Ui.MasterPage
                            d.DEV_TYPE == "006" && 
                            _listIPHost.Contains(d.SERV_IP_ADRS) && 
                            d.STAT == "002" && 
-                           d.ACTN_TYPE != "010"  && /* حضور و غیاب بلیط فروشی الکترونیک */
+                           d.ACTN_TYPE != "010"  && /* ???? ? ???? ???? ????? ????????? */
                            d.MTOD_CODE == null);
                }
                if (_gatesDevice != null && _gatesDevice.Any())
@@ -936,7 +933,7 @@ namespace System.Scsc.Ui.MasterPage
                }
             }
 
-            //// در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+            //// ?? ??? ???? ?? ?????? ????? ???? ?? ??? ????? ?? ?? ???? ???? ?? ???? ?? ??????? ?? ?? ??? ????? ???? ?? ??? ?? ??? ???
             //var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
             //if (_gatesDevice == null)
             //   _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
@@ -1001,13 +998,13 @@ namespace System.Scsc.Ui.MasterPage
                   });               
             }
          }
-         catch (Exception ) { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Close_Gate error: " + ex.ToString()); }
          finally
          {
             try
             {
                //GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
-               // 1404/03/30 ** لعنت به ج.ا. انسان کش، اسرائیل بزن که خوب میزنی، من به شخصه از کشتن این حرومی ها لذت میبرم بزن عزیزم بزن دمت گرم
+               // 1404/03/30 ** ???? ?? ?.?. ????? ??? ??????? ??? ?? ??? ?????? ?? ?? ???? ?? ???? ??? ????? ?? ??? ????? ??? ????? ??? ??? ???
                //System.Media.SoundPlayer closegatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\Successfull.wav");
                //closegatesound.Play();
 
@@ -1020,7 +1017,7 @@ namespace System.Scsc.Ui.MasterPage
                   }
                );
             }
-            catch { }
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Close_Gate error: " + ex.ToString()); }
          }
       }
 
@@ -1039,15 +1036,15 @@ namespace System.Scsc.Ui.MasterPage
                   Sp_GateAttn.Write("error");
                }
             }
-            catch { }
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Error_Gate error: " + ex.ToString()); }
 
-            // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+            // ?? ??? ???? ?? ?????? ????? ???? ?? ??? ????? ?? ?? ???? ???? ?? ???? ?? ??????? ?? ?? ??? ????? ???? ?? ??? ?? ??? ???
             var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
 
-            // 1400/01/12 * اگر گیت به صورت دستی باز شود
+            // 1400/01/12 * ??? ??? ?? ???? ???? ??? ???
             if (xinput.Attribute("fngrprnt") == null)
             {
-               // 1404/06/31 * اگر سیستم برای دستگاه خاصی هدف قرار داده شده باشد
+               // 1404/06/31 * ??? ????? ???? ?????? ???? ??? ???? ???? ??? ????
                if (xinput.Attribute("trgtedevcode") != null)
                {
                   _gatesDevice = iScsc.External_Devices.Where(ed => ed.CODE == xinput.Attribute("trgtedevcode").Value.ToInt64());
@@ -1078,28 +1075,28 @@ namespace System.Scsc.Ui.MasterPage
                }
                #endregion
             }
-            else // اگر گیت به صورت اتومات باز شود مشتری حضور و غیاب کرده باشد
+            else // ??? ??? ?? ???? ?????? ??? ??? ????? ???? ? ???? ???? ????
             {
-               // 1404/06/31 * اگر سیستم برای دستگاه خاصی هدف قرار داده شده باشد
+               // 1404/06/31 * ??? ????? ???? ?????? ???? ??? ???? ???? ??? ????
                if (xinput.Attribute("trgtedevcode") != null)
                {
                   _gatesDevice = iScsc.External_Devices.Where(ed => ed.CODE == xinput.Attribute("trgtedevcode").Value.ToInt64());
                }
 
-               // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+               // ?? ??? ???? ?? ?????? ????? ???? ?? ??? ????? ?? ?? ???? ???? ?? ???? ?? ??????? ?? ?? ??? ????? ???? ?? ??? ?? ??? ???
                // 1400/01/11
-               // در اینجا باید مشخص کنیم که ایا گیت ها بر اساس رشته های مختلف باید واکنش نشان دهند یا خیر               
+               // ?? ????? ???? ???? ???? ?? ??? ??? ?? ?? ???? ???? ??? ????? ???? ????? ???? ???? ?? ???               
                if (_gatesDevice == null)
                {
                   // 1400/01/12
-                  // یدا کردن گیت هایی که تردد گروه های مختلف را چک میکنند
+                  // ??? ???? ??? ???? ?? ???? ???? ??? ????? ?? ?? ??????
                   _gatesDevice = 
                      iScsc.External_Devices
                      .Where(d => 
                         (d.DEV_COMP_TYPE == "001" || d.DEV_COMP_TYPE == "003") && 
                         d.DEV_TYPE == "006" && 
                         d.STAT == "002" &&
-                        d.ACTN_TYPE != "010" && /* حضور و غیاب بلیط فروشی الکترونیک */
+                        d.ACTN_TYPE != "010" && /* ???? ? ???? ???? ????? ????????? */
                         d.MTOD_CODE == null && 
                         d.External_Device_Link_Methods
                         .Any(em => 
@@ -1108,7 +1105,7 @@ namespace System.Scsc.Ui.MasterPage
                       );
 
                   // 1400/01/12
-                  // اگر گیت مانند باشگاه نیایش باشد همان مسیر قبلی را برایش انجام میدهیم
+                  // ??? ??? ????? ?????? ????? ???? ???? ???? ???? ?? ????? ????? ??????
                   if (_gatesDevice != null && _gatesDevice.Count() == 0)
                      _gatesDevice = iScsc.External_Devices.Where(d => (d.DEV_COMP_TYPE == "001" || d.DEV_COMP_TYPE == "003") && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
                }
@@ -1134,7 +1131,7 @@ namespace System.Scsc.Ui.MasterPage
                }
             }
 
-            // در این قسمت می توانیم بررسی کنیم که این سیستم به چه گیتی متصل می باشد که بتوانید به آن گیت فرمان دهیم که گیت را باز کند
+            // ?? ??? ???? ?? ?????? ????? ???? ?? ??? ????? ?? ?? ???? ???? ?? ???? ?? ??????? ?? ?? ??? ????? ???? ?? ??? ?? ??? ???
             //var _listIPHost = xHost.Descendants("IP").Select(ip => ip.Value).ToList();
             //if (_gatesDevice == null)
             //   _gatesDevice = iScsc.External_Devices.Where(d => d.DEV_COMP_TYPE == "001" && d.DEV_TYPE == "006" && _listIPHost.Contains(d.SERV_IP_ADRS) && d.STAT == "002" && d.MTOD_CODE == null);
@@ -1185,13 +1182,13 @@ namespace System.Scsc.Ui.MasterPage
 
             //MessageBox.Show("Gate is Close");
          }
-         catch (Exception) { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Error_Gate error: " + ex.ToString()); }
          finally
          {
             try
             {
                //GateAttn_Butn.Image = Properties.Resources.IMAGE_1642;
-               // 1404/03/30 ** لعنت به ج.ا. انسان کش، اسرائیل بزن که خوب میزنی، من به شخصه از کشتن این حرومی ها لذت میبرم بزن عزیزم بزن دمت گرم
+               // 1404/03/30 ** ???? ?? ?.?. ????? ??? ??????? ??? ?? ??? ?????? ?? ?? ???? ?? ???? ??? ????? ?? ??? ????? ??? ????? ??? ??? ???
                //System.Media.SoundPlayer errorgatesound = new Media.SoundPlayer(@".\Media\SubSys\Kernel\Desktop\Sounds\BuzzError.wav");
                //errorgatesound.Play();
 
@@ -1204,7 +1201,7 @@ namespace System.Scsc.Ui.MasterPage
                   }
                );
             }
-            catch { }
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Error_Gate error: " + ex.ToString()); }
          }
       }
       #endregion
@@ -1290,18 +1287,18 @@ namespace System.Scsc.Ui.MasterPage
             //new Thread(AlarmShow).Start();
             //return;
 
-            // اگر داده ای درون سیستم از سمت کارتخوان آمده باشد باید تا پاسخ دهی به دستگاه هیچ ورودی دیگری قابل پردازش نیست
-            // اگر داده قبلی بر اساس 10 ثانیه هنوز درون بافر باشد باید از لیست حذف شود
+            // ??? ???? ?? ???? ????? ?? ??? ???????? ???? ???? ???? ?? ???? ??? ?? ?????? ??? ????? ????? ???? ?????? ????
+            // ??? ???? ???? ?? ???? 10 ????? ???? ???? ???? ???? ???? ?? ???? ??? ???
             if (lastDataRead.Any(d => d.MacAdrs == devName && d.EnrollNumber == fngrPrnt && DateTime.Now.Subtract(d.LastTimeRead).TotalSeconds >= 3))
             {
                lastDataRead.Remove(lastDataRead.FirstOrDefault(d => d.MacAdrs == devName && d.EnrollNumber == fngrPrnt));
                //System.Diagnostics.Debug.WriteLine("Remove Last Time Read");
             }
 
-            // اگر داده ای از کارتخوان و شماره کارت وجود داشته باشد ورودی جدید را رد میکنیم
+            // ??? ???? ?? ?? ???????? ? ????? ???? ???? ????? ???? ????? ???? ?? ?? ??????
             if (lastDataRead.Any(d => d.MacAdrs == devName && d.EnrollNumber == fngrPrnt)) { /*System.Diagnostics.Debug.WriteLine("Reject New Read Data");*/ return; }
 
-            // اگر اطلاعاتی از کارتخوان و کارت عضویت وجود نداشته باشد برای اولین بار آن را ثبت میکنیم
+            // ??? ???????? ?? ???????? ? ???? ????? ???? ?????? ???? ???? ????? ??? ?? ?? ??? ??????
             lastDataRead.Add(new DataReadFromCardReader() { MacAdrs = devName, EnrollNumber = fngrPrnt, LastTimeRead = DateTime.Now });
             //System.Diagnostics.Debug.WriteLine("Add New Data Read");
 
@@ -1314,9 +1311,9 @@ namespace System.Scsc.Ui.MasterPage
                Invoke(
                   new Action(() =>
                      {
-                        // ابتدا بررسی میکنیم که داده ورودی مربوط به کدام بخش دستگاه های بازی میشود
-                        // 1 - بازی های زمان متغییر مانند بیلیارد
-                        // 2 - بازی های زمان ثابت مانند شهربازی
+                        // ????? ????? ?????? ?? ???? ????? ????? ?? ???? ??? ?????? ??? ???? ?????
+                        // 1 - ???? ??? ???? ?????? ????? ???????
+                        // 2 - ???? ??? ???? ???? ????? ???????
                         devName = Regex.Replace(devName, "[^0-9]", "");
                         var getInfoDev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == devName);
                         if (getInfoDev == null) { System.Diagnostics.Debug.WriteLine("Reject because can't found device" + devName); return; }
@@ -1327,16 +1324,16 @@ namespace System.Scsc.Ui.MasterPage
                         // Check Exists Service and Valid Card
                         var Serv = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == fngrPrnt);
 
-                        // بدست آوردن آیین نامه اصلی
+                        // ???? ????? ???? ???? ????
                         var regl = iScsc.Regulations.FirstOrDefault(rg => rg.REGL_STAT == "002" && rg.TYPE == "001");
 
-                        // اگر مشتری وجود نداشته یا اینکه مشتری اصلا سپرده نداشته باشد
+                        // ??? ????? ???? ?????? ?? ????? ????? ???? ????? ?????? ????
                         if (Serv == null || (regl.AMNT_TYPE == "001" && Serv.DPST_AMNT_DNRM < 10000) || (regl.AMNT_TYPE == "002" && Serv.DPST_AMNT_DNRM < 1000 ))
                         {
-                           // اگر کارت عضویت خام باشد
+                           // ??? ???? ????? ??? ????
                            if(Serv == null)
                            {
-                              // باز کردن فرم ثبت نام مشتری
+                              // ??? ???? ??? ??? ??? ?????
                               Job _InteractWithScsc =
                                  new Job(SendType.External, "Localhost",
                                     new List<Job>
@@ -1369,9 +1366,9 @@ namespace System.Scsc.Ui.MasterPage
                            return;
                         }
  
-                        if (getInfoDev.DEV_TYPE == "007" /* بازی های زمان متغییر مانند بیلیارد */)
+                        if (getInfoDev.DEV_TYPE == "007" /* ???? ??? ???? ?????? ????? ??????? */)
                         {
-                           #region بارگذاری فرم مربوط به رزرو میز
+                           #region ???????? ??? ????? ?? ???? ???
                            Job _GetAopBufeF =
                               new Job(SendType.External, "localhost",
                                  new List<Job>
@@ -1382,12 +1379,12 @@ namespace System.Scsc.Ui.MasterPage
                            _DefaultGateway.Gateway(_GetAopBufeF);
                            #endregion
 
-                           #region اگر فرم رزرو میز درون حافظه قرار گرفت
+                           #region ??? ??? ???? ??? ???? ????? ???? ????
                            if (_GetAopBufeF.Output != null)
                            {
                               if (frstVistTablCntlF)
                               {
-                                 #region برای روالهای بعدی دریافت ورودی
+                                 #region ???? ??????? ???? ?????? ?????
                                  _DefaultGateway.Gateway(
                                     new Job(SendType.External, "Localhost",
                                        new List<Job>
@@ -1408,7 +1405,7 @@ namespace System.Scsc.Ui.MasterPage
                               }
                               else
                               {
-                                 #region اگر برای اولین بار فرم میز باز میشود
+                                 #region ??? ???? ????? ??? ??? ??? ??? ?????
                                  frstVistTablCntlF = true;
                                  _DefaultGateway.Gateway(
                                     new Job(SendType.External, "Localhost",
@@ -1432,35 +1429,35 @@ namespace System.Scsc.Ui.MasterPage
                            }
                            #endregion
                         }
-                        else if (getInfoDev.DEV_TYPE == "008" /* بازی های زمان ثابت مانند شهربازی */)
+                        else if (getInfoDev.DEV_TYPE == "008" /* ???? ??? ???? ???? ????? ??????? */)
                         {
-                           #region فعالیت های مربوط به دستگاه های بازی با زمان ثابت
+                           #region ?????? ??? ????? ?? ?????? ??? ???? ?? ???? ????
                            var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == getInfoDev.EXPN_CODE);
-                           // اگر مبلغ بازی از میزان اعتبار مشتری بیشتر باشد
+                           // ??? ???? ???? ?? ????? ?????? ????? ????? ????
                            if (Serv.DPST_AMNT_DNRM < devExpn.PRIC)
                               SendCommandDevExpn("er", devName, fngrPrnt);
 
-                           // بررسی اینکه آیا مشتری قبلا کارت خود را وارد نکرده باشد و دوباره کارت نزده باشد 
-                           // نکته : اگر مشتری کارت زده باشد و دوره بازی تمام شده باشد می تواند دوباره کارت بزند و بازی کند
+                           // ????? ????? ??? ????? ???? ???? ??? ?? ???? ????? ???? ? ?????? ???? ???? ???? 
+                           // ???? : ??? ????? ???? ??? ???? ? ???? ???? ???? ??? ???? ?? ????? ?????? ???? ???? ? ???? ???
                            var lastRqst016 = iScsc.VF_Request_Changing(null).Where(r => r.RQTP_CODE == "016" && r.SAVE_DATE.Value.Date == DateTime.Now.Date && iScsc.Payment_Details.Any(pd => pd.PYMT_RQST_RQID == r.RQID && pd.EXPN_CODE == devExpn.CODE)).OrderByDescending(r => r.SAVE_DATE).Take(1).FirstOrDefault();
 
-                           // اگر درخواستی برای دستگاه بازی برای مشتری وجود داشته باشه
+                           // ??? ???????? ???? ?????? ???? ???? ????? ???? ????? ????
                            if (lastRqst016 != null)
                            {
-                              // اگر بازه زمانی برای مشتری تمام شده باشد با کسر اعتبار جدید می تواند دوباره بازی کند
+                              // ??? ???? ????? ???? ????? ???? ??? ???? ?? ??? ?????? ???? ?? ????? ?????? ???? ???
                               if (!DateTime.Now.IsBetween((DateTime)lastRqst016.SAVE_DATE, (DateTime)lastRqst016.SAVE_DATE.Value.AddMinutes(devExpn.MIN_TIME.Value.Minute)))
                               {
-                                 // ثبت درخواست و کسر اعتبار از مشتری
+                                 // ??? ??????? ? ??? ?????? ?? ?????
 
-                                 // مجوز اجرای بازی
+                                 // ???? ????? ????
                                  SendCommandDevExpn("st", devName, fngrPrnt);
                               }
                            }
                            else
                            {
-                              // ثبت درخواست و کسر اعتبار از مشتری
+                              // ??? ??????? ? ??? ?????? ?? ?????
 
-                              // مجوز اجرای بازی
+                              // ???? ????? ????
                               SendCommandDevExpn("st", devName, fngrPrnt);
                            }
                            #endregion
@@ -1490,7 +1487,7 @@ namespace System.Scsc.Ui.MasterPage
                            cmndText
                         );
                      }
-                     catch { }
+                     catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SendCommandDevExpn error: " + ex.ToString()); }
                   }
                   );
             //if(devInfo.DEV_TYPE == "007")
@@ -1531,7 +1528,7 @@ namespace System.Scsc.Ui.MasterPage
                            cmndText
                         );
                      }
-                     catch { }
+                     catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SendCommandDevExpn error: " + ex.ToString()); }
                   }
                   );
 
@@ -1547,7 +1544,7 @@ namespace System.Scsc.Ui.MasterPage
                            enrollNumber.PadLeft(2, '0')
                         );
                      }
-                     catch { }
+                     catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SendCommandDevExpn error: " + ex.ToString()); }
                   }
                   );
             }
@@ -1618,14 +1615,14 @@ namespace System.Scsc.Ui.MasterPage
                                           new XAttribute("chatid", 1847807509),
                                           new XAttribute("command", "textmesg"),
                                           new XAttribute("rbid", 391),
-                                          //new XAttribute("mesg", "✅ رسید ارسالی مورد تایید واقع شد")
+                                          //new XAttribute("mesg", "? ???? ?????? ???? ????? ???? ??")
                                           new XElement("Respons",
                                                 new XElement("Message",
                                                    new XAttribute("order", 1),
                                                    new XElement("Texts", 
                                                       new XAttribute("order", 1),
-                                                         "سیستم انلاین شد " + 
-                                                         (Wlet_Rlt.Visible ? "میزان شارژ کیف پول " + CWlet_Txt.Text + " میباشد" : "")
+                                                         "????? ?????? ?? " + 
+                                                         (Wlet_Rlt.Visible ? "????? ???? ??? ??? " + CWlet_Txt.Text + " ??????" : "")
                                                    )
                                                 )
                                           )
@@ -1714,7 +1711,7 @@ namespace System.Scsc.Ui.MasterPage
          {
             this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
             //MessageBox.Show(ex.Message);
-            Tsp_AttnSys.Text = "سیستم سنسور انگشتی غیرفعال";
+            Tsp_AttnSys.Text = "????? ????? ?????? ???????";
             Tsp_AttnSys.ForeColor = Color.Red;
          }
       }
@@ -1949,11 +1946,11 @@ namespace System.Scsc.Ui.MasterPage
          }
 
          /*******************************************
-         * ؛¯ت‎أû³ئ£؛RotatePic       
-         * ؛¯ت‎¹¦ؤـ£؛ذ‎×ھح¼ئ¬£¬ؤ؟µؤتا±£´و؛حدشت¾µؤح¼ئ¬سë°´µؤض¸خئ·½دٍ²»ح¬     
-         * ؛¯ت‎بë²خ£؛BmpBuf---ذ‎×ھا°µؤض¸خئ×ض·û´®
-         * ؛¯ت‎³ِ²خ£؛ResBuf---ذ‎×ھ؛َµؤض¸خئ×ض·û´®
-         * ؛¯ت‎·µ»ط£؛خق
+         * ?�???��?�?RotatePic       
+         * ?�??��??�???�??�?���??�???���??????��??�?�?밴�??�??��??��?�     
+         * ?�???�?�?BmpBuf---??�??��??�??�?����
+         * ?�??�?�?�?ResBuf---??�???�??�??�?����
+         * ?�??���?�???
          *********************************************/
          public static void RotatePic(byte[] BmpBuf, int width, int height, ref byte[] ResBuf)
          {
@@ -1981,12 +1978,12 @@ namespace System.Scsc.Ui.MasterPage
          }
 
          /*******************************************
-         * ؛¯ت‎أû³ئ£؛StructToBytes       
-         * ؛¯ت‎¹¦ؤـ£؛½«½ل¹¹جه×ھ»¯³ةخق·û؛إ×ض·û´®ت‎×é     
-         * ؛¯ت‎بë²خ£؛StructObj---±»×ھ»¯µؤ½ل¹¹جه
-         *           Size---±»×ھ»¯µؤ½ل¹¹جهµؤ´َذ،
-         * ؛¯ت‎³ِ²خ£؛خق
-         * ؛¯ت‎·µ»ط£؛½ل¹¹جه×ھ»¯؛َµؤت‎×é
+         * ?�???��?�?StructToBytes       
+         * ?�??��??�?���?��??�?���???��??�?����??��     
+         * ?�???�?�?StructObj---���?���?�?��??
+         *           Size---���?���?�?��??�?�???
+         * ?�??�?�?�???
+         * ?�??���?�?�?��??�?��??�???��
          *********************************************/
          public static byte[] StructToBytes(object StructObj, int Size)
          {
@@ -2032,13 +2029,13 @@ namespace System.Scsc.Ui.MasterPage
          }
 
          /*******************************************
-         * ؛¯ت‎أû³ئ£؛GetBitmap       
-         * ؛¯ت‎¹¦ؤـ£؛½«´«½ّہ´µؤت‎¾ف±£´وخھح¼ئ¬     
-         * ؛¯ت‎بë²خ£؛buffer---ح¼ئ¬ت‎¾ف
-         *           nWidth---ح¼ئ¬µؤ؟ي¶ب
-         *           nHeight---ح¼ئ¬µؤ¸ك¶ب
-         * ؛¯ت‎³ِ²خ£؛خق
-         * ؛¯ت‎·µ»ط£؛خق
+         * ?�???��?�?GetBitmap       
+         * ?�??��??�?�����??��???�?���????�?�     
+         * ?�???�?�?buffer---?�?�??�?
+         *           nWidth---?�?��???�?
+         *           nHeight---?�?��?�?�?
+         * ?�??�?�?�???
+         * ?�??���?�???
          *********************************************/
          public static void GetBitmap(byte[] buffer, int nWidth, int nHeight, ref MemoryStream ms)
          {
@@ -2055,7 +2052,7 @@ namespace System.Scsc.Ui.MasterPage
 
                int w = (((nWidth + 3) / 4) * 4);
 
-               //ح¼ئ¬ح·ذإد¢
+               //?�?�?�???�
                BmpInfoHeader.biSize = Marshal.SizeOf(BmpInfoHeader);
                BmpInfoHeader.biWidth = nWidth;
                BmpInfoHeader.biHeight = nHeight;
@@ -2068,7 +2065,7 @@ namespace System.Scsc.Ui.MasterPage
                BmpInfoHeader.biClrUsed = m_nColorTableEntries;
                BmpInfoHeader.biClrImportant = m_nColorTableEntries;
 
-               //خؤ¼‏ح·ذإد¢
+               //??�??�???�
                BmpHeader.bfType = 0x4D42;
                BmpHeader.bfOffBits = 14 + Marshal.SizeOf(BmpInfoHeader) + BmpInfoHeader.biClrUsed * 4;
                BmpHeader.bfSize = BmpHeader.bfOffBits + ((((w * BmpInfoHeader.biBitCount + 31) / 32) * 4) * BmpInfoHeader.biHeight);
@@ -2078,7 +2075,7 @@ namespace System.Scsc.Ui.MasterPage
                ms.Write(StructToBytes(BmpHeader, 14), 0, 14);
                ms.Write(StructToBytes(BmpInfoHeader, Marshal.SizeOf(BmpInfoHeader)), 0, Marshal.SizeOf(BmpInfoHeader));
 
-               //µ÷تش°هذإد¢
+               //��??�????�
                for (ColorIndex = 0; ColorIndex < m_nColorTableEntries; ColorIndex++)
                {
                   ColorMask[ColorIndex].redmask = (byte)ColorIndex;
@@ -2089,7 +2086,7 @@ namespace System.Scsc.Ui.MasterPage
                   ms.Write(StructToBytes(ColorMask[ColorIndex], Marshal.SizeOf(ColorMask[ColorIndex])), 0, Marshal.SizeOf(ColorMask[ColorIndex]));
                }
 
-               //ح¼ئ¬ذ‎×ھ£¬½â¾ِض¸خئح¼ئ¬µ¹ء¢µؤختجâ
+               //?�?�??�?����??�???�?���?��????�
                RotatePic(buffer, nWidth, nHeight, ref ResBuf);
 
                byte[] filter = null;
@@ -2114,13 +2111,13 @@ namespace System.Scsc.Ui.MasterPage
          }
 
          /*******************************************
-         * ؛¯ت‎أû³ئ£؛WriteBitmap       
-         * ؛¯ت‎¹¦ؤـ£؛½«´«½ّہ´µؤت‎¾ف±£´وخھح¼ئ¬     
-         * ؛¯ت‎بë²خ£؛buffer---ح¼ئ¬ت‎¾ف
-         *           nWidth---ح¼ئ¬µؤ؟ي¶ب
-         *           nHeight---ح¼ئ¬µؤ¸ك¶ب
-         * ؛¯ت‎³ِ²خ£؛خق
-         * ؛¯ت‎·µ»ط£؛خق
+         * ?�???��?�?WriteBitmap       
+         * ?�??��??�?�����??��???�?���????�?�     
+         * ?�???�?�?buffer---?�?�??�?
+         *           nWidth---?�?��???�?
+         *           nHeight---?�?��?�?�?
+         * ?�??�?�?�???
+         * ?�??���?�???
          *********************************************/
          public static void WriteBitmap(byte[] buffer, int nWidth, int nHeight)
          {
@@ -2136,7 +2133,7 @@ namespace System.Scsc.Ui.MasterPage
                BITMAPINFOHEADER BmpInfoHeader = new BITMAPINFOHEADER();
                MASK[] ColorMask = new MASK[m_nColorTableEntries];
                int w = (((nWidth + 3) / 4) * 4);
-               //ح¼ئ¬ح·ذإد¢
+               //?�?�?�???�
                BmpInfoHeader.biSize = Marshal.SizeOf(BmpInfoHeader);
                BmpInfoHeader.biWidth = nWidth;
                BmpInfoHeader.biHeight = nHeight;
@@ -2149,7 +2146,7 @@ namespace System.Scsc.Ui.MasterPage
                BmpInfoHeader.biClrUsed = m_nColorTableEntries;
                BmpInfoHeader.biClrImportant = m_nColorTableEntries;
 
-               //خؤ¼‏ح·ذإد¢
+               //??�??�???�
                BmpHeader.bfType = 0x4D42;
                BmpHeader.bfOffBits = 14 + Marshal.SizeOf(BmpInfoHeader) + BmpInfoHeader.biClrUsed * 4;
                BmpHeader.bfSize = BmpHeader.bfOffBits + ((((w * BmpInfoHeader.biBitCount + 31) / 32) * 4) * BmpInfoHeader.biHeight);
@@ -2162,7 +2159,7 @@ namespace System.Scsc.Ui.MasterPage
                TmpBinaryWriter.Write(StructToBytes(BmpHeader, 14));
                TmpBinaryWriter.Write(StructToBytes(BmpInfoHeader, Marshal.SizeOf(BmpInfoHeader)));
 
-               //µ÷تش°هذإد¢
+               //��??�????�
                for (ColorIndex = 0; ColorIndex < m_nColorTableEntries; ColorIndex++)
                {
                   ColorMask[ColorIndex].redmask = (byte)ColorIndex;
@@ -2173,10 +2170,10 @@ namespace System.Scsc.Ui.MasterPage
                   TmpBinaryWriter.Write(StructToBytes(ColorMask[ColorIndex], Marshal.SizeOf(ColorMask[ColorIndex])));
                }
 
-               //ح¼ئ¬ذ‎×ھ£¬½â¾ِض¸خئح¼ئ¬µ¹ء¢µؤختجâ
+               //?�?�??�?����??�???�?���?��????�
                RotatePic(buffer, nWidth, nHeight, ref ResBuf);
 
-               //ذ´ح¼ئ¬
+               //?�?�?�
                //TmpBinaryWriter.Write(ResBuf);
                byte[] filter = null;
                if (w - nWidth > 0)
@@ -2209,7 +2206,7 @@ namespace System.Scsc.Ui.MasterPage
       public zkemkeeper.CZKEMClass axCZKEM1 = new zkemkeeper.CZKEMClass();
       public zkemkeeper.CZKEMClass axCZKEM2 = new zkemkeeper.CZKEMClass();
       public zkemkeeper.CZKEMClass axCZKEM3 = new zkemkeeper.CZKEMClass();
-      // 1402/10/02 * دستگاه های رختکن
+      // 1402/10/02 * ?????? ??? ?????
       public zkemkeeper.CZKEMClass axCZKEM4 = new zkemkeeper.CZKEMClass();
       public zkemkeeper.CZKEMClass axCZKEM5 = new zkemkeeper.CZKEMClass();
       public zkemkeeper.CZKEMClass axCZKEM6 = new zkemkeeper.CZKEMClass();
@@ -2217,7 +2214,7 @@ namespace System.Scsc.Ui.MasterPage
       bool Fp1DevIsConnected = false;
       bool Fp2DevIsConnected = false;
       bool Fp3DevIsConnected = false;
-      // 1402/10/02 * دستگاه های رختکن
+      // 1402/10/02 * ?????? ??? ?????
       bool Fp4DevIsConnected = false;
       bool Fp5DevIsConnected = false;
       bool Fp6DevIsConnected = false;
@@ -2242,24 +2239,24 @@ namespace System.Scsc.Ui.MasterPage
 
                            if (fingerPrintSetting == null) return;
 
-                           // اگر حضور غیاب با دستگاه انگشتی نباشد
+                           // ??? ???? ???? ?? ?????? ?????? ?????
                            if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
 
-                           // اگر حضور و غیاب با دستگاه انگشتی باشد و ارتباط را چک میکنیم
+                           // ??? ???? ? ???? ?? ?????? ?????? ???? ? ?????? ?? ?? ??????
                            if (fingerPrintSetting.IP_ADDR != null && fingerPrintSetting.PORT_NUMB != null)
                            {
-                              Tsp_AttnSys.Text = "در حال اتصال به دستگاه حضور غیاب...";
+                              Tsp_AttnSys.Text = "?? ??? ????? ?? ?????? ???? ????...";
                               this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
                               Tsp_AttnSys.ForeColor = SystemColors.ControlText;
 
-                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              // 1398/12/25 * ????? ???? ?????? ?? ???? ?????? ??? ???? ????
                               var dev = 
                                  new Device_On_Network(fingerPrintSetting.IP_ADDR) 
                                  { 
                                     SPort = (int)fingerPrintSetting.PORT_NUMB, 
                                     RPort = (int)fingerPrintSetting.PORT_NUMB, 
                                     DeviceType = "FngrPrnt", 
-                                    DeviceName = "دستگاه اثر انگشت پذیرش"
+                                    DeviceName = "?????? ??? ????? ?????"
                                  };
                               dev.CallBack =
                                  new Action(() =>
@@ -2276,7 +2273,7 @@ namespace System.Scsc.Ui.MasterPage
 
                                        if (Fp1DevIsConnected == true)
                                        {
-                                          Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                          Tsp_AttnSys.Text = "?????? ???? ???? ???? ?? ????";
                                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
                                           Tsp_AttnSys.ForeColor = Color.Green;
                                           int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
@@ -2284,7 +2281,7 @@ namespace System.Scsc.Ui.MasterPage
                                        }
                                        else
                                        {
-                                          Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                          Tsp_AttnSys.Text = "?????? ???? ???? ??????? ?? ????";
                                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
                                           Tsp_AttnSys.ForeColor = Color.Red;
                                        }
@@ -2309,7 +2306,6 @@ namespace System.Scsc.Ui.MasterPage
                                        else
                                           Logs_Txt.Text += string.Format("{2}\n\r - Device : {0}:{1}", fingerPrintSetting.IP_ADDR, fingerPrintSetting.PORT_NUMB, DateTime.Now.ToShortTimeString()) + Environment.NewLine;
 
-                                       
                                     });
                               DeviceOnNetworks.Add(dev);
 
@@ -2327,18 +2323,18 @@ namespace System.Scsc.Ui.MasterPage
                                  }
                                  if (Fp1DevIsConnected == true)
                                  {
-                                    Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                    Tsp_AttnSys.Text = "?????? ???? ???? ???? ?? ????";
                                     this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
                                     Tsp_AttnSys.ForeColor = Color.Green;
                                     int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                     axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
-                                    // 1402/10/05 * اضافه کردن دستگاه اثرانگشت به لیست
-                                    AddFngrDevOpr(axCZKEM1, fingerPrintSetting.IP_ADDR, "پذیرش 1");
+                                    // 1402/10/05 * ????? ???? ?????? ???????? ?? ????
+                                    AddFngrDevOpr(axCZKEM1, fingerPrintSetting.IP_ADDR, "????? 1");
                                  }
                                  else
                                  {
-                                    Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                    Tsp_AttnSys.Text = "?????? ???? ???? ??????? ?? ????";
                                     this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
                                     Tsp_AttnSys.ForeColor = Color.Red;
                                  }
@@ -2377,18 +2373,18 @@ namespace System.Scsc.Ui.MasterPage
 
                            if (fingerPrintSetting.IP_ADR2 != null && fingerPrintSetting.PORT_NUM2 != null)
                            {
-                              Tsp_AttnSys.Text = "در حال اتصال به دستگاه حضور غیاب...";
+                              Tsp_AttnSys.Text = "?? ??? ????? ?? ?????? ???? ????...";
                               this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
                               Tsp_AttnSys.ForeColor = SystemColors.ControlText;
 
-                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              // 1398/12/25 * ????? ???? ?????? ?? ???? ?????? ??? ???? ????
                               var dev =
                                  new Device_On_Network(fingerPrintSetting.IP_ADR2)
                                  {
                                     SPort = (int)fingerPrintSetting.PORT_NUM2,
                                     RPort = (int)fingerPrintSetting.PORT_NUM2,
                                     DeviceType = "FngrPrnt",
-                                    DeviceName = "دستگاه اثر انگشت کنترل گیت"             
+                                    DeviceName = "?????? ??? ????? ????? ???"             
                                  };
                               dev.CallBack = 
                                  new Action(() =>
@@ -2404,7 +2400,7 @@ namespace System.Scsc.Ui.MasterPage
                                        }
                                        if (Fp2DevIsConnected == true)
                                        {
-                                          Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                          Tsp_AttnSys.Text = "?????? ???? ???? ???? ?? ????";
                                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
                                           Tsp_AttnSys.ForeColor = Color.Green;
                                           int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
@@ -2412,7 +2408,7 @@ namespace System.Scsc.Ui.MasterPage
                                        }
                                        else
                                        {
-                                          Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                          Tsp_AttnSys.Text = "?????? ???? ???? ??????? ?? ????";
                                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
                                           Tsp_AttnSys.ForeColor = Color.Red;
                                        }
@@ -2454,18 +2450,18 @@ namespace System.Scsc.Ui.MasterPage
                                  }
                                  if (Fp2DevIsConnected == true)
                                  {
-                                    Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                    Tsp_AttnSys.Text = "?????? ???? ???? ???? ?? ????";
                                     this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
                                     Tsp_AttnSys.ForeColor = Color.Green;
                                     int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                     axCZKEM2.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
-                                    // 1402/10/05 * اضافه کردن دستگاه اثرانگشت به لیست
-                                    AddFngrDevOpr(axCZKEM2, fingerPrintSetting.IP_ADR2, "تردد 1");
+                                    // 1402/10/05 * ????? ???? ?????? ???????? ?? ????
+                                    AddFngrDevOpr(axCZKEM2, fingerPrintSetting.IP_ADR2, "???? 1");
                                  }
                                  else
                                  {
-                                    Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                    Tsp_AttnSys.Text = "?????? ???? ???? ??????? ?? ????";
                                     this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
                                     Tsp_AttnSys.ForeColor = Color.Red;
                                  }
@@ -2505,18 +2501,18 @@ namespace System.Scsc.Ui.MasterPage
 
                            if (fingerPrintSetting.IP_ADDR != null && fingerPrintSetting.PORT_NUMB != null)
                            {
-                              Tsp_AttnSys.Text = "در حال اتصال به دستگاه حضور غیاب...";
+                              Tsp_AttnSys.Text = "?? ??? ????? ?? ?????? ???? ????...";
                               this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1218;
                               Tsp_AttnSys.ForeColor = SystemColors.ControlText;
 
-                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              // 1398/12/25 * ????? ???? ?????? ?? ???? ?????? ??? ???? ????
                               var dev =
                                  new Device_On_Network(fingerPrintSetting.IP_ADR3)
                                  {
                                     SPort = (int)fingerPrintSetting.PORT_NUM3,
                                     RPort = (int)fingerPrintSetting.PORT_NUM3,
                                     DeviceType = "FngrPrnt",
-                                    DeviceName = "دستگاه اثر انگشت پذیرش"                 
+                                    DeviceName = "?????? ??? ????? ?????"                 
                                  };
                               dev.CallBack = 
                                  new Action(() =>
@@ -2534,7 +2530,7 @@ namespace System.Scsc.Ui.MasterPage
                                        if (Fp1DevIsConnected == true)
                                        {
                                           AttnType_Lov.EditValue = "002";
-                                          Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                          Tsp_AttnSys.Text = "?????? ???? ???? ???? ?? ????";
                                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
                                           Tsp_AttnSys.ForeColor = Color.Green;
                                           int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
@@ -2543,7 +2539,7 @@ namespace System.Scsc.Ui.MasterPage
                                        else
                                        {
                                           AttnType_Lov.EditValue = null;
-                                          Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                          Tsp_AttnSys.Text = "?????? ???? ???? ??????? ?? ????";
                                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
                                           Tsp_AttnSys.ForeColor = Color.Red;
                                        }
@@ -2585,7 +2581,7 @@ namespace System.Scsc.Ui.MasterPage
                                  if (Fp1DevIsConnected == true)
                                  {
                                     AttnType_Lov.EditValue = "002";
-                                    Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
+                                    Tsp_AttnSys.Text = "?????? ???? ???? ???? ?? ????";
                                     this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
                                     Tsp_AttnSys.ForeColor = Color.Green;
                                     int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
@@ -2594,7 +2590,7 @@ namespace System.Scsc.Ui.MasterPage
                                  else
                                  {
                                     AttnType_Lov.EditValue = null;
-                                    Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
+                                    Tsp_AttnSys.Text = "?????? ???? ???? ??????? ?? ????";
                                     this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
                                     Tsp_AttnSys.ForeColor = Color.Red;
                                  }
@@ -2647,7 +2643,7 @@ namespace System.Scsc.Ui.MasterPage
             //if (control == null) return;
             //if (control.Name == "ADM_FIGH_F" || control.Name == "ADM_CHNG_F" || control.Name == "BAS_ADCH_F" || control.Name == "OIC_SMSN_F")
 
-            // اگر کارت در سیستم قبلا ثبت شده باشد
+            // ??? ???? ?? ????? ???? ??? ??? ????
             if (!iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == CardNumb_Text.Text) && CardNumb_Text.Text != "0")
             {
                Job _InteractWithScsc =
@@ -2668,10 +2664,10 @@ namespace System.Scsc.Ui.MasterPage
       private void axCZKEM1_OnAttTransactionEx(string EnrollNumber, int IsInValid, int AttState, int VerifyMethod, int Year, int Month, int Day, int Hour, int Minute, int Second, int WorkCode)
       {
          /*
-          * در این قسمت بعد از اینکه کاربر درون دستگاه تعریف شد باید برای اولین بار در سیستم عمل ثبت نام صورت پذیرد
-          * این حالت اولیه زمانی رخ میدهد که ما هیچ مشترییی با این شماره اثر انگشت درون سیستم تعریف نشده باشد
+          * ?? ??? ???? ??? ?? ????? ????? ???? ?????? ????? ?? ???? ???? ????? ??? ?? ????? ??? ??? ??? ???? ?????
+          * ??? ???? ????? ????? ?? ????? ?? ?? ??? ??????? ?? ??? ????? ??? ????? ???? ????? ????? ???? ????
           */
-         //EnrollNumber = Microsof2t.VisualBasic.Interaction.InputBox("لطفا کد کاربری خود را وارد کنید");
+         //EnrollNumber = Microsof2t.VisualBasic.Interaction.InputBox("???? ?? ?????? ??? ?? ???? ????");
          //if (enrollnumber == EnrollNumber && enrolldate.AddSeconds(5) <= DateTime.Now) { enrollnumber = ""; return; }
          //else { enrollnumber = EnrollNumber; enrolldate = DateTime.Now; }
          //ExtCode.ScreenSaver.KillScreenSaver();
@@ -2702,12 +2698,12 @@ namespace System.Scsc.Ui.MasterPage
                FngrPrnt_Txt.Text = EnrollNumber; 
                if (AttnType_Lov.EditValue.ToString() == "003") 
                { 
-                  // نمایش اطلاعات مربوط به کارت خوانده شده
+                  // ????? ??????? ????? ?? ???? ?????? ???
                   ShowInfo_Butn_Click(null, null); 
                } 
                else if(AttnType_Lov.EditValue.ToString() == "004")
                {
-                  // باز کردن فرم مربوط به ثبت اطلاعات گروهی برای شارژ کردن کارت های آماده
+                  // ??? ???? ??? ????? ?? ??? ??????? ????? ???? ???? ???? ???? ??? ?????
                   //_DefaultGateway.Gateway(
                   //   new Job(SendType.External, "localhost", "", 163, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fngrprnt", FngrPrnt_Txt.Text)) }
                   //);
@@ -2729,7 +2725,7 @@ namespace System.Scsc.Ui.MasterPage
                   }
                   else
                   {
-                     // باز کردن فرم ثبت مشتری
+                     // ??? ???? ??? ??? ?????
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "Localhost",
                            new List<Job>
@@ -2808,14 +2804,14 @@ namespace System.Scsc.Ui.MasterPage
                }
                else if (AttnType_Lov.EditValue.ToString() == "008")
                {
-                  // اگر این گزینه باشد که برای مدیریت مجموعه های ورزشی بخواهیم عمل کنیم
-                  // به این صورت که کارت خام باشد فرم ثبت نام مشتری باز شود
-                  // اگر کارت متعلق به عضویت خاصی باشد فرم پروفایل مشتری باز شود
+                  // ??? ??? ????? ???? ?? ???? ?????? ?????? ??? ????? ??????? ??? ????
+                  // ?? ??? ???? ?? ???? ??? ???? ??? ??? ??? ????? ??? ???
+                  // ??? ???? ????? ?? ????? ???? ???? ??? ??????? ????? ??? ???
                   var dev008host = iScsc.External_Devices.FirstOrDefault(ed => ed.SERV_IP_ADRS == xHost.Attribute("ip").Value && ed.STAT == "002" && ed.DEV_TYPE == "001");
                   var Serv = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == EnrollNumber && f.CONF_STAT == "002");
                   if(Serv == null)
                   {
-                     // باز کردن فرم مربوط به ثبت نام مشتری
+                     // ??? ???? ??? ????? ?? ??? ??? ?????
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "Localhost",
                            new List<Job>
@@ -2825,7 +2821,7 @@ namespace System.Scsc.Ui.MasterPage
                            })
                      );
 
-                     // ارسال پیام خطا به دستگاه
+                     // ????? ???? ??? ?? ??????
                      if (dev008host != null)
                      {
                         SendCommandDevExpn(
@@ -2836,7 +2832,7 @@ namespace System.Scsc.Ui.MasterPage
                   }
                   else
                   {
-                     // 1402/07/07 * اگر کارت ارسال شده متغلق به دستبند ها باشد فرم درآمد متفرقه باز شود
+                     // 1402/07/07 * ??? ???? ????? ??? ????? ?? ?????? ?? ???? ??? ????? ?????? ??? ???
                      if (iScsc.Dressers.Any(l => l.CMND_SEND == FngrPrnt_Txt.Text))
                      {
                         var _figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == FngrPrnt_Txt.Text);
@@ -2852,10 +2848,10 @@ namespace System.Scsc.Ui.MasterPage
                            );
                         }
 
-                        // 1402/11/14 * بررسی اینکه آیا دستبند نیاز به آزاد شدن دارد یا خیر
+                        // 1402/11/14 * ????? ????? ??? ?????? ???? ?? ???? ??? ???? ?? ???
                         if(iScsc.Dresser_Attendances.Any(da => da.Dresser.CMND_SEND == FngrPrnt_Txt.Text && da.TKBK_TIME == null))
                         {
-                           if (MessageBox.Show(this, "آیا با آزاد کردن دستبند موافق هستید؟", "آزاد کردن دستبند", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                           if (MessageBox.Show(this, "??? ?? ???? ???? ?????? ????? ??????", "???? ???? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                            {
                               var _drat = iScsc.Dresser_Attendances.FirstOrDefault(da => da.Dresser.CMND_SEND == FngrPrnt_Txt.Text && da.TKBK_TIME == null);
                               iScsc.ExecuteCommand(
@@ -2864,12 +2860,12 @@ namespace System.Scsc.Ui.MasterPage
                                  string.Format("UPDATE dbo.Dresser_Attendance SET Tkbk_Time = GETDATE() WHERE Dres_Code = {0} AND TKbk_Time IS NULL;", _drat.CODE)
                               );
 
-                              if (MessageBox.Show(this, "آیا مایل هستین فاکتور مجدد صادر شود؟", "فاکتور مجدد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                              if (MessageBox.Show(this, "??? ???? ????? ?????? ???? ???? ????", "?????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                            }
                            else
                            {
                               // Show Profile
-                              // باز کردن فرم مربوط به پروفایل مشتری
+                              // ??? ???? ??? ????? ?? ??????? ?????
                               ShowInfo_Butn_Click(null, null);
                               return;
                            }
@@ -2894,13 +2890,13 @@ namespace System.Scsc.Ui.MasterPage
                         );
                      }
                      else
-                        // باز کردن فرم مربوط به پروفایل مشتری
+                        // ??? ???? ??? ????? ?? ??????? ?????
                         ShowInfo_Butn_Click(null, null);
 
-                     // بررسی اینکه مشتری شارژ اعتباری داری یا خیر
+                     // ????? ????? ????? ???? ??????? ???? ?? ???
                      if (Serv.DPST_AMNT_DNRM > 0)
                      {
-                        // اگر مشتری اعتبار دارد
+                        // ??? ????? ?????? ????
                         if (dev008host != null)
                         {
                            SendCommandDevExpn(
@@ -2911,7 +2907,7 @@ namespace System.Scsc.Ui.MasterPage
                      }
                      else
                      {
-                        // اگر مشتری اعتبار نداشته باشد
+                        // ??? ????? ?????? ?????? ????
                         if (dev008host != null)
                         {
                            SendCommandDevExpn(
@@ -2922,17 +2918,17 @@ namespace System.Scsc.Ui.MasterPage
                      }
                   }
                }
-               else if (AttnType_Lov.EditValue.ToString() == "009" /* بلیط فروشی استخر */)
+               else if (AttnType_Lov.EditValue.ToString() == "009" /* ???? ????? ????? */)
                {
-                  #region قسمت مربوط به بلیط فروشی استخر
-                  // اگر این گزینه باشد که برای مدیریت مجموعه های ورزشی بخواهیم عمل کنیم
-                  // به این صورت که کارت خام باشد فرم ثبت نام مشتری باز شود
-                  // اگر کارت متعلق به عضویت خاصی باشد فرم پروفایل مشتری باز شود
+                  #region ???? ????? ?? ???? ????? ?????
+                  // ??? ??? ????? ???? ?? ???? ?????? ?????? ??? ????? ??????? ??? ????
+                  // ?? ??? ???? ?? ???? ??? ???? ??? ??? ??? ????? ??? ???
+                  // ??? ???? ????? ?? ????? ???? ???? ??? ??????? ????? ??? ???
                   var dev008host = iScsc.External_Devices.FirstOrDefault(ed => ed.SERV_IP_ADRS == xHost.Attribute("ip").Value && ed.STAT == "002" && ed.DEV_TYPE == "001");
                   var Serv = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == EnrollNumber && f.CONF_STAT == "002");
                   if (Serv == null)
                   {
-                     // باز کردن فرم مربوط به ثبت نام مشتری
+                     // ??? ???? ??? ????? ?? ??? ??? ?????
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "Localhost",
                            new List<Job>
@@ -2942,7 +2938,7 @@ namespace System.Scsc.Ui.MasterPage
                            })
                      );
 
-                     // ارسال پیام خطا به دستگاه
+                     // ????? ???? ??? ?? ??????
                      if (dev008host != null)
                      {
                         SendCommandDevExpn(
@@ -2953,7 +2949,7 @@ namespace System.Scsc.Ui.MasterPage
                   }
                   else
                   {
-                     // باز کردن فرم مربوط به پروفایل مشتری
+                     // ??? ???? ??? ????? ?? ??????? ?????
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "Localhost",
                            new List<Job>
@@ -2965,9 +2961,9 @@ namespace System.Scsc.Ui.MasterPage
                   }
                   #endregion
                }
-               else if (AttnType_Lov.EditValue.ToString() == "010" /* حضور و غیاب بلیط فروشی */)
+               else if (AttnType_Lov.EditValue.ToString() == "010" /* ???? ? ???? ???? ????? */)
                {
-                  #region قسمت مربوط به حضور و غیاب بلیط فروشی استخر
+                  #region ???? ????? ?? ???? ? ???? ???? ????? ?????
                   #endregion
                }
                else if(AttnType_Lov.EditValue.ToString() == "011")
@@ -3010,7 +3006,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                else if (AttnType_Lov.EditValue.ToString() == "012")
                {
-                  #region تعریف کردن دستبند کمدی
+                  #region ????? ???? ?????? ????
                   // first step CardNumb_Txt is not empty
                   if (CardNumb_Text.Text == "") { CardNumb_Text.Focus(); return; }
 
@@ -3060,7 +3056,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                else if (AttnType_Lov.EditValue.ToString() == "014")
                {
-                  #region ارائه و تحویل دستبند کمدی
+                  #region ????? ? ????? ?????? ????
                   //_DefaultGateway.Gateway(
                   //   new Job(SendType.External, "localhost",
                   //      new List<Job>
@@ -3077,7 +3073,7 @@ namespace System.Scsc.Ui.MasterPage
                   //         }
                   //      })
                   //);
-                  // 1403/02/22 * اول چک کنیم که ایا فرم حضور و غیاب باز شده یا خیر
+                  // 1403/02/22 * ??? ?? ???? ?? ??? ??? ???? ? ???? ??? ??? ?? ???
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -3117,14 +3113,14 @@ namespace System.Scsc.Ui.MasterPage
                return; 
             }
 
-            // 1396/10/26 * اگر سیستم به صورتی باشد که نرم افزار اپراتور پشت آن قرار ندارد            
+            // 1396/10/26 * ??? ????? ?? ????? ???? ?? ??? ????? ??????? ??? ?? ???? ?????            
             if(iScsc.Computer_Actions.FirstOrDefault(ca => ca.COMP_NAME == xHost.Attribute("name").Value).CHCK_DOBL_ATTN_STAT == "002")
                if (EnrollNumber == oldenrollnumber && 
                    !iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == EnrollNumber && f.FGPB_TYPE_DNRM == "003") &&
-                   MessageBox.Show(this, "شناسایی دوبار انجام شده است، آیا می خواهید دوباره مورد بررسی قرار گیرد؟", "تکرار قرار گیری اثرانگشت اعضا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+                   MessageBox.Show(this, "??????? ????? ????? ??? ???? ??? ?? ?????? ?????? ???? ????? ???? ?????", "????? ???? ???? ???????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
                   return;
 
-            // 1397/05/10 * تست اینکه آیا سرور برقرار هست یا خیر
+            // 1397/05/10 * ??? ????? ??? ???? ?????? ??? ?? ???
             if (SrvrPing_Butn.Appearance.BackColor != Color.LightGreen) return;
 
             oldenrollnumber = EnrollNumber;
@@ -3133,10 +3129,10 @@ namespace System.Scsc.Ui.MasterPage
 
             FngrPrnt_Txt.Text = EnrollNumber;
 
-            // 1404/01/23 * اگر بخواهیم کارت عضویت جدید را مشتری ثبت کنیم
-            //  باهزینه
+            // 1404/01/23 * ??? ??????? ???? ????? ???? ?? ????? ??? ????
+            //  ???????
             // Hold (Ctrl + Shift + Alt)
-            // بدون هزینه
+            // ???? ?????
             // Hold (Ctrl + Shift)
             if(ModifierKeys.HasFlag(Keys.Control | Keys.Shift | Keys.Alt) || ModifierKeys.HasFlag(Keys.Control | Keys.Shift))
             {
@@ -3150,11 +3146,11 @@ namespace System.Scsc.Ui.MasterPage
                return;
             }
 
-            // 1404/03/02 * خام کردن کارت عضویت مشتریان
+            // 1404/03/02 * ??? ???? ???? ????? ???????
             // Hold (Shift)
-            // پاک کردن و خام کردن کارت عضویت مشتری
+            // ??? ???? ? ??? ???? ???? ????? ?????
             // Hold (Shift + Alt)
-            // پاک کردن کارت و باز کردن صفحه ثبت نام مشتری
+            // ??? ???? ???? ? ??? ???? ???? ??? ??? ?????
             if (ModifierKeys.HasFlag(Keys.Shift | Keys.Alt) || ModifierKeys.HasFlag(Keys.Shift))
             {
                var _figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == FngrPrnt_Txt.Text);
@@ -3181,12 +3177,12 @@ namespace System.Scsc.Ui.MasterPage
                   }
                );
 
-               // اگر هدف فقط خام کردن کارت عضویت مشتری باشه
+               // ??? ??? ??? ??? ???? ???? ????? ????? ????
                if (ModifierKeys.HasFlag(Keys.Shift)) return;
             }
 
-            // 1403/11/22 * سال روز خریت پدران و مادران نفهمی که آینده ایران عزیزامان را نابود کردن تسلیت میگم 
-            // در دکمه کنترل گرفته شد اطلاعات مشتری بارگذاری شود
+            // 1403/11/22 * ??? ??? ???? ????? ? ?????? ????? ?? ????? ????? ???????? ?? ????? ???? ????? ???? 
+            // ?? ???? ????? ????? ?? ??????? ????? ???????? ???
             if (ModifierKeys.HasFlag(Keys.Control))
             {
                ShowInfo_Butn_Click(null, null);
@@ -3194,9 +3190,9 @@ namespace System.Scsc.Ui.MasterPage
             }
 
             // 1403/06/03 * IF EXISTS Grouping Permission CANNOT Attendance
-            if(iScsc.Fighter_Grouping_Permissions.Any(gp => gp.Fighter_Grouping.Fighter.FNGR_PRNT_DNRM == EnrollNumber && gp.Fighter_Grouping.GROP_STAT == "002" /* وضعیت */ && gp.PERM_TYPE == "001" /* حضور و غیاب */ && gp.PERM_STAT == "001" /* غیرمجاز */))
+            if(iScsc.Fighter_Grouping_Permissions.Any(gp => gp.Fighter_Grouping.Fighter.FNGR_PRNT_DNRM == EnrollNumber && gp.Fighter_Grouping.GROP_STAT == "002" /* ????? */ && gp.PERM_TYPE == "001" /* ???? ? ???? */ && gp.PERM_STAT == "001" /* ??????? */))
             {
-               MessageBox.Show(this, "خطا - مشتری به دلیل تصمیم مدیریتی مجاز به ورود نمیباشد، لطفا با بخش مدیریت صحبت کنید", "");
+               MessageBox.Show(this, "??? - ????? ?? ???? ????? ??????? ???? ?? ???? ???????? ???? ?? ??? ?????? ???? ????", "");
                return;
             }
             
@@ -3215,14 +3211,14 @@ namespace System.Scsc.Ui.MasterPage
 
                if (figh != null && Convert.ToInt32(figh.ACTV_TAG_DNRM ?? "101") <= 100)
                {
-                  if (MessageBox.Show(this, "مشتری مورد نظر در حالت حذف از سیستم قرار گرفته است. مایل به فعال کردن مجدد مشتری هستید؟", "حضور مجدد مشتریی غیرفعال", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                  if (MessageBox.Show(this, "????? ???? ??? ?? ???? ??? ?? ????? ???? ????? ???. ???? ?? ???? ???? ???? ????? ??????", "???? ???? ?????? ???????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                   {
-                     // 1396/09/04 * بازیابی کد انگشتی یا کارتی مشتری
+                     // 1396/09/04 * ??????? ?? ?????? ?? ????? ?????
                      var fighhist = iScsc.Fighter_Publics.Where(fp => fp.FIGH_FILE_NO == figh.FILE_NO && fp.RECT_CODE == "004" && (fp.FNGR_PRNT ?? "") != "").OrderByDescending(fp => fp.RWNO).FirstOrDefault();
-                     if (fighhist != null && MessageBox.Show(this, string.Format("آخرین وضعیت کد انگشتی یا کارت مشتری {0} می باشد آیا مایل به جای گیزینی مجدد هستید؟", fighhist.FNGR_PRNT), "بازیابی کد انگشتی یا کارت مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                     if (fighhist != null && MessageBox.Show(this, string.Format("????? ????? ?? ?????? ?? ???? ????? {0} ?? ???? ??? ???? ?? ??? ?????? ???? ??????", fighhist.FNGR_PRNT), "??????? ?? ?????? ?? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
                         fighhist.FNGR_PRNT = "";
 
-                     if (fighhist.FNGR_PRNT == "" && MessageBox.Show(this, "آیا می خواهید که کد انگشتی یا کارت جدیدی به مشتری اختصاص دهید", "الحاق انگشتی یا کارت جدید به مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                     if (fighhist.FNGR_PRNT == "" && MessageBox.Show(this, "??? ?? ?????? ?? ?? ?????? ?? ???? ????? ?? ????? ?????? ????", "????? ?????? ?? ???? ???? ?? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                      {
                      getfngrprnt:
                         fighhist.FNGR_PRNT = Microsoft.VisualBasic.Interaction.InputBox("EnrollNumber", "Input EnrollNumber");
@@ -3230,7 +3226,7 @@ namespace System.Scsc.Ui.MasterPage
                            goto getfngrprnt;
                      }
 
-                     // این قسمت برنامه باید با واحد مربوطه انتقال یابد که پراکندگی کد وجود نداشته باشد
+                     // ??? ???? ?????? ???? ?? ???? ?????? ?????? ???? ?? ???????? ?? ???? ?????? ????
                      #region Disable To Enabled
                      iScsc.AET_RQST_F(
                         new XElement("Process",
@@ -3273,7 +3269,7 @@ namespace System.Scsc.Ui.MasterPage
 
                if (!recycleService)
                {
-                  // 1396/11/15 * اگر سیستم منشی داشته باشد
+                  // 1396/11/15 * ??? ????? ???? ????? ????
                   var host = iScsc.Computer_Actions.FirstOrDefault(mb => mb.COMP_NAME == xHost.Attribute("name").Value);
                   if (host.CHCK_ATTN_ALRM == "001")
                   {
@@ -3297,11 +3293,11 @@ namespace System.Scsc.Ui.MasterPage
                            })
                      );
                      
-                     // ارسال پیام خطا در برای دستگاه
+                     // ????? ???? ??? ?? ???? ??????
                      // 1396/11/15 * 16:45
-                     // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
+                     // ??? ????? ???? ???? ?????? ??? ????? ?? ?????? ???? ?? ??????? ????? ????? ?? ?????? ?? ???? ???? ?????? ????? ???? ?? ????? ???
                      //1404/03/02
-                     // فعلا پاکش کنم
+                     // ???? ???? ???
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "localhost",
                            new List<Job>
@@ -3353,8 +3349,8 @@ namespace System.Scsc.Ui.MasterPage
                   );
                   return;
                }
-               // 1396/10/14 * بررسی اینکه آیا مشتری چند کلاس ثبت نام کرده است
-               // 1396/10/26 * بررسی اینکه سیستمی که اپرداتور ندارد
+               // 1396/10/14 * ????? ????? ??? ????? ??? ???? ??? ??? ???? ???
+               // 1396/10/26 * ????? ????? ?????? ?? ???????? ?????
                var host = iScsc.Computer_Actions.FirstOrDefault(mb => mb.COMP_NAME == xHost.Attribute("name").Value);
 
                #region Check Freez Fighter
@@ -3376,7 +3372,7 @@ namespace System.Scsc.Ui.MasterPage
                if (mbfz.Count() >= 1)
                {
                   // 1396/08/01 * 16:02
-                  // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
+                  // ??? ????? ???? ???? ?????? ??? ????? ?? ?????? ???? ?? ??????? ????? ????? ?? ?????? ?? ???? ???? ?????? ????? ???? ?? ????? ???
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -3395,8 +3391,7 @@ namespace System.Scsc.Ui.MasterPage
 
                   DialogResult result = DialogResult.None;
                   if (/*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ host.CHCK_ATTN_ALRM == "001")
-                     result = MessageBox.Show(this, "هشدار!!!\n\rعضو مربوطه کد خود را بلوکه کرده است." + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
-
+                     result = MessageBox.Show(this, "?????!!!\n\r??? ?????? ?? ??? ?? ????? ???? ???." + "\r\n" + "??? ???? ?? ?????? ??????", "???? ????????", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
 
                   if (result == DialogResult.Yes)
                      _DefaultGateway.Gateway(
@@ -3423,7 +3418,7 @@ namespace System.Scsc.Ui.MasterPage
                var _mbsp =
                   iScsc.ExecuteQuery<Data.Member_Ship>(
                      host.CHCK_ATTN_ALRM == "001" ? 
-                        /* منشی پشت سیستم حضور دارد */
+                        /* ???? ??? ????? ???? ???? */
                         string.Format(@"SELECT ms.*
                                           FROM Member_Ship ms, Fighter_Public fp, Method mt
                                          WHERE ms.Figh_File_No = {0}
@@ -3441,7 +3436,7 @@ namespace System.Scsc.Ui.MasterPage
                                        ", figh.FILE_NO
                                         , host.MTOD_CODE == null ? "NULL" : host.MTOD_CODE.ToString()) 
                         :
-                        /* منشی پشت سیستم حضور ندارد */
+                        /* ???? ??? ????? ???? ????? */
                         string.Format(@"SELECT ms.*
                                           FROM Member_Ship ms, Fighter_Public fp, Method mt
                                          WHERE ms.Figh_File_No = {0}
@@ -3460,7 +3455,7 @@ namespace System.Scsc.Ui.MasterPage
                                         , host.MTOD_CODE == null ? "NULL" : host.MTOD_CODE.ToString()) 
                   ).ToList<Data.Member_Ship>();
 
-               // 1396/12/11 * اصلاح حضور و غیاب مربیان
+               // 1396/12/11 * ????? ???? ? ???? ??????
                if(figh.FGPB_TYPE_DNRM == "003")
                {
                   Job _InteractWithScsc =
@@ -3507,7 +3502,7 @@ namespace System.Scsc.Ui.MasterPage
                         );
                      }
                   }
-                  // 1404/11/04 * اگر مشتری چند رشته ای بوده و در حال خروج و پایان دادن به یکی از رشته ها باشد دیگر نیاز به نمایش تعداد چند رشته ای ان وجود ندارد فقط کافیست که خروج زده شود و در همین نقطه فراِند بسته شود
+                  // 1404/11/04 * ??? ????? ??? ???? ?? ???? ? ?? ??? ???? ? ????? ???? ?? ??? ?? ???? ?? ???? ???? ???? ?? ????? ????? ??? ???? ?? ?? ???? ????? ??? ?????? ?? ???? ??? ??? ? ?? ???? ???? ?????? ???? ???
                   if (_iattn >= 1)
                      return;
 
@@ -3541,7 +3536,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                else
                {
-                  // 1396/10/27 * منشی پشت سیستم حضور ندارد
+                  // 1396/10/27 * ???? ??? ????? ???? ?????
                   if(host.CHCK_ATTN_ALRM == "002")
                   {
                      _mbsp =
@@ -3584,7 +3579,7 @@ namespace System.Scsc.Ui.MasterPage
          {
             axCZKEM1.Disconnect();
             Fp1DevIsConnected = false;
-            Tsp_AttnSys.Text = "دستگاه حضورغیاب غیرفعال شد";
+            Tsp_AttnSys.Text = "?????? ???????? ??????? ??";
          }
       }
 
@@ -3950,7 +3945,7 @@ namespace System.Scsc.Ui.MasterPage
             #region Finger Print
             var result = axCZKEM1.GetUserTmpExStr(1, enrollid, 6, out flag, out tmpData, out tmplen);
             
-            // 1402/10/14 * اگر این گزینه خروجی هیچ داده ای وجود نداشته باشید
+            // 1402/10/14 * ??? ??? ????? ????? ??? ???? ?? ???? ?????? ?????
             if (tmpData != null)
             {
                if (Fp2DevIsConnected)
@@ -3993,7 +3988,7 @@ namespace System.Scsc.Ui.MasterPage
             // Part 1 : Finger Print
             result = axCZKEM1.GetUserFaceStr(1, enrollid, 111, ref tmpData, ref tmplen);
 
-            // 1402/10/14 * اگر این گزینه خروجی هیچ داده ای وجود نداشته باشید
+            // 1402/10/14 * ??? ??? ????? ????? ??? ???? ?? ???? ?????? ?????
             if (tmpData != null)
             {
                if (Fp2DevIsConnected)
@@ -4233,7 +4228,7 @@ namespace System.Scsc.Ui.MasterPage
 
             // Part 1 : Finger Print
             #region Finger Print
-            // 1402/10/14 * اگر این گزینه خروجی هیچ داده ای وجود نداشته باشید
+            // 1402/10/14 * ??? ??? ????? ????? ??? ???? ?? ???? ?????? ?????
             if (fngrprntupdate == "002" && tmpData != null && tmpData.Length > 100)
             {
                if (Fp1DevIsConnected)
@@ -4300,7 +4295,7 @@ namespace System.Scsc.Ui.MasterPage
             #region Face User
             // Part 1 : Finger Print
 
-            // 1402/10/14 * اگر این گزینه خروجی هیچ داده ای وجود نداشته باشید
+            // 1402/10/14 * ??? ??? ????? ????? ??? ???? ?? ???? ?????? ?????
             if (faceupdate == "002" && tmpData != null && tmpData.Length > 100)
             {               
                if (Fp1DevIsConnected)
@@ -4662,7 +4657,7 @@ namespace System.Scsc.Ui.MasterPage
                   {
                      AttnType_Lov.EditValue = "001";
                      this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
-                     Tsp_AttnSys.Text = "سیستم کارت خوان  صائلا فعال";
+                     Tsp_AttnSys.Text = "????? ???? ????  ????? ????";
                      Tsp_AttnSys.ForeColor = Color.Green;
                      AttendanceSystemAlert_Butn.Tag = "001";
                   }
@@ -4670,7 +4665,7 @@ namespace System.Scsc.Ui.MasterPage
                   {
                      AttnType_Lov.EditValue = null;
                      this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1196;
-                     Tsp_AttnSys.Text = "سیستم کارت خوان صائلا غیرفعال";
+                     Tsp_AttnSys.Text = "????? ???? ???? ????? ???????";
                      Tsp_AttnSys.ForeColor = Color.Red;
                   }
                   #endregion
@@ -4701,11 +4696,11 @@ namespace System.Scsc.Ui.MasterPage
                      // Nuoro for card reader with define for attendance
                      (d.DEV_COMP_TYPE == "003" && 
                       d.DEV_TYPE == "001" && 
-                      (d.ACTN_TYPE == "001" /* حضوری */ || 
-                       d.ACTN_TYPE == "003" /* نمایش */ || 
-                       d.ACTN_TYPE == "011" /* کپی کارت گروهی */ || 
-                       d.ACTN_TYPE == "014" /* ارائه و تحویل دستبند کمدی */ || 
-                       d.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */ )
+                      (d.ACTN_TYPE == "001" /* ????? */ || 
+                       d.ACTN_TYPE == "003" /* ????? */ || 
+                       d.ACTN_TYPE == "011" /* ??? ???? ????? */ || 
+                       d.ACTN_TYPE == "014" /* ????? ? ????? ?????? ???? */ || 
+                       d.ACTN_TYPE == "010" /* ???? ? ???? ???? ????? ????????? */ )
                      )
                   )
             ))
@@ -4716,7 +4711,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                else if(gate.DEV_CON == "002")
                {
-                  // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                  // 1398/12/25 * ????? ???? ?????? ?? ???? ?????? ??? ???? ????
                   var dev =
                      new Device_On_Network(gate.IP_ADRS)
                      {
@@ -4747,7 +4742,7 @@ namespace System.Scsc.Ui.MasterPage
                      // IP Address Setting
                      var lsgate = new TcpListenerX((int)gate.PORT_RECV);
 
-                     // 1399/12/11 * اضافه شدن گزینه ای اطلاع رسانی بابت اتصال گیت به سرور
+                     // 1399/12/11 * ????? ??? ????? ?? ????? ????? ???? ????? ??? ?? ????
                      //new Thread(AlarmShow).Start();
                      
                      // Play Enter Sound
@@ -4796,12 +4791,12 @@ namespace System.Scsc.Ui.MasterPage
 
             #region RelaySoft Company
             #region Device Bilard & CityGame & Reader & Seven Segment & Online LockerS Gym
-            // آیا کامپیوتر مورد نظر به عنوان سرور تلقی میشود که باید به بعضی از دستگاه ها پاسخگو باشد
+            // ??? ???????? ???? ??? ?? ????? ???? ???? ????? ?? ???? ?? ???? ?? ?????? ?? ?????? ????
             if (devs.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "007" || d.DEV_TYPE == "008" || d.DEV_TYPE == "009" || d.DEV_TYPE == "010" || d.DEV_TYPE == "011" || (d.DEV_TYPE == "001" && d.DEV_CON == "002")) && _listIPHost.Contains(d.SERV_IP_ADRS)).Any())
             {
                var _thisServersListener = devs.Where(d => d.DEV_COMP_TYPE == "002" && (d.DEV_TYPE == "007" || d.DEV_TYPE == "008" || d.DEV_TYPE == "009" || d.DEV_TYPE == "010" || d.DEV_TYPE == "011" || (d.DEV_TYPE == "001" && d.DEV_CON == "002")) && _listIPHost.Contains(d.SERV_IP_ADRS)).Select(d => new { d.SERV_IP_ADRS, d.PORT_SEND }).Distinct().FirstOrDefault();
 
-               // اگر سیستم فعلی به عنوان سرور تلقی میشود باید پورت 6450 که به صورت پیش شرکت میباشد شنود شود
+               // ??? ????? ???? ?? ????? ???? ???? ????? ???? ???? 6450 ?? ?? ???? ??? ???? ?????? ???? ???
                server = new Server(Server.GetLocalIPAddress(), /*13001*/Convert.ToInt32(_thisServersListener.PORT_SEND));
                GameHours_Butn.ToolTip = string.Format("Server : {0}:{1}", _thisServersListener.SERV_IP_ADRS, _thisServersListener.PORT_SEND);
                server.ClientConnected += Server_ClientConnected;
@@ -4871,14 +4866,14 @@ namespace System.Scsc.Ui.MasterPage
             if (InvokeRequired)
                Invoke(new Action(() =>
                   {
-                     // اگر کارت قبلا خوانده شده
+                     // ??? ???? ???? ?????? ???
                      if (FngrPrnt_Txt.Text == enrollNumber) return;
 
                      axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1);
                   }));
             else
             {
-               // اگر کارت قبلا خوانده شده
+               // ??? ???? ???? ?????? ???
                if (FngrPrnt_Txt.Text == enrollNumber) return;
 
                axCZKEM1_OnAttTransactionEx(enrollNumber, 0, 0, 0, 1395, 1, 1, 1, 1, 1, 1);
@@ -4969,7 +4964,7 @@ namespace System.Scsc.Ui.MasterPage
                _tcpClient.Dispose();
                _serverListener.Stop();
             }
-            catch { }
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("StopListening error: " + ex.ToString()); }
          }
 
          public bool IsAlive()
@@ -5020,15 +5015,15 @@ namespace System.Scsc.Ui.MasterPage
          {
             try
             {
-               // 1402/11/05 * اگر میخواهیم چک کنیم که این دستگاه تایم استفاده کردنش هست یا خیر
+               // 1402/11/05 * ??? ???????? ?? ???? ?? ??? ?????? ???? ??????? ????? ??? ?? ???
                /*
-                  001	یکشنبه
-                  002	دو شنبه
-                  003	سه شنبه
-                  004	چهار شنبه
-                  005	پنج شنبه
-                  006	جمعه
-                  007	شنبه
+                  001	??????
+                  002	?? ????
+                  003	?? ????
+                  004	???? ????
+                  005	??? ????
+                  006	????
+                  007	????
                 */
                #region Check Week Validation
                var _weekday = DateTime.Now.DayOfWeek;
@@ -5140,7 +5135,7 @@ namespace System.Scsc.Ui.MasterPage
                // IF NOT VALID ENROLCODE
                if (_fngrPrnt.In("0004000", "00040000", "00010000", "00000000")) return;
 
-               // 1402/11/02 * اگر نیاز باشه برای کپی برداری از این آیتم استفاده کنیم
+               // 1402/11/02 * ??? ???? ???? ???? ??? ?????? ?? ??? ???? ??????? ????
                if (AttnType_Lov.EditValue != null && AttnType_Lov.EditValue.ToString() == "011")
                {
                   OnAttTransactionEx(_fngrPrnt);
@@ -5164,20 +5159,20 @@ namespace System.Scsc.Ui.MasterPage
                if (InvokeRequired)
                   Invoke(new Action(() =>
                   {
-                     // اگر کارت قبلا خوانده شده
+                     // ??? ???? ???? ?????? ???
                      if (FngrPrnt_Txt.Text == _fngrPrnt) return;
                      FngrPrnt_Txt.Text = _fngrPrnt;
                   }));
                else
                {
-                  // اگر کارت قبلا خوانده شده
+                  // ??? ???? ???? ?????? ???
                   if (FngrPrnt_Txt.Text == _fngrPrnt) return;
                   FngrPrnt_Txt.Text = _fngrPrnt;
                }
 
                //var gate = iScsc.External_Devices.Where(ed => ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
 
-               if (_gate.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */)
+               if (_gate.ACTN_TYPE == "010" /* ???? ? ???? ???? ????? ????????? */)
                {
                   var _actvCardLinkOprt =
                      iScsc.Card_Link_Operations.FirstOrDefault(c => c.CARD_FNGR_PRNT_DNRM == _fngrPrnt && c.VALD_TYPE == "002" && c.CRET_DATE.Value.Date == DateTime.Now.Date);
@@ -5191,10 +5186,10 @@ namespace System.Scsc.Ui.MasterPage
                      //   );
                      //}
 
-                     // 1404/07/26 * اگر کارت از 5 دقیقه تایم ورود به سالن گذشته باشد دیگر اجازه تردد از همان گیت را ندارد
+                     // 1404/07/26 * ??? ???? ?? 5 ????? ???? ???? ?? ???? ????? ???? ???? ????? ???? ?? ???? ??? ?? ?????
                      if (_actvCardLinkOprt.STRT_TIME != null && _actvCardLinkOprt.STRT_TIME.Value.AddMinutes(5) < DateTime.Now)
                      {
-                        // در این مرحله باز کردن گیت رو فرمان میدیم
+                        // ?? ??? ????? ??? ???? ??? ?? ????? ?????
                         OprtExtDev(
                            new XElement("MainPage",
                               new XAttribute("type", "extdev"),
@@ -5216,7 +5211,7 @@ namespace System.Scsc.Ui.MasterPage
                               "INSERT INTO dbo.Card_Link_Operation_Detail (CLOP_CODE, CODE, CLOP_TYPE) VALUES({0}, 0, '001');", _actvCardLinkOprt.CODE
                            )
                         );
-                        // در این مرحله باز کردن گیت رو فرمان میدیم
+                        // ?? ??? ????? ??? ???? ??? ?? ????? ?????
                         OprtExtDev(
                            new XElement("MainPage",
                               new XAttribute("type", "extdev"),
@@ -5231,7 +5226,7 @@ namespace System.Scsc.Ui.MasterPage
                      }
                   }
 
-                  // 1404/07/26 * اگر کارت برای پرسنل باشد این اشخاص میتوانند ورود و خروج را انجام دهند
+                  // 1404/07/26 * ??? ???? ???? ????? ???? ??? ????? ???????? ???? ? ???? ?? ????? ????
                   if(iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == _fngrPrnt && f.FGPB_TYPE_DNRM != "003")) return;
                }
 
@@ -5256,10 +5251,10 @@ namespace System.Scsc.Ui.MasterPage
                var mbsp = new Data.Member_Ship();
                var _gateMtods = _gate.External_Device_Link_Methods.Where(gm => gm.STAT == "002").Select(gm => gm.MTOD_CODE);
 
-               // بررسی اینکه برای پرسنل هایی که داریم نیازی به بررسی تردد نداریم
+               // ????? ????? ???? ????? ???? ?? ????? ????? ?? ????? ???? ??????
                if (iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == _fngrPrnt && f.FGPB_TYPE_DNRM == "003"))
                {
-                  // 1404/07/26 * بدست ارودن اطلاعات جدول پرسنل
+                  // 1404/07/26 * ???? ????? ??????? ???? ?????
                   mbsp =
                   iScsc.Member_Ships
                   .Where(ms =>
@@ -5272,7 +5267,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                else
                {
-                  // 1404/07/26 * بدست آوردن اطلاعات مشتری عادی
+                  // 1404/07/26 * ???? ????? ??????? ????? ????
                   mbsp =
                      iScsc.Member_Ships
                      .Where(ms =>
@@ -5287,15 +5282,15 @@ namespace System.Scsc.Ui.MasterPage
                      ).FirstOrDefault();
                }
 
-               // این گزینه برای مشتریان لحاظ میشود
+               // ??? ????? ???? ??????? ???? ?????
                if (mbsp == null)
                {
-                  // 1398/12/23 * اگرمشتری اخرین جلسه وارد شده و بخواهد که خارج شود
+                  // 1398/12/23 * ???????? ????? ???? ???? ??? ? ?????? ?? ???? ???
                   var lastinputattn = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == _fngrPrnt && /*a.MTOD_CODE_DNRM == gate.MTOD_CODE*/_gateMtods.Contains(a.MTOD_CODE_DNRM) && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null);
                   if (lastinputattn != null && lastinputattn.Count() >= 1)
                   {
                      // Send [Close] command to Gate
-                     // یک خروج به مشتری زده میشود
+                     // ?? ???? ?? ????? ??? ?????
                      if (_gate.DEV_COMP_TYPE == "001")
                      {
                         var cmd = new byte[] { 0xCC, 0x0D, 0x40, 0x28, 0x6B, 0xFA, 0x00, 0x00, 0x00, 0x00, 0x0b, 0x08, 0x00, 0x00, 0x00, 0xf7, 0xDD };
@@ -5327,9 +5322,9 @@ namespace System.Scsc.Ui.MasterPage
                   }
                }
 
-               // 1404/07/26 * اگر گیت به حالت ورود قرار داده باشند تمام افرادی که میخواهند از این گیت ورود کنند فقط اجازه ورود دارند
-               // اگر گیت به حالت خروج قرارداده باشند گیت فقط دستورهای خروجی را اجرا میکند
-               // گیت اگر در وضعیت دو حالته باشد  که هیچ
+               // 1404/07/26 * ??? ??? ?? ???? ???? ???? ???? ????? ???? ?????? ?? ???????? ?? ??? ??? ???? ???? ??? ????? ???? ?????
+               // ??? ??? ?? ???? ???? ???????? ????? ??? ??? ???????? ????? ?? ???? ?????
+               // ??? ??? ?? ????? ?? ????? ????  ?? ???
 
                Data.Attendance _attn;               
                if(_gate.SEND_CMND_TYPE == "001")
@@ -5337,14 +5332,14 @@ namespace System.Scsc.Ui.MasterPage
                   // Gate has access OPEN, External_Device(ed => ed.Send_Cmnd_type == "001")
                   _attn = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == mbsp.FIGH_FILE_NO && a.MBSP_RWNO_DNRM == mbsp.RWNO && a.ATTN_DATE == DateTime.Now.Date && a.EXIT_TIME == null).OrderByDescending(a => a.ENTR_TIME).FirstOrDefault();
                   if (_attn != null)
-                     throw new Exception("ورود شما ثبت شده است، دیگر اجازه ورود از این گیت ندارید");
+                     throw new Exception("???? ??? ??? ??? ???? ???? ????? ???? ?? ??? ??? ??????");
                }
                else if(_gate.SEND_CMND_TYPE == "002")
                {
                   // Gate has access CLOSE, External_Device(ed => ed.Send_Cmnd_type == "002")
                   _attn = iScsc.Attendances.Where(a => a.FIGH_FILE_NO == mbsp.FIGH_FILE_NO && a.MBSP_RWNO_DNRM == mbsp.RWNO && a.ATTN_DATE == DateTime.Now.Date && a.EXIT_TIME == null).OrderByDescending(a => a.ENTR_TIME).FirstOrDefault();
                   if (_attn == null)
-                     throw new Exception("خروج شما ثبت شده است، دیگر اجازه خروج از این گیت ندارید");
+                     throw new Exception("???? ??? ??? ??? ???? ???? ????? ???? ?? ??? ??? ??????");
                }
 
                iScsc.INS_ATTN_P(null, mbsp.FIGH_FILE_NO, DateTime.Now, null, "001", mbsp.RWNO, "002", "001");
@@ -5479,7 +5474,7 @@ namespace System.Scsc.Ui.MasterPage
                   wplayer.URL = _wplayer_url;
                   wplayer.controls.play();
                }
-               catch { }
+               catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AlarmShow error: " + ex.ToString()); }
 
                var tempcolor = BackGrnd_Butn.NormalColorA;
                for (int i = 0; i < 5; i++)
@@ -5549,7 +5544,7 @@ namespace System.Scsc.Ui.MasterPage
 
             return ascii;
          }
-         catch {  }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ConvertHex2Ascii error: " + ex.ToString()); }
 
          return string.Empty;
       }     
@@ -5712,7 +5707,7 @@ namespace System.Scsc.Ui.MasterPage
 
                               ServProFile_Rb.Tag = _attn.FIGH_FILE_NO;
                            }
-                           catch { }
+                           catch (Exception ex) { System.Diagnostics.Debug.WriteLine("OprtExtDev error: " + ex.ToString()); }
                         }
                         else
                         {
@@ -5812,18 +5807,18 @@ namespace System.Scsc.Ui.MasterPage
             //new Thread(AlarmShow).Start();
             //return;
 
-            // اگر داده ای درون سیستم از سمت کارتخوان آمده باشد باید تا پاسخ دهی به دستگاه هیچ ورودی دیگری قابل پردازش نیست
-            // اگر داده قبلی بر اساس 10 ثانیه هنوز درون بافر باشد باید از لیست حذف شود
+            // ??? ???? ?? ???? ????? ?? ??? ???????? ???? ???? ???? ?? ???? ??? ?? ?????? ??? ????? ????? ???? ?????? ????
+            // ??? ???? ???? ?? ???? 10 ????? ???? ???? ???? ???? ???? ?? ???? ??? ???
             if (lastDataRead.Any(d => d.MacAdrs == _devName && d.EnrollNumber == _fngrPrnt && DateTime.Now.Subtract(d.LastTimeRead).TotalSeconds >= 3))
             {
                lastDataRead.Remove(lastDataRead.FirstOrDefault(d => d.MacAdrs == _devName && d.EnrollNumber == _fngrPrnt));
                //System.Diagnostics.Debug.WriteLine("Remove Last Time Read");
             }
 
-            // اگر داده ای از کارتخوان و شماره کارت وجود داشته باشد ورودی جدید را رد میکنیم
+            // ??? ???? ?? ?? ???????? ? ????? ???? ???? ????? ???? ????? ???? ?? ?? ??????
             if (lastDataRead.Any(d => d.MacAdrs == _devName && d.EnrollNumber == _fngrPrnt)) { /*System.Diagnostics.Debug.WriteLine("Reject New Read Data");*/ return; }
 
-            // اگر اطلاعاتی از کارتخوان و کارت عضویت وجود نداشته باشد برای اولین بار آن را ثبت میکنیم
+            // ??? ???????? ?? ???????? ? ???? ????? ???? ?????? ???? ???? ????? ??? ?? ?? ??? ??????
             lastDataRead.Add(new DataReadFromCardReader() { MacAdrs = _devName, EnrollNumber = _fngrPrnt, LastTimeRead = DateTime.Now });
             //System.Diagnostics.Debug.WriteLine("Add New Data Read");
 
@@ -5836,9 +5831,9 @@ namespace System.Scsc.Ui.MasterPage
                Invoke(
                   new Action(() =>
                   {
-                     // ابتدا بررسی میکنیم که داده ورودی مربوط به کدام بخش دستگاه های بازی میشود
-                     // 1 - بازی های زمان متغییر مانند بیلیارد
-                     // 2 - بازی های زمان ثابت مانند شهربازی
+                     // ????? ????? ?????? ?? ???? ????? ????? ?? ???? ??? ?????? ??? ???? ?????
+                     // 1 - ???? ??? ???? ?????? ????? ???????
+                     // 2 - ???? ??? ???? ???? ????? ???????
                      //devName = Regex.Replace(devName, "[^0-9]", "");
                      var _getDev = iScsc.External_Devices.FirstOrDefault(d => d.DEV_NAME == _devName && d.STAT == "002");
                      if (_getDev == null) { System.Diagnostics.Debug.WriteLine("Reject because can't found device" + _devName); return; }
@@ -5854,18 +5849,18 @@ namespace System.Scsc.Ui.MasterPage
                      // Check Exists Service and Valid Card
                      var _serv = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == _fngrPrnt);
 
-                     // 1404/05/28 اگر مشتری تعریف شده باشد باید کد کارتشو درون پایگاه داده ذخیره کرد برای اینکه بخواهیم جلسه اضافه کم کنیم
+                     // 1404/05/28 ??? ????? ????? ??? ???? ???? ?? ?????? ???? ?????? ???? ????? ??? ???? ????? ??????? ???? ????? ?? ????
                      if (_serv != null)
                      {
                         // 1404/06/24 * #MahsaAmini
-                        // عملیات برای مشتریان اشتراکی
-                        // برای استفاده کردن از کارت استخر بارانا که بتوانیم ورود و خروج ساعت را داشته باشیم برای مشتریان اشتراکی
+                        // ?????? ???? ??????? ???????
+                        // ???? ??????? ???? ?? ???? ????? ?????? ?? ??????? ???? ? ???? ???? ?? ????? ????? ???? ??????? ???????
                         if (ModifierKeys.HasFlag(Keys.Control | Keys.Shift))
                         {
-                           // در این قسمت
+                           // ?? ??? ????
                            FngrPrnt_Txt.Text = _storLastFngrPrnt;
                            
-                           // پیدا کردن رکورد حضوری در جدول حضور و غیاب برای مشتری که اخرین بار حضوری زده
+                           // ???? ???? ????? ????? ?? ???? ???? ? ???? ???? ????? ?? ????? ??? ????? ???
                            iScsc.LNK_CRDO_P(
                               new XElement("Card_Link_Operation",
                                   new XAttribute("oprttype", "001"),
@@ -5877,12 +5872,12 @@ namespace System.Scsc.Ui.MasterPage
 
                            return;
                         }
-                        // مشتریان مهمان
+                        // ??????? ?????
                         else if (ModifierKeys.HasFlag(Keys.Control | Keys.Alt))
                         {
                            FngrPrnt_Txt.Text = _storLastFngrPrnt;
 
-                           // در این قسمت ابتدا باید به فرم درامد متفرقه رفته و درخواست جاری رو پیدا میکنیم و بعد از ان عملیات درج رکورد در جدول را انجام میدهیم
+                           // ?? ??? ???? ????? ???? ?? ??? ????? ?????? ???? ? ??????? ???? ?? ???? ?????? ? ??? ?? ?? ?????? ??? ????? ?? ???? ?? ????? ??????
                            _DefaultGateway.Gateway(
                               new Job(SendType.External, "Localhost",
                                    new List<Job>
@@ -5903,9 +5898,9 @@ namespace System.Scsc.Ui.MasterPage
 
                            return;
                         }
-                        else if(_getDev.DEV_TYPE == "001" /* Card Reader */ && _getDev.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */ && _getDev.SEND_CMND_TYPE.In("002") /* Close */ && _getDev.EXPN_CODE != null /* Fine Amount */)
+                        else if(_getDev.DEV_TYPE == "001" /* Card Reader */ && _getDev.ACTN_TYPE == "010" /* ???? ? ???? ???? ????? ????????? */ && _getDev.SEND_CMND_TYPE.In("002") /* Close */ && _getDev.EXPN_CODE != null /* Fine Amount */)
                         {                           
-                           // 1404/07/27 * اگر کارت متعلق به پرسنل باشد باید چک کنیم که ایا ورود ان زده شده یا خیر
+                           // 1404/07/27 * ??? ???? ????? ?? ????? ???? ???? ?? ???? ?? ??? ???? ?? ??? ??? ?? ???
                            if (_serv.FGPB_TYPE_DNRM == "003")
                            {
                               var _attn = iScsc.Attendances.FirstOrDefault(a => a.FIGH_FILE_NO == _serv.FILE_NO && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null);
@@ -5916,7 +5911,7 @@ namespace System.Scsc.Ui.MasterPage
                                  _getDev.External_Device_Link_External_Devices.Where(el => el.STAT == "002")
                                     .ToList()
                                     .ForEach(ed =>
-                                       // در این مرحله باز کردن گیت رو فرمان میدیم
+                                       // ?? ??? ????? ??? ???? ??? ?? ????? ?????
                                        OprtExtDev(
                                           new XElement("MainPage",
                                              new XAttribute("type", "extdev"),
@@ -5935,7 +5930,7 @@ namespace System.Scsc.Ui.MasterPage
                                  _getDev.External_Device_Link_External_Devices.Where(el => el.STAT == "002")
                                     .ToList()
                                     .ForEach(ed =>
-                                       // در این مرحله باز کردن گیت رو فرمان میدیم
+                                       // ?? ??? ????? ??? ???? ??? ?? ????? ?????
                                        OprtExtDev(
                                           new XElement("MainPage",
                                              new XAttribute("type", "extdev"),
@@ -5952,12 +5947,12 @@ namespace System.Scsc.Ui.MasterPage
                               return;
                            }
 
-                           // 1404/07/26 * اگر کارتی که روی دستگاه گذاشته میشود به هیچ رکورد معتبری متصل نباشد
+                           // 1404/07/26 * ??? ????? ?? ??? ?????? ?????? ????? ?? ??? ????? ?????? ???? ?????
                            if(!iScsc.Card_Link_Operations.Any(c => c.CARD_FILE_NO == _serv.FILE_NO && c.VALD_TYPE == "002" && c.STRT_TIME.Value.Date == DateTime.Now.Date))
                            {
                               _getDev.External_Device_Link_External_Devices.Where(el => el.STAT == "002").ToList()
                                  .ForEach(ed =>
-                                    // در این مرحله باز کردن گیت رو فرمان میدیم
+                                    // ?? ??? ????? ??? ???? ??? ?? ????? ?????
                                     OprtExtDev(
                                        new XElement("MainPage",
                                           new XAttribute("type", "extdev"),
@@ -5973,8 +5968,8 @@ namespace System.Scsc.Ui.MasterPage
                               return;
                            }
 
-                           // 1404/06/29 * برای سیستم های محاسبه زمانی باید چک کنیم که مشتری به موقع از سیستم خارج شده یا خیر
-                           // پیدا کردن رکورد حضوری در جدول حضور و غیاب برای مشتری که اخرین بار حضوری زده
+                           // 1404/06/29 * ???? ????? ??? ?????? ????? ???? ?? ???? ?? ????? ?? ???? ?? ????? ???? ??? ?? ???
+                           // ???? ???? ????? ????? ?? ???? ???? ? ???? ???? ????? ?? ????? ??? ????? ???
                            iScsc.LNK_CRDO_P(
                               new XElement("Card_Link_Operation",
                                   new XAttribute("oprttype", "003"),
@@ -5984,8 +5979,8 @@ namespace System.Scsc.Ui.MasterPage
                               )
                            );
 
-                           // در این قسمت باید چک کنیم که ایا این خروج باید جریمه پرداخت کند یا خیر
-                           // اگر شامل جریمه میشود باید فرم درامد متفرقه را باز کند
+                           // ?? ??? ???? ???? ?? ???? ?? ??? ??? ???? ???? ????? ?????? ??? ?? ???
+                           // ??? ???? ????? ????? ???? ??? ????? ?????? ?? ??? ???
                            var _cardLinkOprt = iScsc.Card_Link_Operations.FirstOrDefault(c => c.CARD_FILE_NO == _serv.FILE_NO && c.VALD_TYPE == "002");
                            if(_cardLinkOprt != null && _cardLinkOprt.FINE_RQST_RQID != null)
                            {
@@ -6026,11 +6021,11 @@ namespace System.Scsc.Ui.MasterPage
                                  }
                               );
 
-                              // اگر رفت و امد بدون جریمه میباشد باید در گیت مورد نظر باز شود
+                              // ??? ??? ? ??? ???? ????? ?????? ???? ?? ??? ???? ??? ??? ???
                               //if(_cardLinkOprt.External_Device.External_Device_Link_External_Devices.Any(el => ))
                               _getDev.External_Device_Link_External_Devices.Where(el => el.STAT == "002").ToList()
                                  .ForEach(ed =>
-                                    // در این مرحله باز کردن گیت رو فرمان میدیم
+                                    // ?? ??? ????? ??? ???? ??? ?? ????? ?????
                                     OprtExtDev(
                                        new XElement("MainPage",
                                           new XAttribute("type", "extdev"),
@@ -6048,26 +6043,26 @@ namespace System.Scsc.Ui.MasterPage
                         }
                         else
                         {
-                           // انالیز کارت گذاشتن روی دستگاه برای اینکه بخواهیم جلسه بیشتری از مشتری کم کنیم
+                           // ?????? ???? ?????? ??? ?????? ???? ????? ??????? ???? ?????? ?? ????? ?? ????
                            iScsc.ExecuteCommand("INSERT INTO dbo.External_Device_DataRead (EDEV_CODE, FNGR_PRNT, CODE) VALUES ({0}, {1}, 0);", _getDev.CODE, _fngrPrnt);
                         }
                      }
 
-                     // بدست آوردن آیین نامه اصلی
+                     // ???? ????? ???? ???? ????
                      var regl = iScsc.Regulations.FirstOrDefault(rg => rg.REGL_STAT == "002" && rg.TYPE == "001");
 
-                     if(_getDev.DEV_TYPE == "001" /* اگر دستگاه ریدر کارتخوان عادی باشد */)
+                     if(_getDev.DEV_TYPE == "001" /* ??? ?????? ???? ???????? ???? ???? */)
                      {
                         axCZKEM1_OnAttTransactionEx(FngrPrnt_Txt.Text, 1, 1, 1, 2016, 05, 10, 09, 31, 50, 20);
                         return;
                      }
-                     else if (_getDev.DEV_TYPE == "011" /* سیستم کنترلگر ریدر با دستبند */)
+                     else if (_getDev.DEV_TYPE == "011" /* ????? ??????? ???? ?? ?????? */)
                      {
-                        // 1403/08/02 * نسخه استخر علی عباسی فرزانگان برای کنترل درب ورودی استخر
-                        if (_getDev.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */)
+                        // 1403/08/02 * ???? ????? ??? ????? ???????? ???? ????? ??? ????? ?????
+                        if (_getDev.ACTN_TYPE == "010" /* ???? ? ???? ???? ????? ????????? */)
                         {
-                           #region چک کردن دستبند یا کارت عضویت برای باز کردن درب گیت ورودی و ارسال فرمان به رله دستگاه
-                           // در اولین گام باید دوره فعال و معتبر مشتری را پیدا کنیم
+                           #region ?? ???? ?????? ?? ???? ????? ???? ??? ???? ??? ??? ????? ? ????? ????? ?? ??? ??????
+                           // ?? ????? ??? ???? ???? ???? ? ????? ????? ?? ???? ????
                            
                            if(_serv != null && 
                               _getDev.External_Device_Link_Methods
@@ -6090,8 +6085,8 @@ namespace System.Scsc.Ui.MasterPage
                         }
                         else
                         {
-                           #region دستگاه های کنترلگر ریدر های دستبندی
-                           // در اولین گام باید چک کنیم که این دستبند به کسی تعلق دارد یا خیر
+                           #region ?????? ??? ??????? ???? ??? ???????
+                           // ?? ????? ??? ???? ?? ???? ?? ??? ?????? ?? ??? ???? ???? ?? ???
                            if (iScsc.Dresser_Attendances.Any(da => da.Dresser.CMND_SEND == FngrPrnt_Txt.Text && da.LEND_TIME != null && da.TKBK_TIME == null && da.CONF_STAT == "002"))
                            {
                               SendCommandDevExpn("in", _getDev.DEV_NAME, "");
@@ -6112,16 +6107,16 @@ namespace System.Scsc.Ui.MasterPage
                         return;
                      }
 
-                     // اگر مشتری وجود نداشته یا اینکه مشتری اصلا سپرده نداشته باشد
+                     // ??? ????? ???? ?????? ?? ????? ????? ???? ????? ?????? ????
                      if (_serv == null || (regl.AMNT_TYPE == "001" && _serv.DPST_AMNT_DNRM < 10000) || (regl.AMNT_TYPE == "002" && _serv.DPST_AMNT_DNRM < 1000))
                      {
-                        #region اگر مشتری وجود نداشته یا اینکه مشتری اصلا سپرده نداشته باشد
-                        // اگر کارت عضویت خام باشد
+                        #region ??? ????? ???? ?????? ?? ????? ????? ???? ????? ?????? ????
+                        // ??? ???? ????? ??? ????
                         if (_serv == null)
                         {
                            if(_getDev.DEV_TYPE == "007")
                               SendCommandDevExpn("er", _devName, _fngrPrnt);
-                           else if (_getDev.DEV_TYPE.In("008" /* مدیریت مجتمع */))
+                           else if (_getDev.DEV_TYPE.In("008" /* ?????? ????? */))
                            {
                               var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == _getDev.EXPN_CODE);
 
@@ -6131,7 +6126,7 @@ namespace System.Scsc.Ui.MasterPage
                                  ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), _devName, _fngrPrnt);
                            }
 
-                           // باز کردن فرم ثبت نام مشتری
+                           // ??? ???? ??? ??? ??? ?????
                            Job _InteractWithScsc =
                               new Job(SendType.External, "Localhost",
                                  new List<Job>
@@ -6148,7 +6143,7 @@ namespace System.Scsc.Ui.MasterPage
                            if (_serv != null)
                            {
                               var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == _getDev.EXPN_CODE);
-                              // مجوز اجرای بازی
+                              // ???? ????? ????
                               SendCommandDevExpn(
                                  "er:" + (_serv.DPST_AMNT_DNRM.Value).ToString("n0").PadLeft(10, ' ') +
                                  "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
@@ -6157,7 +6152,7 @@ namespace System.Scsc.Ui.MasterPage
                            else
                            {
                               var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == _getDev.EXPN_CODE);
-                              // مجوز اجرای بازی
+                              // ???? ????? ????
                               if (devExpn != null)
                               {
                                  SendCommandDevExpn(
@@ -6177,9 +6172,9 @@ namespace System.Scsc.Ui.MasterPage
                         #endregion
                      }
 
-                     if (_getDev.DEV_TYPE == "007" /* بازی های زمان متغییر مانند بیلیارد */)
+                     if (_getDev.DEV_TYPE == "007" /* ???? ??? ???? ?????? ????? ??????? */)
                      {
-                        #region بارگذاری فرم مربوط به رزرو میز
+                        #region ???????? ??? ????? ?? ???? ???
                         Job _GetAopBufeF =
                            new Job(SendType.External, "localhost",
                               new List<Job>
@@ -6190,12 +6185,12 @@ namespace System.Scsc.Ui.MasterPage
                         _DefaultGateway.Gateway(_GetAopBufeF);
                         #endregion
 
-                        #region اگر فرم رزرو میز درون حافظه قرار گرفت
+                        #region ??? ??? ???? ??? ???? ????? ???? ????
                         if (_GetAopBufeF.Output != null)
                         {
                            if (frstVistTablCntlF)
                            {
-                              #region برای روالهای بعدی دریافت ورودی
+                              #region ???? ??????? ???? ?????? ?????
                               _DefaultGateway.Gateway(
                                  new Job(SendType.External, "Localhost",
                                     new List<Job>
@@ -6216,7 +6211,7 @@ namespace System.Scsc.Ui.MasterPage
                            }
                            else
                            {
-                              #region اگر برای اولین بار فرم میز باز میشود
+                              #region ??? ???? ????? ??? ??? ??? ??? ?????
                               frstVistTablCntlF = true;
                               _DefaultGateway.Gateway(
                                  new Job(SendType.External, "Localhost",
@@ -6240,11 +6235,11 @@ namespace System.Scsc.Ui.MasterPage
                         }
                         #endregion
                      }
-                     else if (_getDev.DEV_TYPE == "008" /* بازی های زمان ثابت مانند شهربازی */)
+                     else if (_getDev.DEV_TYPE == "008" /* ???? ??? ???? ???? ????? ??????? */)
                      {
-                        #region فعالیت های مربوط به دستگاه های بازی با زمان ثابت
+                        #region ?????? ??? ????? ?? ?????? ??? ???? ?? ???? ????
                         var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == _getDev.EXPN_CODE);
-                        // اگر مبلغ بازی از میزان اعتبار مشتری بیشتر باشد
+                        // ??? ???? ???? ?? ????? ?????? ????? ????? ????
                         if (_serv.DPST_AMNT_DNRM < devExpn.PRIC)
                         {
                            SendCommandDevExpn(
@@ -6254,24 +6249,24 @@ namespace System.Scsc.Ui.MasterPage
                            return;
                         }
 
-                        // بررسی اینکه آیا مشتری قبلا کارت خود را وارد نکرده باشد و دوباره کارت نزده باشد 
-                        // نکته : اگر مشتری کارت زده باشد و دوره بازی تمام شده باشد می تواند دوباره کارت بزند و بازی کند
+                        // ????? ????? ??? ????? ???? ???? ??? ?? ???? ????? ???? ? ?????? ???? ???? ???? 
+                        // ???? : ??? ????? ???? ??? ???? ? ???? ???? ???? ??? ???? ?? ????? ?????? ???? ???? ? ???? ???
                         var lastRqst016 = iScsc.VF_Request_Changing(null).Where(r => r.RQTP_CODE == "016" && r.SAVE_DATE.Value.Date == DateTime.Now.Date && iScsc.Payment_Details.Any(pd => pd.PYMT_RQST_RQID == r.RQID && pd.EXPN_CODE == devExpn.CODE)).OrderByDescending(r => r.SAVE_DATE).Take(1).FirstOrDefault();
 
-                        // اگر درخواستی برای دستگاه بازی برای مشتری وجود داشته باشه
+                        // ??? ???????? ???? ?????? ???? ???? ????? ???? ????? ????
                         if (lastRqst016 != null)
                         {
-                           // اگر بازه زمانی برای مشتری تمام شده باشد با کسر اعتبار جدید می تواند دوباره بازی کند
+                           // ??? ???? ????? ???? ????? ???? ??? ???? ?? ??? ?????? ???? ?? ????? ?????? ???? ???
                            if (!DateTime.Now.IsBetween((DateTime)lastRqst016.SAVE_DATE, (DateTime)lastRqst016.SAVE_DATE.Value.AddMinutes(devExpn.MIN_TIME.Value.Minute).AddSeconds(devExpn.MIN_TIME.Value.Second)))
                            {
-                              // مجوز اجرای بازی
+                              // ???? ????? ????
                               SendCommandDevExpn(
                                  "st:" + (_serv.DPST_AMNT_DNRM.Value - devExpn.PRIC).ToString("n0").PadLeft(10, ' ') +
                                  "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
                                  ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' '), _devName, _fngrPrnt);
 
                               var xRet = new XElement("Result");
-                              // ثبت درخواست و کسر اعتبار از مشتری
+                              // ??? ??????? ? ??? ?????? ?? ?????
                               iScsc.RunnerdbCommand(
                                  new XElement("Router_Command",
                                      new XAttribute("subsys", 5),
@@ -6297,7 +6292,7 @@ namespace System.Scsc.Ui.MasterPage
                            }
                            else
                            {
-                              // مجوز اجرای بازی
+                              // ???? ????? ????
                               SendCommandDevExpn(
                                  "df:" + (_serv.DPST_AMNT_DNRM.Value).ToString("n0").PadLeft(10, ' ') +
                                  "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
@@ -6306,14 +6301,14 @@ namespace System.Scsc.Ui.MasterPage
                         }
                         else
                         {
-                           // مجوز اجرای بازی
+                           // ???? ????? ????
                            SendCommandDevExpn(
                               "st:" + (_serv.DPST_AMNT_DNRM.Value - devExpn.PRIC).ToString("n0").PadLeft(10, ' ') +
                               "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') + 
                               ":" + devExpn.PRIC.ToString("n0").PadLeft(9, ' ') , _devName, _fngrPrnt);
 
                            var xRet = new XElement("Result");
-                           // ثبت درخواست و کسر اعتبار از مشتری
+                           // ??? ??????? ? ??? ?????? ?? ?????
                            iScsc.RunnerdbCommand(
                               new XElement("Router_Command",
                                   new XAttribute("subsys", 5),
@@ -6379,7 +6374,7 @@ namespace System.Scsc.Ui.MasterPage
             if (getInfoDev.DEV_COMP_TYPE == "002" && getInfoDev.DEV_TYPE == "008")
             {
                var devExpn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == getInfoDev.EXPN_CODE);
-               // مجوز اجرای بازی
+               // ???? ????? ????
                SendCommandDevExpn(
                   "df:" + "0".PadLeft(10, ' ') +
                   "&" + devExpn.MIN_TIME.Value.Minute.ToString().PadLeft(2, ' ') +
@@ -6397,7 +6392,7 @@ namespace System.Scsc.Ui.MasterPage
                {
                   Invoke(new Action(() => 
                   {
-                     // 1404/05/01 * در مورد اینکه چه دستگاه هایی قابلیت تغییر وضعیت سیستم پردازش اطلاعات ورودی دستگاه ها رو داشته باشه
+                     // 1404/05/01 * ?? ???? ????? ?? ?????? ???? ?????? ????? ????? ????? ?????? ??????? ????? ?????? ?? ?? ????? ????
                      AttnType_Lov.EditValue = getInfoDev.ACTN_TYPE.NotIn("003", "004", "005", "006", "007", "010", "011", "012", "013") ? getInfoDev.ACTN_TYPE : AttnType_Lov.EditValue ;
                      this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
                      // 1404/05/01 * Save data in logs                     
@@ -6406,7 +6401,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                else
                {
-                  // 1404/05/01 * در مورد اینکه چه دستگاه هایی قابلیت تغییر وضعیت سیستم پردازش اطلاعات ورودی دستگاه ها رو داشته باشه
+                  // 1404/05/01 * ?? ???? ????? ?? ?????? ???? ?????? ????? ????? ????? ?????? ??????? ????? ?????? ?? ?? ????? ????
                   AttnType_Lov.EditValue = getInfoDev.ACTN_TYPE.NotIn("003", "004", "005", "006", "007", "010", "011", "012", "013") ? getInfoDev.ACTN_TYPE : AttnType_Lov.EditValue;
                   this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1212;
                   // 1404/05/01 * Save data in logs
@@ -6414,7 +6409,7 @@ namespace System.Scsc.Ui.MasterPage
                }
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Server_ClientConnected error: " + ex.ToString()); }
       }
       #endregion
       #endregion
@@ -6453,7 +6448,7 @@ namespace System.Scsc.Ui.MasterPage
                   PingStatus = false;
                }
             }
-            catch { }
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Ping error: " + ex.ToString()); }
          }
          
          public void Stop()
@@ -6474,7 +6469,7 @@ namespace System.Scsc.Ui.MasterPage
       #endregion
 
       #region Online Dresser
-      // فعال سازی سیستم قفل کمد های انلاین
+      // ???? ???? ????? ??? ??? ??? ??????
       private void Start_OnlineDresser()
       {
          try
@@ -6495,20 +6490,20 @@ namespace System.Scsc.Ui.MasterPage
 
                            if (fingerPrintSetting == null) return;
 
-                           // اگر حضور غیاب با دستگاه انگشتی نباشد
+                           // ??? ???? ???? ?? ?????? ?????? ?????
                            if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
 
-                           // اگر حضور و غیاب با دستگاه انگشتی باشد و ارتباط را چک میکنیم
+                           // ??? ???? ? ???? ?? ?????? ?????? ???? ? ?????? ?? ?? ??????
                            if (fingerPrintSetting.IP_ADR3 != null && fingerPrintSetting.IP_ADR3.Length >= 10 && fingerPrintSetting.PORT_NUM3 != null)
                            {
-                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              // 1398/12/25 * ????? ???? ?????? ?? ???? ?????? ??? ???? ????
                               var dev =
                                  new Device_On_Network(fingerPrintSetting.IP_ADR3)
                                  {
                                     SPort = (int)fingerPrintSetting.PORT_NUM3,
                                     RPort = (int)fingerPrintSetting.PORT_NUM3,
                                     DeviceType = "FngrPrnt",
-                                    DeviceName = "دستگاه اثر انگشت رختکن"
+                                    DeviceName = "?????? ??? ????? ?????"
                                  };
                               dev.CallBack = 
                                  new Action(() =>
@@ -6523,7 +6518,7 @@ namespace System.Scsc.Ui.MasterPage
                                        
                                        if (Fp3DevIsConnected)
                                        {
-                                          OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                          OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ???? ?? ????";
                                           int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                           axCZKEM3.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
@@ -6531,7 +6526,7 @@ namespace System.Scsc.Ui.MasterPage
                                        }
                                        else
                                        {
-                                          OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                          OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ??????? ?? ????";
                                        }
                                     });
                               DeviceOnNetworks.Add(dev);
@@ -6547,18 +6542,18 @@ namespace System.Scsc.Ui.MasterPage
                                  }
                                  if (Fp3DevIsConnected == true)
                                  {
-                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                    OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ???? ?? ????";
                                     int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                     axCZKEM3.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
-                                    // 1402/10/05 * اضافه کردن دستگاه اثرانگشت به لیست
-                                    AddFngrDevOpr(axCZKEM3, fingerPrintSetting.IP_ADR3, "رختکن 1");
+                                    // 1402/10/05 * ????? ???? ?????? ???????? ?? ????
+                                    AddFngrDevOpr(axCZKEM3, fingerPrintSetting.IP_ADR3, "????? 1");
 
                                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
                                  }
                                  else
                                  {
-                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                    OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ??????? ?? ????";
                                  }
                               }
                            }
@@ -6571,20 +6566,20 @@ namespace System.Scsc.Ui.MasterPage
 
                            if (fingerPrintSetting == null) return;
 
-                           // اگر حضور غیاب با دستگاه انگشتی نباشد
+                           // ??? ???? ???? ?? ?????? ?????? ?????
                            if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
 
-                           // اگر حضور و غیاب با دستگاه انگشتی باشد و ارتباط را چک میکنیم
+                           // ??? ???? ? ???? ?? ?????? ?????? ???? ? ?????? ?? ?? ??????
                            if (fingerPrintSetting.DEV4_STAT == "002" && fingerPrintSetting.IP_ADR4 != null && fingerPrintSetting.IP_ADR4.Length >= 10 && fingerPrintSetting.PORT_NUM4 != null)
                            {
-                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              // 1398/12/25 * ????? ???? ?????? ?? ???? ?????? ??? ???? ????
                               var dev =
                                  new Device_On_Network(fingerPrintSetting.IP_ADR4)
                                  {
                                     SPort = (int)fingerPrintSetting.PORT_NUM4,
                                     RPort = (int)fingerPrintSetting.PORT_NUM4,
                                     DeviceType = "FngrPrnt",
-                                    DeviceName = "دستگاه اثر انگشت رختکن"
+                                    DeviceName = "?????? ??? ????? ?????"
                                  };
                               dev.CallBack =
                                  new Action(() =>
@@ -6599,7 +6594,7 @@ namespace System.Scsc.Ui.MasterPage
 
                                     if (Fp4DevIsConnected)
                                     {
-                                       OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                       OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ???? ?? ????";
                                        int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                        axCZKEM4.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
@@ -6607,7 +6602,7 @@ namespace System.Scsc.Ui.MasterPage
                                     }
                                     else
                                     {
-                                       OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                       OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ??????? ?? ????";
                                     }
                                  });
                               DeviceOnNetworks.Add(dev);
@@ -6623,18 +6618,18 @@ namespace System.Scsc.Ui.MasterPage
                                  }
                                  if (Fp4DevIsConnected == true)
                                  {
-                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                    OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ???? ?? ????";
                                     int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                     axCZKEM4.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
-                                    // 1402/10/05 * اضافه کردن دستگاه اثرانگشت به لیست
-                                    AddFngrDevOpr(axCZKEM4, fingerPrintSetting.IP_ADR4, "رختکن 2");
+                                    // 1402/10/05 * ????? ???? ?????? ???????? ?? ????
+                                    AddFngrDevOpr(axCZKEM4, fingerPrintSetting.IP_ADR4, "????? 2");
 
                                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
                                  }
                                  else
                                  {
-                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                    OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ??????? ?? ????";
                                  }
                               }
                            }
@@ -6647,20 +6642,20 @@ namespace System.Scsc.Ui.MasterPage
 
                            if (fingerPrintSetting == null) return;
 
-                           // اگر حضور غیاب با دستگاه انگشتی نباشد
+                           // ??? ???? ???? ?? ?????? ?????? ?????
                            if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
 
-                           // اگر حضور و غیاب با دستگاه انگشتی باشد و ارتباط را چک میکنیم
+                           // ??? ???? ? ???? ?? ?????? ?????? ???? ? ?????? ?? ?? ??????
                            if (fingerPrintSetting.DEV5_STAT == "002" && fingerPrintSetting.IP_ADR5 != null && fingerPrintSetting.IP_ADR5.Length >= 10 && fingerPrintSetting.PORT_NUM5 != null)
                            {
-                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              // 1398/12/25 * ????? ???? ?????? ?? ???? ?????? ??? ???? ????
                               var dev =
                                  new Device_On_Network(fingerPrintSetting.IP_ADR5)
                                  {
                                     SPort = (int)fingerPrintSetting.PORT_NUM5,
                                     RPort = (int)fingerPrintSetting.PORT_NUM5,
                                     DeviceType = "FngrPrnt",
-                                    DeviceName = "دستگاه اثر انگشت رختکن"
+                                    DeviceName = "?????? ??? ????? ?????"
                                  };
                               dev.CallBack =
                                  new Action(() =>
@@ -6675,7 +6670,7 @@ namespace System.Scsc.Ui.MasterPage
 
                                     if (Fp5DevIsConnected)
                                     {
-                                       OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                       OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ???? ?? ????";
                                        int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                        axCZKEM5.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
@@ -6683,7 +6678,7 @@ namespace System.Scsc.Ui.MasterPage
                                     }
                                     else
                                     {
-                                       OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                       OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ??????? ?? ????";
                                     }
                                  });
                               DeviceOnNetworks.Add(dev);
@@ -6699,18 +6694,18 @@ namespace System.Scsc.Ui.MasterPage
                                  }
                                  if (Fp5DevIsConnected == true)
                                  {
-                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                    OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ???? ?? ????";
                                     int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                     axCZKEM5.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
-                                    // 1402/10/05 * اضافه کردن دستگاه اثرانگشت به لیست
-                                    AddFngrDevOpr(axCZKEM5, fingerPrintSetting.IP_ADR5, "رختکن 3");
+                                    // 1402/10/05 * ????? ???? ?????? ???????? ?? ????
+                                    AddFngrDevOpr(axCZKEM5, fingerPrintSetting.IP_ADR5, "????? 3");
 
                                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
                                  }
                                  else
                                  {
-                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                    OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ??????? ?? ????";
                                  }
                               }
                            }
@@ -6723,20 +6718,20 @@ namespace System.Scsc.Ui.MasterPage
 
                            if (fingerPrintSetting == null) return;
 
-                           // اگر حضور غیاب با دستگاه انگشتی نباشد
+                           // ??? ???? ???? ?? ?????? ?????? ?????
                            if (fingerPrintSetting.ATTN_SYST_TYPE != "002") return;
 
-                           // اگر حضور و غیاب با دستگاه انگشتی باشد و ارتباط را چک میکنیم
+                           // ??? ???? ? ???? ?? ?????? ?????? ???? ? ?????? ?? ?? ??????
                            if (fingerPrintSetting.DEV6_STAT == "002" && fingerPrintSetting.IP_ADR6 != null && fingerPrintSetting.IP_ADR6.Length >= 10 && fingerPrintSetting.PORT_NUM6 != null)
                            {
-                              // 1398/12/25 * اضافه کردن دستگاه به لیست دستگاه های داخل شبکه
+                              // 1398/12/25 * ????? ???? ?????? ?? ???? ?????? ??? ???? ????
                               var dev =
                                  new Device_On_Network(fingerPrintSetting.IP_ADR6)
                                  {
                                     SPort = (int)fingerPrintSetting.PORT_NUM6,
                                     RPort = (int)fingerPrintSetting.PORT_NUM6,
                                     DeviceType = "FngrPrnt",
-                                    DeviceName = "دستگاه اثر انگشت رختکن"
+                                    DeviceName = "?????? ??? ????? ?????"
                                  };
                               dev.CallBack =
                                  new Action(() =>
@@ -6751,7 +6746,7 @@ namespace System.Scsc.Ui.MasterPage
 
                                     if (Fp6DevIsConnected)
                                     {
-                                       OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                       OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ???? ?? ????";
                                        int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                        axCZKEM6.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
@@ -6759,7 +6754,7 @@ namespace System.Scsc.Ui.MasterPage
                                     }
                                     else
                                     {
-                                       OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                       OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ??????? ?? ????";
                                     }
                                  });
                               DeviceOnNetworks.Add(dev);
@@ -6775,18 +6770,18 @@ namespace System.Scsc.Ui.MasterPage
                                  }
                                  if (Fp6DevIsConnected == true)
                                  {
-                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین فعال می باشد";
+                                    OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ???? ?? ????";
                                     int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                     axCZKEM6.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
-                                    // 1402/10/05 * اضافه کردن دستگاه اثرانگشت به لیست
-                                    AddFngrDevOpr(axCZKEM6, fingerPrintSetting.IP_ADR6, "رختکن 4");
+                                    // 1402/10/05 * ????? ???? ?????? ???????? ?? ????
+                                    AddFngrDevOpr(axCZKEM6, fingerPrintSetting.IP_ADR6, "????? 4");
 
                                     BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
                                  }
                                  else
                                  {
-                                    OnlineDres_Butn.ToolTip = "سیستم کمد های انلاین غیرفعال می باشد";
+                                    OnlineDres_Butn.ToolTip = "????? ??? ??? ?????? ??????? ?? ????";
                                  }
                               }
                            }
@@ -6821,20 +6816,20 @@ namespace System.Scsc.Ui.MasterPage
 
             Partners_Butn.Visible = PrtnrCont_Butn.Visible = PrtnrPos_Butn.Visible = PartnerDresNum_Butn.Visible = false;
             PrtnrProc1_Pbc.Visible = PrtnrProc2_Pbc.Visible = PrtnrProc3_Pbc.Visible = PartnerDresNum_Butn.Visible = false;
-            // شماره کد انگشتی را وارد باکس میکنیم
+            // ????? ?? ?????? ?? ???? ???? ??????
             OnlineDres_Butn.Focus();
             OnlineDres_Butn.Text = EnrollNumber;
 
-            // ابتدا پیدا میکنیم که امروز کدام ردیف حضور و غیاب را داریم
+            // ????? ???? ?????? ?? ????? ???? ???? ???? ? ???? ?? ?????
             var attncode = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == EnrollNumber && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null).Max(a => a.CODE);
 
-            // ثبت ساعت باز کردن کمد            
+            // ??? ???? ??? ???? ???            
             iScsc.INS_DART_P(attncode, null, null);
 
-            // اینجا باید شماره سریال پورت را پیدا کنیم و پیام را بهش ارسال کنیم
+            // ????? ???? ????? ????? ???? ?? ???? ???? ? ???? ?? ??? ????? ????
             var dresrattn = iScsc.Dresser_Attendances.FirstOrDefault(da => da.ATTN_CODE == attncode && da.DRAT_CODE == null);
 
-            // پیدا کردن پورت برای ارسال
+            // ???? ???? ???? ???? ?????
             //var ports = OnlineDres_Butn.Tag as List<SerialPort>;
             //var port = ports.FirstOrDefault(p => p.PortName == dresrattn.Dresser.COMM_PORT);
             //port.Write(dresrattn.Attendance.DERS_NUMB.ToString());
@@ -6850,13 +6845,13 @@ namespace System.Scsc.Ui.MasterPage
                      new XAttribute("sendport", _dev.PORT_SEND)
                )
             );
-            // ابتدا نمایش  صفحه نمایش اتفاق بیوفتد
+            // ????? ?????  ???? ????? ????? ??????
             //SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString().PadLeft(3, '0'), devsName.FirstOrDefault(d => d.DEV_TYPE == "009").DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
 
-            // مرحله بعدی ارسال پیام به دستگاه کنترلر مربوط به کمدهای قفل انلاین هست
+            // ????? ???? ????? ???? ?? ?????? ?????? ????? ?? ?????? ??? ?????? ???
             //SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString().PadLeft(3, '0'), devsName.FirstOrDefault(d => d.DEV_TYPE == "010" && d.IP_ADRS == ctrldev.IP_ADRS).DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
 
-            // 1402/10/21 * باز کردن کمدهای همراهان
+            // 1402/10/21 * ??? ???? ?????? ???????
             if(iScsc.Dresser_Attendances.Any(da => da.ATTN_CODE == attncode && da.DRAT_CODE != null))
             {
                Partners_Butn.Visible = PrtnrCont_Butn.Visible = PrtnrPos_Butn.Visible = PartnerDresNum_Butn.Visible = true;
@@ -6894,11 +6889,11 @@ namespace System.Scsc.Ui.MasterPage
 
             Partners_Butn.Visible = PrtnrCont_Butn.Visible = PrtnrPos_Butn.Visible = PartnerDresNum_Butn.Visible = false;
             PrtnrProc1_Pbc.Visible = PrtnrProc2_Pbc.Visible = PrtnrProc3_Pbc.Visible = PartnerDresNum_Butn.Visible = false;
-            // شماره کد انگشتی را وارد باکس میکنیم
+            // ????? ?? ?????? ?? ???? ???? ??????
             OnlineDres_Butn.Focus();
             OnlineDres_Butn.Text = EnrollNumber;            
 
-            // در اولین گام باید چک کنیم که این داده ورودی برای دستبند میباشد
+            // ?? ????? ??? ???? ?? ???? ?? ??? ???? ????? ???? ?????? ??????
             var _atnw = iScsc.Attendance_Wrists.FirstOrDefault(aw => aw.STAT == "001" && aw.ATNW_FNGR_PRNT_DNRM == EnrollNumber && aw.Attendance.EXIT_TIME == null && aw.Attendance.ATTN_DATE.Date == DateTime.Now.Date && aw.DRES_CODE_DNRM != null);
             if (_atnw != null)
             {
@@ -6917,16 +6912,16 @@ namespace System.Scsc.Ui.MasterPage
             else
             {
 
-               // ابتدا پیدا میکنیم که امروز کدام ردیف حضور و غیاب را داریم
+               // ????? ???? ?????? ?? ????? ???? ???? ???? ? ???? ?? ?????
                var attncode = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == EnrollNumber && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null).Max(a => a.CODE);
 
-               // ثبت ساعت باز کردن کمد            
+               // ??? ???? ??? ???? ???            
                iScsc.INS_DART_P(attncode, null, null);
 
-               // اینجا باید شماره سریال پورت را پیدا کنیم و پیام را بهش ارسال کنیم
+               // ????? ???? ????? ????? ???? ?? ???? ???? ? ???? ?? ??? ????? ????
                var dresrattn = iScsc.Dresser_Attendances.FirstOrDefault(da => da.ATTN_CODE == attncode && da.DRAT_CODE == null);
 
-               // پیدا کردن پورت برای ارسال
+               // ???? ???? ???? ???? ?????
                //var ports = OnlineDres_Butn.Tag as List<SerialPort>;
                //var port = ports.FirstOrDefault(p => p.PortName == dresrattn.Dresser.COMM_PORT);
                //port.Write(dresrattn.Attendance.DERS_NUMB.ToString());
@@ -6942,13 +6937,13 @@ namespace System.Scsc.Ui.MasterPage
                         new XAttribute("sendport", _dev.PORT_SEND)
                   )
                );
-               // ابتدا نمایش  صفحه نمایش اتفاق بیوفتد
+               // ????? ?????  ???? ????? ????? ??????
                //SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString().PadLeft(3, '0'), devsName.FirstOrDefault(d => d.DEV_TYPE == "009").DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
 
-               // مرحله بعدی ارسال پیام به دستگاه کنترلر مربوط به کمدهای قفل انلاین هست
+               // ????? ???? ????? ???? ?? ?????? ?????? ????? ?? ?????? ??? ?????? ???
                //SendCommandDevExpn(dresrattn.Attendance.DERS_NUMB.ToString().PadLeft(3, '0'), devsName.FirstOrDefault(d => d.DEV_TYPE == "010" && d.IP_ADRS == ctrldev.IP_ADRS).DEV_NAME, dresrattn.Attendance.FNGR_PRNT_DNRM);
 
-               // 1402/10/21 * باز کردن کمدهای همراهان
+               // 1402/10/21 * ??? ???? ?????? ???????
                if (iScsc.Dresser_Attendances.Any(da => da.ATTN_CODE == attncode && da.DRAT_CODE != null))
                {
                   Partners_Butn.Visible = PrtnrCont_Butn.Visible = PrtnrPos_Butn.Visible = PartnerDresNum_Butn.Visible = true;
@@ -6982,7 +6977,7 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            // پیدا کردن دستگاه برای ارسال
+            // ???? ???? ?????? ???? ?????
             var _dev = iScsc.External_Devices.FirstOrDefault(ed => (ed.DEV_TYPE == "010" || ed.DEV_TYPE == "009") && ed.IP_ADRS == devIP && ed.STAT == "002");
 
             switch (_dev.DEV_COMP_TYPE)
@@ -7089,9 +7084,9 @@ namespace System.Scsc.Ui.MasterPage
                                              <body>
                                                 <p style=""float:right"">
                                                    <ol>
-                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
                                                       <ul>
-                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
                                                       </ul>
                                                    </ol>
                                                 </p>
@@ -7179,9 +7174,9 @@ namespace System.Scsc.Ui.MasterPage
                                              <body>
                                                 <p style=""float:right"">
                                                    <ol>
-                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
                                                       <ul>
-                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
                                                       </ul>
                                                    </ol>
                                                 </p>
@@ -7254,7 +7249,7 @@ namespace System.Scsc.Ui.MasterPage
                               if ((bool)output)
                                  return;
                               #region Show Error
-                              MessageBox.Show("خطا: عدم دسترسی به کد 171");
+                              MessageBox.Show("???: ??? ?????? ?? ?? 171");
                               #endregion                           
                            })
                         },
@@ -7269,7 +7264,7 @@ namespace System.Scsc.Ui.MasterPage
                               if ((bool)output)
                                  return;
                               #region Show Error
-                              MessageBox.Show("خطا: عدم دسترسی به کد 175");
+                              MessageBox.Show("???: ??? ?????? ?? ?? 175");
                               #endregion                           
                            })
                         }
@@ -7371,7 +7366,6 @@ namespace System.Scsc.Ui.MasterPage
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
-
       private void bbi_mbfzbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
          /// Must Be Change ****
@@ -7397,7 +7391,6 @@ namespace System.Scsc.Ui.MasterPage
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
-
 
       private void bbi_insrbutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
       {
@@ -7432,7 +7425,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 260 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 260 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -7576,7 +7569,7 @@ namespace System.Scsc.Ui.MasterPage
                               if ((bool)output)
                                  return;
                               #region Show Error
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 217 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 217 ???? ??????", "??? ??????");
                               #endregion                           
                            })
                         }
@@ -8145,7 +8138,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 193 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 193 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -8183,7 +8176,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 218 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -8226,7 +8219,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 219 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 219 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -8280,7 +8273,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 220 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 220 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -8313,7 +8306,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 220 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 220 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -8380,7 +8373,7 @@ namespace System.Scsc.Ui.MasterPage
       //      if(e.Button.Index == 6)
       //      {
       //         iScsc = new Data.iScscDataContext(ConnectionString);
-      //         FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+      //         FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("?????, ???? ??")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
       //         return;
       //      }
 
@@ -8412,7 +8405,7 @@ namespace System.Scsc.Ui.MasterPage
       //            );
       //            break;
       //         case 3:
-      //            if (MessageBox.Show(this, "آیا با حذف مشتری موافق هستید؟", "عملیات حذف موقت مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+      //            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "?????? ??? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
       //            _DefaultGateway.Gateway(
       //               new Job(SendType.External, "Localhost",
       //                  new List<Job>
@@ -8623,25 +8616,25 @@ namespace System.Scsc.Ui.MasterPage
          switch (_pc.GetDayOfWeek(DateTime.Now))
          {
             case DayOfWeek.Friday:
-               weekdaydesc = "جمعه";
+               weekdaydesc = "????";
                break;
             case DayOfWeek.Saturday:
-               weekdaydesc = "شنبه";
+               weekdaydesc = "????";
                break;
             case DayOfWeek.Sunday:
-               weekdaydesc = "یکشنبه";
+               weekdaydesc = "??????";
                break;
             case DayOfWeek.Monday:
-               weekdaydesc = "دوشنبه";
+               weekdaydesc = "??????";
                break;
             case DayOfWeek.Tuesday:
-               weekdaydesc = "سه شنبه";
+               weekdaydesc = "?? ????";
                break;
             case DayOfWeek.Wednesday:
-               weekdaydesc = "چهارشنبه";
+               weekdaydesc = "????????";
                break;
             case DayOfWeek.Thursday:
-               weekdaydesc = "پنجشنبه";
+               weekdaydesc = "???????";
                break;
          }
          string dayofmonthdesc = _pc.GetDayOfMonth(DateTime.Now).ToString();
@@ -8649,40 +8642,40 @@ namespace System.Scsc.Ui.MasterPage
          switch (_pc.GetMonth(DateTime.Now))
          {
             case 1:
-               monthdesc = "فروردین";
+               monthdesc = "???????";
                break;
             case 2:
-               monthdesc = "اردیبهشت";
+               monthdesc = "????????";
                break;
             case 3:
-               monthdesc = "خرداد";
+               monthdesc = "?????";
                break;
             case 4:
-               monthdesc = "تیر";
+               monthdesc = "???";
                break;
             case 5:
-               monthdesc = "مرداد";
+               monthdesc = "?????";
                break;
             case 6:
-               monthdesc = "شهریور";
+               monthdesc = "??????";
                break;
             case 7:
-               monthdesc = "مهر";
+               monthdesc = "???";
                break;
             case 8:
-               monthdesc = "آبان";
+               monthdesc = "????";
                break;
             case 9:
-               monthdesc = "آذر";
+               monthdesc = "???";
                break;
             case 10:
-               monthdesc = "دی";
+               monthdesc = "??";
                break;
             case 11:
-               monthdesc = "بهمن";
+               monthdesc = "????";
                break;
             case 12:
-               monthdesc = "اسفند";
+               monthdesc = "?????";
                break;
          }
          string year = _pc.GetYear(DateTime.Now).ToString();
@@ -8691,7 +8684,7 @@ namespace System.Scsc.Ui.MasterPage
          if (_settings == null)
             _settings = iScsc.V_Settings;
 
-         // برای هر یک ساعت یک بار سیستم چک کن که آیا نرم افزار لاینسس دارد یا خیر
+         // ???? ?? ?? ???? ?? ??? ????? ?? ?? ?? ??? ??? ????? ?????? ???? ?? ???
          if (_doActionStep < 900)
          {
             _doActionStep++;
@@ -8701,7 +8694,7 @@ namespace System.Scsc.Ui.MasterPage
          {
             _doActionStep = 0;
 
-            // 1399/12/06 * بررسی اینکه مشتریان خلافکار را از استفاده کردن از سیستم ناامید کنیم
+            // 1399/12/06 * ????? ????? ??????? ??????? ?? ?? ??????? ???? ?? ????? ?????? ????
             //if (_settings.Any(s => s.EXPR_TYPE.Value))
             //{
             //   if (_settings.Any(s => s.LAST_DATE.Value.Date != DateTime.Now.Date))
@@ -8710,10 +8703,10 @@ namespace System.Scsc.Ui.MasterPage
             //      {
             //         if (_settings.Any(s => s.LAST_DATE.Value.Date < DateTime.Now.Date))
             //         {
-            //            // در غیر اینصورت سیستم باید کلا بسته شود بدون هیچ گونه اعتراضی
-            //            MessageBox.Show(this, "مدت زمان پشتیبانی نرم افزار به اتمام رسیده، لطفا جهت تمدید پشتیبانی با شماره 09033927103 تماس حاصل فرمایید" + Environment.NewLine +
-            //                                  "ضمنا تمامی رکورد های ثبت شده خارج از تاریخ پشتیبانی فاقد اعتبار میباشند و بعد از بسته شدن نرم افزار تمامی رکوردها به صورت اتومات پاک میشوند",
-            //                                  "هشدار جهت استفاده از لایسنس نامعتبر", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            // ?? ??? ??????? ????? ???? ??? ???? ??? ???? ??? ???? ???????
+            //            MessageBox.Show(this, "??? ???? ???????? ??? ????? ?? ????? ?????? ???? ??? ????? ???????? ?? ????? 09033927103 ???? ???? ???????" + Environment.NewLine +
+            //                                  "???? ????? ????? ??? ??? ??? ???? ?? ????? ???????? ???? ?????? ??????? ? ??? ?? ???? ??? ??? ????? ????? ??????? ?? ???? ?????? ??? ??????",
+            //                                  "????? ??? ??????? ?? ?????? ???????", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //            Application.Exit();
             //            Process.GetCurrentProcess().Kill();
             //         }
@@ -8722,10 +8715,10 @@ namespace System.Scsc.Ui.MasterPage
             //}
          }
 
-         // 1400/12/14 * چک کردن اینکه مشتری تاریخ سیستم را تغییر ندهد و ما رو کیر کنه
+         // 1400/12/14 * ?? ???? ????? ????? ????? ????? ?? ????? ???? ? ?? ?? ??? ???
          //if ((ExprInstDate.Date - DateTime.Now.Date).Days < 0 || (CrntDate.Date - DateTime.Now.Date).Days <= -2)
          //{
-         //   MessageBox.Show("تاریخ اعتبار شما به پایان رسیده", "خطای انقضای ماهیانه محصول", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+         //   MessageBox.Show("????? ?????? ??? ?? ????? ?????", "???? ?????? ??????? ?????", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
          //   Application.Exit();
          //   Process.GetCurrentProcess().Kill();
@@ -8733,7 +8726,7 @@ namespace System.Scsc.Ui.MasterPage
 
          try
          {
-            // 1397/05/10 * بررسی اینکه آیا ارتباط با سرور بر قرار میباشد یا خیر
+            // 1397/05/10 * ????? ????? ??? ?????? ?? ???? ?? ???? ?????? ?? ???
             if (SrvrPing_Butn.Tag == null)
             {
                var GetServer =
@@ -8809,11 +8802,11 @@ namespace System.Scsc.Ui.MasterPage
                   Logs_Txt.Text += string.Format("{1}\n\r - Server Disconnected : {0}", SrvrPing_Butn.Tag, DateTime.Now.ToShortTimeString()) + Environment.NewLine;               
             }            
 
-            // اگر چک کردن تست ارتباط فعال باشد
+            // ??? ?? ???? ??? ?????? ???? ????
             if (TryPing_Cbx.Checked)
             {
                //ActionCenter_Butn.ToolTip += "Checked external device..." + Environment.NewLine;
-               // بررسی دستگاه های درون شبکه
+               // ????? ?????? ??? ???? ????
                foreach (Device_On_Network dev in DeviceOnNetworks)
                {
                   //ActionCenter_Butn.ToolTip += "IP Address :" + dev.IPAddress + " call is a lived method." + Environment.NewLine;
@@ -8845,12 +8838,12 @@ namespace System.Scsc.Ui.MasterPage
 
                      dev.PingStatus = false;
                   }                  
-                  // اگر دستگاه غیرفعال بوده
+                  // ??? ?????? ??????? ????
                   if (!dev.PingStatus)
                   {
-                     // دستگاه را دوباره تست میکنیم
+                     // ?????? ?? ?????? ??? ??????
                      dev.Ping();
-                     // اگر دستگاه انلاین شد
+                     // ??? ?????? ?????? ??
                      if (dev.PingStatus /*&& !dev.IsALive()*/)
                      {
                         // Kill client and reconnenct
@@ -8864,7 +8857,7 @@ namespace System.Scsc.Ui.MasterPage
                         //         {
                         //            ToolTipIcon.Info,
                         //            string.Format("Device Name : {0}\n\rIP Address : {1}", dev.DeviceName, dev.IPAddress),
-                        //            "دستگاه به شبکه متصل شد",
+                        //            "?????? ?? ???? ???? ??",
                         //            2000
                         //         }
                         //   }
@@ -8903,7 +8896,7 @@ namespace System.Scsc.Ui.MasterPage
                         //         {
                         //            ToolTipIcon.Warning,
                         //            string.Format("Device Name : {0}\n\rIP Address : {1}", dev.DeviceName, dev.IPAddress),
-                        //            "دستگاه به شبکه متصل نیست",
+                        //            "?????? ?? ???? ???? ????",
                         //            2000
                         //         }
                         //   }
@@ -9013,7 +9006,7 @@ namespace System.Scsc.Ui.MasterPage
                   SuperToolTipAttnButn(
                      new XElement("System",
                         new XAttribute("device", "AttnDvic"),
-                        new XAttribute("desc", "با این شماره عضویی شناسایی نشد")
+                        new XAttribute("desc", "?? ??? ????? ????? ??????? ???")
                      )
                   );
 
@@ -9045,7 +9038,7 @@ namespace System.Scsc.Ui.MasterPage
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", figh.FILE_NO)) }
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ShowInfo_Butn_Click error: " + ex.ToString()); }
       }
 
       private void CardNumb_Text_KeyDown(object sender, KeyEventArgs e)
@@ -9079,7 +9072,7 @@ namespace System.Scsc.Ui.MasterPage
                               if ((bool)output)
                                  return;
                               #region Show Error
-                              MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 1 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show(this, "??? - ??? ?????? ?? ???? 1 ???? ??????", "??? ??????");
                               #endregion                           
                            })
                         },
@@ -9120,7 +9113,7 @@ namespace System.Scsc.Ui.MasterPage
 
             AttnType_Lov.Focus();
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ChngAttnActn_Butn_Click error: " + ex.ToString()); }
       }
 
       private void button1_Click(object sender, EventArgs e)
@@ -9255,20 +9248,22 @@ namespace System.Scsc.Ui.MasterPage
          // If required by the server, set the credentials.  
          request.Credentials = CredentialCache.DefaultCredentials;
          // Get the response.  
-         WebResponse response = request.GetResponse();
-         // Display the status.  
-         Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-         // Get the stream containing content returned by the server.  
-         Stream dataStream = response.GetResponseStream();
-         // Open the stream using a StreamReader for easy access.  
-         StreamReader reader = new StreamReader(dataStream);
-         // Read the content.  
-         string responseFromServer = reader.ReadToEnd();
-         // Display the content.  
-         Console.WriteLine(responseFromServer);
-         // Clean up the streams and the response.  
-         reader.Close();
-         response.Close();
+         using (WebResponse response = request.GetResponse())
+         {
+            // Display the status.  
+            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+            // Get the stream containing content returned by the server.  
+            Stream dataStream = response.GetResponseStream();
+            // Open the stream using a StreamReader for easy access.  
+            string responseFromServer;
+            using (StreamReader reader = new StreamReader(dataStream))
+            {
+               // Read the content.  
+               responseFromServer = reader.ReadToEnd();
+            }
+            // Display the content.  
+            Console.WriteLine(responseFromServer);
+         }
       }
 
       private void tol_ibutn_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -9392,12 +9387,12 @@ namespace System.Scsc.Ui.MasterPage
                                     new XElement("Log",
                                        new XAttribute("fileno", ""),
                                        new XAttribute("type", "007"),
-                                       new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه بیرون باز شد")
+                                       new XAttribute("text", "??? ?? ???? ???? ???? ????? ???? ????? ??? ??")
                                     )
                                  );
                                  return;
                               }
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 276 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 276 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -9440,12 +9435,12 @@ namespace System.Scsc.Ui.MasterPage
                                     new XElement("Log",
                                        new XAttribute("fileno", ""),
                                        new XAttribute("type", "007"),
-                                       new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه داخل باز شد")
+                                       new XAttribute("text", "??? ?? ???? ???? ???? ????? ???? ???? ??? ??")
                                     )
                                  );
                                  return;
                               }
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 275 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 275 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -9496,7 +9491,7 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
-            // بررسی اینکه آیا مشتری درصدی میباشد یا خیر
+            // ????? ????? ??? ????? ????? ?????? ?? ???
             if (!iScsc.V_Transaction_Fees.Any(t => t.STAT == "002" && t.TXFE_PRCT > 0)) { Wlet_Rlt.Visible = CWlet_Pb.Visible = CWlet_Lnk.Visible = CWlet_Txt.Visible = CWlet_Tm.Enabled = false; return; }
 
             var _cwlt = iScsc.V_Admin_Wallets.Where(w => w.WLET_TYPE == "001").FirstOrDefault();
@@ -9538,7 +9533,7 @@ namespace System.Scsc.Ui.MasterPage
                  //          AfterChangedOutput = new Action<object>((output) => {
                  //             if ((bool)output)
                  //                return;
-                 //             MessageBox.Show("خطا - عدم دسترسی به ردیف 134 سطوح امینتی", "عدم دسترسی");
+                 //             MessageBox.Show("??? - ??? ?????? ?? ???? 134 ???? ??????", "??? ??????");
                  //          })
                  //       },
                  //       #endregion
@@ -9607,7 +9602,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 260 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 260 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -9650,7 +9645,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 260 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 260 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -9718,7 +9713,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 190 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 190 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -9748,7 +9743,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 261 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 261 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -9779,7 +9774,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 218 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -9979,7 +9974,6 @@ namespace System.Scsc.Ui.MasterPage
       private void tol_opengatebutn_ItemClick(object sender, EventArgs e)
       {
          
-
          Job _InteractWithScsc =
             new Job(SendType.External, "Localhost",
                new List<Job>
@@ -10002,12 +9996,12 @@ namespace System.Scsc.Ui.MasterPage
                                     new XElement("Log",
                                        new XAttribute("fileno", ""),
                                        new XAttribute("type", "007"),
-                                       new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه داخل باز شد")
+                                       new XAttribute("text", "??? ?? ???? ???? ???? ????? ???? ???? ??? ??")
                                     )
                                  );
                                  return;
                               }
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 275 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 275 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -10050,12 +10044,12 @@ namespace System.Scsc.Ui.MasterPage
                                     new XElement("Log",
                                        new XAttribute("fileno", ""),
                                        new XAttribute("type", "007"),
-                                       new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه بیرون باز شد")
+                                       new XAttribute("text", "??? ?? ???? ???? ???? ????? ???? ????? ??? ??")
                                     )
                                  );
                                  return;
                               }
-                              MessageBox.Show("خطا - عدم دسترسی به ردیف 276 سطوح امینتی", "عدم دسترسی");
+                              MessageBox.Show("??? - ??? ?????? ?? ???? 276 ???? ??????", "??? ??????");
                            })
                         },
                         #endregion
@@ -10213,7 +10207,7 @@ namespace System.Scsc.Ui.MasterPage
             var dres = _attn.Dresser_Attendances.FirstOrDefault().Dresser as Data.Dresser;
             if (dres == null) return;
 
-            if (AcptActnDres_Cbx.Checked && MessageBox.Show(this, "آیا با انجام عملیات موافق هستید؟", "تایید فعالیت", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (AcptActnDres_Cbx.Checked && MessageBox.Show(this, "??? ?? ????? ?????? ????? ??????", "????? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             // 1402/08/30 * User access to open online locker
             _DefaultGateway.Gateway(
@@ -10234,7 +10228,7 @@ namespace System.Scsc.Ui.MasterPage
                               AfterChangedOutput = new Action<object>((output) => {
                                  if ((bool)output)
                                     return;
-                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 272 سطوح امینتی", "عدم دسترسی");
+                                 MessageBox.Show("??? - ??? ?????? ?? ???? 272 ???? ??????", "??? ??????");
                               })
                            },
                            #endregion
@@ -10254,7 +10248,7 @@ namespace System.Scsc.Ui.MasterPage
                   })
             );
 
-            // 1402/10/21 * باز کردن کمدهای همراهان
+            // 1402/10/21 * ??? ???? ?????? ???????
             if (iScsc.Dresser_Attendances.Any(da => da.ATTN_CODE == _attn.CODE && da.DRAT_CODE != null))
             {
                Partners_Butn.Visible = PartnerDresNum_Butn.Visible = PrtnrPos_Butn.Visible = true;
@@ -10345,7 +10339,7 @@ namespace System.Scsc.Ui.MasterPage
             var dres = _attn.Dresser_Attendances.FirstOrDefault().Dresser as Data.Dresser;
             if (dres == null) return;
 
-            if (AcptActnDres_Cbx.Checked && MessageBox.Show(this, "آیا با انجام عملیات موافق هستید؟", "تایید فعالیت", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (AcptActnDres_Cbx.Checked && MessageBox.Show(this, "??? ?? ????? ?????? ????? ??????", "????? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Actn_Calf_F */, SendType.SelfToUserInterface)
@@ -10360,7 +10354,7 @@ namespace System.Scsc.Ui.MasterPage
                }
             );
 
-            // 1402/10/21 * باز کردن کمدهای همراهان
+            // 1402/10/21 * ??? ???? ?????? ???????
             if (iScsc.Dresser_Attendances.Any(da => da.ATTN_CODE == _attn.CODE && da.DRAT_CODE != null))
             {
                Partners_Butn.Visible = true;
@@ -10383,7 +10377,7 @@ namespace System.Scsc.Ui.MasterPage
 
             int? _ordr = null;
 
-            if (AcptActnDres_Cbx.Checked && MessageBox.Show(this, "آیا با انجام عملیات موافق هستید؟", "تایید فعالیت", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (AcptActnDres_Cbx.Checked && MessageBox.Show(this, "??? ?? ????? ?????? ????? ??????", "????? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             switch (e.Button.Index)
             {
@@ -10425,7 +10419,7 @@ namespace System.Scsc.Ui.MasterPage
                                     AfterChangedOutput = new Action<object>((output) => {
                                        if ((bool)output)
                                           return;
-                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 272 سطوح امینتی", "عدم دسترسی");
+                                       MessageBox.Show("??? - ??? ?????? ?? ???? 272 ???? ??????", "??? ??????");
                                     })
                                  },
                                  #endregion
@@ -10469,7 +10463,7 @@ namespace System.Scsc.Ui.MasterPage
 
                                           return;
                                        }
-                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 271 سطوح امینتی", "عدم دسترسی");
+                                       MessageBox.Show("??? - ??? ?????? ?? ???? 271 ???? ??????", "??? ??????");
                                     })
                                  },
                                  #endregion
@@ -10500,15 +10494,15 @@ namespace System.Scsc.Ui.MasterPage
             // 1402/11/05 * Checked Device Use Limited
             if(AcptActnExdv_Cbx.Checked)
             {
-               // 1402/11/05 * اگر میخواهیم چک کنیم که این دستگاه تایم استفاده کردنش هست یا خیر
+               // 1402/11/05 * ??? ???????? ?? ???? ?? ??? ?????? ???? ??????? ????? ??? ?? ???
                /*
-                  001	یکشنبه
-                  002	دو شنبه
-                  003	سه شنبه
-                  004	چهار شنبه
-                  005	پنج شنبه
-                  006	جمعه
-                  007	شنبه
+                  001	??????
+                  002	?? ????
+                  003	?? ????
+                  004	???? ????
+                  005	??? ????
+                  006	????
+                  007	????
                 */
                var _weekday = DateTime.Now.DayOfWeek;
                if (_exdv.External_Device_Weekdays.Count() > 0)
@@ -10580,7 +10574,7 @@ namespace System.Scsc.Ui.MasterPage
                            new XElement("Log",
                               new XAttribute("fileno", ""),
                               new XAttribute("type", "007"),
-                              new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه داخل باز شد")
+                              new XAttribute("text", "??? ?? ???? ???? ???? ????? ???? ???? ??? ??")
                            )
                         );
 
@@ -10610,7 +10604,7 @@ namespace System.Scsc.Ui.MasterPage
                            new XElement("Log",
                               new XAttribute("fileno", ""),
                               new XAttribute("type", "007"),
-                              new XAttribute("text", "رله فرمان دستگاه به صورت دستی توسط کاربر باز شد")
+                              new XAttribute("text", "??? ????? ?????? ?? ???? ???? ???? ????? ??? ??")
                            )
                         );
 
@@ -10630,7 +10624,7 @@ namespace System.Scsc.Ui.MasterPage
                            new XElement("Log",
                               new XAttribute("fileno", ""),
                               new XAttribute("type", "007"),
-                              new XAttribute("text", "گیت به صورت دستی توسط کاربر روبه بیرون باز شد")
+                              new XAttribute("text", "??? ?? ???? ???? ???? ????? ???? ????? ??? ??")
                            )
                         );
 
@@ -10660,7 +10654,7 @@ namespace System.Scsc.Ui.MasterPage
                            new XElement("Log",
                               new XAttribute("fileno", ""),
                               new XAttribute("type", "007"),
-                              new XAttribute("text", "رله فرمان دستگاه به صورت دستی توسط کاربر باز شد")
+                              new XAttribute("text", "??? ????? ?????? ?? ???? ???? ???? ????? ??? ??")
                            )
                         );
 
@@ -10853,7 +10847,7 @@ namespace System.Scsc.Ui.MasterPage
                FngrDevList_Flp.Controls.Add(_btnDev);
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AddFngrDevOpr error: " + ex.ToString()); }
       }
 
       private async void FngrDevOpr_Butn_Click(object sender, EventArgs e)
@@ -10901,7 +10895,7 @@ namespace System.Scsc.Ui.MasterPage
                _dev.SetStrCardNumber(CardOpr_Txt.Text);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
                if (_dev.SSR_SetUserInfo(1, FngrPrntOpr_Txt.Text, FngrPrntOpr_Txt.Text, "", 0, true))//upload the user's information(card number included)
                {
-                  //MessageBox.Show("کارت شما در سیستم ثبت گردید");
+                  //MessageBox.Show("???? ??? ?? ????? ??? ?????");
                   //FngrPrnt_Txt.Text = EnrollNumber;
                   //if (CardNumb_Text.Text == "") CardNumb_Text.Text = "0";
                   //CardNumb_Text.Text = (Convert.ToInt64(CardNumb_Text.Text) + 1).ToString();
@@ -10932,7 +10926,7 @@ namespace System.Scsc.Ui.MasterPage
                 */
                int iDataFlag = (int)DelRecd_Cmx.SelectedIndex;
                //iDataFlag = 1;
-               if (iDataFlag.In(2, 5) && MessageBox.Show(this, "با انجام این عملیات کلیه اطلاعات درون دستگاه پاک میشود، ایا مطمئن به انجام کار هستید؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (iDataFlag.In(2, 5) && MessageBox.Show(this, "?? ????? ??? ?????? ???? ??????? ???? ?????? ??? ?????? ??? ????? ?? ????? ??? ??????", "?????", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                if (_dev.ClearData(1, iDataFlag))
                {
                   _dev.RefreshData(1);
@@ -11104,7 +11098,7 @@ namespace System.Scsc.Ui.MasterPage
                }
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CyclUpdtDev_Tick error: " + ex.ToString()); }
       }
 
       private static readonly object _locker = new object();
@@ -11219,7 +11213,7 @@ namespace System.Scsc.Ui.MasterPage
                   ShowInfo_Butn_Click(null, null);
                   break;
                case 1:
-                  if (MessageBox.Show(this, "آیا با حذف اطلاعات " + (Fngr_Cbx.Checked ? "اثر انگشت " : "") + (Fngr_Cbx.Checked && Face_Cbx.Checked ? "، " : "") + (Face_Cbx.Checked ? "چهره " : "") + "از پایگاه داده نرم افزار موافق هستید؟", "حذف داده درون نرم افزار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "??? ?? ??? ??????? " + (Fngr_Cbx.Checked ? "??? ????? " : "") + (Fngr_Cbx.Checked && Face_Cbx.Checked ? "? " : "") + (Face_Cbx.Checked ? "???? " : "") + "?? ?????? ???? ??? ????? ????? ??????", "??? ???? ???? ??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                   foreach (var _serv in iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Trim() != "") && ((FngrPrntOpr_Txt.Text == "" || FngrPrntOpr_Txt.Text == null) || f.FNGR_PRNT_DNRM == FngrPrntOpr_Txt.Text)))
                   {
@@ -11302,7 +11296,7 @@ namespace System.Scsc.Ui.MasterPage
             var _note = NoteBs.Current as Data.Note;
             if (_note == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.Notes.DeleteOnSubmit(_note);
             iScsc.SubmitChanges();
@@ -11341,12 +11335,12 @@ namespace System.Scsc.Ui.MasterPage
             var _dvip = DVipBs.Current as Data.Dresser_Vip_Fighter;
             if (_dvip == null) return;
 
-            if (AcptActnDres_Cbx.Checked && MessageBox.Show(this, "آیا با انجام عملیات موافق هستید؟", "تایید فعالیت", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (AcptActnDres_Cbx.Checked && MessageBox.Show(this, "??? ?? ????? ?????? ????? ??????", "????? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             switch (e.Button.Index)
             {
                case 1:
-                  if (MessageBox.Show(this, "ایا با آزاد کردن کمد VIP موافق هستید?", "آزاد کردن کمد VIP", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "??? ?? ???? ???? ??? VIP ????? ??????", "???? ???? ??? VIP", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
                   iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Lock_Stat = '001', Expr_Date = GETDATE() WHERE Code = {0};", _dvip.CODE));
                   requery = true;
                   break;
@@ -11370,7 +11364,7 @@ namespace System.Scsc.Ui.MasterPage
                                     AfterChangedOutput = new Action<object>((output) => {
                                        if ((bool)output)
                                           return;
-                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 272 سطوح امینتی", "عدم دسترسی");
+                                       MessageBox.Show("??? - ??? ?????? ?? ???? 272 ???? ??????", "??? ??????");
                                     })
                                  },
                                  #endregion
@@ -11644,7 +11638,7 @@ namespace System.Scsc.Ui.MasterPage
             CrntServGetData_Butn.Text = _figh.NAME_DNRM;
             //CrntDevGetData_Txt.Text = 
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("FighBs_CurrentChanged error: " + ex.ToString()); }
       }
 
       private void SrvrPing_Butn_Click(object sender, EventArgs e)
@@ -11669,7 +11663,7 @@ namespace System.Scsc.Ui.MasterPage
                Tm_ShowTime_Tick(null, null);
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SrvrPing_Butn_Click error: " + ex.ToString()); }
       }
 
       private void AtnwFind_Butn_Click(object sender, EventArgs e)
@@ -11691,7 +11685,7 @@ namespace System.Scsc.Ui.MasterPage
 
             requery = false;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AtnwFind_Butn_Click error: " + ex.ToString()); }
       }
 
       private void AtnwActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -11701,7 +11695,7 @@ namespace System.Scsc.Ui.MasterPage
             var _atnw = AtnwBs.Current as Data.Attendance_Wrist;
             if (_atnw == null) return;
 
-            if (AcptActnAtnw_Cbx.Checked && MessageBox.Show(this, "آیا با انجام عملیات موافق هستید؟", "تایید عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+            if (AcptActnAtnw_Cbx.Checked && MessageBox.Show(this, "??? ?? ????? ?????? ????? ??????", "????? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
             string _tmp = "";
 
@@ -11729,17 +11723,17 @@ namespace System.Scsc.Ui.MasterPage
                      new XElement("Log",
                            new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
                            new XAttribute("type", "016"),
-                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " باز کرد")
+                           new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _atnw.Attendance.NAME_DNRM + " ?? ???? ???? ??? ????? " + _tmp + " ??? ???")
                      )
                   );
                   break;
                case 1:
-                  if ( MessageBox.Show(this, "آیا با تحویل و برگشت دستبند موافق هستید؟", "عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                  if ( MessageBox.Show(this, "??? ?? ????? ? ????? ?????? ????? ??????", "??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
-                  // اگر قبلا این دستبند برگشت داده شده باشد
+                  // ??? ???? ??? ?????? ????? ???? ??? ????
                   if (AtnwBs.List.OfType<Data.Attendance_Wrist>().Any(aw => /*aw.ATTN_CODE == _atnw.ATTN_CODE && aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text*/aw.CODE == _atnw.CODE && aw.STAT == "002")) return;
 
-                  // وضعیت برگشت دستبند را فعال میکنیم
+                  // ????? ????? ?????? ?? ???? ??????
                   iScsc.ExecuteCommand(string.Format("UPDATE dbo.Attendance_Wrist SET STAT = '002' WHERE CODE = {0};", /*_atnw.ATTN_CODE, WristBand_Txt.Text*/ _atnw.CODE));
 
                   _tmp = _atnw.Dresser == null ? _atnw.Fighter1.FNGR_PRNT_DNRM : _atnw.Dresser.DRES_NUMB.ToString();
@@ -11748,13 +11742,13 @@ namespace System.Scsc.Ui.MasterPage
                      new XElement("Log",
                            new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
                            new XAttribute("type", "015"),
-                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " را تحویل گرفت")
+                           new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _atnw.Attendance.NAME_DNRM + " ?? ???? ???? ??? ????? " + _tmp + " ?? ????? ????")
                      )
                   );
                   requery = true;
                   break;
                case 2:
-                  if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف دستبند", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
                   iScsc.ExecuteCommand(string.Format("DELETE dbo.Attendance_Wrist WHERE Code = {0};", _atnw.CODE));
 
@@ -11764,7 +11758,7 @@ namespace System.Scsc.Ui.MasterPage
                      new XElement("Log",
                            new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
                            new XAttribute("type", "014"),
-                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " را حذف کرد")
+                           new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _atnw.Attendance.NAME_DNRM + " ?? ???? ???? ??? ????? " + _tmp + " ?? ??? ???")
                      )
                   );
 
@@ -11783,7 +11777,7 @@ namespace System.Scsc.Ui.MasterPage
                         new XElement("Log",
                               new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
                               new XAttribute("type", "012"),
-                              new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " برگشت یک جلسه به دوره مشتری به صورت دستی بابت حذف دستبند شماره " + _tmp + " انجام شد")
+                              new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _atnw.Attendance.NAME_DNRM + " ????? ?? ???? ?? ???? ????? ?? ???? ???? ???? ??? ?????? ????? " + _tmp + " ????? ??")
                         )
                      );
                   }
@@ -11798,7 +11792,7 @@ namespace System.Scsc.Ui.MasterPage
                   break;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AtnwActn_Butn_ButtonClick error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -11837,7 +11831,7 @@ namespace System.Scsc.Ui.MasterPage
 
                      ServProFileAtnw_Rb.Tag = _figh.FILE_NO;
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AtnwBs_CurrentChanged error: " + ex.ToString()); }
                }
                else
                {
@@ -11856,7 +11850,7 @@ namespace System.Scsc.Ui.MasterPage
                ServProFileAtnw_Rb.Tag = null;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AtnwBs_CurrentChanged error: " + ex.ToString()); }
       }
 
       private void AtwnWrst_Butn_Click(object sender, EventArgs e)
@@ -11870,7 +11864,7 @@ namespace System.Scsc.Ui.MasterPage
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _atnw.ATNW_FIGH_FILE_NO)) }
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AtwnWrst_Butn_Click error: " + ex.ToString()); }
       }
 
       private void AtnwFigh_Butn_Click(object sender, EventArgs e)
@@ -11884,7 +11878,7 @@ namespace System.Scsc.Ui.MasterPage
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM)) }
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AtnwFigh_Butn_Click error: " + ex.ToString()); }
       }
 
       private void Evnt_Gv_DoubleClick(object sender, EventArgs e)
@@ -11898,7 +11892,7 @@ namespace System.Scsc.Ui.MasterPage
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _evnt.FILE_NO)) }
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Evnt_Gv_DoubleClick error: " + ex.ToString()); }
       }
 
       private void PingWithCmd(string hostName)
@@ -12006,14 +12000,14 @@ namespace System.Scsc.Ui.MasterPage
 
             if(_atwns.Count() == 0)return;
 
-            if ( MessageBox.Show(this, "آیا با تحویل و برگشت دستبند موافق هستید؟", "عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+            if ( MessageBox.Show(this, "??? ?? ????? ? ????? ?????? ????? ??????", "??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
             foreach (var _atnw in _atwns)
 	         {
-               // اگر قبلا این دستبند برگشت داده شده باشد
+               // ??? ???? ??? ?????? ????? ???? ??? ????
                //if (AtnwBs.List.OfType<Data.Attendance_Wrist>().Any(aw => /*aw.ATTN_CODE == _atnw.ATTN_CODE && aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text*/aw.CODE == _atnw.CODE && aw.STAT == "002")) return;
 
-               // وضعیت برگشت دستبند را فعال میکنیم
+               // ????? ????? ?????? ?? ???? ??????
                iScsc.ExecuteCommand(string.Format("UPDATE dbo.Attendance_Wrist SET STAT = '002' WHERE CODE = {0};", /*_atnw.ATTN_CODE, WristBand_Txt.Text*/ _atnw.CODE));
 
                var _tmp = _atnw.Dresser == null ? _atnw.Fighter1.FNGR_PRNT_DNRM : _atnw.Dresser.DRES_NUMB.ToString();
@@ -12022,7 +12016,7 @@ namespace System.Scsc.Ui.MasterPage
                   new XElement("Log",
                         new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
                         new XAttribute("type", "015"),
-                        new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " را تحویل گرفت")
+                        new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _atnw.Attendance.NAME_DNRM + " ?? ???? ???? ??? ????? " + _tmp + " ?? ????? ????")
                   )
                );
             }
@@ -12218,7 +12212,7 @@ namespace System.Scsc.Ui.MasterPage
             var _dres = LockDresBs.Current as Data.Dresser;
             if (_dres == null) return;            
 
-            if (AcptActnDres_Cbx.Checked && MessageBox.Show(this, "آیا با انجام عملیات موافق هستید؟", "تایید فعالیت", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (AcptActnDres_Cbx.Checked && MessageBox.Show(this, "??? ?? ????? ?????? ????? ??????", "????? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             switch (e.Button.Index)
             {
@@ -12242,7 +12236,7 @@ namespace System.Scsc.Ui.MasterPage
                                     AfterChangedOutput = new Action<object>((output) => {
                                        if ((bool)output)
                                           return;
-                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 272 سطوح امینتی", "عدم دسترسی");
+                                       MessageBox.Show("??? - ??? ?????? ?? ???? 272 ???? ??????", "??? ??????");
                                     })
                                  },
                                  #endregion
@@ -12318,9 +12312,9 @@ namespace System.Scsc.Ui.MasterPage
                                                             <body>
                                                                <p style=""float:right"">
                                                                   <ol>
-                                                                     <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
+                                                                     <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
                                                                      <ul>
-                                                                        <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
+                                                                        <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
                                                                      </ul>
                                                                   </ol>
                                                                </p>
@@ -12353,13 +12347,13 @@ namespace System.Scsc.Ui.MasterPage
                                                 new XAttribute("chatid", 1847807509),
                                                 new XAttribute("command", "textmesg"),
                                                 new XAttribute("rbid", 391),
-                                                //new XAttribute("mesg", "✅ رسید ارسالی مورد تایید واقع شد")
+                                                //new XAttribute("mesg", "? ???? ?????? ???? ????? ???? ??")
                                                 new XElement("Respons",
                                                     new XElement("Message",
                                                         new XAttribute("order", 1),
                                                         new XElement("Texts", 
                                                             new XAttribute("order", 1),
-                                                            "لطفا سیستم ما رو شارژ کنید"
+                                                            "???? ????? ?? ?? ???? ????"
                                                         )
                                                     )
                                                 )
@@ -12494,12 +12488,12 @@ namespace System.Scsc.Ui.MasterPage
             if (_gust == null) return;
             if (_gust.FNGR_PRNT_DNRM == "") { return; }
 
-            // 1404/10/26  * if (_gust.Attendances.Any(a => a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null)) { MessageBox.Show(this, "کاربر مهمان انتخاب شده فعلا در دست مشتری دیگری میباشد، لطفا ابتدا کاربر مهمان دیگری را انتخاب کنید", "خطا", MessageBoxButtons.OK); Execute_Query(); return; }
+            // 1404/10/26  * if (_gust.Attendances.Any(a => a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null)) { MessageBox.Show(this, "????? ????? ?????? ??? ???? ?? ??? ????? ????? ??????? ???? ????? ????? ????? ????? ?? ?????? ????", "???", MessageBoxButtons.OK); Execute_Query(); return; }
 
             switch (e.Button.Index)
             {
                case 0:
-                  // اگر مهمانی که انتخاب شده هنوز در جدول حضور و غیاب خروج نزده
+                  // ??? ?????? ?? ?????? ??? ???? ?? ???? ???? ? ???? ???? ????
                   if (_gust.Attendances1.Any(a => a.EXIT_TIME == null && a.ATTN_STAT == "002")) { Execute_Query(); return; }
 
                   _DefaultGateway.Gateway(
@@ -12595,10 +12589,10 @@ namespace System.Scsc.Ui.MasterPage
             var _gust = GustBs.Current as Data.Fighter;
             if (_gust == null) return;
 
-            //1404/10/26 * if (_gust.Attendances.Any(a => a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null)) { MessageBox.Show(this, "کاربر مهمان انتخاب شده فعلا در دست مشتری دیگری میباشد، لطفا ابتدا کاربر مهمان دیگری را انتخاب کنید", "خطا", MessageBoxButtons.OK); Execute_Query(); return; }
+            //1404/10/26 * if (_gust.Attendances.Any(a => a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null)) { MessageBox.Show(this, "????? ????? ?????? ??? ???? ?? ??? ????? ????? ??????? ???? ????? ????? ????? ????? ?? ?????? ????", "???", MessageBoxButtons.OK); Execute_Query(); return; }
 
-            if (_gust.FNGR_PRNT_DNRM == "" && !(_gust.FGPB_TYPE_DNRM == "002" || _gust.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "برای عضو مورد نظر هیچ کد انگشتی وارد نشده، لطفا کد عضو را از طریق تغییرات مشخصات عمومی تغییر لازم را اعمال کنید"); return; }
-            if (_gust.COCH_FILE_NO_DNRM == null && !(_gust.FGPB_TYPE_DNRM == "009" || _gust.FGPB_TYPE_DNRM == "002" || _gust.FGPB_TYPE_DNRM == "003" || _gust.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "برای عضو شما مربی و ساعت کلاسی مشخصی وجود ندارد که مشخص کنیم در چه کلاس حضوری ثبت کنیم"); return; }
+            if (_gust.FNGR_PRNT_DNRM == "" && !(_gust.FGPB_TYPE_DNRM == "002" || _gust.FGPB_TYPE_DNRM == "003")) { MessageBox.Show(this, "???? ??? ???? ??? ??? ?? ?????? ???? ????? ???? ?? ??? ?? ?? ???? ??????? ?????? ????? ????? ???? ?? ????? ????"); return; }
+            if (_gust.COCH_FILE_NO_DNRM == null && !(_gust.FGPB_TYPE_DNRM == "009" || _gust.FGPB_TYPE_DNRM == "002" || _gust.FGPB_TYPE_DNRM == "003" || _gust.FGPB_TYPE_DNRM == "004")) { MessageBox.Show(this, "???? ??? ??? ???? ? ???? ????? ????? ???? ????? ?? ???? ???? ?? ?? ???? ????? ??? ????"); return; }
             _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",
                   new List<Job>
@@ -12686,7 +12680,7 @@ namespace System.Scsc.Ui.MasterPage
                   if (ModifierKeys.HasFlag(Keys.Control))
                      if (ScmpBs.List.OfType<Data.Schema_Profile>().Any(sp => sp.SCHM_BY == UserBs.List.OfType<Data.V_User>().FirstOrDefault(u => u.ID == (long)_user).USER_DB))
                      {
-                        if (MessageBox.Show(this, "آیا با حذف پروفایل کاربری که انتخاب کردین موافق هستید؟", "حذف پروفایل کاربری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                        if (MessageBox.Show(this, "??? ?? ??? ??????? ?????? ?? ?????? ????? ????? ??????", "??? ??????? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                         iScsc.DEL_USCP_P(
                            new XElement("User",
                                new XAttribute("id", _user)
@@ -12957,10 +12951,10 @@ namespace System.Scsc.Ui.MasterPage
             var _gust = GustBs.Current as Data.Fighter;
             if (_gust == null) return;
 
-            if (_gust.Attendances.Any(a => a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null)) { MessageBox.Show(this, "کاربر مهمان انتخاب شده فعلا در دست مشتری دیگری میباشد، لطفا ابتدا کاربر مهمان دیگری را انتخاب کنید", "خطا", MessageBoxButtons.OK); Execute_Query(); return; }
+            if (_gust.Attendances.Any(a => a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null)) { MessageBox.Show(this, "????? ????? ?????? ??? ???? ?? ??? ????? ????? ??????? ???? ????? ????? ????? ????? ?? ?????? ????", "???", MessageBoxButtons.OK); Execute_Query(); return; }
 
-            if (_gust.FNGR_PRNT_DNRM == null || _gust.FNGR_PRNT_DNRM == "") { MessageBox.Show(this, "کد شناسایی برای مشتری وارد نشده. لطفا بررسی و اصلاح کنید", "عدم وجود کد شناسایی برای مشتری", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
-            if (_gust.FIGH_STAT == "001") { MessageBox.Show(this, "مشتری در وضعیت قفل قرار دارد، و آن را اول آزاد کنید و دوباره درخواست را انجام دهید.", "مشتری قفل میباشد", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
+            if (_gust.FNGR_PRNT_DNRM == null || _gust.FNGR_PRNT_DNRM == "") { MessageBox.Show(this, "?? ??????? ???? ????? ???? ????. ???? ????? ? ????? ????", "??? ???? ?? ??????? ???? ?????", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
+            if (_gust.FIGH_STAT == "001") { MessageBox.Show(this, "????? ?? ????? ??? ???? ????? ? ?? ?? ??? ???? ???? ? ?????? ??????? ?? ????? ????.", "????? ??? ??????", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",

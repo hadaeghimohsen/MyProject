@@ -241,7 +241,7 @@ namespace System.CRM.Ui.BaseDefination
                   break;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Actn_CalF_P error: " + ex.ToString()); }
          job.Status = StatusType.Successful;
       }
 

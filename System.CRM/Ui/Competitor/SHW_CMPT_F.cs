@@ -97,7 +97,7 @@ namespace System.CRM.Ui.Competitor
                iCRM.VF_Companies(Qxml);
             requery = false;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
          finally
          {
             Comp_Gv.BestFitColumns();

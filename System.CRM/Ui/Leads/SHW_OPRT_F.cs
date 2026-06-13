@@ -235,7 +235,7 @@ namespace System.CRM.Ui.Leads
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch {}         
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Lead_Gv_DoubleClick error: " + ex.ToString()); }
       }
       #endregion
 

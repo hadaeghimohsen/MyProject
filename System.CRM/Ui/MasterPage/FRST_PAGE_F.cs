@@ -417,7 +417,7 @@ namespace System.CRM.Ui.MasterPage
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("iTask_Butn_Click error: " + ex.ToString()); }
       }
 
       private void User_Butn_Click(object sender, EventArgs e)
@@ -703,7 +703,7 @@ namespace System.CRM.Ui.MasterPage
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("oTask_Butn_Click error: " + ex.ToString()); }
       }
 
       private void Refreshing_Butn_Click(object sender, EventArgs e)
@@ -712,7 +712,7 @@ namespace System.CRM.Ui.MasterPage
          {
             Tm_Refreshing_Tick(null, null);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Refreshing_Butn_Click error: " + ex.ToString()); }
       }
 
       private void Tm_Refreshing_Tick(object sender, EventArgs e)

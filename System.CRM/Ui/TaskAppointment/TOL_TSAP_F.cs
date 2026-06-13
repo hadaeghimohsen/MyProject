@@ -58,7 +58,7 @@ namespace System.CRM.Ui.TaskAppointment
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SwitchButtonsTabPage error: " + ex.ToString()); }
          finally { Execute_Query(); }
       }
 
@@ -176,7 +176,7 @@ namespace System.CRM.Ui.TaskAppointment
                #endregion
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
       }
 
       private void rb_appointmentsearch_CheckedChanged(object sender, EventArgs e)

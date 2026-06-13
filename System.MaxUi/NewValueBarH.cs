@@ -77,7 +77,7 @@ namespace System.MaxUi
                         {                            
                             SetString();
                         }
-                        catch (Exception) { }
+                        catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Value setter error: " + ex.ToString()); }
 
                         if (ValChange != null)
                             ValChange(this);
@@ -261,8 +261,9 @@ namespace System.MaxUi
                     textValue.Enabled = !disabled;
                     //textValue.Refresh();
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                System.Diagnostics.Debug.WriteLine("Disabled setter error: " + ex.ToString());
                 }
             }
         }
@@ -330,12 +331,12 @@ namespace System.MaxUi
 
 
             try
-            {
-                //textValue.Text = value.ToString();
-                SetString();
-            }
-            catch (Exception) { }
-            if (ValChange != null)
+                {
+                    //textValue.Text = value.ToString();
+                    SetString();
+                }
+                catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Bar_Tick error: " + ex.ToString()); }
+                if (ValChange != null)
                 ValChange(this);
         }
 
@@ -354,8 +355,9 @@ namespace System.MaxUi
                     point += "0";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine("CreateString error: " + ex.ToString());
             }
         }
 
@@ -397,8 +399,9 @@ namespace System.MaxUi
                 }
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                System.Diagnostics.Debug.WriteLine("ChangeValue error: " + ex.ToString());
             }
         }
 
@@ -430,7 +433,7 @@ namespace System.MaxUi
                         break;
                 }
             }
-            catch (Exception) { }
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SetString error: " + ex.ToString()); }
         }
 
         public delegate void ValueChangeHandel(object sender);

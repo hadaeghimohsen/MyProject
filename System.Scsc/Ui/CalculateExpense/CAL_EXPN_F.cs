@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -112,7 +112,7 @@ namespace System.Scsc.Ui.CalculateExpense
                CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == cexc.MTOD_CODE && c.CTGY_STAT == "002");
             }
          }
-         catch (Exception ){}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CexcBs_CurrentChanged error: " + ex.ToString()); }
       }
 
       private void Mtod_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -123,7 +123,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
             CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == mtod && c.CTGY_STAT == "002");
          }
-         catch (Exception ){}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Mtod_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void Mtod1_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -132,7 +132,7 @@ namespace System.Scsc.Ui.CalculateExpense
          {
             CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == (long)e.NewValue && c.CTGY_STAT == "002");
          }
-         catch{}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Mtod1_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void BcexBs_CurrentChanged(object sender, EventArgs e)
@@ -165,7 +165,7 @@ namespace System.Scsc.Ui.CalculateExpense
             if (bcex.CODE != 0)
                CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == bcex.MTOD_CODE && c.CTGY_STAT == "002");
          }
-         catch{}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("BcexBs_CurrentChanged error: " + ex.ToString()); }
       }
 
       private void Stat_Tg_Toggled(object sender, EventArgs e)
@@ -177,7 +177,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
             bcex.STAT = Stat_Tg.IsOn ? "002" : "001";
          }
-         catch{}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Stat_Tg_Toggled error: " + ex.ToString()); }
       }
 
       private void PymtStat_Tg_Toggled(object sender, EventArgs e)
@@ -189,7 +189,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
             bcex.PYMT_STAT = PymtStat_Tg.IsOn ? "002" : "001";
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PymtStat_Tg_Toggled error: " + ex.ToString()); }
       }
 
       private void Mtod2_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -198,7 +198,7 @@ namespace System.Scsc.Ui.CalculateExpense
          {
             CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == (long)e.NewValue && c.CTGY_STAT == "002");
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Mtod2_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void Stat1_Tg_Toggled(object sender, EventArgs e)
@@ -210,7 +210,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
             cexc.STAT = Stat1_Tg.IsOn ? "002" : "001";
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Stat1_Tg_Toggled error: " + ex.ToString()); }
       }
 
       private void PymtStat1_Tg_Toggled(object sender, EventArgs e)
@@ -222,7 +222,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
             cexc.PYMT_STAT = PymtStat1_Tg.IsOn ? "002" : "001";
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PymtStat1_Tg_Toggled error: " + ex.ToString()); }
       }
 
       private void AddBcex_Butn_Click(object sender, EventArgs e)
@@ -237,7 +237,7 @@ namespace System.Scsc.Ui.CalculateExpense
             crnt.STAT = "002";
             crnt.PYMT_STAT = "002";
          }
-         catch{}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AddBcex_Butn_Click error: " + ex.ToString()); }
       }
 
       private void DelBcex_Butn_Click(object sender, EventArgs e)
@@ -247,7 +247,7 @@ namespace System.Scsc.Ui.CalculateExpense
             var bcex = BcexBs.Current as Data.Base_Calculate_Expense;
             if (bcex == null) return;
 
-            if (MessageBox.Show(this,"آیا با حذف رکورد موافق هستین؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+            if (MessageBox.Show(this,"??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
             iScsc.DEL_BSEX_P(bcex.CODE);
 
@@ -275,7 +275,7 @@ namespace System.Scsc.Ui.CalculateExpense
             crnt.STAT = "002";
             crnt.PYMT_STAT = "002";
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AddCexc_Butn_Click error: " + ex.ToString()); }
       }
 
       private void DelCexc_Butn_Click(object sender, EventArgs e)
@@ -285,7 +285,7 @@ namespace System.Scsc.Ui.CalculateExpense
             var cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
             if (cexc == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستین؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
             iScsc.DEL_CEXC_P(cexc.CODE);
 
@@ -327,7 +327,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
             iScsc.Base_Calculate_Expenses.InsertOnSubmit(crnt);
          }
-         catch {}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DuplBcex_Butn_Click error: " + ex.ToString()); }
       }
 
       private void DuplCexc_Butn_Click(object sender, EventArgs e)
@@ -356,7 +356,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
             iScsc.Calculate_Expense_Coaches.InsertOnSubmit(crnt);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DuplCexc_Butn_Click error: " + ex.ToString()); }
       }
 
       private void CbmtCode_Lov_Popup(object sender, EventArgs e)
@@ -373,7 +373,7 @@ namespace System.Scsc.Ui.CalculateExpense
             if(cexc.COCH_FILE_NO != null)
                Cexc_Gv.ActiveFilterString = string.Format("AND COCH_FILE_NO = '{0}'", cexc.COCH_FILE_NO);
          }
-         catch {}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CbmtCode_Lov_Popup error: " + ex.ToString()); }
       }
 
       private void CbmtCode_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -401,10 +401,10 @@ namespace System.Scsc.Ui.CalculateExpense
                   CtgyBs.DataSource = iScsc.Category_Belts.Where(cb => cb.MTOD_CODE == cbmt.MTOD_CODE && cb.CTGY_STAT == "002");
                }
 
-               if (cexc.COCH_FILE_NO != cbmt.COCH_FILE_NO && MessageBox.Show(this, "عنوان برنامه گروه با اسم سرپرست همخوانی ندارد، آیا مایل به جایگزین کردن هستین؟", "تغییر سرپرست", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+               if (cexc.COCH_FILE_NO != cbmt.COCH_FILE_NO && MessageBox.Show(this, "????? ?????? ???? ?? ??? ?????? ??????? ?????? ??? ???? ?? ??????? ???? ??????", "????? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
                else
                   cexc.COCH_FILE_NO = cbmt.COCH_FILE_NO;
-               if (cexc.MTOD_CODE != cbmt.MTOD_CODE && MessageBox.Show(this, "عنوان برنامه گروه با نام گروه همخوانی ندارد، آیا مایل به جایگزین کردن هستین؟", "تغییر گروه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+               if (cexc.MTOD_CODE != cbmt.MTOD_CODE && MessageBox.Show(this, "????? ?????? ???? ?? ??? ???? ??????? ?????? ??? ???? ?? ??????? ???? ??????", "????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
                else
                {
                   cexc.MTOD_CODE = cbmt.MTOD_CODE;
@@ -414,7 +414,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
             CexcBs.EndEdit();            
          }
-         catch {}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CbmtCode_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void Ctgy2_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)

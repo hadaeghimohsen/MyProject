@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -60,7 +60,7 @@ namespace System.Scsc.Ui.Admission.ShowChanges
             StrtTime_Txt.EditValue = mbsp.STRT_DATE.Value.ToShortTimeString();//cbmt.STRT_TIME.ToString().Substring(0, 5);
             EndTime_Txt.EditValue = mbsp.END_DATE.Value.ToShortTimeString();//cbmt.END_TIME.ToString().Substring(0, 5);
          }
-         catch (Exception ) { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
          requery = false;
       }
    }

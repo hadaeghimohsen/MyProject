@@ -1,4 +1,4 @@
-﻿using DevExpress.XtraGrid.Views.Base;
+using DevExpress.XtraGrid.Views.Base;
 using System;
 using System.Collections.Generic;
 using System.JobRouting.Jobs;
@@ -225,7 +225,7 @@ namespace System.Scsc.Ui.Regulation
          {
             try
             {
-               if (MessageBox.Show(this, "آیا با حذف کردن نوع هزینه موافقید؟", "حذف نوع هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "??? ?? ??? ???? ??? ????? ????????", "??? ??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                iScsc.REGL_TOTL_P(
                   new XElement("Config",
                      new XAttribute("type", "001"),
@@ -238,7 +238,7 @@ namespace System.Scsc.Ui.Regulation
                );
                requery = true;
             }
-            catch { }
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Unknown error: " + ex.ToString()); }
             finally
             {
                if (requery)

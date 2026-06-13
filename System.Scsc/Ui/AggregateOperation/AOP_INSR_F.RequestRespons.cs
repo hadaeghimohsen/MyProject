@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -257,7 +257,7 @@ namespace System.Scsc.Ui.AggregateOperation
             var xinput = job.Input as XElement;
             
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Actn_CalF_P error: " + ex.ToString()); }
          finally
          {
             Execute_Query();

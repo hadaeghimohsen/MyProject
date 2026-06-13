@@ -91,9 +91,9 @@ namespace System.Reporting.ReportProfiler.UnderGateways.ProfilerGroups.Code
                                                    flp.Controls.Add(filter);
                                                 });
                                           }
-                                          catch { }
-                                       })                                 
-                              });
+                                           catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PrepareProfilerDesign4Role error: " + ex.ToString()); }
+                                        })                                 
+                               });
 
                            Gateway(
                               new Job(SendType.External, "Localhost", "DefaultGateway:ProfilerTemplate", 10 /* Execute AddGroup */, SendType.SelfToUserInterface)
@@ -205,9 +205,9 @@ namespace System.Reporting.ReportProfiler.UnderGateways.ProfilerGroups.Code
                                              flp.Controls.Add(filter);
                                           });
                                     }
-                                    catch { }
-                                 })
-                           });
+                                     catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PrepareNProfilerDesign4Role error: " + ex.ToString()); }
+                                  })
+                            });
 
                         Gateway(
                            new Job(SendType.External, "Localhost", "DefaultGateway:DefaultGateway:WorkFlow:WHR_SCON_F", 08 /* Execute AddGroup */, SendType.SelfToUserInterface)

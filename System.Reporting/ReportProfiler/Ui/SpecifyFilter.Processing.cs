@@ -231,9 +231,9 @@ namespace System.Reporting.ReportProfiler.Ui
                         rslt.Enabled = false;
                         break;
                   }
-               });
-         }
-         catch { }
+                });
+          }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DoAction error: " + ex.ToString()); }
       }
 
       private void DoAction_IV(string tagID, string actionType)

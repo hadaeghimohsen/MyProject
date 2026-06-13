@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -55,7 +55,7 @@ namespace System.Scsc.Ui.ChangeRials
                FighBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
          finally { requery = false; }
       }
 
@@ -118,7 +118,7 @@ namespace System.Scsc.Ui.ChangeRials
                      ),
                      new XElement("Gain_Loss_Rials",
                         new XAttribute("glid", glrl == null ? 0 : glrl.GLID),
-                        new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
+                        new XAttribute("type", "002" /* ??? ???? ???? ????? ???? ??????? */),
                         new XAttribute("amnt", Amnt_Txt.EditValue ?? "0"),
                         new XAttribute("prct", Prct_Txt.EditValue ?? "0"),
                         new XAttribute("paiddate", PaidDate_DateTime.Value == null ? "" : PaidDate_DateTime.Value.Value.ToString("yyyy-MM-dd HH:mm:ss")),                        
@@ -169,7 +169,7 @@ namespace System.Scsc.Ui.ChangeRials
       {
          try
          {
-            if (MessageBox.Show(this, "آیا با انصراف درخواست مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ?????? ??????? ????? ??????", "?????!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             var Rqst = RqstBs1.Current as Data.Request;
 
@@ -188,7 +188,7 @@ namespace System.Scsc.Ui.ChangeRials
                      )
                   )
                );
-               //MessageBox.Show(this, "مشتری حذف گردید!");
+               //MessageBox.Show(this, "????? ??? ?????!");
             }
             requery = true;
             //tc_pblc.SelectedTab = tp_pblcinfo;
@@ -205,7 +205,7 @@ namespace System.Scsc.Ui.ChangeRials
                Execute_Query();
                //Set_Current_Record();
                //Create_Record();
-               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               // 1397/05/16 * ??? ???????? ???? ?????? ???? ??? ????? ?? ??????
                if (RqstBs1.List.Count == 0)
                   Btn_RqstExit1_Click(null, null);               
                requery = false;
@@ -222,9 +222,9 @@ namespace System.Scsc.Ui.ChangeRials
             {
                var glrl = GlrlBs1.Current as Data.Gain_Loss_Rial;
                if(glrl.AMNT > GlrdBs1.List.OfType<Data.Gain_Loss_Rail_Detail>().Sum(g => g.AMNT))
-                  throw (new Exception("مبلغ کل وارد شده با مبلغ های پرداختی یکسان نمی باشد، لطفا بررسی و اصلاح نمایید"));
+                  throw (new Exception("???? ?? ???? ??? ?? ???? ??? ??????? ????? ??? ????? ???? ????? ? ????? ??????"));
 
-               if (MessageBox.Show(this, "آیا با ذخیره کردن تغییرات ریالی موافق هستید؟", "ذخیره کردن تغییرات ریالی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "??? ?? ????? ???? ??????? ????? ????? ??????", "????? ???? ??????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                iScsc.GLR_TSAV_P(
                   new XElement("Process",
@@ -281,7 +281,7 @@ namespace System.Scsc.Ui.ChangeRials
             {
                Execute_Query();
 
-               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
+               // 1397/05/16 * ??? ???????? ???? ?????? ???? ??? ????? ?? ??????
                if (RqstBs1.List.Count == 0)
                   Btn_RqstExit1_Click(null, null);
             }
@@ -326,7 +326,7 @@ namespace System.Scsc.Ui.ChangeRials
                            && r.REGL_STAT == "002"
                            && rqrq.RQTP_CODE == rqst.RQTP_CODE
                            && rqrq.RQTT_CODE == rqst.RQTT_CODE
-                           && rqdc.DCMT_DSID == 13930903120048833 // عکس 4*3
+                           && rqdc.DCMT_DSID == 13930903120048833 // ??? 4*3
                            && rcdc.RQRO_RQST_RQID == rqst.RQID
                            && rcdc.RQRO_RWNO == 1
                         select rcdc).FirstOrDefault();
@@ -464,14 +464,14 @@ namespace System.Scsc.Ui.ChangeRials
 
             if(glrl.PRCT > 0 && DecDspt_Rb.Checked)
             {
-               throw new Exception("برای کاهش بدهی گزینه درصد نباید لحاظ شود");
+               throw new Exception("???? ???? ???? ????? ???? ????? ???? ???");
             }
 
             GlrdBs1.AddNew();
             var glrd = GlrdBs1.Current as Data.Gain_Loss_Rail_Detail;
             glrd.GLRL_GLID = glrl.GLID;
             
-            // 1402/08/29 * اگر نوع سپرده گذاری افزایش یا کاهش باشد بتوانیم نوع پرداخت را تغییر دهیم
+            // 1402/08/29 * ??? ??? ????? ????? ?????? ?? ???? ???? ??????? ??? ?????? ?? ????? ????
             if(IncDpst_Rb.Checked)
                glrd.RCPT_MTOD = "003";
             else if(DecDspt_Rb.Checked)
@@ -493,7 +493,7 @@ namespace System.Scsc.Ui.ChangeRials
 
                //Amnt_Txt.EditValue = glrl.AMNT += glrl.AMNT * glrl.PRCT / 100;
                if(glrl.RESN_DESC == null || glrl.RESN_DESC == "")
-                  ResnDesc_Txt.EditValue = glrl.RESN_DESC = string.Format("مبلغ سپرده گذاری با {0}% تخفیف", glrl.PRCT);
+                  ResnDesc_Txt.EditValue = glrl.RESN_DESC = string.Format("???? ????? ????? ?? {0}% ?????", glrl.PRCT);
 
                Btn_RqstRqt1_Click(null, null);
             }
@@ -511,7 +511,7 @@ namespace System.Scsc.Ui.ChangeRials
             var Glrd = GlrdBs1.Current as Data.Gain_Loss_Rail_Detail;
             if (Glrd == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف ردیف پرداختی سپرده موافق هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ???? ??????? ????? ????? ??????", "?????!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.DEL_GLRD_P(
                new XElement("Gain_Loss_Rail_Detail",

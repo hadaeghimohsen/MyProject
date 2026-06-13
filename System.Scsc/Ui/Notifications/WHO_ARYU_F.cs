@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -48,7 +48,7 @@ namespace System.Scsc.Ui.Notifications
             iScsc = new Data.iScscDataContext(ConnectionString);
 
             //DRES_NUMB_Txt.Focus();
-            // 1395/12/11 * مشخص کردن نوع مبلغ برای بدهی
+            // 1395/12/11 * ???? ???? ??? ???? ???? ????
             if (Lbl_AmntType.Tag == null)
             {
                Lbl_AmntType.Text = (from r in iScsc.Regulations
@@ -59,7 +59,7 @@ namespace System.Scsc.Ui.Notifications
                Lbl_AmntType.Tag = "Set Amnt Type From Regulation";
             }
 
-            // 1396/07/16 * برای اینکه به حضوری مورد نظر دسترسی پیدا کنیم
+            // 1396/07/16 * ???? ????? ?? ????? ???? ??? ?????? ???? ????
             if (attncode != null)
             {
                AttnBs1.DataSource =
@@ -122,35 +122,35 @@ namespace System.Scsc.Ui.Notifications
          if(_stng == null)
             _stng = iScsc.Settings.FirstOrDefault(s => Fga_Uclb_U.Contains(s.CLUB_CODE));
 
-         // 1403/02/21 * اگر قفل انلاین میباشد شماره کمد دیگر قابل ویرایش نباشد
+         // 1403/02/21 * ??? ??? ?????? ?????? ????? ??? ???? ???? ?????? ?????
          DRES_NUMB_Txt.Properties.ReadOnly = _stng.DRES_AUTO == "002";
-         // 1403/02/21 * نمایس شماره ردیف ورود و خروج
+         // 1403/02/21 * ????? ????? ???? ???? ? ????
          AttnRwno_Txt.Text = _attn.RWNO.ToString();
 
          if (_attn.EXIT_TIME != null)
          {
-            //Lbl_AccessControl.Text = "خروج از باشگاه";
+            //Lbl_AccessControl.Text = "???? ?? ??????";
             //Lbl_AccessControl.ForeColor = Color.White;
             //DRES_NUMB_Txt.Properties.ReadOnly = true;
             DresNumb_Butn.Enabled = false;
          }
          else
          {
-            //Lbl_AccessControl.Text = "ورود مجاز است";
+            //Lbl_AccessControl.Text = "???? ???? ???";
             //Lbl_AccessControl.ForeColor = Color.GreenYellow;
             //DRES_NUMB_Txt.Properties.ReadOnly = false;
             DresNumb_Butn.Enabled = true;
 
-            // 1396/10/18 * آیا گزینه نمایش چاپ حضوری انجام شود یا خیر
+            // 1396/10/18 * ??? ????? ????? ??? ????? ????? ??? ?? ???
             if (_attn.Fighter1.FGPB_TYPE_DNRM == "001" && _stng.ATTN_PRNT_STAT == "002")
             {
-               // 1397/01/28 * برای آن دسته از ورود هایی که هنوز چاپ نشده اند
+               // 1397/01/28 * ???? ?? ???? ?? ???? ???? ?? ???? ??? ???? ???
                if(_attn.PRNT_STAT != "002")
                   PrintDefault_Butn_Click(null, null);
             }
          }
 
-         // 1402/10/21 * اگر سیستم قفل انلاین باشد
+         // 1402/10/21 * ??? ????? ??? ?????? ????
          SetDVip_Butn.Visible = OpenDVip_Butn.Visible = _stng.DRES_AUTO == "002";
 
          if(gateControl)
@@ -164,7 +164,7 @@ namespace System.Scsc.Ui.Notifications
                            new XElement("Request",
                               new XAttribute("type", "gatecontrol"),
                               new XAttribute("gateactn", _attn.EXIT_TIME == null ? "open" : "close"),
-                              new XAttribute("mtodcode", _attn.MTOD_CODE_DNRM ?? 0), // 1400/01/12 * برای اینکه بخواهیم به گیت مورد نظر همان ورزش درخواست دهیم
+                              new XAttribute("mtodcode", _attn.MTOD_CODE_DNRM ?? 0), // 1400/01/12 * ???? ????? ??????? ?? ??? ???? ??? ???? ???? ??????? ????
                               new XAttribute("enddate", _attn.MBSP_END_DATE_DNRM),
                               new XAttribute("numbattnmont", _attn.NUMB_OF_ATTN_MONT),
                               new XAttribute("sumattnmont",_attn.SUM_ATTN_MONT_DNRM ?? 0),
@@ -179,7 +179,7 @@ namespace System.Scsc.Ui.Notifications
          // 1404/01/05 * Debt amnt button operation
          PayCash_Butn.Enabled = PayPos_Butn.Enabled = PayCard2Card_Butn.Enabled = PayWallet_Butn.Enabled = PayDsct_Butn.Enabled = false;
 
-         // 1395/12/11 * چک کردن وضعیت بدهی مشتری
+         // 1395/12/11 * ?? ???? ????? ???? ?????
          //if(attn.Fighter1.DEBT_DNRM > 0)
          if (_attn.Fighter1.DEBT_DNRM > 0)
          {
@@ -221,7 +221,7 @@ namespace System.Scsc.Ui.Notifications
          }
          else
          {
-            Mtod_Lb.Text = "پرسنل";
+            Mtod_Lb.Text = "?????";
             CochName_Lb.Text = "";
             CochProFile_Rb.Visible = false;
          }
@@ -248,7 +248,7 @@ namespace System.Scsc.Ui.Notifications
 
                   ServProFile_Rb.Tag = _attn.FIGH_FILE_NO;
                }
-               catch { }
+               catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AttnBs1_CurrentChanged error: " + ex.ToString()); }
             }
             else
             {
@@ -278,7 +278,7 @@ namespace System.Scsc.Ui.Notifications
 
                   CochProFile_Rb.Tag = _attn.COCH_FILE_NO;
                }
-               catch { }
+               catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AttnBs1_CurrentChanged error: " + ex.ToString()); }
             }
             else
             {
@@ -299,10 +299,9 @@ namespace System.Scsc.Ui.Notifications
          }
          else
          {
-            InsrDate_Lb.Text = "بیمه ندارد";
+            InsrDate_Lb.Text = "???? ?????";
             InsrRmnd_Lb.Text = "";
          }
-
 
          if (iScsc.GET_MTOS_U((DateTime?)_attn.ATTN_DATE.Date).Substring(5) == BrthDate_Lb.Text.Substring(5) && BrthDate_Lb.Text.Substring(0, 4) != pc.GetYear(DateTime.Now).ToString())
          {
@@ -313,7 +312,7 @@ namespace System.Scsc.Ui.Notifications
                   new XElement("Log",
                       new XAttribute("fileno", _attn.FIGH_FILE_NO),
                       new XAttribute("type", "010"), 
-                      new XAttribute("text", string.Format("پخش آهنگ تبریک تولد برای " + "{0}", _attn.NAME_DNRM))
+                      new XAttribute("text", string.Format("??? ???? ????? ???? ???? " + "{0}", _attn.NAME_DNRM))
                   )
                );
                PlayHappyBirthDate_Butn.Tag = "stop";
@@ -323,7 +322,7 @@ namespace System.Scsc.Ui.Notifications
          else
             PlayHappyBirthDate_Butn.Visible = false;
 
-         // 1401/11/25 * برای اجرای مدت زمان کلاس
+         // 1401/11/25 * ???? ????? ??? ???? ????
          if(_attn.Club_Method != null && _attn.Club_Method.DURT_ATTN_SOND_PATH != "")
          {
             durtAttn = _attn.Club_Method.DURT_ATTN_SOND_PATH;
@@ -385,7 +384,6 @@ namespace System.Scsc.Ui.Notifications
          
          //if(attn.Fighter1.MBCO_RWNO_DNRM != null && (attn.Fighter1.FGPB_TYPE_DNRM != "002"))
          
-
          /*MbspBs1.DataSource = 
             iScsc.Member_Ships
             .Where(m => m.FIGH_FILE_NO == attn.FIGH_FILE_NO
@@ -460,7 +458,7 @@ namespace System.Scsc.Ui.Notifications
          else
             EndTime_Lb.Visible = false;
 
-         // 1400/01/08 * نمایش دکمه یاد آوری
+         // 1400/01/08 * ????? ???? ??? ????
          var notes = _attn.Fighter1.Notes.Where(n => n.VIST_STAT == "001");
          if(notes != null && notes.Count() > 0)
          {
@@ -482,7 +480,7 @@ namespace System.Scsc.Ui.Notifications
          TotlNumbAttn_Lb.Text = _attn.SUM_ATTN_MONT_DNRM.ToString();
          DayRmnd_Lb.Text = (_attn.MBSP_END_DATE_DNRM.Value.Date - DateTime.Now.Date).Days.ToString();
 
-         // 1404/04/06 * به درخواست جناب صلاحی اگر مشتری تایم رو به اتمام داشته باشد نرم افار یک جلسه قبل به مشتری اعلام کند
+         // 1404/04/06 * ?? ??????? ???? ????? ??? ????? ???? ?? ?? ????? ????? ???? ??? ???? ?? ???? ??? ?? ????? ????? ???
          if((_attn.NUMB_OF_ATTN_MONT > 0 && (_attn.NUMB_OF_ATTN_MONT - _attn.SUM_ATTN_MONT_DNRM) == 1) ||
             (_attn.NUMB_OF_ATTN_MONT == 0 && (_attn.MBSP_END_DATE_DNRM.Value.Date - DateTime.Now.Date).Days <= 2))
          {
@@ -496,15 +494,15 @@ namespace System.Scsc.Ui.Notifications
             );
          }
 
-         // 1400/09/17 * مشخص شدن آیتم های درآمدی اعتباری
+         // 1400/09/17 * ???? ??? ???? ??? ?????? ???????
          var pydts = iScsc.Payment_Details.Where(pd => pd.EXPR_DATE != null && pd.Request_Row.FIGH_FILE_NO == _attn.FIGH_FILE_NO && pd.Request_Row.Request.RQST_STAT == "002");
          PivBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date >= DateTime.Now && pd.EXPR_DATE.Value.Date != pd.CRET_DATE.Value.Date);
          PinvBs.DataSource = pydts.Where(pd => pd.EXPR_DATE.Value.Date < DateTime.Now && pd.EXPR_DATE.Value.Date != pd.CRET_DATE.Value.Date);
 
-         // 1401/07/23 * روز سرگونی حکومت کثیف آخوندی
+         // 1401/07/23 * ??? ?????? ????? ???? ??????
          PdtMBs.DataSource = iScsc.Payment_Details.Where(pd => pd.MBSP_FIGH_FILE_NO == _attn.FIGH_FILE_NO && pd.MBSP_RECT_CODE == "004" && pd.MBSP_RWNO == _attn.MBSP_RWNO_DNRM);
 
-         // 1403/01/18 * اگر مشتری دستبند از باشگاه گرفته باشد باید با یه پیام هشدار به منشی ها اعلام کنیم که دستبند ها رو دریافت کنند
+         // 1403/01/18 * ??? ????? ?????? ?? ?????? ????? ???? ???? ?? ?? ???? ????? ?? ???? ?? ????? ???? ?? ?????? ?? ?? ?????? ????
          if(_attn.EXIT_TIME != null && _attn.Attendance_Wrists.Any(aw => aw.STAT == "001"))
          {
             Info_Tb.SelectedTabPage = Tp_DefWrst;
@@ -565,7 +563,7 @@ namespace System.Scsc.Ui.Notifications
                               && r.REGL_STAT == "002"
                               && rqrq.RQTP_CODE == rqst.RQTP_CODE
                               && rqrq.RQTT_CODE == rqst.RQTT_CODE
-                              && rqdc.DCMT_DSID == 13930903120048833 // عکس 4*3
+                              && rqdc.DCMT_DSID == 13930903120048833 // ??? 4*3
                               && rcdc.RQRO_RQST_RQID == rqst.RQID
                               && rcdc.RQRO_RWNO == 1
                            select rcdc).FirstOrDefault();
@@ -624,8 +622,8 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception exc)
          {
             //Lbl_Dresser.BackColor = Color.Tomato;
-            //MsgBox.Show(exc.Message, "خطای ثبت کمد شماره کمد", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            MessageBox.Show(this, exc.Message, "خطای ثبت کمد شماره کمد", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //MsgBox.Show(exc.Message, "???? ??? ??? ????? ???", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, exc.Message, "???? ??? ??? ????? ???", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
          finally
          {
@@ -655,10 +653,10 @@ namespace System.Scsc.Ui.Notifications
             var attn = AttnBs1.Current as Data.Attendance;
             if (attn == null) return;
 
-            // ذخیره کردن شماره کمد و توضیحات ورودی
+            // ????? ???? ????? ??? ? ??????? ?????
             iScsc.SubmitChanges();
 
-            var chosbutn = MessageBox.Show(this, "حضوری همراه به صورت هزینه دار با کسر جلسه برای عضو ثبت شود؟", "ثبت حضوری همراه", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading);
+            var chosbutn = MessageBox.Show(this, "????? ????? ?? ???? ????? ??? ?? ??? ???? ???? ??? ??? ????", "??? ????? ?????", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.RtlReading);
             switch (chosbutn)
 	         {
 		         case DialogResult.Cancel:
@@ -704,8 +702,8 @@ namespace System.Scsc.Ui.Notifications
          }
          catch (Exception exc)
          {
-            //MsgBox.Show(exc.Message, "برای ثبت اطلاعات توضیحات با خطا مواجه شد", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            MessageBox.Show(this, exc.Message, "برای ثبت اطلاعات توضیحات با خطا مواجه شد", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //MsgBox.Show(exc.Message, "???? ??? ??????? ??????? ?? ??? ????? ??", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, exc.Message, "???? ??? ??????? ??????? ?? ??? ????? ??", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
          finally
          {
@@ -1116,7 +1114,7 @@ namespace System.Scsc.Ui.Notifications
                   m = m % 60;
                }
             
-               TotlCyclAttn_Lb.Text = string.Format("{0} : {1}\n\r{2} : {3}\n\r{4} : {5}", "جلسات", _attns.Count(), "ساعت", h, "دقیقه", m);
+               TotlCyclAttn_Lb.Text = string.Format("{0} : {1}\n\r{2} : {3}\n\r{4} : {5}", "?????", _attns.Count(), "????", h, "?????", m);
                TotlCyclAttn_Lb.Visible = true;
                Infos_Ro.RolloutStatus = true;
             }
@@ -1140,11 +1138,11 @@ namespace System.Scsc.Ui.Notifications
                   s.PHON_NUMB == _attn.CELL_PHON_DNRM
                );
 
-            // 1402/10/21 * بار گذاری کمدهایی که میتوان به مشتریان داد
+            // 1402/10/21 * ??? ????? ??????? ?? ?????? ?? ??????? ???
             DresBs.DataSource = iScsc.Dressers.Where(d => d.VIP_STAT == "001" && d.REC_STAT == "002" && !d.Dresser_Attendances.Any(da => da.Attendance.EXIT_TIME == null) && !d.Dresser_Vip_Fighters.Any(dv => dv.STAT == "002"));
             DratGv.ActiveFilterString = "Tkbk_Time IS NULL";
 
-            // 1403/01/18 * اگر مشتری دستبند از باشگاه گرفته باشد باید با یه پیام هشدار به منشی ها اعلام کنیم که دستبند ها رو دریافت کنند
+            // 1403/01/18 * ??? ????? ?????? ?? ?????? ????? ???? ???? ?? ?? ???? ????? ?? ???? ?? ????? ???? ?? ?????? ?? ?? ?????? ????
             if (_attns.Any(a => a.Attendance_Wrists.Any(aw => aw.STAT == "001")))
             {
                Tb_WristInfo.SelectedTabPage = Tp_OldGetWrist;
@@ -1166,7 +1164,7 @@ namespace System.Scsc.Ui.Notifications
             ADVipBs.DataSource = iScsc.Dresser_Vip_Fighters.Where(dvf => dvf.MBSP_FIGH_FILE_NO == _attn.FIGH_FILE_NO && dvf.STAT == "002");
             AllAttnIndyBs.DataSource = iScsc.Attendances.Where(a => a.ATTN_DATE == DateTime.Now.Date && a.ATTN_STAT == "002" && a.EXIT_TIME == null && a.DERS_NUMB != null && a.CODE != _attn.CODE);
 
-            // 1403/12/09 * اگر مشتری دارای کمد اجاره یا اختصاصی میباشد روی صفحه نمایش ان را نمایش دهیم
+            // 1403/12/09 * ??? ????? ????? ??? ????? ?? ??????? ?????? ??? ???? ????? ?? ?? ????? ????
             DresType_Lb.Visible = ADVipBs.List.Count > 0;
                
          }
@@ -1208,7 +1206,7 @@ namespace System.Scsc.Ui.Notifications
                   })
             );
          }
-         catch (Exception exc) { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnEnrollFngrPrnt1_Click error: " + ex.ToString()); }
       }
 
       private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
@@ -1226,7 +1224,7 @@ namespace System.Scsc.Ui.Notifications
                });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
-         catch (Exception exc) { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDeleteFngrPrnt1_Click error: " + ex.ToString()); }
       }
 
       private void RqstBnDuplicateFngrPrnt1_Click(object sender, EventArgs e)
@@ -1244,7 +1242,7 @@ namespace System.Scsc.Ui.Notifications
                });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
-         catch (Exception exc) { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDuplicateFngrPrnt1_Click error: " + ex.ToString()); }
       }
 
       private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
@@ -1266,7 +1264,7 @@ namespace System.Scsc.Ui.Notifications
                }
             );
          }
-         catch (Exception exc) { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnEnrollFngrPrnt2_Click error: " + ex.ToString()); }
       }
 
       private void RqstBnDeleteFngrPrnt2_Click(object sender, EventArgs e)
@@ -1288,7 +1286,7 @@ namespace System.Scsc.Ui.Notifications
                }
             );
          }
-         catch (Exception exc) { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDeleteFngrPrnt2_Click error: " + ex.ToString()); }
       }
       #endregion
 
@@ -1305,24 +1303,24 @@ namespace System.Scsc.Ui.Notifications
             var _lockbydvip = iScsc.Dresser_Vip_Fighters.FirstOrDefault(d => d.DRES_CODE == _dvipcode && d.STAT == "002" && d.MBSP_FIGH_FILE_NO != _attn.FIGH_FILE_NO);
             if(_lockbydvip != null)
             {
-               if (MessageBox.Show(this, string.Format("در حال حاضر کمد در اختیار {0} مباشد آیا با آزاد کردن کمد موافق هستید?", _lockbydvip.Fighter.NAME_DNRM), "خطا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, string.Format("?? ??? ???? ??? ?? ?????? {0} ????? ??? ?? ???? ???? ??? ????? ??????", _lockbydvip.Fighter.NAME_DNRM), "???", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
                _freelockvip = true;
             }
 
-            // اگر مشتری دارای کمد اختصاصی یا اجاره ای باشه نباید کمد دیگری به آن داده شود
+            // ??? ????? ????? ??? ??????? ?? ????? ?? ???? ????? ??? ????? ?? ?? ???? ???
             if(iScsc.Dresser_Vip_Fighters.Any(d => d.MBSP_FIGH_FILE_NO == _attn.FIGH_FILE_NO && d.STAT == "002"))
             {
-               MessageBox.Show(this, "مشتری دارای کمد اختصاصی یا اجاره ای میباشد، شما قادر به اختصاص کمد جدید به این مشتری نیستید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               MessageBox.Show(this, "????? ????? ??? ??????? ?? ????? ?? ??????? ??? ???? ?? ?????? ??? ???? ?? ??? ????? ??????", "???", MessageBoxButtons.OK, MessageBoxIcon.Error);
                return;
             }
 
-            // 1402/10/10 * بررسی اینکه آیا این کمد برای این دوره درست انتخاب شده یا خیر
+            // 1402/10/10 * ????? ????? ??? ??? ??? ???? ??? ???? ???? ?????? ??? ?? ???
             var _edlm = iScsc.External_Device_Link_Methods.Where(a => a.STAT == "002" && (a.External_Device.DEV_COMP_TYPE == "003" && a.External_Device.DEV_TYPE == "010" && a.External_Device.STAT == "002"));
             if(_edlm.Any())
             {
                if(!_edlm.Any(i => i.MTOD_CODE == _attn.Member_Ship.FGPB_MTOD_CODE_DNRM && iScsc.Dressers.Any(d => d.CODE == _dvipcode && d.IP_ADRS == i.External_Device.IP_ADRS)))
                {
-                  MessageBox.Show(this, "کمد انتخاب شده برای این گروه خدمات تعریف نشده، لطفا اصلاح کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  MessageBox.Show(this, "??? ?????? ??? ???? ??? ???? ????? ????? ????? ???? ????? ????", "???", MessageBoxButtons.OK, MessageBoxIcon.Error);
                   return;
                }
             }
@@ -1338,8 +1336,8 @@ namespace System.Scsc.Ui.Notifications
                      new List<object>
                      {
                         ToolTipIcon.Info,
-                        "کمد به مشتری اختصاص داده شد",
-                        "اختصاص کمد به مشتری",
+                        "??? ?? ????? ?????? ???? ??",
+                        "?????? ??? ?? ?????",
                         2000
                      }
                }
@@ -1361,7 +1359,7 @@ namespace System.Scsc.Ui.Notifications
             var dres = _attn.Dresser_Attendances.FirstOrDefault().Dresser as Data.Dresser;
             if (dres == null) return;
 
-            if (MessageBox.Show(this, "آیا با باز کردن کمد موافق هستید؟", "تایید فعالیت", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ???? ??? ????? ??????", "????? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             // 1402/08/30 * User access to open online locker
             _DefaultGateway.Gateway(
@@ -1382,7 +1380,7 @@ namespace System.Scsc.Ui.Notifications
                               AfterChangedOutput = new Action<object>((output) => {
                                  if ((bool)output)
                                     return;
-                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 272 سطوح امینتی", "عدم دسترسی");
+                                 MessageBox.Show("??? - ??? ?????? ?? ???? 272 ???? ??????", "??? ??????");
                               })
                            },
                            #endregion
@@ -1402,7 +1400,7 @@ namespace System.Scsc.Ui.Notifications
                   })
             );
 
-            // 1402/10/21 * باز کردن کمدهای همراهان
+            // 1402/10/21 * ??? ???? ?????? ???????
             if (iScsc.Dresser_Attendances.Any(da => da.ATTN_CODE == _attn.CODE && da.DRAT_CODE != null))
             {
                new Thread(new ThreadStart(() => OpenDresPart_Tmr_Tick(_attn.CODE))).Start();
@@ -1435,7 +1433,7 @@ namespace System.Scsc.Ui.Notifications
                );
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("OpenDresPart_Tmr_Tick error: " + ex.ToString()); }
       } 
 
       private void DresActn_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -1471,7 +1469,7 @@ namespace System.Scsc.Ui.Notifications
                                     AfterChangedOutput = new Action<object>((output) => {
                                        if ((bool)output)
                                           return;
-                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 272 سطوح امینتی", "عدم دسترسی");
+                                       MessageBox.Show("??? - ??? ?????? ?? ???? 272 ???? ??????", "??? ??????");
                                     })
                                  },
                                  #endregion
@@ -1494,7 +1492,7 @@ namespace System.Scsc.Ui.Notifications
                case 1:
                   if (_attn.EXIT_TIME != null) return;
 
-                  if (_attn.NUMB_OF_ATTN_MONT == _attn.SUM_ATTN_MONT_DNRM) { MessageBox.Show(this, "برای دوره فعلی دیگر جلسه آزادی وجودی ندارد که از آن برای همراهان استفاده کنید", "اتمام تعداد جلسات", MessageBoxButtons.OK, MessageBoxIcon.Stop); return; }
+                  if (_attn.NUMB_OF_ATTN_MONT == _attn.SUM_ATTN_MONT_DNRM) { MessageBox.Show(this, "???? ???? ???? ???? ???? ????? ????? ????? ?? ?? ?? ???? ??????? ??????? ????", "????? ????? ?????", MessageBoxButtons.OK, MessageBoxIcon.Stop); return; }
 
                   //var _dvipcode = _attn.Dresser_Attendances.FirstOrDefault(d => d.DRAT_CODE == null).DRES_CODE;
                   var _mbsp = _attn.Member_Ship;
@@ -1503,24 +1501,24 @@ namespace System.Scsc.Ui.Notifications
                   var _lockbydvip = iScsc.Dresser_Vip_Fighters.FirstOrDefault(d => d.DRES_CODE == _dres.CODE && d.STAT == "002" && d.MBSP_FIGH_FILE_NO != _attn.FIGH_FILE_NO);
                   if(_lockbydvip != null)
                   {
-                     if (MessageBox.Show(this, string.Format("در حال حاضر کمد در اختیار {0} مباشد آیا با آزاد کردن کمد موافق هستید?", _lockbydvip.Fighter.NAME_DNRM), "خطا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                     if (MessageBox.Show(this, string.Format("?? ??? ???? ??? ?? ?????? {0} ????? ??? ?? ???? ???? ??? ????? ??????", _lockbydvip.Fighter.NAME_DNRM), "???", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
                      _freelockvip = true;
                   }
 
-                  //// اگر مشتری دارای کمد اختصاصی یا اجاره ای باشه نباید کمد دیگری به آن داده شود
+                  //// ??? ????? ????? ??? ??????? ?? ????? ?? ???? ????? ??? ????? ?? ?? ???? ???
                   //if(iScsc.Dresser_Vip_Fighters.Any(d => d.MBSP_FIGH_FILE_NO == _attn.FIGH_FILE_NO && d.STAT == "002"))
                   //{
-                  //   MessageBox.Show(this, "مشتری دارای کمد اختصاصی یا اجاره ای میباشد، شما قادر به اختصاص کمد جدید به این مشتری نیستید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  //   MessageBox.Show(this, "????? ????? ??? ??????? ?? ????? ?? ??????? ??? ???? ?? ?????? ??? ???? ?? ??? ????? ??????", "???", MessageBoxButtons.OK, MessageBoxIcon.Error);
                   //   return;
                   //}
 
-                  // 1402/10/10 * بررسی اینکه آیا این کمد برای این دوره درست انتخاب شده یا خیر
+                  // 1402/10/10 * ????? ????? ??? ??? ??? ???? ??? ???? ???? ?????? ??? ?? ???
                   var _edlm = iScsc.External_Device_Link_Methods.Where(a => a.STAT == "002" && (a.External_Device.DEV_COMP_TYPE == "003" && a.External_Device.DEV_TYPE == "010" && a.External_Device.STAT == "002"));
                   if(_edlm.Any())
                   {
                      if(!_edlm.Any(i => i.MTOD_CODE == _mbsp.FGPB_MTOD_CODE_DNRM && iScsc.Dressers.Any(d => d.CODE == _dres.CODE && d.IP_ADRS == i.External_Device.IP_ADRS)))
                      {
-                        MessageBox.Show(this, "کمد انتخاب شده برای این گروه خدمات تعریف نشده، لطفا اصلاح کنید", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(this, "??? ?????? ??? ???? ??? ???? ????? ????? ????? ???? ????? ????", "???", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                      }
                   }
@@ -1529,7 +1527,7 @@ namespace System.Scsc.Ui.Notifications
                      iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Lock_Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
                   iScsc.ExecuteCommand("INSERT INTO dbo.Dresser_Attendance (Dres_Code, Attn_Code, Figh_File_No, Code, Drat_Code, Ders_Numb, Lend_Time) SELECT {0}, {1}, {2}, 0, {4}, {3}, CAST(GETDATE() AS TIME(0)) WHERE NOT EXISTS (SELECT 0 FROM dbo.Dresser_Attendance WHERE Dres_Code = {0} AND Attn_Code = {1});", _dres.CODE, _attn.CODE, fileno, _dres.DRES_NUMB, _attn.Dresser_Attendances.FirstOrDefault(d => d.DRAT_CODE == null).CODE);
                   
-                  // 1405/02/26 * کسر جلسه بابت کمد همراه
+                  // 1405/02/26 * ??? ???? ???? ??? ?????
                   iScsc.ExecuteCommand(
                      string.Format(
                         "UPDATE dbo.Attendance SET SUM_ATTN_MONT_DNRM += 1 WHERE CODE = {0};" + Environment.NewLine +
@@ -1541,7 +1539,7 @@ namespace System.Scsc.Ui.Notifications
                      new XElement("Log",
                            new XAttribute("fileno", _attn.FIGH_FILE_NO),
                            new XAttribute("type", "011"),
-                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _attn.NAME_DNRM + " یک جلسه به صورت دستی بابت دستبند اضافه کم کرد")
+                           new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _attn.NAME_DNRM + " ?? ???? ?? ???? ???? ???? ?????? ????? ?? ???")
                      )
                   );
                   break;
@@ -1594,7 +1592,7 @@ namespace System.Scsc.Ui.Notifications
                                     AfterChangedOutput = new Action<object>((output) => {
                                        if ((bool)output)
                                           return;
-                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 272 سطوح امینتی", "عدم دسترسی");
+                                       MessageBox.Show("??? - ??? ?????? ?? ???? 272 ???? ??????", "??? ??????");
                                     })
                                  },
                                  #endregion
@@ -1619,7 +1617,7 @@ namespace System.Scsc.Ui.Notifications
 
                   iScsc.ExecuteCommand("DELETE dbo.Dresser_Attendance WHERE Attn_Code = {0} AND DERS_NUMB = {1};", _drat.ATTN_CODE, _drat.DERS_NUMB);
 
-                  // 1405/02/26 * کسر جلسه بابت کمد همراه
+                  // 1405/02/26 * ??? ???? ???? ??? ?????
                   iScsc.ExecuteCommand(
                      string.Format(
                         "UPDATE dbo.Attendance SET SUM_ATTN_MONT_DNRM -= 1 WHERE CODE = {0};" + Environment.NewLine +
@@ -1631,7 +1629,7 @@ namespace System.Scsc.Ui.Notifications
                      new XElement("Log",
                            new XAttribute("fileno", _drat.FIGH_FILE_NO),
                            new XAttribute("type", "012"),
-                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _drat.Attendance.NAME_DNRM + " برگشت یک جلسه به دوره مشتری به صورت دستی بابت حذف دستبند شماره " + _drat.Dresser.DRES_NUMB.ToString() + " انجام شد")
+                           new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _drat.Attendance.NAME_DNRM + " ????? ?? ???? ?? ???? ????? ?? ???? ???? ???? ??? ?????? ????? " + _drat.Dresser.DRES_NUMB.ToString() + " ????? ??")
                      )
                   );
                   break;
@@ -1674,13 +1672,13 @@ namespace System.Scsc.Ui.Notifications
                      var _wrst = iScsc.Fighters.FirstOrDefault(w => w.FNGR_PRNT_DNRM == WristBand_Txt.Text);
                      if (_wrst == null) return;
 
-                     if (_attn.NUMB_OF_ATTN_MONT == _attn.SUM_ATTN_MONT_DNRM) { MessageBox.Show(this, "برای دوره فعلی دیگر جلسه آزادی وجودی ندارد که از آن برای همراهان استفاده کنید", "اتمام تعداد جلسات", MessageBoxButtons.OK, MessageBoxIcon.Stop); return; }
+                     if (_attn.NUMB_OF_ATTN_MONT == _attn.SUM_ATTN_MONT_DNRM) { MessageBox.Show(this, "???? ???? ???? ???? ???? ????? ????? ????? ?? ?? ?? ???? ??????? ??????? ????", "????? ????? ?????", MessageBoxButtons.OK, MessageBoxIcon.Stop); return; }
 
-                     if (!AutoAddToList_Cbx.Checked && MessageBox.Show(this, "آیا با اضافه کردن دستبند به لیست موافق هستید؟", "عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                     if (!AutoAddToList_Cbx.Checked && MessageBox.Show(this, "??? ?? ????? ???? ?????? ?? ???? ????? ??????", "??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
                      
                      iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.Attendance_Wrist(Attn_Code, Atnw_Figh_File_No, Code, Atnw_Fngr_Prnt_Dnrm) VALUES ({0}, {1}, 0, '{2}');", _attn.CODE, _wrst.FILE_NO, _wrst.FNGR_PRNT_DNRM));
 
-                     // اگر تعداد دستبند هایی که داده میوشد بیشتر از یک عدد باشد باید تعداد جلسات بیشتری از مشتری کم شود
+                     // ??? ????? ?????? ???? ?? ???? ????? ????? ?? ?? ??? ???? ???? ????? ????? ?????? ?? ????? ?? ???
                      if (AtnwBs.Count >= 1)
                      {
                         iScsc.ExecuteCommand(
@@ -1694,19 +1692,19 @@ namespace System.Scsc.Ui.Notifications
                            new XElement("Log",
                                new XAttribute("fileno", _attn.FIGH_FILE_NO),
                                new XAttribute("type", "011"),
-                               new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _attn.NAME_DNRM + " یک جلسه به صورت دستی بابت دستبند اضافه کم کرد")
+                               new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _attn.NAME_DNRM + " ?? ???? ?? ???? ???? ???? ?????? ????? ?? ???")
                            )
                         );
                      }
                   }
                   else
                   {
-                     if (!ConfBackWrst_Cbx.Checked && MessageBox.Show(this, "آیا با تحویل و برگشت دستبند موافق هستید؟", "عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                     if (!ConfBackWrst_Cbx.Checked && MessageBox.Show(this, "??? ?? ????? ? ????? ?????? ????? ??????", "??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
-                     // اگر قبلا این دستبند برگشت داده شده باشد
+                     // ??? ???? ??? ?????? ????? ???? ??? ????
                      if (AtnwBs.List.OfType<Data.Attendance_Wrist>().Any(aw => aw.ATTN_CODE == _attn.CODE && aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text && aw.STAT == "002")) return;
 
-                     // وضعیت برگشت دستبند را فعال میکنیم
+                     // ????? ????? ?????? ?? ???? ??????
                      iScsc.ExecuteCommand(string.Format("UPDATE dbo.Attendance_Wrist SET STAT = '002' WHERE Attn_Code = {0} AND Atnw_Fngr_Prnt_Dnrm = '{1}';", _attn.CODE, WristBand_Txt.Text));
 
                      _tmp = AtnwBs.List.OfType<Data.Attendance_Wrist>().FirstOrDefault(aw => aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text).Dresser == null ? AtnwBs.List.OfType<Data.Attendance_Wrist>().FirstOrDefault(aw => aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text).ATNW_FNGR_PRNT_DNRM : AtnwBs.List.OfType<Data.Attendance_Wrist>().FirstOrDefault(aw => aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text).Dresser.DRES_NUMB.ToString();
@@ -1715,7 +1713,7 @@ namespace System.Scsc.Ui.Notifications
                         new XElement("Log",
                               new XAttribute("fileno", _attn.FIGH_FILE_NO),
                               new XAttribute("type", "015"),
-                              new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _attn.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " را تحویل گرفت")
+                              new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _attn.NAME_DNRM + " ?? ???? ???? ??? ????? " + _tmp + " ?? ????? ????")
                         )
                      );
                   }
@@ -1726,7 +1724,7 @@ namespace System.Scsc.Ui.Notifications
             requery = true;
             WristBand_Txt.Text = "";
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("WristBand_Txt_ButtonClick error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -1768,17 +1766,17 @@ namespace System.Scsc.Ui.Notifications
                      new XElement("Log",
                            new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
                            new XAttribute("type", "016"),
-                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " باز کرد")
+                           new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _atnw.Attendance.NAME_DNRM + " ?? ???? ???? ??? ????? " + _tmp + " ??? ???")
                      )
                   );
                   break;
                case 1:
-                  if (!ConfBackWrst_Cbx.Checked && MessageBox.Show(this, "آیا با تحویل و برگشت دستبند موافق هستید؟", "عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                  if (!ConfBackWrst_Cbx.Checked && MessageBox.Show(this, "??? ?? ????? ? ????? ?????? ????? ??????", "??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
-                  // اگر قبلا این دستبند برگشت داده شده باشد
+                  // ??? ???? ??? ?????? ????? ???? ??? ????
                   if (AtnwBs.List.OfType<Data.Attendance_Wrist>().Any(aw => /*aw.ATTN_CODE == _atnw.ATTN_CODE && aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text*/aw.CODE == _atnw.CODE && aw.STAT == "002")) return;
 
-                  // وضعیت برگشت دستبند را فعال میکنیم
+                  // ????? ????? ?????? ?? ???? ??????
                   iScsc.ExecuteCommand(string.Format("UPDATE dbo.Attendance_Wrist SET STAT = '002' WHERE CODE = {0};", /*_atnw.ATTN_CODE, WristBand_Txt.Text*/ _atnw.CODE));
 
                   _tmp = _atnw.Dresser == null ? _atnw.Fighter1.FNGR_PRNT_DNRM : _atnw.Dresser.DRES_NUMB.ToString();
@@ -1787,7 +1785,7 @@ namespace System.Scsc.Ui.Notifications
                      new XElement("Log",
                            new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
                            new XAttribute("type", "015"),
-                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " را تحویل گرفت")
+                           new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _atnw.Attendance.NAME_DNRM + " ?? ???? ???? ??? ????? " + _tmp + " ?? ????? ????")
                      )
                   );
                   break;
@@ -1795,7 +1793,7 @@ namespace System.Scsc.Ui.Notifications
                   // 1405/02/26
                   if (_atnw.Attendance.EXIT_TIME != null) return;
 
-                  if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف دستبند", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
                   iScsc.ExecuteCommand(string.Format("DELETE dbo.Attendance_Wrist WHERE Code = {0};", _atnw.CODE));
 
@@ -1805,7 +1803,7 @@ namespace System.Scsc.Ui.Notifications
                      new XElement("Log",
                            new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
                            new XAttribute("type", "014"),
-                           new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " به صورت دستی کمد شماره " + _tmp + " را حذف کرد")
+                           new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _atnw.Attendance.NAME_DNRM + " ?? ???? ???? ??? ????? " + _tmp + " ?? ??? ???")
                      )
                   );
 
@@ -1824,7 +1822,7 @@ namespace System.Scsc.Ui.Notifications
                         new XElement("Log",
                               new XAttribute("fileno", _atnw.FIGH_FILE_NO_DNRM),
                               new XAttribute("type", "012"),
-                              new XAttribute("text", "کاربر " + CurrentUser + " برای مشتری " + _atnw.Attendance.NAME_DNRM + " برگشت یک جلسه به دوره مشتری به صورت دستی بابت حذف دستبند شماره " + _tmp + " انجام شد")
+                              new XAttribute("text", "????? " + CurrentUser + " ???? ????? " + _atnw.Attendance.NAME_DNRM + " ????? ?? ???? ?? ???? ????? ?? ???? ???? ???? ??? ?????? ????? " + _tmp + " ????? ??")
                         )
                      );
                   }
@@ -1843,7 +1841,7 @@ namespace System.Scsc.Ui.Notifications
             }
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Atnw_Butn_ButtonClick error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -1880,7 +1878,7 @@ namespace System.Scsc.Ui.Notifications
             var _dvip = ADVipBs.Current as Data.Dresser_Vip_Fighter;
             if (_dvip == null) return;
 
-            if (MessageBox.Show(this, "ایا با آزاد کردن کمد VIP موافق هستید?", "آزاد کردن کمد VIP", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ???? ???? ??? VIP ????? ??????", "???? ???? ??? VIP", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
             iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Lock_Stat = '001', Expr_Date = GETDATE() WHERE Code = {0};", _dvip.CODE));
             requery = true;
          }
@@ -1906,12 +1904,12 @@ namespace System.Scsc.Ui.Notifications
 
             if(_attn.DERS_NUMB != null || _attn.Dresser_Attendances.Any(da => da.TKBK_TIME == null))
             {
-               if (MessageBox.Show(this, "حضوری فعلی دارای کمد ثبت شده میباشد که باید آن را آزاد کنیم. آیا برای آزاد کردن کمد موافق هستید؟", "آزاد کردن کمد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "????? ???? ????? ??? ??? ??? ?????? ?? ???? ?? ?? ???? ????. ??? ???? ???? ???? ??? ????? ??????", "???? ???? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
                DelDresNumbAttn_Butn_Click(null, null);
             }
 
-            // 1403/12/09 * درخواست شماره کمد جدید
+            // 1403/12/09 * ??????? ????? ??? ????
             iScsc.SET_ADNA_P(
                new XElement("Attendance",
                    new XAttribute("code", _attn.CODE),
@@ -1960,12 +1958,12 @@ namespace System.Scsc.Ui.Notifications
 
             if (_attn.DERS_NUMB != null || _attn.Dresser_Attendances.Any(da => da.TKBK_TIME == null))
             {
-               if (MessageBox.Show(this, "حضوری فعلی دارای کمد ثبت شده میباشد که باید آن را آزاد کنیم. آیا برای آزاد کردن کمد موافق هستید؟", "آزاد کردن کمد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "????? ???? ????? ??? ??? ??? ?????? ?? ???? ?? ?? ???? ????. ??? ???? ???? ???? ??? ????? ??????", "???? ???? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
                DelDresNumbAttn_Butn_Click(null, null);
             }
 
-            // 1403/12/09 * درخواست شماره کمد اشتراکی
+            // 1403/12/09 * ??????? ????? ??? ???????
             iScsc.SET_SDNA_P(
                new XElement("Attendance",
                    new XAttribute("code", _attn.CODE),
@@ -1998,7 +1996,7 @@ namespace System.Scsc.Ui.Notifications
 
             if (_attn.DERS_NUMB != null || _attn.Dresser_Attendances.Any(da => da.TKBK_TIME != null))
             {
-               if (MessageBox.Show(this, "آیا برای آزاد کردن کمد موافق هستید؟", "آزاد کردن کمد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "??? ???? ???? ???? ??? ????? ??????", "???? ???? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
                iScsc.SET_EDNA_P(
                   new XElement("Attendance",
@@ -2035,10 +2033,10 @@ namespace System.Scsc.Ui.Notifications
 
             if (PymtAmnt_Txt.EditValue == null || PymtAmnt_Txt.EditValue.ToString() == "" || Convert.ToInt64(PymtAmnt_Txt.EditValue) == 0) return;
 
-            //1403/08/26 * اگر تاریخ پرداخت بیشتر از تاریخ جاری باشد
+            //1403/08/26 * ??? ????? ?????? ????? ?? ????? ???? ????
             if (PymtDate_Dt.Value.HasValue && PymtDate_Dt.Value.Value.Date > DateTime.Now.Date)
             {
-               MessageBox.Show(this, "پرداختی در گذشته داریم ولی پرداختی در آینده نداریم، اینجاست که باید بگم داش داری اشتباه میزنی");
+               MessageBox.Show(this, "??????? ?? ????? ????? ??? ??????? ?? ????? ??????? ??????? ?? ???? ??? ??? ???? ?????? ?????");
                PymtDate_Dt.Focus();
                PymtDate_Dt.Value = DateTime.Now;
                return;
@@ -2047,7 +2045,7 @@ namespace System.Scsc.Ui.Notifications
             var figh = (AttnBs1.Current as Data.Attendance).Fighter1 as Data.Fighter;
 
             var paydebt = Convert.ToInt64(PymtAmnt_Txt.EditValue);
-            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
+            // ???? ?????? ????? ?? ???? ???? ?? ????
             if (paydebt > figh.DEBT_DNRM) return;
 
             switch ((RcmtType_Lov.EditValue ?? "001").ToString())
@@ -2079,7 +2077,7 @@ namespace System.Scsc.Ui.Notifications
                      if (regl.AMNT_TYPE == "002")
                         PymtAmnt_Txt.EditValue = Convert.ToInt64(PymtAmnt_Txt.EditValue) * 10;
 
-                     // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
+                     // ?? ??? ????? ???? ??? ??????? ?????? ?? ??? ?? ?????? ????? ??????? ??? ??? ?????? ???
                      UsePos_Cb.Checked = false;
 
                      _DefaultGateway.Gateway(
@@ -2125,10 +2123,10 @@ namespace System.Scsc.Ui.Notifications
                         long amnt = 0;
 
                         if (debt > paydebt)
-                           // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                           // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
                            amnt = paydebt;
                         else
-                           // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                           // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
                            amnt = debt;
 
                         iScsc.PAY_MSAV_P(
@@ -2162,10 +2160,10 @@ namespace System.Scsc.Ui.Notifications
                      long amnt = 0;
 
                      if (debt > paydebt)
-                        // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
+                        // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
                         amnt = paydebt;
                      else
-                        // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
+                        // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
                         amnt = debt;
 
                      iScsc.PAY_MSAV_P(
@@ -2217,13 +2215,13 @@ namespace System.Scsc.Ui.Notifications
 
             string mesg =
                string.Format(
-                  ">> مبلغ {0} {1} به صورت >> نقدی << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                  ">> ???? {0} {1} ?? ???? >> ???? << ?? ????? {2} ?? ????? ????? {3}  ???? ??????",
                   string.Format("{0:n0}", _figh.DEBT_DNRM),
                   Lbl_AmntType.Text,
-                  "امروز",
+                  "?????",
                   CurrentUser);
 
-            if (MessageBox.Show(this, mesg, "پرداخت بدهی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, mesg, "?????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             RcmtType_Lov.EditValue = "001";
             PymtAmnt_Txt.EditValue = _figh.DEBT_DNRM;
@@ -2248,13 +2246,13 @@ namespace System.Scsc.Ui.Notifications
 
             string mesg =
                string.Format(
-                  ">> مبلغ {0} {1} به صورت >> کارت به کارت << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                  ">> ???? {0} {1} ?? ???? >> ???? ?? ???? << ?? ????? {2} ?? ????? ????? {3}  ???? ??????",
                   string.Format("{0:n0}", _figh.DEBT_DNRM),
                   Lbl_AmntType.Text,
-                  "امروز",
+                  "?????",
                   CurrentUser);
 
-            if (MessageBox.Show(this, mesg, "پرداخت بدهی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, mesg, "?????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             RcmtType_Lov.EditValue = "009";
             PymtAmnt_Txt.EditValue = _figh.DEBT_DNRM;
@@ -2279,13 +2277,13 @@ namespace System.Scsc.Ui.Notifications
 
             string mesg =
                string.Format(
-                  ">> مبلغ {0} {1} به صورت >> کارتخوان << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                  ">> ???? {0} {1} ?? ???? >> ???????? << ?? ????? {2} ?? ????? ????? {3}  ???? ??????",
                   string.Format("{0:n0}", _figh.DEBT_DNRM),
                   Lbl_AmntType.Text,
-                  "امروز",
+                  "?????",
                   CurrentUser);
 
-            if (MessageBox.Show(this, mesg, "پرداخت بدهی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, mesg, "?????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             RcmtType_Lov.EditValue = "003";
             PymtAmnt_Txt.EditValue = _figh.DEBT_DNRM;
@@ -2310,13 +2308,13 @@ namespace System.Scsc.Ui.Notifications
 
             string mesg =
                string.Format(
-                  ">> مبلغ {0} {1} به صورت >> کسر از سپرده << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                  ">> ???? {0} {1} ?? ???? >> ??? ?? ????? << ?? ????? {2} ?? ????? ????? {3}  ???? ??????",
                   string.Format("{0:n0}", _figh.DEBT_DNRM),
                   Lbl_AmntType.Text,
-                  "امروز",
+                  "?????",
                   CurrentUser);
 
-            if (MessageBox.Show(this, mesg, "پرداخت بدهی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, mesg, "?????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             RcmtType_Lov.EditValue = "005";
             PymtAmnt_Txt.EditValue = _figh.DEBT_DNRM;
@@ -2341,13 +2339,13 @@ namespace System.Scsc.Ui.Notifications
 
             string mesg =
                string.Format(
-                  ">> مبلغ {0} {1} به صورت >> کسر از سپرده << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
+                  ">> ???? {0} {1} ?? ???? >> ??? ?? ????? << ?? ????? {2} ?? ????? ????? {3}  ???? ??????",
                   string.Format("{0:n0}", _figh.DEBT_DNRM),
                   Lbl_AmntType.Text,
-                  "امروز",
+                  "?????",
                   CurrentUser);
 
-            if (MessageBox.Show(this, mesg, "پرداخت بدهی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, mesg, "?????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             foreach (var pymt in iScsc.VF_Save_Payments(null, fileno.ToInt64()).Where(p => ((p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM)) > 0))
             {

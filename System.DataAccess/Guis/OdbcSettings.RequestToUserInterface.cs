@@ -177,16 +177,16 @@ namespace System.DataAccess.Guis
             if (datasourcesKey == null) throw new Exception("ODBC Registry key for datasources does not exist");
             datasourcesKey.DeleteValue(dsnName);
          }
-         catch { }
-         finally
-         {
-            job.Status = StatusType.Successful;
-         }
-      }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RemoveDSN error: " + ex.ToString()); }
+          finally
+          {
+             job.Status = StatusType.Successful;
+          }
+       }
 
-      ///<summary>
-      /// Checks the registry to see if a DSN exists with the specified name
-      /// Code 04
+       ///<summary>
+       /// Checks the registry to see if a DSN exists with the specified name
+       /// Code 04
       ///</summary>
       ///<param name="dsnName"></param>
       ///<returns></returns>

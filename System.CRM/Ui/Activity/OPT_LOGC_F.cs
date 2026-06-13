@@ -411,7 +411,7 @@ namespace System.CRM.Ui.Activity
                )
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("TemplateText_Butn_Click error: " + ex.ToString()); }
       }
 
       private void FileAttachment_Butn_Click(object sender, EventArgs e)
@@ -421,8 +421,7 @@ namespace System.CRM.Ui.Activity
             requery = Apply();
 
          }
-         catch (Exception exc)
-         { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("FileAttachment_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -501,7 +500,7 @@ namespace System.CRM.Ui.Activity
             else
                requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SelectColor_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)

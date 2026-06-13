@@ -653,9 +653,9 @@ namespace System.Reporting.ReportProfiler.UnderGateways.ProfilerGroups.Ui
             min = Convert.ToInt32(datetime.Substring(14, 2));
             sec = Convert.ToInt32(datetime.Substring(17, 2));
          }
-         catch { }
-         PersianCalendar pc = new PersianCalendar();
-         return pc.ToDateTime(year, mon, day, hour, min, sec, 0).ToString("yyyy/MM/dd HH:mm:ss");
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("getMiladiDateFromShamsiDate error: " + ex.ToString()); }
+          PersianCalendar pc = new PersianCalendar();
+          return pc.ToDateTime(year, mon, day, hour, min, sec, 0).ToString("yyyy/MM/dd HH:mm:ss");
       }
 
       private string getDateTime4CR(string datetime)
@@ -676,8 +676,8 @@ namespace System.Reporting.ReportProfiler.UnderGateways.ProfilerGroups.Ui
             min = Convert.ToInt32(datetime.Substring(14, 2));
             sec = Convert.ToInt32(datetime.Substring(17, 2));
          }
-         catch { }
-         return string.Format("DateTime ({0}, {1}, {2}, {3}, {4}, {5})", year, mon, day, hour, min, sec);
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("getDateTime4CR error: " + ex.ToString()); }
+          return string.Format("DateTime ({0}, {1}, {2}, {3}, {4}, {5})", year, mon, day, hour, min, sec);
       }
 
       private string getChekInptVald(string input, string maxminlist)

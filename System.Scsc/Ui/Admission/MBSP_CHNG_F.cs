@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -51,7 +51,7 @@ namespace System.Scsc.Ui.Admission
 
             Mbsp002Bs.DataSource = iScsc.Member_Ships.FirstOrDefault(mb => mb.RQRO_RQST_RQID == mbsp.RQRO_RQST_RQID && mb.RECT_CODE == "002" && mb.FIGH_FILE_NO == fileno);
          }
-         catch (Exception ) { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
          requery = false;
       }
 
@@ -125,7 +125,7 @@ namespace System.Scsc.Ui.Admission
 
             if (StrtDate_DateTime002.Value.Value.Date > EndDate_DateTime002.Value.Value.Date)
             {
-               throw new Exception("تاریخ شروع باید از تاریخ پایان کوچکتر با مساوی باشد");
+               throw new Exception("????? ???? ???? ?? ????? ????? ?????? ?? ????? ????");
             }
 
             iScsc.MBSP_TCHG_P(
@@ -177,7 +177,7 @@ namespace System.Scsc.Ui.Admission
             if (CBMT_CODE_GridLookUpEdit.EditValue == null || CBMT_CODE_GridLookUpEdit.EditValue.ToString() == "") { CBMT_CODE_GridLookUpEdit.Focus(); return; }
             if (CtgyCode_LookupEdit001.EditValue == null || CtgyCode_LookupEdit001.EditValue.ToString() == "") { CtgyCode_LookupEdit001.Focus(); return; }
 
-            if (MessageBox.Show(this, "آیا با ذخیره کردن اطلاعات موافق هستید؟", "ذخیره اطلاعات", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ????? ???? ??????? ????? ??????", "????? ???????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             iScsc.MBSP_SCHG_P(
                new XElement("Process",
@@ -232,7 +232,7 @@ namespace System.Scsc.Ui.Admission
                //                        if ((bool)output)
                //                           return;
                //                        checkOK = false;
-               //                        MessageBox.Show(this, "عدم دسترسی به ردیف 226 امنیتی", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
+               //                        MessageBox.Show(this, "??? ?????? ?? ???? 226 ??????", "???", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
                //                     })
                //                  }
                //                  #endregion                        
@@ -255,7 +255,7 @@ namespace System.Scsc.Ui.Admission
 
                //         if (pydt.Count() > 1 || pydt.Count() == 0)
                //         {
-               //            if (MessageBox.Show(this, "کاربر گرامی صورتحساب شما یا وجود ندارد یا بیش از یک آیتم در هزینه های صورتحساب وجود دارد. آیا مایل به بررسی صورتحساب هستید؟", "عدم اصلاح صورتحساب", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+               //            if (MessageBox.Show(this, "????? ????? ???????? ??? ?? ???? ????? ?? ??? ?? ?? ???? ?? ????? ??? ???????? ???? ????. ??? ???? ?? ????? ???????? ??????", "??? ????? ????????", MessageBoxButtons.YesNo, MessageBoxIcon.Information, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                //            {
                //               _DefaultGateway.Gateway(
                //                  new Job(SendType.External, "localhost",
@@ -326,7 +326,7 @@ namespace System.Scsc.Ui.Admission
             CBMT_CODE_GridLookUpEdit.EditValue = mbsp.Fighter_Public.CBMT_CODE;
             CtgyCode_LookupEdit001.EditValue = mbsp.Fighter_Public.CTGY_CODE;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("MbspCopy_Butn_Click error: " + ex.ToString()); }
       }
 
       private void CBMT_CODE_GridLookUpEdit_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -366,7 +366,7 @@ namespace System.Scsc.Ui.Admission
                );
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CBMT_CODE_GridLookUpEdit_ButtonPressed error: " + ex.ToString()); }
       }
 
       private void SUNT_CODELookUpEdit_Properties_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -378,17 +378,17 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            // 1401/07/16 * روز سرنگونی حکومت کثیف آخوندی
+            // 1401/07/16 * ??? ??????? ????? ???? ??????
             long ctgycode = (long)CtgyCode_LookupEdit001.EditValue;
             var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "001" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && /*exp.MTOD_CODE == mtodcode &&*/ exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
 
-            /// سیستم تغییر تاریخ شروع و پایان
-            /// Ctrl : تاریخ پایان بر اساس تاریخ شروع به تعداد دوره
+            /// ????? ????? ????? ???? ? ?????
+            /// Ctrl : ????? ????? ?? ???? ????? ???? ?? ????? ????
             /// 
 
             if (ModifierKeys == Keys.Control)
             {
-               // تاریخ پایان بر اساس تاریخ شروعی که وارد شده محاسبه گردد
+               // ????? ????? ?? ???? ????? ????? ?? ???? ??? ?????? ????
                StrtDate_DateTime002.CommitChanges();
                var strtdate = StrtDate_DateTime002.Value;
                if (strtdate.HasValue)
@@ -401,7 +401,7 @@ namespace System.Scsc.Ui.Admission
             }
             else if (ModifierKeys == Keys.Shift)
             {
-               // تاریخ شروع به اولین روز همان ماه برگردد
+               // ????? ???? ?? ????? ??? ???? ??? ??????
                StrtDate_DateTime002.CommitChanges();
                var strtdate = StrtDate_DateTime002.Value;
                if (strtdate.HasValue)
@@ -430,7 +430,7 @@ namespace System.Scsc.Ui.Admission
          }
          catch (Exception)
          {
-            MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
+            MessageBox.Show("?? ???? ???? ??? ? ????? ????? ????? ? ??????? ???????? ?? ????? ???? ????. ???? ???? ???? ?? ????? ? ????? ????");
          }
       }
 

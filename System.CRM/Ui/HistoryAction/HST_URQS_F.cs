@@ -59,7 +59,7 @@ namespace System.CRM.Ui.HistoryAction
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SwitchButtonsTabPage error: " + ex.ToString()); }
          finally { Execute_Query(); }
       }
 
@@ -171,7 +171,7 @@ namespace System.CRM.Ui.HistoryAction
                #endregion
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
       }
 
       private void rb_requestsearch_CheckedChanged(object sender, EventArgs e)
@@ -363,7 +363,7 @@ namespace System.CRM.Ui.HistoryAction
                           });
                      _DefaultGateway.Gateway(_InteractWithCRM);
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ServiceProfile_Pb_Click error: " + ex.ToString()); }
                }
                else if (serv.SRPB_TYPE_DNRM == "002")
                {
@@ -379,7 +379,7 @@ namespace System.CRM.Ui.HistoryAction
                           });
                      _DefaultGateway.Gateway(_InteractWithCRM);
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ServiceProfile_Pb_Click error: " + ex.ToString()); }
                }
             }
             else if(Tb_Master.SelectedTab == tp_003)
@@ -402,7 +402,7 @@ namespace System.CRM.Ui.HistoryAction
                           });
                      _DefaultGateway.Gateway(_InteractWithCRM);
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ServiceProfile_Pb_Click error: " + ex.ToString()); }
                }
                else if (serv.SRPB_TYPE_DNRM == "002")
                {
@@ -418,11 +418,11 @@ namespace System.CRM.Ui.HistoryAction
                           });
                      _DefaultGateway.Gateway(_InteractWithCRM);
                   }
-                  catch { }
+                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ServiceProfile_Pb_Click error: " + ex.ToString()); }
                }
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ServiceProfile_Pb_Click error: " + ex.ToString()); }
       }
 
       private void CompanyLogo_Pb_Click(object sender, EventArgs e)
@@ -736,7 +736,7 @@ namespace System.CRM.Ui.HistoryAction
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CompInfo_Butn_Click error: " + ex.ToString()); }
       }
 
       private void RqstInfo_Butn_Click(object sender, EventArgs e)

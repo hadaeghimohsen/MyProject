@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -123,7 +123,7 @@ namespace System.Scsc.Ui.Cash
                                  if ((bool)output)
                                     return;
                                  checkOK = false;
-                                 MessageBox.Show(this, "عدم دسترسی به ردیف 227 امنیتی", "خطا", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
+                                 MessageBox.Show(this, "??? ?????? ?? ???? 227 ??????", "???", MessageBoxButtons.OK, MessageBoxIcon.Stop);                             
                               })
                            }
                            #endregion                        
@@ -136,7 +136,7 @@ namespace System.Scsc.Ui.Cash
             {
                PydtBs.EndEdit();
                var pydt = PydtBs.Current as Data.Payment_Detail;
-               if (pydt == null && MessageBox.Show(this, "آیا با انتقال هزینه موافق هستین؟", "انتقال هزینه کلاس", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (pydt == null && MessageBox.Show(this, "??? ?? ?????? ????? ????? ??????", "?????? ????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                if (pydt.TRAN_CBMT_CODE == null) { Cbmt_Lov.Focus(); return; }
                if (pydt.TRAN_CTGY_CODE == null) { Ctgy_Lov.Focus(); return; }
@@ -234,7 +234,7 @@ namespace System.Scsc.Ui.Cash
             var cbmt = CbmtBs.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.CODE == (long)e.NewValue);
             CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == cbmt.MTOD_CODE);
          }
-         catch (Exception exc){}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Cbmt_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void Ctgy_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -259,7 +259,7 @@ namespace System.Scsc.Ui.Cash
                pydt.EXPN_EXTR_PRCT = ExpnBs.List.OfType<Data.Expense>().First().EXTR_PRCT;
             }
          }
-         catch (Exception ){}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Ctgy_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void FighBs_CurrentChanged(object sender, EventArgs e)
@@ -329,7 +329,7 @@ namespace System.Scsc.Ui.Cash
             pydt.TRAN_CTGY_CODE = pydt.CTGY_CODE_DNRM;
             pydt.TRAN_EXPN_CODE = pydt.EXPN_CODE;            
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("TranCopy_Butn_Click error: " + ex.ToString()); }
       }  
    }
 }

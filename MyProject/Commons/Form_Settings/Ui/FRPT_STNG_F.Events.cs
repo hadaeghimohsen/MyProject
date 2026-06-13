@@ -145,7 +145,7 @@ namespace MyProject.Commons.Form_Settings.Ui
                                                    break;
                                              }
                                           }
-                                          catch { }
+                                           catch (Exception ex) { System.Diagnostics.Debug.WriteLine("b_removereport_Click error: " + ex.ToString()); }
                                        }
                                  )
                               }

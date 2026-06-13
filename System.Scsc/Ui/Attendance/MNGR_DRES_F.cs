@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -58,7 +58,7 @@ namespace System.Scsc.Ui.Attendance
 
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SaveChange_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -75,7 +75,6 @@ namespace System.Scsc.Ui.Attendance
 
             var dres = DresBs1.Current as Data.Dresser;
             if (dres == null) return;
-
 
             //FighBs1.DataSource = 
             //   iScsc.Attendances
@@ -302,7 +301,7 @@ namespace System.Scsc.Ui.Attendance
 
             TestLockerInLoop_Tmr.Enabled = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Start_Butn_Click error: " + ex.ToString()); }
       }
 
       private void Stop_Butn_Click(object sender, EventArgs e)
@@ -337,7 +336,7 @@ namespace System.Scsc.Ui.Attendance
                       new XAttribute("subsys", 5),
                       new XAttribute("cmndcode", 100),
                       new XAttribute("frstname", _locker.DRES_NUMB),
-                      new XAttribute("lastname", "شماره کمد"),
+                      new XAttribute("lastname", "????? ???"),
                       new XAttribute("fngrprnt", _locker.CMND_SEND),
                       new XAttribute("chatid", ""),
                       new XAttribute("cellphon", ""),
@@ -456,7 +455,7 @@ namespace System.Scsc.Ui.Attendance
                                     _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
                                     return;
                                  }
-                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 271 سطوح امینتی", "عدم دسترسی");
+                                 MessageBox.Show("??? - ??? ?????? ?? ???? 271 ???? ??????", "??? ??????");
                               })
                            },
                            #endregion
@@ -545,7 +544,7 @@ namespace System.Scsc.Ui.Attendance
             var _coma = ComaBs1.Current as Data.Computer_Action;
             if (_coma == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف کمد ها موافق هستید؟", "حذف کمدها", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ??? ?? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) != DialogResult.Yes) return;
 
             iScsc.ExecuteCommand(string.Format("DELETE dbo.Dresser WHERE Coma_Code = {0};", _coma.CODE));
             requery = true;
@@ -587,7 +586,7 @@ namespace System.Scsc.Ui.Attendance
                                        if ((bool)output)
                                           return;
                                        #region Show Error
-                                       MessageBox.Show("خطا: عدم دسترسی به کد 171");
+                                       MessageBox.Show("???: ??? ?????? ?? ?? 171");
                                        #endregion                           
                                     })
                                  },
@@ -602,7 +601,7 @@ namespace System.Scsc.Ui.Attendance
                                        if ((bool)output)
                                           return;
                                        #region Show Error
-                                       MessageBox.Show("خطا: عدم دسترسی به کد 175");
+                                       MessageBox.Show("???: ??? ?????? ?? ?? 175");
                                        #endregion                           
                                     })
                                  }
@@ -1128,7 +1127,7 @@ namespace System.Scsc.Ui.Attendance
                                     }
                                     return;
                                  }
-                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 271 سطوح امینتی", "عدم دسترسی");
+                                 MessageBox.Show("??? - ??? ?????? ?? ???? 271 ???? ??????", "??? ??????");
                               })
                            },
                            #endregion
@@ -1253,7 +1252,7 @@ namespace System.Scsc.Ui.Attendance
                                     }
                                     return;
                                  }
-                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 271 سطوح امینتی", "عدم دسترسی");
+                                 MessageBox.Show("??? - ??? ?????? ?? ???? 271 ???? ??????", "??? ??????");
                               })
                            },
                            #endregion

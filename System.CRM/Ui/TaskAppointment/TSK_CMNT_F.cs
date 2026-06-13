@@ -179,7 +179,7 @@ namespace System.CRM.Ui.TaskAppointment
                requery = true;
 
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AttachFile_butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)

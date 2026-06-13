@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -112,7 +112,7 @@ namespace System.Scsc.Ui.Exam
                   break;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("request_RowsBindingSource_PositionChanged error: " + ex.ToString()); }
       }
 
       private void requestBindingSource_ListChanged(object sender, ListChangedEventArgs e)

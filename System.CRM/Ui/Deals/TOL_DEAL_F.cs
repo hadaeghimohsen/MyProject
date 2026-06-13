@@ -58,7 +58,7 @@ namespace System.CRM.Ui.Deals
                new Job(SendType.External, "localhost", GetType().Name, 00 /* Execute ProcessCmdKey */, SendType.SelfToUserInterface) { Input = Keys.Escape }
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Btn_Back_Click error: " + ex.ToString()); }
       }
 
       private void Save_Butn_Click(object sender, EventArgs e)
@@ -163,8 +163,7 @@ namespace System.CRM.Ui.Deals
             }
             requery = true;
          }
-         catch (Exception exc)
-         { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ShowInfoDeals_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -202,8 +201,7 @@ namespace System.CRM.Ui.Deals
             else
                LostType_Gb.Visible = false;
          }
-         catch (Exception exc)
-         {}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PymtStag_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void SubRequest_Butn_Click(object sender, EventArgs e)
@@ -284,7 +282,7 @@ namespace System.CRM.Ui.Deals
             else
                requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SelectColor_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)

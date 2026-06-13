@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -163,8 +163,8 @@ namespace System.Scsc.Ui.Regulation
                                  new List<object>
                                  {
                                     ToolTipIcon.Info,
-                                    string.Format("زیر گروه های جدید برای  گروه {0} اضافه شد", crnt.GROP_DESC),
-                                    "اطلاعات گروه بروزرسانی شد",
+                                    string.Format("??? ???? ??? ???? ????  ???? {0} ????? ??", crnt.GROP_DESC),
+                                    "??????? ???? ????????? ??",
                                     100
                                  }
                            }
@@ -192,14 +192,14 @@ namespace System.Scsc.Ui.Regulation
                      new List<object>
                      {
                         ToolTipIcon.Info,
-                        string.Format("گروه {0} حذف شد", crnt.GROP_DESC),
-                        "اطلاعات گروه حذف شد",
+                        string.Format("???? {0} ??? ??", crnt.GROP_DESC),
+                        "??????? ???? ??? ??",
                         100
                      }
                }
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DelGrop_Tsm_Click error: " + ex.ToString()); }
       }
 
       private void RqtpBs_CurrentChanged(object sender, EventArgs e)
@@ -309,7 +309,7 @@ namespace System.Scsc.Ui.Regulation
             var _grop = GropBs2.Current as Data.Group_Expense;
             if (_grop == null) return;
 
-            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید?", "حذف رکورد") != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????") != DialogResult.Yes) return;
             if(_grop.GROP_TYPE == "001")
                iScsc.ExecuteCommand(string.Format("UPDATE dbo.Expense SET Grop_Code = NULL WHERE Grop_Code = {0}; DELETE dbo.Group_Expense WHERE Code = {0};", _grop.CODE));
             else if (_grop.GROP_TYPE == "002")

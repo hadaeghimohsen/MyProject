@@ -330,7 +330,7 @@ namespace System.CRM.Ui.Payment
             iCRM.SubmitChanges();
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SaveDifferenceAmnt_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -357,7 +357,7 @@ namespace System.CRM.Ui.Payment
             iCRM.SubmitChanges();
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SaveDiscountAmnt_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)

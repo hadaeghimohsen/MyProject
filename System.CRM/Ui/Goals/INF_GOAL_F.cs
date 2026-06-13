@@ -91,7 +91,7 @@ namespace System.CRM.Ui.Goals
             RqstBs.Position = rqstindex;
             requery = false;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
       }
 
       private void RqstBs_CurrentChanged(object sender, EventArgs e)
@@ -134,7 +134,7 @@ namespace System.CRM.Ui.Goals
 
             RqstMsttColor_Butn.HoverColorA = RqstMsttColor_Butn.HoverColorB = RqstMsttColor_Butn.NormalColorA = RqstMsttColor_Butn.NormalColorB = ColorTranslator.FromHtml(rqst.COLR);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBs_CurrentChanged error: " + ex.ToString()); }
       }
 
       private void SrpbBs_CurrentChanged(object sender, EventArgs e)
@@ -151,7 +151,7 @@ namespace System.CRM.Ui.Goals
             IsicActvBs.DataSource = iCRM.Isic_Activities.Where(a => a.ISCG_CODE == srpb.ISCP_ISCA_ISCG_CODE);
             IsicProdBs.DataSource = iCRM.Isic_Products.Where(p => p.ISCA_ISCG_CODE == srpb.ISCP_ISCA_ISCG_CODE && p.ISCA_CODE == srpb.ISCP_ISCA_CODE);            
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SrpbBs_CurrentChanged error: " + ex.ToString()); }
       }
 
       private void ObjectBaseEdit_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -165,7 +165,7 @@ namespace System.CRM.Ui.Goals
                   control.EditValue = null;
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ObjectBaseEdit_ButtonPressed error: " + ex.ToString()); }
       }
 
       private void Cnty_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -174,7 +174,7 @@ namespace System.CRM.Ui.Goals
          {
             PrvnBs.DataSource = iCRM.Provinces.Where(p => p.CNTY_CODE == e.NewValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Cnty_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void Prvn_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -183,7 +183,7 @@ namespace System.CRM.Ui.Goals
          {
             RegnBs.DataSource = iCRM.Regions.Where(r => r.PRVN_CODE == e.NewValue.ToString() && r.PRVN_CNTY_CODE == Cnty_Lov.EditValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Prvn_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void IsicGrop_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -192,7 +192,7 @@ namespace System.CRM.Ui.Goals
          {
             IsicActvBs.DataSource = iCRM.Isic_Activities.Where(a => a.ISCG_CODE == e.NewValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("IsicGrop_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void IsicActv_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
@@ -201,7 +201,7 @@ namespace System.CRM.Ui.Goals
          {
             IsicProdBs.DataSource = iCRM.Isic_Products.Where(p => p.ISCA_CODE == e.NewValue.ToString() && p.ISCA_ISCG_CODE == IsicGrop_Lov.EditValue.ToString());
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("IsicActv_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void SubmitChange_Butn_Click(object sender, EventArgs e)

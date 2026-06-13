@@ -152,11 +152,8 @@ namespace System.CRM.Ui.Activity
             tomail.TO_MAIL = ToMail_Txt.Text;
             ToMail_Txt.Text = "";
          }
-         catch (Exception exc)
-         {
-
-         }
-      }      
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ToMail_Txt_ButtonClick error: " + ex.ToString()); }
+      }
 
       private string GetDateTimeString(DateTime? dt)
       {
@@ -198,8 +195,7 @@ namespace System.CRM.Ui.Activity
             requery = Apply();
             
          }
-         catch (Exception exc)
-         {}
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Save_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if(requery)
@@ -248,8 +244,7 @@ namespace System.CRM.Ui.Activity
             requery = true;*/
             requery = Apply();
          }
-         catch (Exception exc)
-         { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SendNow_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -430,7 +425,7 @@ namespace System.CRM.Ui.Activity
                )
             );
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("TemplateText_Butn_Click error: " + ex.ToString()); }
       }
 
       private void UserMentioned_Butn_Click(object sender, EventArgs e)
@@ -536,7 +531,7 @@ namespace System.CRM.Ui.Activity
             else
                requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SelectColor_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)

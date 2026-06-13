@@ -33,8 +33,9 @@
     <Reference Include="C1.Win.C1Command.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=e808566f358766d8" />
     <Reference Include="C1.Win.C1Input.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=7e7ff60f0c214f9a, processorArchitecture=MSIL" />
     <Reference Include="C1.Win.C1Ribbon.2, Version=2.0.20152.67, Culture=neutral, PublicKeyToken=79882d576c6336da, processorArchitecture=MSIL" />
-    <Reference Include="DateTimeSelector">
-      <HintPath>..\MyProject\bin\Debug\DateTimeSelector.dll</HintPath>
+    <Reference Include="DateTimeSelector, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DateTimeSelector.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="DevExpress.Printing.v13.1.Core, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />

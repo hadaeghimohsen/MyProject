@@ -55,11 +55,13 @@
     <Reference Include="ClosedXML">
       <HintPath>..\MyProject\bin\Debug\ClosedXML.dll</HintPath>
     </Reference>
-    <Reference Include="DataEditShamsi">
-      <HintPath>..\MyProject\bin\Debug\DataEditShamsi.dll</HintPath>
+    <Reference Include="DataEditShamsi, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DataEditShamsi.dll</HintPath>
     </Reference>
-    <Reference Include="DateTimeSelector">
-      <HintPath>..\MyProject\bin\Debug\DateTimeSelector.dll</HintPath>
+    <Reference Include="DateTimeSelector, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\DateTimeSelector.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>

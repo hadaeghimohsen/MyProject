@@ -463,69 +463,63 @@ namespace MyProject.Programs.Ui
       //    job.Status = StatusType.Successful;
       //}
 
-      /// <summary>
-      /// Code 15
-      /// </summary>
-      /// <param name="job"></param>
-      private void Push(Job job)
-      {
-         try
-         {
-            List<object> input = job.Input as List<object>;
+       /// <summary>
+       /// Code 15
+       /// </summary>
+       /// <param name="job"></param>
+       private void Push(Job job)
+       {
+          try
+          {
+             List<object> input = job.Input as List<object>;
 
-            if (_ActiveUI.Count == 0)
-            {
-               job.Status = StatusType.Successful;
-               return;
-            }
+             var _ui = new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control };
 
-            var _ui = new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control };
+             var crntobj = _ActiveUI.FirstOrDefault().Ui;
+             if (crntobj == _ui.Ui)
+             {
+                job.Status = StatusType.Successful;
+                return;
+             }
 
-            var crntobj = _ActiveUI.FirstOrDefault().Ui;
-            if (crntobj == _ui.Ui)
-            {
-               job.Status = StatusType.Successful;
-               return;
-            }
+             if(_ActiveUI.Any(a => a.Name == _ui.Name))
+             {
+                var _tempList = _ActiveUI.ToList();
+                int _index = _tempList.FindIndex(a => a.Name == _ui.Name);
 
-            if(_ActiveUI.Any(a => a.Name == _ui.Name))
-            {
-               var _tempList = _ActiveUI.ToList();
-               int _index = _tempList.FindIndex(a => a.Name == _ui.Name);
+                if(_index != -1)
+                {
+                   _tempList.RemoveAt(_index);
+                   _tempList.Reverse();
+                   _tempList.Add(_ui);
 
-               if(_index != -1)
-               {
-                  _tempList.RemoveAt(_index);
-                  _tempList.Reverse();
-                  _tempList.Add(_ui);
-
-                  _ActiveUI.Clear();                  
-                  foreach (var ui in _tempList)
-                  {
-                     _ActiveUI.Push(ui);
-                  }
-               }
-            }
-            else
-            {
-               _ActiveUI.Push(_ui);
-            }
+                   _ActiveUI.Clear();                  
+                   foreach (var ui in _tempList)
+                   {
+                      _ActiveUI.Push(ui);
+                   }
+                }
+             }
+             else
+             {
+                _ActiveUI.Push(_ui);
+             }
 
 
-            //var crntobj = _ActiveUI.FirstOrDefault().Ui;
-            //if (crntobj == input[1] as UserControl)
-            //{
-            //   job.Status = StatusType.Successful;
-            //   return;
-            //}
-            //_ActiveUI.Push(new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control });
-            job.Status = StatusType.Successful;
-         }
-         catch
-         {
-            job.Status = StatusType.Failed;
-         }
-      }
+             //var crntobj = _ActiveUI.FirstOrDefault().Ui;
+             //if (crntobj == input[1] as UserControl)
+             //{
+             //   job.Status = StatusType.Successful;
+             //   return;
+             //}
+             //_ActiveUI.Push(new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control });
+             job.Status = StatusType.Successful;
+          }
+          catch
+          {
+             job.Status = StatusType.Failed;
+          }
+       }
 
       /// <summary>
       /// Code 16

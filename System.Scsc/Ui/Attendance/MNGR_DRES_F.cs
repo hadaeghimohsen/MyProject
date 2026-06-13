@@ -135,14 +135,11 @@ namespace System.Scsc.Ui.Attendance
             for (int i = (int)FromNumb_Txt.Value; i <= ToNumb_Txt.Value; i++)
             {
                iScsc.ExecuteCommand(
-                  string.Format(
                   "INSERT INTO dbo.Dresser(Coma_Code, Code, Dres_Numb, Rec_Stat, IP_Adrs, Ordr, Cmnd_Send)" +
-                  "SELECT {0}, 0, {1}, '002', '{2}', {1}, dbo.GET_LPAD_U('{1}', 3, '0') WHERE NOT EXISTS (" + 
-                  "SELECT * FROM dbo.Dresser d WHERE d.Coma_Code = {0} AND Dres_Numb = {1} AND IP_Adrs = '{2}');",
+                  "SELECT {0}, 0, {1}, '002', {2}, {1}, dbo.GET_LPAD_U({1}, 3, '0') WHERE NOT EXISTS (" + 
+                  "SELECT * FROM dbo.Dresser d WHERE d.Coma_Code = {0} AND Dres_Numb = {1} AND IP_Adrs = {2});",
                   _coma.CODE, i,
-                  IP_Txt.Text
-                  )
-               );
+                  IP_Txt.Text);
             }
 
             requery = true;

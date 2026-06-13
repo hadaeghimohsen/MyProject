@@ -119,9 +119,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                      (chatid == null ? "o.Chat_Id" : chatid.ToString()),
                      (ordrtype == null ? "o.Ordr_Type" : "\'" + ordrtype + "\'"),
                      (ordrdate == null ? "CAST(o.Strt_Date AS DATE)" : "'" + ordrdate.Value.ToString("yyyy-MM-dd") + "'"),
-                     (ordrcmnt == null ? "1=1" : string.Format("EXISTS (SELECT * FROM Order_Detail od WHERE od.Ordr_Code = o.Code AND od.Ordr_Cmnt LIKE N'%{0}%')", ordrcmnt.Replace(' ', '%')))
-                  )
-               ).ToList();
+                      (ordrcmnt == null ? "1=1" : string.Format("EXISTS (SELECT * FROM Order_Detail od WHERE od.Ordr_Code = o.Code AND od.Ordr_Cmnt LIKE N'%' + {0} + '%')", ordrcmnt.Replace(' ', '%')))
+                   )
+                ).ToList();
          }
          catch (Exception exc)
          {
@@ -219,10 +219,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                                  (chatid == null ? "o.Chat_ID" : chatid.ToString()),
                                  (ordrtype == null ? "o.Ordr_Type" : "\'" + ordrtype + "\'"),
                                  (ordrdate == null ? "CAST(o.STRT_DATE AS DATE)" : ordrdate.Value.ToString("yyyy-MM-DD")),
-                                 (ordrcmnt == null ? "1=1" : string.Format("EXISTS (SELECT * FROM Order_Detail od WHERE od.Ordr_Code = o.Code AND od.Ordr_Cmnt LIKE N'%{0}%')", ordrcmnt.Replace(' ', '%')))
+                                 (ordrcmnt == null ? "1=1" : string.Format("EXISTS (SELECT * FROM Order_Detail od WHERE od.Ordr_Code = o.Code AND od.Ordr_Cmnt LIKE N'%' + {0} + '%')", ordrcmnt.Replace(' ', '%')))
                               ))
-                     }
-                  });
+                      }
+                   });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
 

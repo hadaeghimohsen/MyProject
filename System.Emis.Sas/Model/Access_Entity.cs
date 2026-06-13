@@ -32,6 +32,25 @@ namespace System.Emis.Sas.Model
          {
             OraPool.Tables.Clear();
             OraDA.SelectCommand.CommandText = qury;
+            OraDA.SelectCommand.Parameters.Clear();
+            OraDA.Fill(OraPool);
+            return OraPool.Tables[0];
+         }
+         catch
+         {
+            return null;
+         }
+      }
+
+      public DataTable Run_Qury_U(string qury, OracleParameter[] parameters)
+      {
+         try
+         {
+            OraPool.Tables.Clear();
+            OraDA.SelectCommand.CommandText = qury;
+            OraDA.SelectCommand.Parameters.Clear();
+            if (parameters != null)
+               OraDA.SelectCommand.Parameters.AddRange(parameters);
             OraDA.Fill(OraPool);
             return OraPool.Tables[0];
          }
@@ -48,6 +67,29 @@ namespace System.Emis.Sas.Model
             OraCmd = OraDA.SelectCommand;
             OraCmd.CommandText = blokstoreprocedure;
             OraCmd.CommandType = CommandType.Text;
+            OraCmd.Parameters.Clear();
+            OraCmd.Connection.Open();
+            int x = OraCmd.ExecuteNonQuery();
+            OraCmd.Connection.Close();
+            return x;
+         }
+         catch (OracleException oe)
+         {
+            System.Windows.Forms.MessageBox.Show(oe.Message);
+            return -1;
+         }
+      }
+
+      public int Run_Blok_U(string blokstoreprocedure, OracleParameter[] parameters)
+      {
+         try
+         {
+            OraCmd = OraDA.SelectCommand;
+            OraCmd.CommandText = blokstoreprocedure;
+            OraCmd.CommandType = CommandType.Text;
+            OraCmd.Parameters.Clear();
+            if (parameters != null)
+               OraCmd.Parameters.AddRange(parameters);
             OraCmd.Connection.Open();
             int x = OraCmd.ExecuteNonQuery();
             OraCmd.Connection.Close();

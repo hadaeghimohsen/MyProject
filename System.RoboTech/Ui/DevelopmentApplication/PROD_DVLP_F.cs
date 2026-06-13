@@ -1277,7 +1277,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var xParam = _dsExtrQury.ToXml();
 
             iRoboTech.CommandTimeout = int.MaxValue;
-            iRoboTech.ExecuteCommand(string.Format("BEGIN EXEC dbo.{0} @X = N'{1}'; END;", rexq.INS_EXEC_WITH, xParam.ToString().Replace("'", "''")));
+            iRoboTech.ExecuteCommand("BEGIN EXEC dbo." + rexq.INS_EXEC_WITH + " @X = {0}; END;", xParam.ToString());
 
             MessageBox.Show(this, "اطلاعات با موفقیت درون سیستم فروشگاه انلاین شما قرار گرفت", "انتقال اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Information);
             requery = true;
@@ -1337,7 +1337,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var xParam = _dsExtrQury.ToXml();
 
             iRoboTech.CommandTimeout = int.MaxValue;
-            iRoboTech.ExecuteCommand(string.Format("BEGIN EXEC dbo.{0} @X = N'{1}'; END;", rexq.UPD_EXEC_WITH, xParam.ToString().Replace("'", "''")));
+            iRoboTech.ExecuteCommand("BEGIN EXEC dbo." + rexq.UPD_EXEC_WITH + " @X = {0}; END;", xParam.ToString());
 
             MessageBox.Show(this, "اطلاعات با موفقیت درون سیستم فروشگاه انلاین شما قرار گرفت", "انتقال اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Information);
             requery = true;
@@ -2409,7 +2409,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if (uagp == null)
             {
-               iRoboTech.ExecuteCommand(string.Format("INSERT INTO dbo.User_Access_Group_Product (User_Id, Grop_Code, Aces_Stat, Code) VALUES ({0}, {1}, '002', 0);", user.USER_ID, gexp.CODE));
+               iRoboTech.ExecuteCommand("INSERT INTO dbo.User_Access_Group_Product (User_Id, Grop_Code, Aces_Stat, Code) VALUES ({0}, {1}, '002', 0);", user.USER_ID, gexp.CODE);
             }
             else
             {

@@ -257,17 +257,19 @@ namespace System.Emis.Sas.View
             OraDA.Fill(OraPool);
             OraPool.Tables[(int)TableIndex.REGION].TableName = "REGION";
 
-            OraDA.SelectCommand.CommandText = string.Format(@"SELECT *
-                                                                FROM bill
-                                                               WHERE serv_file_no = {0}
-                                                                 /*AND bill_vlid = '2'
-                                                                 AND bill_type <> '0'
-                                                                 AND bill_stat >= '4'
-                                                                 AND bill_stat NOT IN ('8', 'A')
-                                                                 AND prcd_code IN (SELECT code
-                                                                                    FROM bil_prevent_code
-                                                                                    WHERE actn_code IN ('1', '2', '5'))*/
-                                                            ORDER BY Bill_No DESC", FileNo);
+            OraDA.SelectCommand.Parameters.Clear();
+            OraDA.SelectCommand.CommandText = @"SELECT *
+                                                  FROM bill
+                                                 WHERE serv_file_no = :p0
+                                                   /*AND bill_vlid = '2'
+                                                   AND bill_type <> '0'
+                                                   AND bill_stat >= '4'
+                                                   AND bill_stat NOT IN ('8', 'A')
+                                                   AND prcd_code IN (SELECT code
+                                                                      FROM bil_prevent_code
+                                                                      WHERE actn_code IN ('1', '2', '5'))*/
+                                              ORDER BY Bill_No DESC";
+            OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p0", FileNo));
             OraDA.Fill(OraPool);
             OraPool.Tables[(int)TableIndex.BILL].TableName = "BILL";
 

@@ -24,47 +24,120 @@ namespace System.Emis.Sas.View
          string btn = e.Button.Properties.Tag.ToString();
          if (btn == "Srch")
          {
-            string sqlQuery = "";
-            if (Txt_Rqid.Text != "")
-               sqlQuery += string.Format("AND Rqid = {0} ", Txt_Rqid.EditValue);
-            if (Txt_RefCode.Text != "")
-               sqlQuery += string.Format("AND Ref_Code = {0} ", Txt_RefCode.EditValue);
-            if (Txt_RqstStat.Text != "")
-               sqlQuery += string.Format("AND Rqst_Stat = '{0}' ", Txt_RqstStat.EditValue);
-            if (Txt_RegnCode.Text != "")
-               sqlQuery += string.Format("AND Regn_Code = '{0}' ", Txt_RegnCode.EditValue);
-            if (Txt_RqtpCode.Text != "")
-               sqlQuery += string.Format("AND Rqtp_Code = {0} ", Txt_RqtpCode.EditValue);
-            if (Txt_RqttCode.Text != "")
-               sqlQuery += string.Format("AND Rqtt_Code = {0} ", Txt_RqttCode.EditValue);
-            if(Txt_FromRqstDate.Text != "")
-               sqlQuery += string.Format("AND Rqst_Date >= TO_DATE('{0}', 'YYYY/MM/DD') ", Txt_FromRqstDate.EditValue);
-            if (Txt_ToRqstDate.Text != "")
-               sqlQuery += string.Format("AND Rqst_Date <= TO_DATE('{0}', 'YYYY/MM/DD') ", Txt_ToRqstDate.EditValue);
-            if (Txt_FromSaveDate.Text != "")
-               sqlQuery += string.Format("AND Save_Date >= TO_DATE('{0}', 'YYYY/MM/DD') ", Txt_FromSaveDate.EditValue);
-            if (Txt_ToSaveDate.Text != "")
-               sqlQuery += string.Format("AND Save_Date <= TO_DATE('{0}', 'YYYY/MM/DD') ", Txt_ToSaveDate.EditValue);
-            if (Txt_LettNo.Text != "")
-               sqlQuery += string.Format("AND Lett_No = '{0}' ", Txt_LettNo.EditValue);
-            if (Txt_LettDate.Text != "")
-               sqlQuery += string.Format("AND Lett_Date = TO_DATE('{0}', 'YYYY/MM/DD') ", Txt_LettDate.EditValue);
-            if (Txt_LettOwnr.Text != "")
-               sqlQuery += string.Format("AND Lett_Ownr LIKE '%{0}%' ", Txt_LettOwnr.EditValue);
-            if (Txt_MsttRwno.Text != "")
-               sqlQuery += string.Format("AND Sstt_Mstt_Row_No = {0} ", Txt_MsttRwno.EditValue);
-            if (Txt_SsttRwno.Text != "")
-               sqlQuery += string.Format("AND Sstt_Row_No = {0} ", Txt_SsttRwno.EditValue);
-            if (Txt_SubSys.Text != "")
-               sqlQuery += string.Format("AND Sub_Sys = '{0}' ", Txt_SubSys.EditValue);
-            if (Txt_RqstRqid.Text != "")
-               sqlQuery += string.Format("AND Rqst_Rqid = {0} ", Txt_RqstRqid.EditValue);
+             string sqlQuery = "";
+             var oraLstParams = new List<OracleParameter>();
+             int p = 0;
+             if (Txt_Rqid.Text != "")
+             {
+                sqlQuery += string.Format("AND Rqid = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_Rqid.EditValue));
+                p++;
+             }
+             if (Txt_RefCode.Text != "")
+             {
+                sqlQuery += string.Format("AND Ref_Code = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_RefCode.EditValue));
+                p++;
+             }
+             if (Txt_RqstStat.Text != "")
+             {
+                sqlQuery += string.Format("AND Rqst_Stat = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_RqstStat.EditValue));
+                p++;
+             }
+             if (Txt_RegnCode.Text != "")
+             {
+                sqlQuery += string.Format("AND Regn_Code = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_RegnCode.EditValue));
+                p++;
+             }
+             if (Txt_RqtpCode.Text != "")
+             {
+                sqlQuery += string.Format("AND Rqtp_Code = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_RqtpCode.EditValue));
+                p++;
+             }
+             if (Txt_RqttCode.Text != "")
+             {
+                sqlQuery += string.Format("AND Rqtt_Code = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_RqttCode.EditValue));
+                p++;
+             }
+             if(Txt_FromRqstDate.Text != "")
+             {
+                sqlQuery += string.Format("AND Rqst_Date >= TO_DATE(:p{0}, 'YYYY/MM/DD') ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_FromRqstDate.EditValue));
+                p++;
+             }
+             if (Txt_ToRqstDate.Text != "")
+             {
+                sqlQuery += string.Format("AND Rqst_Date <= TO_DATE(:p{0}, 'YYYY/MM/DD') ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_ToRqstDate.EditValue));
+                p++;
+             }
+             if (Txt_FromSaveDate.Text != "")
+             {
+                sqlQuery += string.Format("AND Save_Date >= TO_DATE(:p{0}, 'YYYY/MM/DD') ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_FromSaveDate.EditValue));
+                p++;
+             }
+             if (Txt_ToSaveDate.Text != "")
+             {
+                sqlQuery += string.Format("AND Save_Date <= TO_DATE(:p{0}, 'YYYY/MM/DD') ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_ToSaveDate.EditValue));
+                p++;
+             }
+             if (Txt_LettNo.Text != "")
+             {
+                sqlQuery += string.Format("AND Lett_No = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_LettNo.EditValue));
+                p++;
+             }
+             if (Txt_LettDate.Text != "")
+             {
+                sqlQuery += string.Format("AND Lett_Date = TO_DATE(:p{0}, 'YYYY/MM/DD') ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_LettDate.EditValue));
+                p++;
+             }
+             if (Txt_LettOwnr.Text != "")
+             {
+                sqlQuery += string.Format("AND Lett_Ownr LIKE :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), "%" + Txt_LettOwnr.EditValue + "%"));
+                p++;
+             }
+             if (Txt_MsttRwno.Text != "")
+             {
+                sqlQuery += string.Format("AND Sstt_Mstt_Row_No = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_MsttRwno.EditValue));
+                p++;
+             }
+             if (Txt_SsttRwno.Text != "")
+             {
+                sqlQuery += string.Format("AND Sstt_Row_No = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_SsttRwno.EditValue));
+                p++;
+             }
+             if (Txt_SubSys.Text != "")
+             {
+                sqlQuery += string.Format("AND Sub_Sys = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_SubSys.EditValue));
+                p++;
+             }
+             if (Txt_RqstRqid.Text != "")
+             {
+                sqlQuery += string.Format("AND Rqst_Rqid = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_RqstRqid.EditValue));
+                p++;
+             }
 
-            if (OraPool.Tables.IndexOf("Request") > 0)
-               OraPool.Tables.RemoveAt(OraPool.Tables.IndexOf("Request"));
+             if (OraPool.Tables.IndexOf("Request") > 0)
+                OraPool.Tables.RemoveAt(OraPool.Tables.IndexOf("Request"));
 
-            OraDA.SelectCommand.CommandText = "SELECT * FROM Request WHERE 1 = 1 " + sqlQuery;
-            OraDA.Fill(OraPool);
+             OraDA.SelectCommand.Parameters.Clear();
+             OraDA.SelectCommand.CommandText = "SELECT * FROM Request WHERE 1 = 1 " + sqlQuery;
+             if (oraLstParams.Count > 0)
+                OraDA.SelectCommand.Parameters.AddRange(oraLstParams.ToArray());
+             OraDA.Fill(OraPool);
             OraPool.Tables[OraPool.Tables.Count - 1].TableName = "Request";
 
             RequestBindingSource.DataSource = OraPool.Tables["Request"];
@@ -112,7 +185,9 @@ namespace System.Emis.Sas.View
          if (OraPool.Tables.IndexOf("Request_Row") > 0)
             OraPool.Tables.RemoveAt(OraPool.Tables.IndexOf("Request_Row"));
 
-         OraDA.SelectCommand.CommandText = string.Format("SELECT Rr.Rwno, Rr.Serv_File_No, S.Name_Dnrm, S.Serv_Addr_Dnrm, S.Tarf_Code_Dnrm, S.Phas_Dnrm, S.Ampr_Dnrm, Rr.Rec_Stat FROM Request_Row Rr, Service S WHERE Rr.Rqst_Rqid = {0} AND Rr.Serv_File_No = S.File_No", Current["Rqid"].ToString());
+         OraDA.SelectCommand.Parameters.Clear();
+         OraDA.SelectCommand.CommandText = "SELECT Rr.Rwno, Rr.Serv_File_No, S.Name_Dnrm, S.Serv_Addr_Dnrm, S.Tarf_Code_Dnrm, S.Phas_Dnrm, S.Ampr_Dnrm, Rr.Rec_Stat FROM Request_Row Rr, Service S WHERE Rr.Rqst_Rqid = :p0 AND Rr.Serv_File_No = S.File_No";
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p0", Current["Rqid"]));
          OraDA.Fill(OraPool);
          OraPool.Tables[OraPool.Tables.Count - 1].TableName = "Request_Row";
 
@@ -126,7 +201,9 @@ namespace System.Emis.Sas.View
          if (OraPool.Tables.IndexOf("Step_History_Summery") > 0)
             OraPool.Tables.RemoveAt(OraPool.Tables.IndexOf("Step_History_Summery"));
 
-         OraDA.SelectCommand.CommandText = string.Format("SELECT RQST_RQID, Row_no, Shis_Desc, TO_CHAR(From_Date, 'YYYY/MM/DD') AS From_Date, TO_CHAR(To_Date, 'YYYY/MM/DD') AS To_Date, Cret_By, Mdfy_By FROM Step_History_Summery WHERE Rqst_Rqid = {0} ORDER BY Row_No", Current["Rqid"].ToString());
+         OraDA.SelectCommand.Parameters.Clear();
+         OraDA.SelectCommand.CommandText = "SELECT RQST_RQID, Row_no, Shis_Desc, TO_CHAR(From_Date, 'YYYY/MM/DD') AS From_Date, TO_CHAR(To_Date, 'YYYY/MM/DD') AS To_Date, Cret_By, Mdfy_By FROM Step_History_Summery WHERE Rqst_Rqid = :p0 ORDER BY Row_No";
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p0", Current["Rqid"]));
          OraDA.Fill(OraPool);
          OraPool.Tables[OraPool.Tables.Count - 1].TableName = "Step_History_Summery";
 
@@ -142,7 +219,10 @@ namespace System.Emis.Sas.View
          if (OraPool.Tables.IndexOf("Step_History_Detail") > 0)
             OraPool.Tables.RemoveAt(OraPool.Tables.IndexOf("Step_History_Detail"));
 
-         OraDA.SelectCommand.CommandText = string.Format("SELECT SHIS_RQST_RQID, Row_No, Shit_Desc, TO_CHAR(From_Date, 'YYYY/MM/DD') AS From_Date, TO_CHAR(To_Date, 'YYYY/MM/DD') AS To_Date, Cret_By, Mdfy_By FROM Step_History_Detail WHERE Shis_Rqst_Rqid = {0} AND Shis_Row_No = {1} ORDER BY Shis_Row_No, Row_No", Current["Rqst_Rqid"], Current["Row_No"]);
+         OraDA.SelectCommand.Parameters.Clear();
+         OraDA.SelectCommand.CommandText = "SELECT SHIS_RQST_RQID, Row_No, Shit_Desc, TO_CHAR(From_Date, 'YYYY/MM/DD') AS From_Date, TO_CHAR(To_Date, 'YYYY/MM/DD') AS To_Date, Cret_By, Mdfy_By FROM Step_History_Detail WHERE Shis_Rqst_Rqid = :p0 AND Shis_Row_No = :p1 ORDER BY Shis_Row_No, Row_No";
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p0", Current["Rqst_Rqid"]));
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p1", Current["Row_No"]));
          OraDA.Fill(OraPool);
          OraPool.Tables[OraPool.Tables.Count - 1].TableName = "Step_History_Detail";
 
@@ -158,7 +238,10 @@ namespace System.Emis.Sas.View
          if (OraPool.Tables.IndexOf("Step_History_Detail") > 0)
             OraPool.Tables.RemoveAt(OraPool.Tables.IndexOf("Step_History_Detail"));
 
-         OraDA.SelectCommand.CommandText = string.Format("SELECT SHIS_RQST_RQID, Row_No, Shit_Desc, TO_CHAR(From_Date, 'YYYY/MM/DD') AS From_Date, TO_CHAR(To_Date, 'YYYY/MM/DD') AS To_Date, Cret_By, Mdfy_By FROM Step_History_Detail WHERE Shis_Rqst_Rqid = {0} AND Shis_Row_No = {1} ORDER BY Shis_Row_No, Row_No", Current["Rqst_Rqid"], Current["Row_No"]);
+         OraDA.SelectCommand.Parameters.Clear();
+         OraDA.SelectCommand.CommandText = "SELECT SHIS_RQST_RQID, Row_No, Shit_Desc, TO_CHAR(From_Date, 'YYYY/MM/DD') AS From_Date, TO_CHAR(To_Date, 'YYYY/MM/DD') AS To_Date, Cret_By, Mdfy_By FROM Step_History_Detail WHERE Shis_Rqst_Rqid = :p0 AND Shis_Row_No = :p1 ORDER BY Shis_Row_No, Row_No";
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p0", Current["Rqst_Rqid"]));
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p1", Current["Row_No"]));
          OraDA.Fill(OraPool);
          OraPool.Tables[OraPool.Tables.Count - 1].TableName = "Step_History_Detail";
 

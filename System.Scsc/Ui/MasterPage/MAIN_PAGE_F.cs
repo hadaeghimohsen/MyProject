@@ -3018,12 +3018,11 @@ namespace System.Scsc.Ui.MasterPage
                   if(!iScsc.Dressers.Any(d => d.CMND_SEND == FngrPrnt_Txt.Text && d.DRES_NUMB == CardNumb_Text.Text.ToInt32() && d.Computer_Action.COMP_NAME == xHost.Attribute("name").Value))
                   {
                      iScsc.ExecuteCommand(
-                        string.Format("INSERT INTO dbo.Dresser (Coma_Code, Code, Dres_Numb, Rec_Stat, Ordr, Cmnd_Send)" + Environment.NewLine +
-                        "SELECT Code, 0, {0}, '002', {0}, '{1}' FROM dbo.Computer_Action WHERE Comp_Name = '{2}'",
+                        "INSERT INTO dbo.Dresser (Coma_Code, Code, Dres_Numb, Rec_Stat, Ordr, Cmnd_Send)" + Environment.NewLine +
+                        "SELECT Code, 0, {0}, '002', {0}, {1} FROM dbo.Computer_Action WHERE Comp_Name = {2}",
                         CardNumb_Text.Text,
                         FngrPrnt_Txt.Text,
-                        xHost.Attribute("name").Value)
-                     );
+                        xHost.Attribute("name").Value);
 
                      FngrPrnt_Txt.Text = "";
                      CardNumb_Text.Text = (CardNumb_Text.Text.ToInt32() + 1).ToString();
@@ -3042,8 +3041,7 @@ namespace System.Scsc.Ui.MasterPage
                   else if (iScsc.Dressers.Any(d => d.CMND_SEND != FngrPrnt_Txt.Text && d.DRES_NUMB == CardNumb_Text.Text.ToInt32() && d.Computer_Action.COMP_NAME == xHost.Attribute("name").Value))
                   {
                      iScsc.ExecuteCommand(
-                        string.Format("UPDATE dbo.Dresser SET Cmnd_Send = '{0}' WHERE Dres_Numb = {1} AND Coma_Code IN (Select Code From dbo.Computer_Action WHERE Comp_Name = '{2}');", FngrPrnt_Txt.Text, CardNumb_Text.Text, xHost.Attribute("name").Value)
-                     );
+                        "UPDATE dbo.Dresser SET Cmnd_Send = {0} WHERE Dres_Numb = {1} AND Coma_Code IN (Select Code From dbo.Computer_Action WHERE Comp_Name = {2});", FngrPrnt_Txt.Text, CardNumb_Text.Text, xHost.Attribute("name").Value);
 
                      FngrPrnt_Txt.Text = "";
 
@@ -6051,7 +6049,7 @@ namespace System.Scsc.Ui.MasterPage
                         else
                         {
                            // انالیز کارت گذاشتن روی دستگاه برای اینکه بخواهیم جلسه بیشتری از مشتری کم کنیم
-                           iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.External_Device_DataRead (EDEV_CODE, FNGR_PRNT, CODE) VALUES ({0}, '{1}', 0);", _getDev.CODE, _fngrPrnt));
+                           iScsc.ExecuteCommand("INSERT INTO dbo.External_Device_DataRead (EDEV_CODE, FNGR_PRNT, CODE) VALUES ({0}, {1}, 0);", _getDev.CODE, _fngrPrnt);
                         }
                      }
 
@@ -6100,15 +6098,12 @@ namespace System.Scsc.Ui.MasterPage
 
                               // Save History for enter or exit
                               iScsc.ExecuteCommand(
-                                 string.Format(
                                  "INSERT INTO dbo.Dresser_Attendance (Dres_Code, Figh_File_No, Code, Ders_Numb, Rqst_Rqid, Mbsp_Rwno, Mbsp_Rect_Code, Conf_Stat)" + Environment.NewLine +
                                  "SELECT TOP 1 Dres_Code, Figh_File_No, 0, Ders_Numb, Rqst_Rqid, Mbsp_Rwno, Mbsp_Rect_Code, Conf_Stat FROM dbo.Dresser_Attendance da" + Environment.NewLine +
-                                 "WHERE da.Dres_Code IN (SELECT Code FROM dbo.Dresser d WHERE d.Cmnd_Send = '{0}')" + Environment.NewLine +
+                                 "WHERE da.Dres_Code IN (SELECT Code FROM dbo.Dresser d WHERE d.Cmnd_Send = {0})" + Environment.NewLine +
                                  "  AND da.Tkbk_Time IS NULL AND da.Lend_Time IS NOT NULL AND da.Conf_Stat = '002'" + Environment.NewLine +
                                  "ORDER BY da.CRET_DATE DESC",
-                                 FngrPrnt_Txt.Text
-                                 )
-                              );
+                                 FngrPrnt_Txt.Text);
                            }
                            else
                               SendCommandDevExpn("er", _getDev.DEV_NAME, "");

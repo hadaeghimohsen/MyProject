@@ -27,78 +27,170 @@ namespace System.Emis.Sas.View
          e.Button.Properties.Enabled = false;
          if (e.Button.Properties.Tag.ToString() == "Srch")
          {
-            string sqlQuery = "";
-            if (Txt_FileNo.EditValue != null)
-               sqlQuery += string.Format("AND File_No = {0} ", Txt_FileNo.EditValue);
-            if(Txt_RegnCode.EditValue != null)
-               sqlQuery += string.Format("AND Regn_Code = '{0}' ", Txt_RegnCode.EditValue);
-            if(Txt_Rqid.EditValue != null)
-               sqlQuery += string.Format("AND Efct_Rqid_Dnrm = {0} ", Txt_Rqid.EditValue);
-            if (Cmb_RqtpCode.EditValue != null && Convert.ToInt32(Cmb_RqtpCode.EditValue) > 0)
-               sqlQuery += string.Format("AND Efct_Rqst_Type_Dnrm = {0} ", Cmb_RqtpCode.EditValue);
-            if(Txt_ServNo.EditValue != null)
-               sqlQuery += string.Format("AND Serv_No_Dnrm = {0} ", Txt_ServNo.EditValue);
-            if(Cmb_CyclStat.EditValue != null)
-               sqlQuery += string.Format("AND Cycl_Stat = '{0}' ", Cmb_CyclStat.EditValue);
-            if(Cbx_CustStat.Checked && Cbx_CustStat.CheckState == CheckState.Checked)
-               sqlQuery += "AND Cust_Stat = '2' ";
-            else if (!Cbx_CustStat.Checked && Cbx_CustStat.CheckState == CheckState.Unchecked)
-               sqlQuery += "AND Cust_Stat = '1' ";
-            if (Txt_TarfCode.EditValue != null)
-               sqlQuery += string.Format("AND Tarf_Code_Dnrm = {0}", Txt_TarfCode.EditValue);
-            if(Txt_WorkDay.EditValue != null)
-               sqlQuery += string.Format("AND Work_Day_Dnrm = {0}", Txt_WorkDay.EditValue);
-            if(Txt_BlokCode.EditValue != null)
-               sqlQuery += string.Format("AND Blok_Dnrm = {0}", Txt_BlokCode.EditValue);
-            if (Txt_SeqCode.EditValue != null)
-               sqlQuery += string.Format("AND Seq_Dnrm = {0}", Txt_SeqCode.EditValue);
-            if(Cmb_ServType.EditValue != null && Convert.ToInt32(Cmb_ServType.EditValue) > 0)
-               sqlQuery += string.Format("AND Serv_Type_Dnrm = {0}", Cmb_ServType.EditValue);
-            if (Txt_ServName.EditValue != null)
-               sqlQuery += string.Format("AND Name_Dnrm LIKE '%{0}%'", Txt_ServName.EditValue);
-            if (Txt_ServAddr.EditValue != null)
-               sqlQuery += string.Format("AND Serv_Addr_Dnrm LIKE '%{0}%'", Txt_ServAddr.EditValue);
-            if (Cmb_ZoneCode.EditValue != null && Convert.ToInt32(Cmb_ZoneCode.EditValue) > 0)
-               sqlQuery += string.Format("AND Zone_Code_Dnrm = '{0}'", Cmb_ZoneCode.EditValue);
-            if (Cmb_OnofTag.EditValue != null && Convert.ToInt32(Cmb_OnofTag.EditValue) > 0)
-               sqlQuery += string.Format("AND Onof_Tag = '{0}'", Cmb_OnofTag.EditValue);
-            if (Cmb_ReadStat.EditValue != null && Convert.ToInt32(Cmb_ReadStat.EditValue) > 0)
-               sqlQuery += string.Format("AND Read_Stat = '{0}'", Cmb_ReadStat.EditValue);
-            if (Cmb_ConsCode.EditValue != null && Convert.ToInt32(Cmb_ConsCode.EditValue) > 0)
-               sqlQuery += string.Format("AND SUBSTR(Tarf_Code_Dnrm, 4, 1) = '{0}'", Cmb_ConsCode.EditValue);
-            if (Cmb_ConfStat.EditValue != null && Convert.ToInt32(Cmb_ConfStat.EditValue) > 0)
-               sqlQuery += string.Format("AND Conf_Stat = '{0}'", Cmb_ConfStat.EditValue);
-            if (Cmb_Phas.EditValue != null && Convert.ToInt32(Cmb_Phas.EditValue) > 0)
-               sqlQuery += string.Format("AND Phas_Dnrm = '{0}'", Cmb_Phas.EditValue);
-            if (Cmb_BrncType.EditValue != null && Convert.ToInt32(Cmb_BrncType.EditValue) > 0)
-               sqlQuery += string.Format("AND Brnc_Type_Dnrm = '{0}'", Cmb_BrncType.EditValue);
-            if (Cb_PowrCodeNotTarf.Checked)
-               sqlQuery += string.Format("AND ( NVL(Dlvr_Volt, '0') <> SUBSTR( Tarf_Code_Dnrm, 8, 1 ) OR NVL(Powr_Code, '0') <> SUBSTR( Tarf_Code_Dnrm, 9, 1 ) OR NVL(Item_Code, '0') <> SUBSTR( Tarf_Code_Dnrm, 10, 1 ) )");
-            if (Cmb_RqstStat.EditValue != null && Convert.ToInt32(Cmb_RqstStat.EditValue) > 0)
-               sqlQuery += string.Format(@"AND EXISTS(
-                                                   SELECT *
-                                                     FROM Request R
-                                                    WHERE R.Rqid = Efct_Rqid_Dnrm
-                                                      AND R.Sub_Sys = 3
-                                                      AND R.Rqst_Stat = {0}
-                                                      AND R.Sstt_Mstt_Row_No = {1}
-                                               )", Cmb_RqstStat.EditValue
-                                                 , Cb_RqstEnd99.Checked ? "99" : "R.Sstt_Mstt_Row_No");
-            if (Cmb_MetrType.EditValue != null && Convert.ToInt32(Cmb_MetrType.EditValue) > 0)
-               sqlQuery += string.Format(@"AND EXISTS(
-                                                   SELECT *
-                                                     FROM Meter_Spec B
-                                                    WHERE B.Serv_File_No = File_No
-                                                      AND B.Rect_Code = 6
-                                                      AND B.Rwno = Metr_Seq_Dnrm
-                                                      AND B.Metr_Type = {0}
-                                               )", Cmb_MetrType.EditValue);
+             string sqlQuery = "";
+             var oraLstParams = new List<OracleParameter>();
+             int p = 0;
+             if (Txt_FileNo.EditValue != null)
+             {
+                sqlQuery += string.Format("AND File_No = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_FileNo.EditValue));
+                p++;
+             }
+             if(Txt_RegnCode.EditValue != null)
+             {
+                sqlQuery += string.Format("AND Regn_Code = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_RegnCode.EditValue));
+                p++;
+             }
+             if(Txt_Rqid.EditValue != null)
+             {
+                sqlQuery += string.Format("AND Efct_Rqid_Dnrm = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_Rqid.EditValue));
+                p++;
+             }
+             if (Cmb_RqtpCode.EditValue != null && Convert.ToInt32(Cmb_RqtpCode.EditValue) > 0)
+             {
+                sqlQuery += string.Format("AND Efct_Rqst_Type_Dnrm = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Cmb_RqtpCode.EditValue));
+                p++;
+             }
+             if(Txt_ServNo.EditValue != null)
+             {
+                sqlQuery += string.Format("AND Serv_No_Dnrm = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_ServNo.EditValue));
+                p++;
+             }
+             if(Cmb_CyclStat.EditValue != null)
+             {
+                sqlQuery += string.Format("AND Cycl_Stat = :p{0} ", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Cmb_CyclStat.EditValue));
+                p++;
+             }
+             if(Cbx_CustStat.Checked && Cbx_CustStat.CheckState == CheckState.Checked)
+                sqlQuery += "AND Cust_Stat = '2' ";
+             else if (!Cbx_CustStat.Checked && Cbx_CustStat.CheckState == CheckState.Unchecked)
+                sqlQuery += "AND Cust_Stat = '1' ";
+             if (Txt_TarfCode.EditValue != null)
+             {
+                sqlQuery += string.Format("AND Tarf_Code_Dnrm = :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_TarfCode.EditValue));
+                p++;
+             }
+             if(Txt_WorkDay.EditValue != null)
+             {
+                sqlQuery += string.Format("AND Work_Day_Dnrm = :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_WorkDay.EditValue));
+                p++;
+             }
+             if(Txt_BlokCode.EditValue != null)
+             {
+                sqlQuery += string.Format("AND Blok_Dnrm = :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_BlokCode.EditValue));
+                p++;
+             }
+             if (Txt_SeqCode.EditValue != null)
+             {
+                sqlQuery += string.Format("AND Seq_Dnrm = :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Txt_SeqCode.EditValue));
+                p++;
+             }
+             if(Cmb_ServType.EditValue != null && Convert.ToInt32(Cmb_ServType.EditValue) > 0)
+             {
+                sqlQuery += string.Format("AND Serv_Type_Dnrm = :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Cmb_ServType.EditValue));
+                p++;
+             }
+             if (Txt_ServName.EditValue != null)
+             {
+                sqlQuery += string.Format("AND Name_Dnrm LIKE :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), "%" + Txt_ServName.EditValue + "%"));
+                p++;
+             }
+             if (Txt_ServAddr.EditValue != null)
+             {
+                sqlQuery += string.Format("AND Serv_Addr_Dnrm LIKE :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), "%" + Txt_ServAddr.EditValue + "%"));
+                p++;
+             }
+             if (Cmb_ZoneCode.EditValue != null && Convert.ToInt32(Cmb_ZoneCode.EditValue) > 0)
+             {
+                sqlQuery += string.Format("AND Zone_Code_Dnrm = :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Cmb_ZoneCode.EditValue));
+                p++;
+             }
+             if (Cmb_OnofTag.EditValue != null && Convert.ToInt32(Cmb_OnofTag.EditValue) > 0)
+             {
+                sqlQuery += string.Format("AND Onof_Tag = :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Cmb_OnofTag.EditValue));
+                p++;
+             }
+             if (Cmb_ReadStat.EditValue != null && Convert.ToInt32(Cmb_ReadStat.EditValue) > 0)
+             {
+                sqlQuery += string.Format("AND Read_Stat = :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Cmb_ReadStat.EditValue));
+                p++;
+             }
+             if (Cmb_ConsCode.EditValue != null && Convert.ToInt32(Cmb_ConsCode.EditValue) > 0)
+             {
+                sqlQuery += string.Format("AND SUBSTR(Tarf_Code_Dnrm, 4, 1) = :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Cmb_ConsCode.EditValue));
+                p++;
+             }
+             if (Cmb_ConfStat.EditValue != null && Convert.ToInt32(Cmb_ConfStat.EditValue) > 0)
+             {
+                sqlQuery += string.Format("AND Conf_Stat = :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Cmb_ConfStat.EditValue));
+                p++;
+             }
+             if (Cmb_Phas.EditValue != null && Convert.ToInt32(Cmb_Phas.EditValue) > 0)
+             {
+                sqlQuery += string.Format("AND Phas_Dnrm = :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Cmb_Phas.EditValue));
+                p++;
+             }
+             if (Cmb_BrncType.EditValue != null && Convert.ToInt32(Cmb_BrncType.EditValue) > 0)
+             {
+                sqlQuery += string.Format("AND Brnc_Type_Dnrm = :p{0}", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Cmb_BrncType.EditValue));
+                p++;
+             }
+             if (Cb_PowrCodeNotTarf.Checked)
+                sqlQuery += "AND ( NVL(Dlvr_Volt, '0') <> SUBSTR( Tarf_Code_Dnrm, 8, 1 ) OR NVL(Powr_Code, '0') <> SUBSTR( Tarf_Code_Dnrm, 9, 1 ) OR NVL(Item_Code, '0') <> SUBSTR( Tarf_Code_Dnrm, 10, 1 ) )";
+             if (Cmb_RqstStat.EditValue != null && Convert.ToInt32(Cmb_RqstStat.EditValue) > 0)
+             {
+                sqlQuery += string.Format(@"AND EXISTS(
+                                                    SELECT *
+                                                      FROM Request R
+                                                     WHERE R.Rqid = Efct_Rqid_Dnrm
+                                                       AND R.Sub_Sys = 3
+                                                       AND R.Rqst_Stat = :p{0}
+                                                       AND R.Sstt_Mstt_Row_No = {1}
+                                                )", p, Cb_RqstEnd99.Checked ? "99" : "R.Sstt_Mstt_Row_No");
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Cmb_RqstStat.EditValue));
+                p++;
+             }
+             if (Cmb_MetrType.EditValue != null && Convert.ToInt32(Cmb_MetrType.EditValue) > 0)
+             {
+                sqlQuery += string.Format(@"AND EXISTS(
+                                                    SELECT *
+                                                      FROM Meter_Spec B
+                                                     WHERE B.Serv_File_No = File_No
+                                                       AND B.Rect_Code = 6
+                                                       AND B.Rwno = Metr_Seq_Dnrm
+                                                       AND B.Metr_Type = :p{0}
+                                                )", p);
+                oraLstParams.Add(new OracleParameter(":p" + p.ToString(), Cmb_MetrType.EditValue));
+                p++;
+             }
 
-            if (OraPool.Tables.IndexOf("Service") > 0)
-               OraPool.Tables.RemoveAt(OraPool.Tables.IndexOf("Service"));
+             if (OraPool.Tables.IndexOf("Service") > 0)
+                OraPool.Tables.RemoveAt(OraPool.Tables.IndexOf("Service"));
 
-            OraDA.SelectCommand.CommandText = "SELECT * FROM SERVICE WHERE 1 = 1 " + sqlQuery;
-            OraDA.Fill(OraPool);
+             OraDA.SelectCommand.Parameters.Clear();
+             OraDA.SelectCommand.CommandText = "SELECT * FROM SERVICE WHERE 1 = 1 " + sqlQuery;
+             if (oraLstParams.Count > 0)
+                OraDA.SelectCommand.Parameters.AddRange(oraLstParams.ToArray());
+             OraDA.Fill(OraPool);
             OraPool.Tables[OraPool.Tables.Count - 1].TableName = "Service";
 
             ServiceBindingSource.DataSource = OraPool.Tables["Service"];
@@ -774,7 +866,9 @@ namespace System.Emis.Sas.View
          if (OraPool.Tables.IndexOf("Request") > 0)
             OraPool.Tables.RemoveAt(OraPool.Tables.IndexOf("Request"));
 
-         OraDA.SelectCommand.CommandText = "SELECT * FROM Request WHERE Rqid = " + Txt_RqidDnrm.EditValue;
+         OraDA.SelectCommand.Parameters.Clear();
+         OraDA.SelectCommand.CommandText = "SELECT * FROM Request WHERE Rqid = :p0";
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p0", Txt_RqidDnrm.EditValue));
          OraDA.Fill(OraPool);
          OraPool.Tables[OraPool.Tables.Count - 1].TableName = "Request";
 

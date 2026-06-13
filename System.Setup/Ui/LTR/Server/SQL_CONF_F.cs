@@ -164,24 +164,23 @@ namespace System.Setup.Ui.LTR.Server
 
             /// IF CUSTOMER CAN INSTALL SUBSYSTEM GOTO RESTORE BACKUP DATABASE
             SqlCommand cmd =
-               new SqlCommand(
-                  string.Format(
-                  @"RESTORE DATABASE [{0}] FROM  DISK = N'{1}' WITH  FILE = 1,  
-                    MOVE N'{2}' TO N'{3}\{0}.mdf',  
-                    MOVE N'{2}_Blob' TO N'{3}\{0}_Blob.ndf',  
-                    MOVE N'{2}_log' TO N'{3}\{0}_Log.ldf',  
-                    NOUNLOAD,  REPLACE,  STATS = 10",
-                       CreateTestDemoDatabase_Cb.Checked ? backName + "001" : backName,
-                       BackupFile_Txt.Text,
-                       backName,
-                       CreateTestDemoDatabase_Cb.Checked ? PathTargetDbFile_Txt.Text : PathTargetDbFile_Txt.Text
-
-                  ),
-                  WinAuth_Rb.Checked ? 
-                     new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text))
-                     :
-                     new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text))
-               );
+                new SqlCommand(
+                   string.Format(
+                   @"RESTORE DATABASE [{0}] FROM  DISK = @p0 WITH  FILE = 1,  
+                     MOVE N'{1}' TO N'{2}\{0}.mdf',  
+                     MOVE N'{1}_Blob' TO N'{2}\{0}_Blob.ndf',  
+                     MOVE N'{1}_log' TO N'{2}\{0}_Log.ldf',  
+                     NOUNLOAD,  REPLACE,  STATS = 10",
+                        CreateTestDemoDatabase_Cb.Checked ? backName + "001" : backName,
+                        backName,
+                        CreateTestDemoDatabase_Cb.Checked ? PathTargetDbFile_Txt.Text : PathTargetDbFile_Txt.Text
+                   ),
+                   WinAuth_Rb.Checked ? 
+                      new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text))
+                      :
+                      new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text))
+                );
+            cmd.Parameters.AddWithValue("@p0", BackupFile_Txt.Text);
             cmd.Connection.Open();
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
@@ -296,20 +295,20 @@ namespace System.Setup.Ui.LTR.Server
             //dbFilePath.AddRange(DatabaseFiles_Lst.Items.OfType<string>().ToArray());
             //iServer.AttachDatabase(ChooseSubSys_Lov.SelectedItem.ToString(), dbFilePath);
             SqlCommand attachdb =
-               new SqlCommand(
-                  string.Format(@"EXEC sp_attach_db @dbname = N'{0}',   
-                      @filename1 = N'{1}',   
-                      @filename2 = N'{2}',
-                      @filename3 = N'{3}'",
-                  ChooseSubSys_Lov.Text,
-                  DatabaseFiles_Lst.Items[0],
-                  DatabaseFiles_Lst.Items[1],
-                  DatabaseFiles_Lst.Items[2]),
-                  WinAuth_Rb.Checked ?
-                     new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text))
-                     :
-                     new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text))
-               ) { CommandType = CommandType.Text };
+                new SqlCommand(
+                   @"EXEC sp_attach_db @dbname = @p0,   
+                       @filename1 = @p1,   
+                       @filename2 = @p2,
+                       @filename3 = @p3",
+                   WinAuth_Rb.Checked ?
+                      new SqlConnection(string.Format("server={0};database=master;Integrated Security=True", Server_Txt.Text))
+                      :
+                      new SqlConnection(string.Format("server={0};database=master;Persist Security Info=True;User ID={1};Password={2}", Server_Txt.Text, Username_Txt.Text, Password_Txt.Text))
+                ) { CommandType = CommandType.Text };
+            attachdb.Parameters.AddWithValue("@p0", ChooseSubSys_Lov.Text);
+            attachdb.Parameters.AddWithValue("@p1", DatabaseFiles_Lst.Items[0]);
+            attachdb.Parameters.AddWithValue("@p2", DatabaseFiles_Lst.Items[1]);
+            attachdb.Parameters.AddWithValue("@p3", DatabaseFiles_Lst.Items[2]);
 
             attachdb.Connection.Open();
             attachdb.ExecuteNonQuery();

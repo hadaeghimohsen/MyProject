@@ -5222,8 +5222,7 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                case 1:
                   iScsc.ExecuteCommand(
-                     string.Format("UPDATE dbo.Message_Broadcast SET Msgb_Text = N'{0}' WHERE Msgb_Type = '{1}'", _tmpl.TEMP_TEXT, Msgt_Lov.EditValue)
-                  );
+                     "UPDATE dbo.Message_Broadcast SET Msgb_Text = {0} WHERE Msgb_Type = {1}", _tmpl.TEMP_TEXT, Msgt_Lov.EditValue);
                   break;
                default:
                   break;
@@ -5265,9 +5264,9 @@ namespace System.Scsc.Ui.BaseDefinition
             //}
 
             if(ModifierKeys == Keys.Control)
-               iScsc.ExecuteCommand(string.Format("UPDATE Club_Method SET Durt_Attn_Sond_Path = N'{0}' WHERE Mtod_Code = {1};", DurtAttnSp_Txt.Text, _cbmt.MTOD_CODE));
+               iScsc.ExecuteCommand("UPDATE Club_Method SET Durt_Attn_Sond_Path = {0} WHERE Mtod_Code = {1};", DurtAttnSp_Txt.Text, _cbmt.MTOD_CODE);
             else
-               iScsc.ExecuteCommand(string.Format("UPDATE Club_Method SET Durt_Attn_Sond_Path = N'{0}' WHERE Code = {1};", DurtAttnSp_Txt.Text, _cbmt.CODE));
+               iScsc.ExecuteCommand("UPDATE Club_Method SET Durt_Attn_Sond_Path = {0} WHERE Code = {1};", DurtAttnSp_Txt.Text, _cbmt.CODE);
 
             requery = true;
          }

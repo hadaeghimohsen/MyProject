@@ -26,7 +26,10 @@ namespace System.Emis.Sas.View
          if (Parallel_Table.Tables.Count > 0)
             Parallel_Table.Tables.Clear();
 
-         OraDA.SelectCommand.CommandText = string.Format("SELECT * FROM Bil_Consumption WHERE Bill_Serv_File_No = {0} AND Bill_Bill_No = {1} ORDER BY BMTR_METR_TARF_TYPE, BMTR_DAY_TYPE", bill.Row["SERV_FILE_NO"], bill.Row["BILL_NO"]);
+         OraDA.SelectCommand.Parameters.Clear();
+         OraDA.SelectCommand.CommandText = "SELECT * FROM Bil_Consumption WHERE Bill_Serv_File_No = :p0 AND Bill_Bill_No = :p1 ORDER BY BMTR_METR_TARF_TYPE, BMTR_DAY_TYPE";
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p0", bill.Row["SERV_FILE_NO"]));
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p1", bill.Row["BILL_NO"]));
          OraDA.Fill(Parallel_Table);
          Parallel_Table.Tables[0].TableName = "BIL_CONSUMPTION";
 
@@ -34,7 +37,10 @@ namespace System.Emis.Sas.View
 
          /**/         
 
-         OraDA.SelectCommand.CommandText = string.Format("SELECT * FROM BIL_BILL_DEBIT WHERE Bill_Serv_File_No = {0} AND Bill_Bill_No = {1}", bill.Row["SERV_FILE_NO"], bill.Row["BILL_NO"]);
+         OraDA.SelectCommand.Parameters.Clear();
+         OraDA.SelectCommand.CommandText = "SELECT * FROM BIL_BILL_DEBIT WHERE Bill_Serv_File_No = :p0 AND Bill_Bill_No = :p1";
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p0", bill.Row["SERV_FILE_NO"]));
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p1", bill.Row["BILL_NO"]));
          OraDA.Fill(Parallel_Table);
          Parallel_Table.Tables[1].TableName = "BIL_BILL_DEBIT";
 
@@ -42,7 +48,10 @@ namespace System.Emis.Sas.View
 
          /**/
 
-         OraDA.SelectCommand.CommandText = string.Format("SELECT * FROM BIL_BILL_AMOUNT WHERE Bill_Serv_File_No = {0} AND Bill_Bill_No = {1}", bill.Row["SERV_FILE_NO"], bill.Row["BILL_NO"]);
+         OraDA.SelectCommand.Parameters.Clear();
+         OraDA.SelectCommand.CommandText = "SELECT * FROM BIL_BILL_AMOUNT WHERE Bill_Serv_File_No = :p0 AND Bill_Bill_No = :p1";
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p0", bill.Row["SERV_FILE_NO"]));
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p1", bill.Row["BILL_NO"]));
          OraDA.Fill(Parallel_Table);
          Parallel_Table.Tables[2].TableName = "BIL_BILL_AMOUNT";
 
@@ -57,7 +66,9 @@ namespace System.Emis.Sas.View
          if (Request_Type.Tables.Count > 0)
             Request_Type.Tables.Clear(); 
 
-         OraDA.SelectCommand.CommandText = string.Format("SELECT Rt.* FROM Request R, Request_Type Rt WHERE R.Rqid = {0} AND R.Rqtp_Code = Rt.Code", RQRO_RQST_RQIDTextBox.Text);
+         OraDA.SelectCommand.Parameters.Clear();
+         OraDA.SelectCommand.CommandText = "SELECT Rt.* FROM Request R, Request_Type Rt WHERE R.Rqid = :p0 AND R.Rqtp_Code = Rt.Code";
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p0", RQRO_RQST_RQIDTextBox.Text));
          OraDA.Fill(Request_Type);
          Request_Type.Tables[0].TableName = "REQUEST_TYPE";
 
@@ -75,7 +86,12 @@ namespace System.Emis.Sas.View
          if (Bil_Consumption_Detail.Tables.Count > 0)
             Bil_Consumption_Detail.Tables.Clear();         
 
-         OraDA.SelectCommand.CommandText = string.Format("SELECT * FROM Bil_Consumption_Detail WHERE Cons_Bill_Serv_File_No = {0} AND Cons_Bill_Bill_No = {1} AND CONS_BMTR_METR_TARF_TYPE = {2} AND CONS_BMTR_DAY_TYPE = {3} ORDER BY CONS_BMTR_METR_TARF_TYPE, CONS_BMTR_DAY_TYPE", bill_cons.Row["BILL_SERV_FILE_NO"], bill_cons.Row["BILL_BILL_NO"], bill_cons.Row["BMTR_METR_TARF_TYPE"], bill_cons.Row["BMTR_DAY_TYPE"]);
+         OraDA.SelectCommand.Parameters.Clear();
+         OraDA.SelectCommand.CommandText = "SELECT * FROM Bil_Consumption_Detail WHERE Cons_Bill_Serv_File_No = :p0 AND Cons_Bill_Bill_No = :p1 AND CONS_BMTR_METR_TARF_TYPE = :p2 AND CONS_BMTR_DAY_TYPE = :p3 ORDER BY CONS_BMTR_METR_TARF_TYPE, CONS_BMTR_DAY_TYPE";
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p0", bill_cons.Row["BILL_SERV_FILE_NO"]));
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p1", bill_cons.Row["BILL_BILL_NO"]));
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p2", bill_cons.Row["BMTR_METR_TARF_TYPE"]));
+         OraDA.SelectCommand.Parameters.Add(new OracleParameter(":p3", bill_cons.Row["BMTR_DAY_TYPE"]));
          OraDA.Fill(Bil_Consumption_Detail);
          Bil_Consumption_Detail.Tables[0].TableName = "BIL_CONSUMPTION_DETAIL";
 

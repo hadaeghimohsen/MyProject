@@ -135,7 +135,7 @@ namespace System.Gas.Gnrt_Qrcd.Ui
                      true,
                      "",
                      "",
-                     string.Format("SELECT QRCD_DESC FROM GAZ_SERI WHERE Seri_No = {0} AND QRCD_DESC IS NOT NULL AND ROWNUM = 1", cbe_seri_no.Text),
+                      string.Format("SELECT QRCD_DESC FROM GAZ_SERI WHERE Seri_No = {0} AND QRCD_DESC IS NOT NULL AND ROWNUM = 1", long.TryParse(cbe_seri_no.Text, out long seriNo) ? seriNo.ToString() : "0"),
                      string.Format("DB_{0}", datasourceID),
                      userName, 
                      password

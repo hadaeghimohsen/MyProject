@@ -231,10 +231,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   if (!IflrBs.List.OfType<Data.Robot_Instagram_Follow>().Any(fr => fr.Robot_Instagram == inst && fr.INST_PKID == f.Pk && fr.FOLW_TYPE == "001"))
                   {
                      ++s;
-                     iRoboTech.ExecuteCommand(
-                        string.Format("INSERT INTO dbo.Robot_Instagram_Follow(Rins_Code, Code, Inst_Pkid, User_Name, Full_Name, Folw_Type) VALUES({0}, 0, {1}, '{2}', N'{3}', '001');", inst.CODE, f.Pk, f.UserName, f.FullName.Replace("'", "''"))
-                        //string.Format("INSERT INTO dbo.Robot_Instagram_Follow(Rins_Code, Code, Inst_Pkid, User_Name, Folw_Type) VALUES({0}, 0, {1}, '{2}', '001');", inst.CODE, f.Pk, f.UserName)
-                     );
+                      iRoboTech.ExecuteCommand("INSERT INTO dbo.Robot_Instagram_Follow(Rins_Code, Code, Inst_Pkid, User_Name, Full_Name, Folw_Type) VALUES({0}, 0, {1}, {2}, {3}, '001');", inst.CODE, f.Pk, f.UserName, f.FullName);
 
                      ProcNumbFollowers_Lb.Text = string.Format("Processed number: {0}", s);
                   }
@@ -254,10 +251,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   if (!IflnBs.List.OfType<Data.Robot_Instagram_Follow>().Any(fn => fn.Robot_Instagram == inst && fn.INST_PKID == f.Pk && fn.FOLW_TYPE == "002"))
                   {
                      ++s;
-                     iRoboTech.ExecuteCommand(
-                        string.Format("INSERT INTO dbo.Robot_Instagram_Follow(Rins_Code, Code, Inst_Pkid, User_Name, Full_Name, Folw_Type) VALUES({0}, 0, {1}, '{2}', N'{3}', '002');", inst.CODE, f.Pk, f.UserName, f.FullName.Replace("'", "''"))
-                        //string.Format("INSERT INTO dbo.Robot_Instagram_Follow(Rins_Code, Code, Inst_Pkid, User_Name, Folw_Type) VALUES({0}, 0, {1}, '{2}', '002');", inst.CODE, f.Pk, f.UserName)
-                     );
+                      iRoboTech.ExecuteCommand("INSERT INTO dbo.Robot_Instagram_Follow(Rins_Code, Code, Inst_Pkid, User_Name, Full_Name, Folw_Type) VALUES({0}, 0, {1}, {2}, {3}, '002');", inst.CODE, f.Pk, f.UserName, f.FullName);
 
                      ProcNumbFollowing_Lb.Text = string.Format("Processed number: {0}", s);
                   }

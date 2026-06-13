@@ -738,7 +738,7 @@ namespace System.Scsc.Ui.OtherIncome
                   return;
                }
 
-               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID));
+               iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = {0}, Last_Name = {1}, Cell_Phon = {2} WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
             }
 
             if (Accept_Cb.Checked)
@@ -997,7 +997,7 @@ namespace System.Scsc.Ui.OtherIncome
                   return;
                }
 
-               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID));
+               iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = {0}, Last_Name = {1}, Cell_Phon = {2} WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
             }
 
             if (Accept_Cb.Checked /* 1402/11/01 if payment no debt */ && PymtsBs1.List.OfType<Data.Payment>().Any(p => (p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM) > 0))
@@ -1261,15 +1261,15 @@ namespace System.Scsc.Ui.OtherIncome
                      return;
                   }
 
-                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID));
-               }
+               iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = {0}, Last_Name = {1}, Cell_Phon = {2} WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
+            }
 
-               if (Accept_Cb.Checked)
-               {
-                  var pymt = PymtsBs1.Current as Data.Payment;
-                  if (pymt == null) return;
+            if (Accept_Cb.Checked)
+            {
+               var pymt = PymtsBs1.Current as Data.Payment;
+               if (pymt == null) return;
 
-                  var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+               var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
 
                   string mesg = "";
                   if (debtamnt > 0)
@@ -3496,7 +3496,7 @@ namespace System.Scsc.Ui.OtherIncome
                   return;
                }
 
-               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID));
+               iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = {0}, Last_Name = {1}, Cell_Phon = {2} WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
             }
 
             if (Accept_Cb.Checked)
@@ -4586,7 +4586,7 @@ namespace System.Scsc.Ui.OtherIncome
             if (!_cont)
             {
                // Save Contact in Database
-               iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.Fighter_Public(Regn_Prvn_Cnty_Code, Regn_Prvn_Code, Regn_Code, Rqro_Rqst_Rqid, Rqro_Rwno, Figh_File_No, Rect_Code, Frst_Name, Last_Name, Cell_Phon) VALUES('{0}', '{1}', '{2}', {3}, 1, {4}, '002', N'{5}', N'{6}', '{7}');", cntycode, prvncode, regncode, rqid, fileno, FrstName1_Txt.Text, LastName1_Txt.Text, CellPhon1_Txt.Text));
+               iScsc.ExecuteCommand("INSERT INTO dbo.Fighter_Public(Regn_Prvn_Cnty_Code, Regn_Prvn_Code, Regn_Code, Rqro_Rqst_Rqid, Rqro_Rwno, Figh_File_No, Rect_Code, Frst_Name, Last_Name, Cell_Phon) VALUES({0}, {1}, {2}, {3}, 1, {4}, '002', {5}, {6}, {7});", cntycode, prvncode, regncode, rqid, fileno, FrstName1_Txt.Text, LastName1_Txt.Text, CellPhon1_Txt.Text));
                FrstName1_Txt.Text = LastName1_Txt.Text = CellPhon1_Txt.Text = "";
                FgpbCustTell_Gv.FindFilterText = "";
                CellPhon1_Txt.Focus();

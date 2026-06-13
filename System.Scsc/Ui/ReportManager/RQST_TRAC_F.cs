@@ -40,7 +40,7 @@ namespace System.Scsc.Ui.ReportManager
 
          if (Rqid_Text.Text.Trim() != "")
          {
-            var query = iScsc.ExecuteQuery<long>(string.Format(@"WITH RqstTree(Rqid) AS
+            var query = iScsc.ExecuteQuery<long>(@"WITH RqstTree(Rqid) AS
                (
                   SELECT R.RQID
                     FROM dbo.Request R
@@ -54,7 +54,7 @@ namespace System.Scsc.Ui.ReportManager
                )
                SELECT * 
                  FROM RqstTree
-               ", Rqid_Text.Text));
+               ", Rqid_Text.Text);
             RqstBs1.DataSource = from r in iScsc.Requests
                                  where query.ToList().Contains(r.RQID)
                                  select r;
@@ -62,7 +62,7 @@ namespace System.Scsc.Ui.ReportManager
          }
          else if (FileNo_Text.Text.Trim() != "")
          {
-            var query = iScsc.ExecuteQuery<long>(string.Format(@"WITH RqstTree(Rqid) AS
+            var query = iScsc.ExecuteQuery<long>(@"WITH RqstTree(Rqid) AS
                (
                   SELECT R.RQID
                     FROM dbo.Request R, Fighter F
@@ -77,7 +77,7 @@ namespace System.Scsc.Ui.ReportManager
                )
                SELECT * 
                  FROM RqstTree
-               ", FileNo_Text.Text));
+               ", FileNo_Text.Text);
             RqstBs1.DataSource = from r in iScsc.Requests
                                  where query.ToList().Contains(r.RQID)
                                  select r;

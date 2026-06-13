@@ -207,9 +207,9 @@ namespace System.Emis.Sas.View
             DVOLTBindingSource.DataSource = domain.DVOLT();
             PRANGBindingSource.DataSource = domain.PRANG();
             ITEMBindingSource.DataSource = domain.ITEM();
-            SAS_PUBLICBindingSource.DataSource = access_entity.Run_Qury_U(string.Format(@"SELECT * FROM Sas_Public WHERE Serv_File_No = {0} AND Rect_Code = 6 ORDER BY Rwno", FileNo));
-            SERVICEBindingSource.DataSource = access_entity.Run_Qury_U(string.Format(@"SELECT * FROM Service WHERE File_No = {0} ", FileNo));
-            SERVICE_TARIFFBindingSource.DataSource = access_entity.Run_Qury_U(string.Format(@"SELECT serv_file_no, rwno, regn_code, tarf_tfid, strt_date_dnrm, chng_date,lett_no, lett_date FROM Service_Tariff WHERE Serv_File_No = {0} ORDER BY RWNO", FileNo));
+            SAS_PUBLICBindingSource.DataSource = access_entity.Run_Qury_U("SELECT * FROM Sas_Public WHERE Serv_File_No = :p0 AND Rect_Code = 6 ORDER BY Rwno", new OracleParameter[] { new OracleParameter(":p0", FileNo) });
+             SERVICEBindingSource.DataSource = access_entity.Run_Qury_U("SELECT * FROM Service WHERE File_No = :p0 ", new OracleParameter[] { new OracleParameter(":p0", FileNo) });
+             SERVICE_TARIFFBindingSource.DataSource = access_entity.Run_Qury_U("SELECT serv_file_no, rwno, regn_code, tarf_tfid, strt_date_dnrm, chng_date,lett_no, lett_date FROM Service_Tariff WHERE Serv_File_No = :p0 ORDER BY RWNO", new OracleParameter[] { new OracleParameter(":p0", FileNo) });
             
             SERVICE_TARIFFBindingSource.MoveLast();
             SAS_PUBLICBindingSource.MoveLast();

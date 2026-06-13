@@ -239,7 +239,8 @@ namespace System.Scsc.Ui.Settings
             _DefaultGateway.Gateway(GetSqlServerActiveDbName);
 
             //iScsc.ExecuteCommand(string.Format(@"ALTER DATABASE [iScsc] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE [iScsc] FROM  DISK = N'{0}' WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 2; ALTER DATABASE [iScsc] SET MULTI_USER;", BackupFile));
-            iScsc.ExecuteCommand(string.Format(@"ALTER DATABASE [{1}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE [{1}] FROM  DISK = N'{0}' WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 2; ALTER DATABASE [{1}] SET MULTI_USER;", BackupFile, GetSqlServerActiveDbName.Output));
+            var dbName = GetSqlServerActiveDbName.Output;
+            iScsc.ExecuteCommand($@"ALTER DATABASE [{dbName}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE [{dbName}] FROM  DISK = {{0}} WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 2; ALTER DATABASE [{dbName}] SET MULTI_USER;", BackupFile);
             Execute_Query();
             MessageBox.Show("عملیات بازگردانی پابگاه داده با موفقیت انجام شد");
          }
@@ -583,8 +584,7 @@ namespace System.Scsc.Ui.Settings
             if (MessageBox.Show(this, "آیا با حذف کردن چاپگر موافق هستید؟", "حذف کردن چاپگر", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.ExecuteCommand(
-               string.Format("DELETE dbo.Modual_Report_Direct_Print WHERE Prnt_Name = '{0}';", Printers_Lst.SelectedItem.ToString())
-            );
+               "DELETE dbo.Modual_Report_Direct_Print WHERE Prnt_Name = {0};", Printers_Lst.SelectedItem.ToString());
 
             requery = true;
          }
@@ -604,8 +604,7 @@ namespace System.Scsc.Ui.Settings
          try
          {
             iScsc.ExecuteCommand(
-               string.Format("UPDATE dbo.Modual_Report_Direct_Print SET STAT = '002' WHERE Prnt_Name = '{0}';", Printers_Lst.SelectedItem.ToString())
-            );
+               "UPDATE dbo.Modual_Report_Direct_Print SET STAT = '002' WHERE Prnt_Name = {0};", Printers_Lst.SelectedItem.ToString());
 
             requery = true;
          }
@@ -625,8 +624,7 @@ namespace System.Scsc.Ui.Settings
          try
          {
             iScsc.ExecuteCommand(
-               string.Format("UPDATE dbo.Modual_Report_Direct_Print SET STAT = '001' WHERE Prnt_Name = '{0}';", Printers_Lst.SelectedItem.ToString())
-            );
+               "UPDATE dbo.Modual_Report_Direct_Print SET STAT = '001' WHERE Prnt_Name = {0};", Printers_Lst.SelectedItem.ToString());
 
             requery = true;
          }

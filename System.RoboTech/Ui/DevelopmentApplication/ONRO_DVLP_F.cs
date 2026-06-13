@@ -711,7 +711,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                }
 
                // حذف کردن درخواست سفارش
-               iRoboTech.ExecuteCommand(string.Format("DELETE dbo.[Order] WHERE Ordr_Code = {0};", ordr25.CODE));
+               iRoboTech.ExecuteCommand("DELETE dbo.[Order] WHERE Ordr_Code = {0};", ordr25.CODE);
 
                // حذف کردن درخواست پذیرش سفارش انلاین
                iRoboTech.ExecuteCommand("DELETE dbo.[Order] WHERE Code = {0};", ordr25.CODE);
@@ -1501,7 +1501,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   RbprBs.IndexOf(prod.FirstOrDefault());
 
                if(ordr4.HOW_SHIP == "000")
-                  iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.[Order] SET HOW_SHIP = '001' WHERE Code = {0};", ordr4.CODE));
+                  iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET HOW_SHIP = '001' WHERE Code = {0};", ordr4.CODE);
 
                AddTarfTToCart_Butn_Click(null, null);
 
@@ -1659,7 +1659,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                RbprBs.IndexOf(prod.FirstOrDefault());
 
             if (ordr4.HOW_SHIP == "000")
-               iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.[Order] SET HOW_SHIP = '001' WHERE Code = {0};", ordr4.CODE));
+               iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET HOW_SHIP = '001' WHERE Code = {0};", ordr4.CODE);
 
             AddTarfTToCart_Butn_Click(null, null);
 

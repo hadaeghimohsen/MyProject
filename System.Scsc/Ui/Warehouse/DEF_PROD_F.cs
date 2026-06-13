@@ -524,9 +524,8 @@ namespace System.Scsc.Ui.Warehouse
                   if (iScsc.User_Link_Fighters.Any(u => u.FIGH_FILE_NO == Serv_Lov.EditValue.ToString().ToInt64() && u.USER_DB == CurrentUser)) return;
 
                   iScsc.ExecuteCommand(
-                     string.Format("INSERT INTO dbo.USer_Link_Fighter (User_Db, Figh_File_No, Code) VALUES ('{0}', {1}, 0);",
-                     CurrentUser, Serv_Lov.EditValue)
-                  );
+                     "INSERT INTO dbo.USer_Link_Fighter (User_Db, Figh_File_No, Code) VALUES ({0}, {1}, 0);",
+                     CurrentUser, Serv_Lov.EditValue);
                   break;
                default:
                   break;
@@ -671,9 +670,8 @@ namespace System.Scsc.Ui.Warehouse
                   if (iScsc.User_Link_Sections.Any(u => u.SECT_APBS_CODE == Sect_Lov.EditValue.ToString().ToInt64() && u.USER_DB == CurrentUser)) return;
 
                   iScsc.ExecuteCommand(
-                     string.Format("INSERT INTO dbo.USer_Link_Section (User_Db, Sect_Apbs_Code, Code) VALUES ('{0}', {1}, 0);",
-                     CurrentUser, Sect_Lov.EditValue)
-                  );
+                     "INSERT INTO dbo.USer_Link_Section (User_Db, Sect_Apbs_Code, Code) VALUES ({0}, {1}, 0);",
+                     CurrentUser, Sect_Lov.EditValue);
                   break;
                default:
                   break;

@@ -373,7 +373,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
             }
             //_tmpWorker.Join();
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Btn_SmsServerRefresh_Click error: " + ex.ToString()); }
       }
 
       private void Ts_SmsBgwkStat_Toggled(object sender, EventArgs e)
@@ -430,7 +430,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
             smsConf.GTWY_MAC_ADRS = e.NewValue.ToString();
             iProject.SubmitChanges();
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Host_Lov_EditValueChanging error: " + ex.ToString()); }
       }
 
       private void Save_Butn_Click(object sender, EventArgs e)
@@ -439,7 +439,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
          {
             iProject.SubmitChanges();
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Save_Butn_Click error: " + ex.ToString()); }
       }
 
       private void Reload_Butn_Click(object sender, EventArgs e)

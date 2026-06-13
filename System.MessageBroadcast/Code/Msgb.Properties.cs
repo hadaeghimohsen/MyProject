@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.JobRouting.Jobs;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
@@ -33,114 +34,239 @@ namespace System.MessageBroadcast.Code
       private IPPanelEdgeClient iPPanelEdgeClient; // Web Service IP Panel
       private XElement xHost;
       private bool _PingStatus;
+      private bool _senderBusy;
+      private bool _custBusy;
       #endregion
 
       #region Event Block
       void _CustBgwk_Tick(object sender, EventArgs e)
       {
-         try
+         if (_custBusy) return;
+         _custBusy = true;
+         Task.Run(() =>
          {
-            // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
-            // اولین گام بدست آوردن نام سیستم فعلی
-            if (xHost == null)
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost", "DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
-                  {
-                     AfterChangedOutput =
-                     new Action<object>((output) =>
+            try
+            {
+               // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
+               // اولین گام بدست آوردن نام سیستم فعلی
+               if (xHost == null)
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost", "DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
                      {
-                        xHost = output as XElement;
-                     })
-                  }
-               ); 
+                        AfterChangedOutput =
+                        new Action<object>((output) =>
+                        {
+                           xHost = output as XElement;
+                        })
+                     }
+                  ); 
 
-            _GetConnectionString();
-            var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
+               _GetConnectionString();
+               var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
 
-            // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
-            if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { _CustBgwk.Interval = 1000 * 60 * 10; return; }
+               // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
+               if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { _CustBgwk.Interval = 1000 * 60 * 10; return; }
 
-            if (smsConf.Count(sms => sms.TYPE == "001" && sms.CUST_BGWK_STAT == "002") == 0)
-            {
-               _CustBgwk.Enabled = false;
-               _CustBgwk.Stop();
+               if (smsConf.Count(sms => sms.TYPE == "001" && sms.CUST_BGWK_STAT == "002") == 0)
+               {
+                  _CustBgwk.Enabled = false;
+                  _CustBgwk.Stop();
+               }
+               else
+               {
+                  _CustBgwk.Interval = (int)smsConf.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.CUST_BGWK_INTR);
+               }
+
+               if (SmsWorkerStat)
+               {
+                  iProject.PrepareSendCustSms(new XElement("Process", ""));
+               }
             }
-            else
+            catch (Exception ex)
             {
-               _CustBgwk.Interval = (int)smsConf.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.CUST_BGWK_INTR);
+               System.Diagnostics.Debug.WriteLine("_CustBgwk_Tick error: " + ex.ToString());
             }
-
-            if (SmsWorkerStat)
+            finally
             {
-               iProject.PrepareSendCustSms(new XElement("Process", ""));
+               _custBusy = false;
             }
-         }
-         catch {  }
+         });
       }
 
       void _SenderBgwk_Tick(object sender, EventArgs e)
       {
-         try
+         if (_senderBusy) return;
+         _senderBusy = true;
+         var uiContext = SynchronizationContext.Current;
+         Task.Run(() =>
          {
-            // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
-            // اولین گام بدست آوردن نام سیستم فعلی
-            if(xHost == null)
-               _DefaultGateway.Gateway(
-                  new Job(SendType.External, "Localhost", "DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
-                  {
-                     AfterChangedOutput =
-                     new Action<object>((output) =>
+            try
+            {
+               // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
+               // اولین گام بدست آوردن نام سیستم فعلی
+               if(xHost == null)
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "Localhost", "DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
                      {
-                        xHost = output as XElement;
-                     })
-                  }
-               );            
-
-            _GetConnectionString();
-            var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
-
-            // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
-            if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { _SenderBgwk.Interval = 1000 * 60 * 10; return; }
-
-            if(smsConf.Count(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002") == 0)
-            {
-               _SenderBgwk.Enabled = false;
-               _SenderBgwk.Stop();
-               return;
-            }
-            else
-            {
-               _SenderBgwk.Interval = (int)smsConf.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.BGWK_INTR);
-            }
-
-            // 1398/07/05 * بررسی اینکه آیا اینترنت برقرار می باشد یا خیر
-            #region Ping Network
-            _DefaultGateway.Gateway(
-               new Job(SendType.External, "localhost", "Commons", 38 /* Execute DoWork4PingNetwork */, SendType.Self)
-               {
-                  Input = smsConf.FirstOrDefault().PING_IP_ADRS ?? "google.com",
-                  AfterChangedOutput = 
-                     new Action<object>(
-                        (pingStatus) =>
+                        AfterChangedOutput =
+                        new Action<object>((output) =>
                         {
-                           _PingStatus = (bool)pingStatus;
+                           xHost = output as XElement;
+                        })
+                     }
+                  );            
 
-                           // نتیجه بررسی ارتباط اینترنتی
-                           if(!(bool)pingStatus)
+               _GetConnectionString();
+               var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
+
+               // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
+               if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = 1000 * 60 * 10; }, null); return; }
+
+               if(smsConf.Count(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002") == 0)
+               {
+                  if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Enabled = false; _SenderBgwk.Stop(); }, null);
+                  return;
+               }
+               else
+               {
+                  if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = (int)smsConf.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.BGWK_INTR); }, null);
+               }
+
+               // 1398/07/05 * بررسی اینکه آیا اینترنت برقرار می باشد یا خیر
+               #region Ping Network
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "localhost", "Commons", 38 /* Execute DoWork4PingNetwork */, SendType.Self)
+                  {
+                     Input = smsConf.FirstOrDefault().PING_IP_ADRS ?? "google.com",
+                     AfterChangedOutput = 
+                        new Action<object>(
+                           (pingStatus) =>
                            {
-                              // اگر اینترنت قطع باشد یک وقفه ده دقیقه ای انجام میشود و پیام به برای 
-                              // System Try
-                              // ارسال میشود
-                              _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000;
-                              //_SenderBgwk.Interval = 60000;
+                              _PingStatus = (bool)pingStatus;
 
-                              // 1401/04/11 * IF Internet is not Connected System must be Show Alarm DC
+                              // نتیجه بررسی ارتباط اینترنتی
+                              if(!(bool)pingStatus)
+                              {
+                                 // اگر اینترنت قطع باشد یک وقفه ده دقیقه ای انجام میشود و پیام به برای 
+                                 // System Try
+                                 // ارسال میشود
+                                 if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000; }, null);
+
+                                 // 1401/04/11 * IF Internet is not Connected System must be Show Alarm DC
+                                 Gateway(
+                                    new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                                    {
+                                       Input = new XElement("SmsConf", new XAttribute("actntype", "InternetDisconnected"))
+                                    }
+                                 );
+
+                                 _DefaultGateway.Gateway(
+                                    new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                                    {
+                                       Input =
+                                          new List<object>
+                                          {
+                                             ToolTipIcon.Warning,
+                                             "بررسی وضعیت اتصال اینترنت",
+                                             string.Format("اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از {0} دقیقه مجددا فعال میشود", (smsConf.FirstOrDefault().SLEP_INTR ?? 600000) / 60000),
+                                             2000
+                                          }
+                                    }
+                                 );
+                              }                           
+                           }
+                        )
+                  }
+               );
+               #endregion
+
+               // 1398/07/05 * اگر شبکه اینترنتی فعال باشد سامانه شروع به ارسال پیامک کند
+               if (_PingStatus)
+               {
+                  // 1401/04/11 * IF Internet is Connected System must be Show Alarm CONNECTED
+                  try
+                  {
+                     Gateway(
+                        new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                        {
+                           Input = new XElement("SmsConf", new XAttribute("actntype", "InternetConnected"))
+                        }
+                     );
+                  }
+                  catch (Exception ex)
+                  {
+                     System.Diagnostics.Debug.WriteLine("_SenderBgwk_Tick InternetConnected alarm error: " + ex.ToString());
+                  }
+
+                  int smsSendCount = 0;
+                  
+                  #region Send Bulk Sms
+                  // 1398/07/05 ارسال پیام های گروهی به صورت یکبار ارسال
+                  var bulkSms = iProject.Sms_Message_Boxes.Where(sms => sms.STAT == "001" && sms.MESG_ID == null && sms.SEND_TYPE == "002" && (sms.PHON_NUMB.StartsWith("09") || sms.PHON_NUMB.StartsWith("9")) && sms.PHON_NUMB.Length >= 10 && sms.PHON_NUMB.Length <= 11);
+                  if(bulkSms.Any())
+                  {
+                     if(SmsWorkerStat)
+                     {
+                        // 1398/06/08 * اضافه شدن سامانه های جدید که مشتری بتواند انتخاب کند از کدام سامانه استفاده کند
+                        if (smsConf.FirstOrDefault().SERV_TYPE == "001")
+                        {
+                           // Sms Call Provider * Mr Vahhaj
+                           if (SmsClient == null)
+                              SmsClient = new SmsService.Sms();
+                        }
+                        else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
+                        {
+                           // iNoti Sms Provider * Mr Maraashi
+                           if (iNotiSmsClient == null)
+                              iNotiSmsClient = new iNotiSmsService.iNotiSMS();
+                        }
+                        else if (smsConf.FirstOrDefault().SERV_TYPE == "004")
+                        {
+                           iPPanelEdgeClient = new IPPanelEdgeClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
+                        }
+
+                        // Check Line Type is Active
+                        if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == bulkSms.FirstOrDefault().LINE_TYPE && sc.BGWK_STAT == "002") == null) return;
+
+                        // 1397/12/06 * چک کردن گزینه اینکه قبل از ارسال بررسی کنیم که شارژ داریم یا خیر
+                        #region Check Sms Server
+                        var xsmsserver = _GetSmsServerStatus();
+                        if (xsmsserver == null) return;
+                        int SendCredit = 0;
+                        // 1398/06/08 * بررسی اینکه آیا سامانه شارژ دارد یا خیر
+                        if (smsConf.FirstOrDefault().SERV_TYPE == "001")
+                        {
+                           // Sms Call Provider
+                           SendCredit = Convert.ToInt32(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value.Split('.')[0]);
+                        }
+                        else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
+                        {
+                           // iNoti Sms Provider
+                           SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value/*.Split('.')[0]*/);
+                        }
+                        else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+                        {
+                           // IPPanel
+                           SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value);
+                        }
+
+                        if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").ALRM_MIN_REMN_CHRG >= SendCredit)
+                        {
+                           // اگر میزان شارژ باقیمانده کمتر تعداد مشخص شده باشد دیگر پیامک ارسال نمیشود
+                           // ارسال پیامک به کاربری که باید اطلاع رسانی شود
+                           // To Do List
+
+                           if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").MIN_STOP_CHRG >= SendCredit)
+                           {
+                              // اگر میزان شارژ کمتر میزان باشد سامانه پیامکی باید غیر فعال شود
                               Gateway(
                                  new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
                                  {
-                                    Input = new XElement("SmsConf", new XAttribute("actntype", "InternetDisconnected"))
+                                    Input = new XElement("SmsConf", new XAttribute("actntype", "SmsServerWorkerOff"))
                                  }
                               );
+
+                              if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000; }, null);
 
                               _DefaultGateway.Gateway(
                                  new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
@@ -149,138 +275,273 @@ namespace System.MessageBroadcast.Code
                                        new List<object>
                                        {
                                           ToolTipIcon.Warning,
-                                          "بررسی وضعیت اتصال اینترنت",
-                                          string.Format("اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از {0} دقیقه مجددا فعال میشود", (smsConf.FirstOrDefault().SLEP_INTR ?? 600000) / 60000),
+                                          "بررسی میزان شارژ پیامکی",
+                                          "میزان اعتبار پیامکی کافی نمی باشد، لطفا جهت شارژ اقدام فرمایید",
                                           2000
                                        }
                                  }
                               );
-                           }                           
+                              return;
+                           }
                         }
-                     )
-               }
-            );
-            #endregion
+                        #endregion
 
-            // 1398/07/05 * اگر شبکه اینترنتی فعال باشد سامانه شروع به ارسال پیامک کند
-            if (_PingStatus)
-            {
-               // 1401/04/11 * IF Internet is Connected System must be Show Alarm CONNECTED
-               try
-               {
-                  Gateway(
-                     new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
-                     {
-                        Input = new XElement("SmsConf", new XAttribute("actntype", "InternetConnected"))
-                     }
-                  );
-               }
-               catch { }
-
-               int smsSendCount = 0;
-               
-               #region Send Bulk Sms
-               // 1398/07/05 ارسال پیام های گروهی به صورت یکبار ارسال
-               var bulkSms = iProject.Sms_Message_Boxes.Where(sms => sms.STAT == "001" && sms.MESG_ID == null && sms.SEND_TYPE == "002" && (sms.PHON_NUMB.StartsWith("09") || sms.PHON_NUMB.StartsWith("9")) && sms.PHON_NUMB.Length >= 10 && sms.PHON_NUMB.Length <= 11);
-               if(bulkSms.Any())
-               {
-                  if(SmsWorkerStat)
-                  {
-                     // 1398/06/08 * اضافه شدن سامانه های جدید که مشتری بتواند انتخاب کند از کدام سامانه استفاده کند
-                     if (smsConf.FirstOrDefault().SERV_TYPE == "001")
-                     {
-                        // Sms Call Provider * Mr Vahhaj
-                        if (SmsClient == null)
-                           SmsClient = new SmsService.Sms();
-                     }
-                     else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
-                     {
-                        // iNoti Sms Provider * Mr Maraashi
-                        if (iNotiSmsClient == null)
-                           iNotiSmsClient = new iNotiSmsService.iNotiSMS();
-                     }
-                     else if (smsConf.FirstOrDefault().SERV_TYPE == "004")
-                     {
-                        iPPanelEdgeClient = new IPPanelEdgeClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
-                     }
-
-                     // Check Line Type is Active
-                     if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == bulkSms.FirstOrDefault().LINE_TYPE && sc.BGWK_STAT == "002") == null) return;
-
-                     // 1397/12/06 * چک کردن گزینه اینکه قبل از ارسال بررسی کنیم که شارژ داریم یا خیر
-                     #region Check Sms Server
-                     var xsmsserver = _GetSmsServerStatus();
-                     if (xsmsserver == null) return;
-                     int SendCredit = 0;
-                     // 1398/06/08 * بررسی اینکه آیا سامانه شارژ دارد یا خیر
-                     if (smsConf.FirstOrDefault().SERV_TYPE == "001")
-                     {
-                        // Sms Call Provider
-                        SendCredit = Convert.ToInt32(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value.Split('.')[0]);
-                     }
-                     else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
-                     {
-                        // iNoti Sms Provider
-                        SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value/*.Split('.')[0]*/);
-                     }
-                     else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
-                     {
-                        // IPPanel
-                        SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value);
-                     }
-
-                     if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").ALRM_MIN_REMN_CHRG >= SendCredit)
-                     {
-                        // اگر میزان شارژ باقیمانده کمتر تعداد مشخص شده باشد دیگر پیامک ارسال نمیشود
-                        // ارسال پیامک به کاربری که باید اطلاع رسانی شود
-                        // To Do List
-
-                        if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").MIN_STOP_CHRG >= SendCredit)
+                        // 1399/01/03 * بررسی اینکه آیا پیامی به صورت گروهی داریم که بخواهیم ارسال کنیم
+                        // این قابلیت فقط برای سامانه ای نوتی می باشد
+                        if (smsConf.FirstOrDefault().SERV_TYPE == "002")
                         {
-                           // اگر میزان شارژ کمتر میزان باشد سامانه پیامکی باید غیر فعال شود
+                           var rslt = iNotiSmsClient.SendBatchSMS(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, bulkSms.Select(bs => bs.PHON_NUMB).ToArray(), bulkSms.FirstOrDefault().MSGB_TEXT);
+                           if (rslt > 0)
+                              bulkSms.ToList().ForEach(bs => bs.MESG_ID = rslt.ToString());
+                           else
+                           {
+                              bulkSms.ToList()
+                              .ForEach(sms =>
+                              {
+                                 sms.MESG_ID = "0";
+                                 sms.EROR_CODE = rslt.ToString();
+                                 switch (rslt)
+                                 {
+                                    case -1:
+                                       sms.EROR_MESG = "اطلاعات کاربری نامعتبر";
+                                       break;
+                                    case -2:
+                                       sms.EROR_MESG = "شماره خط نامعتبر";
+                                       break;
+                                    case -3:
+                                       sms.EROR_MESG = "شماره موبایل نا معتبر";
+                                       break;
+                                    case -4:
+                                       sms.EROR_MESG = "موجودی نا کافی";
+                                       break;
+                                    default:
+                                       sms.EROR_MESG = "خطای ناشناخته";
+                                       break;
+                                 }
+                              });                           
+                           }
+                        }
+                        else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+                        {
+                           var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, bulkSms.Select(bs => bs.PHON_NUMB).ToArray(), bulkSms.FirstOrDefault().MSGB_TEXT));
+                           if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
+                              bulkSms.ToList().ForEach(bs => bs.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>());
+                           else
+                           {
+                              bulkSms.ToList()
+                              .ForEach(sms =>
+                              {
+                                 sms.MESG_ID = "0";
+                                 sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
+                                 sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
+                              });
+                           }
+                        }
+
+                        iProject.SubmitChanges();
+
+                        smsSendCount = bulkSms.Count();
+                     }
+                  }
+                  #endregion
+                  #region Send Single Sms
+                  foreach (var sms in iProject.Sms_Message_Boxes.Where(sms => sms.STAT == "001" && sms.MESG_ID == null && ((_JustToday && sms.ACTN_DATE.Value.Date == DateTime.Now.Date) || (!_JustToday && sms.ACTN_DATE.Value.Date <= DateTime.Now.Date && sms.ACTN_DATE.Value.Date >= DateTime.Now.Date.AddDays(_UntilBeforeDay * -1))) && (sms.PHON_NUMB.StartsWith("09") || sms.PHON_NUMB.StartsWith("9")) && sms.PHON_NUMB.Length >= 10 && sms.PHON_NUMB.Length <= 11))
+                  {
+                     // 1398/07/05 * برای محکم کاری بیشتر برای هر بار ارسال اطلاعات تست ارتباط انجام شود
+                     #region Ping Network
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "Commons", 38 /* Execute DoWork4PingNetwork */, SendType.Self)
+                        {
+                           Input = smsConf.FirstOrDefault().PING_IP_ADRS ?? "www.google.com",
+                           AfterChangedOutput =
+                              new Action<object>(
+                                 (pingStatus) =>
+                                 {
+                                    _PingStatus = (bool)pingStatus;
+
+                                    // نتیجه بررسی ارتباط اینترنتی
+                                    if (!(bool)pingStatus)
+                                    {
+                                       // اگر اینترنت قطع باشد یک وقفه ده دقیقه ای انجام میشود و پیام به برای 
+                                       // System Try
+                                       // ارسال میشود
+                                       if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000; }, null);
+
+                                       // 1401/04/11 * IF Internet is not Connected System must be Show Alarm DC
+                                       Gateway(
+                                          new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                                          {
+                                             Input = new XElement("SmsConf", new XAttribute("actntype", "InternetDisconnected"))
+                                          }
+                                       );                                    
+
+                                       _DefaultGateway.Gateway(
+                                          new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                                          {
+                                             Input =
+                                                new List<object>
+                                                {
+                                                   ToolTipIcon.Warning,
+                                                   "بررسی وضعیت اتصال اینترنت",
+                                                   string.Format("اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از {0} دقیقه مجددا فعال میشود", (smsConf.FirstOrDefault().SLEP_INTR ?? 600000) / 60000),
+                                                   2000
+                                                }
+                                          }
+                                       );
+                                    }
+                                 }
+                              )
+                        }
+                     );
+
+                     // اگر شبکه اینترنت قطع باشد از حلقه ارسال خارج میشویم
+                     if (!_PingStatus)
+                     {
+                        // 1401/04/11 * IF Internet is not Connected System must be Show Alarm DC
+                        try
+                        {
                            Gateway(
                               new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
                               {
-                                 Input = new XElement("SmsConf", new XAttribute("actntype", "SmsServerWorkerOff"))
+                                 Input = new XElement("SmsConf", new XAttribute("actntype", "InternetDisconnected"))
                               }
                            );
-                           //SmsWorkerStat = false;
-                           //_SenderBgwk.Enabled = false;
-                           //_SenderBgwk.Stop();
-                           //continue;
-
-                           _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000;
-
-                           _DefaultGateway.Gateway(
-                              new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
-                              {
-                                 Input =
-                                    new List<object>
-                                    {
-                                       ToolTipIcon.Warning,
-                                       "بررسی میزان شارژ پیامکی",
-                                       "میزان اعتبار پیامکی کافی نمی باشد، لطفا جهت شارژ اقدام فرمایید",
-                                       2000
-                                    }
-                              }
-                           );
-                           return;
                         }
+                        catch (Exception ex)
+                        {
+                           System.Diagnostics.Debug.WriteLine("_SenderBgwk_Tick InternetDisconnected alarm error: " + ex.ToString());
+                        }
+                        break;
                      }
                      #endregion
 
-                     // 1399/01/03 * بررسی اینکه آیا پیامی به صورت گروهی داریم که بخواهیم ارسال کنیم
-                     // این قابلیت فقط برای سامانه ای نوتی می باشد
-                     if (smsConf.FirstOrDefault().SERV_TYPE == "002")
+                     // 1401/04/11 * IF Internet is Connected System must be Show Alarm CONNECTED
+                     try
                      {
-                        //MessageBox.Show(string.Format("BatchSms : {0}, {1}, {2}, \n{3}, {4}", smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, bulkSms.Select(bs => bs.PHON_NUMB).ToArray(), bulkSms.FirstOrDefault().MSGB_TEXT));
-                        var rslt = iNotiSmsClient.SendBatchSMS(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, bulkSms.Select(bs => bs.PHON_NUMB).ToArray(), bulkSms.FirstOrDefault().MSGB_TEXT);
-                        if (rslt > 0)
-                           bulkSms.ToList().ForEach(bs => bs.MESG_ID = rslt.ToString());
-                        else
+                        Gateway(
+                           new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                           {
+                              Input = new XElement("SmsConf", new XAttribute("actntype", "InternetConnected"))
+                           }
+                        );
+                     }
+                     catch (Exception ex)
+                     {
+                        System.Diagnostics.Debug.WriteLine("_SenderBgwk_Tick InternetConnected alarm single error: " + ex.ToString());
+                     }
+
+                     if (SmsWorkerStat)
+                     {
+                        // 1398/06/08 * اضافه شدن سامانه های جدید که مشتری بتواند انتخاب کند از کدام سامانه استفاده کند
+                        if (smsConf.FirstOrDefault().SERV_TYPE == "001")
                         {
-                           bulkSms.ToList()
-                           .ForEach(sms =>
+                           // Sms Call Provider * Mr Vahhaj
+                           if (SmsClient == null)
+                              SmsClient = new SmsService.Sms();
+                        }
+                        else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
+                        {
+                           // iNoti Sms Provider * Mr Maraashi
+                           if (iNotiSmsClient == null)
+                              iNotiSmsClient = new iNotiSmsService.iNotiSMS();
+                        }
+                        else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+                        {
+                           if (iPPanelEdgeClient == null)
+                              iPPanelEdgeClient = new IPPanelEdgeClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
+                        }
+
+                        // Check Line Type is Active
+                        if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE && sc.BGWK_STAT == "002") == null) continue;
+
+                        // 1397/12/06 * چک کردن گزینه اینکه قبل از ارسال بررسی کنیم که شارژ داریم یا خیر
+                        #region Check Sms Server
+                        var xsmsserver = _GetSmsServerStatus();
+                        if (xsmsserver == null) return;
+                        int SendCredit = 0;
+                        // 1398/06/08 * بررسی اینکه آیا سامانه شارژ دارد یا خیر
+                        if (smsConf.FirstOrDefault().SERV_TYPE == "001")
+                        {
+                           // Sms Call Provider
+                           SendCredit = Convert.ToInt32(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value.Split('.')[0]);
+                        }
+                        else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
+                        {
+                           // iNoti Sms Provider
+                           SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value/*.Split('.')[0]*/);
+                        }
+                        else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
+                        {
+                           // IPPanel
+                           SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value);
+                        }
+
+                        if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").ALRM_MIN_REMN_CHRG >= SendCredit)
+                        {
+                           // اگر میزان شارژ باقیمانده کمتر تعداد مشخص شده باشد دیگر پیامک ارسال نمیشود
+                           // ارسال پیامک به کاربری که باید اطلاع رسانی شود
+                           // To Do List
+
+                           if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").MIN_STOP_CHRG >= SendCredit)
+                           {
+                              // اگر میزان شارژ کمتر میزان باشد سامانه پیامکی باید غیر فعال شود
+                              Gateway(
+                                 new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
+                                 {
+                                    Input = new XElement("SmsConf", new XAttribute("actntype", "SmsServerWorkerOff"))
+                                 }
+                              );
+
+                              if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000; }, null);
+
+                              _DefaultGateway.Gateway(
+                                 new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                                 {
+                                    Input =
+                                       new List<object>
+                                       {
+                                          ToolTipIcon.Warning,
+                                          "بررسی میزان شارژ پیامکی",
+                                          "میزان اعتبار پیامکی کافی نمی باشد، لطفا جهت شارژ اقدام فرمایید",
+                                          2000
+                                       }
+                                 }
+                              );
+                              break;
+                           }
+                        }
+                        #endregion
+
+                        if (smsConf.FirstOrDefault().SERV_TYPE == "001")
+                        {
+                           // Send Sms For Phone Number
+                           XDocument xmsRespons = XDocument.Parse(
+                              SmsClient.XmsRequest(
+                                 new XElement("xmsrequest",
+                                    new XElement("userid", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE).USER_NAME),
+                                    new XElement("password", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE).PASS_WORD),
+                                    new XElement("action", "smssend"),
+                                    new XElement("body",
+                                       new XElement("type", "oto"),
+                                       new XElement("recipient",
+                                          new XAttribute("mobile", sms.PHON_NUMB),
+                                          sms.MSGB_TEXT
+                                       )
+                                    )
+                                 ).ToString()
+                              ).ToString()
+                           );
+
+                           sms.MESG_ID = xmsRespons.Descendants("recipient").FirstOrDefault().Value;
+                           sms.EROR_CODE = xmsRespons.Descendants("code").FirstOrDefault().Attribute("id").Value;
+                           sms.EROR_MESG = xmsRespons.Descendants("code").FirstOrDefault().Value;
+                        }
+                        else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
+                        {
+                           var rslt = iNotiSmsClient.SendSingleSMS(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, sms.PHON_NUMB, sms.MSGB_TEXT);
+                           if (rslt > 0)
+                              sms.MESG_ID = rslt.ToString();
+                           else
                            {
                               sms.MESG_ID = "0";
                               sms.EROR_CODE = rslt.ToString();
@@ -302,312 +563,74 @@ namespace System.MessageBroadcast.Code
                                     sms.EROR_MESG = "خطای ناشناخته";
                                     break;
                               }
-                           });                           
-                        }
-                     }
-                     else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
-                     {
-                        var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, bulkSms.Select(bs => bs.PHON_NUMB).ToArray(), bulkSms.FirstOrDefault().MSGB_TEXT));
-                        if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
-                           bulkSms.ToList().ForEach(bs => bs.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>());
-                        else
-                        {
-                           bulkSms.ToList()
-                           .ForEach(sms =>
-                           {
-                              sms.MESG_ID = "0";
-                              sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
-                              sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
-                           });
-                        }
-                     }
-
-                     iProject.SubmitChanges();
-
-                     smsSendCount = bulkSms.Count();
-                  }
-               }
-               #endregion
-               #region Send Single Sms
-               foreach (var sms in iProject.Sms_Message_Boxes.Where(sms => sms.STAT == "001" && sms.MESG_ID == null && ((_JustToday && sms.ACTN_DATE.Value.Date == DateTime.Now.Date) || (!_JustToday && sms.ACTN_DATE.Value.Date <= DateTime.Now.Date && sms.ACTN_DATE.Value.Date >= DateTime.Now.Date.AddDays(_UntilBeforeDay * -1))) && (sms.PHON_NUMB.StartsWith("09") || sms.PHON_NUMB.StartsWith("9")) && sms.PHON_NUMB.Length >= 10 && sms.PHON_NUMB.Length <= 11))
-               {
-                  // 1398/07/05 * برای محکم کاری بیشتر برای هر بار ارسال اطلاعات تست ارتباط انجام شود
-                  #region Ping Network
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost", "Commons", 38 /* Execute DoWork4PingNetwork */, SendType.Self)
-                     {
-                        Input = smsConf.FirstOrDefault().PING_IP_ADRS ?? "www.google.com",
-                        AfterChangedOutput =
-                           new Action<object>(
-                              (pingStatus) =>
-                              {
-                                 _PingStatus = (bool)pingStatus;
-
-                                 // نتیجه بررسی ارتباط اینترنتی
-                                 if (!(bool)pingStatus)
-                                 {
-                                    // اگر اینترنت قطع باشد یک وقفه ده دقیقه ای انجام میشود و پیام به برای 
-                                    // System Try
-                                    // ارسال میشود
-                                    _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000;
-
-                                    // 1401/04/11 * IF Internet is not Connected System must be Show Alarm DC
-                                    Gateway(
-                                       new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
-                                       {
-                                          Input = new XElement("SmsConf", new XAttribute("actntype", "InternetDisconnected"))
-                                       }
-                                    );                                    
-
-                                    _DefaultGateway.Gateway(
-                                       new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
-                                       {
-                                          Input =
-                                             new List<object>
-                                             {
-                                                ToolTipIcon.Warning,
-                                                "بررسی وضعیت اتصال اینترنت",
-                                                string.Format("اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از {0} دقیقه مجددا فعال میشود", (smsConf.FirstOrDefault().SLEP_INTR ?? 600000) / 60000),
-                                                2000
-                                             }
-                                       }
-                                    );
-                                 }
-                              }
-                           )
-                     }
-                  );
-
-                  // اگر شبکه اینترنت قطع باشد از حلقه ارسال خارج میشویم
-                  if (!_PingStatus)
-                  {
-                     // 1401/04/11 * IF Internet is not Connected System must be Show Alarm DC
-                     try
-                     {
-                        Gateway(
-                           new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
-                           {
-                              Input = new XElement("SmsConf", new XAttribute("actntype", "InternetDisconnected"))
                            }
-                        );
-                     }
-                     catch { }
-                     break;
-                  }
-                  #endregion
-
-                  // 1401/04/11 * IF Internet is Connected System must be Show Alarm CONNECTED
-                  try
-                  {
-                     Gateway(
-                        new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
-                        {
-                           Input = new XElement("SmsConf", new XAttribute("actntype", "InternetConnected"))
                         }
-                     );
-                  }
-                  catch { }
 
-                  if (SmsWorkerStat)
-                  {
-                     // 1398/06/08 * اضافه شدن سامانه های جدید که مشتری بتواند انتخاب کند از کدام سامانه استفاده کند
-                     if (smsConf.FirstOrDefault().SERV_TYPE == "001")
-                     {
-                        // Sms Call Provider * Mr Vahhaj
-                        if (SmsClient == null)
-                           SmsClient = new SmsService.Sms();
-                     }
-                     else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
-                     {
-                        // iNoti Sms Provider * Mr Maraashi
-                        if (iNotiSmsClient == null)
-                           iNotiSmsClient = new iNotiSmsService.iNotiSMS();
+                        iProject.SubmitChanges();
+
+                        ++smsSendCount;
                      }
                      else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
                      {
-                        if (iPPanelEdgeClient == null)
-                           iPPanelEdgeClient = new IPPanelEdgeClient(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD);
-                     }
-
-                     // Check Line Type is Active
-                     if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE && sc.BGWK_STAT == "002") == null) continue;
-
-                     // 1397/12/06 * چک کردن گزینه اینکه قبل از ارسال بررسی کنیم که شارژ داریم یا خیر
-                     #region Check Sms Server
-                     var xsmsserver = _GetSmsServerStatus();
-                     if (xsmsserver == null) return;
-                     int SendCredit = 0;
-                     // 1398/06/08 * بررسی اینکه آیا سامانه شارژ دارد یا خیر
-                     if (smsConf.FirstOrDefault().SERV_TYPE == "001")
-                     {
-                        // Sms Call Provider
-                        SendCredit = Convert.ToInt32(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value.Split('.')[0]);
-                     }
-                     else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
-                     {
-                        // iNoti Sms Provider
-                        SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value/*.Split('.')[0]*/);
-                     }
-                     else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
-                     {
-                        // IPPanel
-                        SendCredit = (int)double.Parse(xsmsserver.Descendants("SendCredit").FirstOrDefault().Value);
-                     }
-
-                     if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").ALRM_MIN_REMN_CHRG >= SendCredit)
-                     {
-                        // اگر میزان شارژ باقیمانده کمتر تعداد مشخص شده باشد دیگر پیامک ارسال نمیشود
-                        // ارسال پیامک به کاربری که باید اطلاع رسانی شود
-                        // To Do List
-
-                        if (smsConf.FirstOrDefault(smst => smst.TYPE == "001" && smst.BGWK_STAT == "002").MIN_STOP_CHRG >= SendCredit)
-                        {
-                           // اگر میزان شارژ کمتر میزان باشد سامانه پیامکی باید غیر فعال شود
-                           Gateway(
-                              new Job(SendType.External, "localhost", "MSTR_PAGE_F", 10 /* Execute Actn_Calf_P */, SendType.SelfToUserInterface)
-                              {
-                                 Input = new XElement("SmsConf", new XAttribute("actntype", "SmsServerWorkerOff"))
-                              }
-                           );
-
-                           //SmsWorkerStat = false;
-                           //_SenderBgwk.Enabled = false;
-                           //_SenderBgwk.Stop();
-                           //continue;
-
-                           _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000;
-
-                           _DefaultGateway.Gateway(
-                              new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
-                              {
-                                 Input =
-                                    new List<object>
-                                    {
-                                       ToolTipIcon.Warning,
-                                       "بررسی میزان شارژ پیامکی",
-                                       "میزان اعتبار پیامکی کافی نمی باشد، لطفا جهت شارژ اقدام فرمایید",
-                                       2000
-                                    }
-                              }
-                           );
-                           break;
-                        }
-                     }
-                     #endregion
-
-                     if (smsConf.FirstOrDefault().SERV_TYPE == "001")
-                     {
-                        // Send Sms For Phone Number
-                        XDocument xmsRespons = XDocument.Parse(
-                           SmsClient.XmsRequest(
-                              new XElement("xmsrequest",
-                                 new XElement("userid", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE).USER_NAME),
-                                 new XElement("password", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE).PASS_WORD),
-                                 new XElement("action", "smssend"),
-                                 new XElement("body",
-                                    new XElement("type", "oto"),
-                                    new XElement("recipient",
-                                       new XAttribute("mobile", sms.PHON_NUMB),
-                                       sms.MSGB_TEXT
-                                    )
-                                 )
-                              ).ToString()
-                           ).ToString()
-                        );
-
-                        sms.MESG_ID = xmsRespons.Descendants("recipient").FirstOrDefault().Value;
-                        sms.EROR_CODE = xmsRespons.Descendants("code").FirstOrDefault().Attribute("id").Value;
-                        sms.EROR_MESG = xmsRespons.Descendants("code").FirstOrDefault().Value;
-                     }
-                     else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
-                     {
-                        //MessageBox.Show(string.Format("SingleSms : {0}, {1}, {2}, \n{3}, {4}", smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, sms.PHON_NUMB, sms.MSGB_TEXT));
-                        var rslt = iNotiSmsClient.SendSingleSMS(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, sms.PHON_NUMB, sms.MSGB_TEXT);
-                        if (rslt > 0)
-                           sms.MESG_ID = rslt.ToString();
+                        var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, new List<string> { sms.PHON_NUMB }, sms.MSGB_TEXT));
+                        if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
+                           sms.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>();
                         else
                         {
                            sms.MESG_ID = "0";
-                           sms.EROR_CODE = rslt.ToString();
-                           switch (rslt)
-                           {
-                              case -1:
-                                 sms.EROR_MESG = "اطلاعات کاربری نامعتبر";
-                                 break;
-                              case -2:
-                                 sms.EROR_MESG = "شماره خط نامعتبر";
-                                 break;
-                              case -3:
-                                 sms.EROR_MESG = "شماره موبایل نا معتبر";
-                                 break;
-                              case -4:
-                                 sms.EROR_MESG = "موجودی نا کافی";
-                                 break;
-                              default:
-                                 sms.EROR_MESG = "خطای ناشناخته";
-                                 break;
-                           }
+                           sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
+                           sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
                         }
                      }
-
-                     iProject.SubmitChanges();
-
-                     ++smsSendCount;
-                  }
-                  else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
-                  {
-                     var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, new List<string> { sms.PHON_NUMB }, sms.MSGB_TEXT));
-                     if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
-                        sms.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>();
                      else
                      {
-                        sms.MESG_ID = "0";
-                        sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
-                        sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
+                        break;
                      }
                   }
-                  else
+                  #endregion
+
+                  // بعد از ارسال اگر پیامکی ارسال شده باشد اطلاع رسانی میکنیم
+                  if(smsSendCount > 0)
                   {
-                     break;
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
+                        {
+                           Input =
+                              new List<object>
+                              {
+                                 ToolTipIcon.Info,
+                                 "سامانه اطلاع رسانی پیامکی",
+                                 string.Format("پیامک ارسالی {0} عدد می باشد", smsSendCount),
+                                 2000
+                              }
+                        }
+                     );
                   }
-               }
-               #endregion
 
-               // بعد از ارسال اگر پیامکی ارسال شده باشد اطلاع رسانی میکنیم
-               if(smsSendCount > 0)
-               {
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
-                     {
-                        Input =
-                           new List<object>
-                           {
-                              ToolTipIcon.Info,
-                              "سامانه اطلاع رسانی پیامکی",
-                              string.Format("پیامک ارسالی {0} عدد می باشد", smsSendCount),
-                              2000
-                           }
-                     }
+                  // 1401/04/10 * عملیات ارسال پیام به نرم افزار بله
+                  // آماده سازی رکوردهای مورد نظر در جدول نرم افزار اپلیکیشن
+                  iProject.ExecuteJobScheduleSubSystem(
+                     new XElement("Job",
+                         new XAttribute("type", "SMSTOAPP"),
+                         new XElement("Params",
+                             new XAttribute("justtoday", _JustToday),
+                             new XAttribute("untilbeforeday", _UntilBeforeDay)
+                         )
+                     )
                   );
+
+                  // مرحله بعدی ارسال درخواست برای ارسال پیام به مخاطبین
                }
-
-               // 1401/04/10 * عملیات ارسال پیام به نرم افزار بله
-               // آماده سازی رکوردهای مورد نظر در جدول نرم افزار اپلیکیشن
-               iProject.ExecuteJobScheduleSubSystem(
-                  new XElement("Job",
-                      new XAttribute("type", "SMSTOAPP"),
-                      new XElement("Params",
-                          new XAttribute("justtoday", _JustToday),
-                          new XAttribute("untilbeforeday", _UntilBeforeDay)
-                      )
-                  )
-               );
-
-               // مرحله بعدی ارسال درخواست برای ارسال پیام به مخاطبین
             }
-         }
-         catch {}
-         finally {}
+            catch (Exception ex)
+            {
+               System.Diagnostics.Debug.WriteLine("_SenderBgwk_Tick error: " + ex.ToString());
+            }
+            finally
+            {
+               _senderBusy = false;
+            }
+         });
       }
       #endregion
 
@@ -728,8 +751,9 @@ namespace System.MessageBroadcast.Code
             return null;
             //return xoutput;
          }
-         catch
+         catch (Exception ex)
          {            
+            System.Diagnostics.Debug.WriteLine("_GetSmsServerStatus error: " + ex.ToString());
             return null;
          }
       }

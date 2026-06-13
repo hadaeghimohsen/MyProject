@@ -9,12 +9,7 @@ using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System;
-using System.IO;
-using System.Net;
-using System.Text;
 using System.Web.Script.Serialization;
-using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
 namespace System.MessageBroadcast.Code
@@ -48,149 +43,198 @@ namespace System.MessageBroadcast.Code
          public string UserName { get; set; }
          public string Password { get; set; }
 
-         public void SendSms(string message, string formLine, string[] rcpts)
+      public string SendSms(string message, string formLine, string[] rcpts)
          {
-            WebRequest request = WebRequest.Create("http://ippanel.com/services.jspd");
-            //string[] rcpts = new string[] { "989100000009" };
-            string json = JsonConvert.SerializeObject(rcpts);
-            request.Method = "POST";
-            string postData = string.Format("op=send&uname={0}&pass={1}&message={2}&to=" + json + "&from={3}", UserName, Password, message, formLine);
-            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = byteArray.Length;
-            Stream dataStream = request.GetRequestStream();
-            dataStream.Write(byteArray, 0, byteArray.Length);
-            dataStream.Close();
-            WebResponse response = request.GetResponse();
-            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-            dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responseFromServer = reader.ReadToEnd();
-            Console.WriteLine(responseFromServer);
-            reader.Close();
-            dataStream.Close();
-            response.Close();
-            System.Diagnostics.Debug.WriteLine(responseFromServer);
-		
+            try
+            {
+               WebRequest request = WebRequest.Create("http://ippanel.com/services.jspd");
+               request.Timeout = 30000;
+               string json = JsonConvert.SerializeObject(rcpts);
+               request.Method = "POST";
+               string postData = string.Format("op=send&uname={0}&pass={1}&message={2}&to=" + json + "&from={3}", UserName, Password, message, formLine);
+               byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+               request.ContentType = "application/x-www-form-urlencoded";
+               request.ContentLength = byteArray.Length;
+               using (Stream dataStream = request.GetRequestStream())
+               {
+                  dataStream.Write(byteArray, 0, byteArray.Length);
+               }
+               using (WebResponse response = request.GetResponse())
+               {
+                  using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                  {
+                     string responseFromServer = reader.ReadToEnd();
+                     System.Diagnostics.Debug.WriteLine(responseFromServer);
+                     return responseFromServer;
+                  }
+               }
+            }
+            catch (Exception ex)
+            {
+               System.Diagnostics.Debug.WriteLine("FarazSms.SendSms error: " + ex.ToString());
+               return null;
+            }
          }
 
-         public void SendVoice(string fileUrl, string formLine, string[] rcpts)
-         {            
-	         WebRequest request = WebRequest.Create("http://ippanel.com/services.jspd");
-	         //string[] rcpts = new string[] { "989100000009" };
-	         string json = JsonConvert.SerializeObject(rcpts);
-	         request.Method = "POST";
-	         //string fileurl = "http://www.YourURL.com/voice.wav";
-	         string postData = string.Format("op=sendvoice&uname={0}&pass={1}&fileUrl="+fileUrl+"&to="+json+"&repeat=1", UserName, Password);
-	         byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-	         request.ContentType = "application/x-www-form-urlencoded";
-	         request.ContentLength = byteArray.Length;
-	         Stream dataStream = request.GetRequestStream();
-	         dataStream.Write(byteArray, 0, byteArray.Length);
-	         dataStream.Close();
-	         WebResponse response = request.GetResponse();
-	         Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-	         dataStream = response.GetResponseStream();
-	         StreamReader reader = new StreamReader(dataStream);
-	         string responseFromServer = reader.ReadToEnd();
-	         Console.WriteLine(responseFromServer);
-	         reader.Close();
-	         dataStream.Close();
-	         response.Close();
-	         System.Diagnostics.Debug.WriteLine(responseFromServer);		
-         }
-
-         public void SendSmsPointToPoint(string[] messages, string fromLine, string[] rcpts)
+         public string SendVoice(string fileUrl, string formLine, string[] rcpts)
          {
-            WebRequest request = WebRequest.Create("http://ippanel.com/services.jspd");
-	         request.Method = "POST";
-	         string postData = string.Format("op=send&uname={0}&pass={1}&message={2}&to={3}=&from={4}", UserName, Password, JsonConvert.SerializeObject(messages), JsonConvert.SerializeObject(rcpts), fromLine);
-	         byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-	         request.ContentType = "application/x-www-form-urlencoded";
-	         request.ContentLength = byteArray.Length;
-	         Stream dataStream = request.GetRequestStream();
-	         dataStream.Write(byteArray, 0, byteArray.Length);
-	         dataStream.Close();
-	         WebResponse response = request.GetResponse();
-	         Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-	         dataStream = response.GetResponseStream();
-	         StreamReader reader = new StreamReader(dataStream);
-	         string responseFromServer = reader.ReadToEnd();
-	         Console.WriteLine(responseFromServer);
-	         reader.Close();
-	         dataStream.Close();
-	         response.Close();
-	         System.Diagnostics.Debug.WriteLine(responseFromServer);
+            try
+            {
+               WebRequest request = WebRequest.Create("http://ippanel.com/services.jspd");
+               request.Timeout = 30000;
+               string json = JsonConvert.SerializeObject(rcpts);
+               request.Method = "POST";
+               string postData = string.Format("op=sendvoice&uname={0}&pass={1}&fileUrl=" + fileUrl + "&to=" + json + "&repeat=1", UserName, Password);
+               byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+               request.ContentType = "application/x-www-form-urlencoded";
+               request.ContentLength = byteArray.Length;
+               using (Stream dataStream = request.GetRequestStream())
+               {
+                  dataStream.Write(byteArray, 0, byteArray.Length);
+               }
+               using (WebResponse response = request.GetResponse())
+               {
+                  using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                  {
+                     string responseFromServer = reader.ReadToEnd();
+                     System.Diagnostics.Debug.WriteLine(responseFromServer);
+                     return responseFromServer;
+                  }
+               }
+            }
+            catch (Exception ex)
+            {
+               System.Diagnostics.Debug.WriteLine("FarazSms.SendVoice error: " + ex.ToString());
+               return null;
+            }
          }
 
-         public void GetDelivery(string uniqid)
-         {            
-		      WebRequest request = WebRequest.Create("http://ippanel.com/services.jspd");
-		      request.Method = "POST";
-		      string postData = string.Format("op=delivery&uname={0}&pass={1}&uinqid={2}", UserName, Password, uniqid);
-		      byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-		      request.ContentType = "application/x-www-form-urlencoded";
-		      request.ContentLength = byteArray.Length;
-		      Stream dataStream = request.GetRequestStream();
-		      dataStream.Write(byteArray, 0, byteArray.Length);
-		      dataStream.Close();
-		      WebResponse response = request.GetResponse();
-		      Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-		      dataStream = response.GetResponseStream();
-		      StreamReader reader = new StreamReader(dataStream);
-		      string responseFromServer = reader.ReadToEnd();
-		      Console.WriteLine(responseFromServer);
-		      reader.Close();
-		      dataStream.Close();
-		      response.Close();
-		      System.Diagnostics.Debug.WriteLine(responseFromServer);		
-         }
-
-         public void BookList()
+         public string SendSmsPointToPoint(string[] messages, string fromLine, string[] rcpts)
          {
-            WebRequest request = WebRequest.Create("http://ippanel.com/services.jspd");
-            request.Method = "POST";
-            string postData = string.Format("op=booklist&uname={0}&pass={1}", UserName, Password);
-            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = byteArray.Length;
-            Stream dataStream = request.GetRequestStream();
-            dataStream.Write(byteArray, 0, byteArray.Length);
-            dataStream.Close();
-            WebResponse response = request.GetResponse();
-            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-            dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responseFromServer = reader.ReadToEnd();
-            Console.WriteLine(responseFromServer);
-            reader.Close();
-            dataStream.Close();
-            response.Close();
-            System.Diagnostics.Debug.WriteLine(responseFromServer);
+            try
+            {
+               WebRequest request = WebRequest.Create("http://ippanel.com/services.jspd");
+               request.Timeout = 30000;
+               request.Method = "POST";
+               string postData = string.Format("op=send&uname={0}&pass={1}&message={2}&to={3}=&from={4}", UserName, Password, JsonConvert.SerializeObject(messages), JsonConvert.SerializeObject(rcpts), fromLine);
+               byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+               request.ContentType = "application/x-www-form-urlencoded";
+               request.ContentLength = byteArray.Length;
+               using (Stream dataStream = request.GetRequestStream())
+               {
+                  dataStream.Write(byteArray, 0, byteArray.Length);
+               }
+               using (WebResponse response = request.GetResponse())
+               {
+                  using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                  {
+                     string responseFromServer = reader.ReadToEnd();
+                     System.Diagnostics.Debug.WriteLine(responseFromServer);
+                     return responseFromServer;
+                  }
+               }
+            }
+            catch (Exception ex)
+            {
+               System.Diagnostics.Debug.WriteLine("FarazSms.SendSmsPointToPoint error: " + ex.ToString());
+               return null;
+            }
+         }
+
+         public string GetDelivery(string uniqid)
+         {
+            try
+            {
+               WebRequest request = WebRequest.Create("http://ippanel.com/services.jspd");
+               request.Timeout = 30000;
+               request.Method = "POST";
+               string postData = string.Format("op=delivery&uname={0}&pass={1}&uinqid={2}", UserName, Password, uniqid);
+               byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+               request.ContentType = "application/x-www-form-urlencoded";
+               request.ContentLength = byteArray.Length;
+               using (Stream dataStream = request.GetRequestStream())
+               {
+                  dataStream.Write(byteArray, 0, byteArray.Length);
+               }
+               using (WebResponse response = request.GetResponse())
+               {
+                  using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                  {
+                     string responseFromServer = reader.ReadToEnd();
+                     System.Diagnostics.Debug.WriteLine(responseFromServer);
+                     return responseFromServer;
+                  }
+               }
+            }
+            catch (Exception ex)
+            {
+               System.Diagnostics.Debug.WriteLine("FarazSms.GetDelivery error: " + ex.ToString());
+               return null;
+            }
+         }
+
+         public string BookList()
+         {
+            try
+            {
+               WebRequest request = WebRequest.Create("http://ippanel.com/services.jspd");
+               request.Timeout = 30000;
+               request.Method = "POST";
+               string postData = string.Format("op=booklist&uname={0}&pass={1}", UserName, Password);
+               byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+               request.ContentType = "application/x-www-form-urlencoded";
+               request.ContentLength = byteArray.Length;
+               using (Stream dataStream = request.GetRequestStream())
+               {
+                  dataStream.Write(byteArray, 0, byteArray.Length);
+               }
+               using (WebResponse response = request.GetResponse())
+               {
+                  using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                  {
+                     string responseFromServer = reader.ReadToEnd();
+                     System.Diagnostics.Debug.WriteLine(responseFromServer);
+                     return responseFromServer;
+                  }
+               }
+            }
+            catch (Exception ex)
+            {
+               System.Diagnostics.Debug.WriteLine("FarazSms.BookList error: " + ex.ToString());
+               return null;
+            }
          }
 
          public double GetCredit()
          {
-            WebRequest request = WebRequest.Create("http://ippanel.com/services.jspd");
-            request.Method = "POST";
-            string postData = string.Format("op=credit&uname={0}&pass={1}", UserName, Password);
-            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-            request.ContentType = "application/x-www-form-urlencoded";
-            request.ContentLength = byteArray.Length;
-            Stream dataStream = request.GetRequestStream();
-            dataStream.Write(byteArray, 0, byteArray.Length);
-            dataStream.Close();
-            WebResponse response = request.GetResponse();
-            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-            dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
-            string responseFromServer = reader.ReadToEnd();
-            Console.WriteLine(responseFromServer);
-            reader.Close();
-            dataStream.Close();
-            response.Close();
-            System.Diagnostics.Debug.WriteLine(responseFromServer);
-            return 0;
+            try
+            {
+               WebRequest request = WebRequest.Create("http://ippanel.com/services.jspd");
+               request.Timeout = 30000;
+               request.Method = "POST";
+               string postData = string.Format("op=credit&uname={0}&pass={1}", UserName, Password);
+               byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+               request.ContentType = "application/x-www-form-urlencoded";
+               request.ContentLength = byteArray.Length;
+               using (Stream dataStream = request.GetRequestStream())
+               {
+                  dataStream.Write(byteArray, 0, byteArray.Length);
+               }
+               using (WebResponse response = request.GetResponse())
+               {
+                  using (StreamReader reader = new StreamReader(response.GetResponseStream()))
+                  {
+                     string responseFromServer = reader.ReadToEnd();
+                     System.Diagnostics.Debug.WriteLine(responseFromServer);
+                     return 0;
+                  }
+               }
+            }
+            catch (Exception ex)
+            {
+               System.Diagnostics.Debug.WriteLine("FarazSms.GetCredit error: " + ex.ToString());
+               return 0;
+            }
          }
       }
 
@@ -759,7 +803,7 @@ namespace System.MessageBroadcast.Code
                var obj = _js.DeserializeObject(json) as Dictionary<string, object>;
                return obj;
             }
-            catch { return null; }
+             catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); return null; }
          }
          #endregion
       }

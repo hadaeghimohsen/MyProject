@@ -48,8 +48,8 @@ namespace System.MessageBroadcast.Ui.SmsApp
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch { }
-         finally { Execute_Query(); }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SwitchButtonsTabPage error: " + ex.ToString()); }
+          finally { Execute_Query(); }
       }
 
       private void RightButns_Click(object sender, EventArgs e)
@@ -120,18 +120,18 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
             iProject.Sms_Message_Boxes.InsertOnSubmit(sms);
          }
-         catch { }
-      }
+          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("NewSms_Butn_Click error: " + ex.ToString()); }
+       }
 
-      private void SaveSendSms_Butn_Click(object sender, EventArgs e)
-      {
-         try
-         {
-            SmsSendedBs.EndEdit();
-            iProject.SubmitChanges();
+       private void SaveSendSms_Butn_Click(object sender, EventArgs e)
+       {
+          try
+          {
+             SmsSendedBs.EndEdit();
+             iProject.SubmitChanges();
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DelDmsg_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -153,7 +153,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
             iProject.Default_Messages.InsertOnSubmit(dmsg);
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AddDmsg_Butn_Click error: " + ex.ToString()); }
       }
 
       private void DelDmsg_Butn_Click(object sender, EventArgs e)
@@ -195,7 +195,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
             requery = true;
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SaveDmsg_Butn_Click error: " + ex.ToString()); }
          finally
          {
             if (requery)
@@ -234,7 +234,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
                }
             }
          }
-         catch { }
+         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DMsg_Lov_ButtonPressed error: " + ex.ToString()); }
       }
    }
 }

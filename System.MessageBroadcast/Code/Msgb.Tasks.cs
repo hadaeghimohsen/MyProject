@@ -131,11 +131,14 @@ namespace System.MessageBroadcast.Code
                   break;
             }
          }
-         catch { }
-         finally
-         {
-            iProject = new Data.iProjectDataContext(ConnectionString);
-         }
+          catch (Exception ex)
+          {
+             System.Diagnostics.Debug.WriteLine("GetUi.Actn_Extr_P error: " + ex.ToString());
+          }
+          finally
+          {
+             iProject = new Data.iProjectDataContext(ConnectionString);
+          }
       }
 
       /// <summary>
@@ -227,149 +230,158 @@ namespace System.MessageBroadcast.Code
 
             iProject.SubmitChanges();
          }
-         catch { }
-      }
+          catch (Exception ex)
+          {
+             System.Diagnostics.Debug.WriteLine("Mesg_Chks_P error: " + ex.ToString());
+          }
+       }
 
-      /// <summary>
-      /// Code 05
-      /// </summary>
-      /// <param name="job"></param>
-      private void Mesg_Recv_P(Job job)
-      {
-         try
-         {
-            var xinput = job.Input as XElement;
-            if (xinput == null) return;
+       /// <summary>
+       /// Code 05
+       /// </summary>
+       /// <param name="job"></param>
+       private void Mesg_Recv_P(Job job)
+       {
+          try
+          {
+             var xinput = job.Input as XElement;
+             if (xinput == null) return;
 
-            _GetConnectionString();
-            var smsConf = iProject.Message_Broad_Settings.FirstOrDefault(sc => sc.DFLT_STAT == "002");
+             _GetConnectionString();
+             var smsConf = iProject.Message_Broad_Settings.FirstOrDefault(sc => sc.DFLT_STAT == "002");
 
-            // 1398/06/08 * مشخص کردن سامانه پیامکی
-            if (smsConf.SERV_TYPE == "001")
-            {
-               // Sms Call Provider
-               if (SmsClient == null)
-                  SmsClient = new SmsService.Sms();
-            }
-            else if (smsConf.SERV_TYPE == "002")
-            {
-               // iNoti Sms Provider
-               if (iNotiSmsClient == null)
-                  iNotiSmsClient = new iNotiSmsService.iNotiSMS();
-            }
+             // 1398/06/08 * مشخص کردن سامانه پیامکی
+             if (smsConf.SERV_TYPE == "001")
+             {
+                // Sms Call Provider
+                if (SmsClient == null)
+                   SmsClient = new SmsService.Sms();
+             }
+             else if (smsConf.SERV_TYPE == "002")
+             {
+                // iNoti Sms Provider
+                if (iNotiSmsClient == null)
+                   iNotiSmsClient = new iNotiSmsService.iNotiSMS();
+             }
 
-            if (smsConf.SERV_TYPE == "001")
-            {
-               XDocument xmsRespons = XDocument.Parse(
-                  SmsClient.XmsRequest(
-                     new XElement("xmsrequest",
-                        new XElement("userid", smsConf.USER_NAME),
-                        new XElement("password", smsConf.PASS_WORD),
-                        new XElement("action", "smsreceive"),
-                        new XElement("body",
-                           new XElement("lastsmsid", smsConf.LAST_ROW_FTCH),
-                           new XElement("count", smsConf.FTCH_ROW)
-                        )
-                     ).ToString()
-                  ).ToString()
-               );
+             if (smsConf.SERV_TYPE == "001")
+             {
+                XDocument xmsRespons = XDocument.Parse(
+                   SmsClient.XmsRequest(
+                      new XElement("xmsrequest",
+                         new XElement("userid", smsConf.USER_NAME),
+                         new XElement("password", smsConf.PASS_WORD),
+                         new XElement("action", "smsreceive"),
+                         new XElement("body",
+                            new XElement("lastsmsid", smsConf.LAST_ROW_FTCH),
+                            new XElement("count", smsConf.FTCH_ROW)
+                         )
+                      ).ToString()
+                   ).ToString()
+                );
 
-               smsConf.LAST_ROW_FTCH = Convert.ToInt64(xmsRespons.Descendants("message").Attributes("id").First().Value);
+                smsConf.LAST_ROW_FTCH = Convert.ToInt64(xmsRespons.Descendants("message").Attributes("id").First().Value);
 
-               job.Output =
-                     new XElement("Message",
-                        xmsRespons.Descendants("message"),
-                        new XElement("Result",
-                           new XAttribute("code", "100"),
-                           "اطلاعات با موفقیت به شما برگشت داده شد")
-                     );
-            }
-            else if (smsConf.SERV_TYPE == "002")
-            {
-               job.Output =
-                     new XElement("Message",
-                        "بدون عملیات از سمت سرور",
-                        new XElement("Result",
-                           new XAttribute("code", "100"),
-                           "اطلاعات با موفقیت به شما برگشت داده شد")
-                     );
-            }
-            job.Status = StatusType.Successful;
+                job.Output =
+                      new XElement("Message",
+                         xmsRespons.Descendants("message"),
+                         new XElement("Result",
+                            new XAttribute("code", "100"),
+                            "اطلاعات با موفقیت به شما برگشت داده شد")
+                      );
+             }
+             else if (smsConf.SERV_TYPE == "002")
+             {
+                job.Output =
+                      new XElement("Message",
+                         "بدون عملیات از سمت سرور",
+                         new XElement("Result",
+                            new XAttribute("code", "100"),
+                            "اطلاعات با موفقیت به شما برگشت داده شد")
+                      );
+             }
+             job.Status = StatusType.Successful;
 
-            iProject.SubmitChanges();
-         }
-         catch { }
-      }
+             iProject.SubmitChanges();
+          }
+          catch (Exception ex)
+          {
+             System.Diagnostics.Debug.WriteLine("Mesg_Recv_P error: " + ex.ToString());
+          }
+       }
 
-      /// <summary>
-      /// Code 06
-      /// </summary>
-      /// <param name="job"></param>
-      private void Tree_Node_P(Job job)
-      {
-         try
-         {
-            var xinput = job.Input as XElement;
-            if (xinput == null) return;
+       /// <summary>
+       /// Code 06
+       /// </summary>
+       /// <param name="job"></param>
+       private void Tree_Node_P(Job job)
+       {
+          try
+          {
+             var xinput = job.Input as XElement;
+             if (xinput == null) return;
 
-            _GetConnectionString();
-            var smsConf = iProject.Message_Broad_Settings.FirstOrDefault(sc => sc.DFLT_STAT == "002");
+             _GetConnectionString();
+             var smsConf = iProject.Message_Broad_Settings.FirstOrDefault(sc => sc.DFLT_STAT == "002");
 
-            // 1398/06/08 * مشخص کردن سامانه پیامکی
-            if (smsConf.SERV_TYPE == "001")
-            {
-               // Sms Call Provider
-               if (SmsClient == null)
-                  SmsClient = new SmsService.Sms();
-            }
-            else if (smsConf.SERV_TYPE == "002")
-            {
-               // iNoti Sms Provider
-               if (iNotiSmsClient == null)
-                  iNotiSmsClient = new iNotiSmsService.iNotiSMS();
-            }
+             // 1398/06/08 * مشخص کردن سامانه پیامکی
+             if (smsConf.SERV_TYPE == "001")
+             {
+                // Sms Call Provider
+                if (SmsClient == null)
+                   SmsClient = new SmsService.Sms();
+             }
+             else if (smsConf.SERV_TYPE == "002")
+             {
+                // iNoti Sms Provider
+                if (iNotiSmsClient == null)
+                   iNotiSmsClient = new iNotiSmsService.iNotiSMS();
+             }
 
-            if (smsConf.SERV_TYPE == "001")
-            {
-               XDocument xmsRespons = XDocument.Parse(
-                  SmsClient.XmsRequest(
-                     new XElement("xmsrequest",
-                        new XElement("userid", smsConf.USER_NAME),
-                        new XElement("password", smsConf.PASS_WORD),
-                        new XElement("action", "treenodes"),
-                        new XElement("body",
-                           new XElement("node",
-                              new XAttribute("id", 5000000)
-                           )
-                        )
-                     ).ToString()
-                  ).ToString()
-               );
+             if (smsConf.SERV_TYPE == "001")
+             {
+                XDocument xmsRespons = XDocument.Parse(
+                   SmsClient.XmsRequest(
+                      new XElement("xmsrequest",
+                         new XElement("userid", smsConf.USER_NAME),
+                         new XElement("password", smsConf.PASS_WORD),
+                         new XElement("action", "treenodes"),
+                         new XElement("body",
+                            new XElement("node",
+                               new XAttribute("id", 5000000)
+                            )
+                         )
+                      ).ToString()
+                   ).ToString()
+                );
 
-               job.Output =
-                     new XElement("Message",
-                        xmsRespons.Descendants("message"),
-                        new XElement("Result",
-                           new XAttribute("code", "100"),
-                           "اطلاعات با موفقیت به شما برگشت داده شد")
-                     );
-            }
-            else if (smsConf.SERV_TYPE == "002")
-            {
-               job.Output =
-                     new XElement("Message",
-                        "بدون عملیات از سمت سرور",
-                        new XElement("Result",
-                           new XAttribute("code", "100"),
-                           "اطلاعات با موفقیت به شما برگشت داده شد")
-                     );
-            }
-            job.Status = StatusType.Successful;
+                job.Output =
+                      new XElement("Message",
+                         xmsRespons.Descendants("message"),
+                         new XElement("Result",
+                            new XAttribute("code", "100"),
+                            "اطلاعات با موفقیت به شما برگشت داده شد")
+                      );
+             }
+             else if (smsConf.SERV_TYPE == "002")
+             {
+                job.Output =
+                      new XElement("Message",
+                         "بدون عملیات از سمت سرور",
+                         new XElement("Result",
+                            new XAttribute("code", "100"),
+                            "اطلاعات با موفقیت به شما برگشت داده شد")
+                      );
+             }
+             job.Status = StatusType.Successful;
 
-            iProject.SubmitChanges();
-         }
-         catch { }
-      }
+             iProject.SubmitChanges();
+          }
+          catch (Exception ex)
+          {
+             System.Diagnostics.Debug.WriteLine("Tree_Node_P error: " + ex.ToString());
+          }
+       }
 
       /// <summary>
       /// Code 07

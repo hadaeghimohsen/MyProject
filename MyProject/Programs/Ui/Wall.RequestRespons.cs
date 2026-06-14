@@ -178,55 +178,19 @@ namespace MyProject.Programs.Ui
          try
          {
             UserControl obj = (UserControl)job.Input;
-            //obj.Dock = DockStyle.Fill;
             if (InvokeRequired)
                Invoke(new Action<UserControl>(c =>
                {
                   Controls.Remove(c);
-                  if (_ActiveUI.Count() != 1)
-                  {
-                     ActiveUi activeUi = _ActiveUI.Peek();
-                     // 1397/05/20 * User Control not change enabled
-                     //activeUi.Ui.Enabled = false;
-                  }
                }), obj);
             else
             {
                Controls.Remove(obj);
-               if (_ActiveUI.Count() != 1)
-               {
-                  ActiveUi activeUi = _ActiveUI.Peek();
-                  // 1397/05/20 * User Control not change enabled
-                  //activeUi.Ui.Enabled = false;
-               }
             }
-
          }
-         catch
+         catch (Exception ex)
          {
-            UserControl obj = (UserControl)job.Input;
-            //obj.Dock = DockStyle.Fill;
-            if (InvokeRequired)
-               Invoke(new Action<UserControl>(c =>
-               {
-                  Controls.Remove(c);
-                  if (_ActiveUI.Count() != 1)
-                  {
-                     ActiveUi activeUi = _ActiveUI.Peek();
-                     // 1397/05/20 * User Control not change enabled
-                     //activeUi.Ui.Enabled = false;
-                  }
-               }), obj);
-            else
-            {
-               Controls.Remove(obj);
-               if (_ActiveUI.Count() != 1)
-               {
-                  ActiveUi activeUi = _ActiveUI.Peek();
-                  // 1397/05/20 * User Control not change enabled
-                  //activeUi.Ui.Enabled = false;
-               }
-            }
+            System.Diagnostics.Debug.WriteLine("RemoveFromWall error: " + ex.ToString());
          }
          job.Status = StatusType.Successful;
       }
@@ -467,59 +431,58 @@ namespace MyProject.Programs.Ui
        /// Code 15
        /// </summary>
        /// <param name="job"></param>
-       private void Push(Job job)
-       {
-          try
-          {
-             List<object> input = job.Input as List<object>;
+      private void Push(Job job)
+      {
+         try
+         {
+            List<object> input = job.Input as List<object>;
 
-             var _ui = new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control };
+            var _ui = new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control };
 
-             var crntobj = _ActiveUI.FirstOrDefault().Ui;
-             if (crntobj == _ui.Ui)
-             {
-                job.Status = StatusType.Successful;
-                return;
-             }
+            if (_ActiveUI.Any())
+            {
+               var crntobj = _ActiveUI.First().Ui;
+               if (crntobj == _ui.Ui)
+               {
+                  job.Status = StatusType.Successful;
+                  return;
+               }
+            }
 
-             if(_ActiveUI.Any(a => a.Name == _ui.Name))
-             {
-                var _tempList = _ActiveUI.ToList();
-                int _index = _tempList.FindIndex(a => a.Name == _ui.Name);
+            if(_ActiveUI.Any(a => a.Name == _ui.Name))
+            {
+               var _tempList = _ActiveUI.ToList();
+               int _index = _tempList.FindIndex(a => a.Name == _ui.Name);
 
-                if(_index != -1)
-                {
-                   _tempList.RemoveAt(_index);
-                   _tempList.Reverse();
-                   _tempList.Add(_ui);
+               if(_index != -1)
+               {
+                  Control oldUi = _tempList[_index].Ui as Control;
+                  _tempList.RemoveAt(_index);
+                  _tempList.Reverse();
+                  _tempList.Add(_ui);
 
-                   _ActiveUI.Clear();                  
-                   foreach (var ui in _tempList)
-                   {
-                      _ActiveUI.Push(ui);
-                   }
-                }
-             }
-             else
-             {
-                _ActiveUI.Push(_ui);
-             }
+                  _ActiveUI.Clear();
+                  foreach (var ui in _tempList)
+                  {
+                     _ActiveUI.Push(ui);
+                  }
 
+                  if (oldUi != null && Controls.Contains(oldUi))
+                     Controls.Remove(oldUi);
+               }
+            }
+            else
+            {
+               _ActiveUI.Push(_ui);
+            }
 
-             //var crntobj = _ActiveUI.FirstOrDefault().Ui;
-             //if (crntobj == input[1] as UserControl)
-             //{
-             //   job.Status = StatusType.Successful;
-             //   return;
-             //}
-             //_ActiveUI.Push(new ActiveUi { Name = input[0].ToString(), Ui = input[1] as Control });
-             job.Status = StatusType.Successful;
-          }
-          catch
-          {
-             job.Status = StatusType.Failed;
-          }
-       }
+            job.Status = StatusType.Successful;
+         }
+         catch
+         {
+            job.Status = StatusType.Failed;
+         }
+      }
 
       /// <summary>
       /// Code 16
@@ -529,7 +492,7 @@ namespace MyProject.Programs.Ui
       {
          try
          {
-            if (_ActiveUI.Count >= 1)
+            if (_ActiveUI.Count > 1)
                job.Output = _ActiveUI.Pop();
             job.Status = StatusType.Successful;
          }

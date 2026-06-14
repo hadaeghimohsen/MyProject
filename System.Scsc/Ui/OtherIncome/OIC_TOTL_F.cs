@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -59,17 +59,17 @@ namespace System.Scsc.Ui.OtherIncome
             if (!LinkMtod_Cbx.Checked)
                ExpnBs1.DataSource =
                   iScsc.Expenses.Where(ex =>
-                     ex.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && ex.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
+                     ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
                      ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                      ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-                     ex.EXPN_STAT == "002" /* ????? ??? ???? */
+                     ex.EXPN_STAT == "002" /* هزینه های فعال */
                   );
 
             Expn_Gv.TopRowIndex = _expnIndx;
 
             DocsBs1.DataSource = iScsc.Modual_Reports.Where(m => m.MDUL_NAME == GetType().Name && m.STAT == "002");
 
-            // 1397/05/15 * ???? ????? ????? ?????? ??? ????? ?? ?????
+            // 1397/05/15 * بدست آوردن شماره پرونده های درگیر در تمدید
             FighsBs1.DataSource = 
                iScsc.Fighters
                .Where(f => 
@@ -86,7 +86,7 @@ namespace System.Scsc.Ui.OtherIncome
             Grop_FLP.Controls.Clear();
             var allItems = new Button();
 
-            allItems.Text = "??? ?????";
+            allItems.Text = "همه موارد";
             allItems.Tag = 0;
 
             allItems.Click += GropButn_Click;
@@ -102,18 +102,19 @@ namespace System.Scsc.Ui.OtherIncome
                      b.Tag = g.Key.CODE;
                   }
                   else
-                     b.Text = "???? ?????";                  
+                     b.Text = "سایر موارد";                  
                   b.Click += GropButn_Click;
                   Grop_FLP.Controls.Add(b);
                }
             );
             
+
             PydtsBs1.Position = pydt;
             PcdtBs1.Position = pcdt;
 
             GustBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM == "005" && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
 
-            // 1401/01/03 * ???? ????? ?? ????? ??????
+            // 1401/01/03 * کنار مصطفی تو استخر هوابرد
             if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))
                SearchCustTell_Butn_Click(null, null);
          }
@@ -207,7 +208,7 @@ namespace System.Scsc.Ui.OtherIncome
                         new XElement("Log",
                             new XAttribute("fileno", _rqro.FIGH_FILE_NO),
                             new XAttribute("type", "010"),
-                            new XAttribute("text", string.Format("??? ???? ????? ???? ???? " + "{0}", _rqro.Fighter.NAME_DNRM))
+                            new XAttribute("text", string.Format("پخش آهنگ تبریک تولد برای " + "{0}", _rqro.Fighter.NAME_DNRM))
                         )
                      );
                      PlayHappyBirthDate_Butn.Tag = "stop";
@@ -273,15 +274,15 @@ namespace System.Scsc.Ui.OtherIncome
                                                        new XAttribute("soclmdiadesc", "BALE"),
                                                        new XAttribute("chatid", iScsc.V_Admin_Wallets.FirstOrDefault(w => w.WLET_TYPE == "001").CHAT_ID),
                                                        new XAttribute("mesg", 
-                                                           "*????? ????? ????? ???? ?????*" + Environment.NewLine + 
+                                                           "*هشدار اتمام یافتن شارژ سیستم*" + Environment.NewLine + 
                                                            Environment.NewLine + 
-                                                           "???? ???? ??? ??? ??? ?? ???? ?? *100 ???? ?????* ?????? ???? ??? ???? ??? ??? ?? ????? ???? ??? ??? *???? ????? ???? ??????* ????? ???????" + Environment.NewLine + 
+                                                           "مبلغ شارژ کیف پول شما به کمتر از *100 هزار تومان* رسیده، لطفا جهت شارژ کیف پول به شماره کارت زیر نزد *بانک سامان محسن حدایقی* واریز فرمایید" + Environment.NewLine + 
                                                            Environment.NewLine + 
                                                            "6219  -  8610  -  8342  -  5040" + Environment.NewLine + 
-                                                           "*???? ??????*" + Environment.NewLine +
-                                                           "*???? ?????*" + Environment.NewLine +
+                                                           "*محسن حدایقی*" + Environment.NewLine +
+                                                           "*بانک سامان*" + Environment.NewLine +
                                                            Environment.NewLine + 
-                                                           "??? ?? ?????? ???? ????? ?? *????* ??????? ?? ???? *?????? ??????? ????? ?????* ?? ???? ??? ?? ???? ?? ???? ????? ??? ??? ??? ?? ???? ???"
+                                                           "بعد از واریزی کردن مبلغ، از *منشی* بخواهید که دکمه *دریافت اطلاعات وصولی بانکی* را فشار دهد تا بانک بر اساس وصولی شما کیف پول را شارژ کند"
                                                        )
                                                    )
                                               }
@@ -289,7 +290,7 @@ namespace System.Scsc.Ui.OtherIncome
                                        )
                                     );
                                     #endregion
-                                    MessageBox.Show(this, "???? ???? ??? ??? ??? ?? ???? ?? 100 ???? ????? ?????? ???? ??? ???? ??? ??? ?? ????? ???? 6219861083425040 ??? ???? ????? ???? ?????? ????? ???????", "????? ????? ???? ??? ???", MessageBoxButtons.OK);
+                                    MessageBox.Show(this, "مبلغ شارژ کیف پول شما به کمتر از 100 هزار تومان رسیده، لطفا جهت شارژ کیف پول به شماره کارت 6219861083425040 نزد بانک سامان محسن حدایقی واریز فرمایید", "هشدار اتمام شارژ کیف پول", MessageBoxButtons.OK);
                                  }
                               })
                      }
@@ -349,12 +350,12 @@ namespace System.Scsc.Ui.OtherIncome
             Data.Request Rqst = RqstBs1.Current as Data.Request;
             if (Rqst == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ?????? ???? ??????? ????? ??????", "?????", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با انصراف دادن درخواست موافق هستید؟", "هشدار", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             
             // 1402/07/07 * Delete Locker
             if(AdatnBs.List.Count > 0)
                iScsc.ExecuteCommand(
-                  string.Format("DELETE dbo.Dresser_Attendance WHERE Code IN ({0});", string.Join(",", AdatnBs.List.OfType<Data.Dresser_Attendance>().Select(da => da.CODE)))
+                  "DELETE dbo.Dresser_Attendance WHERE Code IN ({0});", string.Join(",", AdatnBs.List.OfType<Data.Dresser_Attendance>().Select(da => da.CODE))
                );
 
             iScsc.CNCL_RQST_F(
@@ -378,7 +379,7 @@ namespace System.Scsc.Ui.OtherIncome
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
-               // 1397/05/16 * ??? ???????? ???? ?????? ???? ??? ????? ?? ??????
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
                if (RqstBs1.List.Count == 0)
                   RqstBnExit1_Click(null, null);
                else
@@ -396,14 +397,14 @@ namespace System.Scsc.Ui.OtherIncome
             Scsc.Data.Fighter Figh = FighBs1.Current as Scsc.Data.Fighter;
             if (_rqst == null) return;
 
-            // 1402/08/29 * ??? ??????? ?? ?? ????? ???? ????? ????? ???? ???? ???? ?? ????? ????
+            // 1402/08/29 * اگر دستبندی که به مشتری داده میشود تایید نشده باید آنها را تایید کنیم
             if (AdatnBs.List.OfType<Data.Dresser_Attendance>().Any(da => da.CONF_STAT == "001"))
             {
                ConfDasr_Butn_Click(null, null);
             }
 
-            // 1404/07/10 * ?? ???? ????? ????? ??? ????? ???? ????? ??? ??????? ??????? ??????? ??? ???? ? ???? ???? ??? ?? ????? ????? ????? ????? ???? ??? ???? ???
-            //if (iScsc.External_Devices.Any(ex => ex.DEV_TYPE == "001" /* Card Reader */ && ex.ACTN_TYPE == "010" /* ???? ? ???? ???? ????? ????????? */ && ex.SEND_CMND_TYPE == "002" /* Close */ && ex.EXPN_CODE != null /* Fine Amount */))
+            // 1404/07/10 * چک کردن سیستم استخر علی محمدی برای اینکه اگر درخواست زماندار بخواهند ثبت کنند و کارت مورد نظر را تنظیم نکرده باشند سیستم باید خطا صادر کند
+            //if (iScsc.External_Devices.Any(ex => ex.DEV_TYPE == "001" /* Card Reader */ && ex.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */ && ex.SEND_CMND_TYPE == "002" /* Close */ && ex.EXPN_CODE != null /* Fine Amount */))
             //{
             //   var _timingPydts = _rqst.Payments.FirstOrDefault().Payment_Details.Where(pd => pd.Expense.MIN_TIME.Value.TimeOfDay.TotalMinutes > 1);
             //   if (_timingPydts.Count() > 0)
@@ -411,7 +412,7 @@ namespace System.Scsc.Ui.OtherIncome
             //      var _cardLinkOprts = _rqst.Card_Link_Operations;
             //      if (_cardLinkOprts.Count() < _timingPydts.Sum(pd => pd.QNTY))
             //      {
-            //         throw new Exception("???? ?????? ??? ???? ???? ???? ?????? ?? ????? ????? ????");
+            //         throw new Exception("برای فاکتور ثبت شده، کارت ورود مجموعه به تعداد ذخیره نشده");
             //      }
             //   }
             //}
@@ -434,8 +435,8 @@ namespace System.Scsc.Ui.OtherIncome
                )
             );
             //OldRecdBs1.List.Clear();
-            // 1398/04/03 * ?? ??????? ?????? ?????? ???? ????? ???? ?? ???? ??????? ????? ????? ?? ????? ???? ?? ???? ??? ?? ????? ??????? ?? ??? ???? ?????
-            //  ???? ?????? ?? ?????? ????? ?? ????? ???? ?? ??? ???? ???? ??????? ???? ???? ?? ??? ????? ????? ??? ?????? ??????? ?????? ???? ?? ??? ???
+            // 1398/04/03 * به درخواست باشگاه بهاران خانم نقیبی قرار شد برای مشتریان مهمان گزینه ای اضافه کنیم که مدام بعد از اتمام درخواست از فرم خارج نشوند
+            //  برای اینکار ما بایستی گزینه ای طراحی کنیم که اگر فعال باشد بتوانیم مشخص کنیم که اگر هنرجو مهمان هست دوباره درخواست دیگیری برای ان ثبت شود
             if(GustSaveRqst_PickButn.PickChecked)
             {
                if(FighsBs1.List.OfType<Data.Fighter>().Any(f => f.FILE_NO ==  _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && f.FGPB_TYPE_DNRM == "005"))
@@ -455,7 +456,7 @@ namespace System.Scsc.Ui.OtherIncome
                );
             }
 
-            // 1399/12/10 * ????? ???? ??? ????? ?? ??? ??????? ??????? ???????
+            // 1399/12/10 * اضافه کردن فرم مربوط به ثبت اطلاعات درخواست مشتریان
             if(followups != "")
             {
                switch (followups.Split(';').First())
@@ -488,13 +489,13 @@ namespace System.Scsc.Ui.OtherIncome
                rqstRqid = 0;
             }
 
-            // 1404/06/31 * ??? ??????? ?????? ????? ???? ???? ??? ?? ????? ??????? ?? ??? ???? ????? ??? ???
+            // 1404/06/31 * اگر درخواست پرداخت جریمه باشد باید بعد از اتمام درخواست در گیت برای مشتری باز شود
             if(_rqst.Card_Link_Operations1.Any())
             {
-               // ??? ??? ? ??? ???? ????? ?????? ???? ?? ??? ???? ??? ??? ???
+               // اگر رفت و امد بدون جریمه میباشد باید در گیت مورد نظر باز شود
                _rqst.Card_Link_Operations1.FirstOrDefault().External_Device.External_Device_Link_External_Devices.Where(el => el.STAT == "002").ToList()
                   .ForEach(ed =>
-                     // ?? ??? ????? ??? ???? ??? ?? ????? ?????
+                     // در این مرحله باز کردن گیت رو فرمان میدیم
                      _DefaultGateway.Gateway(
                         new Job(SendType.External, "localhost",
                            new List<Job>
@@ -537,7 +538,7 @@ namespace System.Scsc.Ui.OtherIncome
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
-               // 1397/05/16 * ??? ???????? ???? ?????? ???? ??? ????? ?? ??????
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
                if (RqstBs1.List.Count == 0)
                   RqstBnExit1_Click(null, null);
                else
@@ -737,7 +738,7 @@ namespace System.Scsc.Ui.OtherIncome
                   return;
                }
 
-               iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = {0}, Last_Name = {1}, Cell_Phon = {2} WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
+               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID));
             }
 
             if (Accept_Cb.Checked)
@@ -752,29 +753,29 @@ namespace System.Scsc.Ui.OtherIncome
                {
                   mesg =
                      string.Format(
-                        ">> ???? {0} {1} ?? ???? >> ???? << ?? ????? {2} ?? ????? ????? {3}  ???? ??????",
+                        ">> مبلغ {0} {1} به صورت >> نقدی << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
                         string.Format("{0:n0}", debtamnt),
                         DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
-                        "?????",
+                        "امروز",
                         CurrentUser);
                   mesg += Environment.NewLine;
                }
-               mesg += ">> ????? ? ????? ???????";
+               mesg += ">> ذخیره و پایان درخواست";
 
-               if (MessageBox.Show(this, mesg, "?????? ??? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
             }
             //var pymt = PymtsBs1.Current as Data.Payment;
 
             /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
             {
-               MessageBox.Show(this, "???? ????? ??? ???? ????? ?????? ???");
+               MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
                return;
             }*/
 
-            // 1398/04/03 * ??? ?????? ???? ???? ????? ???? ????? ??? ?? ????? ?? ??????
+            // 1398/04/03 * اگر فاکتور فاقد آیتم هزینه باشد اجازه ثبت در سیستم را نداریم
             if(PydtsBs1.List.Count == 0)
             {
-               MessageBox.Show(this, "?????? ???? ???? ????? ?? ????? ???? ???? ???? ??? ??? ?? ?????? ????");
+               MessageBox.Show(this, "فاکتور بدون آیتم هزینه می باشد، لطفا آیتم مورد نظر خود را انتخاب کنید");
                return;
             }
 
@@ -794,7 +795,7 @@ namespace System.Scsc.Ui.OtherIncome
                );
             }
 
-            // 1399/12/09 * ??? ?? ????? ???? ??????? ???? ????? ??? ?? ????? ?? ???? ???? ?????
+            // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
             PymtVldtType_Cbx.Checked = true;
 
             /* Loop For Print After Pay */
@@ -820,7 +821,7 @@ namespace System.Scsc.Ui.OtherIncome
                   break;
                case DevExpress.XtraEditors.NavigatorButtonType.Remove:
                   e.Handled = true;
-                  if (MessageBox.Show(this, "??? ?? ??? ???? ????? ??????? ????????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "آیا با پاک کردن هزینه درخواست موافقید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                   /* Do Delete Payment_Detail */
                   var Crnt  = PydtsBs1.Current as Data.Payment_Detail;
                   var rqst = RqstBs1.Current as Data.Request;
@@ -902,7 +903,7 @@ namespace System.Scsc.Ui.OtherIncome
             switch (se.Number)
             {
                case 515:
-                  MessageBox.Show("???? ????? ??? ????? ??? ?? ???? ???? ????");
+                  MessageBox.Show("لطفا گزینه های ستاره دار را حتما وارد کنید");
                   break;
                default:
                   MessageBox.Show(se.Message);
@@ -929,7 +930,7 @@ namespace System.Scsc.Ui.OtherIncome
 
          //   if (PydtsBs1.List.Count > 0)
          //   {
-         //      if (MessageBox.Show(this, "???? ??? ?????? ???? ???? ????? ??? ???? ??? ??? ? ?????? ????? ????? ????. ??? ????????", "??? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+         //      if (MessageBox.Show(this, "برای نوع متقاضی جدید باید هزینه های قبلی پاک شده و دوباره اعلام هزینه کنید. آیا موافقید؟", "حذف تمامی هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
          //      PydtsBs1.List.OfType<Data.Payment_Detail>().ToList()
          //         .ForEach(pd =>
          //            {
@@ -953,12 +954,12 @@ namespace System.Scsc.Ui.OtherIncome
 
          //   ExpnBs1.DataSource =
          //      iScsc.Expenses.Where(ex =>
-         //         ex.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && ex.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
+         //         ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
          //         ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
          //         ex.Expense_Type.Request_Requester.RQTT_CODE == RQTT_CODE_LookUpEdit.EditValue.ToString() &&
          //         ex.MTOD_CODE == rqro.Fighter.MTOD_CODE_DNRM &&
          //         ex.CTGY_CODE == rqro.Fighter.CTGY_CODE_DNRM &&
-         //         ex.EXPN_STAT == "002" /* ????? ??? ???? */
+         //         ex.EXPN_STAT == "002" /* هزینه های فعال */
          //      );
          //}catch(Exception)
          //{
@@ -990,16 +991,16 @@ namespace System.Scsc.Ui.OtherIncome
                   return;
                }
 
-               if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
-               {
-                  CellPhon_Txt.Focus();
-                  return;
-               }
+if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
+                {
+                   CellPhon_Txt.Focus();
+                   return;
+                }
 
-               iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = {0}, Last_Name = {1}, Cell_Phon = {2} WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
-            }
+                iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
+             }
 
-            if (Accept_Cb.Checked /* 1402/11/01 if payment no debt */ && PymtsBs1.List.OfType<Data.Payment>().Any(p => (p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM) > 0))
+             if (Accept_Cb.Checked /* 1402/11/01 if payment no debt */ && PymtsBs1.List.OfType<Data.Payment>().Any(p => (p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM) > 0))
             {
                var pymt = PymtsBs1.Current as Data.Payment;
                if (pymt == null) return;
@@ -1011,25 +1012,25 @@ namespace System.Scsc.Ui.OtherIncome
                {
                   mesg =
                      string.Format(
-                        ">> ???? {0} {1} ?? ???? >> ???????? << ?? ????? {2} ?? ????? ????? {3}  ???? ??????",
+                        ">> مبلغ {0} {1} به صورت >> کارتخوان << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
                         string.Format("{0:n0}", debtamnt),
                         DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
-                        "?????",
+                        "امروز",
                         CurrentUser);
                   mesg += Environment.NewLine;
                }
-               mesg += ">> ????? ? ????? ???????";
+               mesg += ">> ذخیره و پایان درخواست";
 
-               if (MessageBox.Show(this, mesg, "?????? ??? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
             }
 
             if (VPosBs1.List.Count == 0)
                UsePos_Cb.Checked = false;
 
-            // 1398/04/03 * ??? ?????? ???? ???? ????? ???? ????? ??? ?? ????? ?? ??????
+            // 1398/04/03 * اگر فاکتور فاقد آیتم هزینه باشد اجازه ثبت در سیستم را نداریم
             if (PydtsBs1.List.Count == 0)
             {
-               MessageBox.Show(this, "?????? ???? ???? ????? ?? ????? ???? ???? ???? ??? ??? ?? ?????? ????");
+               MessageBox.Show(this, "فاکتور بدون آیتم هزینه می باشد، لطفا آیتم مورد نظر خود را انتخاب کنید");
                return;
             }
 
@@ -1094,7 +1095,7 @@ namespace System.Scsc.Ui.OtherIncome
             }
             else
             {
-               // 1397/01/07 * ??? ???? ???? ?? ???? ?????? ????
+               // 1397/01/07 * ثبت دستی مبلغ به صورت پایانه فروش
                foreach (Data.Payment pymt in PymtsBs1)
                {
                   iScsc.PAY_MSAV_P(
@@ -1111,9 +1112,10 @@ namespace System.Scsc.Ui.OtherIncome
                   );
                }
 
-               // 1399/12/09 * ??? ?? ????? ???? ??????? ???? ????? ??? ?? ????? ?? ???? ???? ?????
+               // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
                PymtVldtType_Cbx.Checked = true;
 
+               
                /* Loop For Print After Pay */
                if(DoPrint_Pkb.PickChecked) RqstBnPrintAfterPay_Click(null, null);
 
@@ -1219,7 +1221,7 @@ namespace System.Scsc.Ui.OtherIncome
                                        return;
                                     #region Show Error
                                     setOnDebt = false;
-                                    MessageBox.Show("??? - ??? - ??? ?????? ?? ???? 192 ???? ??????");
+                                    MessageBox.Show("خطا - خطا - عدم دسترسی به ردیف 192 سطوح امینتی");
                                     #endregion                           
                                  })
                               },
@@ -1253,46 +1255,46 @@ namespace System.Scsc.Ui.OtherIncome
                      return;
                   }
 
-                  if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
-                  {
-                     CellPhon_Txt.Focus();
-                     return;
-                  }
+if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
+                {
+                   CellPhon_Txt.Focus();
+                   return;
+                }
 
-               iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = {0}, Last_Name = {1}, Cell_Phon = {2} WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
-            }
+                iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
+             }
 
-            if (Accept_Cb.Checked)
-            {
-               var pymt = PymtsBs1.Current as Data.Payment;
-               if (pymt == null) return;
+             if (Accept_Cb.Checked)
+               {
+                  var pymt = PymtsBs1.Current as Data.Payment;
+                  if (pymt == null) return;
 
-               var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
+                  var debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
 
                   string mesg = "";
                   if (debtamnt > 0)
                   {
                      mesg =
                         string.Format(
-                           ">> ???? {0} {1} ?? ???? >> ?????? << ?? ????? {2} ?? ????? ????? {3}  ???? ??????",
+                           ">> مبلغ {0} {1} به صورت >> بدهکار << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
                            string.Format("{0:n0}", debtamnt),
                            DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
-                           "?????",
+                           "امروز",
                            CurrentUser);
                      mesg += Environment.NewLine;
                   }
                   else
                      setOnDebt = false;
 
-                  mesg += ">> ????? ? ????? ???????";
+                  mesg += ">> ذخیره و پایان درخواست";
 
-                  if (MessageBox.Show(this, mesg, "?????? ??? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
                }
 
-               // 1398/04/03 * ??? ?????? ???? ???? ????? ???? ????? ??? ?? ????? ?? ??????
+               // 1398/04/03 * اگر فاکتور فاقد آیتم هزینه باشد اجازه ثبت در سیستم را نداریم
                if (PydtsBs1.List.Count == 0)
                {
-                  MessageBox.Show(this, "?????? ???? ???? ????? ?? ????? ???? ???? ???? ??? ??? ?? ?????? ????");
+                  MessageBox.Show(this, "فاکتور بدون آیتم هزینه می باشد، لطفا آیتم مورد نظر خود را انتخاب کنید");
                   return;
                }
 
@@ -1314,12 +1316,12 @@ namespace System.Scsc.Ui.OtherIncome
          try
          {
             var rqst = RqstBs1.Current as Data.Request;
-            // ??? ?? ???? ????? ???? ?????? ??? ??? ????
+            // اگر در جدول هزینه قبلا رکوردی درج شده باشد
             if (rqst == null) return;
 
             var expn = ExpnBs1.Current as Data.Expense;
 
-            // ?? ?????? ?? ???? ?? ??? ???? ????? ?? ???? ??? ????? ???? ?????? ????
+            // چک میکنیم که قبلا از این آیتم هزینه در جدول ریز هزینه وجود نداشته باشد
             if (!PydtsBs1.List.OfType<Data.Payment_Detail>().Any(p => p.EXPN_CODE == expn.CODE))
             {
                PydtsBs1.AddNew();
@@ -1332,7 +1334,7 @@ namespace System.Scsc.Ui.OtherIncome
                ExpnBs1.List.OfType<Data.Expense>().Where(ex => ex.CODE == expn.CODE).ToList().ForEach(ex => { pydt.QNTY += 1; });
             }
 
-            // 1401/11/11 * ??? ????? ?? ?? ?????? ?????? ???? ????? ?? ????? ???? ????? ???? ????? ?? ?????? ??????
+            // 1401/11/11 * اگر هزینه ای که انتخاب میکنیم صاحب هزینه تک داشته باشد سریعا صاحب هزینه را انتخاب میکنیم
             //if(AutoSlctCbmt_Cbx.Checked)
             if(LinkCochPydt_Cbx.Checked)
             {
@@ -1349,10 +1351,10 @@ namespace System.Scsc.Ui.OtherIncome
                      PydtsBs1.EndEdit();
                      iScsc.SubmitChanges();
                   }
-                  else
-                  {
-                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET Cbmt_Code_Dnrm = {0}, Figh_File_No = {1}, Qnty = {2} WHERE Code = {3};", _cbmt.CODE, _coch.FILE_NO, _pydt.QNTY, _pydt.CODE));
-                  }
+else
+                   {
+                      iScsc.ExecuteCommand("UPDATE dbo.Payment_Detail SET Cbmt_Code_Dnrm = {0}, Figh_File_No = {1}, Qnty = {2} WHERE Code = {3};", _cbmt.CODE, _coch.FILE_NO, _pydt.QNTY, _pydt.CODE);
+                   }
                }
             }
             else
@@ -1425,7 +1427,7 @@ namespace System.Scsc.Ui.OtherIncome
                            && r.REGL_STAT == "002"
                            && rqrq.RQTP_CODE == rqst.RQTP_CODE
                            && rqrq.RQTT_CODE == rqst.RQTT_CODE
-                           && rqdc.DCMT_DSID == 13930903120048833 // ??? 4*3
+                           && rqdc.DCMT_DSID == 13930903120048833 // عکس 4*3
                            && rcdc.RQRO_RQST_RQID == rqst.RQID
                            && rcdc.RQRO_RWNO == 1
                         select rcdc).FirstOrDefault();
@@ -1468,9 +1470,9 @@ namespace System.Scsc.Ui.OtherIncome
             if (rqro == null) return;
             //if (Txt_Amnt.EditValue == null || Txt_Amnt.EditValue.ToString() == "") return;
 
-            if (MessageBox.Show(this, "??? ??? ?????? ???? ??? ???? ??? ??? ?????", "?????? ?????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا ثبت اعتبار برای عضو مورد نظر ثبت گردد؟", "افزایش اعتبار اعضا", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            // ??? ???? ?????? ???? ?? ???? ???? ?? ??????? ????? ?????? ???? ??? ?? ?? ????????? ???? ??????? ???
+            // این قسمت برنامه باید به واحد خودش در تغییرات ریالی انتقال پیدا کند تا از پرداکندگی کدها جلوگیری شود
             #region Gain_Loss_Rials
             iScsc.GLR_TRQT_P(
                new XElement("Process",
@@ -1488,7 +1490,7 @@ namespace System.Scsc.Ui.OtherIncome
                         new XAttribute("amnt", 0 /*Txt_Amnt.EditValue*/),
                         new XAttribute("paiddate", DateTime.Now.ToString("yyyy-MM-dd")),
                         new XAttribute("chngresn", "006"),
-                        new XAttribute("resndesc", "??? ???? ?????? ????? * ??? ??????")
+                        new XAttribute("resndesc", "ثبت مبلغ افزایش سپرده * ثبت سیستمی")
                      )
                   )
                )
@@ -1548,7 +1550,7 @@ namespace System.Scsc.Ui.OtherIncome
          {
             //if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "?????? ?????? ? ????? ????? ???? ????? ????", "?????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -1665,7 +1667,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            //if (MessageBox.Show(this, "??? ?? ??? ???? ????? ??????? ????????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            //if (MessageBox.Show(this, "آیا با پاک کردن هزینه درخواست موافقید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             ///* Do Delete Payment_Detail */
             //var Crnt = PydtsBs1.Current as Data.Payment_Detail;
             //var rqst = RqstBs1.Current as Data.Request;
@@ -1681,7 +1683,8 @@ namespace System.Scsc.Ui.OtherIncome
             //   )
             //);
 
-            //if (MessageBox.Show(this, "??? ?? ??? ???? ????? ??????? ????????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+
+            //if (MessageBox.Show(this, "آیا با پاک کردن هزینه درخواست موافقید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             /* Do Delete Payment_Detail */
             var Crnt = PydtsBs1.Current as Data.Payment_Detail;
             if (Crnt == null) return;
@@ -1761,9 +1764,9 @@ namespace System.Scsc.Ui.OtherIncome
             PydtsBs1.List.OfType<Data.Payment_Detail>().Where(p => p.CODE != 0).ToList()
                .ForEach(pd =>
                {
-                  // 1401/07/27 * ????? ????? ??? ?????? ???? ?????? ?? ??? 
-                  // ????_??_???_?????
-                  // ????_?????
+                  // 1401/07/27 * بررسی اینکه آیا جایگاه رزرو میباشد یا خیر 
+                  // کیرم_تو_بیت_رهبری
+                  // مهسا_امینی
                   if (pd.EXTS_CODE != null)
                   {
                      DateTime? _extsrsrvdate = pd.EXTS_RSRV_DATE == null ? DateTime.Now : pd.EXTS_RSRV_DATE;
@@ -1774,7 +1777,7 @@ namespace System.Scsc.Ui.OtherIncome
                                          pdt.EXTS_CODE == (long)pd.EXTS_CODE &&
                                          pdt.EXTS_RSRV_DATE.Value.Date == _extsrsrvdate.Value.Date).Count())
                      {
-                        if (MessageBox.Show(this, "?????? ???? ?? ??? ???. ??? ??? ???????? ?????? ?? ?? ?????", "?????? ???? ???", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+                        if (MessageBox.Show(this, "جایگاه رزرو پر شده است. آیا باز میخواهید جایگاه را پر کنید؟", "جایگاه رزرو شده", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
                      }
                   }
 
@@ -1843,7 +1846,7 @@ namespace System.Scsc.Ui.OtherIncome
             MbspRwnoPydt_Lov.EditValue = _pydt.MBSP_RWNO;
             ExtsCode_Lov.EditValue = _pydt.EXTS_CODE;            
 
-            // 1401/12/09 ** ????? ??? ??????? ????? ?? ?? ????? ????? ???? ??? ???
+            // 1401/12/09 ** نمایش عکس پروفایل پرسنل که به مشتری خدمات داده شده است
             if (_pydt.FIGH_FILE_NO != null)
             {
                CexcBs.DataSource = iScsc.Calculate_Expense_Coaches.Where(c => c.RQTP_CODE == "016" && c.RQTT_CODE == "001" && c.COCH_FILE_NO == _pydt.FIGH_FILE_NO && c.EXPN_CODE == _pydt.EXPN_CODE && c.STAT == "002");
@@ -1868,7 +1871,7 @@ namespace System.Scsc.Ui.OtherIncome
 
                         CochProFile_Rb.Tag = _pydt.FIGH_FILE_NO;
                      }
-                     catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PydtsBs1_CurrentChanged error: " + ex.ToString()); }
+                     catch { }
                   }
                   else
                   {
@@ -1950,37 +1953,37 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            PydsType_Butn.Text = PydsType_Butn.Tag.ToString() == "0" ? "?????" : "?????";
+            PydsType_Butn.Text = PydsType_Butn.Tag.ToString() == "0" ? "مبلغی" : "درصدی";
             PydsType_Butn.Tag = PydsType_Butn.Tag.ToString() == "0" ? "1" : "0";
             if (PydsType_Lov.EditValue != null || PydsType_Lov.EditValue.ToString() != "") PydsType_Lov.EditValue = "002";
 
             if (PydsType_Butn.Tag.ToString() == "0")
             {
-               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "???? ?????";
+               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "درصد تخفیف";
                PydsAmnt_Txt.Properties.MaxLength = 3;
             }
             else
             {
-               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "???? ?????";
+               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "مبلغ تخفیف";
                PydsAmnt_Txt.Properties.MaxLength = 0;
             }
             PydsAmnt_Txt.Focus();
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PydsType_Butn_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void RcmtType_Butn_Click(object sender, EventArgs e)
       {
          try
          {
-            RcmtType_Butn.Text = RcmtType_Butn.Tag.ToString() == "0" ? "POS" : "????";
+            RcmtType_Butn.Text = RcmtType_Butn.Tag.ToString() == "0" ? "POS" : "نقدی";
             RcmtType_Butn.Tag = RcmtType_Butn.Tag.ToString() == "0" ? "1" : "0";
             PymtAmnt_Txt.Focus();
             var pymt = PymtsBs1.Current as Data.Payment;
             if (pymt == null) return;
             PymtAmnt_Txt.EditValue = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RcmtType_Butn_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void SavePyds_Butn_Click(object sender, EventArgs e)
@@ -2015,7 +2018,7 @@ namespace System.Scsc.Ui.OtherIncome
             }
 
             // 1401/09/19 * #MahsaAmini
-            // ??? ????? ???? ????? ??????? ??? ???? ???? ?? ???? ?? ??? ????? ???? ??? ????? ??? ????? ?????
+            // اگر تخفیف برای پرسنل بخواهیم ثبت کنیم باید چک کنیم که آیا تخفیف وارد شده بیشتر سهم پرسنل نباشد
             if (PydsType_Lov.EditValue.ToString() == "005")
             {
                var _pydt = PydtsBs1.Current as Data.Payment_Detail;
@@ -2028,10 +2031,10 @@ namespace System.Scsc.Ui.OtherIncome
                      )
                   );
 
-               // ??? ???? ????? ????? ?? ??? ????? ???? ???? ??? ?? ????? ???
+               // اگر مبلغ تخفیف بیشتر از سهم پرسنل باشد باید جلو آن گرفته شود
                if (_calcexpn < amnt)
                {
-                  MessageBox.Show(this, "???? ????? ???? ??? ?? ??? ????? ????? ?? ??????? ????? ??????? ???? ???? ????? ?? ???? ????? ?? ????? ????", "????? ??????? ?????");
+                  MessageBox.Show(this, "مبلغ تخفیف وارد شده از سهم پرسنل بیشتر حق پرداختی ایشان میباشد، لطفا درصد تخفیف یا مبلغ تخفیف را اصلاح کنید", "تخفیف غیرمجاز پرسنل");
                   return;
                }
             }
@@ -2085,10 +2088,10 @@ namespace System.Scsc.Ui.OtherIncome
 
             if (PymtAmnt_Txt.EditValue == null || PymtAmnt_Txt.EditValue.ToString() == "" || Convert.ToInt64(PymtAmnt_Txt.EditValue) == 0) return;
 
-            //1403/08/26 * ??? ????? ?????? ????? ?? ????? ???? ????
+            //1403/08/26 * اگر تاریخ پرداخت بیشتر از تاریخ جاری باشد
             if (PymtDate_DateTime001.Value.HasValue && PymtDate_DateTime001.Value.Value.Date > DateTime.Now.Date)
             {
-               MessageBox.Show(this, "??????? ?? ????? ????? ??? ??????? ?? ????? ??????? ??????? ?? ???? ??? ??? ???? ?????? ?????");
+               MessageBox.Show(this, "پرداختی در گذشته داریم ولی پرداختی در آینده نداریم، اینجاست که باید بگم داش داری اشتباه میزنی");
                PymtDate_DateTime001.Focus();
                PymtDate_DateTime001.Value = DateTime.Now;
                return;
@@ -2123,7 +2126,7 @@ namespace System.Scsc.Ui.OtherIncome
                      if (regl.AMNT_TYPE == "002")
                         PymtAmnt_Txt.EditValue = Convert.ToInt64(PymtAmnt_Txt.EditValue) * 10;
 
-                     // ?? ??? ????? ???? ??? ??????? ?????? ?? ??? ?? ?????? ????? ??????? ??? ??? ?????? ???
+                     // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
                      UsePos_Cb.Checked = false;
 
                      _DefaultGateway.Gateway(
@@ -2181,7 +2184,7 @@ namespace System.Scsc.Ui.OtherIncome
                         )
                      );
 
-                     // 1399/12/09 * ??? ?? ????? ???? ??????? ???? ????? ??? ?? ????? ?? ???? ???? ?????
+                     // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
                      PymtVldtType_Cbx.Checked = true;
                   }
                   break;
@@ -2205,7 +2208,7 @@ namespace System.Scsc.Ui.OtherIncome
                      )
                   );
 
-                  // 1399/12/09 * ??? ?? ????? ???? ??????? ???? ????? ??? ?? ????? ?? ???? ???? ?????
+                  // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
                   PymtVldtType_Cbx.Checked = true;
                   break;
             }
@@ -2272,13 +2275,13 @@ namespace System.Scsc.Ui.OtherIncome
             case true:
                ShowRqst_Lb.Text =
                   string.Format(
-                     "????? ???? " + CurrentUser + " . ????? ??????? ??? ??? " + "{0} ??? ??????", RqstBs1.Count
+                     "کاربر جاری " + CurrentUser + " . تعداد درخواست ثبت شده " + "{0} عدد میباشد", RqstBs1.Count
                   );
                break;
             case false:
                ShowRqst_Lb.Text =
                   string.Format(
-                     "??????? ??? ??????? ?? ????? ??? ??? " + "{0} ??? ??????", RqstBs1.Count
+                     "درخواست همه کاربران که تعداد ثبت شده " + "{0} عدد میباشد", RqstBs1.Count
                   );
                break;
             default:
@@ -2294,7 +2297,7 @@ namespace System.Scsc.Ui.OtherIncome
             {
                Pydt_Gv.PostEditor();
                var pydt = PydtsBs1.Current as Data.Payment_Detail;
-               if(pydt.EXPR_DATE == null && MessageBox.Show(this, "????? ???? ?? ???? ??? ???????? ????? ?????? ???? ???? ????", "?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+               if(pydt.EXPR_DATE == null && MessageBox.Show(this, "تاریخ خالی می باشد آیا میخواهید تاریخ اعتبار همگی خالی شود؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                {
                   PydtsBs1.List.OfType<Data.Payment_Detail>().ToList().ForEach(p => p.EXPR_DATE = null);
                }
@@ -2350,12 +2353,12 @@ namespace System.Scsc.Ui.OtherIncome
                var pydt = PydtsBs1.Current as Data.Payment_Detail;
                if (pydt == null) return;
 
-               // 1403/08/13
-               if(ModifierKeys == Keys.Control)            
-               {
-                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET EXPR_DATE = '{0}' WHERE CODE = {1};", pydt.EXPR_DATE, pydt.CODE));
-                  return;
-               }
+// 1403/08/13
+                if(ModifierKeys == Keys.Control)            
+                {
+                   iScsc.ExecuteCommand("UPDATE dbo.Payment_Detail SET EXPR_DATE = '{0}' WHERE CODE = {1};", pydt.EXPR_DATE, pydt.CODE);
+                   return;
+                }
 
                if (NumbDay_Txt.Text == "0" && NumbMonth_Txt.Text == "0")
                {
@@ -2518,7 +2521,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            ServFind_Tsmi.Text = "?????? ?????";
+            ServFind_Tsmi.Text = "جستجوی مشتری";
 
             var fighs = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.ACTV_TAG_DNRM.CompareTo("101") >= 0 && f.CELL_PHON_DNRM.Contains(CellPhonFind_Tsmi.Text));
             if(fighs.Count() == 0)
@@ -2526,7 +2529,7 @@ namespace System.Scsc.Ui.OtherIncome
 
             if(fighs.Count() == 1)
             {
-               ServFind_Tsmi.Text = string.Format("{0} : {1}", "?????? ?????", fighs.FirstOrDefault().NAME_DNRM);
+               ServFind_Tsmi.Text = string.Format("{0} : {1}", "جستجوی مشتری", fighs.FirstOrDefault().NAME_DNRM);
 
                if(SaveAutoRqst_Tsmi.CheckState == CheckState.Checked)
                {
@@ -2540,12 +2543,12 @@ namespace System.Scsc.Ui.OtherIncome
                         })
                   );
 
-                  // ????? ??? ??? ??? ?? ?????? ??? ?? ??????? ??? ???? ????? ??????? ????? ?????? ??? ???? ?? ???
+                  // اولین گام این هست که ببینیم آیا ما توانسته ایم برای مشترک درخواست درآمد متفرقه ثبت کنیم یا خیر
                   fighs = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.ACTV_TAG_DNRM.CompareTo("101") >= 0 && f.CELL_PHON_DNRM.Contains(CellPhonFind_Tsmi.Text));
                   var figh = fighs.FirstOrDefault();
                   if(!(figh.FIGH_STAT == "001" && figh.RQST_RQID != null && figh.Request.RQTP_CODE == "016" && figh.Request.RQTT_CODE == "001"))
                   {
-                     MessageBox.Show("??? ??????? ???? ????? ?? ????? ????? ??? ???? ???? ????? ????");
+                     MessageBox.Show("ثبت درخواست برای مشتری با مشکلی مواجه شده است، لطفا بررسی کنید");
                      return;
                   }
 
@@ -2553,15 +2556,15 @@ namespace System.Scsc.Ui.OtherIncome
                   RqstBs1.Position = RqstBs1.IndexOf(RqstBs1.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == fighs.FirstOrDefault().FILE_NO)));
                }
 
-               // ???? ???? ?????
+               // مبلغ بدهی مشتری
                PayDebtAmnt2_Tsmi.Text = fighs.FirstOrDefault().DEBT_DNRM.ToString();
 
                DebtMenu_Tsmi.Enabled = ServPymt_Tsmi.Enabled = true;
             }
             else
             {
-               ServFind_Tsmi.Text = string.Format("{0} : {1} {2}", "?????? ?????", fighs.Count(), "????? ???? ??");
-               // ???? ???? ?????
+               ServFind_Tsmi.Text = string.Format("{0} : {1} {2}", "جستجوی مشتری", fighs.Count(), "مشتری پیدا شد");
+               // مبلغ بدهی مشتری
                PayDebtAmnt2_Tsmi.Text = "0";
 
                DebtMenu_Tsmi.Enabled = ServPymt_Tsmi.Enabled = false;
@@ -2602,7 +2605,7 @@ namespace System.Scsc.Ui.OtherIncome
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
 
-      #region ?????? ???? ????
+      #region پرداخت بدهی قبلی
       private void PayCashDebt2_Tsmi_Click(object sender, EventArgs e)
       {
          try
@@ -2611,15 +2614,15 @@ namespace System.Scsc.Ui.OtherIncome
 
             var figh = FighBs1.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
 
-            // ??? ?????? ???? ?????? ????
+            // اگر مشترکی وجود نداشته باشد
             if (figh == null) return;
-            // ??? ????? ???? ?????? ????
+            // اگر مشتری بدهی نداشته باشد
             if (figh.DEBT_DNRM == 0) return;
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             //if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt2_Tsmi.Text.Replace(",", ""));
-            // ???? ?????? ????? ?? ???? ???? ?? ????
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
             if (paydebt > figh.DEBT_DNRM) return;
 
             var vf_SavePayment =
@@ -2631,10 +2634,10 @@ namespace System.Scsc.Ui.OtherIncome
                long amnt = 0;
 
                if (debt > paydebt)
-                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
                   amnt = paydebt;
                else
-                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -2677,15 +2680,15 @@ namespace System.Scsc.Ui.OtherIncome
 
             var figh = FighBs1.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
 
-            // ??? ?????? ???? ?????? ????
+            // اگر مشترکی وجود نداشته باشد
             if (figh == null) return;
-            // ??? ????? ???? ?????? ????
+            // اگر مشتری بدهی نداشته باشد
             if (figh.DEBT_DNRM == 0) return;
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             //if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt2_Tsmi.Text.Replace(",", ""));
-            // ???? ?????? ????? ?? ???? ???? ?? ????
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
             if (paydebt > figh.DEBT_DNRM) return;
 
             var vf_SavePayment =
@@ -2697,10 +2700,10 @@ namespace System.Scsc.Ui.OtherIncome
                long amnt = 0;
 
                if (debt > paydebt)
-                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
                   amnt = paydebt;
                else
-                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -2743,15 +2746,15 @@ namespace System.Scsc.Ui.OtherIncome
 
             var figh = FighBs1.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
 
-            // ??? ?????? ???? ?????? ????
+            // اگر مشترکی وجود نداشته باشد
             if (figh == null) return;
-            // ??? ????? ???? ?????? ????
+            // اگر مشتری بدهی نداشته باشد
             if (figh.DEBT_DNRM == 0) return;
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             //if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt2_Tsmi.Text.Replace(",", ""));
-            // ???? ?????? ????? ?? ???? ???? ?? ????
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
             if (paydebt > figh.DEBT_DNRM) return;
 
             var vf_SavePayment =
@@ -2763,10 +2766,10 @@ namespace System.Scsc.Ui.OtherIncome
                long amnt = 0;
 
                if (debt > paydebt)
-                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
                   amnt = paydebt;
                else
-                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -2881,11 +2884,11 @@ namespace System.Scsc.Ui.OtherIncome
                         })
                );
 
-               // ????? ??? ??? ??? ?? ?????? ??? ?? ??????? ??? ???? ????? ??????? ????? ?????? ??? ???? ?? ???
+               // اولین گام این هست که ببینیم آیا ما توانسته ایم برای مشترک درخواست درآمد متفرقه ثبت کنیم یا خیر
                figh = iScsc.Fighters.Where(f => f.FILE_NO == figh.FILE_NO).FirstOrDefault();
                if (!(figh.FIGH_STAT == "001" && figh.RQST_RQID != null && figh.Request.RQTP_CODE == "016" && figh.Request.RQTT_CODE == "001"))
                {
-                  MessageBox.Show("??? ??????? ???? ????? ?? ????? ????? ??? ???? ???? ????? ????");
+                  MessageBox.Show("ثبت درخواست برای مشتری با مشکلی مواجه شده است، لطفا بررسی کنید");
                   return;
                }
 
@@ -3037,7 +3040,7 @@ namespace System.Scsc.Ui.OtherIncome
                if (PlaySondAlrm_Cbx.Checked)
                {
                   if (evntLogs.Count == 0)
-                     evntLogs.Add(DateTime.Now.ToString("HH:mm:ss => --------- ???? ????? ???? ---------"));
+                     evntLogs.Add(DateTime.Now.ToString("HH:mm:ss => --------- بلیط فروشی آزاد ---------"));
 
                   if (evntLogs.Count == 1)
                   {
@@ -3054,7 +3057,7 @@ namespace System.Scsc.Ui.OtherIncome
                }
             }
 
-            iScsc.ExecuteCommand(string.Format("UPDATE Payment_Detail SET TRAN_DATE = GETDATE() WHERE Code IN ({0}) AND TRAN_DATE IS NULL;", string.Join(",", _pydts.Select(pd => pd.CODE))));
+            iScsc.ExecuteCommand("UPDATE Payment_Detail SET TRAN_DATE = GETDATE() WHERE Code IN ({0}) AND TRAN_DATE IS NULL;", string.Join(",", _pydts.Select(pd => pd.CODE)));
 
             if (evntLogs.Count() > 1)
             {
@@ -3090,7 +3093,7 @@ namespace System.Scsc.Ui.OtherIncome
                if(PlaySondAlrm_Cbx.Checked)
                {
                   if(evntLogs.Count == 0)
-                     evntLogs.Add(DateTime.Now.ToString("HH:mm:ss => --------- ??????? ??????? ---------"));
+                     evntLogs.Add(DateTime.Now.ToString("HH:mm:ss => --------- مشتریان اشتراکی ---------"));
 
                   if(evntLogs.Count == 1)
                   {
@@ -3105,7 +3108,7 @@ namespace System.Scsc.Ui.OtherIncome
                }
             }
 
-            iScsc.ExecuteCommand(string.Format("UPDATE a SET a.MUST_EXIT_TIME_DNRM = DateAdd(Minute, ISNULL(cm.Clas_Time, 90), a.Entr_Time) FROM dbo.Attendance a, dbo.Club_Method cm WHERE a.Cbmt_Code_Dnrm = cm.Code AND a.Code in ({0}) AND a.Must_Exit_Time_Dnrm IS NULL;", string.Join(",", _attns.Select(a => a.CODE))));
+            iScsc.ExecuteCommand("UPDATE a SET a.MUST_EXIT_TIME_DNRM = DateAdd(Minute, ISNULL(cm.Clas_Time, 90), a.Entr_Time) FROM dbo.Attendance a, dbo.Club_Method cm WHERE a.Cbmt_Code_Dnrm = cm.Code AND a.Code in ({0}) AND a.Must_Exit_Time_Dnrm IS NULL;", string.Join(",", _attns.Select(a => a.CODE)));
 
             ////////////////// End of Calc
  
@@ -3143,7 +3146,7 @@ namespace System.Scsc.Ui.OtherIncome
                wplayer.URL = _wplayer_url;
                wplayer.controls.play();
             }
-            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AlarmShow error: " + ex.ToString()); }
+            catch { }
 
             //var tempcolor = BackGrnd_Butn.NormalColorA;
             //for (int i = 0; i < 5; i++)
@@ -3182,11 +3185,11 @@ namespace System.Scsc.Ui.OtherIncome
             debtamnt = (pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - (pymt.SUM_RCPT_EXPN_PRIC + pymt.SUM_PYMT_DSCN_DNRM);
             dpstamnt = pymt.Request.Request_Rows.FirstOrDefault().Fighter.DPST_AMNT_DNRM;
 
-            if (dpstamnt == 0) { MessageBox.Show(this, "???? ????? ????? ??? ??????", "??? ?????? ????? ?????"); return; }
-            // 1401/02/04 * ????????? ???? ????? ?????
+            if (dpstamnt == 0) { MessageBox.Show(this, "مبلغ سپرده مشتری صفر میباشد", "عدم موجودی سپرده مشتری"); return; }
+            // 1401/02/04 * بروزرسانی مبلغ سپرده مشتری
             if(dpstamnt - pymt.Payment_Methods.Where(pm => pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT) <= 0)
             {
-               MessageBox.Show("???? ?????? ????? ???? ????? ???? ?????");
+               MessageBox.Show("مبلغ اعتبار سپرده برای مشتری وجود ندارد");
                return;
             }
             else
@@ -3204,16 +3207,16 @@ namespace System.Scsc.Ui.OtherIncome
                {
                   mesg =
                      string.Format(
-                        ">> ???? {0} {1} ?? ???? >> ??? ?? ????? << ?? ????? {2} ?? ????? ????? {3}  ???? ??????",
+                        ">> مبلغ {0} {1} به صورت >> کسر از سپرده << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
                         string.Format("{0:n0}", debtamnt),
                         DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
-                        "?????",
+                        "امروز",
                         CurrentUser);
                   mesg += Environment.NewLine;
                }
-               mesg += ">> ????? ? ????? ???????";
+               mesg += ">> ذخیره و پایان درخواست";
 
-               if (MessageBox.Show(this, mesg, "?????? ??? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
             }
 
             foreach (Data.Payment pymt1 in PymtsBs1)
@@ -3233,7 +3236,7 @@ namespace System.Scsc.Ui.OtherIncome
                );
             }
 
-            // 1401/02/04 * ??? ?? ????? ???? ??????? ???? ????? ??? ?? ????? ?? ???? ???? ?????
+            // 1401/02/04 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
             PymtVldtType_Cbx.Checked = true;
 
             if (finalAction)
@@ -3279,16 +3282,16 @@ namespace System.Scsc.Ui.OtherIncome
                {
                   mesg =
                      string.Format(
-                        ">> ???? {0} {1} ?? ???? >> ???? ?? ???? << ?? ????? {2} ?? ????? ????? {3}  ???? ??????",
+                        ">> مبلغ {0} {1} به صورت >> کارت به کارت << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
                         string.Format("{0:n0}", debtamnt),
                         DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
-                        "?????",
+                        "امروز",
                         CurrentUser);
                   mesg += Environment.NewLine;
                }
-               mesg += ">> ????? ? ????? ???????";
+               mesg += ">> ذخیره و پایان درخواست";
 
-               if (MessageBox.Show(this, mesg, "?????? ??? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
             }
 
             foreach (Data.Payment pymt in PymtsBs1)
@@ -3307,7 +3310,7 @@ namespace System.Scsc.Ui.OtherIncome
                );
             }
 
-            // 1401/02/04 * ??? ?? ????? ???? ??????? ???? ????? ??? ?? ????? ?? ???? ???? ?????
+            // 1401/02/04 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
             PymtVldtType_Cbx.Checked = true;
 
             /* Loop For Print After Pay */
@@ -3346,7 +3349,7 @@ namespace System.Scsc.Ui.OtherIncome
                                     if ((bool)output)
                                        return;
                                     #region Show Error
-                                    MessageBox.Show("???: ??? ?????? ?? ?? 171");
+                                    MessageBox.Show("خطا: عدم دسترسی به کد 171");
                                     #endregion                           
                                  })
                               },
@@ -3361,7 +3364,7 @@ namespace System.Scsc.Ui.OtherIncome
                                     if ((bool)output)
                                        return;
                                     #region Show Error
-                                    MessageBox.Show("???: ??? ?????? ?? ?? 175");
+                                    MessageBox.Show("خطا: عدم دسترسی به کد 175");
                                     #endregion                           
                                  })
                               }
@@ -3426,35 +3429,35 @@ namespace System.Scsc.Ui.OtherIncome
             var _fgdc = FgdcBs1.Current as Data.Fighter_Discount_Card;
             if (_fgdc == null) return;
 
-            if (_fgdc.RQST_RQID != null) { MessageBox.Show(this, "??? ????? ?? ????? ???? ???? ??????? ??? ??? ???", "??? ??? ?? ?????"); return; }
+            if (_fgdc.RQST_RQID != null) { MessageBox.Show(this, "این رکورد کد تخفیف قبلا درون درخواست ثبت شده است", "عدم ثبت کد تخفیف"); return; }
             if (_fgdc.CTGY_CODE != null && _rqst.Request_Rows.FirstOrDefault().Fighter_Publics.FirstOrDefault().CTGY_CODE != _fgdc.CTGY_CODE)
             {
-               MessageBox.Show(this, "????? ????? ??? ?? ????? ???? ??? ???? ??? ??? ???? ??????? ??? ????", "??? ??????? ?? ?? ?????");
+               MessageBox.Show(this, "کاربر گرامی این کد تخفیف برای نرخ مورد نظر شما قابل استفاده نمی باشد", "عدم استفاده از کد تخفیف");
                return;
             }
-            if (_fgdc.EXPR_DATE.Value.Date < DateTime.Now.Date) { MessageBox.Show(this, "????? ?????? ?? ????? ??? ???? ??? ???", "??? ?????? ????? ?????"); return; }
+            if (_fgdc.EXPR_DATE.Value.Date < DateTime.Now.Date) { MessageBox.Show(this, "تاریخ انقضای کد تخفیف شما تمام شده است", "عدم اعتبار تاریخ انقضا"); return; }
 
             switch (_fgdc.DSCT_TYPE)
             {
                case "001":
                   // %
-                  // ??? ???? ?????? ????? ????? ??? ?????? ????? ????
+                  // اگر دکمه عملیات تخفیف گذاری غیر محتوای درصدی باشد
                   if (PydsType_Butn.Tag.ToString() != "0") { PydsType_Butn_Click(null, null); }
                   break;
                case "002":
                   // $
-                  // ??? ???? ?????? ????? ????? ??? ?????? ????? ????
+                  // اگر دکمه عملیات تخفیف گذاری غیر محتوای مبلغی باشد
                   if (PydsType_Butn.Tag.ToString() != "1") { PydsType_Butn_Click(null, null); }
                   break;
                default:
                   break;
             }
 
-            PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
-            PydsDesc_Txt.Text = string.Format("?? ????? " + "( {0} )" + " ???? : " + "( {1} )" + " ???? ????? : " + "( {2} )" + " ????? ??.", _fgdc.DISC_CODE, _fgdc.DSCT_DESC, CurrentUser);
-            PydsDesc_Txt.Tag = _fgdc.CODE;
-            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Discount_Card SET RQST_RQID = {0} WHERE CODE = {1};", _rqst.RQID, _fgdc.CODE));
-            SavePyds_Butn_Click(null, null);
+PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
+             PydsDesc_Txt.Text = string.Format("کد تخفیف " + "( {0} )" + " بابت : " + "( {1} )" + " توسط کاربر : " + "( {2} )" + " ذخیره شد.", _fgdc.DISC_CODE, _fgdc.DSCT_DESC, CurrentUser);
+             PydsDesc_Txt.Tag = _fgdc.CODE;
+             iScsc.ExecuteCommand("UPDATE dbo.Fighter_Discount_Card SET RQST_RQID = {0} WHERE CODE = {1};", _rqst.RQID, _fgdc.CODE);
+             SavePyds_Butn_Click(null, null);
             PydsDesc_Txt.Tag = null;
             PymtOprt_Tc.SelectedTab = PymtDsct_Tp;
          }
@@ -3493,7 +3496,7 @@ namespace System.Scsc.Ui.OtherIncome
                   return;
                }
 
-               iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = {0}, Last_Name = {1}, Cell_Phon = {2} WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
+               iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID));
             }
 
             if (Accept_Cb.Checked)
@@ -3508,29 +3511,29 @@ namespace System.Scsc.Ui.OtherIncome
                {
                   mesg =
                      string.Format(
-                        ">> ???? {0} {1} ?? ???? >> ????? << ?? ????? {2} ?? ????? ????? {3}  ???? ??????",
+                        ">> مبلغ {0} {1} به صورت >> تخفیف << در تاریخ {2} در صندوق کاربر {3}  قرار میگیرد",
                         string.Format("{0:n0}", debtamnt),
                         DAtypBs1.List.OfType<Data.D_ATYP>().FirstOrDefault(d => d.VALU == pymt.AMNT_UNIT_TYPE_DNRM).DOMN_DESC,
-                        "?????",
+                        "امروز",
                         CurrentUser);
                   mesg += Environment.NewLine;
                }
-               mesg += ">> ????? ? ????? ???????";
+               mesg += ">> ذخیره و پایان درخواست";
 
-               if (MessageBox.Show(this, mesg, "?????? ??? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, mesg, "عملیات ثبت نام", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
             }
             //var pymt = PymtsBs1.Current as Data.Payment;
 
             /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
             {
-               MessageBox.Show(this, "???? ????? ??? ???? ????? ?????? ???");
+               MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
                return;
             }*/
 
-            // 1398/04/03 * ??? ?????? ???? ???? ????? ???? ????? ??? ?? ????? ?? ??????
+            // 1398/04/03 * اگر فاکتور فاقد آیتم هزینه باشد اجازه ثبت در سیستم را نداریم
             if (PydtsBs1.List.Count == 0)
             {
-               MessageBox.Show(this, "?????? ???? ???? ????? ?? ????? ???? ???? ???? ??? ??? ?? ?????? ????");
+               MessageBox.Show(this, "فاکتور بدون آیتم هزینه می باشد، لطفا آیتم مورد نظر خود را انتخاب کنید");
                return;
             }
 
@@ -3540,7 +3543,7 @@ namespace System.Scsc.Ui.OtherIncome
                iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQST_RQID, (short?)1, null, debtamnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, PydsDesc_Txt.Tag == null ? null : (long?)PydsDesc_Txt.Tag, null);
             }
 
-            // 1399/12/09 * ??? ?? ????? ???? ??????? ???? ????? ??? ?? ????? ?? ???? ???? ?????
+            // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
             PymtVldtType_Cbx.Checked = true;
 
             /* Loop For Print After Pay */
@@ -3564,9 +3567,9 @@ namespace System.Scsc.Ui.OtherIncome
             if (pydt == null) return;
             if (e.NewValue == null) return;
 
-            // 1401/07/27 * ????? ????? ??? ?????? ???? ?????? ?? ??? 
-            // ????_??_???_?????
-            // ????_?????
+            // 1401/07/27 * بررسی اینکه آیا جایگاه رزرو میباشد یا خیر 
+            // کیرم_تو_بیت_رهبری
+            // مهسا_امینی
             DateTime? _extsrsrvdate = pydt.EXTS_RSRV_DATE == null ? DateTime.Now : pydt.EXTS_RSRV_DATE;
 
             if (iScsc.Expense_Type_Steps.FirstOrDefault(ets => ets.CODE == (long)e.NewValue).QNTY <=
@@ -3575,7 +3578,7 @@ namespace System.Scsc.Ui.OtherIncome
                                 pd.EXTS_CODE == (long)e.NewValue &&
                                 pd.EXTS_RSRV_DATE.Value.Date == _extsrsrvdate.Value.Date).Count())
             {
-               if (MessageBox.Show(this, "?????? ???? ?? ??? ???. ??? ??? ???????? ?????? ?? ?? ?????", "?????? ???? ???", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "جایگاه رزرو پر شده است. آیا باز میخواهید جایگاه را پر کنید؟", "جایگاه رزرو شده", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
             }
 
             //pydt.Club_Method = iScsc.Club_Methods.FirstOrDefault(cm => cm.CODE == (long?)e.NewValue);
@@ -3704,7 +3707,7 @@ namespace System.Scsc.Ui.OtherIncome
             {
                case 1:
                   iScsc.ExecuteCommand(
-                     string.Format("UPDATE dbo.Payment_Detail SET Figh_File_No = NULL, Cbmt_Code_Dnrm = NULL WHERE Code = {0};", _pydt.CODE)
+                     "UPDATE dbo.Payment_Detail SET Figh_File_No = NULL, Cbmt_Code_Dnrm = NULL WHERE Code = {0};", _pydt.CODE
                   );
                   break;
             }
@@ -3733,11 +3736,12 @@ namespace System.Scsc.Ui.OtherIncome
             {
                case 1:
                   iScsc.ExecuteCommand(
-                     string.Format("UPDATE dbo.Payment_Detail SET Mbsp_Figh_File_No = NULL, Mbsp_Rect_Code = NULL, Mbsp_Rwno = NULL WHERE Code = {0};", _pydt.CODE)
+                     "UPDATE dbo.Payment_Detail SET Mbsp_Figh_File_No = NULL, Mbsp_Rect_Code = NULL, Mbsp_Rwno = NULL WHERE Code = {0};", _pydt.CODE
                   );
                   break;
             }
             
+
             requery = true;
          }
          catch (Exception exc)
@@ -3757,16 +3761,16 @@ namespace System.Scsc.Ui.OtherIncome
          {
             var figh = (RqroExtsBs.Current as Data.Request_Row).Fighter;
 
-            // ??? ?????? ???? ?????? ????
+            // اگر مشترکی وجود نداشته باشد
             if (figh == null) return;
-            // ??? ????? ???? ?????? ????
+            // اگر مشتری بدهی نداشته باشد
             if (figh.DEBT_DNRM == 0) return;
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             //if (figh.FIGH_STAT == "001") return;
             if (TreePymtAmnt_Txt.EditValue == null || TreePymtAmnt_Txt.EditValue.ToString() == "" || Convert.ToInt64(TreePymtAmnt_Txt.EditValue) == 0) return;
             var paydebt = Convert.ToInt64(TreePymtAmnt_Txt.EditValue);
 
-            // ???? ?????? ????? ?? ???? ???? ?? ????
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
             if (paydebt > figh.DEBT_DNRM) return;
 
             var vf_SavePayment =
@@ -3778,10 +3782,10 @@ namespace System.Scsc.Ui.OtherIncome
                long amnt = 0;
 
                if (debt > paydebt)
-                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
                   amnt = paydebt;
                else
-                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -3956,7 +3960,7 @@ namespace System.Scsc.Ui.OtherIncome
                                        if ((bool)output)
                                           return;
                                        #region Show Error
-                                       MessageBox.Show("???: ??? ?????? ?? ?? 171");
+                                       MessageBox.Show("خطا: عدم دسترسی به کد 171");
                                        #endregion                           
                                     })
                                  },
@@ -3971,7 +3975,7 @@ namespace System.Scsc.Ui.OtherIncome
                                        if ((bool)output)
                                           return;
                                        #region Show Error
-                                       MessageBox.Show("???: ??? ?????? ?? ?? 175");
+                                       MessageBox.Show("خطا: عدم دسترسی به کد 175");
                                        #endregion                           
                                     })
                                  }
@@ -4080,7 +4084,7 @@ namespace System.Scsc.Ui.OtherIncome
 
                      CochProFile_Rb.Tag = _coch.FILE_NO;
                   }
-                  catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CochBs1_CurrentChanged error: " + ex.ToString()); }
+                  catch { }
                }
                else
                {
@@ -4099,10 +4103,10 @@ namespace System.Scsc.Ui.OtherIncome
 
             ExpnBs1.DataSource =
                iScsc.Expenses.Where(ex =>
-                  ex.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && ex.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
+                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
                   ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                   ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-                  ex.EXPN_STAT == "002" /* ????? ??? ???? */ &&
+                  ex.EXPN_STAT == "002" /* هزینه های فعال */ &&
                   (!LinkCochPydt_Cbx.Checked || iScsc.Club_Methods.Any(cm => cm.MTOD_STAT == "002" && cm.MTOD_CODE == ex.MTOD_CODE && cm.COCH_FILE_NO == _coch.FILE_NO)) &&
                   (!LinkMtod_Cbx.Checked || ex.MTOD_CODE == _mtod.CODE)
                );
@@ -4110,7 +4114,7 @@ namespace System.Scsc.Ui.OtherIncome
             Grop_FLP.Controls.Clear();
             var allItems = new Button();
 
-            allItems.Text = "??? ?????";
+            allItems.Text = "همه موارد";
             allItems.Tag = 0;
 
             allItems.Click += GropButn_Click;
@@ -4126,7 +4130,7 @@ namespace System.Scsc.Ui.OtherIncome
                      b.Tag = g.Key.CODE;
                   }
                   else
-                     b.Text = "???? ?????";
+                     b.Text = "سایر موارد";
                   b.Click += GropButn_Click;
                   Grop_FLP.Controls.Add(b);
                }
@@ -4156,7 +4160,7 @@ namespace System.Scsc.Ui.OtherIncome
             if (ToRqstDate_Cbx.Checked && !ToRqstDate_Dt.Value.HasValue) { ToRqstDate_Dt.Focus(); return; }
             if (ToRqstDate_Cbx.Checked && ToRqstDate_Dt.Value.HasValue) { _torqstdate = ToRqstDate_Dt.Value.Value.Date; }
 
-            // 1398/05/20 * ????? ????? ????? ????? ???? ???? ????? ?? ?? ?????? ?? ???? ?? ???
+            // 1398/05/20 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(_fromrqstdate.HasValue ? _fromrqstdate.Value : DateTime.Now.AddDays(-1))) return;
 
             long? _fighfileno = null, _cochfileno = null, _expncode = null;
@@ -4325,7 +4329,7 @@ namespace System.Scsc.Ui.OtherIncome
                                  result = true;
                                  return;
                               }
-                              MessageBox.Show("??? - ??? ?????? ?? ???? 240 ???? ??????", "??? ??????");
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 240 سطوح امینتی", "عدم دسترسی");
                               result = false;
                            })
                         },
@@ -4420,17 +4424,17 @@ namespace System.Scsc.Ui.OtherIncome
 
             ExpnBs1.DataSource =
                iScsc.Expenses.Where(ex =>
-                  ex.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && ex.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
+                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
                   ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                   ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-                  ex.EXPN_STAT == "002" /* ????? ??? ???? */ &&
+                  ex.EXPN_STAT == "002" /* هزینه های فعال */ &&
                   ex.MTOD_CODE == _mtod.CODE
                );
 
             Grop_FLP.Controls.Clear();
             var allItems = new Button();
 
-            allItems.Text = "??? ?????";
+            allItems.Text = "همه موارد";
             allItems.Tag = 0;
 
             allItems.Click += GropButn_Click;
@@ -4446,7 +4450,7 @@ namespace System.Scsc.Ui.OtherIncome
                      b.Tag = g.Key.CODE;
                   }
                   else
-                     b.Text = "???? ?????";
+                     b.Text = "سایر موارد";
                   b.Click += GropButn_Click;
                   Grop_FLP.Controls.Add(b);
                }
@@ -4471,20 +4475,20 @@ namespace System.Scsc.Ui.OtherIncome
 
                ExpnBs1.DataSource =
                   iScsc.Expenses.Where(ex =>
-                     ex.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && ex.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
+                     ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
                      ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                      ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-                     ex.EXPN_STAT == "002" /* ????? ??? ???? */
+                     ex.EXPN_STAT == "002" /* هزینه های فعال */
                   );               
             }
             else
             {
                ExpnBs1.DataSource =
                   iScsc.Expenses.Where(ex =>
-                     ex.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && ex.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
+                     ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
                      ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                      ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-                     ex.EXPN_STAT == "002" /* ????? ??? ???? */ &&
+                     ex.EXPN_STAT == "002" /* هزینه های فعال */ &&
                      ex.MTOD_CODE == _mtod.CODE
                   );
             }
@@ -4492,7 +4496,7 @@ namespace System.Scsc.Ui.OtherIncome
             Grop_FLP.Controls.Clear();
             var allItems = new Button();
 
-            allItems.Text = "??? ?????";
+            allItems.Text = "همه موارد";
             allItems.Tag = 0;
 
             allItems.Click += GropButn_Click;
@@ -4508,7 +4512,7 @@ namespace System.Scsc.Ui.OtherIncome
                      b.Tag = g.Key.CODE;
                   }
                   else
-                     b.Text = "???? ?????";
+                     b.Text = "سایر موارد";
                   b.Click += GropButn_Click;
                   Grop_FLP.Controls.Add(b);
                }
@@ -4556,7 +4560,7 @@ namespace System.Scsc.Ui.OtherIncome
             {
                var _gust = GustBs.OfType<Data.Fighter>().FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005");
                if (_gust == null)
-                  throw new Exception("???? ????? ????? ?? ???? ????? ????? ????");
+                  throw new Exception("لطفا مشتری آزادی را درون سیستم تعریف کنید");
                else
                {
                   fileno = _gust.FILE_NO;
@@ -4582,7 +4586,7 @@ namespace System.Scsc.Ui.OtherIncome
             if (!_cont)
             {
                // Save Contact in Database
-               iScsc.ExecuteCommand("INSERT INTO dbo.Fighter_Public(Regn_Prvn_Cnty_Code, Regn_Prvn_Code, Regn_Code, Rqro_Rqst_Rqid, Rqro_Rwno, Figh_File_No, Rect_Code, Frst_Name, Last_Name, Cell_Phon) VALUES({0}, {1}, {2}, {3}, 1, {4}, '002', {5}, {6}, {7});", cntycode, prvncode, regncode, rqid, fileno, FrstName1_Txt.Text, LastName1_Txt.Text, CellPhon1_Txt.Text));
+               iScsc.ExecuteCommand("INSERT INTO dbo.Fighter_Public(Regn_Prvn_Cnty_Code, Regn_Prvn_Code, Regn_Code, Rqro_Rqst_Rqid, Rqro_Rwno, Figh_File_No, Rect_Code, Frst_Name, Last_Name, Cell_Phon) VALUES('{0}', '{1}', '{2}', {3}, 1, {4}, '002', N'{5}', N'{6}', '{7}');", cntycode, prvncode, regncode, rqid, fileno, FrstName1_Txt.Text, LastName1_Txt.Text, CellPhon1_Txt.Text);
                FrstName1_Txt.Text = LastName1_Txt.Text = CellPhon1_Txt.Text = "";
                FgpbCustTell_Gv.FindFilterText = "";
                CellPhon1_Txt.Focus();
@@ -4593,7 +4597,7 @@ namespace System.Scsc.Ui.OtherIncome
                // Focus in list
                FgpbCellBs.Position = FgpbCellBs.IndexOf(FgpbCellBs.List.OfType<Data.Fighter_Public>().FirstOrDefault(fp => fp.CELL_PHON == CellPhon1_Txt.Text));
                FrstName1_Txt.Text = LastName1_Txt.Text = CellPhon1_Txt.Text = "";
-               //MessageBox.Show(this, "??????? ???? ????? ???? ???? ???? ????? ????????");
+               //MessageBox.Show(this, "اطلاعات درون سیستم وجود دارد لطفا بررسی بفرمایید");
             }
          }
          catch (Exception exc)
@@ -4816,13 +4820,12 @@ namespace System.Scsc.Ui.OtherIncome
             if(!RtoaBs.List.OfType<Data.App_Base_Define>().Any(p => p.ENTY_NAME == "Payment_To_Another_Account" && p.TITL_DESC.StartsWith(_pydt.FIGH_FILE_NO.ToString())))
             {
                iScsc.ExecuteCommand(
-                  string.Format("INSERT INTO dbo.App_Base_Define (Code, Rwno, Titl_Desc, Enty_Name) VALUES(0, {0}, N'{1} - {2} - {3} - {4}', 'Payment_To_Another_Account');",
+                  "INSERT INTO dbo.App_Base_Define (Code, Rwno, Titl_Desc, Enty_Name) VALUES(0, {0}, N'{1} - {2} - {3} - {4}', 'Payment_To_Another_Account');",
                   (RtoaBs.List.OfType<Data.App_Base_Define>().Max(p => p.RWNO) ?? 0) + 1,
                   _pydt.Fighter.FILE_NO,
                   _pydt.Fighter.NAME_DNRM,
-                  _pydt.Fighter.DPST_ACNT_SLRY_BANK_DNRM ?? "???? ??????",
-                  _pydt.Fighter.DPST_ACNT_SLRY_DNRM ?? "???? ???? ??????"
-                  )
+                  _pydt.Fighter.DPST_ACNT_SLRY_BANK_DNRM ?? "بانک نامشخص",
+                  _pydt.Fighter.DPST_ACNT_SLRY_DNRM ?? "حساب بانک نامشخص"
                );
 
                RtoaBs.DataSource = iScsc.App_Base_Defines.Where(p => p.ENTY_NAME == "Payment_To_Another_Account").ToList();
@@ -4909,10 +4912,10 @@ namespace System.Scsc.Ui.OtherIncome
 
             foreach (var _g in _query)
             {
-               Pymt_Lbx.Items.Add(string.Format("{0} - {1:n0}", (_g.Key == 0 ? "???? ???????" : RtoaBs.List.OfType<Data.App_Base_Define>().FirstOrDefault(g => g.CODE == _g.Key).TITL_DESC), _g.Sum(gs => gs.Amnt)));
+               Pymt_Lbx.Items.Add(string.Format("{0} - {1:n0}", (_g.Key == 0 ? "حساب کارفرما" : RtoaBs.List.OfType<Data.App_Base_Define>().FirstOrDefault(g => g.CODE == _g.Key).TITL_DESC), _g.Sum(gs => gs.Amnt)));
             }
             Pymt_Lbx.Items.Add("-----------------------------");
-            Pymt_Lbx.Items.Add(string.Format("{0} - {1:n0}", "????? ?? ???????", _query.Sum(g => g.Sum(gs => gs.Amnt))));
+            Pymt_Lbx.Items.Add(string.Format("{0} - {1:n0}", "سرجمع کل دریافتی", _query.Sum(g => g.Sum(gs => gs.Amnt))));
          }
          catch (Exception exc)
          {
@@ -4962,7 +4965,7 @@ namespace System.Scsc.Ui.OtherIncome
             var _pyco = PycoBs.Current as Data.Payment_Cost;
             if (_pyco == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.Payment_Costs.DeleteOnSubmit(_pyco);
             iScsc.SubmitChanges();
@@ -5194,12 +5197,10 @@ namespace System.Scsc.Ui.OtherIncome
             if (_rqst == null) return;
 
             iScsc.ExecuteCommand(
-               string.Format(
-                  "UPDATE dbo.Dresser_Attendance SET Conf_Stat = '002' WHERE FIGH_FILE_NO = {0} AND RQST_RQID = {1} AND TKBK_TIME IS NULL;" + Environment.NewLine +
-                  "UPDATE dbo.Dresser_Attendance SET TKBK_TIME = GETDATE() WHERE RQST_RQID != {1} AND TKBK_TIME IS NULL AND Ders_Numb IN (SELECT da.Ders_Numb FROM dbo.Dresser_Attendance da WHERE da.Rqst_Rqid = {1});",
-                   _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO,
-                   _rqst.RQID
-               )
+               "UPDATE dbo.Dresser_Attendance SET Conf_Stat = '002' WHERE FIGH_FILE_NO = {0} AND RQST_RQID = {1} AND TKBK_TIME IS NULL;" + Environment.NewLine +
+               "UPDATE dbo.Dresser_Attendance SET TKBK_TIME = GETDATE() WHERE RQST_RQID != {1} AND TKBK_TIME IS NULL AND Ders_Numb IN (SELECT da.Ders_Numb FROM dbo.Dresser_Attendance da WHERE da.Rqst_Rqid = {1});",
+                _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO,
+                _rqst.RQID
             );
             requery = true;
          }
@@ -5222,11 +5223,9 @@ namespace System.Scsc.Ui.OtherIncome
             if (_rqst == null) return;
 
             iScsc.ExecuteCommand(
-               string.Format(
-                  "DELETE dbo.Dresser_Attendance WHERE FIGH_FILE_NO = {0} AND RQST_RQID = {1} AND TKBK_TIME IS NULL AND CONF_STAT = '001';",
-                  _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO,
-                  _rqst.RQID
-               )
+               "DELETE dbo.Dresser_Attendance WHERE FIGH_FILE_NO = {0} AND RQST_RQID = {1} AND TKBK_TIME IS NULL AND CONF_STAT = '001';",
+                _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO,
+                _rqst.RQID
             );
             requery = true;
          }
@@ -5326,13 +5325,11 @@ namespace System.Scsc.Ui.OtherIncome
             if(_pmct == null) return;
 
             iScsc.ExecuteCommand(
-               string.Format(
-                  "MERGE dbo.Payment_Contract_Detail T" + Environment.NewLine +
-                  "USING (SELECT {0} AS PMCT_CODE, a.CODE AS ITEM_CODE, a.REF_CODE AS GROP_CODE FROM dbo.App_Base_Define a WHERE a.ENTY_NAME = 'PaymentContractItem_INFO' AND a.REF_CODE IS NOT NULL) S" + Environment.NewLine +
-                  "ON (T.Pmct_Code = S.Pmct_Code AND T.Grop_Item_Apbs_Code = S.Grop_Code AND T.Sub_Item_Apbs_Code = S.Item_Code)" + Environment.NewLine +
-                  "WHEN NOT MATCHED THEN INSERT (Pmct_Code, Grop_Item_Apbs_Code, Sub_Item_Apbs_Code, Code) VALUES (S.Pmct_Code, S.Grop_Code, S.Item_Code, dbo.GNRT_NVID_U());",
-                  _pmct.CODE
-               )
+               "MERGE dbo.Payment_Contract_Detail T" + Environment.NewLine +
+               "USING (SELECT {0} AS PMCT_CODE, a.CODE AS ITEM_CODE, a.REF_CODE AS GROP_CODE FROM dbo.App_Base_Define a WHERE a.ENTY_NAME = 'PaymentContractItem_INFO' AND a.REF_CODE IS NOT NULL) S" + Environment.NewLine +
+               "ON (T.Pmct_Code = S.Pmct_Code AND T.Grop_Item_Apbs_Code = S.Grop_Code AND T.Sub_Item_Apbs_Code = S.Item_Code)" + Environment.NewLine +
+               "WHEN NOT MATCHED THEN INSERT (Pmct_Code, Grop_Item_Apbs_Code, Sub_Item_Apbs_Code, Code) VALUES (S.Pmct_Code, S.Grop_Code, S.Item_Code, dbo.GNRT_NVID_U());",
+                _pmct.CODE
             );
 
             requery = true;
@@ -5394,7 +5391,7 @@ namespace System.Scsc.Ui.OtherIncome
             var _flpc = FlpcBs.Current as Data.Fighter_Link_Payment_Contarct_Item;
             if (_flpc == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             //iScsc.Fighter_Link_Payment_Contarct_Items.DeleteOnSubmit(_flpc);
             //iScsc.SubmitChanges();
@@ -5840,7 +5837,7 @@ namespace System.Scsc.Ui.OtherIncome
                string.Join(Environment.NewLine, OldRqstBs1.List.OfType<Data.Request>().Where(r => r.Request_Rows.Any(rr => rr.Fighter.CELL_PHON_DNRM != null && rr.Fighter.CELL_PHON_DNRM.Length >= 8)).Select(rr => rr.Request_Rows.FirstOrDefault().Fighter.CELL_PHON_DNRM ))
             );
 
-            MessageBox.Show(this, "????? ???? ??????? ?? ???? ?????? ????? ??", "????? ???? ???????", MessageBoxButtons.OK);
+            MessageBox.Show(this, "شماره تلفن مشتریان در فایل مربوطه ذخیره شد", "ذخیره سازی اطلاعات", MessageBoxButtons.OK);
          }
          catch (Exception exc)
          {
@@ -5917,7 +5914,7 @@ namespace System.Scsc.Ui.OtherIncome
                string.Join(Environment.NewLine, HistServBs.List.OfType<Data.Fighter>().Where(s => s.CELL_PHON_DNRM != null && s.CELL_PHON_DNRM.Length >= 8).Select(s => s.CELL_PHON_DNRM))
             );
 
-            MessageBox.Show(this, "????? ???? ??????? ?? ???? ?????? ????? ??", "????? ???? ???????", MessageBoxButtons.OK);            
+            MessageBox.Show(this, "شماره تلفن مشتریان در فایل مربوطه ذخیره شد", "ذخیره سازی اطلاعات", MessageBoxButtons.OK);            
          }
          catch (Exception exc)
          {
@@ -6005,11 +6002,11 @@ namespace System.Scsc.Ui.OtherIncome
             if (ToEndTime_Cbx.Checked && (ToEndTime_Tm.EditValue == null || string.IsNullOrWhiteSpace(ToEndTime_Tm.Text))) { ToEndTime_Tm.Focus(); return; }
             if (ToEndTime_Cbx.Checked && !(ToEndTime_Tm.EditValue == null || string.IsNullOrWhiteSpace(ToEndTime_Tm.Text))) { _toEndTime = ToEndTime_Tm.Time.TimeOfDay; }
 
-            // 1404/08/01 * ????? ????? ????? ????? ???? ???? ????? ?? ?? ?????? ?? ???? ?? ???
+            // 1404/08/01 * بررسی اینکه کاربر اجازه اجرا کردن گزارش در هر تاریخی را دارد یا خیر
             if (!checkValidateDate(_fromStrtDate.HasValue ? _fromStrtDate.Value : DateTime.Now.AddDays(-1))) return;
             if (!checkValidateDate(_fromEndDate.HasValue ? _fromEndDate.Value : DateTime.Now.AddDays(-1))) return;
 
-            // --- ????? ???????? ??? ?? Query ---
+            // --- تبدیل ورودی‌ها قبل از Query ---
             int? fromUseMint = FromUseMint_Cbx.Checked ? (int?) FromUseMint_Txt.Text.ToInt32() : null;
             int? toUseMint = ToUseMint_Cbx.Checked ? (int?) ToUseMint_Txt.Text.ToInt32() : null;
             int? fromCrntMint = FromCrntMint_Cbx.Checked ? (int?) FromCrntMint_Txt.Text.ToInt32() : null;
@@ -6019,7 +6016,7 @@ namespace System.Scsc.Ui.OtherIncome
             int? fromFineAmnt = FromFineAmnt_Cbx.Checked ? (int?) FromFineAmnt_Txt.Text.ToInt32() : null;
             int? toFineAmnt = ToFineAmnt_Cbx.Checked ? (int?) ToFineAmnt_Txt.Text.ToInt32() : null;
 
-            // --- ???????? ????? ? ????? ---
+            // --- جمع‌آوری جنسیت و سرویس ---
             var sexTypes = new List<string>();
             if (Men_Cbx.Checked) sexTypes.Add("001");
             if (Women_Cbx.Checked) sexTypes.Add("002");
@@ -6030,37 +6027,37 @@ namespace System.Scsc.Ui.OtherIncome
 
             var _quryStr = "SELECT * FROM v$Card_Link_Operation a WHERE 1=1 ";
 
-            // ????? ?? ???? ?????
+            // فیلتر بر اساس کاربر
             if (CrntUser1_Cbx.Checked)
                _quryStr += string.Format("AND a.CRET_BY = '{0}'", CurrentUser);//_quryStr.Where(a => a.CRET_BY == CurrentUser);
 
-            // ????? ??? ??????
+            // فیلتر نوع اعتبار
             if(ValdType_Cbx.CheckState != CheckState.Indeterminate)
                _quryStr += string.Format("AND a.VALD_TYPE = '{0}'", (ValdType_Cbx.Checked ? "002" : "001"));//_quryStr.Where(a => a.VALD_TYPE == (ValdType_Cbx.Checked ? "002" : "001"));
 
-            // ????? ????? ?????
+            // فیلتر وضعیت جریمه
             if (FineStat_Cbx.CheckState != CheckState.Indeterminate)
             _quryStr += string.Format("AND a.FINE_STAT = '{0}'", (FineStat_Cbx.Checked ? "002" : "001"));//_quryStr.Where(a => a.FINE_STAT == (FineStat_Cbx.Checked ? "002" : "001"));
 
-            // ????? ?????? ?????
+            // فیلتر پرداخت جریمه
             if (FinePay_Cbx.Checked)
                 _quryStr += string.Format("AND EXISTS(SELECT * FROM Payment_Method pm WHERE a.FINE_RQST_RQID = pm.RQRO_RQST_RQID)");//_quryStr.Where(a => iScsc.Payment_Methods.Any(pm => pm.RQRO_RQST_RQID == a.FINE_RQST_RQID));
 
-            // ????? ????? ? ??? ?????
+            // فیلتر جنسیت و نوع سرویس
             if (sexTypes.Any())
                 _quryStr += string.Format("AND a.SERV_SEX_TYPE IN ('{0}')", string.Join(",", sexTypes));//_quryStr.Where(a => sexTypes.Contains(a.SERV_SEX_TYPE));
 
             if (servTypes.Any())
                 _quryStr += string.Format("AND a.SERV_TYPE IN ('{0}')", string.Join(",", servTypes));//_quryStr.Where(a => servTypes.Contains(a.SERV_TYPE));
 
-            // ????? ??? ????? ? ????? ????
+            // فیلتر نام سرویس و شماره تلفن
             if (ServName_Cbx.Checked && !string.IsNullOrWhiteSpace(ServName_Txt.Text))
                 _quryStr += string.Format("AND a.SERV_NAME_DNRM LIKE N'%{0}%'", ServName_Txt.Text.Replace(' ', '%'));//_quryStr.Where(a => a.SERV_NAME_DNRM.Contains(ServName_Txt.Text));
 
             if (ServCellPhon_Cbx.Checked && !string.IsNullOrWhiteSpace(ServCellPhon_Txt.Text))
                _quryStr += string.Format("AND a.SERV_CELL_PHON_DNRM LIKE N'%{0}%'", ServCellPhon_Txt); ;//_quryStr.Where(a => a.SERV_CELL_PHON_DNRM.Contains(ServCellPhon_Txt.Text));
 
-            // ????? ?????? Nullable int/decimal
+            // فیلتر مقادیر Nullable int/decimal
             if (fromUseMint.HasValue)
                _quryStr += string.Format("AND a.TOTL_USE_MINT_DNRM >= {0}", fromUseMint);//_quryStr.Where(a => a.TOTL_USE_MINT_DNRM >= fromUseMint);
 
@@ -6085,7 +6082,7 @@ namespace System.Scsc.Ui.OtherIncome
             if (toFineAmnt.HasValue)
                _quryStr += string.Format("AND a.FINE_AMNT_NOW <= {0}", toFineAmnt);//_quryStr.Where(a => a.FINE_AMNT_DNRM <= toFineAmnt);
 
-            // ????? ????? ?? DbFunctions ???? EF
+            // فیلتر تاریخ با DbFunctions برای EF
             if (_fromStrtDate.HasValue)
                _quryStr += string.Format("AND CAST(a.STRT_TIME AS DATE) >= '{0}'", _fromStrtDate.Value.ToString("yyyy-MM-dd"));                
 
@@ -6098,7 +6095,7 @@ namespace System.Scsc.Ui.OtherIncome
             if (_toEndDate.HasValue)
                _quryStr += string.Format("AND CAST(a.END_TIME AS DATE) <= '{0}'", _toEndDate.Value.ToString("yyyy-MM-dd"));
 
-            // ????? ???? (TimeOfDay) � ??? EF ????????? ?????? ????? ???? ?? AsEnumerable ??????? ???????
+            // فیلتر زمان (TimeOfDay) – چون EF نمی‌تواند مستقیم ترجمه کند، از AsEnumerable استفاده می‌کنیم
             if (_fromStrtTime.HasValue)
                _quryStr += string.Format("AND CAST(a.STRT_TIME AS TIME(0)) >= '{0}'", _fromStrtTime.Value.ToString(@"hh\:mm"));
 
@@ -6111,7 +6108,7 @@ namespace System.Scsc.Ui.OtherIncome
             if (_toEndTime.HasValue)
                _quryStr += string.Format("AND CAST(a.END_TIME AS TIME(0)) <= '{0}'", _toEndTime.Value.ToString(@"hh\:mm"));
 
-            // ????? ?? DataSource
+            // خروجی به DataSource
             var _rslt = iScsc.ExecuteQuery<Data.V_Card_Link_Operation>(_quryStr).ToList();
             VClnoBs.DataSource = _rslt.Any() ? _rslt : null;
          }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -58,7 +58,7 @@ namespace System.Scsc.Ui.Attendance
 
             requery = true;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SaveChange_Butn_Click error: " + ex.ToString()); }
+         catch { }
          finally
          {
             if (requery)
@@ -75,6 +75,7 @@ namespace System.Scsc.Ui.Attendance
 
             var dres = DresBs1.Current as Data.Dresser;
             if (dres == null) return;
+
 
             //FighBs1.DataSource = 
             //   iScsc.Attendances
@@ -134,11 +135,14 @@ namespace System.Scsc.Ui.Attendance
             for (int i = (int)FromNumb_Txt.Value; i <= ToNumb_Txt.Value; i++)
             {
                iScsc.ExecuteCommand(
+                  string.Format(
                   "INSERT INTO dbo.Dresser(Coma_Code, Code, Dres_Numb, Rec_Stat, IP_Adrs, Ordr, Cmnd_Send)" +
-                  "SELECT {0}, 0, {1}, '002', {2}, {1}, dbo.GET_LPAD_U({1}, 3, '0') WHERE NOT EXISTS (" + 
-                  "SELECT * FROM dbo.Dresser d WHERE d.Coma_Code = {0} AND Dres_Numb = {1} AND IP_Adrs = {2});",
+                  "SELECT {0}, 0, {1}, '002', '{2}', {1}, dbo.GET_LPAD_U('{1}', 3, '0') WHERE NOT EXISTS (" + 
+                  "SELECT * FROM dbo.Dresser d WHERE d.Coma_Code = {0} AND Dres_Numb = {1} AND IP_Adrs = '{2}');",
                   _coma.CODE, i,
-                  IP_Txt.Text);
+                  IP_Txt.Text
+                  )
+               );
             }
 
             requery = true;
@@ -301,7 +305,7 @@ namespace System.Scsc.Ui.Attendance
 
             TestLockerInLoop_Tmr.Enabled = true;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Start_Butn_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void Stop_Butn_Click(object sender, EventArgs e)
@@ -336,7 +340,7 @@ namespace System.Scsc.Ui.Attendance
                       new XAttribute("subsys", 5),
                       new XAttribute("cmndcode", 100),
                       new XAttribute("frstname", _locker.DRES_NUMB),
-                      new XAttribute("lastname", "????? ???"),
+                      new XAttribute("lastname", "شماره کمد"),
                       new XAttribute("fngrprnt", _locker.CMND_SEND),
                       new XAttribute("chatid", ""),
                       new XAttribute("cellphon", ""),
@@ -455,7 +459,7 @@ namespace System.Scsc.Ui.Attendance
                                     _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
                                     return;
                                  }
-                                 MessageBox.Show("??? - ??? ?????? ?? ???? 271 ???? ??????", "??? ??????");
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 271 سطوح امینتی", "عدم دسترسی");
                               })
                            },
                            #endregion
@@ -544,7 +548,7 @@ namespace System.Scsc.Ui.Attendance
             var _coma = ComaBs1.Current as Data.Computer_Action;
             if (_coma == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ??? ?? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف کمد ها موافق هستید؟", "حذف کمدها", MessageBoxButtons.YesNo, MessageBoxIcon.Stop) != DialogResult.Yes) return;
 
             iScsc.ExecuteCommand(string.Format("DELETE dbo.Dresser WHERE Coma_Code = {0};", _coma.CODE));
             requery = true;
@@ -586,7 +590,7 @@ namespace System.Scsc.Ui.Attendance
                                        if ((bool)output)
                                           return;
                                        #region Show Error
-                                       MessageBox.Show("???: ??? ?????? ?? ?? 171");
+                                       MessageBox.Show("خطا: عدم دسترسی به کد 171");
                                        #endregion                           
                                     })
                                  },
@@ -601,7 +605,7 @@ namespace System.Scsc.Ui.Attendance
                                        if ((bool)output)
                                           return;
                                        #region Show Error
-                                       MessageBox.Show("???: ??? ?????? ?? ?? 175");
+                                       MessageBox.Show("خطا: عدم دسترسی به کد 175");
                                        #endregion                           
                                     })
                                  }
@@ -1127,7 +1131,7 @@ namespace System.Scsc.Ui.Attendance
                                     }
                                     return;
                                  }
-                                 MessageBox.Show("??? - ??? ?????? ?? ???? 271 ???? ??????", "??? ??????");
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 271 سطوح امینتی", "عدم دسترسی");
                               })
                            },
                            #endregion
@@ -1252,7 +1256,7 @@ namespace System.Scsc.Ui.Attendance
                                     }
                                     return;
                                  }
-                                 MessageBox.Show("??? - ??? ?????? ?? ???? 271 ???? ??????", "??? ??????");
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 271 سطوح امینتی", "عدم دسترسی");
                               })
                            },
                            #endregion

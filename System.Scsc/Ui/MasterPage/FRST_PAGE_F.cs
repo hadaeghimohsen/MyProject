@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.JobRouting.Jobs;
 using System.Xml.Linq;
 using Telerik.WinControls.UI;
+
 
 namespace System.Scsc.Ui.MasterPage
 {
@@ -70,9 +71,9 @@ namespace System.Scsc.Ui.MasterPage
                                                    <body>
                                                       <p style=""float:right"">
                                                          <ol>
-                                                            <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+                                                            <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
                                                             <ul>
-                                                               <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+                                                               <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
                                                             </ul>
                                                          </ol>
                                                       </p>
@@ -235,9 +236,9 @@ namespace System.Scsc.Ui.MasterPage
                                              <body>
                                                 <p style=""float:right"">
                                                    <ol>
-                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
                                                       <ul>
-                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
                                                       </ul>
                                                    </ol>
                                                 </p>
@@ -286,9 +287,9 @@ namespace System.Scsc.Ui.MasterPage
                                              <body>
                                                 <p style=""float:right"">
                                                    <ol>
-                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
                                                       <ul>
-                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
                                                       </ul>
                                                    </ol>
                                                 </p>
@@ -337,9 +338,9 @@ namespace System.Scsc.Ui.MasterPage
                                              <body>
                                                 <p style=""float:right"">
                                                    <ol>
-                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
                                                       <ul>
-                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
                                                       </ul>
                                                    </ol>
                                                 </p>
@@ -428,9 +429,9 @@ namespace System.Scsc.Ui.MasterPage
          //                                             <body>
          //                                                <p style=""float:right"">
          //                                                   <ol>
-         //                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+         //                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
          //                                                      <ul>
-         //                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+         //                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
          //                                                      </ul>
          //                                                   </ol>
          //                                                </p>
@@ -481,7 +482,7 @@ namespace System.Scsc.Ui.MasterPage
                               if ((bool)output)
                                  return;
                               #region Show Error
-                              MessageBox.Show("???: ??? ?????? ?? ?? 171");
+                              MessageBox.Show("خطا: عدم دسترسی به کد 171");
                               #endregion                           
                            })
                         },
@@ -496,7 +497,7 @@ namespace System.Scsc.Ui.MasterPage
                               if ((bool)output)
                                  return;
                               #region Show Error
-                              MessageBox.Show("???: ??? ?????? ?? ?? 175");
+                              MessageBox.Show("خطا: عدم دسترسی به کد 175");
                               #endregion                           
                            })
                         }
@@ -563,9 +564,9 @@ namespace System.Scsc.Ui.MasterPage
 //                                             <body>
 //                                                <p style=""float:right"">
 //                                                   <ol>
-//                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+//                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
 //                                                      <ul>
-//                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+//                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
 //                                                      </ul>
 //                                                   </ol>
 //                                                </p>
@@ -622,9 +623,9 @@ namespace System.Scsc.Ui.MasterPage
                                              <body>
                                                 <p style=""float:right"">
                                                    <ol>
-                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
                                                       <ul>
-                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
                                                       </ul>
                                                    </ol>
                                                 </p>
@@ -672,9 +673,9 @@ namespace System.Scsc.Ui.MasterPage
                                              <body>
                                                 <p style=""float:right"">
                                                    <ol>
-                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
                                                       <ul>
-                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
                                                       </ul>
                                                    </ol>
                                                 </p>
@@ -722,9 +723,9 @@ namespace System.Scsc.Ui.MasterPage
                                              <body>
                                                 <p style=""float:right"">
                                                    <ol>
-                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
                                                       <ul>
-                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
                                                       </ul>
                                                    </ol>
                                                 </p>
@@ -772,9 +773,9 @@ namespace System.Scsc.Ui.MasterPage
                                              <body>
                                                 <p style=""float:right"">
                                                    <ol>
-                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
                                                       <ul>
-                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
                                                       </ul>
                                                    </ol>
                                                 </p>
@@ -823,9 +824,9 @@ namespace System.Scsc.Ui.MasterPage
 //                                             <body>
 //                                                <p style=""float:right"">
 //                                                   <ol>
-//                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+//                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
 //                                                      <ul>
-//                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+//                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
 //                                                      </ul>
 //                                                   </ol>
 //                                                </p>
@@ -1226,7 +1227,7 @@ namespace System.Scsc.Ui.MasterPage
                                                                   }
                                                                );
                                                             }
-                                                            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("GotoPrint error: " + ex.ToString()); }
+                                                            catch{}
                                                          })
                                                    #endregion
                                                 }
@@ -1415,7 +1416,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("??? - ??? ?????? ?? ???? 194 ???? ??????", "??? ??????");
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 194 سطوح امینتی", "عدم دسترسی");
                            })
                         },
                         #endregion
@@ -1448,7 +1449,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("??? - ??? ?????? ?? ???? 195 ???? ??????", "??? ??????");
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 195 سطوح امینتی", "عدم دسترسی");
                            })
                         },
                         #endregion
@@ -1481,7 +1482,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("??? - ??? ?????? ?? ???? 196 ???? ??????", "??? ??????");
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 196 سطوح امینتی", "عدم دسترسی");
                            })
                         },
                         #endregion
@@ -1514,7 +1515,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("??? - ??? ?????? ?? ???? 197 ???? ??????", "??? ??????");
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 197 سطوح امینتی", "عدم دسترسی");
                            })
                         },
                         #endregion
@@ -1562,7 +1563,7 @@ namespace System.Scsc.Ui.MasterPage
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("??? - ??? ?????? ?? ???? 193 ???? ??????", "??? ??????");
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 193 سطوح امینتی", "عدم دسترسی");
                            })
                         },
                         #endregion
@@ -1620,6 +1621,7 @@ namespace System.Scsc.Ui.MasterPage
                });
          _DefaultGateway.Gateway(_InteractWithScsc);
       }
+
 
       private void rt_sesn_saveonetime_Click(object sender, EventArgs e)
       {
@@ -1789,14 +1791,14 @@ namespace System.Scsc.Ui.MasterPage
             Sp_Barcode.Open();
 
             if (Sp_Barcode.IsOpen)
-               Tsp_AttnSys.Text = "????? ????? ???? ????";
+               Tsp_AttnSys.Text = "سیستم بارکد خوان فعال";
             else
-               Tsp_AttnSys.Text = "????? ????? ???? ???????";
+               Tsp_AttnSys.Text = "سیستم بارکد خوان غیرفعال";
          }
          catch 
          {
             //MessageBox.Show(ex.Message);
-            Tsp_AttnSys.Text = "????? ????? ???? ???????";
+            Tsp_AttnSys.Text = "سیستم بارکد خوان غیرفعال";
          }
       }
 
@@ -1807,7 +1809,7 @@ namespace System.Scsc.Ui.MasterPage
             if (Sp_Barcode.IsOpen)
             {
                Sp_Barcode.Close();
-               Tsp_AttnSys.Text = "????? ????? ???? ???????";
+               Tsp_AttnSys.Text = "سیستم بارکد خوان غیرفعال";
             }
          }
          catch (Exception ex)
@@ -1852,7 +1854,7 @@ namespace System.Scsc.Ui.MasterPage
 
                         if (fingerPrintSetting.IP_ADDR != null && fingerPrintSetting.PORT_NUMB != null)
                         {
-                           Tsp_AttnSys.Text = "?? ??? ????? ?? ?????? ???? ????...";
+                           Tsp_AttnSys.Text = "در حال اتصال به دستگاه حضور غیاب...";
                            Tsp_AttnSys.ForeColor = SystemColors.ControlText;
 
                            if (!bIsConnected)
@@ -1863,14 +1865,14 @@ namespace System.Scsc.Ui.MasterPage
                            }
                            if (bIsConnected == true)
                            {
-                              Tsp_AttnSys.Text = "?????? ???? ???? ???? ?? ????";
+                              Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
                               Tsp_AttnSys.ForeColor = Color.Green;
                               int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                               axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
                            }
                            else
                            {
-                              Tsp_AttnSys.Text = "?????? ???? ???? ??????? ?? ????";
+                              Tsp_AttnSys.Text = "دستگاه حضور غیاب غیرفعال می باشد";
                               Tsp_AttnSys.ForeColor = Color.Red;
                            }  
                         }
@@ -1889,10 +1891,10 @@ namespace System.Scsc.Ui.MasterPage
       private void axCZKEM1_OnAttTransactionEx(string EnrollNumber, int IsInValid, int AttState, int VerifyMethod, int Year, int Month, int Day, int Hour, int Minute, int Second, int WorkCode)
       {
          /*
-          * ?? ??? ???? ??? ?? ????? ????? ???? ?????? ????? ?? ???? ???? ????? ??? ?? ????? ??? ??? ??? ???? ?????
-          * ??? ???? ????? ????? ?? ????? ?? ?? ??? ??????? ?? ??? ????? ??? ????? ???? ????? ????? ???? ????
+          * در این قسمت بعد از اینکه کاربر درون دستگاه تعریف شد باید برای اولین بار در سیستم عمل ثبت نام صورت پذیرد
+          * این حالت اولیه زمانی رخ میدهد که ما هیچ مشترییی با این شماره اثر انگشت درون سیستم تعریف نشده باشد
           */
-         //EnrollNumber = Microsof2t.VisualBasic.Interaction.InputBox("???? ?? ?????? ??? ?? ???? ????");
+         //EnrollNumber = Microsof2t.VisualBasic.Interaction.InputBox("لطفا کد کاربری خود را وارد کنید");
          //if (enrollnumber == EnrollNumber && enrolldate.AddSeconds(5) <= DateTime.Now) { enrollnumber = ""; return; }
          //else { enrollnumber = EnrollNumber; enrolldate = DateTime.Now; }
          //ExtCode.ScreenSaver.KillScreenSaver();
@@ -1912,9 +1914,9 @@ namespace System.Scsc.Ui.MasterPage
 
             if (figh != null &&  Convert.ToInt32(figh.ACTV_TAG_DNRM ?? "101") <= 100)
             {
-               if (MessageBox.Show(this, "????? ???? ??? ?? ???? ??? ?? ????? ???? ????? ???. ???? ?? ???? ???? ???? ????? ??????", "???? ???? ?????? ???????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+               if (MessageBox.Show(this, "مشتری مورد نظر در حالت حذف از سیستم قرار گرفته است. مایل به فعال کردن مجدد مشتری هستید؟", "حضور مجدد مشتریی غیرفعال", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                {
-                  // ??? ???? ?????? ???? ?? ???? ?????? ?????? ???? ?? ???????? ?? ???? ?????? ????
+                  // این قسمت برنامه باید با واحد مربوطه انتقال یابد که پراکندگی کد وجود نداشته باشد
                   #region Disable To Enabled
                   iScsc.AET_RQST_F(
                      new XElement("Process",
@@ -1989,7 +1991,7 @@ namespace System.Scsc.Ui.MasterPage
          {
             axCZKEM1.Disconnect();
             bIsConnected = false;            
-            Tsp_AttnSys.Text = "?????? ???????? ??????? ??";
+            Tsp_AttnSys.Text = "دستگاه حضورغیاب غیرفعال شد";
          }
       }
       #endregion

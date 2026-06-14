@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -129,6 +129,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
          crnt.RQTT_CODE = null;
       }
+
 
       private void ClearAll_Butn_Click(object sender, EventArgs e)
       {
@@ -329,7 +330,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             RqstBs2.DataSource = iScsc.Requests.First(r => r == crnt.Request);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AodtBs1_CurrentChanged error: " + ex.ToString()); }
+         catch { }
       }
 
       private void EndRqst_Butn_Click(object sender, EventArgs e)
@@ -424,7 +425,7 @@ namespace System.Scsc.Ui.AggregateOperation
                var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "001" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && /*exp.MTOD_CODE == mtodcode &&*/ exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
 
                FromDate_Dt.Value = DateTime.Now;
-               //if (MessageBox.Show(this, "????? ????? ?? ?????? ?? ??? ?? ???? ?? ?????", "???? ??? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+               //if (MessageBox.Show(this, "تعداد جلسات با احتساب یک روز در میان می باشد؟", "مشخص شدن تاریخ پایان", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(2 * (expn.NUMB_OF_ATTN_MONT - 1)));
                //else
                //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(expn.NUMB_OF_ATTN_MONT ?? 30));
@@ -441,7 +442,7 @@ namespace System.Scsc.Ui.AggregateOperation
          }
          catch (Exception)
          {
-            MessageBox.Show("?? ???? ???? ??? ? ????? ????? ????? ? ??????? ???????? ?? ????? ???? ????. ???? ???? ???? ?? ????? ? ????? ????");
+            MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
          }
       }
 
@@ -468,7 +469,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             CtgyBs2.DataSource = iScsc.Category_Belts.Where(c => c.CTGY_STAT == "002" && c.MTOD_CODE == cbmt.MTOD_CODE);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CbmtNew_Lov_EditValueChanging error: " + ex.ToString()); }
+         catch { }
       }
 
       private void AgopBs1_CurrentChanged(object sender, EventArgs e)
@@ -512,7 +513,7 @@ namespace System.Scsc.Ui.AggregateOperation
          }
          catch (Exception)
          {
-            MessageBox.Show("?? ???? ???? ??? ? ????? ????? ????? ? ??????? ???????? ?? ????? ???? ????. ???? ???? ???? ?? ????? ? ????? ????");
+            MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
          }
       }
 
@@ -556,7 +557,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             if (StrtDate_dt.Value.Value.Date > EndDate_dt.Value.Value.Date)
             {
-               throw new Exception("????? ???? ???? ?? ????? ????? ?????? ?? ????? ????");
+               throw new Exception("تاریخ شروع باید از تاریخ پایان کوچکتر با مساوی باشد");
             }
 
             iScsc.UCC_TRQT_P(
@@ -706,23 +707,23 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            PydsType_Butn.Text = PydsType_Butn.Tag.ToString() == "0" ? "?????" : "?????";
+            PydsType_Butn.Text = PydsType_Butn.Tag.ToString() == "0" ? "مبلغی" : "درصدی";
             PydsType_Butn.Tag = PydsType_Butn.Tag.ToString() == "0" ? "1" : "0";
 
             if (PydsType_Butn.Tag.ToString() == "0")
             {
-               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "???? ?????";
+               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "درصد تخفیف";
                PydsAmnt_Txt.Properties.MaxLength = 3;
             }
             else
             {
-               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "???? ?????";
+               PydsAmnt_Txt.Properties.NullText = PydsAmnt_Txt.Properties.NullValuePrompt = "مبلغ تخفیف";
                PydsAmnt_Txt.Properties.MaxLength = 0;
             }
             PydsAmnt_Txt.Focus();
 
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PydsType_Butn_Click error: " + ex.ToString()); }
+         catch { }
       }
    }
 }

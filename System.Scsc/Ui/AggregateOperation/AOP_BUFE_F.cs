@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -44,8 +44,8 @@ namespace System.Scsc.Ui.AggregateOperation
             RprtFromDate_Dt.CommitChanges();
             RprtToDate_Dt.CommitChanges();
 
-            if (!RprtFromDate_Dt.Value.HasValue) { MessageBox.Show("????? ???? ?? ???? ????"); RprtFromDate_Dt.Focus(); return; }
-            if (!RprtToDate_Dt.Value.HasValue) { MessageBox.Show("????? ????? ?? ???? ????"); RprtFromDate_Dt.Focus(); return; }
+            if (!RprtFromDate_Dt.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); RprtFromDate_Dt.Focus(); return; }
+            if (!RprtToDate_Dt.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); RprtFromDate_Dt.Focus(); return; }
 
             AgopBs1.DataSource =
                iScsc.Aggregation_Operations
@@ -60,36 +60,36 @@ namespace System.Scsc.Ui.AggregateOperation
          AgopBs1.Position = agopindx;
          AodtBs1.Position = aodtindx;
 
-         FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("?????, ???? ??")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+         FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
 
          ClubBs1.DataSource = iScsc.Clubs.Where(c => Fga_Uclb_U.Contains(c.CODE));
 
          ExpnBufeBs1.DataSource =
             iScsc.Expenses.Where(ex =>
-               ex.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && ex.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
+               ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
                ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-               ex.EXPN_STAT == "002" /* ????? ??? ???? */
+               ex.EXPN_STAT == "002" /* هزینه های فعال */
             );
 
          ExtpDeskBs1.DataSource =
             iScsc.Expense_Types.Where(et =>
-               et.Request_Requester.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && et.Request_Requester.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
+               et.Request_Requester.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && et.Request_Requester.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
                et.Request_Requester.RQTP_CODE == "016" &&
                et.Request_Requester.RQTT_CODE == "007" &&
                et.Expenses.Any(ex => ex.EXPN_STAT == "002")
             );
          
-         // 1398/12/17 * ????? ????? ??? ????? ????? ?? ??? ????? ??? ????? ????? ???? ?????
+         // 1398/12/17 * بخاطر اضافه شدن گزینه مربوط به نوع هزینه این گزینه اینجا بسته میشود
          //ExpnDeskBs1.DataSource =
          //   iScsc.Expenses.Where(ex =>
-         //      ex.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && ex.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
+         //      ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
          //      ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
          //      ex.Expense_Type.Request_Requester.RQTT_CODE == "007" &&
-         //      ex.EXPN_STAT == "002" /* ????? ??? ???? */
+         //      ex.EXPN_STAT == "002" /* هزینه های فعال */
          //   ).OrderBy(ed => ed.EXPN_DESC);
 
-         // 1401/01/03 * ???? ????? ?? ????? ??????
+         // 1401/01/03 * کنار مصطفی تو استخر هوابرد
          if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))
             SearchCustTell_Butn_Click(null, null);
 
@@ -403,7 +403,7 @@ namespace System.Scsc.Ui.AggregateOperation
             {
                if(_admnwlet.AMNT_DNRM <= 10000)
                {
-                  MessageBox.Show(this, "???? ??? ??? ??? ???? ???? ???? ??? ???? ??? ??? ????? ????", "???? ??? ???", MessageBoxButtons.OK);
+                  MessageBox.Show(this, "شارژ کیف پول شما تمام شده، لطفا جهت شارژ کیف پول اقدام کنید", "شارژ کیف پول", MessageBoxButtons.OK);
                   return;
                }
             }
@@ -452,7 +452,7 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             var crnt = AgopBs1.Current as Data.Aggregation_Operation;
 
-            if (crnt == null || (crnt != null && MessageBox.Show(this, "??? ?? ?????? ???? ???? ????? ??????", "?????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)) return;
+            if (crnt == null || (crnt != null && MessageBox.Show(this, "آیا با انصراف دفتر فعلی موافق هستید؟", "انصراف دفتر", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)) return;
 
             iScsc.INS_AGOP_P(
                new XElement("Process",
@@ -496,7 +496,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            // 1401/01/18 - ??? ??? ?? ????? ??? ??????? ????? ???????  ??????? ????? ???
+            // 1401/01/18 - اگر فرم در وضعیت ثبت اطلاعات نباشد نبایستی  عملیاتی انجام شود
             if (!SaveInfoStat_Rb.Checked) return;
 
             var crnt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
@@ -512,12 +512,12 @@ namespace System.Scsc.Ui.AggregateOperation
                );
                return;
             }
-            if (crnt.STAT == "002") { MessageBox.Show("??? ????? ???? ?? ????? ????? ???? ?????"); return; }
+            if (crnt.STAT == "002") { MessageBox.Show("این رکورد قبلا در وضعیت نهایی قرار گرفته"); return; }
             switch (e.Button.Index)
             {
                case 0:
                   //crnt.REC_STAT = crnt.REC_STAT == "001" ? "002" : "001";
-                  if (MessageBox.Show(this, "??? ?? ??? ???? ??? ????????", "??? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "آیا با پاک کردن میز موافقید؟", "حذف میز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                   iScsc.DEL_AODT_P(crnt.AGOP_CODE, crnt.RWNO);
                   break;
                case 2:
@@ -532,36 +532,36 @@ namespace System.Scsc.Ui.AggregateOperation
 
                   if(crnt.STAT != "003")
                   {
-                     MessageBox.Show(this, "??? ???? ???? ???? ???? ???? ??? ??? ?? ???? ???? ?? ????? ??? ?????? ???");
+                     MessageBox.Show(this, "میز بسته نشده لطفا دکمه بسته شدن میز را فشار دهید تا هزینه میز محاسبه شود");
                      return;
-                     //if (MessageBox.Show(this, "??? ???? ????! ??? ???????? ??? ???? ????", "??? ???? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+                     //if (MessageBox.Show(this, "میز بسته نشده! آیا میخواهید میز بسته شود؟", "میز بسته نشده", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
                      //   return;
                      //DeskClose_Butn_Click(null, null);
                   }
 
-                  // 1399/11/17 * ??? ????? ????? ???? ????? ???? ????? ???? ?? ?? ???? ????? ???? ??????
+                  // 1399/11/17 * اگر مشتری دارای مبلغ سپرده باشد اضافه بازی را به صورت تخفیف لحاظ میکنیم
                   if (crnt.Fighter.DPST_AMNT_DNRM > 0)
                      setondebt = false;
 
                   var unitamnt = iScsc.D_ATYPs.FirstOrDefault(d => d.VALU == crnt.Aggregation_Operation.Regulation.AMNT_TYPE);
-                  // 1397/08/08 * ???? ???? ?????? ??? ???? ????? ????? ???? ???
+                  // 1397/08/08 * برای حالت بدهکار شدن پیام هشدار نمایش داده شود
                   if(setondebt && 
                      MessageBox.Show(this, 
-                        string.Format("????? ????? ??? ?? ????" + " " + "{0}" + " " + "{1}" + " ?????? ?? ????! " + "\n\r" + 
-                        "??? ?????? ??? ???? ????? ????",
+                        string.Format("مشترک هزینه میز به مبلغ" + " " + "{0}" + " " + "{1}" + " بدهکار می باشد! " + "\n\r" + 
+                        "آیا عملیات ثبت بدهی انجام شود؟",
                         crnt.TOTL_AMNT_DNRM - (crnt.CASH_AMNT + crnt.POS_AMNT + crnt.PYDS_AMNT + crnt.DPST_AMNT),
                         unitamnt.DOMN_DESC
                         ), 
-                        "??? ????? ?? ???? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                        "ثبت هزینه در حساب دفتری مشترک", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
                   {
                      return;
                   }
                   //if(setondebt && (crnt.CELL_PHON == null || crnt.CELL_PHON == ""))
                   //{
-                  //   MessageBox.Show("???? ????? ???? ?? ?? ???? ???? ??? ?? ???? ???? ????? ???? ???? ??? ????");
+                  //   MessageBox.Show("برای هزینه هایی که در حالت بدهی ثبت می شوند باید شماره تلفن تماس ثبت گردد");
                   //   return;
                   //}
-                  // ??? ?????? ?? ??????? ?? ???? ????? ???? ??????? ?? ???? ??? ????? ???
+                  // اگر تغییری در اطلاعات به وجود آماده باشد تغییرات به صورت کلی ذخیره شود
                   iScsc.SubmitChanges();
                   iScsc.ENDO_RSBU_P(
                      new XElement("Aggregation_Operation_Detail",
@@ -606,7 +606,7 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             var crnt = desk;
 
-            if (crnt.STAT == "002") { MessageBox.Show("??? ????? ???? ?? ????? ????? ???? ?????"); return; }
+            if (crnt.STAT == "002") { MessageBox.Show("این رکورد قبلا در وضعیت نهایی قرار گرفته"); return; }
             
             if (crnt.TOTL_AMNT_DNRM > ((crnt.CASH_AMNT ?? 0) + (crnt.POS_AMNT ?? 0) + (crnt.PYDS_AMNT ?? 0) + (crnt.DPST_AMNT ?? 0)))
                setondebt = true;
@@ -615,36 +615,36 @@ namespace System.Scsc.Ui.AggregateOperation
 
             if (crnt.STAT != "003")
             {
-               MessageBox.Show(this, "??? ???? ???? ???? ???? ???? ??? ??? ?? ???? ???? ?? ????? ??? ?????? ???");
+               MessageBox.Show(this, "میز بسته نشده لطفا دکمه بسته شدن میز را فشار دهید تا هزینه میز محاسبه شود");
                return;
-               //if (MessageBox.Show(this, "??? ???? ????! ??? ???????? ??? ???? ????", "??? ???? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
+               //if (MessageBox.Show(this, "میز بسته نشده! آیا میخواهید میز بسته شود؟", "میز بسته نشده", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes)
                //   return;
                //DeskClose_Butn_Click(null, null);
             }
 
-            // 1399/11/17 * ??? ????? ????? ???? ????? ???? ????? ???? ?? ?? ???? ????? ???? ??????
+            // 1399/11/17 * اگر مشتری دارای مبلغ سپرده باشد اضافه بازی را به صورت تخفیف لحاظ میکنیم
             if (crnt.Fighter.DPST_AMNT_DNRM > 0)
                setondebt = false;
 
             var unitamnt = iScsc.D_ATYPs.FirstOrDefault(d => d.VALU == crnt.Aggregation_Operation.Regulation.AMNT_TYPE);
-            // 1397/08/08 * ???? ???? ?????? ??? ???? ????? ????? ???? ???
+            // 1397/08/08 * برای حالت بدهکار شدن پیام هشدار نمایش داده شود
             if (setondebt &&
                MessageBox.Show(this,
-                  string.Format("????? ????? ??? ?? ????" + " " + "{0}" + " " + "{1}" + " ?????? ?? ????! " + "\n\r" +
-                  "??? ?????? ??? ???? ????? ????",
+                  string.Format("مشترک هزینه میز به مبلغ" + " " + "{0}" + " " + "{1}" + " بدهکار می باشد! " + "\n\r" +
+                  "آیا عملیات ثبت بدهی انجام شود؟",
                   crnt.TOTL_AMNT_DNRM - (crnt.CASH_AMNT + crnt.POS_AMNT + crnt.PYDS_AMNT + crnt.DPST_AMNT),
                   unitamnt.DOMN_DESC
                   ),
-                  "??? ????? ?? ???? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
+                  "ثبت هزینه در حساب دفتری مشترک", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes)
             {
                return;
             }
             //if(setondebt && (crnt.CELL_PHON == null || crnt.CELL_PHON == ""))
             //{
-            //   MessageBox.Show("???? ????? ???? ?? ?? ???? ???? ??? ?? ???? ???? ????? ???? ???? ??? ????");
+            //   MessageBox.Show("برای هزینه هایی که در حالت بدهی ثبت می شوند باید شماره تلفن تماس ثبت گردد");
             //   return;
             //}
-            // ??? ?????? ?? ??????? ?? ???? ????? ???? ??????? ?? ???? ??? ????? ???
+            // اگر تغییری در اطلاعات به وجود آماده باشد تغییرات به صورت کلی ذخیره شود
             iScsc.SubmitChanges();
             iScsc.ENDO_RSBU_P(
                new XElement("Aggregation_Operation_Detail",
@@ -672,13 +672,13 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             var crnt = AgopBs1.Current as Data.Aggregation_Operation;
 
-            if (crnt != null && MessageBox.Show(this, "??? ?? ???? ???? ???? ????? ??????", "???? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (crnt != null && MessageBox.Show(this, "آیا با بستن دفتر فعلی موافق هستید؟", "بستن دفتر", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            // ??? ???? ??? ???? ?? ???? ???? ????
-            // ??? ???? ???? ??? ???? ?? ???? ????? ???? ????
+            // اگر میزی باز باشد که بسته نشده باشد
+            // اگر میزی بسته شده باشد که برای مهمان آزاد باشد
             if(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(a => a.STAT == "001" || (a.STAT == "003" && a.Fighter.FGPB_TYPE_DNRM == "005" && a.CELL_PHON.Length == 0)))
             {
-               MessageBox.Show("?????? ??? ????? ?? ??? ??? ???? ??? ?? ????? ?? ????? ???? ?????? ?? ????? ???? ????? ??? ???? ????? ???? ?? ???? ????");
+               MessageBox.Show("میزهای باز مانده یا میز های بسته شده که متعلق به مشتری آزاد میباشد که تسویه حساب نکرده اند باید تکلیف آنها را مشخص کنید");
                return;
             }
 
@@ -699,7 +699,7 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("todate", crnt.TO_DATE.HasValue ? crnt.TO_DATE.Value.ToString("yyyy-MM-dd") : ""),
                      new XAttribute("oprttype", crnt.OPRT_TYPE ?? "005"),
                      new XAttribute("oprtstat", "004"),
-                     new XAttribute("agopdesc", crnt.AGOP_DESC ?? "????? ???? ???? ????? ??? ??????")
+                     new XAttribute("agopdesc", crnt.AGOP_DESC ?? "خدایا بابت روزی امروز ازت ممنونم")
                   )
                )
             );
@@ -724,13 +724,13 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            if (e.Button.Index == 4) // ???????? ???? ????
+            if (e.Button.Index == 4) // بارگذاری لیست جدید
             {
                iScsc = new Data.iScscDataContext(ConnectionString);
-               FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("?????, ???? ??")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+               FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
                return;
             }
-            else if (e.Button.Index == 5) // ????? ????? ????
+            else if (e.Button.Index == 5) // تعریف کاربر جدید
             {
                Job _InteractWithScsc =
                new Job(SendType.External, "Localhost",
@@ -742,7 +742,7 @@ namespace System.Scsc.Ui.AggregateOperation
                _DefaultGateway.Gateway(_InteractWithScsc);
                return;
             }
-            else if(e.Button.Index == 6) // ???? ???? ????? ?????
+            else if(e.Button.Index == 6) // مشخص کردن مشتری مهمان
             {
                if (Figh_Lov.EditValue == null || Figh_Lov.EditValue.ToString() == "") return;
 
@@ -764,23 +764,23 @@ namespace System.Scsc.Ui.AggregateOperation
                   try
                   {
                      var agop = AgopBs1.Current as Data.Aggregation_Operation;
-                     // ??? ????? ???? ?????? ????
+                     // اگر لیستی وجود نداشته باشد
                      if (agop == null)
                      {
-                        MessageBox.Show(this, "??????? ?? ???? ????? ????? ???? ??? ??? ?? ????? ????", "???? ????? ???? ?????");
-                        if (MessageBox.Show(this, "??? ???? ?? ????? ???? ???? ???? ????? ??????", "????? ???????? ???? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
-                        // ????? ???? ???? ????
+                        MessageBox.Show(this, "اطلاعات یک لیست دفتری ایجاد کنید بعد میز را کرایه دهید", "لیست دفتری وجود ندارد");
+                        if (MessageBox.Show(this, "آیا مایل به ایجاد کردن لیست دفتر امروز هستید؟", "ایجاد اتوماتیک لیست دفتر", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+                        // ایجاد کردن دفتر جدید
                         AgopBs1.AddNew();
                         agop = AgopBs1.Current as Data.Aggregation_Operation;
                         agop.FROM_DATE = agop.TO_DATE = DateTime.Now;
                         Edit_Butn_Click(null, null);
                      }
-                     else if (agop.FROM_DATE.Value.Date != DateTime.Now.Date) // ??? ???? ????? ?? ?????? ??? ????
+                     else if (agop.FROM_DATE.Value.Date != DateTime.Now.Date) // اگر لیست متعلق به روزهای قبل باشد
                      {
-                        if (MessageBox.Show(this, "???? ???? ???? ????? ?? ????? ????? ?? ????! ??? ???? ?? ???? ???? ???? ??????", "???? ???? ???? ???", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
-                        // ?????? ???? ???? ????
+                        if (MessageBox.Show(this, "لیست دفتر جاری متعلق به تاریخ دیگری می باشد! آیا مایل به بستن لیست قبلی هستید؟", "بستن لیست دفتر قبل", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+                        // پایانی کردن دفتر قبلی
                         EndRqst_Butn_Click(null, null);
-                        // ????? ???? ???? ????
+                        // ایجاد کردن دفتر جدید
                         AgopBs1.AddNew();
                         agop = AgopBs1.Current as Data.Aggregation_Operation;
                         agop.FROM_DATE = agop.TO_DATE = DateTime.Now;
@@ -832,7 +832,7 @@ namespace System.Scsc.Ui.AggregateOperation
                   break;
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("FIGH_FILE_NOLookUpEdit_ButtonClick error: " + ex.ToString()); }
+         catch { }
       }
 
       private void AddItem_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -840,19 +840,19 @@ namespace System.Scsc.Ui.AggregateOperation
          try
          {
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-            // ??? ????? ???? ?????? ????
+            // اگر لیستی وجود نداشته باشد
             if (aodt == null)
             {
-               MessageBox.Show(this, "???? ???? ?????? ????? ?????? ????? ???? ?????", "???? ???? ????? ???? ?????");
+               MessageBox.Show(this, "برای دفتر مربوطه شماره پرونده مشتری وجود ندارد", "ردیف لیست دفتری وجود ندارد");
                return;
             }
 
-            if (aodt.STAT == "002") { MessageBox.Show("??? ???? ?? ???? ? ????? ?? ????? ???? ???? ??? ???? ???? ?? ?????? ??????"); return; }
+            if (aodt.STAT == "002") { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); return; }
 
             requery = true;
             var expn = ExpnBufeBs1.Current as Data.Expense;
 
-            // ?? ?????? ?? ???? ?? ??? ???? ????? ?? ???? ??? ????? ???? ?????? ????
+            // چک میکنیم که قبلا از این آیتم هزینه در جدول ریز هزینه وجود نداشته باشد
             if (!BufeBs1.List.OfType<Data.Buffet>().Any(b => b.EXPN_CODE == expn.CODE))
             {
                BufeBs1.AddNew();
@@ -888,11 +888,11 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            // 1401/01/18 - ??? ??? ?? ????? ??? ??????? ????? ???????  ??????? ????? ???
+            // 1401/01/18 - اگر فرم در وضعیت ثبت اطلاعات نباشد نبایستی  عملیاتی انجام شود
             if (!SaveInfoStat_Rb.Checked) return;
 
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-            if (aodt.STAT == "002") { MessageBox.Show("??? ???? ?? ???? ? ????? ?? ????? ???? ???? ??? ???? ???? ?? ?????? ??????"); return; }
+            if (aodt.STAT == "002") { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); return; }
 
             var bufe = BufeBs1.Current as Data.Buffet;
 
@@ -901,7 +901,7 @@ namespace System.Scsc.Ui.AggregateOperation
             switch (e.Button.Index)
             {
                case 0:
-                  if (MessageBox.Show(this, "??? ?? ??? ???? ???? ????? ??????", "??? ???? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "آیا با حذف آیتم بوفه موافق هستید؟", "حذف آیتم بوفه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                   iScsc.Buffets.DeleteOnSubmit(bufe);
                   break;
                default:
@@ -930,7 +930,7 @@ namespace System.Scsc.Ui.AggregateOperation
          try
          {
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-            if (aodt.STAT == "002") { MessageBox.Show("??? ???? ?? ???? ? ????? ?? ????? ???? ???? ??? ???? ???? ?? ?????? ??????"); return; }
+            if (aodt.STAT == "002") { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); return; }
             var pyrt = PyrtBs1.Current as Data.Payment_Row_Type;
 
             if (pyrt == null) return;
@@ -938,7 +938,7 @@ namespace System.Scsc.Ui.AggregateOperation
             switch (e.Button.Index)
             {
                case 0:
-                  if (MessageBox.Show(this, "??? ?? ??? ???? ??????? ????? ??????", "??? ???? ???????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "آیا با حذف آیتم پرداختی موافق هستید؟", "حذف آیتم پرداختی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                   if (pyrt.CODE != 0)
                      iScsc.Payment_Row_Types.DeleteOnSubmit(pyrt);
                   else
@@ -980,7 +980,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             if (_desk == null) return;
 
-            if (_desk.STAT == "002") { MessageBox.Show("??? ???? ?? ???? ? ????? ?? ????? ???? ???? ??? ???? ???? ?? ?????? ??????"); return; }
+            if (_desk.STAT == "002") { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); return; }
 
             //aodt.END_TIME = DateTime.Now.TimeOfDay;
             _desk.END_TIME = DateTime.Now;
@@ -993,7 +993,7 @@ namespace System.Scsc.Ui.AggregateOperation
             iScsc.CALC_APDT_P(_desk.AGOP_CODE, _desk.RWNO);
             requery = true;
 
-            // ????? ???? ???? ????? ???? ?????? ???? ??? ???? ?????
+            // ارسال پیام برای خاموش کردن دستگاه چراغ میز برای مشتری
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
                {
@@ -1013,19 +1013,19 @@ namespace System.Scsc.Ui.AggregateOperation
                TotlMint_Txt.EditValue = (_desk.END_TIME.Value - _desk.STRT_TIME.Value).TotalMinutes;
             }
 
-            // 1403/06/10 * ??? ?????? ??? ?? ??? ?? ???? ??? ?????? ????? ???? ??? ?? ??????
+            // 1403/06/10 * اگر انتخاب شود که بعد از بسته شدن فاکتور تسویه حساب شود می توانید
             if(FinlRec_Cbx.Checked)
             {
                CalcDesk_Butn_Click(null, null);
-               // 1403/06/11 * ????? ????? ????? ??????? ??? ??? ??? ??? ?? ????? ??? ?????? ????? ??? ???? ????
+               // 1403/06/11 * بدلیل اینکه کاربر میتواند فقط میز های باز رو بررسی کند احتمال ایجاد خطا وجود دارن
                //AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == _desk.AGOP_CODE && a.RWNO == _desk.RWNO));
                //_desk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
                _desk = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == _desk.AGOP_CODE && a.RWNO == _desk.RWNO);
                _desk.CASH_AMNT = _desk.TOTL_AMNT_DNRM - (/*(aodt.CASH_AMNT ?? 0) +*/ (_desk.POS_AMNT ?? 0) + (_desk.PYDS_AMNT ?? 0) + (_desk.DPST_AMNT ?? 0));
-               RecStat_Butn_ButtonClick(_desk, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // ????? ???? ??? ?? ????? ??????
+               RecStat_Butn_ButtonClick(_desk, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DeskClose_Butn_Click error: " + ex.ToString()); }
+         catch { }
          finally
          {
             if (requery)
@@ -1034,17 +1034,17 @@ namespace System.Scsc.Ui.AggregateOperation
 
                Execute_Query();
 
-               // ??? ????? ?? ???? ?????? ???? ???
+               // اگر سیستم به صورت انلاین اجرا شود
                if (isOnline)
                {
                   AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == desk.AGOP_CODE && a.RWNO == desk.RWNO));
                   desk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-                  // ??? ????? ????? ?????? ?? ????? ???? ???? ????? ?? ????? ???? ????? ????? ?? ?????? ?? ???? ????? ?? ?? ???? ????? ??? ????
-                  // ?? ???????? ????? ?????? ????
+                  // اگر زمانی اتفاق بیوفتد که هزینه بازی برای مشتری از میزان مبلغ سپرده بیشتر شد کافیست که مبلغ هزینه را با مبلغ سپرده یکی کنیم
+                  // که صورتحساب مشتری بدهکار نشود
                   if (desk.EXPN_PRIC >= desk.Fighter.DPST_AMNT_DNRM)
-                     desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // ???? ????? ???? ?? ?? ????? ????? ??? ???? ??????
-                  desk.DPST_AMNT = desk.EXPN_PRIC; // ?????? ????? ??? ?? ?? ????? ????? ??????
-                  RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // ????? ???? ??? ?? ????? ??????
+                     desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
+                  desk.DPST_AMNT = desk.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
+                  RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
                }
 
                requery = false;
@@ -1057,7 +1057,7 @@ namespace System.Scsc.Ui.AggregateOperation
          try
          {
             apdt_gv.PostEditor();
-            if (aodt.STAT == "002") { MessageBox.Show("??? ???? ?? ???? ? ????? ?? ????? ???? ???? ??? ???? ???? ?? ?????? ??????"); return; }
+            if (aodt.STAT == "002") { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); return; }
 
             //aodt.END_TIME = DateTime.Now.TimeOfDay;
             aodt.END_TIME = DateTime.Now;
@@ -1072,7 +1072,7 @@ namespace System.Scsc.Ui.AggregateOperation
             //iScsc.CALC_APDT_P(aodt.AGOP_CODE, aodt.RWNO);
             //requery = true;
 
-            // ????? ???? ???? ????? ???? ?????? ???? ??? ???? ?????
+            // ارسال پیام برای خاموش کردن دستگاه چراغ میز برای مشتری
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
                {
@@ -1092,7 +1092,7 @@ namespace System.Scsc.Ui.AggregateOperation
                TotlMint_Txt.EditValue = (aodt.END_TIME.Value - aodt.STRT_TIME.Value).TotalMinutes;
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DeskClose_Butn_Click error: " + ex.ToString()); }
+         catch { }
          //finally
          //{
          //   if (requery)
@@ -1101,17 +1101,17 @@ namespace System.Scsc.Ui.AggregateOperation
 
          //      Execute_Query();
 
-         //      // ??? ????? ?? ???? ?????? ???? ???
+         //      // اگر سیستم به صورت انلاین اجرا شود
          //      if (isOnline)
          //      {
          //         AodtBs1.Position = AodtBs1.IndexOf(AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == desk.AGOP_CODE && a.RWNO == desk.RWNO));
          //         desk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-         //         // ??? ????? ????? ?????? ?? ????? ???? ???? ????? ?? ????? ???? ????? ????? ?? ?????? ?? ???? ????? ?? ?? ???? ????? ??? ????
-         //         // ?? ???????? ????? ?????? ????
+         //         // اگر زمانی اتفاق بیوفتد که هزینه بازی برای مشتری از میزان مبلغ سپرده بیشتر شد کافیست که مبلغ هزینه را با مبلغ سپرده یکی کنیم
+         //         // که صورتحساب مشتری بدهکار نشود
          //         if (desk.EXPN_PRIC >= desk.Fighter.DPST_AMNT_DNRM)
-         //            desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // ???? ????? ???? ?? ?? ????? ????? ??? ???? ??????
-         //         desk.DPST_AMNT = desk.EXPN_PRIC; // ?????? ????? ??? ?? ?? ????? ????? ??????
-         //         RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // ????? ???? ??? ?? ????? ??????
+         //            desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
+         //         desk.DPST_AMNT = desk.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
+         //         RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
          //      }
 
          //      requery = false;
@@ -1131,10 +1131,10 @@ namespace System.Scsc.Ui.AggregateOperation
 
             if (aodt == null) return;
 
-            if (aodt.STAT.In("002")) { MessageBox.Show("??? ???? ?? ???? ? ????? ?? ????? ???? ???? ??? ???? ???? ?? ?????? ??????"); return; }
-            //if (aodt.STAT.In("003")) { MessageBox.Show("??? ???? ??? ???? ???? ?? ?????? ????"); return; }
+            if (aodt.STAT.In("002")) { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); return; }
+            //if (aodt.STAT.In("003")) { MessageBox.Show("میز بسته شده دیگر قادر به محاسبه نیست"); return; }
 
-            // 1395/12/27 * ??? ??????? ?? ??? ????? ?? ??? ?? ????? ???? ?? ?? ????? ????? ??? ???? ????? ???? ????? ?? ????? ?????
+            // 1395/12/27 * اگر بخواهیم تا این مرحله از کار رو بررسی کنیم که چه میزان هزینه شده باید تاریخ ساعت پایان را داشته باشیم
             if (aodt.END_TIME == null || aodt.STRT_TIME > aodt.END_TIME || ChckCalcEndTime_Cbx.Checked)
             {
                aodt.END_TIME = DateTime.Now;
@@ -1152,7 +1152,7 @@ namespace System.Scsc.Ui.AggregateOperation
                TotlMint_Txt.EditValue = (aodt.END_TIME.Value - aodt.STRT_TIME.Value).TotalMinutes;
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CalcDesk_Butn_Click error: " + ex.ToString()); }
+         catch { }
          finally
          {
             if (requery)
@@ -1168,10 +1168,10 @@ namespace System.Scsc.Ui.AggregateOperation
          try
          {
             apdt_gv.PostEditor();
-            if (aodt.STAT.In("002")) { MessageBox.Show("??? ???? ?? ???? ? ????? ?? ????? ???? ???? ??? ???? ???? ?? ?????? ??????"); return; }
-            //if (aodt.STAT.In("003")) { MessageBox.Show("??? ???? ??? ???? ???? ?? ?????? ????"); return; }
+            if (aodt.STAT.In("002")) { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستید"); return; }
+            //if (aodt.STAT.In("003")) { MessageBox.Show("میز بسته شده دیگر قادر به محاسبه نیست"); return; }
 
-            // 1395/12/27 * ??? ??????? ?? ??? ????? ?? ??? ?? ????? ???? ?? ?? ????? ????? ??? ???? ????? ???? ????? ?? ????? ?????
+            // 1395/12/27 * اگر بخواهیم تا این مرحله از کار رو بررسی کنیم که چه میزان هزینه شده باید تاریخ ساعت پایان را داشته باشیم
             if (aodt.END_TIME == null || aodt.STRT_TIME > aodt.END_TIME || ChckCalcEndTime_Cbx.Checked)
             {
                aodt.END_TIME = DateTime.Now;
@@ -1190,7 +1190,7 @@ namespace System.Scsc.Ui.AggregateOperation
                TotlMint_Txt.EditValue = (aodt.END_TIME.Value - aodt.STRT_TIME.Value).TotalMinutes;
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CalcDesk_Butn_Click error: " + ex.ToString()); }
+         catch { }
          //finally
          //{
          //   if (requery)
@@ -1209,8 +1209,8 @@ namespace System.Scsc.Ui.AggregateOperation
 
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
-            if (aodt.STAT.In("002")) { MessageBox.Show("??? ???? ?? ???? ? ????? ?? ????? ???? ???? ??? ???? ???? ?? ?????? ??????"); Execute_Query(); return; }
-            //if (aodt.STAT.In("003")) { MessageBox.Show("??? ???? ??? ???? ???? ?? ?????? ????"); return; }
+            if (aodt.STAT.In("002")) { MessageBox.Show("میز هایی که بسته و تسویه یا دفتری حساب کرده اند دیگر قادر به ویرایش نیستند"); Execute_Query(); return; }
+            //if (aodt.STAT.In("003")) { MessageBox.Show("میز بسته شده دیگر قادر به ویرایش نیست"); return; }
 
             AodtBs1.EndEdit();
 
@@ -1223,7 +1223,7 @@ namespace System.Scsc.Ui.AggregateOperation
                TotlMint_Txt.EditValue = (aodt.END_TIME.Value - aodt.STRT_TIME.Value).TotalMinutes;
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SaveStrtEndTime_Butn_Click error: " + ex.ToString()); }
+         catch { }
          finally
          {
             if (requery)
@@ -1238,7 +1238,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            ServName_Tsmi.Text = "??????";
+            ServName_Tsmi.Text = "نامشخص";
             ServName_Tsmi.Enabled = false;
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
@@ -1271,7 +1271,7 @@ namespace System.Scsc.Ui.AggregateOperation
                Pos_Butn.Enabled = Cash_Butn.Enabled = true;
             }
 
-            // 1398/08/19 * ???? ???? ???? ? ???? ???? ?? ???? ?????
+            // 1398/08/19 * قرار دادن مبلغ و تایم بازی در منوی بازشو
             ExpnPric_Tsmi.Text = aodt.Expense.PRIC.ToString();
             ExpnMinTime_Tsmi.Text = aodt.Expense.MIN_TIME.Value.ToString("HH:mm");
             ServName_Tsmi.Text = aodt.Fighter.NAME_DNRM;
@@ -1283,10 +1283,10 @@ namespace System.Scsc.Ui.AggregateOperation
             // 1401/02/22 * Show Infomation on record
             AodtInfo_Lb.Text = "";
             if (aodt.GROP_APBS_CODE != null)
-               AodtInfo_Lb.Text = "???? ( " + aodt.App_Base_Define.TITL_DESC + " ) - ";
-            AodtInfo_Lb.Text += string.Format("???? ???? : " + "{0:HH:mm}", aodt.STRT_TIME.Value.AddMinutes(Convert.ToDouble(EndTimeValu_Txt.EditValue)));
+               AodtInfo_Lb.Text = "سانس ( " + aodt.App_Base_Define.TITL_DESC + " ) - ";
+            AodtInfo_Lb.Text += string.Format("ساعت خروج : " + "{0:HH:mm}", aodt.STRT_TIME.Value.AddMinutes(Convert.ToDouble(EndTimeValu_Txt.EditValue)));
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AodtBs1_PositionChanged error: " + ex.ToString()); }
+         catch { }
       }
 
       private void OpenDesk_Butn_Click(object sender, EventArgs e)
@@ -1297,7 +1297,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             if (agop == null)
             {
-               MessageBox.Show("???? ???? ????? ??? ????");
+               MessageBox.Show("لیست دفتر امروز باز نشده");
                return;
             }
 
@@ -1307,14 +1307,14 @@ namespace System.Scsc.Ui.AggregateOperation
             {
                if (_admnwlet.AMNT_DNRM <= 10000)
                {
-                  MessageBox.Show(this, "???? ??? ??? ??? ???? ???? ???? ??? ???? ??? ??? ????? ????", "???? ??? ???", MessageBoxButtons.OK);
+                  MessageBox.Show(this, "شارژ کیف پول شما تمام شده، لطفا جهت شارژ کیف پول اقدام کنید", "شارژ کیف پول", MessageBoxButtons.OK);
                   return;
                }
             }
 
-            if (OpenOnSelfDate_Cbx.Checked && agop.FROM_DATE.Value.Date != DateTime.Now.Date && MessageBox.Show(this, "??? ??? ???? ??? ?? ????? ????? ?? ?????? ??? ????", "??? ??? ??? ?? ????? ??? ?? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (OpenOnSelfDate_Cbx.Checked && agop.FROM_DATE.Value.Date != DateTime.Now.Date && MessageBox.Show(this, "ایا میز مورد نظر در تاریخ دیگری می خواهید باز کنید", "باز شدن میز در تاریخ غیر از امروز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-            if (ExpnDesks_Lov.EditValue == null || ExpnDesks_Lov.EditValue.ToString() == "") { MessageBox.Show("???? ?????? ????"); return; }
+            if (ExpnDesks_Lov.EditValue == null || ExpnDesks_Lov.EditValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
             var desk = Convert.ToInt64(ExpnDesks_Lov.EditValue);
 
             long? fileno = null;
@@ -1328,26 +1328,26 @@ namespace System.Scsc.Ui.AggregateOperation
                fileno = FighBs.OfType<Data.Fighter>().FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005").FILE_NO;
             }
 
-            if (fileno == null) { MessageBox.Show("??? ????? ?????? ????"); return; }
+            if (fileno == null) { MessageBox.Show("نام مشتری انتخاب نشده"); return; }
 
-            // 1399/11/25 * ??? ??? ??? ???? ???? ????? ??? ???? ???? ?? ?? ?????? ?????
+            // 1399/11/25 * اگر میز باز باشد دیگر اجازه باز کردن مجدد آن را نداشته یاشیم
             if (!OpenMoreItem_Cbx.Checked)
             {
                if (AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(d => d.Aggregation_Operation == agop && d.EXPN_CODE == desk && d.REC_STAT == "002" && d.STAT == "001"))
                {
-                  MessageBox.Show("??? - ???? ?? ??? ??? ???? ?? ?? ????? ?? ??? ???? ??? ?? ????? ??? ????????? ?????? ???? ??? ?? ??? ????");
+                  MessageBox.Show("خطا - میزی که قصد باز کردن آن را دارید در حال حاضر باز می باشد، شما نمیتوانید دوباره همان میز را باز کنید");
                   return;
                }
             }
 
             if(TableCloseOpen)
             {
-               // 1395/12/27 * ??? ???? ???? ??? ?? ?? ???? ??????? ?? ????? ???? ???
+               // 1395/12/27 * میز هابه صورت پشت سر هم قرار میگیرند تا تسویه حساب شود
                var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;            
                iScsc.INS_AODT_P(agop.CODE, 1, aodt.AGOP_CODE, aodt.RWNO , fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null, null, null);
                
-               // 1401/01/05 * ???? ????? ???? ?? ?? ???? ?????? ??? ?????? ???? ?????? ?? ????? ??? ???? ???? ??? ?? ??? ?????
-               if(aodt.STAT == "001" && MessageBox.Show(this, "??? ????? ???? ????? ????", "???? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+               // 1401/01/05 * برای رکورد هایی که به صورت وابسته باز میکنیم سوال میکنیم که رکورد پدر باید بسته شود یا باز بماند
+               if(aodt.STAT == "001" && MessageBox.Show(this, "آیا رکورد فعلی متوقف شود؟", "توقف ساعت رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                   DeskClose_Butn_Click(aodt);
                Indpnd_Rb.Checked = true;
             }
@@ -1358,7 +1358,7 @@ namespace System.Scsc.Ui.AggregateOperation
             Indpnd_Rb.Checked = true;
             requery = true;
 
-            // ????? ???? ???? ??? ???? ?????? ???? ??? ???? ?????            
+            // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری            
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
                {
@@ -1400,7 +1400,7 @@ namespace System.Scsc.Ui.AggregateOperation
                   if (newfileno == null || newfileno.ToString() == "") return;
                   if (crnt.FIGH_FILE_NO == (long)newfileno) return;
                   
-                  if (MessageBox.Show(this, "??? ?? ?????? ????? ?? ????? ???? ????????", "?????? ????? ?? ????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "آیا با انتقال هزینه به مشتری دیگر موافقید؟", "انتقال هزینه به مشتری دیگر", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
                   crnt.Fighter = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == (long)newfileno);
                   iScsc.SubmitChanges();
 
@@ -1412,7 +1412,7 @@ namespace System.Scsc.Ui.AggregateOperation
                   break;
                case 4:
                   iScsc = new Data.iScscDataContext(ConnectionString);
-                  FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("?????, ???? ??")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+                  FighBs.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
                   return;
                case 5:
                   Job _InteractWithScsc =
@@ -1457,7 +1457,7 @@ namespace System.Scsc.Ui.AggregateOperation
             if (sender is Data.Aggregation_Operation_Detail)
                aodt = sender as Data.Aggregation_Operation_Detail;
 
-            // 1403/06/09 * ??? ??? ???? ??? ???? ?? ??? ????? ??????? ??? ??????? ??? ?? ???? ???
+            // 1403/06/09 * اگر میز بسته شده باشد به هیچ عنوان نمیتوان هیچ عملیاتی روی آن اجرا کرد
             if (aodt.STAT == "002") return;
 
             // 1403/06/11 * Save Index in Memory
@@ -1480,7 +1480,7 @@ namespace System.Scsc.Ui.AggregateOperation
             _crntiDesk = null;
             requery = true;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CloseOpenTable_Butn_Click error: " + ex.ToString()); }
+         catch { }
          finally
          {
             if(requery)
@@ -1534,10 +1534,10 @@ namespace System.Scsc.Ui.AggregateOperation
             var amnt = Convert.ToInt64(PosAmnt_Txt.EditValue);
             if (amnt == 0) return;
 
-            // 1400/05/24 * ??? ???? ???? ??? ?? ???? ?? ????? ????
+            // 1400/05/24 * اگر مبلغ وارد شده از مبلغ کل بیشتر باشد
             if (!SaveUpPymt_Cbx.Checked)
             {
-               if (amnt > (aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT))) { if (MessageBox.Show(this, "???? ???????? ??? ?? ???? ?? ????? ??? ????? ??????? ??? ???? ?? ????? ???? ???????", "?????? ???? ?? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return; else amnt = (long)(aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT)); }
+               if (amnt > (aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT))) { if (MessageBox.Show(this, "مبلغ کارتخوان شما از مبلغ کل هزینه میز بیشتر میباشد، ایا مایل به اصلاح قیمت میباشد؟", "مغایرت مالی در وصولی", MessageBoxButtons.YesNo) != DialogResult.Yes) return; else amnt = (long)(aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT)); }
             }
 
             var regl = iScsc.Regulations.FirstOrDefault(r => r.TYPE == "001" && r.REGL_STAT == "002");
@@ -1708,10 +1708,10 @@ namespace System.Scsc.Ui.AggregateOperation
             var amnt = Convert.ToInt64(PosAmnt_Txt.EditValue);
             if (amnt == 0) return;
 
-            // 1400/05/24 * ??? ???? ???? ??? ?? ???? ?? ????? ????
+            // 1400/05/24 * اگر مبلغ وارد شده از مبلغ کل بیشتر باشد
             if (!SaveUpPymt_Cbx.Checked)
             {
-               if (amnt > (aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT))) { if (MessageBox.Show(this, "???? ???? ??? ?? ???? ?? ????? ??? ????? ??????? ??? ???? ?? ????? ???? ???????", "?????? ???? ?? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return; else amnt = (long)(aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT)); }
+               if (amnt > (aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT))) { if (MessageBox.Show(this, "مبلغ نقدی شما از مبلغ کل هزینه میز بیشتر میباشد، ایا مایل به اصلاح قیمت میباشد؟", "مغایرت مالی در وصولی", MessageBoxButtons.YesNo) != DialogResult.Yes) return; else amnt = (long)(aodt.TOTL_AMNT_DNRM - (aodt.POS_AMNT + aodt.CASH_AMNT + aodt.PYDS_AMNT + aodt.DPST_AMNT)); }
             }
 
             aodt.CASH_AMNT += amnt;
@@ -1743,21 +1743,21 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          if (e.Button.Index == 1)
          {
-            if (e.Button.Caption == "??????")
+            if (e.Button.Caption == "خودکار")
             {
-               e.Button.Caption = "????";
+               e.Button.Caption = "دستی";
                e.Button.Tag = "manual";
             }
             else
             {
-               e.Button.Caption = "??????";
+               e.Button.Caption = "خودکار";
                e.Button.Tag = "auto";
             }
          }
          else if(e.Button.Index == 6)
          {
             // Trun On Glob
-            if (ExpnDesks_Lov.EditValue == null || ExpnDesks_Lov.EditValue.ToString() == "") { MessageBox.Show("???? ?????? ????"); return; }
+            if (ExpnDesks_Lov.EditValue == null || ExpnDesks_Lov.EditValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
             var desk = Convert.ToInt64(ExpnDesks_Lov.EditValue); 
             
             _DefaultGateway.Gateway(
@@ -1778,7 +1778,7 @@ namespace System.Scsc.Ui.AggregateOperation
                               AfterChangedOutput = new Action<object>((output) => {
                                  if ((bool)output)
                                  {
-                                    // ????? ???? ???? ??? ???? ?????? ???? ??? ???? ?????            
+                                    // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری            
                                     _DefaultGateway.Gateway(
                                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
                                        {
@@ -1802,7 +1802,7 @@ namespace System.Scsc.Ui.AggregateOperation
          else if(e.Button.Index == 7)
          {
             // Trun Off Glob
-            if (ExpnDesks_Lov.EditValue == null || ExpnDesks_Lov.EditValue.ToString() == "") { MessageBox.Show("???? ?????? ????"); return; }
+            if (ExpnDesks_Lov.EditValue == null || ExpnDesks_Lov.EditValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
             var desk = Convert.ToInt64(ExpnDesks_Lov.EditValue); 
                         
             _DefaultGateway.Gateway(
@@ -1823,7 +1823,7 @@ namespace System.Scsc.Ui.AggregateOperation
                               AfterChangedOutput = new Action<object>((output) => {
                                  if ((bool)output)
                                  {
-                                    // ????? ???? ???? ??? ???? ?????? ???? ??? ???? ?????            
+                                    // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری            
                                     _DefaultGateway.Gateway(
                                        new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
                                        {
@@ -1854,7 +1854,7 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             if (_admnwlet.AMNT_DNRM <= 10000)
             {
-               MessageBox.Show(this, "???? ??? ??? ??? ???? ???? ???? ??? ???? ??? ??? ????? ????", "???? ??? ???", MessageBoxButtons.OK);
+               MessageBox.Show(this, "شارژ کیف پول شما تمام شده، لطفا جهت شارژ کیف پول اقدام کنید", "شارژ کیف پول", MessageBoxButtons.OK);
                return;
             }
          }
@@ -1869,15 +1869,15 @@ namespace System.Scsc.Ui.AggregateOperation
 
                if (agop == null)
                {
-                  if(MessageBox.Show(this, "???? ???? ????? ??? ????! ??? ?? ???? ?????? ???? ???? ??? ????", "???? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)return;
+                  if(MessageBox.Show(this, "دفتر لیست امروز باز نشده! آیا به صورت خودکار دفتر لیست باز شود؟", "دفتر لیست", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes)return;
                   AgopBs1.AddNew();
                   Edit_Butn_Click(null, null);
                   agop = AgopBs1.Current as Data.Aggregation_Operation;
                }
 
-               if (OpenOnSelfDate_Cbx.Checked && agop.FROM_DATE.Value.Date != DateTime.Now.Date && MessageBox.Show(this, "??? ??? ???? ??? ?? ????? ????? ?? ?????? ??? ????", "??? ??? ??? ?? ????? ??? ?? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (OpenOnSelfDate_Cbx.Checked && agop.FROM_DATE.Value.Date != DateTime.Now.Date && MessageBox.Show(this, "ایا میز مورد نظر در تاریخ دیگری می خواهید باز کنید", "باز شدن میز در تاریخ غیر از امروز", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
-               //if (e.NewValue.ToString() == "") { MessageBox.Show("???? ?????? ????"); return; }
+               //if (e.NewValue.ToString() == "") { MessageBox.Show("میزی انتخاب نشده"); return; }
                var desk = Convert.ToInt64(e.NewValue);
 
                long? fileno = null;
@@ -1891,31 +1891,31 @@ namespace System.Scsc.Ui.AggregateOperation
                   fileno = FighBs.OfType<Data.Fighter>().FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005").FILE_NO;
                }
 
-               if (fileno == null) { MessageBox.Show("??? ????? ?????? ????"); return; }
+               if (fileno == null) { MessageBox.Show("نام مشتری انتخاب نشده"); return; }
 
-               // 1399/11/25 * ??? ??? ??? ???? ???? ????? ??? ???? ???? ?? ?? ?????? ?????
+               // 1399/11/25 * اگر میز باز باشد دیگر اجازه باز کردن مجدد آن را نداشته یاشیم
                if (!OpenMoreItem_Cbx.Checked)
                {
                   if (AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Any(d => d.Aggregation_Operation == agop && d.EXPN_CODE == desk && d.REC_STAT == "002" && d.STAT == "001"))
                   {
-                     MessageBox.Show("??? - ???? ?? ??? ??? ???? ?? ?? ????? ?? ??? ???? ??? ?? ????? ??? ????????? ?????? ???? ??? ?? ??? ????");
+                     MessageBox.Show("خطا - میزی که قصد باز کردن آن را دارید در حال حاضر باز می باشد، شما نمیتوانید دوباره همان میز را باز کنید");
                      return;
                   }
                }
 
                if (TableCloseOpen)
                {
-                  // 1395/12/27 * ??? ???? ???? ??? ?? ?? ???? ??????? ?? ????? ???? ???
+                  // 1395/12/27 * میز هابه صورت پشت سر هم قرار میگیرند تا تسویه حساب شود
                   //var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
                   var aodt = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().FirstOrDefault(a => a.AGOP_CODE == _crntiDesk.AGOP_CODE && a.RWNO == _crntiDesk.RWNO);
                   iScsc.INS_AODT_P(agop.CODE, 1, aodt.AGOP_CODE, aodt.RWNO, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null, null, null);
 
-                  // 1401/01/05 * ???? ????? ???? ?? ?? ???? ?????? ??? ?????? ???? ?????? ?? ????? ??? ???? ???? ??? ?? ??? ?????
-                  if (aodt.STAT == "001" && MessageBox.Show(this, "??? ????? ???? ????? ????", "???? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
+                  // 1401/01/05 * برای رکورد هایی که به صورت وابسته باز میکنیم سوال میکنیم که رکورد پدر باید بسته شود یا باز بماند
+                  if (aodt.STAT == "001" && MessageBox.Show(this, "آیا رکورد فعلی متوقف شود؟", "توقف ساعت رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) == DialogResult.Yes)
                      DeskClose_Butn_Click(aodt);
                   Indpnd_Rb.Checked = true;
 
-                  // ????? ???? ???? ????? ???? ?????? ???? ??? ???? ?????
+                  // ارسال پیام برای خاموش کردن دستگاه چراغ میز برای مشتری
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
                      {
@@ -1933,7 +1933,7 @@ namespace System.Scsc.Ui.AggregateOperation
                {
                   iScsc.INS_AODT_P(agop.CODE, 1, null, null, fileno, null, null, null, "002", "001", desk, null, null, null, null, null, null, null, null, null, null);
 
-                  // ????? ???? ???? ??? ???? ?????? ???? ??? ???? ?????                              
+                  // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری                              
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
                      {
@@ -1952,7 +1952,7 @@ namespace System.Scsc.Ui.AggregateOperation
                Indpnd_Rb.Checked = true;
                requery = true;
             }
-            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ExpnDesk_GridLookUpEdit_EditValueChanging error: " + ex.ToString()); }
+            catch {}
             finally
             {
                if (requery)
@@ -1985,12 +1985,12 @@ namespace System.Scsc.Ui.AggregateOperation
             var fighs = iScsc.Fighters.Where(f => f.CELL_PHON_DNRM == aodt.CELL_PHON && f.CONF_STAT == "002" && f.ACTV_TAG_DNRM.CompareTo("101") >= 0);
             if(fighs.Count() == 0)
             {
-               MessageBox.Show("????? ?? ??? ????? ???? ???? ???");
+               MessageBox.Show("مشتری با این شماره تلفن یافت نشد");
                return;
             }
             else if(fighs.Count() > 1)
             {
-               if(MessageBox.Show(this, "?? ??? ????? ?????? ????? ?????? ??! ??? ???? ?? ????? ??????", "????? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+               if(MessageBox.Show(this, "با این شماره تعدادی مشتری مشاهده شد! آیا مایل به بررسی هستید؟", "رکورد تکراری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                {
                   Job _InteractWithScsc =
                      new Job(SendType.External, "Localhost",
@@ -2119,7 +2119,7 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            ServInfo2_Tsmi.Text = "??????";
+            ServInfo2_Tsmi.Text = "نامشخص";
             if (e.NewValue == null || e.NewValue.ToString() == "") return;
 
             var figh = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)e.NewValue);
@@ -2172,22 +2172,22 @@ namespace System.Scsc.Ui.AggregateOperation
          }
       }
 
-      #region ?????? ????
+      #region پرداخت بدهی
       private void PayCashDebt1_Tsmi_Click(object sender, EventArgs e)
       {
          try
          {
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
-            // ??? ?????? ???? ?????? ????
+            // اگر مشترکی وجود نداشته باشد
             if (aodt == null) return;
-            // ??? ????? ???? ?????? ????
+            // اگر مشتری بدهی نداشته باشد
             if (aodt.Fighter.DEBT_DNRM == 0) return;
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             if (aodt.Fighter.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt1_Tsmi.Text.Replace(",", ""));
-            // ???? ?????? ????? ?? ???? ???? ?? ????
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
             if (paydebt > aodt.Fighter.DEBT_DNRM) return;
 
             var vf_SavePayment =
@@ -2199,10 +2199,10 @@ namespace System.Scsc.Ui.AggregateOperation
                long amnt = 0;
 
                if (debt > paydebt)
-                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
                   amnt = paydebt;
                else
-                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -2243,15 +2243,15 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
-            // ??? ?????? ???? ?????? ????
+            // اگر مشترکی وجود نداشته باشد
             if (aodt == null) return;
-            // ??? ????? ???? ?????? ????
+            // اگر مشتری بدهی نداشته باشد
             if (aodt.Fighter.DEBT_DNRM == 0) return;
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             if (aodt.Fighter.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt1_Tsmi.Text.Replace(",", ""));
-            // ???? ?????? ????? ?? ???? ???? ?? ????
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
             if (paydebt > aodt.Fighter.DEBT_DNRM) return;
 
             var vf_SavePayment =
@@ -2263,10 +2263,10 @@ namespace System.Scsc.Ui.AggregateOperation
                long amnt = 0;
 
                if (debt > paydebt)
-                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
                   amnt = paydebt;
                else
-                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -2307,17 +2307,17 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
 
-            // ??? ?????? ???? ?????? ????
+            // اگر مشترکی وجود نداشته باشد
             if (aodt == null) return;
-            // ??? ????? ???? ?????? ????
+            // اگر مشتری بدهی نداشته باشد
             if (aodt.Fighter.DEBT_DNRM == 0) return;
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             if (aodt.Fighter.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt1_Tsmi.Text.Replace(",", ""));
-            // ???? ?????? ????? ?? ???? ???? ?? ????
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
             if (paydebt > aodt.Fighter.DEBT_DNRM) return;
-            // ??? ???? ?????? ?? ???? ????? ????? ????
+            // اگر مبلغ پرداخت از مبلغ سپرده بیشتر باشد
             if (paydebt > aodt.Fighter.DPST_AMNT_DNRM) return;
 
             var vf_SavePayment =
@@ -2329,10 +2329,10 @@ namespace System.Scsc.Ui.AggregateOperation
                long amnt = 0;
 
                if (debt > paydebt)
-                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
                   amnt = paydebt;
                else
-                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -2368,7 +2368,7 @@ namespace System.Scsc.Ui.AggregateOperation
       }
       #endregion
 
-      #region ?????? ?????
+      #region افزایش سپرده
       private void PayCashDepositeAmnt1_Tsmi_Click(object sender, EventArgs e)
       {
          try
@@ -2376,7 +2376,7 @@ namespace System.Scsc.Ui.AggregateOperation
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
             if (aodt == null) return;
 
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             if (aodt.Fighter.FIGH_STAT == "001") return;
             var paydeposite = Convert.ToInt64(PayDepositeAmnt1_Tsmi.Text.Replace(",", ""));
             if (paydeposite == 0) return;
@@ -2392,11 +2392,11 @@ namespace System.Scsc.Ui.AggregateOperation
                      ),
                      new XElement("Gain_Loss_Rials",
                         new XAttribute("glid", 0),
-                        new XAttribute("type", "002" /* ??? ???? ???? ????? ???? ??????? */),
+                        new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
                         new XAttribute("amnt", paydeposite),
                         new XAttribute("paiddate", ""),
                         new XAttribute("dpststat", "002"),
-                        new XAttribute("resndesc", "?????? ????? ?? ??? ????? ???"),
+                        new XAttribute("resndesc", "افزایش سپرده در فرم کنترل میز"),
                         new XElement("Gain_Loss_Rial_Detials",                           
                            new XElement("Gain_Loss_Rial_Detial",
                               new XAttribute("rwno", 1),
@@ -2454,7 +2454,7 @@ namespace System.Scsc.Ui.AggregateOperation
             var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
             if (aodt == null) return;
 
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             if (aodt.Fighter.FIGH_STAT == "001") return;
             var paydeposite = Convert.ToInt64(PayDepositeAmnt1_Tsmi.Text.Replace(",", ""));
             if (paydeposite == 0) return;
@@ -2470,11 +2470,11 @@ namespace System.Scsc.Ui.AggregateOperation
                      ),
                      new XElement("Gain_Loss_Rials",
                         new XAttribute("glid", 0),
-                        new XAttribute("type", "002" /* ??? ???? ???? ????? ???? ??????? */),
+                        new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
                         new XAttribute("amnt", paydeposite),
                         new XAttribute("paiddate", ""),
                         new XAttribute("dpststat", "002"),
-                        new XAttribute("resndesc", "?????? ????? ?? ??? ????? ???"),
+                        new XAttribute("resndesc", "افزایش سپرده در فرم کنترل میز"),
                         new XElement("Gain_Loss_Rial_Detials",
                            new XElement("Gain_Loss_Rial_Detial",
                               new XAttribute("rwno", 1),
@@ -2680,7 +2680,7 @@ namespace System.Scsc.Ui.AggregateOperation
          }
       }
 
-      #region ?????? ???? ????
+      #region پرداخت بدهی قبلی
       private void PayCashDebt2_Tsmi_Click(object sender, EventArgs e)
       {
          try
@@ -2690,15 +2690,15 @@ namespace System.Scsc.Ui.AggregateOperation
 
             var figh = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
 
-            // ??? ?????? ???? ?????? ????
+            // اگر مشترکی وجود نداشته باشد
             if (figh == null) return;
-            // ??? ????? ???? ?????? ????
+            // اگر مشتری بدهی نداشته باشد
             if (figh.DEBT_DNRM == 0) return;
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt2_Tsmi.Text.Replace(",", ""));
-            // ???? ?????? ????? ?? ???? ???? ?? ????
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
             if (paydebt > figh.DEBT_DNRM) return;
 
             var vf_SavePayment =
@@ -2710,10 +2710,10 @@ namespace System.Scsc.Ui.AggregateOperation
                long amnt = 0;
 
                if (debt > paydebt)
-                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
                   amnt = paydebt;
                else
-                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -2757,15 +2757,15 @@ namespace System.Scsc.Ui.AggregateOperation
 
             var figh = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
 
-            // ??? ?????? ???? ?????? ????
+            // اگر مشترکی وجود نداشته باشد
             if (figh == null) return;
-            // ??? ????? ???? ?????? ????
+            // اگر مشتری بدهی نداشته باشد
             if (figh.DEBT_DNRM == 0) return;
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt2_Tsmi.Text.Replace(",", ""));
-            // ???? ?????? ????? ?? ???? ???? ?? ????
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
             if (paydebt > figh.DEBT_DNRM) return;
 
             var vf_SavePayment =
@@ -2777,10 +2777,10 @@ namespace System.Scsc.Ui.AggregateOperation
                long amnt = 0;
 
                if (debt > paydebt)
-                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
                   amnt = paydebt;
                else
-                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -2824,15 +2824,15 @@ namespace System.Scsc.Ui.AggregateOperation
 
             var figh = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
 
-            // ??? ?????? ???? ?????? ????
+            // اگر مشترکی وجود نداشته باشد
             if (figh == null) return;
-            // ??? ????? ???? ?????? ????
+            // اگر مشتری بدهی نداشته باشد
             if (figh.DEBT_DNRM == 0) return;
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             if (figh.FIGH_STAT == "001") return;
 
             var paydebt = Convert.ToInt64(PayDebtAmnt2_Tsmi.Text.Replace(",", ""));
-            // ???? ?????? ????? ?? ???? ???? ?? ????
+            // مبلغ پرداخت بیشتر از مبلغ بدهی می باشد
             if (paydebt > figh.DEBT_DNRM) return;
 
             var vf_SavePayment =
@@ -2844,10 +2844,10 @@ namespace System.Scsc.Ui.AggregateOperation
                long amnt = 0;
 
                if (debt > paydebt)
-                  // ??? ???? ???????? ????? ?? ???? ?????? ????? ????
+                  // اگر بدهی صورتحساب بیشتر از مبلغ پرداخت مشتری باشد
                   amnt = paydebt;
                else
-                  // ??? ???? ???????? ?? ???? ?????? ????? ????? ?? ???? ????
+                  // اگر بدهی صورتحساب با مبلغ پرداخت مشتری مساوی یا کمتر باشد
                   amnt = debt;
 
                iScsc.PAY_MSAV_P(
@@ -2882,7 +2882,7 @@ namespace System.Scsc.Ui.AggregateOperation
       }
       #endregion
 
-      #region ????? ????? ?????
+      #region سپرده گذاری سیستم
       private void PayCashDepositeAmnt2_Tsmi_Click(object sender, EventArgs e)
       {
          try
@@ -2892,7 +2892,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             var figh = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
 
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             if (figh.FIGH_STAT == "001") return;
             var paydeposite = Convert.ToInt64(PayDepositeAmnt2_Tsmi.Text.Replace(",", ""));
             if (paydeposite == 0) return;
@@ -2908,11 +2908,11 @@ namespace System.Scsc.Ui.AggregateOperation
                      ),
                      new XElement("Gain_Loss_Rials",
                         new XAttribute("glid", 0),
-                        new XAttribute("type", "002" /* ??? ???? ???? ????? ???? ??????? */),
+                        new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
                         new XAttribute("amnt", paydeposite),
                         new XAttribute("paiddate", ""),
                         new XAttribute("dpststat", "002"),
-                        new XAttribute("resndesc", "?????? ????? ?? ??? ????? ???"),
+                        new XAttribute("resndesc", "افزایش سپرده در فرم کنترل میز"),
                         new XElement("Gain_Loss_Rial_Detials",
                            new XElement("Gain_Loss_Rial_Detial",
                               new XAttribute("rwno", 1),
@@ -2972,7 +2972,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             var figh = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FILE_NO == (long)fileno);
 
-            // ??? ????? ?? ??????? ??? ???? ????? ?????? ???? ???? ?????
+            // اگر مشتری در فرآیندی قفل باشد اجازه پرداخت بدهی وجود ندارد
             if (figh.FIGH_STAT == "001") return;
             var paydeposite = Convert.ToInt64(PayDepositeAmnt2_Tsmi.Text.Replace(",", ""));
             if (paydeposite == 0) return;
@@ -2988,11 +2988,11 @@ namespace System.Scsc.Ui.AggregateOperation
                      ),
                      new XElement("Gain_Loss_Rials",
                         new XAttribute("glid", 0),
-                        new XAttribute("type", "002" /* ??? ???? ???? ????? ???? ??????? */),
+                        new XAttribute("type", "002" /* روش جدید برای ذخیره سازی اطلاعات */),
                         new XAttribute("amnt", paydeposite),
                         new XAttribute("paiddate", ""),
                         new XAttribute("dpststat", "002"),
-                        new XAttribute("resndesc", "?????? ????? ?? ??? ????? ???"),
+                        new XAttribute("resndesc", "افزایش سپرده در فرم کنترل میز"),
                         new XElement("Gain_Loss_Rial_Detials",
                            new XElement("Gain_Loss_Rial_Detial",
                               new XAttribute("rwno", 1),
@@ -3303,9 +3303,9 @@ namespace System.Scsc.Ui.AggregateOperation
             var crntdesk = AodtBs1.Current as Data.Aggregation_Operation_Detail;
             if (crntdesk == null) return;
 
-            // 1399/11/25 * ???? ????? ??? ??? ??? ???? ?????? ???? ?? ??? ????? ???
-            var desks = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(d => d.STAT == "001" /* ??? ??? ??? ???? ?? ?????? ???? ????? */);
-            // ??? ??? ???? ???? ?????? ????
+            // 1399/11/25 * برای گزینه های میز باز باید محاسبه مجدد در نظر گرفته شود
+            var desks = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(d => d.STAT == "001" /* میز های باز نیاز به محاسبه مجدد دارند */);
+            // اگر میز بازی وجود نداشته باشد
             if (desks.Count() == 0) return;
             
             int value = 100 / desks.Count();
@@ -3351,14 +3351,14 @@ namespace System.Scsc.Ui.AggregateOperation
                      }
                   }
 
-                  // 1403/06/11 * ??? ???? ???? ???? ????? ?? ??????? ???? ?? ???? ???? ???? ??? ???? ??????? 
+                  // 1403/06/11 * اگر تایم بازی برای مشتری که درخواست کرده تا فلان تایم تمام شده باشد بخواهیم 
                   if(crntdesk.EXPR_MINT_NUMB > 0 && crntdesk.STRT_TIME.Value.AddMinutes((double)crntdesk.EXPR_MINT_NUMB) <= DateTime.Now)
                   {
                      if (evntLogs.Count == 1)
                      {
                         new Thread(AlarmShow).Start();
                      }
-                     evntLogs.Add(string.Format("{{ \"{4}\" ({1}) : \"{0}\" - {5}: [ {2:n0} {7} ] - {6}: [ {3:n0} {7} ] }}", crntdesk.Expense.EXPN_DESC, crntdesk.RWNO, crntdesk.EXPR_MINT_NUMB, crntdesk.END_TIME.Value.Subtract(crntdesk.STRT_TIME.Value).TotalMinutes, "????? ???????", "??????? ??? ????", "??? ????? ?? ?????", "?????"));
+                     evntLogs.Add(string.Format("{{ \"{4}\" ({1}) : \"{0}\" - {5}: [ {2:n0} {7} ] - {6}: [ {3:n0} {7} ] }}", crntdesk.Expense.EXPN_DESC, crntdesk.RWNO, crntdesk.EXPR_MINT_NUMB, crntdesk.END_TIME.Value.Subtract(crntdesk.STRT_TIME.Value).TotalMinutes, "هشدار یادآوری", "درخواست مدت زمان", "مدت زمانی که گذشته", "دقیقه"));
                   }
                }
             }
@@ -3382,10 +3382,10 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             RecalcDesk_Pgb.Visible = false;
             
-            // ??? ????? ?? ???? ?????? ??? ??? ?? ?? ???? ?????? ??????? ?? ?????? ????
+            // اگر سیستم به صورت انلاین کار کند که بر اساس اعتبار مشتریان در ارتباط باشد
             if (isOnline)
             {
-               // ?? ???? ?? ???????? ?? ?????? ???? ???? ??? ??? ???? ?????? ?? ????? ????
+               // آن دسته از مشتریانی که اعتبار آنها تمام شده است باید دستگاه را خاموش کنیم
                var desks = AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(d => d.STAT != "002");
                foreach (var desk in desks)
                {
@@ -3395,14 +3395,14 @@ namespace System.Scsc.Ui.AggregateOperation
                      //DeskClose_Butn_Click(null, null);
                      DeskClose_Butn_Click(desk);
                      //var aodt = AodtBs1.Current as Data.Aggregation_Operation_Detail;
-                     //// ??? ????? ????? ?????? ?? ????? ???? ???? ????? ?? ????? ???? ????? ????? ?? ?????? ?? ???? ????? ?? ?? ???? ????? ??? ????
-                     //// ?? ???????? ????? ?????? ????
+                     //// اگر زمانی اتفاق بیوفتد که هزینه بازی برای مشتری از میزان مبلغ سپرده بیشتر شد کافیست که مبلغ هزینه را با مبلغ سپرده یکی کنیم
+                     //// که صورتحساب مشتری بدهکار نشود
                      //if (desk.EXPN_PRIC >= desk.Fighter.DPST_AMNT_DNRM)
-                     //   desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // ???? ????? ???? ?? ?? ????? ????? ??? ???? ??????
-                     //desk.DPST_AMNT = desk.EXPN_PRIC; // ?????? ????? ??? ?? ?? ????? ????? ??????
-                     ////aodt.EXPN_PRIC = (int)aodt.Fighter.DPST_AMNT_DNRM; // ???? ????? ???? ?? ?? ????? ????? ??? ???? ??????
-                     ////aodt.DPST_AMNT = aodt.EXPN_PRIC; // ?????? ????? ??? ?? ?? ????? ????? ??????
-                     //RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // ????? ???? ??? ?? ????? ??????
+                     //   desk.EXPN_PRIC = (int)desk.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
+                     //desk.DPST_AMNT = desk.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
+                     ////aodt.EXPN_PRIC = (int)aodt.Fighter.DPST_AMNT_DNRM; // مبلغ هزینه بازی را با میزان سپرده یکی قرار میدهیم
+                     ////aodt.DPST_AMNT = aodt.EXPN_PRIC; // پرداخت هزینه میز را با سپرده انجام میدهیم
+                     //RecStat_Butn_ButtonClick(null, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(RecStat_Butn.Buttons[3])); // تسویه حساب میز را انجام میدهیم
                   }
                }
             }
@@ -3422,7 +3422,7 @@ namespace System.Scsc.Ui.AggregateOperation
                wplayer.URL = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
                wplayer.controls.play();
             }
-            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AlarmShow error: " + ex.ToString()); }
+            catch { }
 
             var tempcolor = BackGrnd_Butn.NormalColorA;
             for (int i = 0; i < 5; i++)
@@ -3507,11 +3507,11 @@ namespace System.Scsc.Ui.AggregateOperation
 
             ExpnDeskBs1.DataSource =
                iScsc.Expenses.Where(ex =>
-                  ex.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && ex.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
+                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
                   ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                   ex.Expense_Type.Request_Requester.RQTT_CODE == "007" &&
                   ex.Expense_Type.CODE == (long)e.NewValue &&
-                  ex.EXPN_STAT == "002" /* ????? ??? ???? */ 
+                  ex.EXPN_STAT == "002" /* هزینه های فعال */ 
 
                ).OrderBy(ed => ed.EXPN_DESC);
 
@@ -3548,7 +3548,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
       private void Indpnd_Rb_CheckedChanged(object sender, EventArgs e)
       {
-         // 1400/05/24 * ??? ??????? ???????? ????? ????? ?? ?? ?? ???? ???? ??? ?????? ?? ????? ??????
+         // 1400/05/24 * اگر بخواهیم مشتریانی داشته باشیم که در ان واحد بازی های مختلفی را انجام میدهند
          if (AodtBs1.List.Count == 0) { TableCloseOpen = false; Indpnd_Rb.Checked = true; return; }
          TableCloseOpen = !Indpnd_Rb.Checked;
          if(TableCloseOpen)
@@ -3671,7 +3671,7 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             if (FngrPrnt_Txt.Text == "")
             {
-               if (MessageBox.Show(this, "?? ??????? ???? ?????? ??? ???? ?? ????? ?? ??? ??? ??????", "????? ?? ???????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+               if (MessageBox.Show(this, "کد شناسایی خالی میباشد آیا مایل به ایجاد کد پیش فرض هستید؟", "هشدار کد شناسایی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                   MaxF_Butn001_Click(null, null);
                else
                {
@@ -3830,7 +3830,7 @@ namespace System.Scsc.Ui.AggregateOperation
             var drat = DratBs.Current as Data.Dresser_Attendance;
             if (drat == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             iScsc.Dresser_Attendances.DeleteOnSubmit(drat);
             iScsc.SubmitChanges();
@@ -3877,7 +3877,7 @@ namespace System.Scsc.Ui.AggregateOperation
             // Check Payment Method With Payment Amount
             if (PayByPymt_Cbx.Checked && Convert.ToInt64(RmndAmntTp_Txt.EditValue) != 0)
             {
-               MessageBox.Show(this, "???? ????? ???? ??? ?? ???? ?????? ?????? ????", "??? ??????", MessageBoxButtons.OK);
+               MessageBox.Show(this, "مبلغ تسویه حساب شما از مبلغ فاکتور مغایرت دارد", "خطا پرداخت", MessageBoxButtons.OK);
                return;
             }
 
@@ -3885,7 +3885,7 @@ namespace System.Scsc.Ui.AggregateOperation
             var _guest = FighBs.List.OfType<Data.Fighter>().FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005");
             if(_guest == null)
             {
-               MessageBox.Show(this, "???? ????? ??? ????? ???? ????? ????? ???? ????? ???? ?? ????? ????.");
+               MessageBox.Show(this, "برای سیستم شما مهمان آزاد تعریف نشده، لطفا مهمان آزاد را تعریف کنید.");
                return;
             }
 
@@ -3907,7 +3907,7 @@ namespace System.Scsc.Ui.AggregateOperation
             aodt.NUMB = (int)Cont_Txt.Value;
             aodt.PYDS_AMNT = Convert.ToInt64(PydsAmntTp_Txt.EditValue);
 
-            // ???? ???? ???? ???? ???????
+            // مشخص کردن سانس برای مشتریان
             if (AutoSunsSlct_Cbx.Checked)
             {
                var _suns = SunsBs.List.OfType<Data.App_Base_Define>().Where(a => DateTime.Now.TimeOfDay >= a.PRT1_TIME.Value.TimeOfDay && DateTime.Now.TimeOfDay <= a.PRT3_TIME.Value.TimeOfDay).OrderBy(a => a.PRT1_TIME).FirstOrDefault();
@@ -3937,9 +3937,9 @@ namespace System.Scsc.Ui.AggregateOperation
                return;
             }
 
-            SunsInfo_Lb.Text = string.Format("???? ????????? : " + "{0}" + " ?????" + ", ????? ????????? ????? ???? : " + "{1}" + " ???", (int)((_sunsInfo.PRT5_TIME.Value.TimeOfDay - DateTime.Now.TimeOfDay).TotalMinutes), (_sunsInfo.NUMB - AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(a => a.GROP_APBS_CODE == _sunsInfo.CODE).Count()));
+            SunsInfo_Lb.Text = string.Format("زمان باقیمانده : " + "{0}" + " دقیقه" + ", ظرفیت باقیمانده ورودی سانس : " + "{1}" + " نفر", (int)((_sunsInfo.PRT5_TIME.Value.TimeOfDay - DateTime.Now.TimeOfDay).TotalMinutes), (_sunsInfo.NUMB - AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(a => a.GROP_APBS_CODE == _sunsInfo.CODE).Count()));
 
-            // ???? ???? ???? ???? ?????
+            // مشخص کردن سانس برای رکورد
             aodt.GROP_APBS_CODE = (long?)SlctSuns_Lov.EditValue;
 
             SaveStrtEndTime_Butn_Click(null, null);
@@ -4005,7 +4005,7 @@ namespace System.Scsc.Ui.AggregateOperation
             // Checked Not Exists For another members
             if(agop.Aggregation_Operation_Details.Any(a => a.REC_STAT == "002" && a.STAT.In("001") && a.Dresser_Attendances.Any(da => da.DERS_NUMB.ToString() == DresNum_Txt.Text)))
             {
-               if (MessageBox.Show(this, "??? ????? ??? ?? ?????? ??? ????? ??????? ??? ????? ??????", "????? ??? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) { DresNum_Txt.Focus(); return; }
+               if (MessageBox.Show(this, "این شماره کمد در اختیار فرد دیگری میباشد، آیا مطمئن هستید؟", "شماره کمد تکراری", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) { DresNum_Txt.Focus(); return; }
             }
 
             DresItem_Lbx.Items.Add(DresNum_Txt.Text);
@@ -4108,7 +4108,7 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             DfltExpnPricTp_Txt.EditValue = Convert.ToInt64(DfltExpnPricTp_Txt.Tag) * Convert.ToInt64(e.NewValue);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Cont_Txt_EditValueChanging error: " + ex.ToString()); }
+         catch { }
       }
 
       private void UpdatePrice()
@@ -4120,7 +4120,7 @@ namespace System.Scsc.Ui.AggregateOperation
             if (PydsAmntTp_Txt.EditValue == null || PydsAmntTp_Txt.EditValue.ToString() == "") { PydsAmntTp_Txt.EditValue = 0; }
             RmndAmntTp_Txt.EditValue = (Convert.ToInt64(DfltExpnPricTp_Txt.Tag) * Cont_Txt.Value) - (Convert.ToInt64(PosAmntTp_Txt.EditValue) + Convert.ToInt64(CashAmntTp_Txt.EditValue) + Convert.ToInt64(PydsAmntTp_Txt.EditValue));
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("UpdatePrice error: " + ex.ToString()); }
+         catch { }
       }
 
       private void xAmntTp_Txt_TextChanged(object sender, EventArgs e)
@@ -4184,13 +4184,13 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            // 1401/01/18 - ??? ??? ?? ????? ??? ??????? ????? ???????  ??????? ????? ???
+            // 1401/01/18 - اگر فرم در وضعیت ثبت اطلاعات نباشد نبایستی  عملیاتی انجام شود
             if (!SaveInfoStat_Rb.Checked) return;
 
             var pymt = InCashBs.Current as Data.Payment_Row_Type;
             if (pymt == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             iScsc.Payment_Row_Types.DeleteOnSubmit(pymt);
             iScsc.SubmitChanges();
@@ -4211,13 +4211,13 @@ namespace System.Scsc.Ui.AggregateOperation
       {
          try
          {
-            // 1401/01/18 - ??? ??? ?? ????? ??? ??????? ????? ???????  ??????? ????? ???
+            // 1401/01/18 - اگر فرم در وضعیت ثبت اطلاعات نباشد نبایستی  عملیاتی انجام شود
             if (!SaveInfoStat_Rb.Checked) return;
 
             var pymt = OutCashBs.Current as Data.Payment_Row_Type;
             if (pymt == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             iScsc.Payment_Row_Types.DeleteOnSubmit(pymt);
             iScsc.SubmitChanges();
@@ -4261,7 +4261,7 @@ namespace System.Scsc.Ui.AggregateOperation
             var note = NoteBs.Current as Data.Note;
             if (note == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             iScsc.Notes.DeleteOnSubmit(note);
 
@@ -4310,7 +4310,7 @@ namespace System.Scsc.Ui.AggregateOperation
             {
                var _gust = FighBs.OfType<Data.Fighter>().FirstOrDefault(f => f.FGPB_TYPE_DNRM == "005");
                if (_gust == null)
-                  throw new Exception("???? ????? ????? ?? ???? ????? ????? ????");
+                  throw new Exception("لطفا مشتری آزادی را درون سیستم تعریف کنید");
                else
                {
                   fileno = _gust.FILE_NO;
@@ -4346,7 +4346,7 @@ namespace System.Scsc.Ui.AggregateOperation
                // Focus in list
                FgpbCellBs.Position = FgpbCellBs.IndexOf(FgpbCellBs.List.OfType<Data.Fighter_Public>().FirstOrDefault(fp => fp.CELL_PHON == CellPhon_Txt.Text));
                FrstName_Txt.Text = LastName_Txt.Text = CellPhon_Txt.Text = "";
-               //MessageBox.Show(this, "??????? ???? ????? ???? ???? ???? ????? ????????");
+               //MessageBox.Show(this, "اطلاعات درون سیستم وجود دارد لطفا بررسی بفرمایید");
             }
          }
          catch (Exception exc)
@@ -4530,7 +4530,7 @@ namespace System.Scsc.Ui.AggregateOperation
             long dynamnt = 0, fixamnt = 0;
             long cashamnt = 0, posamnt = 0, dsctamnt = 0;
             int cont = 0;
-            ShowRsltCalcTreeDesk_Txt.Text = "?????? ????????";
+            ShowRsltCalcTreeDesk_Txt.Text = "محاسبه صورتحساب";
 
             _listAodts.Clear();
             TreeScroll(aodt);
@@ -4552,17 +4552,17 @@ namespace System.Scsc.Ui.AggregateOperation
                ++cont;
 
                ShowRsltCalcTreeDesk_Txt.Text += Environment.NewLine +
-                  string.Format("{0} ) " + "????? ?????? ??? : " + "{1:n0}   ***   ????? ???? : " + "{2:n0}", aodt.RWNO, ((aodt.EXPN_PRIC ?? 0) * aodt.NUMB), aodt.TOTL_BUFE_AMNT_DNRM);
+                  string.Format("{0} ) " + "هزینه محاسبه شده : " + "{1:n0}   ***   هزینه ثابت : " + "{2:n0}", aodt.RWNO, ((aodt.EXPN_PRIC ?? 0) * aodt.NUMB), aodt.TOTL_BUFE_AMNT_DNRM);
             }
 
             ShowRsltCalcTreeDesk_Txt.Text += Environment.NewLine + "-----------------------------------------------------";
 
             ShowRsltCalcTreeDesk_Txt.Text += Environment.NewLine +
-                  string.Format("????? ?? ???? ?? : " + "{0} ???" , cont) + Environment.NewLine +  
-                  string.Format("??? ????? ?????? ??? : " + "{0:n0}   ***   ??? ????? ???? : " + "{1:n0}", dynamnt, fixamnt) + Environment.NewLine + 
-                  string.Format("??? ?? ????? : " + "{0:n0}", dynamnt + fixamnt) + Environment.NewLine +
-                  string.Format("????? ?? : " + "{0:n0}", dsctamnt) + Environment.NewLine + 
-                  string.Format("??????? ?? : ???? : " + "{0:n0}" + " ???????? : " + "{1:n0}", cashamnt, posamnt);
+                  string.Format("تعداد کل ردیف ها : " + "{0} عدد" , cont) + Environment.NewLine +  
+                  string.Format("جمع هزینه محاسبه شده : " + "{0:n0}   ***   جمع هزینه ثابت : " + "{1:n0}", dynamnt, fixamnt) + Environment.NewLine + 
+                  string.Format("جمع کل هزینه : " + "{0:n0}", dynamnt + fixamnt) + Environment.NewLine +
+                  string.Format("تخفیف ها : " + "{0:n0}", dsctamnt) + Environment.NewLine + 
+                  string.Format("پرداختی ها : نقدی : " + "{0:n0}" + " کارتخوان : " + "{1:n0}", cashamnt, posamnt);
 
             TotlDeskDynmExpnAmnt_Txt.EditValue = dynamnt;
             TotlDeskFixExpnAmnt_Txt.EditValue = fixamnt;
@@ -4571,6 +4571,8 @@ namespace System.Scsc.Ui.AggregateOperation
             PayCashAmnt_Txt.EditValue = PayPosAmnt_Txt.EditValue = DsctAmnt_Txt.EditValue = 0;
 
             PayRmndAmnt_Txt.EditValue = dynamnt + fixamnt - (cashamnt + posamnt + dsctamnt);//(Convert.ToInt64(PayCashAmnt_Txt.EditValue) + Convert.ToInt64(PayPosAmnt_Txt.EditValue) + Convert.ToInt64(DsctAmnt_Txt.EditValue)); ;
+
+            
 
             AodtBs1.Position = crntPos;
             requery = true;
@@ -4592,7 +4594,7 @@ namespace System.Scsc.Ui.AggregateOperation
          {
             PayRmndAmnt_Txt.EditValue = (Convert.ToInt64(TotlDeskDynmExpnAmnt_Txt.EditValue) + Convert.ToInt64(TotlDeskFixExpnAmnt_Txt.EditValue)) - (Convert.ToInt64(PayCashAmnt_Txt.EditValue) + Convert.ToInt64(PayPosAmnt_Txt.EditValue) + Convert.ToInt64(DsctAmnt_Txt.EditValue));
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PayxAmnt_Txt_TextChanged error: " + ex.ToString()); }
+         catch { }
       }
 
       private void SaveTotlDesk_Butn_Click(object sender, EventArgs e)
@@ -4630,10 +4632,10 @@ namespace System.Scsc.Ui.AggregateOperation
                // IF Exists Open Desk All Operation Must Rollback
                if (desk.STAT == "001")
                {
-                  throw new Exception("????? ??? ???? ???? ??? ???? ???? ???? ???? ???? ??? ?? ?????");
+                  throw new Exception("رکورد باز درون لیست شما وجود دارد لطفا دکمه بستن میز را بزنید");
                }               
 
-               // ??? ????? ????? ????? ????
+               // اگر رکورد تخفیف داشته باشد
                if(dsctAmnt > 0)
                {
                   desk.PYDS_AMNT = desk.TOTL_AMNT_DNRM >= dsctAmnt ? dsctAmnt : desk.TOTL_AMNT_DNRM;
@@ -4740,7 +4742,7 @@ namespace System.Scsc.Ui.AggregateOperation
             long dynamnt = 0, fixamnt = 0;
             long cashamnt = 0, posamnt = 0, dsctamnt = 0;
             int cont = 0;
-            ShowRsltCalcTreeDesk_Txt.Text = "?????? ????????";
+            ShowRsltCalcTreeDesk_Txt.Text = "محاسبه صورتحساب";
 
             _listAodts.Clear();
             TreeScroll(aodt);
@@ -4762,17 +4764,17 @@ namespace System.Scsc.Ui.AggregateOperation
                ++cont;
 
                ShowRsltCalcTreeDesk_Txt.Text += Environment.NewLine +
-                  string.Format("{0} ) " + "????? ?????? ??? : " + "{1:n0}   ***   ????? ???? : " + "{2:n0}", aodt.RWNO, (aodt.EXPN_PRIC ?? 0) * aodt.NUMB, aodt.TOTL_BUFE_AMNT_DNRM);
+                  string.Format("{0} ) " + "هزینه محاسبه شده : " + "{1:n0}   ***   هزینه ثابت : " + "{2:n0}", aodt.RWNO, (aodt.EXPN_PRIC ?? 0) * aodt.NUMB, aodt.TOTL_BUFE_AMNT_DNRM);
             }
 
             ShowRsltCalcTreeDesk_Txt.Text += Environment.NewLine + "-----------------------------------------------------";
 
             ShowRsltCalcTreeDesk_Txt.Text += Environment.NewLine +
-                  string.Format("????? ?? ???? ?? : " + "{0} ???", cont) + Environment.NewLine +
-                  string.Format("??? ????? ?????? ??? : " + "{0:n0}   ***   ??? ????? ???? : " + "{1:n0}", dynamnt, fixamnt) + Environment.NewLine +
-                  string.Format("??? ?? ????? : " + "{0:n0}", dynamnt + fixamnt) + Environment.NewLine +
-                  string.Format("????? ?? : " + "{0:n0}", dsctamnt) + Environment.NewLine +
-                  string.Format("??????? ?? : ???? : " + "{0:n0}" + " ???????? : " + "{1:n0}", cashamnt, posamnt);
+                  string.Format("تعداد کل ردیف ها : " + "{0} عدد", cont) + Environment.NewLine +
+                  string.Format("جمع هزینه محاسبه شده : " + "{0:n0}   ***   جمع هزینه ثابت : " + "{1:n0}", dynamnt, fixamnt) + Environment.NewLine +
+                  string.Format("جمع کل هزینه : " + "{0:n0}", dynamnt + fixamnt) + Environment.NewLine +
+                  string.Format("تخفیف ها : " + "{0:n0}", dsctamnt) + Environment.NewLine +
+                  string.Format("پرداختی ها : نقدی : " + "{0:n0}" + " کارتخوان : " + "{1:n0}", cashamnt, posamnt);
 
             TotlDeskDynmExpnAmnt_Txt.EditValue = dynamnt;
             TotlDeskFixExpnAmnt_Txt.EditValue = fixamnt;
@@ -4842,7 +4844,7 @@ namespace System.Scsc.Ui.AggregateOperation
          DataRow srcrow = view.GetDataRow(sourceRow);
          DataRow trgrow = view.GetDataRow(targetRow);
 
-         if (MessageBox.Show(this, "??? ??? ????? " + srcrow["RWNO"].ToString() + " ?? ????? ??? ?????? ??? ????? " + trgrow["RWNO"].ToString() + " ???? ?????", "????? ????? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+         if (MessageBox.Show(this, "آیا میز شماره " + srcrow["RWNO"].ToString() + " به عنوان زیر مجموعه میز شماره " + trgrow["RWNO"].ToString() + " قرار گیرد؟", "تغییر ئضعیت میز", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
          
          iScsc.ExecuteCommand(string.Format("UPDATE dbo.Aggregation_Operation_Detail SET Aodt_Agop_Code = {0}, Aodt_Rwno = {1} WHERE Agop_Code = {2} AND Rwno = {3};", trgrow["AGOP_CODE"], trgrow["RWNO"], srcrow["AGOP_CODE"], srcrow["RWNO"]));
          Execute_Query();
@@ -4889,7 +4891,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             if (aodt.Aggregation_Operation_Detail1 == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ????? ???? ??? ????? ??????", "????? ???? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با مستقل کردن میز موافق هستین؟", "مستقل کردن میز", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.ExecuteCommand(string.Format("UPDATE dbo.Aggregation_Operation_Detail SET Aodt_Agop_Code = NULL, Aodt_Rwno = NULL WHERE Agop_Code = {0} AND Rwno = {1};", aodt.AGOP_CODE, aodt.RWNO));
             requery = true;
@@ -5111,7 +5113,7 @@ namespace System.Scsc.Ui.AggregateOperation
             var suns = SunsBs.Current as Data.App_Base_Define;
             if (suns == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.App_Base_Defines.DeleteOnSubmit(suns);
 
@@ -5274,7 +5276,7 @@ namespace System.Scsc.Ui.AggregateOperation
                      return;
                   }
 
-                  SunsInfo_Lb.Text = string.Format("???? ????????? : " + "{0}" + " ?????" + ", ????? ????????? ????? ???? : " + "{1}" + " ???", (int)((_suns.PRT5_TIME.Value.TimeOfDay - DateTime.Now.TimeOfDay).TotalMinutes), (_suns.NUMB - AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(a => a.GROP_APBS_CODE == _suns.CODE).Count()));
+                  SunsInfo_Lb.Text = string.Format("زمان باقیمانده : " + "{0}" + " دقیقه" + ", ظرفیت باقیمانده ورودی سانس : " + "{1}" + " نفر", (int)((_suns.PRT5_TIME.Value.TimeOfDay - DateTime.Now.TimeOfDay).TotalMinutes), (_suns.NUMB - AodtBs1.List.OfType<Data.Aggregation_Operation_Detail>().Where(a => a.GROP_APBS_CODE == _suns.CODE).Count()));
                   break;
                default:
                   break;

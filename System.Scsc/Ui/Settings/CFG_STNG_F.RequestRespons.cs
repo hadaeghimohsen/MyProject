@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
 using System.IO.Ports;
@@ -87,11 +87,11 @@ namespace System.Scsc.Ui.Settings
                                              <ol>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F10</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ?????</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از سیستم</font></li>
                                                 </ul>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F9</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ???? ??????</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از محیط کاربری</font></li>
                                                 </ul>
                                              </ol>
                                        </p>
@@ -323,6 +323,7 @@ namespace System.Scsc.Ui.Settings
          }
          #endregion
 
+
          job.Status = StatusType.Successful;
       }
 
@@ -402,7 +403,7 @@ namespace System.Scsc.Ui.Settings
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("??? - ??? ?????? ?? ???? 134 ???? ??????");
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 134 سطوح امینتی");
                            })
                         },
                         #endregion
@@ -439,7 +440,7 @@ namespace System.Scsc.Ui.Settings
             //Execute_Query();
             #endregion
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LoadData error: " + ex.ToString()); }
+         catch { }
          job.Status = StatusType.Successful;
       }
 

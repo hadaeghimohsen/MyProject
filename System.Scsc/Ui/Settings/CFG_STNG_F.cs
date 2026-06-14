@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -40,7 +40,7 @@ namespace System.Scsc.Ui.Settings
                Execute_ModualReport_Query();
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
+         catch { }
       }
       
       private void Execute_ModualReport_Query()
@@ -65,7 +65,7 @@ namespace System.Scsc.Ui.Settings
                   RestBs1.DataSource = new DirectoryInfo(Stng.BACK_UP_OPTN_PATH == true ? Stng.BACK_UP_OPTN_PATH_ADRS + @"\Backup" : Stng.BACK_UP_ROOT_PATH).GetFiles("*.bak");
               }
           }
-          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_ClubShare_Query error: " + ex.ToString()); }
+          catch { }
       }
 
       private void Btn_Back_Click(object sender, EventArgs e)
@@ -183,7 +183,7 @@ namespace System.Scsc.Ui.Settings
             iScsc.TAK_BKUP_P(new XElement("Request", new XElement("Backup", new XAttribute("type", BackupType), new XAttribute("clubcode", stng.CLUB_CODE))));
             Execute_Query();
             if (BackupType != "RESTORE")
-               MessageBox.Show("?????? ???????? ?? ?????? ????? ??");
+               MessageBox.Show("عملیات پشتیبانی با موفقیت انجام شد");
             BackupType = "NORMAL";
 
             // Play Enter Sound
@@ -220,7 +220,7 @@ namespace System.Scsc.Ui.Settings
             if (RestBs1.Count == 0) return;
             var Rstrdb = RestBs1.Current as FileInfo;
             var BackupFile = Rstrdb.Directory + @"\" + Rstrdb.Name;
-            if (MessageBox.Show(this, "??? ?? ????????? ??????? ?????? ???? ????? ??????", "????????? ????", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با بازگردانی اطلاعات پایگاه داده موافق هستید؟", "بازگردانی داده", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3) != DialogResult.Yes) return;
 
             BackupType = "RESTORE";
             Btn_TakeBackup_Click(null, null);
@@ -238,11 +238,10 @@ namespace System.Scsc.Ui.Settings
                new Job(SendType.External, "Localhost", "Commons", 22 /* Execute GetConnectionString */, SendType.Self) { Input = "<Database>iScsc</Database><Dbms>SqlServerActiveDbName</Dbms>" };
             _DefaultGateway.Gateway(GetSqlServerActiveDbName);
 
-            //iScsc.ExecuteCommand(string.Format(@"ALTER DATABASE [iScsc] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE [iScsc] FROM  DISK = N'{0}' WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 2; ALTER DATABASE [iScsc] SET MULTI_USER;", BackupFile));
-            var dbName = GetSqlServerActiveDbName.Output;
-            iScsc.ExecuteCommand($@"ALTER DATABASE [{dbName}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE [{dbName}] FROM  DISK = {{0}} WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 2; ALTER DATABASE [{dbName}] SET MULTI_USER;", BackupFile);
+//iScsc.ExecuteCommand(string.Format(@"ALTER DATABASE [iScsc] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE [iScsc] FROM  DISK = N'{0}' WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 2; ALTER DATABASE [iScsc] SET MULTI_USER;", BackupFile));
+             iScsc.ExecuteCommand(@"ALTER DATABASE [{1}] SET SINGLE_USER WITH ROLLBACK IMMEDIATE; RESTORE DATABASE [{1}] FROM  DISK = N'{0}' WITH  FILE = 1,  NOUNLOAD,  REPLACE,  STATS = 2; ALTER DATABASE [{1}] SET MULTI_USER;", BackupFile, GetSqlServerActiveDbName.Output);
             Execute_Query();
-            MessageBox.Show("?????? ????????? ?????? ???? ?? ?????? ????? ??");
+            MessageBox.Show("عملیات بازگردانی پابگاه داده با موفقیت انجام شد");
          }
          catch (Exception ex)
          {
@@ -253,7 +252,7 @@ namespace System.Scsc.Ui.Settings
       private void Btn_DeleteBackup_Click(object sender, EventArgs e)
       {
          if (RestBs1.Current == null) return;
-         if (MessageBox.Show(this, "??? ?? ??? ???? ???? ??????? ????? ??????", "????????? ????", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3) != DialogResult.Yes) return;
+         if (MessageBox.Show(this, "آیا با پاک کردن فایل پشتیبان موافق هستید؟", "بازگردانی داده", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button3) != DialogResult.Yes) return;
          var Rstrdb = RestBs1.Current as FileInfo;
          var BackupFile = Rstrdb.Directory + @"\" + Rstrdb.Name;
          FileSystem.Kill(BackupFile);
@@ -302,9 +301,9 @@ namespace System.Scsc.Ui.Settings
                                              <body>
                                                 <p style=""float:right"">
                                                    <ol>
-                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
                                                       <ul>
-                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
                                                       </ul>
                                                    </ol>
                                                 </p>
@@ -334,7 +333,7 @@ namespace System.Scsc.Ui.Settings
                   break;
                case DevExpress.XtraEditors.NavigatorButtonType.Remove:
                   e.Handled = true;
-                  if (MessageBox.Show(this, "??? ?? ??? ???? ??? ??? ????????", " ??? ??? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "آیا با پاک کردن چاپ فرم موافقید؟", " حذف چاپ فرم", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                   iScsc.STNG_SAVE_P(
                      new XElement("Config",
                         new XAttribute("type", "012"),
@@ -353,7 +352,7 @@ namespace System.Scsc.Ui.Settings
                case DevExpress.XtraEditors.NavigatorButtonType.EndEdit:
                   var crnt = MdrpBs1.Current as Data.Modual_Report;
 
-                  //if (crnt.CRET_BY != null && MessageBox.Show(this, "??? ?? ?????? ???? ????? ???? ????????", "?????? ???????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  //if (crnt.CRET_BY != null && MessageBox.Show(this, "آیا با ویرایش کردن رکورد جاری موافقید؟", "ویرایش اطلاعات", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                   iScsc.STNG_SAVE_P(
                      new XElement("Config",
@@ -402,10 +401,10 @@ namespace System.Scsc.Ui.Settings
             switch (se.Number)
             {
                case 515:
-                  MessageBox.Show("???? ????? ??? ????? ??? ?? ???? ???? ????");
+                  MessageBox.Show("لطفا گزینه های ستاره دار را حتما وارد کنید");
                   break;
                default:
-                  MessageBox.Show("??? ?? ????? ?????? ???? ????? ????");
+                  MessageBox.Show("خطا در انجام عملیات لطفا بررسی کنید");
                   break;
             }
          }
@@ -477,7 +476,7 @@ namespace System.Scsc.Ui.Settings
             var _mrdp = MrdpBs.Current as Data.Modual_Report_Direct_Print;
             if (_mrdp == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.Modual_Report_Direct_Prints.DeleteOnSubmit(_mrdp);
             iScsc.SubmitChanges();
@@ -519,7 +518,7 @@ namespace System.Scsc.Ui.Settings
       {
          try
          {
-            if (MessageBox.Show(this, "??? ?? ????? ?????? ????? ????? ??????", "????? ?????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با نمونه برداری رکورد موافق هستید؟", "نمونه برداری رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             foreach (var _printer in Printers_Lst.SelectedItems)
 	         {
@@ -550,7 +549,7 @@ namespace System.Scsc.Ui.Settings
       {
          try
          {
-            if (MessageBox.Show(this, "??? ?? ??? ??? ???? ????? ????? ??????", "??? ??? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با پیش فرض کردن چاپگر موافق هستید؟", "پیش فرض کردن چاپگر", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             foreach (var _printer in Printers_Lst.SelectedItems)
             {
@@ -581,10 +580,11 @@ namespace System.Scsc.Ui.Settings
       {
          try
          {
-            if (MessageBox.Show(this, "??? ?? ??? ???? ????? ????? ??????", "??? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف کردن چاپگر موافق هستید؟", "حذف کردن چاپگر", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.ExecuteCommand(
-               "DELETE dbo.Modual_Report_Direct_Print WHERE Prnt_Name = {0};", Printers_Lst.SelectedItem.ToString());
+               string.Format("DELETE dbo.Modual_Report_Direct_Print WHERE Prnt_Name = '{0}';", Printers_Lst.SelectedItem.ToString())
+            );
 
             requery = true;
          }
@@ -604,7 +604,8 @@ namespace System.Scsc.Ui.Settings
          try
          {
             iScsc.ExecuteCommand(
-               "UPDATE dbo.Modual_Report_Direct_Print SET STAT = '002' WHERE Prnt_Name = {0};", Printers_Lst.SelectedItem.ToString());
+               string.Format("UPDATE dbo.Modual_Report_Direct_Print SET STAT = '002' WHERE Prnt_Name = '{0}';", Printers_Lst.SelectedItem.ToString())
+            );
 
             requery = true;
          }
@@ -624,7 +625,8 @@ namespace System.Scsc.Ui.Settings
          try
          {
             iScsc.ExecuteCommand(
-               "UPDATE dbo.Modual_Report_Direct_Print SET STAT = '001' WHERE Prnt_Name = {0};", Printers_Lst.SelectedItem.ToString());
+               string.Format("UPDATE dbo.Modual_Report_Direct_Print SET STAT = '001' WHERE Prnt_Name = '{0}';", Printers_Lst.SelectedItem.ToString())
+            );
 
             requery = true;
          }

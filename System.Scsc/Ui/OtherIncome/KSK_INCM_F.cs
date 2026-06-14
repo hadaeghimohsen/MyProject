@@ -1,4 +1,4 @@
-﻿﻿using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -1045,7 +1045,7 @@ namespace System.Scsc.Ui.OtherIncome
                fileno = _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO.ToString();
             }
 
-            iScsc.ExecuteCommand(string.Format("DELETE dbo.Payment_Detail WHERE Pymt_Rqst_Rqid = {0};", _rqst.RQID));
+            iScsc.ExecuteCommand("DELETE dbo.Payment_Detail WHERE Pymt_Rqst_Rqid = {0};", _rqst.RQID);
 
             iScsc.OIC_ERQT_F(
                new XElement("Process",

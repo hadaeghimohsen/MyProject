@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -109,7 +109,7 @@ namespace System.Scsc.Ui.CalculateExpense
       {
          try
          {
-            if (MessageBox.Show(this, "??? ?? ????? ??? ??????? ????? ??? ???? ??? ????? ??????", "????? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با ذخیره شدن اطلاعات هزینه های وارد شده موافق هستید؟", "تایید نهایی هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             if (tb_master.SelectedTab == tp_001)
                iScsc.CONF_EXPN_P(
@@ -177,28 +177,28 @@ namespace System.Scsc.Ui.CalculateExpense
                var mosx = MosxBs2.Current as Data.Misc_Expense;
                if (mosx.CLUB_CODE == null)
                {
-                  MessageBox.Show("????? ?????? ?? ??? ?? ???? ?????? ???? ????");
+                  MessageBox.Show("هزینه بایستی به یکی از شیفت باشگاه تعلق گیرد");
                   return;
                }
                if (mosx.EPIT_CODE == null)
                {
-                  MessageBox.Show("??? ????? ???? ????");
+                  MessageBox.Show("نوع هزینه مشخص نیست");
                   return;
                }
                if (mosx.EXPN_AMNT == null || mosx.EXPN_AMNT <= 0)
                {
-                  MessageBox.Show("???? ????? ???? ????");
+                  MessageBox.Show("مبلغ هزینه مشخص نیست");
                   return;
                }
                if (mosx.EXPN_DESC == null || mosx.EXPN_DESC == "")
                {
-                  MessageBox.Show("??? ????? ???? ???? ???");
+                  MessageBox.Show("شرح هزینه وارد نشده است");
                   return;
                }
             }
             Commit();
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("msex_save_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void tsb_oreload_Click(object sender, EventArgs e)
@@ -250,7 +250,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
             iScsc.Misc_Expenses.InsertOnSubmit(mosx);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AddMosx_Butn_Click error: " + ex.ToString()); }
+         catch{ }
       }
 
       private void DelMosx_Butn_Click(object sender, EventArgs e)
@@ -259,7 +259,7 @@ namespace System.Scsc.Ui.CalculateExpense
          {
             var mosx = MosxBs2.Current as Data.Misc_Expense;
 
-            if (mosx != null && MessageBox.Show(this,"??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (mosx != null && MessageBox.Show(this,"آیا با حذف هزینه مطمئن هستید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             if (mosx.CODE == 0)
                MosxBs2.RemoveCurrent();
@@ -270,8 +270,9 @@ namespace System.Scsc.Ui.CalculateExpense
             }
             requery = true;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DelMosx_Butn_Click error: " + ex.ToString()); }
-
+         catch 
+         {
+         }
          finally
          {
             if(requery)
@@ -292,7 +293,7 @@ namespace System.Scsc.Ui.CalculateExpense
 
             if(pers == null)
             {
-               MessageBox.Show("????? ??????? ???? ????? ??? ????");
+               MessageBox.Show("شماره قرارداد برای پرسنل ثبت نشده");
                return;
             }
 
@@ -301,7 +302,7 @@ namespace System.Scsc.Ui.CalculateExpense
             long? cnrtcode = null;// pers.Fighter_Publics.FirstOrDefault(fp => fp.RWNO == pers.FGPB_RWNO_DNRM && fp.RECT_CODE == "004").CNTR_CODE;
             var crnt = MosxBs2.Current as Data.Misc_Expense;
             crnt.EXPN_AMNT = iScsc.Payment_Details.Where(pd => pd.PYMT_RQST_RQID == cnrtcode).Sum(pd => pd.EXPN_PRIC ?? 0);
-            crnt.EXPN_DESC = "???? ? ??????";
+            crnt.EXPN_DESC = "حقوق و دستمزد";
             crnt.COCH_FILE_NO = fileno;
             crnt.DELV_DATE = DateTime.Now;
 
@@ -368,7 +369,7 @@ namespace System.Scsc.Ui.CalculateExpense
          {
             CtgyBs.DataSource = iScsc.Category_Belts.Where(c => c.MTOD_CODE == (long)e.NewValue && c.CTGY_STAT == "002");
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Mtod_Lov_EditValueChanging error: " + ex.ToString()); }
+         catch { }
       }
 
       private void Epit1_Lov_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -488,7 +489,7 @@ namespace System.Scsc.Ui.CalculateExpense
             var _mexm = MexmBs.Current as Data.Misc_Expense_Method;
             if (_mexm == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.Misc_Expense_Methods.DeleteOnSubmit(_mexm);
             iScsc.SubmitChanges();
@@ -553,7 +554,7 @@ namespace System.Scsc.Ui.CalculateExpense
             var _meck = MeckBs.Current as Data.Misc_Expense_Check;
             if (_meck == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.Misc_Expense_Checks.DeleteOnSubmit(_meck);
             iScsc.SubmitChanges();
@@ -602,7 +603,7 @@ namespace System.Scsc.Ui.CalculateExpense
             var _mexd = MexdBs.Current as Data.Misc_Expense_Discount;
             if (_mexd == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.Misc_Expense_Discounts.DeleteOnSubmit(_mexd);
             iScsc.SubmitChanges();
@@ -715,7 +716,7 @@ namespace System.Scsc.Ui.CalculateExpense
             var _mexc = MexcBs.Current as Data.Misc_Expense_Cost;
             if (_mexc == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.Misc_Expense_Costs.DeleteOnSubmit(_mexc);
             iScsc.SubmitChanges();

@@ -372,7 +372,7 @@ namespace System.CRM.Ui.Cases
                  });
             _DefaultGateway.Gateway(_InteractWithCRM);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Case_Gv_DoubleClick error: " + ex.ToString()); }
+         catch {}         
       }
       #endregion
 

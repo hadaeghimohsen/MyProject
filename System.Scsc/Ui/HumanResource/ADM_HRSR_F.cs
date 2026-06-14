@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -53,7 +53,7 @@ namespace System.Scsc.Ui.HumanResource
                RqstBs1.Position = rqstindex;
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
+         catch { }
       }
 
       private void RqstBs1_CurrentChanged(object sender, EventArgs e)
@@ -157,7 +157,7 @@ namespace System.Scsc.Ui.HumanResource
                         )
                      );
                else if (Rqst.RQST_STAT == "002") return;
-               //MessageBox.Show(this, "?????? ???? ?? ????? ??? ?????");
+               //MessageBox.Show(this, "هنرجوی جدید در سیستم ثبت گردید");
                requery = true;
 
             }
@@ -185,7 +185,7 @@ namespace System.Scsc.Ui.HumanResource
       {
          try
          {
-            if (MessageBox.Show(this, "??? ?? ?????? ? ??? ??? ??? ????? ??????", "?????!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با انصراف و حذف ثبت نام مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             var Rqst = RqstBs1.Current as Data.Request;
 
@@ -204,7 +204,7 @@ namespace System.Scsc.Ui.HumanResource
                      )
                   )
                );
-               //MessageBox.Show(this, "????? ??? ?????!");
+               //MessageBox.Show(this, "هنرجو حذف گردید!");
             }
             requery = true;
             tc_pblc.SelectedTab = tp_pblcinfo;
@@ -317,7 +317,7 @@ namespace System.Scsc.Ui.HumanResource
                var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "022" && exp.Expense_Type.Request_Requester.RQTT_CODE == "004" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && /*exp.MTOD_CODE == mtodcode &&*/ exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
 
                StrtDate_DateTime001.Value = DateTime.Now;
-               //if (MessageBox.Show(this, "????? ????? ?? ?????? ?? ??? ?? ???? ?? ?????", "???? ??? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+               //if (MessageBox.Show(this, "تعداد جلسات با احتساب یک روز در میان می باشد؟", "مشخص شدن تاریخ پایان", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
                //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(2 * (expn.NUMB_OF_ATTN_MONT - 1)));
                //else
                //   EndDate_DateTime001.Value = DateTime.Now.AddDays((double)(expn.NUMB_OF_ATTN_MONT ?? 30));
@@ -329,7 +329,7 @@ namespace System.Scsc.Ui.HumanResource
          }
          catch (Exception exc)
          {
-            MessageBox.Show("?? ???? ???? ??? ? ????? ????? ????? ? ??????? ???????? ?? ????? ???? ????. ???? ???? ???? ?? ????? ? ????? ????");
+            MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
          }
       }
 
@@ -351,7 +351,7 @@ namespace System.Scsc.Ui.HumanResource
          {
             if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "?????? ??????? ? ????? ????? ???? ????? ????", "??? ??????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "عملیات استخدام و ذخیره نهایی کردن انجام شود؟", "ثبت استخدام و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -359,7 +359,7 @@ namespace System.Scsc.Ui.HumanResource
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "???? ????? ??? ???? ????? ?????? ???");
+                  MessageBox.Show(this, "تمام هزینه های بدهی هنرجو پرداخت شده");
                   return;
                }*/
 
@@ -448,7 +448,7 @@ namespace System.Scsc.Ui.HumanResource
                                        return;
                                     #region Show Error
                                     setOnDebt = false;
-                                    MessageBox.Show("??? - ??? - ??? ?????? ?? ???? 192 ???? ??????");
+                                    MessageBox.Show("خطا - خطا - عدم دسترسی به ردیف 192 سطوح امینتی");
                                     #endregion                           
                                  })
                               },
@@ -462,7 +462,7 @@ namespace System.Scsc.Ui.HumanResource
 
             if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "?????? ??????? ? ????? ????? ???? ????? ????", "??????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "عملیات بدهکاری و ذخیره نهایی کردن انجام شود؟", "بدهکاری و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -470,7 +470,7 @@ namespace System.Scsc.Ui.HumanResource
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "???? ????? ??? ???? ????? ?????? ???");
+                  MessageBox.Show(this, "تمام هزینه های بدهی هنرجو پرداخت شده");
                   return;
                }*/
 
@@ -544,7 +544,7 @@ namespace System.Scsc.Ui.HumanResource
                            && r.REGL_STAT == "002"
                            && rqrq.RQTP_CODE == rqst.RQTP_CODE
                            && rqrq.RQTT_CODE == rqst.RQTT_CODE
-                           && rqdc.DCMT_DSID == 13930903120048833 // ??? 4*3
+                           && rqdc.DCMT_DSID == 13930903120048833 // عکس 4*3
                            && rcdc.RQRO_RQST_RQID == rqst.RQID
                            && rcdc.RQRO_RWNO == 1
                         select rcdc).FirstOrDefault();
@@ -689,8 +689,9 @@ namespace System.Scsc.Ui.HumanResource
             DeptBs1.DataSource = iScsc.Departments.Where(d => d.ORGN_CODE == crntorgn);*/
             OrgnBs1.Position = SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("sUNT_BUNT_DEPT_ORGN_CODELookUpEdit_Popup error: " + ex.ToString()); }
-
+         catch
+         {
+         }
       }
 
       private void sUNT_BUNT_DEPT_CODELookUpEdit_Popup(object sender, EventArgs e)
@@ -702,8 +703,9 @@ namespace System.Scsc.Ui.HumanResource
             BuntBs1.DataSource = iScsc.Base_Units.Where(b => b.DEPT_CODE == crntdept && b.DEPT_ORGN_CODE == crntorgn);*/
             DeptBs1.Position = SUNT_BUNT_DEPT_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_DEPT_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_DEPT_CODELookUpEdit.EditValue);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("sUNT_BUNT_DEPT_CODELookUpEdit_Popup error: " + ex.ToString()); }
-
+         catch
+         {
+         }
       }
 
       private void sUNT_BUNT_CODELookUpEdit_Popup(object sender, EventArgs e)
@@ -716,8 +718,9 @@ namespace System.Scsc.Ui.HumanResource
             SuntBs1.DataSource = iScsc.Sub_Units.Where(s => s.BUNT_CODE == crntbunt && s.BUNT_DEPT_CODE == crntdept && s.BUNT_DEPT_ORGN_CODE == crntorgn);*/
             BuntBs1.Position = SUNT_BUNT_CODELookUpEdit.Properties.GetDataSourceRowIndex(SUNT_BUNT_CODELookUpEdit.Properties.ValueMember, SUNT_BUNT_CODELookUpEdit.EditValue);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("sUNT_BUNT_CODELookUpEdit_Popup error: " + ex.ToString()); }
-
+         catch
+         {
+         }
       }
 
       private void MtodCode_LookupEdit001_Popup(object sender, EventArgs e)
@@ -756,7 +759,7 @@ namespace System.Scsc.Ui.HumanResource
       private void CrntDate_Butn_Click(object sender, EventArgs e)
       {
          var strtdate = StrtDate_DateTime001.Value;
-         if (strtdate != null && MessageBox.Show(this, "??? ????? ???? ?? ???????? ????? ????", "????? ????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+         if (strtdate != null && MessageBox.Show(this, "آیا تاریخ شروع را میخواهید اصلاح کنید", "اصلاح تاریخ شروع", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
          StrtDate_DateTime001.Value = DateTime.Now;
       }
 

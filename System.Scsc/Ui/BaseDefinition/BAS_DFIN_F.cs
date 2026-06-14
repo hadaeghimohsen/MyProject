@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -61,7 +61,7 @@ namespace System.Scsc.Ui.BaseDefinition
             Tb_Master.TabPages.Add(selectedtabpage);
             #endregion
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("SwitchButtonsTabPage error: " + ex.ToString()); }
+         catch { }
          finally { Execute_Query(); }
       }
 
@@ -92,8 +92,8 @@ namespace System.Scsc.Ui.BaseDefinition
             int mtod = MtodBs1.Position;
             int ctgy = CtgyBs1.Position;
             InComeEpitBs1.DataSource = iScsc.Expense_Items.Where(epit => epit.TYPE == "001");
-            if (InComeEpitBs1.List.OfType<Data.Expense_Item>().Any(ei => ei.EPIT_DESC.Contains("?????")))
-               ExpnEpit_Lov.EditValue = InComeEpitBs1.List.OfType<Data.Expense_Item>().FirstOrDefault(ei => ei.EPIT_DESC.Contains("?????")).CODE;
+            if (InComeEpitBs1.List.OfType<Data.Expense_Item>().Any(ei => ei.EPIT_DESC.Contains("شهریه")))
+               ExpnEpit_Lov.EditValue = InComeEpitBs1.List.OfType<Data.Expense_Item>().FirstOrDefault(ei => ei.EPIT_DESC.Contains("شهریه")).CODE;
 
             MtodBs1.DataSource = iScsc.Methods;
             Mtod_Gv.TopRowIndex = mtod;
@@ -167,10 +167,10 @@ namespace System.Scsc.Ui.BaseDefinition
 
             ExpnBs.DataSource =
                iScsc.Expenses.Where(ex =>
-                  ex.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && ex.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
+                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
                   ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                      //ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-                  ex.EXPN_STAT == "002" /* ????? ??? ???? */
+                  ex.EXPN_STAT == "002" /* هزینه های فعال */
                );
          }
          else if (Tb_Master.SelectedTab == tp_010)
@@ -186,10 +186,10 @@ namespace System.Scsc.Ui.BaseDefinition
 
             ExpnBs.DataSource =
                iScsc.Expenses.Where(ex =>
-                  ex.Regulation.REGL_STAT == "002" /* ???? ???? ???? */ && ex.Regulation.TYPE == "001" /* ???? ???? ????? */ &&
+                  ex.Regulation.REGL_STAT == "002" /* آیین نامه فعال */ && ex.Regulation.TYPE == "001" /* آیین نامه هزینه */ &&
                   ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                      //ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
-                  ex.EXPN_STAT == "002" /* ????? ??? ???? */
+                  ex.EXPN_STAT == "002" /* هزینه های فعال */
                );
          }
          else if (Tb_Master.SelectedTab == tp_011)
@@ -213,7 +213,7 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             var crnt = CashBs1.Current as Data.Cash;
 
-            if (crnt.CRET_BY != null && MessageBox.Show(this, "??? ?? ?????? ???? ????? ???? ????????", "?????? ???????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (crnt.CRET_BY != null && MessageBox.Show(this, "آیا با ویرایش کردن رکورد جاری موافقید؟", "ویرایش اطلاعات", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.STNG_SAVE_P(
                new XElement("Config",
@@ -269,7 +269,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            if (MessageBox.Show(this, "??? ?? ??? ???? ???? ???? ????????", " ??? ???? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با پاک کردن حساب مالی موافقید؟", " حذف حساب مالی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             iScsc.STNG_SAVE_P(
                new XElement("Config",
                   new XAttribute("type", "011"),
@@ -321,7 +321,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
             InComeEpitBs1.EndEdit();
             incepit_gv.PostEditor();
-            //if (crnt.CRET_BY != null && MessageBox.Show(this, "??? ?? ?????? ???? ????? ???? ????????", "?????? ???????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            //if (crnt.CRET_BY != null && MessageBox.Show(this, "آیا با ویرایش کردن رکورد جاری موافقید؟", "ویرایش اطلاعات", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             /*iScsc.STNG_SAVE_P(
                new XElement("Config",
@@ -369,7 +369,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            if (MessageBox.Show(this, "??? ?? ??? ???? ???? ????? ????????", "??? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با پاک کردن آیتم درآمد موافقید؟", "حذف آیتم درآمد", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             iScsc.STNG_SAVE_P(
                new XElement("Config",
                   new XAttribute("type", "010"),
@@ -409,7 +409,7 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             var crnt = OutComeEpitBs1.Current as Data.Expense_Item;
 
-            if (crnt.CRET_BY != null && MessageBox.Show(this, "??? ?? ?????? ???? ????? ???? ????????", "?????? ???????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (crnt.CRET_BY != null && MessageBox.Show(this, "آیا با ویرایش کردن رکورد جاری موافقید؟", "ویرایش اطلاعات", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.STNG_SAVE_P(
                new XElement("Config",
@@ -459,7 +459,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            if (MessageBox.Show(this, "??? ?? ??? ???? ???? ????? ????????", "??? ???? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با پاک کردن آیتم هزینه موافقید؟", "حذف آیتم هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             iScsc.STNG_SAVE_P(
                new XElement("Config",
                   new XAttribute("type", "010"),
@@ -530,7 +530,7 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             var crnt = MtodBs1.Current as Data.Method;
 
-            if (crnt != null && MessageBox.Show(this, "??? ?? ??? ?????? ????? ??????", "??? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (crnt != null && MessageBox.Show(this, "آیا با حذف سرگروه موافق هستید؟", "حذف سرگروه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.Methods.DeleteOnSubmit(crnt);
 
@@ -618,7 +618,7 @@ namespace System.Scsc.Ui.BaseDefinition
             newctgy.NUMB_OF_ATTN_MONT = 24;
             newctgy.PRIC = 0;
             newctgy.DFLT_STAT = "001";
-            newctgy.CTGY_DESC = "???? ????";
+            newctgy.CTGY_DESC = "دوره جدید";
          }
          else
          {
@@ -626,7 +626,7 @@ namespace System.Scsc.Ui.BaseDefinition
             newctgy.NUMB_CYCL_DAY = oldctgy.NUMB_CYCL_DAY;
             newctgy.NUMB_OF_ATTN_MONT = oldctgy.NUMB_OF_ATTN_MONT;
             newctgy.PRIC = oldctgy.PRIC;
-            newctgy.CTGY_DESC = "???? ????";
+            newctgy.CTGY_DESC = "دوره جدید";
             newctgy.DFLT_STAT = oldctgy.DFLT_STAT;
          }
          newctgy.CTGY_STAT = "002";
@@ -666,7 +666,7 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             var crnt = CtgyBs1.Current as Data.Category_Belt;
 
-            if (crnt != null && MessageBox.Show(this, "??? ?? ??? ??? ???? ????? ??????", "??? ??? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (crnt != null && MessageBox.Show(this, "آیا با حذف زیر گروه موافق هستید؟", "حذف زیر گروه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.Category_Belts.DeleteOnSubmit(crnt);
 
@@ -714,6 +714,8 @@ namespace System.Scsc.Ui.BaseDefinition
                   && ex.CTGY_CODE == ctgy.CODE
                );
 
+
+
             if (expn.Count() > 0)
             {
                expn.ToList().ForEach(ex =>
@@ -724,7 +726,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   ex.NUMB_MONT_OFER = ctgy.NUMB_MONT_OFER;
                   ex.EXPN_STAT = ctgy.CTGY_STAT;
                });
-               //MessageBox.Show(this, string.Format("????? ????? ??? ??? {0} ?? ????",  expn.Count()));
+               //MessageBox.Show(this, string.Format("تعداد رکورد ثبت شده {0} می باشد",  expn.Count()));
                iScsc.SubmitChanges();
                requery = true;
             }
@@ -809,14 +811,14 @@ namespace System.Scsc.Ui.BaseDefinition
             if (cnty.CODE == null || cnty.CODE == "") { return; }
             if (cnty.NAME == null || cnty.NAME == "") { return; }
 
-            //if (MessageBox.Show(this, "??? ?? ?????? ???? ????? ???? ????????", "?????? ???????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            //if (MessageBox.Show(this, "آیا با ویرایش کردن رکورد جاری موافقید؟", "ویرایش اطلاعات", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.SubmitChanges();
             requery = true;
          }
          catch
          {
-            MessageBox.Show("??? ?? ??? ???????");
+            MessageBox.Show("خطا در ثبت اطلاعات");
          }
          finally
          {
@@ -838,14 +840,14 @@ namespace System.Scsc.Ui.BaseDefinition
             if (cnty.CODE == null || cnty.CODE == "") { return; }
             if (cnty.NAME == null || cnty.NAME == "") { return; }
 
-            if (MessageBox.Show(this, "??? ?? ??? ???? ????? ????????", "???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف کردن رکورد موافقید؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.DEL_CNTY_P(cnty.CODE);
             requery = true;
          }
          catch
          {
-            MessageBox.Show("??? ?? ??? ???????");
+            MessageBox.Show("خطا در ثبت اطلاعات");
          }
          finally
          {
@@ -879,7 +881,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          catch
          {
-            MessageBox.Show("??? ?? ??? ???????");
+            MessageBox.Show("خطا در ثبت اطلاعات");
          }
          finally
          {
@@ -899,7 +901,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var prvn = PrvnBs1.Current as Data.Province;
             if (prvn == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ???? ????? ????????", "???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف کردن رکورد موافقید؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             if (prvn.CNTY_CODE == null || prvn.CNTY_CODE == "") { return; }
             if (prvn.CODE == null || prvn.CODE == "") { return; }
@@ -910,7 +912,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          catch
          {
-            MessageBox.Show("??? ?? ??? ???????");
+            MessageBox.Show("خطا در ثبت اطلاعات");
          }
          finally
          {
@@ -945,7 +947,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          catch
          {
-            MessageBox.Show("??? ?? ??? ???????");
+            MessageBox.Show("خطا در ثبت اطلاعات");
          }
          finally
          {
@@ -965,7 +967,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var regn = RegnBs1.Current as Data.Region;
             if (regn == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ???? ????? ????????", "???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف کردن رکورد موافقید؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             if (regn.CODE == null || regn.CODE == "") { return; }
 
@@ -974,7 +976,7 @@ namespace System.Scsc.Ui.BaseDefinition
          }
          catch
          {
-            MessageBox.Show("??? ?? ??? ???????");
+            MessageBox.Show("خطا در ثبت اطلاعات");
          }
          finally
          {
@@ -1058,7 +1060,7 @@ namespace System.Scsc.Ui.BaseDefinition
       //   //}
 
       //   //NameDnrm_Lbl.Text = coch.NAME_DNRM;
-      //   //SexType_Lbl.Text = coch.SEX_TYPE_DNRM == "001" ? "???? ??????" : "???? ???? ??";
+      //   //SexType_Lbl.Text = coch.SEX_TYPE_DNRM == "001" ? "مربی آقایان" : "مربی خانم ها";
       //   //BrthDate_Lbl.Text = GetPersianDate(coch.BRTH_DATE_DNRM);
 
       //   var cbmt = CbmtBs1.Position;
@@ -1239,7 +1241,7 @@ namespace System.Scsc.Ui.BaseDefinition
                return;
             }
 
-            if (MessageBox.Show(this, "??? ?? ??? ???? ????? ????????", "???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف کردن رکورد موافقید؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.STNG_SAVE_P(
                new XElement("Config",
@@ -1279,7 +1281,7 @@ namespace System.Scsc.Ui.BaseDefinition
          try
          {
             var club = ClubBs1.Current as Data.Club;
-            if (club != null && MessageBox.Show(this, "??? ?? ??? ???? ?????? ????? ??????", "??? ???? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (club != null && MessageBox.Show(this, "آیا با حذف شیفت باشگاه موافق هستید؟", "حذف شیفت باشگاه", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.Clubs.DeleteOnSubmit(club);
             iScsc.SubmitChanges();
@@ -1368,9 +1370,9 @@ namespace System.Scsc.Ui.BaseDefinition
                                              <body>
                                                 <p style=""float:right"">
                                                    <ol>
-                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
                                                       <ul>
-                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
                                                       </ul>
                                                    </ol>
                                                 </p>
@@ -1397,7 +1399,7 @@ namespace System.Scsc.Ui.BaseDefinition
          {
             var cbmt = CbmtBs2.Current as Data.Club_Method;
             if (cbmt == null) return;
-            if (cbmt.CRET_BY == null) { MessageBox.Show("???? ??????? ?????? ????? ?? ????? ????"); return; }
+            if (cbmt.CRET_BY == null) { MessageBox.Show("لطفا اطلاعات برنامه کلاسی رو ذخیره کنید"); return; }
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost",
@@ -1420,8 +1422,8 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("????? ???? ?? ???? ????"); FromDate006_Date.Focus(); return; }
-            //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("????? ????? ?? ???? ????"); ToDate006_Date.Focus(); return; }
+            //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate006_Date.Focus(); return; }
+            //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate006_Date.Focus(); return; }
 
             Data.Club_Method crnt = null;
             var section = "";
@@ -1463,8 +1465,8 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("????? ???? ?? ???? ????"); FromDate006_Date.Focus(); return; }
-            //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("????? ????? ?? ???? ????"); ToDate006_Date.Focus(); return; }
+            //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate006_Date.Focus(); return; }
+            //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate006_Date.Focus(); return; }
 
             Data.Club_Method crnt = null;
             var section = "";
@@ -1585,7 +1587,7 @@ namespace System.Scsc.Ui.BaseDefinition
                      PrintDefaultClubMethod_Butn_Click(null, null);
                      break;
                   case 3:
-                     if (MessageBox.Show(this, "??? ?? ??? ???? ????? ????????", "???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                     if (MessageBox.Show(this, "آیا با حذف کردن رکورد موافقید؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                      iScsc.ExecuteCommand(string.Format("DELETE dbo.Club_Method WHERE Code = {0};", cbmt.CODE));
 
@@ -1775,8 +1777,8 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("????? ???? ?? ???? ????"); FromDate006_Date.Focus(); return; }
-            //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("????? ????? ?? ???? ????"); ToDate006_Date.Focus(); return; }
+            //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate006_Date.Focus(); return; }
+            //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate006_Date.Focus(); return; }
 
             //var crnt = CbmtBs1.Current as Data.Club_Method;
             var crnt = CochBs1.Current as Data.Fighter;
@@ -1807,8 +1809,8 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("????? ???? ?? ???? ????"); FromDate006_Date.Focus(); return; }
-            //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("????? ????? ?? ???? ????"); ToDate006_Date.Focus(); return; }
+            //if (!FromDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ شروع را مشخص کنید"); FromDate006_Date.Focus(); return; }
+            //if (!ToDate006_Date.Value.HasValue) { MessageBox.Show("تاریخ پایان را مشخص کنید"); ToDate006_Date.Focus(); return; }
 
             //var crnt = CbmtBs1.Current as Data.Club_Method;
             var crnt = CochBs1.Current as Data.Fighter;
@@ -1868,7 +1870,7 @@ namespace System.Scsc.Ui.BaseDefinition
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", coch.FILE_NO)) }
             );
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CochInfo_Butn_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void CochInfo_Lnk_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -1966,7 +1968,7 @@ namespace System.Scsc.Ui.BaseDefinition
                                  requery = true;
                                  return;
                               }
-                              MessageBox.Show("??? - ??? ?????? ?? ???? 230 ???? ??????", "??? ??????");
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 230 سطوح امینتی", "عدم دسترسی");
                            })
                         },
                         #endregion
@@ -2083,7 +2085,7 @@ namespace System.Scsc.Ui.BaseDefinition
                CochProFile1_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482;
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CochBs1_CurrentChanged error: " + ex.ToString()); }
+         catch (Exception exc) { }
       }
 
       private void DelUnDelCoch_Butn_Click(object sender, EventArgs e)
@@ -2096,7 +2098,7 @@ namespace System.Scsc.Ui.BaseDefinition
             switch (coch.ACTV_TAG_DNRM)
             {
                case "101":
-                  if (MessageBox.Show(this, "??? ?? ??? ???? ????? ??????", "?????? ??? ???? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "آیا با حذف مربی موافق هستید؟", "عملیات حذف موقت مربی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "Localhost",
                         new List<Job>
@@ -2110,14 +2112,14 @@ namespace System.Scsc.Ui.BaseDefinition
                   );
                   break;
                case "001":
-                  if (MessageBox.Show(this, "??? ?? ??????? ???? ????? ??????", "?????? ??????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "آیا با بازیابی مربی موافق هستید؟", "عملیات بازیابی مربی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes) return;
 
-                  // 1396/09/04 * ??????? ?? ?????? ?? ????? ?????
+                  // 1396/09/04 * بازیابی کد انگشتی یا کارتی مشتری
                   //var fighhist = iScsc.Fighter_Publics.Where(fp => fp.FIGH_FILE_NO == coch.FILE_NO && fp.RECT_CODE == "004" && (fp.FNGR_PRNT ?? "") != "").OrderByDescending(fp => fp.RWNO).FirstOrDefault();
-                  //if (fighhist != null && MessageBox.Show(this, string.Format("????? ????? ?? ?????? ?? ???? ???? {0} ?? ???? ??? ???? ?? ??? ?????? ???? ??????", fighhist.FNGR_PRNT), "??????? ?? ?????? ?? ???? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
+                  //if (fighhist != null && MessageBox.Show(this, string.Format("آخرین وضعیت کد انگشتی یا کارت مربی {0} می باشد آیا مایل به جای گیزینی مجدد هستید؟", fighhist.FNGR_PRNT), "بازیابی کد انگشتی یا کارت مربی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) != DialogResult.Yes)
                   //   fighhist.FNGR_PRNT = "";
 
-                  //if(fighhist.FNGR_PRNT == "" && MessageBox.Show(this, "??? ?? ?????? ?? ?? ?????? ?? ???? ????? ?? ???? ?????? ????", "????? ?????? ?? ???? ???? ?? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+                  //if(fighhist.FNGR_PRNT == "" && MessageBox.Show(this, "آیا می خواهید که کد انگشتی یا کارت جدیدی به مربی اختصاص دهید", "الحاق انگشتی یا کارت جدید به مربی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                   //{
                   //getfngrprnt:
                   //   fighhist.FNGR_PRNT = Microsoft.VisualBasic.Interaction.InputBox("EnrollNumber", "Input EnrollNumber");
@@ -2142,7 +2144,7 @@ namespace System.Scsc.Ui.BaseDefinition
             }
             requery = true;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DelUnDelCoch_Butn_Click error: " + ex.ToString()); }
+         catch (Exception exc) { }
          finally
          {
             if (requery)
@@ -2196,7 +2198,7 @@ namespace System.Scsc.Ui.BaseDefinition
                                     requery = true;
                                     return;
                                  }
-                                 MessageBox.Show("??? - ??? ?????? ?? ???? 234 ???? ??????", "??? ??????");
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 234 سطوح امینتی", "عدم دسترسی");
                               })
                            },
                            #endregion
@@ -2251,7 +2253,7 @@ namespace System.Scsc.Ui.BaseDefinition
                                     requery = true;
                                     return;
                                  }
-                                 MessageBox.Show("??? - ??? ?????? ?? ???? 235 ???? ??????", "??? ??????");
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 235 سطوح امینتی", "عدم دسترسی");
                               })
                            },
                            #endregion
@@ -2307,7 +2309,7 @@ namespace System.Scsc.Ui.BaseDefinition
                                           requery = true;
                                           return;
                                        }
-                                       MessageBox.Show("??? - ??? ?????? ?? ???? 234 ???? ??????", "??? ??????");
+                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 234 سطوح امینتی", "عدم دسترسی");
                                     })
                                  },
                                  #endregion
@@ -2391,7 +2393,8 @@ namespace System.Scsc.Ui.BaseDefinition
             }
 
             CochName_Lb.Text = cbmt.Fighter.NAME_DNRM;
-            FngrPrnt_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "??????" : cbmt.Fighter.FNGR_PRNT_DNRM;
+            FngrPrnt_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "نامشخص" : cbmt.Fighter.FNGR_PRNT_DNRM;
+
 
             RqstBnCochName_Butn.Text = CochName_Lb.Text;
             RqstBnCochName_Butn.Text += " ( " + FngrPrnt_Lb.Text + " )";
@@ -2515,7 +2518,7 @@ namespace System.Scsc.Ui.BaseDefinition
                sb.Appearance.BackColor = Color.LightGray;
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Wkdy00i_Butn_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void Cbmt_Gv_CustomUnboundColumnData(object sender, DevExpress.XtraGrid.Views.Base.CustomColumnDataEventArgs e)
@@ -2555,7 +2558,7 @@ namespace System.Scsc.Ui.BaseDefinition
                }
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Cbmt_Gv_CustomUnboundColumnData error: " + ex.ToString()); }
+         catch { }
       }
 
       private void Cbmt_Gv_InitNewRow(object sender, InitNewRowEventArgs e)
@@ -2579,7 +2582,7 @@ namespace System.Scsc.Ui.BaseDefinition
                sb.Appearance.BackColor = Color.LightGray;
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("QWkdy00i_Butn_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void ClubBs1_CurrentChanged(object sender, EventArgs e)
@@ -2651,7 +2654,7 @@ namespace System.Scsc.Ui.BaseDefinition
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", cbmt.COCH_FILE_NO)) }
             );
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CochProFile_Rb_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void AttnComPortName_Lov_SelectedIndexChanged(object sender, EventArgs e)
@@ -2691,7 +2694,7 @@ namespace System.Scsc.Ui.BaseDefinition
                                  AfterChangedOutput = new Action<object>((output) => {
                                     if ((bool)output)
                                        return;
-                                    MessageBox.Show("??? - ??? ?????? ?? ???? 225 ???? ??????", "??? ??????");
+                                    MessageBox.Show("خطا - عدم دسترسی به ردیف 225 سطوح امینتی", "عدم دسترسی");
                                  })
                               },
                               #endregion
@@ -2722,7 +2725,7 @@ namespace System.Scsc.Ui.BaseDefinition
                               AfterChangedOutput = new Action<object>((output) => {
                                  if ((bool)output)
                                     return;
-                                 MessageBox.Show("??? - ??? ?????? ?? ???? 225 ???? ??????", "??? ??????");
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 225 سطوح امینتی", "عدم دسترسی");
                               })
                            },
                            #endregion
@@ -2905,7 +2908,7 @@ namespace System.Scsc.Ui.BaseDefinition
                });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnEnrollFngrPrnt1_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
@@ -2938,7 +2941,7 @@ namespace System.Scsc.Ui.BaseDefinition
                });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDeleteFngrPrnt1_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void RqstBnDuplicateFngrPrnt1_Click(object sender, EventArgs e)
@@ -2971,7 +2974,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDuplicateFngrPrnt1_Click error: " + ex.ToString()); }
+         catch (Exception exc) { }
       }
 
       private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
@@ -3008,7 +3011,7 @@ namespace System.Scsc.Ui.BaseDefinition
                }
             );
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnEnrollFngrPrnt2_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void RqstBnDeleteFngrPrnt2_Click(object sender, EventArgs e)
@@ -3045,7 +3048,7 @@ namespace System.Scsc.Ui.BaseDefinition
                }
             );
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDeleteFngrPrnt2_Click error: " + ex.ToString()); }
+         catch { }
       }
       #endregion
 
@@ -3128,7 +3131,7 @@ namespace System.Scsc.Ui.BaseDefinition
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("??? - ??? ?????? ?? ???? 218 ???? ??????", "??? ??????");
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
                            })
                         },
                         #endregion
@@ -3217,7 +3220,7 @@ namespace System.Scsc.Ui.BaseDefinition
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("??? - ??? ?????? ?? ???? 218 ???? ??????", "??? ??????");
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
                            })
                         },
                         #endregion
@@ -3285,7 +3288,7 @@ namespace System.Scsc.Ui.BaseDefinition
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("??? - ??? ?????? ?? ???? 218 ???? ??????", "??? ??????");
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
                            })
                         },
                         #endregion
@@ -3354,7 +3357,7 @@ namespace System.Scsc.Ui.BaseDefinition
                            AfterChangedOutput = new Action<object>((output) => {
                               if ((bool)output)
                                  return;
-                              MessageBox.Show("??? - ??? ?????? ?? ???? 218 ???? ??????", "??? ??????");
+                              MessageBox.Show("خطا - عدم دسترسی به ردیف 218 سطوح امینتی", "عدم دسترسی");
                            })
                         },
                         #endregion
@@ -3405,7 +3408,7 @@ namespace System.Scsc.Ui.BaseDefinition
                               if ((bool)output)
                                  return;
                               #region Show Error
-                              MessageBox.Show("???: ??? ?????? ?? ?? 171");
+                              MessageBox.Show("خطا: عدم دسترسی به کد 171");
                               #endregion                           
                            })
                         },
@@ -3420,7 +3423,7 @@ namespace System.Scsc.Ui.BaseDefinition
                               if ((bool)output)
                                  return;
                               #region Show Error
-                              MessageBox.Show("???: ??? ?????? ?? ?? 175");
+                              MessageBox.Show("خطا: عدم دسترسی به کد 175");
                               #endregion                           
                            })
                         }
@@ -3481,7 +3484,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("GropAttn_Butn_LinkClicked error: " + ex.ToString()); }
+         catch { }
       }
 
       private void GropMbsp_Butn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -3531,7 +3534,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("GropMbsp_Butn_LinkClicked error: " + ex.ToString()); }
+         catch { }
       }
 
       private void AddNewMbsp_Butn_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -3562,6 +3565,8 @@ namespace System.Scsc.Ui.BaseDefinition
                ctgycode = ctgy.CODE;
             }
 
+
+
             Job _InteractWithScsc =
                new Job(SendType.External, "Localhost",
                   new List<Job>
@@ -3579,7 +3584,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   });
             _DefaultGateway.Gateway(_InteractWithScsc);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AddNewMbsp_Butn_LinkClicked error: " + ex.ToString()); }
+         catch { }
       }
 
       private void CbmtBs1_CurrentChanged(object sender, EventArgs e)
@@ -3605,7 +3610,7 @@ namespace System.Scsc.Ui.BaseDefinition
                   rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
                }
 
-               FngrPrnt1_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "??????" : cbmt.Fighter.FNGR_PRNT_DNRM;
+               FngrPrnt1_Lb.Text = cbmt.Fighter.FNGR_PRNT_DNRM == "" ? "نامشخص" : cbmt.Fighter.FNGR_PRNT_DNRM;
                CtgyBs2.DataSource = iScsc.Category_Belts.Where(cb => cb.MTOD_CODE == cbmt.MTOD_CODE && cb.CTGY_STAT == "002");
 
                var listMbsp =
@@ -3625,7 +3630,7 @@ namespace System.Scsc.Ui.BaseDefinition
                tb_cbmt1_SelectedIndexChanged(null, null);
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CbmtBs1_CurrentChanged error: " + ex.ToString()); }
+         catch { }
       }
 
       private void tb_cbmt1_SelectedIndexChanged(object sender, EventArgs e)
@@ -3823,7 +3828,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var cndo = CndoBs1.Current as Data.Cando;
             if (cndo == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "?????? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.DEL_CNDO_P(cndo.REGN_PRVN_CNTY_CODE, cndo.REGN_PRVN_CODE, cndo.REGN_CODE, cndo.CODE);
             requery = true;
@@ -3885,7 +3890,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var cblk = CblkBs1.Current as Data.Cando_Block;
             if (cblk == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "?????? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.DEL_CBLK_P(cblk.CNDO_CODE, cblk.CODE);
             requery = true;
@@ -3947,7 +3952,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var cunt = CuntBs1.Current as Data.Cando_Block_Unit;
             if (cunt == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "?????? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.DEL_CUNT_P(cunt.BLOK_CNDO_CODE, cunt.BLOK_CODE, cunt.CODE);
             requery = true;
@@ -3973,7 +3978,7 @@ namespace System.Scsc.Ui.BaseDefinition
             if (Blok_Txt.Text == "") { Blok_Txt.Focus(); return; }
             /*if(CblkBs1.List.OfType<Data.Cando_Block>().Any(b => Convert.ToDecimal(b.CODE) >= MinBlok_Nud.Value && Convert.ToDecimal(b.CODE) <= MaxBlok_Nud.Value))
             {
-               MessageBox.Show(this, "???? ?? ?? ???? ????? ???? ?????? ???? ??? ???? ??? ???");
+               MessageBox.Show(this, "بازه ای که برای تعریف بلوک انتخاب کرده اید قبلا ثبت شده");
             }*/
 
             for (decimal i = MinBlok_Nud.Value; i < MaxBlok_Nud.Value; i++)
@@ -4073,7 +4078,7 @@ namespace System.Scsc.Ui.BaseDefinition
                                     AfterChangedOutput = new Action<object>((output) => {
                                        if ((bool)output)
                                           return;
-                                       MessageBox.Show("??? - ??? ?????? ?? ???? 231 ???? ??????", "??? ??????");
+                                       MessageBox.Show("خطا - عدم دسترسی به ردیف 231 سطوح امینتی", "عدم دسترسی");
                                     })
                                  },
                                  #endregion
@@ -4218,7 +4223,7 @@ namespace System.Scsc.Ui.BaseDefinition
                               AfterChangedOutput = new Action<object>((output) => {
                                  if ((bool)output)
                                     return;
-                                 MessageBox.Show("??? - ??? ?????? ?? ???? 225 ???? ??????", "??? ??????");
+                                 MessageBox.Show("خطا - عدم دسترسی به ردیف 225 سطوح امینتی", "عدم دسترسی");
                               })
                            },
                            #endregion
@@ -4255,7 +4260,7 @@ namespace System.Scsc.Ui.BaseDefinition
                        UPDATE SET T.STAT = '002';", coch.FILE_NO
                )
             );
-            MessageBox.Show("?????? ??????? ???? ?? ?????? ???? ??");
+            MessageBox.Show("عملیات استثناء ورود با موفقیت فعال شد");
          }
          catch (Exception exc)
          {
@@ -4282,7 +4287,7 @@ namespace System.Scsc.Ui.BaseDefinition
                        UPDATE SET T.STAT = '001';", coch.FILE_NO
                )
             );
-            MessageBox.Show("?????? ??????? ???? ?? ?????? ??????? ??");
+            MessageBox.Show("عملیات استثناء ورود با موفقیت غیرفعال شد");
          }
          catch (Exception exc)
          {
@@ -4548,7 +4553,7 @@ namespace System.Scsc.Ui.BaseDefinition
             foreach (var dev in devs)
             {
                var expn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == dev.EXPN_CODE);
-               // ????? ???? ???? ??? ???? ?????? ???? ??? ???? ?????                              
+               // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری                              
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
                   {
@@ -4583,7 +4588,7 @@ namespace System.Scsc.Ui.BaseDefinition
             if (!(dev.DEV_COMP_TYPE == "002" && dev.DEV_TYPE == "008" && dev.STAT == "002")) return;
 
             var expn = iScsc.Expenses.FirstOrDefault(ex => ex.CODE == dev.EXPN_CODE);
-            // ????? ???? ???? ??? ???? ?????? ???? ??? ???? ?????                              
+            // ارسال پیام برای باز کردن دستگاه چراغ میز برای مشتری                              
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute Call_Actn_P */, SendType.SelfToUserInterface)
                {
@@ -4627,7 +4632,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var edlm = EdlmBs.Current as Data.External_Device_Link_Method;
             if (edlm == null) return;
 
-            if (MessageBox.Show(this, "??? ??? ???? ???? ????? ??????", "?????? ???", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا حذف لینک گروه موافق هستید؟", "عملیات حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.External_Device_Link_Methods.DeleteOnSubmit(edlm);
 
@@ -4778,7 +4783,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var _tmp = TmplBs.Current as Data.Template;
             if (_tmp == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             iScsc.Templates.DeleteOnSubmit(_tmp);
             iScsc.SubmitChanges();
@@ -4879,7 +4884,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
             requery = true;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CbmtStat_Butn_Click error: " + ex.ToString()); }
+         catch { }
          finally
          {
             if (requery)
@@ -4932,7 +4937,7 @@ namespace System.Scsc.Ui.BaseDefinition
       {
          try
          {
-            switch(MessageBox.Show(this, "??? ??? ?????? ??????? ?? ???? ????? ???? ???? ?? ???? ???? ???", "???? ?????? ?? ???? ?????", MessageBoxButtons.YesNoCancel))
+            switch(MessageBox.Show(this, "آیا ثبت دسترسی کاربران به گروه خدمات جاری باشد یا تمام گروه ها؟", "نحوه دسترسی به گروه خدمات", MessageBoxButtons.YesNoCancel))
             {
                case DialogResult.Yes:
                   var _mtod = MtodBs1.Current as Data.Method;
@@ -5007,9 +5012,9 @@ namespace System.Scsc.Ui.BaseDefinition
             var _cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
             if (_cexc == null) return;
 
-            // 1401/08/20 * ??? ?? ??? ????? ????
-            // ??? ?? ????? ??
-            // ??? ???? ????? ????? ??? ???? ???? ???? ????? ???? ??? ????? ???? ?? ??? ???? ??????
+            // 1401/08/20 * مرگ بر اصل ولایت فقیه
+            // مرگ بر خامنه ای
+            // اگر کلید کنترل گرفته شده باشد تمام گروه خدمات برای این پرسنل فعال یا غیر فعال میکنیم
             if(ModifierKeys == Keys.Control)
             {
                iScsc.ExecuteCommand(
@@ -5074,7 +5079,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
             if(ModifierKeys == Keys.Control)
             {
-               // ???? ?????? ???? ?????
+               // برای سرگروه تمام پرسنل
                iScsc.ExecuteCommand(
                   string.Format(
                      "UPDATE dbo.Calculate_Expense_Coach " +
@@ -5132,7 +5137,7 @@ namespace System.Scsc.Ui.BaseDefinition
             }
             else
             {
-               // ???? ???? ???? ??? ?????? ???? ?????
+               // برای تمام آیتم های سرگروه خوده پرسنل
                iScsc.ExecuteCommand(
                   string.Format(
                      "UPDATE dbo.Calculate_Expense_Coach " +
@@ -5217,7 +5222,8 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                case 1:
                   iScsc.ExecuteCommand(
-                     "UPDATE dbo.Message_Broadcast SET Msgb_Text = {0} WHERE Msgb_Type = {1}", _tmpl.TEMP_TEXT, Msgt_Lov.EditValue);
+                     string.Format("UPDATE dbo.Message_Broadcast SET Msgb_Text = N'{0}' WHERE Msgb_Type = '{1}'", _tmpl.TEMP_TEXT, Msgt_Lov.EditValue)
+                  );
                   break;
                default:
                   break;
@@ -5259,9 +5265,9 @@ namespace System.Scsc.Ui.BaseDefinition
             //}
 
             if(ModifierKeys == Keys.Control)
-               iScsc.ExecuteCommand("UPDATE Club_Method SET Durt_Attn_Sond_Path = {0} WHERE Mtod_Code = {1};", DurtAttnSp_Txt.Text, _cbmt.MTOD_CODE);
+               iScsc.ExecuteCommand(string.Format("UPDATE Club_Method SET Durt_Attn_Sond_Path = N'{0}' WHERE Mtod_Code = {1};", DurtAttnSp_Txt.Text, _cbmt.MTOD_CODE));
             else
-               iScsc.ExecuteCommand("UPDATE Club_Method SET Durt_Attn_Sond_Path = {0} WHERE Code = {1};", DurtAttnSp_Txt.Text, _cbmt.CODE);
+               iScsc.ExecuteCommand(string.Format("UPDATE Club_Method SET Durt_Attn_Sond_Path = N'{0}' WHERE Code = {1};", DurtAttnSp_Txt.Text, _cbmt.CODE));
 
             requery = true;
          }
@@ -5483,7 +5489,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var cedev = CExdvBs.Current as Data.External_Device_Link_External_Device;
             if (cedev == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
             iScsc.ExecuteCommand(string.Format("DELETE dbo.External_Device_Link_External_Device WHERE Code = {0};", cedev.CODE));
 
@@ -5587,7 +5593,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var _edvw = EdvwBs.Current as Data.External_Device_Weekday;
             if (_edvw == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.External_Device_Weekdays.DeleteOnSubmit(_edvw);
             iScsc.SubmitChanges();
@@ -5634,7 +5640,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var _edwt = EdwtBs.Current as Data.External_Device_Weekday_Timing;
             if (_edwt == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.External_Device_Weekday_Timings.DeleteOnSubmit(_edwt);
             iScsc.SubmitChanges();
@@ -6035,7 +6041,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var _coch = CochBs1.Current as Data.Fighter;
             if (_coch == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ???? ????? ????? ?????? ??? ?? ????? ?????? ?? ??? ????? ??????? ?????? ??????? ?? ??????", "????? ??? ?????? ???? ??????", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف کامل مشتری موافق هستید، بعد از انجام عملیات به هیچ عنوان اطلاعات قابلیت بازیابی را ندارند", "هشدار جهت عملیات بدون بازگشت", MessageBoxButtons.YesNo, MessageBoxIcon.Stop, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.DEL_FIGH_P(
                new XElement("Fighter",
@@ -6079,7 +6085,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var _noClas = _duplRecd.ToList().OfType<Data.Fighter>().Where(a => !a.Club_Methods.Any());
 
             if(_noClas.Count() > 0 || _hasClas.Count() > 0)
-               if (MessageBox.Show(this, "??? ?? ??? ????? ?? ????? ??????", "??? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "آیا با حذف رکورد ها موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             foreach (var i in _noClas)
             {
@@ -6092,7 +6098,7 @@ namespace System.Scsc.Ui.BaseDefinition
 
             foreach (var i in _hasClas)
             {
-               //if (MessageBox.Show(this, string.Format("??? ?? ??? {0} ?? ????? ?????? {1} ?? ??  ??????? {2} ????? ??????", i.NAME_DNRM, i.FILE_NO, i.FNGR_PRNT_DNRM ?? "---"), "??? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) continue;
+               //if (MessageBox.Show(this, string.Format("آیا با حذف {0} با شماره پرونده {1} با کد  شناسایی {2} موافق هستید؟", i.NAME_DNRM, i.FILE_NO, i.FNGR_PRNT_DNRM ?? "---"), "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) continue;
             }
          }
          catch (Exception exc)

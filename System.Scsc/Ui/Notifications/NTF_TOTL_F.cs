@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -38,8 +38,8 @@ namespace System.Scsc.Ui.Notifications
             Pb_FileNo2.PickChecked = true;
             if (formStatus == "RunInForeground")
             {
-               FighBs2.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("?????, ???? ??")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
-               CochBs2.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003") /*&& !f.NAME_DNRM.Contains("?????, ???? ??")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+               FighBs2.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+               CochBs2.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && (f.FGPB_TYPE_DNRM == "002" || f.FGPB_TYPE_DNRM == "003") /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
             }
          }
       }
@@ -58,7 +58,7 @@ namespace System.Scsc.Ui.Notifications
          //            (f.FGPB_TYPE_DNRM != "002" && 
          //             f.FGPB_TYPE_DNRM != "003" &&
          //             f.FGPB_TYPE_DNRM != "007" &&
-         //             !f.NAME_DNRM.Contains("?????, ???? ??")) && 
+         //             !f.NAME_DNRM.Contains("مشتری, جلسه ای")) && 
          //            Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) && 
          //            Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) && 
          //            (
@@ -73,7 +73,7 @@ namespace System.Scsc.Ui.Notifications
          //         (f.FGPB_TYPE_DNRM != "002" &&
          //          f.FGPB_TYPE_DNRM != "003" &&
          //          f.FGPB_TYPE_DNRM != "007" &&
-         //          !f.NAME_DNRM.Contains("?????, ???? ??")) &&
+         //          !f.NAME_DNRM.Contains("مشتری, جلسه ای")) &&
          //         Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
          //         Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
          //         (
@@ -88,7 +88,7 @@ namespace System.Scsc.Ui.Notifications
          //            (f.FGPB_TYPE_DNRM != "002" &&
          //             f.FGPB_TYPE_DNRM != "003" &&
          //             f.FGPB_TYPE_DNRM != "007" &&
-         //             !f.NAME_DNRM.Contains("?????, ???? ??")) &&
+         //             !f.NAME_DNRM.Contains("مشتری, جلسه ای")) &&
          //            Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
          //            Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
          //            (
@@ -172,7 +172,7 @@ namespace System.Scsc.Ui.Notifications
          //         .Where(f =>
          //            f.CONF_STAT == "002" &&
          //            f.FGPB_TYPE_DNRM != "007" &&
-         //            !f.NAME_DNRM.Contains("?????, ???? ??") &&
+         //            !f.NAME_DNRM.Contains("مشتری, جلسه ای") &&
          //            Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
          //            Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
          //            (
@@ -185,7 +185,7 @@ namespace System.Scsc.Ui.Notifications
          //      .Where(f =>
          //         f.CONF_STAT == "002" &&
          //         f.FGPB_TYPE_DNRM != "007" &&
-         //         !f.NAME_DNRM.Contains("?????, ???? ??") &&
+         //         !f.NAME_DNRM.Contains("مشتری, جلسه ای") &&
          //         Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
          //         Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
          //         (
@@ -203,7 +203,7 @@ namespace System.Scsc.Ui.Notifications
                   .Where(f =>
                      f.CONF_STAT == "002" &&
                      f.FGPB_TYPE_DNRM != "007" &&
-                     !f.NAME_DNRM.Contains("?????, ???? ??") &&
+                     !f.NAME_DNRM.Contains("مشتری, جلسه ای") &&
                      Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
                      Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
                      (
@@ -216,7 +216,7 @@ namespace System.Scsc.Ui.Notifications
                .Where(f =>
                   f.CONF_STAT == "002" &&
                   f.FGPB_TYPE_DNRM != "007" &&
-                  !f.NAME_DNRM.Contains("?????, ???? ??") &&
+                  !f.NAME_DNRM.Contains("مشتری, جلسه ای") &&
                   Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
                   Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
                   (
@@ -229,7 +229,7 @@ namespace System.Scsc.Ui.Notifications
                .Where(f =>
                   f.CONF_STAT == "002" &&
                   f.FGPB_TYPE_DNRM != "007" &&
-                  !f.NAME_DNRM.Contains("?????, ???? ??") &&
+                  !f.NAME_DNRM.Contains("مشتری, جلسه ای") &&
                   Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
                   Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
                   (
@@ -250,7 +250,7 @@ namespace System.Scsc.Ui.Notifications
          //            (f.FGPB_TYPE_DNRM == "008" &&
          //             /*f.FGPB_TYPE_DNRM != "003" &&
          //             f.FGPB_TYPE_DNRM != "007" &&*/
-         //             !f.NAME_DNRM.Contains("?????, ???? ??")) &&
+         //             !f.NAME_DNRM.Contains("مشتری, جلسه ای")) &&
          //            Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
          //            Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
          //            (
@@ -265,7 +265,7 @@ namespace System.Scsc.Ui.Notifications
          //         (f.FGPB_TYPE_DNRM == "008" &&
          //          /*f.FGPB_TYPE_DNRM != "003" &&
          //          f.FGPB_TYPE_DNRM != "007" &&*/
-         //          !f.NAME_DNRM.Contains("?????, ???? ??")) &&
+         //          !f.NAME_DNRM.Contains("مشتری, جلسه ای")) &&
          //         Fga_Urgn_U.Split(',').Contains(f.REGN_PRVN_CODE + f.REGN_CODE) &&
          //         Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) &&
          //         (
@@ -326,7 +326,7 @@ namespace System.Scsc.Ui.Notifications
             var figh = AttnBs2.Current as Data.Attendance;
             //figh.Fighter.Member_Ships.Where(m => m.RWNO == figh.Fighter.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").ToList().ForEach(m => { Dt_ExpDate2R.Value = m.END_DATE; Nud_ExpDay2R.Value = (decimal)(m.END_DATE.Value - DateTime.Now).Days + 1; });
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AttnBs2_CurrentChanged error: " + ex.ToString()); }
+         catch { }
       }
 
       private void FighBs3_CurrentChanged(object sender, EventArgs e)
@@ -352,6 +352,7 @@ namespace System.Scsc.Ui.Notifications
          var figh = FighBs5.Current as Data.Fighter;
          //figh.Member_Ships.Where(m => m.RWNO == figh.Member_Ships.Where(mm => mm.TYPE == "001" && mm.RECT_CODE == "004").Max(mm => mm.RWNO) && m.RECT_CODE == "004" && m.TYPE == "001").ToList().ForEach(m => { Dt_ExpDate5R.Value = m.END_DATE; Nud_ExpDay5R.Value = (decimal)(m.Sessions.FirstOrDefault().TOTL_SESN - (m.Sessions.FirstOrDefault().SUM_MEET_HELD_DNRM.HasValue ? m.Sessions.FirstOrDefault().SUM_MEET_HELD_DNRM : 0)); });
       }
+
 
       private void Btn_Back_Click(object sender, EventArgs e)
       {
@@ -544,15 +545,15 @@ namespace System.Scsc.Ui.Notifications
             {
                if (mbsprwno == 0)
                {
-                  // 1400/01/01 * ??? ???? ?? ???? ??? ???? ?????
+                  // 1400/01/01 * ثبت خطای رخ داده شده درون سیستم
                   iScsc.INS_LGOP_P(
                      new XElement("Log",
                          new XAttribute("fileno", Convert.ToInt64(Lov_FileName2.EditValue)),
                          new XAttribute("type", "001"),
-                         new XAttribute("text", "???? ????? ???? ?? ???? ??? ???? ????? ?? ???? ??? ?? ????? ?????")
+                         new XAttribute("text", "اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده")
                      )
                   );
-                  throw new Exception("0001: " + "???? ????? ???? ?? ???? ??? ???? ????? ?? ???? ??? ?? ????? ?????");
+                  throw new Exception("0001: " + "اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
                }
                iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "001", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                fileno = Lov_FileName2.EditValue;
@@ -563,7 +564,7 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception ex)
          {
             // 1396/08/01 * 16:02
-            // ??? ????? ???? ???? ?????? ??? ????? ?? ?????? ???? ?? ??????? ????? ????? ?? ?????? ?? ???? ???? ?????? ????? ???? ?? ????? ???
+            // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
             // 1404/05/28 * IF LAST Attendance has Exists WE Must closing gate for exit customer
             var _attn = iScsc.Attendances.FirstOrDefault(a => a.FIGH_FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue) && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null);
             if (_attn != null)
@@ -585,13 +586,13 @@ namespace System.Scsc.Ui.Notifications
                )
             );
 
-            //var result = MsgBox.Show(ex.Message + "\r\n" + "??? ???? ?? ?????? ??????", "???? ????????", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             //var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
             DialogResult result = DialogResult.None;
-            // ???? ??? ????? ???? ????
-            // 1402/11/21 * ???? ?? ?????? ???? ????? ?? ??????? ?????
+            // منشی پشت سیستم حضور دارد
+            // 1402/11/21 * اینم به احترام جناب صمیمی که درخواست داشتن
             if( /*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm  == "001")
-               result = stng.DONT_SHOW_EROR == "002" ? DialogResult.Yes : MessageBox.Show(this, ex.Message + "\r\n" + "??? ???? ?? ?????? ??????", "???? ????????", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
+               result = stng.DONT_SHOW_EROR == "002" ? DialogResult.Yes : MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
 
             if(Lov_FileName2.EditValue != null)
             {
@@ -619,7 +620,7 @@ namespace System.Scsc.Ui.Notifications
                      })
                );
 
-            // 1404/04/06 * ????? ?????? ????? ?? ???? ?????? ???
+            // 1404/04/06 * اجرای صداهای مربوط به خطای رخداده شده
             switch (_getCode)
             {
                case "0012":
@@ -655,7 +656,7 @@ namespace System.Scsc.Ui.Notifications
                }
                requry = false;
 
-               /* 1395/03/15 * ??? ????? ?????? ????? ?? ???? ??? ????? ??? ???? ?????? ????? ???? ??? ?? ????? ????. */
+               /* 1395/03/15 * اگر سیستم بتواند حضوری را برای فرد ذخیره کند باید عملیات نمایش ورود فرد را آماده کنیم. */
                var attnNotfSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_NOTF_STAT == "002").FirstOrDefault();
                if (attnNotfSetting != null && attnNotfSetting.ATTN_NOTF_STAT == "002" && fileno.ToString() != "")
                {
@@ -696,7 +697,7 @@ namespace System.Scsc.Ui.Notifications
                wplayer.URL = _wplayer_url;
                wplayer.controls.play();
             }
-            catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AlarmShow error: " + ex.ToString()); }
+            catch { }
          }
       }
 
@@ -712,7 +713,7 @@ namespace System.Scsc.Ui.Notifications
                   _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
                   new Thread(AlarmShow).Start();
 
-                  /* ????? ??? ????? ?? ???????? ??? ???? ?? ?????? */
+                  /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -741,7 +742,7 @@ namespace System.Scsc.Ui.Notifications
                   _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
                   new Thread(AlarmShow).Start();
 
-                  /* ????? ??? ????? ?? ???????? ??? ???? ?? ?????? */
+                  /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -761,15 +762,15 @@ namespace System.Scsc.Ui.Notifications
                {
                   if (mbsprwno == 0)
                   {
-                     // 1400/01/01 * ??? ???? ?? ???? ??? ???? ?????
+                     // 1400/01/01 * ثبت خطای رخ داده شده درون سیستم
                      iScsc.INS_LGOP_P(
                         new XElement("Log",
                             new XAttribute("fileno", Convert.ToInt64(Lov_FileName2.EditValue)),
                             new XAttribute("type", "001"),
-                            new XAttribute("text", "???? ????? ???? ?? ???? ??? ???? ????? ?? ???? ??? ?? ????? ?????")
+                            new XAttribute("text", "اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده")
                         )
                      );
-                     throw new Exception("???? ????? ???? ?? ???? ??? ???? ????? ?? ???? ??? ?? ????? ?????");
+                     throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
                   }
                   iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value, null, "002", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                   fileno = Lov_FileName2.EditValue;
@@ -781,7 +782,7 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception ex)
          {
             // 1396/08/01 * 16:02
-            // ??? ????? ???? ???? ?????? ??? ????? ?? ?????? ???? ?? ??????? ????? ????? ?? ?????? ?? ???? ???? ?????? ????? ???? ?? ????? ???
+            // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost",
                   new List<Job>
@@ -799,12 +800,13 @@ namespace System.Scsc.Ui.Notifications
             );
 
             //MessageBox.Show(ex.Message);
-            //var result = MsgBox.Show(ex.Message + "\r\n" + "??? ???? ?? ?????? ??????", "???? ????????", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             //var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
             DialogResult result = DialogResult.None;
             if (/*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm == "001")
-               result = MessageBox.Show(this, ex.Message + "\r\n" + "??? ???? ?? ?????? ??????", "???? ????????", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
+               result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
             
+
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost",
@@ -830,7 +832,7 @@ namespace System.Scsc.Ui.Notifications
                Btn_Search_Click(null, null);
                requry = false;
 
-               /* 1395/03/15 * ??? ????? ?????? ????? ?? ???? ??? ????? ??? ???? ?????? ????? ???? ??? ?? ????? ????. */
+               /* 1395/03/15 * اگر سیستم بتواند حضوری را برای فرد ذخیره کند باید عملیات نمایش ورود فرد را آماده کنیم. */
                var attnNotfSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_NOTF_STAT == "002").FirstOrDefault();
                if (attnNotfSetting != null && attnNotfSetting.ATTN_NOTF_STAT == "002" && fileno.ToString() != "")
                {
@@ -866,7 +868,7 @@ namespace System.Scsc.Ui.Notifications
             {
                if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Nud_FileNo2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                {
-                  /* ????? ??? ????? ?? ???????? ??? ???? ?? ?????? */
+                  /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -892,7 +894,7 @@ namespace System.Scsc.Ui.Notifications
             {
                if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                {
-                  /* ????? ??? ????? ?? ???????? ??? ???? ?? ?????? */
+                  /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -912,15 +914,15 @@ namespace System.Scsc.Ui.Notifications
                {
                   if (mbsprwno == 0)
                   {
-                     // 1400/01/01 * ??? ???? ?? ???? ??? ???? ?????
+                     // 1400/01/01 * ثبت خطای رخ داده شده درون سیستم
                      iScsc.INS_LGOP_P(
                         new XElement("Log",
                             new XAttribute("fileno", Convert.ToInt64(Lov_FileName2.EditValue)),
                             new XAttribute("type", "001"),
-                            new XAttribute("text", "???? ????? ???? ?? ???? ??? ???? ????? ?? ???? ??? ?? ????? ?????")
+                            new XAttribute("text", "اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده")
                         )
                      );
-                     throw new Exception("???? ????? ???? ?? ???? ??? ???? ????? ?? ???? ??? ?? ????? ?????");
+                     throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
                   }
                   iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, null, "004", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                   fileno = Lov_FileName2.EditValue;
@@ -932,7 +934,7 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception ex)
          {
             // 1396/08/01 * 16:02
-            // ??? ????? ???? ???? ?????? ??? ????? ?? ?????? ???? ?? ??????? ????? ????? ?? ?????? ?? ???? ???? ?????? ????? ???? ?? ????? ???
+            // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost",
                   new List<Job>
@@ -950,11 +952,11 @@ namespace System.Scsc.Ui.Notifications
             );
 
             //MessageBox.Show(ex.Message);
-            //var result = MsgBox.Show(ex.Message + "\r\n" + "??? ???? ?? ?????? ??????", "???? ????????", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             //var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
             DialogResult result = DialogResult.None;
             if (/*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm == "001")
-               result = MessageBox.Show(this, ex.Message + "\r\n" + "??? ???? ?? ?????? ??????", "???? ????????", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
+               result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
 
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
                _DefaultGateway.Gateway(
@@ -981,7 +983,7 @@ namespace System.Scsc.Ui.Notifications
                Btn_Search_Click(null, null);
                requry = false;
 
-               /* 1395/03/15 * ??? ????? ?????? ????? ?? ???? ??? ????? ??? ???? ?????? ????? ???? ??? ?? ????? ????. */
+               /* 1395/03/15 * اگر سیستم بتواند حضوری را برای فرد ذخیره کند باید عملیات نمایش ورود فرد را آماده کنیم. */
                var attnNotfSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_NOTF_STAT == "002").FirstOrDefault();
                if (attnNotfSetting != null && attnNotfSetting.ATTN_NOTF_STAT == "002" && fileno.ToString() != "")
                {
@@ -1017,7 +1019,7 @@ namespace System.Scsc.Ui.Notifications
             {
                if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Nud_FileNo2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                {
-                  /* ????? ??? ????? ?? ???????? ??? ???? ?? ?????? */
+                  /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -1043,7 +1045,7 @@ namespace System.Scsc.Ui.Notifications
             {
                if (iScsc.Fighters.Any(f => f.FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue) && f.FGPB_TYPE_DNRM == "009"))
                {
-                  /* ????? ??? ????? ?? ???????? ??? ???? ?? ?????? */
+                  /* نمایش فرم مربوط به مشترییات چند جلسه ای ترکیبی */
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost",
                         new List<Job>
@@ -1063,15 +1065,15 @@ namespace System.Scsc.Ui.Notifications
                {
                   if (mbsprwno == 0)
                   {
-                     // 1400/01/01 * ??? ???? ?? ???? ??? ???? ?????
+                     // 1400/01/01 * ثبت خطای رخ داده شده درون سیستم
                      iScsc.INS_LGOP_P(
                         new XElement("Log",
                             new XAttribute("fileno", Convert.ToInt64(Lov_FileName2.EditValue)),
                             new XAttribute("type", "001"),
-                            new XAttribute("text", "???? ????? ???? ?? ???? ??? ???? ????? ?? ???? ??? ?? ????? ?????")
+                            new XAttribute("text", "اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده")
                         )
                      );
-                     throw new Exception("???? ????? ???? ?? ???? ??? ???? ????? ?? ???? ??? ?? ????? ?????");
+                     throw new Exception("اعضا گرامی دوره ای برای شما وجود ندارد یا دوره شما به پایان رسیده");
                   }
                   iScsc.INS_ATTN_P(null, Convert.ToInt64(Lov_FileName2.EditValue), Dt_CrntDate2R.Value.Value, (long)Lov_CochName2.EditValue, "005", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                   fileno = Lov_FileName2.EditValue;
@@ -1083,7 +1085,7 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception ex)
          {
             // 1396/08/01 * 16:02
-            // ??? ????? ???? ???? ?????? ??? ????? ?? ?????? ???? ?? ??????? ????? ????? ?? ?????? ?? ???? ???? ?????? ????? ???? ?? ????? ???
+            // اگر سیستم حضور غیاب دستگاه های کارتی یا انگشتی باشد که مانیتور داشته باشید می توانیم یک پیام برای دستگاه ارسال کنیم که نمایش دهد
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost",
                   new List<Job>
@@ -1101,11 +1103,11 @@ namespace System.Scsc.Ui.Notifications
             );
 
             //MessageBox.Show(ex.Message);
-            //var result = MsgBox.Show(ex.Message + "\r\n" + "??? ???? ?? ?????? ??????", "???? ????????", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            //var result = MsgBox.Show(ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MsgBox.Buttons.YesNo, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
             //var mtod = iScsc.Member_Ships.FirstOrDefault(mb => mb.FIGH_FILE_NO == (long)Lov_FileName2.EditValue && mb.RWNO == mbsprwno && mb.RECT_CODE == "004").Fighter_Public.Method;
             DialogResult result = DialogResult.None;
             if (/*mtod.CHCK_ATTN_ALRM == null || mtod.CHCK_ATTN_ALRM*/ chckattnalrm == "001")
-               result = MessageBox.Show(this, ex.Message + "\r\n" + "??? ???? ?? ?????? ??????", "???? ????????", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
+               result = MessageBox.Show(this, ex.Message + "\r\n" + "آیا مایل به رسیدگی هستید؟", "خطای حضورغیاب", MessageBoxButtons.YesNo, MessageBoxIcon.Error, MessageBoxDefaultButton.Button2);
 
             if (Lov_FileName2.Tag != null && result == DialogResult.Yes)
                _DefaultGateway.Gateway(
@@ -1132,7 +1134,7 @@ namespace System.Scsc.Ui.Notifications
                Btn_Search_Click(null, null);
                requry = false;
 
-               /* 1395/03/15 * ??? ????? ?????? ????? ?? ???? ??? ????? ??? ???? ?????? ????? ???? ??? ?? ????? ????. */
+               /* 1395/03/15 * اگر سیستم بتواند حضوری را برای فرد ذخیره کند باید عملیات نمایش ورود فرد را آماده کنیم. */
                var attnNotfSetting = iScsc.Settings.Where(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.ATTN_NOTF_STAT == "002").FirstOrDefault();
                if (attnNotfSetting != null && attnNotfSetting.ATTN_NOTF_STAT == "002" && fileno.ToString() != "")
                {
@@ -1182,8 +1184,8 @@ namespace System.Scsc.Ui.Notifications
          catch (Exception ex)
          {
             //MessageBox.Show(ex.Message);
-            //var result = MsgBox.Show(ex.Message, "???", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            MessageBox.Show(this, ex.Message, "???", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
          finally
          {
@@ -1205,7 +1207,7 @@ namespace System.Scsc.Ui.Notifications
             if ((view.GetListSourceRowCellValue(e.ListSourceRowIndex, "EXIT_TIME") as TimeSpan?) != null)
                e.Value = (((TimeSpan)view.GetListSourceRowCellValue(e.ListSourceRowIndex, "EXIT_TIME")) - ((TimeSpan)view.GetListSourceRowCellValue(e.ListSourceRowIndex, "ENTR_TIME"))).ToString();
             else
-               e.Value = "???? ?? ??????";
+               e.Value = "حضور در باشگاه";
          }
       }
 
@@ -1251,15 +1253,15 @@ namespace System.Scsc.Ui.Notifications
       {
          try
          {
-            if (MessageBox.Show(this, "?? ???? ???? ??? ???????? ????? ??????", "????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "با خروج دستی همه مشترییان موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             iScsc.AUTO_AEXT_P(new XElement("Process"));
             requry = true;
          }
          catch (Exception ex)
          {
             //MessageBox.Show(ex.Message);
-            //var result = MsgBox.Show(ex.Message, "???", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            MessageBox.Show(this, ex.Message, "???", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
          finally
          {
@@ -1312,8 +1314,8 @@ namespace System.Scsc.Ui.Notifications
          }catch(Exception ex)
          {
             //MessageBox.Show(ex.Message);
-            //var result = MsgBox.Show(ex.Message, "???", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            MessageBox.Show(this, ex.Message, "???", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
       }
 
@@ -1333,7 +1335,7 @@ namespace System.Scsc.Ui.Notifications
                case 1:
                   if (attn.EXIT_TIME == null)
                   {
-                     if (MessageBox.Show(this, "?? ???? ???? ????? ????? ??????", "????? ????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                     if (MessageBox.Show(this, "با خروج دستی مشتری موافق هستید؟", "خروجی دستی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                      iScsc.INS_ATTN_P(attn.CLUB_CODE, attn.FIGH_FILE_NO, null, null, "003", mbsprwno == 0 ? null : (short?)mbsprwno, attnsystype, attnignrtype);
                      Btn_Search_Click(null, null);
                   }
@@ -1341,12 +1343,12 @@ namespace System.Scsc.Ui.Notifications
                case 2:
                   if(attn.ATTN_STAT == "002")
                   {
-                     if (MessageBox.Show(this, "?? ????? ????? ????? ????? ????? ??????", "????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                     if (MessageBox.Show(this, "با ابطال رکورد مشتری مشتری موافق هستید؟", "ابطال رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                      iScsc.UPD_ATTN_P(
                         new XElement("Process",
                            new XElement("Attendance",
                               new XAttribute("code", attn.CODE),
-                              new XAttribute("type", "001") // ????? ????? ?????
+                              new XAttribute("type", "001") // ابطال رکورد مشتری
                            )
                         )
                      );
@@ -1376,8 +1378,8 @@ namespace System.Scsc.Ui.Notifications
          }catch(Exception ex)
          {
             //MessageBox.Show(ex.Message);
-            //var result = MsgBox.Show(ex.Message, "???", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
-            MessageBox.Show(this, ex.Message, "???", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //var result = MsgBox.Show(ex.Message, "خطا", MsgBox.Buttons.OK, MsgBox.Icon.Error, MsgBox.AnimateStyle.FadeIn);
+            MessageBox.Show(this, ex.Message, "خطا", MessageBoxButtons.OK, MessageBoxIcon.Error);
          }
       }
 

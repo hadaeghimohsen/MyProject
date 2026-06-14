@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -175,7 +175,7 @@ namespace System.Scsc.Ui.BodyFitness
             switch (ex.Message)
             {
                case "Value cannot be null.\r\nParameter name: value":
-                  MessageBox.Show("?? ??? ??????? ???? ??? ??????? ????? ?? ???? ????? ??? ????. ???? ????? ? ????? ????");
+                  MessageBox.Show("در بین اطلاعات وارد شده مقادیری هستند که باید مقدار دهی شوند. لطفا بررسی و اصلاح کنید");
                   break;
                default:
                   MessageBox.Show(ex.Message);
@@ -203,7 +203,7 @@ namespace System.Scsc.Ui.BodyFitness
                Data.Request Rqst = RqstBs1.Current as Data.Request;
                if (Rqst == null) return;
 
-               if (MessageBox.Show(this, "??? ?? ?????? ???? ??????? ????? ??????", "?????", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "آیا با انصراف دادن درخواست موافق هستید؟", "هشدار", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                iScsc.CNCL_RQST_F(
                   new XElement("Process",
                      new XElement("Request",
@@ -296,6 +296,7 @@ namespace System.Scsc.Ui.BodyFitness
                //Gb_Common001.Enabled = true;
             }
 
+            
          }
          catch
          {
@@ -307,6 +308,8 @@ namespace System.Scsc.Ui.BodyFitness
             //Gb_Common001.Enabled = true;
          }
       }
+
+
 
       private void RqstBnExit1_Click(object sender, EventArgs e)
       {
@@ -414,7 +417,7 @@ namespace System.Scsc.Ui.BodyFitness
          {
             if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "?????? ?????? ? ????? ????? ???? ????? ????", "?????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "عملیات پرداخت و ذخیره نهایی کردن انجام شود؟", "پرداخت و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -422,7 +425,7 @@ namespace System.Scsc.Ui.BodyFitness
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "???? ????? ??? ???? ????? ?????? ???");
+                  MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
                   return;
                }*/
 
@@ -463,7 +466,7 @@ namespace System.Scsc.Ui.BodyFitness
                   break;
                case DevExpress.XtraEditors.NavigatorButtonType.Remove:
                   e.Handled = true;
-                  if (MessageBox.Show(this, "??? ?? ??? ???? ????? ??????? ????????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "آیا با پاک کردن هزینه درخواست موافقید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                   /* Do Delete Payment_Detail */
                   var Crnt = PydtsBs1.Current as Data.Payment_Detail;
                   var rqst = RqstBs1.Current as Data.Request;
@@ -528,8 +531,9 @@ namespace System.Scsc.Ui.BodyFitness
                   break;
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("PydtBn1_ButtonClick error: " + ex.ToString()); }
-
+         catch 
+         {
+         }
          finally
          {
             if (requery)
@@ -641,7 +645,7 @@ namespace System.Scsc.Ui.BodyFitness
                   break;
                case DevExpress.XtraEditors.NavigatorButtonType.Remove:
                   e.Handled = true;
-                  if (MessageBox.Show(this, "??? ?? ??? ???? ??????? ??? ??? ????????", "???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "آیا با پاک کردن تغییرات عضو بدن موافقید؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                   /* Do Delete Payment_Detail */
                   var Crnt = ChbfBs1.Current as Data.Change_Body_Fitness;
 
@@ -684,7 +688,7 @@ namespace System.Scsc.Ui.BodyFitness
             //long _sumticks = BfmmBs1.List.OfType<Data.Body_Fitness_Movement>().Sum(b => (b.TIME_PER_SET.Value.Ticks + b.REST_TIME_IN_SET.Value.Ticks) * b.NUMB_OF_MOVE_IN_SET.Value * b.CONT.Value);
             //if(crntbdft.TOTL_EXRS_TIME.Value.CompareTo(new TimeSpan(_sumticks)) == -1)
             //{
-            //   throw new Exception("????? ????? ?????? ????? ????? ?? ????? ??? ????? ????? ???");
+            //   throw new Exception("تعداد حرکات برنامه ورزشی مشتری از میزان مدت تمرین بیشتر شده");
             //}
 
             if(crntbdft.PRE_MOVE_CHCK == "002")
@@ -731,7 +735,7 @@ namespace System.Scsc.Ui.BodyFitness
                   break;
                case DevExpress.XtraEditors.NavigatorButtonType.Remove:
                   e.Handled = true;
-                  if (MessageBox.Show(this, "??? ?? ??? ???? ?????? ????? ????????", "???", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "آیا با پاک کردن برنامه حرکتی موافقید؟", "حذف", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                   /* Do Delete Payment_Detail */
                   var Crnt = BfmmBs1.Current as Data.Body_Fitness_Movement;
 
@@ -786,7 +790,7 @@ namespace System.Scsc.Ui.BodyFitness
                                        return;
                                     #region Show Error
                                     setOnDebt = false;
-                                    MessageBox.Show("??? - ??? - ??? ?????? ?? ???? 192 ???? ??????");
+                                    MessageBox.Show("خطا - خطا - عدم دسترسی به ردیف 192 سطوح امینتی");
                                     #endregion                           
                                  })
                               },
@@ -800,7 +804,7 @@ namespace System.Scsc.Ui.BodyFitness
 
             if (tb_master.SelectedTab == tp_001)
             {
-               if (MessageBox.Show(this, "?????? ??????? ? ????? ????? ???? ????? ????", "??????? ? ????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "عملیات بدهکاری و ذخیره نهایی کردن انجام شود؟", "بدهکاری و ذخیره نهایی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
                var rqst = RqstBs1.Current as Data.Request;
                if (rqst == null) return;
@@ -808,7 +812,7 @@ namespace System.Scsc.Ui.BodyFitness
 
                /*if ((pymt.SUM_EXPN_PRIC + pymt.SUM_EXPN_EXTR_PRCT) - pymt.Payment_Methods.Sum(pm => pm.AMNT) <= 0)
                {
-                  MessageBox.Show(this, "???? ????? ??? ???? ????? ?????? ???");
+                  MessageBox.Show(this, "تمام هزینه های بدهی مشتری پرداخت شده");
                   return;
                }*/
 

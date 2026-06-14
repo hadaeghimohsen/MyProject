@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -47,7 +47,7 @@ namespace System.Scsc.Ui.ChangeRials
 
             requery = false;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Execute_Query error: " + ex.ToString()); }
+         catch (Exception ) { }         
       }
 
       private void GlrlBs1_CurrentChanged(object sender, EventArgs e)
@@ -109,7 +109,7 @@ namespace System.Scsc.Ui.ChangeRials
             var glrd = GlrdBs1.Current as Data.Gain_Loss_Rail_Detail;
             glrd.GLRL_GLID = _glrl.GLID;
 
-            // 1402/08/29 * ??? ??? ????? ????? ?????? ?? ???? ???? ??????? ??? ?????? ?? ????? ????
+            // 1402/08/29 * اگر نوع سپرده گذاری افزایش یا کاهش باشد بتوانیم نوع پرداخت را تغییر دهیم
             if (IncDpst_Rb.Checked)
                glrd.RCPT_MTOD = "003";
             else if (DecDspt_Rb.Checked)
@@ -130,7 +130,7 @@ namespace System.Scsc.Ui.ChangeRials
             var _glrd = GlrdBs1.Current as Data.Gain_Loss_Rail_Detail;
             if (_glrd == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ???? ??????? ????? ????? ??????", "?????!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف ردیف پرداختی سپرده موافق هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             iScsc.DEL_GLRD_P(
                new XElement("Gain_Loss_Rail_Detail",

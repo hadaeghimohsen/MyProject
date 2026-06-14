@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -170,7 +170,7 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("todate", agop.FROM_DATE.Value.ToString("yyyy-MM-dd")),
                      new XAttribute("oprttype", agop.OPRT_TYPE ?? "007"),
                      new XAttribute("oprtstat", "004"),
-                     new XAttribute("agopdesc", agop.AGOP_DESC ?? "????? ???? ???? ????? ??? ??????"),
+                     new XAttribute("agopdesc", agop.AGOP_DESC ?? "خدایا بابت روزی امروز ازت ممنونم"),
                      new XAttribute("suntbuntdeptorgncode", agop.SUNT_BUNT_DEPT_ORGN_CODE ?? "00"),
                      new XAttribute("suntbuntdeptcode", agop.SUNT_BUNT_DEPT_CODE ?? "00"),
                      new XAttribute("suntbuntcode", agop.SUNT_BUNT_CODE ?? "00"),
@@ -226,7 +226,7 @@ namespace System.Scsc.Ui.AggregateOperation
                rslt.Appearance.BackColor = wkdy.STAT == "001" ? Color.LightGray : Color.GreenYellow;
             }
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("CbmtCode_Lov_Popup error: " + ex.ToString()); }
+         catch { }
       }
 
       private void Btn_AutoCalcAttn_Click(object sender, EventArgs e)
@@ -236,13 +236,13 @@ namespace System.Scsc.Ui.AggregateOperation
             long ctgycode = (long)CtgyCode_Lov.EditValue;
             var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "001" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && /*exp.MTOD_CODE == mtodcode &&*/ exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
 
-            /// ????? ????? ????? ???? ? ?????
-            /// Ctrl : ????? ????? ?? ???? ????? ???? ?? ????? ????
+            /// سیستم تغییر تاریخ شروع و پایان
+            /// Ctrl : تاریخ پایان بر اساس تاریخ شروع به تعداد دوره
             /// 
 
             if (ModifierKeys == Keys.Control)
             {
-               // ????? ????? ?? ???? ????? ????? ?? ???? ??? ?????? ????
+               // تاریخ پایان بر اساس تاریخ شروعی که وارد شده محاسبه گردد
                StrtDate_DateTime001.CommitChanges();
                var strtdate = StrtDate_DateTime001.Value;
                if (strtdate.HasValue)
@@ -255,7 +255,7 @@ namespace System.Scsc.Ui.AggregateOperation
             }
             else if (ModifierKeys == Keys.Shift)
             {
-               // ????? ???? ?? ????? ??? ???? ??? ??????
+               // تاریخ شروع به اولین روز همان ماه برگردد
                StrtDate_DateTime001.CommitChanges();
                var strtdate = StrtDate_DateTime001.Value;
                if (strtdate.HasValue)
@@ -286,7 +286,7 @@ namespace System.Scsc.Ui.AggregateOperation
          }
          catch (Exception)
          {
-            MessageBox.Show("?? ???? ???? ??? ? ????? ????? ????? ? ??????? ???????? ?? ????? ???? ????. ???? ???? ???? ?? ????? ? ????? ????");
+            MessageBox.Show("در آیین نامه نرخ و هزینه تعداد جلسات و اطلاعات اتوماتیک به درستی وارد نشده. لطفا آیین نامه را بررسی و اصلاح کنید");
          }         
 
       }
@@ -300,9 +300,9 @@ namespace System.Scsc.Ui.AggregateOperation
             var agop = AgopBs1.Current as Data.Aggregation_Operation;
             if (agop == null) return;
 
-            if (agop.LETT_NO == null) { MessageBox.Show("????? ???? ??????? ???? ??? ???"); return; }
-            if (agop.LETT_DATE == null) { MessageBox.Show("????? ????? ??????? ???? ???? ???"); return; }
-            if (agop.LETT_OWNR == null) { MessageBox.Show("??? ??? ??????? ???? ???? ???"); return; }
+            if (agop.LETT_NO == null) { MessageBox.Show("شماره نامه قرارداد وارد نشد است"); return; }
+            if (agop.LETT_DATE == null) { MessageBox.Show("تاریخ تنظیم قرارداد وارد نشده است"); return; }
+            if (agop.LETT_OWNR == null) { MessageBox.Show("نام طرف قرارداد وارد نشده است"); return; }
 
             iScsc.INS_AGOP_P(
                new XElement("Process",
@@ -321,7 +321,7 @@ namespace System.Scsc.Ui.AggregateOperation
                      new XAttribute("todate", agop.TO_DATE.Value.ToString("yyyy-MM-dd")),
                      new XAttribute("oprttype", agop.OPRT_TYPE ?? "007"),
                      new XAttribute("oprtstat", "004"),
-                     new XAttribute("agopdesc", agop.AGOP_DESC ?? "????? ???? ???? ????? ??? ??????"),
+                     new XAttribute("agopdesc", agop.AGOP_DESC ?? "خدایا بابت روزی امروز ازت ممنونم"),
                      new XAttribute("suntbuntdeptorgncode", agop.SUNT_BUNT_DEPT_ORGN_CODE ?? "00"),
                      new XAttribute("suntbuntdeptcode", agop.SUNT_BUNT_DEPT_CODE ?? "00"),
                      new XAttribute("suntbuntcode", agop.SUNT_BUNT_CODE ?? "00"),

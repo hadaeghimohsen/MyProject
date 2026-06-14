@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
@@ -89,11 +89,11 @@ namespace System.Scsc.Ui.ChangeRials
                                              <ol>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F10</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ?????</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از سیستم</font></li>
                                                 </ul>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F9</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ???? ??????</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از محیط کاربری</font></li>
                                                 </ul>
                                              </ol>
                                        </p>
@@ -380,7 +380,7 @@ namespace System.Scsc.Ui.ChangeRials
                         //         return;
                         //      #region Show Error
                         //      job.Status = StatusType.Failed;
-                        //      MessageBox.Show(this, "??? - ??? ?????? ?? ???? 206 ??????", "??? ??????");
+                        //      MessageBox.Show(this, "خطا - عدم دسترسی به ردیف 206 امنیتی", "خطا دسترسی");
                         //      #endregion                           
                         //   })
                         //},
@@ -466,7 +466,7 @@ namespace System.Scsc.Ui.ChangeRials
             else
                Execute_Query();
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Actn_CalF_P error: " + ex.ToString()); }
+         catch { }
          job.Status = StatusType.Successful;
       }
 

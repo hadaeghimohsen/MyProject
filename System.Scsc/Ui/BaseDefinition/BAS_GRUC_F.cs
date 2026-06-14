@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -71,8 +71,9 @@ namespace System.Scsc.Ui.BaseDefinition
 
             requery = true;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("GrantUserToClub_Butn_Click error: " + ex.ToString()); }
-
+         catch (Exception )
+         {
+         }
          finally
          {
             if(requery)
@@ -101,7 +102,7 @@ namespace System.Scsc.Ui.BaseDefinition
                )
             );
 
-            // 1396/03/19 * ????? ?? ?????? ????? ?? ???? ?????? ????? ?? ??? ????? ?? ????? ?????? ?? ????? ??? ????
+            // 1396/03/19 * زمانی که دسترسی کاربر از شیفت باشگاه گرفته می شود نیازی به گرفتن دسترسی از ناحیه نمی باشد
             //var regn = Club.Region;
             //iScsc.STNG_SAVE_P(
             //   new XElement("Config",
@@ -117,8 +118,9 @@ namespace System.Scsc.Ui.BaseDefinition
 
             requery = true;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RevokeUserFromClub_Butn_Click error: " + ex.ToString()); }
-
+         catch (Exception )
+         {
+         }
          finally
          {
             if (requery)

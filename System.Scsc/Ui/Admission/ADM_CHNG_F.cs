@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -45,7 +45,7 @@ namespace System.Scsc.Ui.Admission
                      rqst.RQST_DATE
                );
 
-         // 1396/11/02 * ???? ????? ????? ?????? ??? ????? ?? ?????
+         // 1396/11/02 * بدست آوردن شماره پرونده های درگیر در تمدید
          FighsBs1.DataSource = iScsc.Fighters.Where(f => Rqids.Contains((long)f.RQST_RQID));
          //RefDesc_Txt.EditValue = "";
       }
@@ -79,7 +79,7 @@ namespace System.Scsc.Ui.Admission
             var Figh = FighBs1.Current as Scsc.Data.Fighter;
             var fgpb = FgpbsBs1.Current as Scsc.Data.Fighter_Public;
 
-            // 1401/02/04 * ???????? ????? ??? ?????
+            // 1401/02/04 * مقداردهی تاریخ های سیستم
             iNSR_DATEPersianDateEdit.CommitChanges();
             BRTH_DATE_PersianDateEdit.CommitChanges();
             COCH_CRTF_DATE_PersianDateEdit.CommitChanges();
@@ -179,7 +179,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (MessageBox.Show(this, "??? ?? ?????? ??????? ????? ??????", "?????!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با انصراف درخواست مطمئن هستید؟", "هشدار!", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
 
             var Rqst = RqstBs1.Current as Data.Request;
 
@@ -210,7 +210,7 @@ namespace System.Scsc.Ui.Admission
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
-               // 1397/05/16 * ??? ???????? ???? ?????? ???? ??? ????? ?? ??????
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
                if (RqstBs1.List.Count == 0)
                   Btn_RqstExit_Click(null, null);
                else
@@ -259,7 +259,7 @@ namespace System.Scsc.Ui.Admission
 
                CardNumb_Text.Text = "";
 
-               // 1404/07/17 * ??? ??? ????? ????? ?? ????? ????? ???? ???? ???? ????? ?????? ???? ??? ???               
+               // 1404/07/17 * اگر نرم افزار الزام به گرفتن هزینه کارت باشه باید درامد متفرقه حتما باز شود               
                if(OthrExpnInfo_Ckbx.Checked == false)
                {
                   if (iScsc.Settings.Any(s => s.CARD_EXPN_STAT == "002"))
@@ -321,7 +321,7 @@ namespace System.Scsc.Ui.Admission
                Get_Current_Record();
                Execute_Query();
                Set_Current_Record();
-               // 1397/05/16 * ??? ???????? ???? ?????? ???? ??? ????? ?? ??????
+               // 1397/05/16 * اگر درخواستی وجود نداشته باشد فرم مربوط را ببندیم
                if (RqstBs1.List.Count == 0 && !OthrExpnInfo_Ckbx.Checked)
                   Btn_RqstExit_Click(null, null);
                else
@@ -367,9 +367,9 @@ namespace System.Scsc.Ui.Admission
                                              <body>
                                                 <p style=""float:right"">
                                                    <ol>
-                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
                                                       <ul>
-                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
                                                       </ul>
                                                    </ol>
                                                 </p>
@@ -468,7 +468,7 @@ namespace System.Scsc.Ui.Admission
          if (e.Column.FieldName == "TIME_DESC" && e.IsGetData)
          {
             var h = ((TimeSpan)view.GetListSourceRowCellValue(e.ListSourceRowIndex, "END_TIME")).Hours;
-            e.Value = h >= 0 && h < 12 ? "???" : h >= 12 && h < 15 ? "???" : h >= 15 && h < 18 ? "??? ???" : h >= 18 ? "???" : "??? ????";            
+            e.Value = h >= 0 && h < 12 ? "صبح" : h >= 12 && h < 15 ? "ظهر" : h >= 15 && h < 18 ? "بعد ظهر" : h >= 18 ? "عصر" : "نام مشخص";            
          }
       }
 
@@ -517,7 +517,7 @@ namespace System.Scsc.Ui.Admission
             if (rqst == null) return;
 
             if (rqst.Request_Rows.First().Fighter_Publics.FirstOrDefault(fp => fp.RECT_CODE == "001").FNGR_PRNT != ""
-            && MessageBox.Show(this, "??? ?? ?????? ?? ?????? ????? ????? ?????", "????? ?? ?????? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes
+            && MessageBox.Show(this, "آیا می خواهید کد انگشتی مشتری تغییر دهید؟", "تغییر کد انگشتی مشتری", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes
             ) return;
             FNGR_PRNT_TextEdit.EditValue =
                 iScsc.Fighters
@@ -532,6 +532,7 @@ namespace System.Scsc.Ui.Admission
             FNGR_PRNT_TextEdit.EditValue = 1;
          }
       }
+
 
       private void ShowRqst_PickButn_PickCheckedChange(object sender)
       {
@@ -568,7 +569,7 @@ namespace System.Scsc.Ui.Admission
                   })
             );
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnEnrollFngrPrnt1_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void RqstBnDeleteFngrPrnt1_Click(object sender, EventArgs e)
@@ -593,7 +594,7 @@ namespace System.Scsc.Ui.Admission
                   })
             );
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDeleteFngrPrnt1_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void RqstBnDuplicateFngrPrnt1_Click(object sender, EventArgs e)
@@ -617,7 +618,7 @@ namespace System.Scsc.Ui.Admission
                   })
             );
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDuplicateFngrPrnt1_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void RqstBnEnrollFngrPrnt2_Click(object sender, EventArgs e)
@@ -638,7 +639,7 @@ namespace System.Scsc.Ui.Admission
                }
             );
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnEnrollFngrPrnt2_Click error: " + ex.ToString()); }
+         catch (Exception exc) { }
       }
 
       private void RqstBnDeleteFngrPrnt2_Click(object sender, EventArgs e)
@@ -659,7 +660,7 @@ namespace System.Scsc.Ui.Admission
                }
             );
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("RqstBnDeleteFngrPrnt2_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void GetMap_Butn_Click(object sender, EventArgs e)
@@ -687,7 +688,7 @@ namespace System.Scsc.Ui.Admission
 
                var _refServ = iScsc.Fighters.FirstOrDefault(s => s.FILE_NO == fgpb.REF_CODE);
                RefDesc_Txt.Text =
-                  string.Format("??? : " + "{0} " + Environment.NewLine + "????? ?????? : " + "{1} " + Environment.NewLine + "????? ?????? : " + "{2}",
+                  string.Format("نام : " + "{0} " + Environment.NewLine + "شماره موبایل : " + "{1} " + Environment.NewLine + "تعداد معرفین : " + "{2}",
                      _refServ.NAME_DNRM,
                      _refServ.CELL_PHON_DNRM,
                      iScsc.Fighters.Where(s => s.REF_CODE_DNRM == _refServ.FILE_NO).Count()

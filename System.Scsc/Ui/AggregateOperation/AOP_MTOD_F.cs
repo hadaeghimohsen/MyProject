@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -283,7 +283,7 @@ namespace System.Scsc.Ui.AggregateOperation
 
             RqstBs2.DataSource = iScsc.Requests.First(r => r == crnt.Request);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("AodtBs1_CurrentChanged error: " + ex.ToString()); }
+         catch { }
       }
 
       private void EndRqst_Butn_Click(object sender, EventArgs e)
@@ -331,6 +331,8 @@ namespace System.Scsc.Ui.AggregateOperation
             }
          }
       }
+
+      
 
    }
 }

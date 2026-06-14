@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
@@ -87,11 +87,11 @@ namespace System.Scsc.Ui.Admission
                                              <ol>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F10</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ?????</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از سیستم</font></li>
                                                 </ul>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F9</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ???? ??????</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از محیط کاربری</font></li>
                                                 </ul>
                                              </ol>
                                        </p>
@@ -446,6 +446,7 @@ namespace System.Scsc.Ui.Admission
          }
          #endregion
 
+
          job.Status = StatusType.Successful;
       }
 
@@ -524,7 +525,7 @@ namespace System.Scsc.Ui.Admission
 
             isFirstLoaded = true;
          }            
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LoadData error: " + ex.ToString()); }
+         catch { }
          //Execute_Query();
          #endregion
 
@@ -554,7 +555,7 @@ namespace System.Scsc.Ui.Admission
             iScsc = new Data.iScscDataContext(ConnectionString);
             CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && cbmt.Method.MTOD_STAT == "002" && Convert.ToInt32( cbmt.Fighter.ACTV_TAG_DNRM ?? "101" ) >= 101 )/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LoadDataSource error: " + ex.ToString()); }
+         catch { }
          job.Status = StatusType.Successful;
       }
 
@@ -584,14 +585,14 @@ namespace System.Scsc.Ui.Admission
                   RqttCode_Lov.EditValue = "001";//figh.FGPB_TYPE_DNRM;
                   Btn_RqstRqt3_Click(null, null);
 
-                  // ????? ??? ??? ??? ?? ?????? ??? ?? ??????? ??? ???? ????? ??????? ????? ?????? ??? ???? ?? ???
+                  // اولین گام این هست که ببینیم آیا ما توانسته ایم برای مشترک درخواست درآمد متفرقه ثبت کنیم یا خیر
                   var fg = iScsc.Fighters.FirstOrDefault(f => f.FILE_NO == figh.FILE_NO);
                   if (!(fg.FIGH_STAT == "001" && fg.RQST_RQID != null && fg.Request.RQTP_CODE == "009"))
                   {
-                     MessageBox.Show("??? ??????? ???? ????? ?? ????? ????? ??? ???? ???? ????? ????");
+                     MessageBox.Show("ثبت درخواست برای مشتری با مشکلی مواجه شده است، لطفا بررسی کنید");
                      return;
                   }
-                  // 1398/09/07 * ???? ???? ??????? ???? ?????
+                  // 1398/09/07 * پیدا کردن درخواست برای مشتری
                   RqstBs3.Position = RqstBs3.IndexOf(RqstBs3.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == figh.FILE_NO)));
 
                   // 1396/11/04
@@ -606,7 +607,7 @@ namespace System.Scsc.Ui.Admission
                   Execute_Query();                  
                   var figh = iScsc.Fighters.Where(f => f.FNGR_PRNT_DNRM == xinput.Attribute("enrollnumber").Value).FirstOrDefault();
 
-                  // 1398/10/01 * ???? ???? ??????? ???? ?????
+                  // 1398/10/01 * پیدا کردن درخواست برای مشتری
                   RqstBs3.Position = RqstBs3.IndexOf(RqstBs3.List.OfType<Data.Request>().FirstOrDefault(r => r.Request_Rows.Any(rr => rr.Fighter.FILE_NO == figh.FILE_NO)));
 
                   // 1398/10/01
@@ -656,7 +657,7 @@ namespace System.Scsc.Ui.Admission
             else
                Execute_Query();
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Actn_CalF_P error: " + ex.ToString()); }
+         catch { }
          job.Status = StatusType.Successful;
       }
 
@@ -689,7 +690,7 @@ namespace System.Scsc.Ui.Admission
          if (regl.AMNT_TYPE == "002")
             amnt /= 10;
 
-         // ??? ????? ???? ????? ?? ???? ?? ?? ???? ?????? ?? ???? ???? ??? ?????? ?????? ???? ???? ??????
+         // این گزینه برای حالتی می باشد که کل مبلغ پرداخت به صورت کامل روی دستگاه پایانه فروش قرار میگیرد
          if (UsePos_Cb.Checked)
          {
             iScsc.PAY_MSAV_P(
@@ -718,7 +719,7 @@ namespace System.Scsc.Ui.Admission
             /* End Request */
             Btn_RqstSav3_Click(null, null);
          }
-         // ??? ????? ???? ??????? ?????? ?? ??? ?? ?? ???? ???? ?????? ??? ???
+         // این گزینه برای پرداختی پایانه ای هست که به صورت کامل پرداخت نمی شود
          else
          {
             iScsc.PAY_MSAV_P(

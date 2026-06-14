@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -89,7 +89,7 @@ namespace System.Scsc.Ui.Committee
             if (lov_regn.EditValue == null || lov_regn.EditValue.ToString().Length != 3) return;
             FighsBs1.DataSource = iScsc.Fighters.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE_DNRM) && cbmt.CONF_STAT == "002" && (cbmt.REGN_PRVN_CODE + cbmt.REGN_CODE).Contains(lov_prvn.EditValue.ToString() + lov_regn.EditValue.ToString()))/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("REGN_CODELookUpEdit_EditValueChanged error: " + ex.ToString()); }
+         catch{}
       }
 
       private void Btn_RqstBnARqt1_Click(object sender, EventArgs e)
@@ -193,7 +193,7 @@ namespace System.Scsc.Ui.Committee
             Data.Request Rqst = RqstBs1.Current as Data.Request;
             if (Rqst == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ?????? ???? ??????? ????? ??????", "?????", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با انصراف دادن درخواست موافق هستید؟", "هشدار", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             iScsc.CNCL_RQST_F(
                new XElement("Process",
                   new XElement("Request",

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.JobRouting.Jobs;
 using System.JobRouting.Routering;
@@ -88,11 +88,11 @@ namespace System.Scsc.Ui.Admission
                                              <ol>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F10</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ?????</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از سیستم</font></li>
                                                 </ul>
                                                 <li><font face=""verdana"" size=""3"" color=""red"">F9</font></li>
                                                 <ul>
-                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">???? ?? ???? ??????</font></li>
+                                                   <li><font face=""Tahoma"" size=""3"" color=""green"">خروج از محیط کاربری</font></li>
                                                 </ul>
                                              </ol>
                                        </p>
@@ -531,6 +531,9 @@ namespace System.Scsc.Ui.Admission
          }
          #endregion
 
+
+
+
          job.Status = StatusType.Successful;
       }
 
@@ -608,7 +611,7 @@ namespace System.Scsc.Ui.Admission
             
             isFirstLoaded = true;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LoadData error: " + ex.ToString()); }
+         catch { }         
 
       //Execute_Query();
          #endregion
@@ -616,7 +619,7 @@ namespace System.Scsc.Ui.Admission
       finishcommand:
          DRqpmBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Request_Parameter");
          RtoaBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Payment_To_Another_Account");
-         //FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("?????, ???? ??")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
+         //FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
             Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
@@ -639,7 +642,7 @@ namespace System.Scsc.Ui.Admission
             iScsc = new Data.iScscDataContext(ConnectionString);
             //DstpBs1.DataSource = iScsc.Diseases_Types;            
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("LoadDataSource error: " + ex.ToString()); }
+         catch { }
          job.Status = StatusType.Successful;
       }
 
@@ -728,7 +731,7 @@ namespace System.Scsc.Ui.Admission
             else
                Execute_Query();
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Actn_CalF_P error: " + ex.ToString()); }
+         catch { }
          job.Status = StatusType.Successful;
       }
 
@@ -763,7 +766,7 @@ namespace System.Scsc.Ui.Admission
             if (regl.AMNT_TYPE == "002")
                amnt /= 10;
 
-            // ??? ????? ???? ????? ?? ???? ?? ?? ???? ?????? ?? ???? ???? ??? ?????? ?????? ???? ???? ??????
+            // این گزینه برای حالتی می باشد که کل مبلغ پرداخت به صورت کامل روی دستگاه پایانه فروش قرار میگیرد
             if (UsePos_Cb.Checked)
             {
                iScsc.PAY_MSAV_P(
@@ -792,7 +795,7 @@ namespace System.Scsc.Ui.Admission
                /* End Request */
                Btn_RqstSav1_Click(null, null);
             }
-            // ??? ????? ???? ??????? ?????? ?? ??? ?? ?? ???? ???? ?????? ??? ???
+            // این گزینه برای پرداختی پایانه ای هست که به صورت کامل پرداخت نمی شود
             else
             {
                iScsc.PAY_MSAV_P(

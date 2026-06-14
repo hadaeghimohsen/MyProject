@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -66,7 +66,7 @@ namespace System.Scsc.Ui.Regulation
                   break;
                case DevExpress.XtraEditors.NavigatorButtonType.Remove:
                   e.Handled = true;
-                  if (MessageBox.Show(this, "??? ?? ??? ???? ??? ????? ????????", "??? ??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+                  if (MessageBox.Show(this, "آیا با حذف کردن نوع هزینه موافقید؟", "حذف نوع هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                   iScsc.REGL_TOTL_P(
                      new XElement("Config",
                         new XAttribute("type", "001"),
@@ -114,7 +114,7 @@ namespace System.Scsc.Ui.Regulation
             switch (se.Number)
             {
                case 515:
-                  MessageBox.Show("???? ????? ??? ????? ??? ?? ???? ???? ????");
+                  MessageBox.Show("لطفا گزینه های ستاره دار را حتما وارد کنید");
                   break;
                default:
                   MessageBox.Show(se.Message);
@@ -182,7 +182,7 @@ namespace System.Scsc.Ui.Regulation
 
             if (crnt == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف هزینه موافق هستین؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.Pre_Expenses.DeleteOnSubmit(crnt);
 
@@ -236,9 +236,9 @@ namespace System.Scsc.Ui.Regulation
                                              <body>
                                                 <p style=""float:right"">
                                                    <ol>
-                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">??? ?? ???? ?????? ??????</font></li>
+                                                      <li><font face=""Tahoma"" size=""2"" color=""red"">خطا در مورد نداشتن دسترسی</font></li>
                                                       <ul>
-                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">?????? ???? ??? ????? ????? ?????? ?? ????? ???? ???? ??????.</font></li>                                                                                 
+                                                         <li><font face=""Tahoma"" size=""2"" color=""green"">احتمال زیاد شما کاربر گرامی دسترسی به ایجاد کردن گروه ندارید.</font></li>                                                                                 
                                                       </ul>
                                                    </ol>
                                                 </p>
@@ -268,9 +268,9 @@ namespace System.Scsc.Ui.Regulation
                BrndBs.DataSource = iScsc.Group_Expenses.Where(ge => ge.GROP_TYPE == "002").ToList();
                break;
             case 3:
-               if (MessageBox.Show(this, "??? ?? ???? ???? ????? ?? ????? ??????", "???? ????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+               if (MessageBox.Show(this, "آیا با گروه بندی درآمد ها موافق هستید؟", "گروه بندی", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
-               if (MessageBox.Show(this, "??? ??? ??????? ???? ?????", "???? ????", MessageBoxButtons.YesNo) == DialogResult.Yes)
+               if (MessageBox.Show(this, "آیا همه رکوردها بروز شوند؟", "گروه بندی", MessageBoxButtons.YesNo) == DialogResult.Yes)
                   iScsc.ExecuteCommand(
                      "INSERT INTO dbo.Group_Expense(Code, Grop_Type, Ordr, Grop_Desc, Stat)" + Environment.NewLine + 
                      "SELECT m.Code, '001', m.natl_code, m.Mtod_Desc, '002' FROM dbo.Method m" + Environment.NewLine + 
@@ -299,7 +299,7 @@ namespace System.Scsc.Ui.Regulation
             if (expn == null) return;
 
             expn.EXPN_DESC = 
-               string.Format("{0} {1}? {2}",  
+               string.Format("{0} {1}، {2}",  
                ExtpDesc_Cbx.Checked ? expn.Expense_Type.Expense_Item.EPIT_DESC : "", 
                MtodDesc_Cbx.Checked ? expn.Method.MTOD_DESC : "", 
                CtgyDesc_Cbx.Checked ? expn.Category_Belt.CTGY_DESC : ""
@@ -323,7 +323,7 @@ namespace System.Scsc.Ui.Regulation
                      .ToList()
                      .ForEach(_expn => 
                         _expn.EXPN_DESC =
-                           string.Format("{0} {1}? {2}",
+                           string.Format("{0} {1}، {2}",
                            ExtpDesc_Cbx.Checked ? _expn.Expense_Type.Expense_Item.EPIT_DESC : "",
                            MtodDesc_Cbx.Checked ? _expn.Method.MTOD_DESC : "",
                            CtgyDesc_Cbx.Checked ? _expn.Category_Belt.CTGY_DESC : ""
@@ -337,7 +337,7 @@ namespace System.Scsc.Ui.Regulation
                foreach (var expn in ExpnBs.List.OfType<Data.Expense>())
                {
                   expn.EXPN_DESC =
-                     string.Format("{0} {1}? {2}",
+                     string.Format("{0} {1}، {2}",
                      ExtpDesc_Cbx.Checked ? expn.Expense_Type.Expense_Item.EPIT_DESC : "",
                      MtodDesc_Cbx.Checked ? expn.Method.MTOD_DESC : "",
                      CtgyDesc_Cbx.Checked ? expn.Category_Belt.CTGY_DESC : ""
@@ -394,7 +394,7 @@ namespace System.Scsc.Ui.Regulation
          }
          else
          {
-            // 1403/06/01 * ??? ?????? ????? ???? ???? ???? ??????? ????? ?? ?? ???? ????
+            // 1403/06/01 * اگر رکوردی ذخیره نشده وجود دارد بتوانیم تکلیف آن را مشخص کنیم
             if (ExtpBs.List.OfType<Data.Expense_Type>().Any(et => et.CODE == 0)) return;
 
             ExtpBs.AddNew();
@@ -405,7 +405,7 @@ namespace System.Scsc.Ui.Regulation
       {
          try
          {
-            if (MessageBox.Show(this, "??? ?? ??? ???? ??? ????? ????????", "??? ??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف کردن نوع هزینه موافقید؟", "حذف نوع هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
             iScsc.REGL_TOTL_P(
                new XElement("Config",
                   new XAttribute("type", "001"),
@@ -506,7 +506,7 @@ namespace System.Scsc.Ui.Regulation
 
             Grop_Lov.EditValue = expn.GROP_CODE;
 
-            // 1397/10/08 * ???????? ??????? ????? ?? ??????? ?????
+            // 1397/10/08 * بارگذاری اطلاعات مربوط به تخفیفات سیستم
             //BcdsBs1.DataSource = 
             //   iScsc.Basic_Calculate_Discounts
             //   .Where(
@@ -518,7 +518,7 @@ namespace System.Scsc.Ui.Regulation
             //         b.Expense_Item == expn.Expense_Type.Expense_Item
             //   );
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("ExpnBs_CurrentChanged error: " + ex.ToString()); }
+         catch { }
       }
 
       private void GropIng_Butn_Click(object sender, EventArgs e)
@@ -534,7 +534,7 @@ namespace System.Scsc.Ui.Regulation
             iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, (long)gropcode, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, _expn.BRND_CODE, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR);
             requery = true;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("GropIng_Butn_Click error: " + ex.ToString()); }
+         catch { }
          finally
          {
             if (requery)
@@ -551,7 +551,7 @@ namespace System.Scsc.Ui.Regulation
 
             iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, null, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, _expn.BRND_CODE, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DelGrop_Butn_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void DelRqdc_Butn_Click(object sender, EventArgs e)
@@ -613,7 +613,7 @@ namespace System.Scsc.Ui.Regulation
          try
          {
             var crntobj = BcdsBs1.Current as Data.Basic_Calculate_Discount;
-            if (crntobj != null && MessageBox.Show(this, "??? ?? ??? ???? ?????? ??? ????????", "?????? ???", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
+            if (crntobj != null && MessageBox.Show(this, "آیا با حذف آیتم انتخاب شده موافقید؟", "عملیات حذف", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2, MessageBoxOptions.RtlReading) != DialogResult.Yes) return;
 
             iScsc.Basic_Calculate_Discounts.DeleteOnSubmit(crntobj);
             iScsc.SubmitChanges();
@@ -704,7 +704,7 @@ namespace System.Scsc.Ui.Regulation
             iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, _expn.GROP_CODE, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, (long)brndcode, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR);
             requery = true;
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("BrndLng_Butn_Click error: " + ex.ToString()); }
+         catch { }
          finally
          {
             if (requery)
@@ -721,7 +721,7 @@ namespace System.Scsc.Ui.Regulation
 
             iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, _expn.GROP_CODE, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, null, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR);
          }
-         catch (Exception ex) { System.Diagnostics.Debug.WriteLine("DelBrnd_Butn_Click error: " + ex.ToString()); }
+         catch { }
       }
 
       private void AddExco_Butn_Click(object sender, EventArgs e)
@@ -749,7 +749,7 @@ namespace System.Scsc.Ui.Regulation
             var _exco = ExcoBs.Current as Data.Expense_Cost;
             if (_exco == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
             iScsc.Expense_Costs.DeleteOnSubmit(_exco);
             iScsc.SubmitChanges();
@@ -856,10 +856,10 @@ namespace System.Scsc.Ui.Regulation
 
             if(iScsc.Payment_Details.Any(pd => pd.EXTS_CODE == _exts.CODE))
             {
-               throw new Exception("?? ???? ????? ?????? ?? ?????? ???? ???? ?? ???? ??????? ??? ????? ?? ??? ????? ???? ?? ?? ??????? ????");
+               throw new Exception("در جدول اقلام فاکتور ها سوابقی وجود دارد که دیگر نمیتوان این رکورد را پاک کنید، لطفا آن را غیرفعال کنید");
             }
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید?", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             iScsc.ExecuteCommand(string.Format("DELETE dbo.Expense_Type_Step WHERE Code = {0};", _exts.CODE));
             requery = true;
@@ -919,7 +919,7 @@ namespace System.Scsc.Ui.Regulation
             var _cexc = CexcBs.Current as Data.Calculate_Expense_Coach;
             if (_cexc == null) return;
 
-            if (MessageBox.Show(this, "??? ?? ??? ????? ????? ??????", "??? ?????", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
             iScsc.Calculate_Expense_Coaches.DeleteOnSubmit(_cexc);
             iScsc.SubmitChanges();

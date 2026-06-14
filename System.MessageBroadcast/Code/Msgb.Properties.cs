@@ -43,43 +43,46 @@ namespace System.MessageBroadcast.Code
       {
          if (_custBusy) return;
          _custBusy = true;
+         var connStr = ConnectionString;
          Task.Run(() =>
          {
             try
             {
-               // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
-               // اولین گام بدست آوردن نام سیستم فعلی
-               if (xHost == null)
-                  _DefaultGateway.Gateway(
-                     new Job(SendType.External, "Localhost", "DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
-                     {
-                        AfterChangedOutput =
-                        new Action<object>((output) =>
+               using (var ctx = new Data.iProjectDataContext(connStr))
+               {
+                  // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
+                  // اولین گام بدست آوردن نام سیستم فعلی
+                  if (xHost == null)
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "Localhost", "DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
                         {
-                           xHost = output as XElement;
-                        })
-                     }
-                  ); 
+                           AfterChangedOutput =
+                           new Action<object>((output) =>
+                           {
+                              xHost = output as XElement;
+                           })
+                        }
+                     );
 
-               _GetConnectionString();
-               var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
+                  var smsConf = ctx.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
 
-               // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
-               if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { _CustBgwk.Interval = 1000 * 60 * 10; return; }
+                  // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
+                  if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { _CustBgwk.Interval = 1000 * 60 * 10; return; }
 
-               if (smsConf.Count(sms => sms.TYPE == "001" && sms.CUST_BGWK_STAT == "002") == 0)
-               {
-                  _CustBgwk.Enabled = false;
-                  _CustBgwk.Stop();
-               }
-               else
-               {
-                  _CustBgwk.Interval = (int)smsConf.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.CUST_BGWK_INTR);
-               }
+                  if (smsConf.Count(sms => sms.TYPE == "001" && sms.CUST_BGWK_STAT == "002") == 0)
+                  {
+                     _CustBgwk.Enabled = false;
+                     _CustBgwk.Stop();
+                  }
+                  else
+                  {
+                     _CustBgwk.Interval = (int)smsConf.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.CUST_BGWK_INTR);
+                  }
 
-               if (SmsWorkerStat)
-               {
-                  iProject.PrepareSendCustSms(new XElement("Process", ""));
+                  if (SmsWorkerStat)
+                  {
+                     ctx.PrepareSendCustSms(new XElement("Process", ""));
+                  }
                }
             }
             catch (Exception ex)
@@ -98,10 +101,13 @@ namespace System.MessageBroadcast.Code
          if (_senderBusy) return;
          _senderBusy = true;
          var uiContext = SynchronizationContext.Current;
+         var connStr = ConnectionString;
          Task.Run(() =>
          {
             try
             {
+               using (var ctx = new Data.iProjectDataContext(connStr))
+               {
                // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
                // اولین گام بدست آوردن نام سیستم فعلی
                if(xHost == null)
@@ -116,8 +122,7 @@ namespace System.MessageBroadcast.Code
                      }
                   );            
 
-               _GetConnectionString();
-               var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
+               var smsConf = ctx.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
 
                // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
                if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = 1000 * 60 * 10; }, null); return; }
@@ -200,9 +205,9 @@ namespace System.MessageBroadcast.Code
 
                   int smsSendCount = 0;
                   
-                  #region Send Bulk Sms
-                  // 1398/07/05 ارسال پیام های گروهی به صورت یکبار ارسال
-                  var bulkSms = iProject.Sms_Message_Boxes.Where(sms => sms.STAT == "001" && sms.MESG_ID == null && sms.SEND_TYPE == "002" && (sms.PHON_NUMB.StartsWith("09") || sms.PHON_NUMB.StartsWith("9")) && sms.PHON_NUMB.Length >= 10 && sms.PHON_NUMB.Length <= 11);
+                   #region Send Bulk Sms
+                   // 1398/07/05 ارسال پیام های گروهی به صورت یکبار ارسال
+                   var bulkSms = ctx.Sms_Message_Boxes.Where(sms => sms.STAT == "001" && sms.MESG_ID == null && sms.SEND_TYPE == "002" && (sms.PHON_NUMB.StartsWith("09") || sms.PHON_NUMB.StartsWith("9")) && sms.PHON_NUMB.Length >= 10 && sms.PHON_NUMB.Length <= 11);
                   if(bulkSms.Any())
                   {
                      if(SmsWorkerStat)
@@ -226,11 +231,11 @@ namespace System.MessageBroadcast.Code
                         }
 
                         // Check Line Type is Active
-                        if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == bulkSms.FirstOrDefault().LINE_TYPE && sc.BGWK_STAT == "002") == null) return;
+                         if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == bulkSms.FirstOrDefault().LINE_TYPE && sc.BGWK_STAT == "002") == null) return;
 
-                        // 1397/12/06 * چک کردن گزینه اینکه قبل از ارسال بررسی کنیم که شارژ داریم یا خیر
-                        #region Check Sms Server
-                        var xsmsserver = _GetSmsServerStatus();
+                         // 1397/12/06 * چک کردن گزینه اینکه قبل از ارسال بررسی کنیم که شارژ داریم یا خیر
+                         #region Check Sms Server
+                         var xsmsserver = _GetSmsServerStatus(ctx);
                         if (xsmsserver == null) return;
                         int SendCredit = 0;
                         // 1398/06/08 * بررسی اینکه آیا سامانه شارژ دارد یا خیر
@@ -338,14 +343,14 @@ namespace System.MessageBroadcast.Code
                            }
                         }
 
-                        iProject.SubmitChanges();
+                         ctx.SubmitChanges();
 
-                        smsSendCount = bulkSms.Count();
+                         smsSendCount = bulkSms.Count();
                      }
                   }
                   #endregion
                   #region Send Single Sms
-                  foreach (var sms in iProject.Sms_Message_Boxes.Where(sms => sms.STAT == "001" && sms.MESG_ID == null && ((_JustToday && sms.ACTN_DATE.Value.Date == DateTime.Now.Date) || (!_JustToday && sms.ACTN_DATE.Value.Date <= DateTime.Now.Date && sms.ACTN_DATE.Value.Date >= DateTime.Now.Date.AddDays(_UntilBeforeDay * -1))) && (sms.PHON_NUMB.StartsWith("09") || sms.PHON_NUMB.StartsWith("9")) && sms.PHON_NUMB.Length >= 10 && sms.PHON_NUMB.Length <= 11))
+                   foreach (var sms in ctx.Sms_Message_Boxes.Where(sms => sms.STAT == "001" && sms.MESG_ID == null && ((_JustToday && sms.ACTN_DATE.Value.Date == DateTime.Now.Date) || (!_JustToday && sms.ACTN_DATE.Value.Date <= DateTime.Now.Date && sms.ACTN_DATE.Value.Date >= DateTime.Now.Date.AddDays(_UntilBeforeDay * -1))) && (sms.PHON_NUMB.StartsWith("09") || sms.PHON_NUMB.StartsWith("9")) && sms.PHON_NUMB.Length >= 10 && sms.PHON_NUMB.Length <= 11))
                   {
                      // 1398/07/05 * برای محکم کاری بیشتر برای هر بار ارسال اطلاعات تست ارتباط انجام شود
                      #region Ping Network
@@ -452,11 +457,11 @@ namespace System.MessageBroadcast.Code
                         }
 
                         // Check Line Type is Active
-                        if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE && sc.BGWK_STAT == "002") == null) continue;
+                         if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE && sc.BGWK_STAT == "002") == null) continue;
 
-                        // 1397/12/06 * چک کردن گزینه اینکه قبل از ارسال بررسی کنیم که شارژ داریم یا خیر
-                        #region Check Sms Server
-                        var xsmsserver = _GetSmsServerStatus();
+                         // 1397/12/06 * چک کردن گزینه اینکه قبل از ارسال بررسی کنیم که شارژ داریم یا خیر
+                         #region Check Sms Server
+                         var xsmsserver = _GetSmsServerStatus(ctx);
                         if (xsmsserver == null) return;
                         int SendCredit = 0;
                         // 1398/06/08 * بررسی اینکه آیا سامانه شارژ دارد یا خیر
@@ -566,9 +571,9 @@ namespace System.MessageBroadcast.Code
                            }
                         }
 
-                        iProject.SubmitChanges();
+                         ctx.SubmitChanges();
 
-                        ++smsSendCount;
+                         ++smsSendCount;
                      }
                      else if(smsConf.FirstOrDefault().SERV_TYPE == "004")
                      {
@@ -607,9 +612,9 @@ namespace System.MessageBroadcast.Code
                      );
                   }
 
-                  // 1401/04/10 * عملیات ارسال پیام به نرم افزار بله
-                  // آماده سازی رکوردهای مورد نظر در جدول نرم افزار اپلیکیشن
-                  iProject.ExecuteJobScheduleSubSystem(
+                   // 1401/04/10 * عملیات ارسال پیام به نرم افزار بله
+                   // آماده سازی رکوردهای مورد نظر در جدول نرم افزار اپلیکیشن
+                   ctx.ExecuteJobScheduleSubSystem(
                      new XElement("Job",
                          new XAttribute("type", "SMSTOAPP"),
                          new XElement("Params",
@@ -619,7 +624,8 @@ namespace System.MessageBroadcast.Code
                      )
                   );
 
-                  // مرحله بعدی ارسال درخواست برای ارسال پیام به مخاطبین
+                   // مرحله بعدی ارسال درخواست برای ارسال پیام به مخاطبین
+                }
                }
             }
             catch (Exception ex)
@@ -646,43 +652,14 @@ namespace System.MessageBroadcast.Code
          iProject = new Data.iProjectDataContext(GetConnectionString.Output.ToString());
       }
 
-      private XDocument _GetSmsServerStatus()
+      private XDocument _GetSmsServerStatus(Data.iProjectDataContext ctx)
       {
          try
          {
             XDocument xoutput = new XDocument();
-            
-            //_DefaultGateway.Gateway(
-            //   new Job(SendType.External, "localhost",
-            //      new List<Job>
-            //      {
-            //         new Job(SendType.External, "Msgb",
-            //            new List<Job>
-            //            {
-            //               new Job(SendType.SelfToUserInterface, "MSTR_PAGE_F", 10 /* Execuet Actn_Calf_F */)
-            //               {
-            //                  Input =
-            //                     new XElement("SmsConf",
-            //                        new XAttribute("actntype", "getcredit")
-            //                     ),
-            //                  AfterChangedOutput =
-            //                     new Action<object>((output) =>
-            //                     {
-            //                        xoutput = output as XDocument;
-            //                        //SendCreditCount_Txt.Text = xoutput.Descendants("SendCredit").FirstOrDefault().Value;
-            //                        //SendCreditAmnt_Txt.Text = xoutput.Descendants("SMS_SendFee").FirstOrDefault().Value;
-            //                        //ReceiveCreditCount_Txt.Text = xoutput.Descendants("RecieveCredit").FirstOrDefault().Value;
-            //                        //ReceiveCreditAmnt_Txt.Text = xoutput.Descendants("SMS_RecieveFee").FirstOrDefault().Value;                                                
-            //                     })
-            //               }
-            //            }
-            //         )
-            //      }
-            //   )
-            //);
 
             // 1398/06/08 * مشخص کردن سامانه پیش فرض
-            var smsConf = iProject.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
+            var smsConf = ctx.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
 
             // 1398/06/08 * مشخص کردن اینکه کدام سامانه می خواهیم استفاده کنیم
             if (smsConf.FirstOrDefault().SERV_TYPE == "001")

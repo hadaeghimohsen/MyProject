@@ -79,7 +79,11 @@ namespace System.DataGuard.Login.Code
                   AfterChangedOutput =
                   new Action<object>((output) =>
                   {
-                     iProject = null;
+                     if (iProject != null)
+                     {
+                        iProject.Dispose();
+                        iProject = null;
+                     }
                      GetUi(null);
                      //iProject.SaveActiveSession(new XElement("ActiveSession", new XAttribute("database", "iProject")));
                      iProject.SaveHostInfo(output as XElement);

@@ -235,6 +235,7 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject132 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject133 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject134 = new DevExpress.Utils.SerializableAppearanceObject();
+         System.Windows.Forms.Label label53;
          this.colCASH_STAT = new DevExpress.XtraGrid.Columns.GridColumn();
          this.CtgyStat_Clm = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit9 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
@@ -2178,6 +2179,7 @@
          this.OpnFil_Ofd = new System.Windows.Forms.OpenFileDialog();
          this.DurtAttnSp_Ofd = new System.Windows.Forms.OpenFileDialog();
          this.imageList2 = new System.Windows.Forms.ImageList(this.components);
+         this.textEdit14 = new DevExpress.XtraEditors.TextEdit();
          label5 = new System.Windows.Forms.Label();
          label6 = new System.Windows.Forms.Label();
          CashToDate_Lb = new System.Windows.Forms.Label();
@@ -2195,6 +2197,7 @@
          label15 = new System.Windows.Forms.Label();
          label3 = new System.Windows.Forms.Label();
          label16 = new System.Windows.Forms.Label();
+         label53 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit9)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemLookUpEdit8)).BeginInit();
@@ -2724,6 +2727,7 @@
          this.panel27.SuspendLayout();
          this.flowLayoutPanel1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit14.Properties)).BeginInit();
          this.SuspendLayout();
          // 
          // label5
@@ -20210,7 +20214,9 @@
          this.tp_009.AutoScroll = true;
          this.tp_009.Controls.Add(this.lookUpEdit35);
          this.tp_009.Controls.Add(this.label52);
+         this.tp_009.Controls.Add(this.textEdit14);
          this.tp_009.Controls.Add(this.ShowSlidMnui_Pkb);
+         this.tp_009.Controls.Add(label53);
          this.tp_009.Controls.Add(this.ShowRbonMnui_Pkb);
          this.tp_009.Controls.Add(this.label31);
          this.tp_009.Controls.Add(this.label34);
@@ -25812,6 +25818,35 @@
          this.imageList2.TransparentColor = System.Drawing.Color.Transparent;
          this.imageList2.Images.SetKeyName(0, "IMAGE_1645.png");
          // 
+         // label53
+         // 
+         label53.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         label53.AutoSize = true;
+         label53.Location = new System.Drawing.Point(412, 600);
+         label53.Name = "label53";
+         label53.Size = new System.Drawing.Size(173, 13);
+         label53.TabIndex = 0;
+         label53.Text = "مدت زمان نادیده گرفتن ورودی جدید :";
+         // 
+         // textEdit14
+         // 
+         this.textEdit14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.textEdit14.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.StngBs1, "IGNR_ENTR_ATTN_MINT", true));
+         this.textEdit14.EditValue = "";
+         this.textEdit14.Location = new System.Drawing.Point(363, 595);
+         this.textEdit14.Name = "textEdit14";
+         this.textEdit14.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.textEdit14.Properties.Appearance.Options.UseFont = true;
+         this.textEdit14.Properties.Appearance.Options.UseTextOptions = true;
+         this.textEdit14.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
+         this.textEdit14.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.textEdit14.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.textEdit14.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.textEdit14.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.textEdit14.RightToLeft = System.Windows.Forms.RightToLeft.No;
+         this.textEdit14.Size = new System.Drawing.Size(43, 22);
+         this.textEdit14.TabIndex = 1;
+         // 
          // BAS_DFIN_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -26395,6 +26430,7 @@
          this.panel27.ResumeLayout(false);
          this.flowLayoutPanel1.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.CbmtwkdyBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.textEdit14.Properties)).EndInit();
          this.ResumeLayout(false);
 
       }
@@ -28344,6 +28380,7 @@
       private Windows.Forms.Panel panel27;
       private Windows.Forms.Panel panel29;
       private Windows.Forms.Panel panel28;
+      private DevExpress.XtraEditors.TextEdit textEdit14;
 
    }
 }

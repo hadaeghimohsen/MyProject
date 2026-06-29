@@ -70,15 +70,15 @@ namespace System.Scsc.Ui.OtherIncome
             DocsBs1.DataSource = iScsc.Modual_Reports.Where(m => m.MDUL_NAME == GetType().Name && m.STAT == "002");
 
             // 1397/05/15 * بدست آوردن شماره پرونده های درگیر در تمدید
-            FighsBs1.DataSource = 
+            FighsBs1.DataSource =
                iScsc.Fighters
-               .Where(f => 
+               .Where(f =>
                   f.CONF_STAT == "002" &&
                   Rqids.Contains((long)f.RQST_RQID) &&
-                  /*&& (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "004" || 
-                   *    f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")*/ 
-                  /*(Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || 
-                      (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&*/
+                     /*&& (f.FGPB_TYPE_DNRM == "001" || f.FGPB_TYPE_DNRM == "004" || 
+                      *    f.FGPB_TYPE_DNRM == "005" || f.FGPB_TYPE_DNRM == "006")*/
+                     /*(Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || 
+                         (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) &&*/
                   Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101)
                .OrderBy(f => f.FGPB_TYPE_DNRM);
             //FighBs1.DataSource = iScsc.Fighters.Where(f => );
@@ -102,12 +102,12 @@ namespace System.Scsc.Ui.OtherIncome
                      b.Tag = g.Key.CODE;
                   }
                   else
-                     b.Text = "سایر موارد";                  
+                     b.Text = "سایر موارد";
                   b.Click += GropButn_Click;
                   Grop_FLP.Controls.Add(b);
                }
             );
-            
+
 
             PydtsBs1.Position = pydt;
             PcdtBs1.Position = pcdt;
@@ -123,9 +123,9 @@ namespace System.Scsc.Ui.OtherIncome
 
       void GropButn_Click(object sender, EventArgs e)
       {
-         Button b = (Button) sender;
-         if(b.Tag != null)
-            if(Convert.ToInt64(b.Tag) != 0)
+         Button b = (Button)sender;
+         if (b.Tag != null)
+            if (Convert.ToInt64(b.Tag) != 0)
                Expn_Gv.ActiveFilterString = string.Format("GROP_CODE = {0}", b.Tag);
             else
                Expn_Gv.ActiveFilterString = "";
@@ -190,7 +190,7 @@ namespace System.Scsc.Ui.OtherIncome
                RqstBnDelete1.Enabled = false;
             }
 
-            if(_rqst.RQID > 0)
+            if (_rqst.RQID > 0)
             {
                var _rqro = RqroBs1.Current as Data.Request_Row;
                if (_rqro == null) return;
@@ -308,11 +308,11 @@ namespace System.Scsc.Ui.OtherIncome
                      new XAttribute("sctnname", GetType().Name.Substring(0, 3) + "_001_F"),
                      new XAttribute("rqstdesc", RqstDesc_Txt.EditValue ?? ""),
                      new XAttribute("lettno", Rqst == null ? "" : Rqst.LETT_NO ?? ""),
-                     new XAttribute("lettdate", Rqst == null ? "" : (Rqst.LETT_NO == null ? "" : ( Rqst.LETT_DATE == null ? "" : Rqst.LETT_DATE.Value.ToString("yyyy-MM-dd")))),
+                     new XAttribute("lettdate", Rqst == null ? "" : (Rqst.LETT_NO == null ? "" : (Rqst.LETT_DATE == null ? "" : Rqst.LETT_DATE.Value.ToString("yyyy-MM-dd")))),
                      new XAttribute("invcdate", InvcDate_Dt.Value.HasValue ? InvcDate_Dt.Value.Value.Date.ToString("yyyy-MM-dd") : DateTime.Now.Date.ToString("yyyy-MM-dd")),
                      new XElement("Request_Row",
                         new XAttribute("fileno", Figh == null ? Figh_Lov.EditValue ?? "" : Figh.FILE_NO),
-                        new XElement("Fighter_Public", 
+                        new XElement("Fighter_Public",
                            new XAttribute("frstname", FrstName_Txt.Text),
                            new XAttribute("lastname", LastName_Txt.Text),
                            new XAttribute("natlcode", NatlCode_Txt.Text),
@@ -327,13 +327,13 @@ namespace System.Scsc.Ui.OtherIncome
             );
             requery = true;
          }
-         catch(Exception ex)
+         catch (Exception ex)
          {
             MessageBox.Show(ex.Message);
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Get_Current_Record();
                Execute_Query();
@@ -351,9 +351,9 @@ namespace System.Scsc.Ui.OtherIncome
             if (Rqst == null) return;
 
             if (MessageBox.Show(this, "آیا با انصراف دادن درخواست موافق هستید؟", "هشدار", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
-            
+
             // 1402/07/07 * Delete Locker
-            if(AdatnBs.List.Count > 0)
+            if (AdatnBs.List.Count > 0)
                iScsc.ExecuteCommand(
                   "DELETE dbo.Dresser_Attendance WHERE Code IN ({0});", string.Join(",", AdatnBs.List.OfType<Data.Dresser_Attendance>().Select(da => da.CODE))
                );
@@ -368,13 +368,13 @@ namespace System.Scsc.Ui.OtherIncome
             //OldRecdBs1.List.Clear();
             requery = true;
          }
-         catch(Exception ex)
+         catch (Exception ex)
          {
             MessageBox.Show(ex.Message);
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Get_Current_Record();
                Execute_Query();
@@ -437,9 +437,9 @@ namespace System.Scsc.Ui.OtherIncome
             //OldRecdBs1.List.Clear();
             // 1398/04/03 * به درخواست باشگاه بهاران خانم نقیبی قرار شد برای مشتریان مهمان گزینه ای اضافه کنیم که مدام بعد از اتمام درخواست از فرم خارج نشوند
             //  برای اینکار ما بایستی گزینه ای طراحی کنیم که اگر فعال باشد بتوانیم مشخص کنیم که اگر هنرجو مهمان هست دوباره درخواست دیگیری برای ان ثبت شود
-            if(GustSaveRqst_PickButn.PickChecked)
+            if (GustSaveRqst_PickButn.PickChecked)
             {
-               if(FighsBs1.List.OfType<Data.Fighter>().Any(f => f.FILE_NO ==  _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && f.FGPB_TYPE_DNRM == "005"))
+               if (FighsBs1.List.OfType<Data.Fighter>().Any(f => f.FILE_NO == _rqst.Request_Rows.FirstOrDefault().FIGH_FILE_NO && f.FGPB_TYPE_DNRM == "005"))
                {
                   if (RqstBs1.Count > 0)
                      RqstBs1.AddNew();
@@ -457,7 +457,7 @@ namespace System.Scsc.Ui.OtherIncome
             }
 
             // 1399/12/10 * اضافه کردن فرم مربوط به ثبت اطلاعات درخواست مشتریان
-            if(followups != "")
+            if (followups != "")
             {
                switch (followups.Split(';').First())
                {
@@ -490,7 +490,7 @@ namespace System.Scsc.Ui.OtherIncome
             }
 
             // 1404/06/31 * اگر درخواست پرداخت جریمه باشد باید بعد از اتمام درخواست در گیت برای مشتری باز شود
-            if(_rqst.Card_Link_Operations1.Any())
+            if (_rqst.Card_Link_Operations1.Any())
             {
                // اگر رفت و امد بدون جریمه میباشد باید در گیت مورد نظر باز شود
                _rqst.Card_Link_Operations1.FirstOrDefault().External_Device.External_Device_Link_External_Devices.Where(el => el.STAT == "002").ToList()
@@ -512,7 +512,7 @@ namespace System.Scsc.Ui.OtherIncome
                            }
                         )
                      )
-                  );               
+                  );
             }
             else
             {
@@ -527,13 +527,14 @@ namespace System.Scsc.Ui.OtherIncome
             }
 
             requery = true;
-         }catch(Exception ex)
+         }
+         catch (Exception ex)
          {
             MessageBox.Show(ex.Message);
          }
          finally
          {
-            if(requery)
+            if (requery)
             {
                Get_Current_Record();
                Execute_Query();
@@ -543,7 +544,7 @@ namespace System.Scsc.Ui.OtherIncome
                   RqstBnExit1_Click(null, null);
                else
                {
-                  if(!GustSaveRqst_PickButn.PickChecked)
+                  if (!GustSaveRqst_PickButn.PickChecked)
                      Create_Record();
                }
                requery = false;
@@ -773,7 +774,7 @@ namespace System.Scsc.Ui.OtherIncome
             }*/
 
             // 1398/04/03 * اگر فاکتور فاقد آیتم هزینه باشد اجازه ثبت در سیستم را نداریم
-            if(PydtsBs1.List.Count == 0)
+            if (PydtsBs1.List.Count == 0)
             {
                MessageBox.Show(this, "فاکتور بدون آیتم هزینه می باشد، لطفا آیتم مورد نظر خود را انتخاب کنید");
                return;
@@ -823,7 +824,7 @@ namespace System.Scsc.Ui.OtherIncome
                   e.Handled = true;
                   if (MessageBox.Show(this, "آیا با پاک کردن هزینه درخواست موافقید؟", "حذف هزینه", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;
                   /* Do Delete Payment_Detail */
-                  var Crnt  = PydtsBs1.Current as Data.Payment_Detail;
+                  var Crnt = PydtsBs1.Current as Data.Payment_Detail;
                   var rqst = RqstBs1.Current as Data.Request;
                   iScsc.DEL_SEXP_P(
                      new XElement("Request",
@@ -852,7 +853,7 @@ namespace System.Scsc.Ui.OtherIncome
                            iScsc.INS_SEPD_P(
                               new XElement("Request",
                                  new XAttribute("rqid", rqst.RQID),
-                                 new XElement("Payment", 
+                                 new XElement("Payment",
                                     new XAttribute("cashcode", rqst.Payments.SingleOrDefault().CASH_CODE),
                                     new XElement("Payment_Detail",
                                        new XAttribute("expncode", pd.EXPN_CODE),
@@ -862,7 +863,7 @@ namespace System.Scsc.Ui.OtherIncome
                                        new XAttribute("fighfileno", pd.FIGH_FILE_NO ?? 0),
                                        new XAttribute("cbmtcodednrm", pd.CBMT_CODE_DNRM ?? 0)
                                     )
-                                 )                                 
+                                 )
                               )
                            );
                         }
@@ -963,7 +964,7 @@ namespace System.Scsc.Ui.OtherIncome
          //      );
          //}catch(Exception)
          //{
-            
+
          //}
 
       }
@@ -991,16 +992,16 @@ namespace System.Scsc.Ui.OtherIncome
                   return;
                }
 
-if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
-                {
-                   CellPhon_Txt.Focus();
-                   return;
-                }
+               if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
+               {
+                  CellPhon_Txt.Focus();
+                  return;
+               }
 
-                iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
-             }
+               iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
+            }
 
-             if (Accept_Cb.Checked /* 1402/11/01 if payment no debt */ && PymtsBs1.List.OfType<Data.Payment>().Any(p => (p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM) > 0))
+            if (Accept_Cb.Checked /* 1402/11/01 if payment no debt */ && PymtsBs1.List.OfType<Data.Payment>().Any(p => (p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM) > 0))
             {
                var pymt = PymtsBs1.Current as Data.Payment;
                if (pymt == null) return;
@@ -1082,6 +1083,7 @@ if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
                                           new XAttribute("router", GetType().Name),
                                           new XAttribute("callback", 20),
                                           new XAttribute("amnt", amnt),
+                                          new XAttribute("expnidtyvalu", pymt.Payment_Details.Where(a => a.EXPN_IDTY_VALU_DNRM != null).Select(a => a.EXPN_IDTY_VALU_DNRM).FirstOrDefault() ?? ""),
                                           new XAttribute("modual", GetType().Name), 
                                           new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                        )
@@ -1115,9 +1117,9 @@ if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
                // 1399/12/09 * بعد از اینکه مبلغ دریافتی درون سیستم ثبت شد گزینه به حالت فعال درآید
                PymtVldtType_Cbx.Checked = true;
 
-               
+
                /* Loop For Print After Pay */
-               if(DoPrint_Pkb.PickChecked) RqstBnPrintAfterPay_Click(null, null);
+               if (DoPrint_Pkb.PickChecked) RqstBnPrintAfterPay_Click(null, null);
 
                /* End Request */
                Btn_RqstBnASav1_Click(null, null);
@@ -1192,7 +1194,7 @@ if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
                      new Job(SendType.SelfToUserInterface, "REGL_DCMT_F", 10 /* Execute Actn_CalF_P */){Input = new XElement("Regulation", new XElement("Request_Requester", new XAttribute("rqtpcode", "016")))}
                   })
                );
-         }         
+         }
       }
       private bool setOnDebt = false;
       private void Btn_InDebt001_Click(object sender, EventArgs e)
@@ -1255,16 +1257,16 @@ if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
                      return;
                   }
 
-if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
-                {
-                   CellPhon_Txt.Focus();
-                   return;
-                }
+                  if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
+                  {
+                     CellPhon_Txt.Focus();
+                     return;
+                  }
 
-                iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
-             }
+                  iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
+               }
 
-             if (Accept_Cb.Checked)
+               if (Accept_Cb.Checked)
                {
                   var pymt = PymtsBs1.Current as Data.Payment;
                   if (pymt == null) return;
@@ -1336,7 +1338,7 @@ if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
 
             // 1401/11/11 * اگر هزینه ای که انتخاب میکنیم صاحب هزینه تک داشته باشد سریعا صاحب هزینه را انتخاب میکنیم
             //if(AutoSlctCbmt_Cbx.Checked)
-            if(LinkCochPydt_Cbx.Checked)
+            if (LinkCochPydt_Cbx.Checked)
             {
                var _coch = CochBs1.Current as Data.Fighter;
                if (_coch != null)
@@ -1347,14 +1349,14 @@ if (fp.CELL_PHON == null || fp.CELL_PHON.Length == 0)
                   {
                      _pydt.CBMT_CODE_DNRM = _cbmt.CODE;
                      _pydt.FIGH_FILE_NO = _coch.FILE_NO;//CbmtBs1.List.OfType<Data.Club_Method>().FirstOrDefault(cm => cm.MTOD_CODE == expn.MTOD_CODE).COCH_FILE_NO;
-                        
+
                      PydtsBs1.EndEdit();
                      iScsc.SubmitChanges();
                   }
-else
-                   {
-                      iScsc.ExecuteCommand("UPDATE dbo.Payment_Detail SET Cbmt_Code_Dnrm = {0}, Figh_File_No = {1}, Qnty = {2} WHERE Code = {3};", _cbmt.CODE, _coch.FILE_NO, _pydt.QNTY, _pydt.CODE);
-                   }
+                  else
+                  {
+                     iScsc.ExecuteCommand("UPDATE dbo.Payment_Detail SET Cbmt_Code_Dnrm = {0}, Figh_File_No = {1}, Qnty = {2} WHERE Code = {3};", _cbmt.CODE, _coch.FILE_NO, _pydt.QNTY, _pydt.CODE);
+                  }
                }
             }
             else
@@ -1368,10 +1370,11 @@ else
          catch (Exception ex)
          {
             MessageBox.Show(ex.Message);
+            requery = true;
          }
-         finally 
-         { 
-            if(requery)            
+         finally
+         {
+            if (requery)
             {
                requery = false;
                Execute_Query();
@@ -1395,7 +1398,7 @@ else
 
       private void advBandedGridView1_RowCountChanged(object sender, EventArgs e)
       {
-         if(Expn_Gv.RowCount == 1)
+         if (Expn_Gv.RowCount == 1)
          {
             //AddItem_ButtonClick(null, null);
             //advBandedGridView1.ApplyFindFilter("");
@@ -1497,7 +1500,7 @@ else
             );
 
             var rqst = iScsc.Requests.FirstOrDefault(r => r.RQTP_CODE == "020" && r.RQTT_CODE == "004" && r.MDUL_NAME == GetType().Name && r.SECT_NAME == GetType().Name.Substring(0, 3) + "_003_F" && r.Request_Rows.Any(rr => rr.FIGH_FILE_NO == rqro.FIGH_FILE_NO) && r.RQST_STAT == "001");
-            
+
             if (rqst == null) return;
 
             iScsc.GLR_TSAV_P(
@@ -1651,13 +1654,13 @@ else
          {
             if (FgpbBs1.Current != null)
                //if((FgpbBs1.Current as Data.Fighter_Public).TYPE == "005")
-                  FreeAdm_Ro.RolloutStatus = true;
-               //else
-                  //FreeAdm_Ro.RolloutStatus = false;
+               FreeAdm_Ro.RolloutStatus = true;
+            //else
+            //FreeAdm_Ro.RolloutStatus = false;
             else
                FreeAdm_Ro.RolloutStatus = false;
          }
-         catch (Exception )
+         catch (Exception)
          {
 
          }
@@ -1833,18 +1836,18 @@ else
             var _pydt = PydtsBs1.Current as Data.Payment_Detail;
             if (_pydt == null) return;
 
-            if(_pydt.Expense != null)
+            if (_pydt.Expense != null)
                ExtsBs1.DataSource =
                   iScsc.Expense_Type_Steps
                   .Where(ets => ets.EXTP_CODE == _pydt.Expense.EXTP_CODE && ets.STAT == "002" &&
-                                ((RsrvTimeList_Cbx.Checked && (TimeSpan.Compare(DateTime.Now.TimeOfDay, ets.FROM_TIME.Value.TimeOfDay) <= 0) && TimeSpan.Compare(ets.TO_TIME.Value.TimeOfDay, DateTime.Now.TimeOfDay) >= 0) ||                                  
+                                ((RsrvTimeList_Cbx.Checked && (TimeSpan.Compare(DateTime.Now.TimeOfDay, ets.FROM_TIME.Value.TimeOfDay) <= 0) && TimeSpan.Compare(ets.TO_TIME.Value.TimeOfDay, DateTime.Now.TimeOfDay) >= 0) ||
                                   !RsrvTimeList_Cbx.Checked)
                   );
 
             requery = true;
             CbmtCode_GLov.EditValue = _pydt.CBMT_CODE_DNRM;
             MbspRwnoPydt_Lov.EditValue = _pydt.MBSP_RWNO;
-            ExtsCode_Lov.EditValue = _pydt.EXTS_CODE;            
+            ExtsCode_Lov.EditValue = _pydt.EXTS_CODE;
 
             // 1401/12/09 ** نمایش عکس پروفایل پرسنل که به مشتری خدمات داده شده است
             if (_pydt.FIGH_FILE_NO != null)
@@ -1886,7 +1889,7 @@ else
                   CochServProFile_Rb.ImageProfile = System.Scsc.Properties.Resources.IMAGE_1076;
             }
 
-            CochServProFile_Rb.Visible = _pydt.FIGH_FILE_NO != null;               
+            CochServProFile_Rb.Visible = _pydt.FIGH_FILE_NO != null;
 
             requery = false;
          }
@@ -1903,7 +1906,7 @@ else
             if (requery) { requery = false; return; }
             var pydt = PydtsBs1.Current as Data.Payment_Detail;
             if (pydt == null) return;
-            
+
             //pydt.Club_Method = iScsc.Club_Methods.FirstOrDefault(cm => cm.CODE == (long?)e.NewValue);
             iScsc.UPD_SEXP_P(
                new XElement("Request",
@@ -2006,7 +2009,7 @@ else
                      PydsAmnt_Txt.Focus();
                   }
 
-                  if(HowPyds_Cbx.Checked)
+                  if (HowPyds_Cbx.Checked)
                      amnt = ((long?)(pydt.EXPN_PRIC * pydt.QNTY) * Convert.ToInt64(PydsAmnt_Txt.EditValue)) / 100;
                   else
                      amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt64(PydsAmnt_Txt.EditValue)) / 100;
@@ -2148,6 +2151,7 @@ else
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
                                              new XAttribute("amnt", Convert.ToInt64(PymtAmnt_Txt.EditValue)),
+                                             new XAttribute("expnidtyvalu", pymt.Payment_Details.FirstOrDefault(a => a.EXPN_IDTY_VALU_DNRM != null).EXPN_IDTY_VALU_DNRM ?? ""),
                                              new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
                                              new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
                                              new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? ""),
@@ -2212,7 +2216,7 @@ else
                   PymtVldtType_Cbx.Checked = true;
                   break;
             }
-            
+
             PymtAmnt_Txt.EditValue = null;
             PymtDate_DateTime001.Value = DateTime.Now;
             Rtoa_Lov.EditValue = null;
@@ -2297,7 +2301,7 @@ else
             {
                Pydt_Gv.PostEditor();
                var pydt = PydtsBs1.Current as Data.Payment_Detail;
-               if(pydt.EXPR_DATE == null && MessageBox.Show(this, "تاریخ خالی می باشد آیا میخواهید تاریخ اعتبار همگی خالی شود؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+               if (pydt.EXPR_DATE == null && MessageBox.Show(this, "تاریخ خالی می باشد آیا میخواهید تاریخ اعتبار همگی خالی شود؟", "هشدار", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
                {
                   PydtsBs1.List.OfType<Data.Payment_Detail>().ToList().ForEach(p => p.EXPR_DATE = null);
                }
@@ -2308,7 +2312,7 @@ else
 
                SaveExpn_Butn_Click(null, null);
             }
-            else if(e.Button.Index == 2)
+            else if (e.Button.Index == 2)
             {
                var pydt = PydtsBs1.Current as Data.Payment_Detail;
                if (pydt == null) return;
@@ -2345,7 +2349,7 @@ else
                }
                else
                {
-                  PydtsBs1.List.OfType<Data.Payment_Detail>().ToList().ForEach(pd => pd.EXPR_DATE = DateTime.Now.AddDays(Convert.ToDouble( NumbDay_Txt.Text)).AddMonths(Convert.ToInt32(NumbMonth_Txt.Text)));
+                  PydtsBs1.List.OfType<Data.Payment_Detail>().ToList().ForEach(pd => pd.EXPR_DATE = DateTime.Now.AddDays(Convert.ToDouble(NumbDay_Txt.Text)).AddMonths(Convert.ToInt32(NumbMonth_Txt.Text)));
                }
             }
             else
@@ -2353,12 +2357,12 @@ else
                var pydt = PydtsBs1.Current as Data.Payment_Detail;
                if (pydt == null) return;
 
-// 1403/08/13
-                if(ModifierKeys == Keys.Control)            
-                {
-                   iScsc.ExecuteCommand("UPDATE dbo.Payment_Detail SET EXPR_DATE = '{0}' WHERE CODE = {1};", pydt.EXPR_DATE, pydt.CODE);
-                   return;
-                }
+               // 1403/08/13
+               if (ModifierKeys == Keys.Control)
+               {
+                  iScsc.ExecuteCommand("UPDATE dbo.Payment_Detail SET EXPR_DATE = '{0}' WHERE CODE = {1};", pydt.EXPR_DATE, pydt.CODE);
+                  return;
+               }
 
                if (NumbDay_Txt.Text == "0" && NumbMonth_Txt.Text == "0")
                {
@@ -2372,7 +2376,7 @@ else
 
             SaveExpn_Butn_Click(null, null);
          }
-         catch ( Exception exp)
+         catch (Exception exp)
          {
             MessageBox.Show(exp.Message);
          }
@@ -2383,7 +2387,7 @@ else
          try
          {
             var expn = ExpnBs1.Current as Data.Expense;
-            if(expn == null) return;
+            if (expn == null) return;
 
             ExpnItem_Tsmi.Text = ExpnDesc_Tsmi.Text = expn.EXPN_DESC;
             ExpnPric_Tsmi.Text = expn.PRIC.ToString();
@@ -2471,7 +2475,7 @@ else
 
             expn.EXPN_STAT = "001";
             iScsc.SubmitChanges();
-            requery = true;               
+            requery = true;
          }
          catch (Exception exc)
          {
@@ -2479,7 +2483,7 @@ else
          }
          finally
          {
-            if(requery)
+            if (requery)
                Execute_Query();
          }
       }
@@ -2524,14 +2528,14 @@ else
             ServFind_Tsmi.Text = "جستجوی مشتری";
 
             var fighs = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.ACTV_TAG_DNRM.CompareTo("101") >= 0 && f.CELL_PHON_DNRM.Contains(CellPhonFind_Tsmi.Text));
-            if(fighs.Count() == 0)
+            if (fighs.Count() == 0)
                return;
 
-            if(fighs.Count() == 1)
+            if (fighs.Count() == 1)
             {
                ServFind_Tsmi.Text = string.Format("{0} : {1}", "جستجوی مشتری", fighs.FirstOrDefault().NAME_DNRM);
 
-               if(SaveAutoRqst_Tsmi.CheckState == CheckState.Checked)
+               if (SaveAutoRqst_Tsmi.CheckState == CheckState.Checked)
                {
                   // Create Request for Service
                   _DefaultGateway.Gateway(
@@ -2546,7 +2550,7 @@ else
                   // اولین گام این هست که ببینیم آیا ما توانسته ایم برای مشترک درخواست درآمد متفرقه ثبت کنیم یا خیر
                   fighs = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.ACTV_TAG_DNRM.CompareTo("101") >= 0 && f.CELL_PHON_DNRM.Contains(CellPhonFind_Tsmi.Text));
                   var figh = fighs.FirstOrDefault();
-                  if(!(figh.FIGH_STAT == "001" && figh.RQST_RQID != null && figh.Request.RQTP_CODE == "016" && figh.Request.RQTT_CODE == "001"))
+                  if (!(figh.FIGH_STAT == "001" && figh.RQST_RQID != null && figh.Request.RQTP_CODE == "016" && figh.Request.RQTT_CODE == "001"))
                   {
                      MessageBox.Show("ثبت درخواست برای مشتری با مشکلی مواجه شده است، لطفا بررسی کنید");
                      return;
@@ -3023,10 +3027,10 @@ else
          {
             List<string> evntLogs = new List<string>();
 
-            var _pydts = 
+            var _pydts =
                iScsc.Payment_Details
                .Where(
-                  pd => 
+                  pd =>
                      pd.Payment.Request.RQTP_CODE == "016" &&
                      pd.Payment.Request.RQST_STAT == "002" &&
                      pd.EXPR_DATE.Value <= DateTime.Now.AddMinutes(AlrtPreExit_Cbx.Checked ? Convert.ToDouble(IntervalAlrtPreExit_Txt.EditValue) : 0) &&
@@ -3035,7 +3039,7 @@ else
 
             if (_pydts.Count() == 0) goto L_Attendance;
 
-            if(_pydts.Count() > 0)
+            if (_pydts.Count() > 0)
             {
                if (PlaySondAlrm_Cbx.Checked)
                {
@@ -3053,7 +3057,7 @@ else
                      {
                         evntLogs.Add(string.Format(">> \"{0}\" - [ {1} ] <<", iScsc.GET_STRD_U(new XElement("Request", new XAttribute("type", "001"), new XAttribute("rqid", pd.PYMT_RQST_RQID))), pd.QNTY));
                      }
-                  );                  
+                  );
                }
             }
 
@@ -3077,7 +3081,7 @@ else
             var _attns =
                iScsc.Attendances
                .Where(
-                  a => 
+                  a =>
                      a.ATTN_DATE.Date == DateTime.Now.Date &&
                      a.CBMT_CODE_DNRM != null &&
                      //a.ENTR_TIME.Value.Add(new TimeSpan(0, (int)(a.Club_Method.CLAS_TIME ?? 90), 0))  <= DateTime.Now.TimeOfDay &&
@@ -3088,21 +3092,21 @@ else
 
             if (_attns.Count() == 0) return;
 
-            if(_attns.Count() > 0)
+            if (_attns.Count() > 0)
             {
-               if(PlaySondAlrm_Cbx.Checked)
+               if (PlaySondAlrm_Cbx.Checked)
                {
-                  if(evntLogs.Count == 0)
+                  if (evntLogs.Count == 0)
                      evntLogs.Add(DateTime.Now.ToString("HH:mm:ss => --------- مشتریان اشتراکی ---------"));
 
-                  if(evntLogs.Count == 1)
+                  if (evntLogs.Count == 1)
                   {
                      _wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\timeout.wav";
                      new Thread(AlarmShow).Start();
                   }
 
                   _attns.ToList().ForEach(
-                     a => 
+                     a =>
                         evntLogs.Add(string.Format(">> \"{0}\" - [ {1} ] <<", a.NAME_DNRM, a.CELL_PHON_DNRM))
                   );
                }
@@ -3111,7 +3115,7 @@ else
             iScsc.ExecuteCommand("UPDATE a SET a.MUST_EXIT_TIME_DNRM = DateAdd(Minute, ISNULL(cm.Clas_Time, 90), a.Entr_Time) FROM dbo.Attendance a, dbo.Club_Method cm WHERE a.Cbmt_Code_Dnrm = cm.Code AND a.Code in ({0}) AND a.Must_Exit_Time_Dnrm IS NULL;", string.Join(",", _attns.Select(a => a.CODE)));
 
             ////////////////// End of Calc
- 
+
             if (evntLogs.Count() > 1)
             {
                foreach (var item in evntLogs)
@@ -3187,7 +3191,7 @@ else
 
             if (dpstamnt == 0) { MessageBox.Show(this, "مبلغ سپرده مشتری صفر میباشد", "عدم موجودی سپرده مشتری"); return; }
             // 1401/02/04 * بروزرسانی مبلغ سپرده مشتری
-            if(dpstamnt - pymt.Payment_Methods.Where(pm => pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT) <= 0)
+            if (dpstamnt - pymt.Payment_Methods.Where(pm => pm.RCPT_MTOD == "005").Sum(pm => pm.AMNT) <= 0)
             {
                MessageBox.Show("مبلغ اعتبار سپرده برای مشتری وجود ندارد");
                return;
@@ -3266,7 +3270,7 @@ else
       private void bn_Card2CardPayment3_Click(object sender, EventArgs e)
       {
          try
-         {            
+         {
             var rqst = RqstBs1.Current as Data.Request;
             if (rqst == null) return;
 
@@ -3317,7 +3321,7 @@ else
             RqstBnPrintAfterPay_Click(null, null);
 
             /* End Request */
-            Btn_RqstBnASav1_Click(null, null);            
+            Btn_RqstBnASav1_Click(null, null);
          }
          catch (SqlException se)
          {
@@ -3453,11 +3457,11 @@ else
                   break;
             }
 
-PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
-             PydsDesc_Txt.Text = string.Format("کد تخفیف " + "( {0} )" + " بابت : " + "( {1} )" + " توسط کاربر : " + "( {2} )" + " ذخیره شد.", _fgdc.DISC_CODE, _fgdc.DSCT_DESC, CurrentUser);
-             PydsDesc_Txt.Tag = _fgdc.CODE;
-             iScsc.ExecuteCommand("UPDATE dbo.Fighter_Discount_Card SET RQST_RQID = {0} WHERE CODE = {1};", _rqst.RQID, _fgdc.CODE);
-             SavePyds_Butn_Click(null, null);
+            PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
+            PydsDesc_Txt.Text = string.Format("کد تخفیف " + "( {0} )" + " بابت : " + "( {1} )" + " توسط کاربر : " + "( {2} )" + " ذخیره شد.", _fgdc.DISC_CODE, _fgdc.DSCT_DESC, CurrentUser);
+            PydsDesc_Txt.Tag = _fgdc.CODE;
+            iScsc.ExecuteCommand("UPDATE dbo.Fighter_Discount_Card SET RQST_RQID = {0} WHERE CODE = {1};", _rqst.RQID, _fgdc.CODE);
+            SavePyds_Butn_Click(null, null);
             PydsDesc_Txt.Tag = null;
             PymtOprt_Tc.SelectedTab = PymtDsct_Tp;
          }
@@ -3594,7 +3598,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                         new XAttribute("pydtdesc", pydt.PYDT_DESC),
                         new XAttribute("qnty", pydt.QNTY ?? 1),
                         new XAttribute("fighfileno", pydt.FIGH_FILE_NO ?? 0),
-                        new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM ?? 0),                        
+                        new XAttribute("cbmtcodednrm", pydt.CBMT_CODE_DNRM ?? 0),
                         new XAttribute("mbsprwno", pydt.MBSP_RWNO ?? 0),
                         new XAttribute("exprdate", pydt.EXPR_DATE == null ? "" : pydt.EXPR_DATE.Value.ToString("yyyy-MM-dd")),
                         new XAttribute("extscode", e.NewValue ?? 0),
@@ -3636,12 +3640,12 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                case 2:
                   ExtsSaveBs.DataSource =
                      (from r in iScsc.Requests
-                     join pd in iScsc.Payment_Details on r.RQID equals pd.PYMT_RQST_RQID
-                     join ets in iScsc.Expense_Type_Steps on pd.EXTS_CODE equals ets.CODE
-                     where r.RQST_STAT == "002" &&
-                           r.RQTP_CODE == "016" &&
-                           pd.EXTS_CODE != null && pd.EXTS_RSRV_DATE.Value.Date == ExtsRsrvDate_Dt.Value.Value.Date
-                     select ets).Distinct();
+                      join pd in iScsc.Payment_Details on r.RQID equals pd.PYMT_RQST_RQID
+                      join ets in iScsc.Expense_Type_Steps on pd.EXTS_CODE equals ets.CODE
+                      where r.RQST_STAT == "002" &&
+                            r.RQTP_CODE == "016" &&
+                            pd.EXTS_CODE != null && pd.EXTS_RSRV_DATE.Value.Date == ExtsRsrvDate_Dt.Value.Value.Date
+                      select ets).Distinct();
 
                   if (ExtsCodes_Lov.EditValue == null || ExtsCodes_Lov.EditValue.ToString() == "") { ExtsCodes_Lov.Focus(); return; }
 
@@ -3653,7 +3657,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                            r.RQTP_CODE == "016" &&
                            pd.EXTS_CODE == (long?)ExtsCodes_Lov.EditValue &&
                            pd.EXTS_RSRV_DATE.Value.Date == ExtsRsrvDate_Dt.Value.Value.Date
-                    select rr;
+                     select rr;
                   break;
                default:
                   break;
@@ -3740,7 +3744,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                   );
                   break;
             }
-            
+
 
             requery = true;
          }
@@ -3810,7 +3814,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
             TreeRcmtType_Lov.EditValue = TreePymtAmnt_Txt.EditValue = TreePymtDate_DateTime001.Value = null;
             requery = true;
          }
-         catch(Exception exc)
+         catch (Exception exc)
          {
             MessageBox.Show(exc.Message);
          }
@@ -3834,7 +3838,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
             // 1st Step Find Root Request
             var _rqst = _rqroExts.Request;
             do
-            {               
+            {
                if (_rqst.RQST_RQID == null)
                   break;
                _rqst = _rqst.Request1;
@@ -3844,7 +3848,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                   _sumDsctPric = 0,
                   _sumPymtPric = 0,
                   _SumDebtPric = 0;
-            
+
             ///
 
             var _rqstLevl =
@@ -3883,7 +3887,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                _sumDsctPric += _pymt.SUM_PYMT_DSCN_DNRM;
                _sumPymtPric += _pymt.SUM_RCPT_EXPN_PRIC;
                _SumDebtPric += (_pymt.SUM_EXPN_PRIC) - (_pymt.SUM_RCPT_EXPN_PRIC + _pymt.SUM_PYMT_DSCN_DNRM);
-            }           
+            }
 
             SumTreeTotlPric_Txt.EditValue = _sumTotlPric;
             SumTreeDsctPric_Txt.EditValue = _sumDsctPric;
@@ -3898,7 +3902,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
 
       private void TreeRcmtType_Lov_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
       {
-         if(e.NewValue != null)
+         if (e.NewValue != null)
             TreePymtAmnt_Txt.EditValue = SumTreeDebtPric_Txt.EditValue;
       }
 
@@ -4177,10 +4181,10 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
             {
                _expncode = (ExpnBs1.Current as Data.Expense).CODE;
             }
-            if(WhoCellPhon_Cbx.Checked)
+            if (WhoCellPhon_Cbx.Checked)
             {
                if (OldCellPhon_Txt.EditValue == null || OldCellPhon_Txt.EditValue.ToString() == "") { OldCellPhon_Txt.Focus(); return; }
-               else {_cellphon = OldCellPhon_Txt.Text;}
+               else { _cellphon = OldCellPhon_Txt.Text; }
             }
             if (WhoFngrPrnt_Cbx.Checked)
             {
@@ -4190,9 +4194,9 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
 
             string _rcptmtod = null, _pydstype = null;
             if (HasPmmt_Cbx.Checked && (OldPmmt_Lov.EditValue == null || OldPmmt_Lov.EditValue.ToString() == "")) { OldPmmt_Lov.Focus(); return; }
-            if(HasPmmt_Cbx.Checked) { _rcptmtod = OldPmmt_Lov.EditValue.ToString(); }
+            if (HasPmmt_Cbx.Checked) { _rcptmtod = OldPmmt_Lov.EditValue.ToString(); }
             if (HasPyds_Cbx.Checked && (OldPyds_Lov.EditValue == null || OldPyds_Lov.EditValue.ToString() == "")) { OldPyds_Lov.Focus(); return; }
-            if(HasPyds_Cbx.Checked) { _pydstype = OldPyds_Lov.EditValue.ToString(); }
+            if (HasPyds_Cbx.Checked) { _pydstype = OldPyds_Lov.EditValue.ToString(); }
 
             if (RqstHist_Rlt.RolloutStatus)
             {
@@ -4216,16 +4220,16 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                   .OrderByDescending(r => r.SAVE_DATE);
             }
 
-            if(RqstExpir_Rlt.RolloutStatus)
+            if (RqstExpir_Rlt.RolloutStatus)
             {
                OldPydtsBs2.DataSource =
                   iScsc.Payment_Details
-                  .Where(pd => 
+                  .Where(pd =>
                      pd.Request_Row.Request.RQTP_CODE == "016" &&
                      pd.Request_Row.Request.RQST_STAT == "002" &&
                      (!CrntUser_Cbx.Checked || pd.CRET_BY == CurrentUser) &&
-                     //(!FromRqstDate_Cbx.Checked || _fromrqstdate == null || pd.Request_Row.Request.RQST_DATE.Value.Date >= (_fromrqstdate ?? pd.Request_Row.Request.RQST_DATE.Value.Date)) &&
-                     //(!ToRqstDate_Cbx.Checked || _torqstdate == null || pd.Request_Row.Request.RQST_DATE.Value.Date <= (_torqstdate ?? pd.Request_Row.Request.RQST_DATE.Value.Date)) &&
+                        //(!FromRqstDate_Cbx.Checked || _fromrqstdate == null || pd.Request_Row.Request.RQST_DATE.Value.Date >= (_fromrqstdate ?? pd.Request_Row.Request.RQST_DATE.Value.Date)) &&
+                        //(!ToRqstDate_Cbx.Checked || _torqstdate == null || pd.Request_Row.Request.RQST_DATE.Value.Date <= (_torqstdate ?? pd.Request_Row.Request.RQST_DATE.Value.Date)) &&
                      (!FromRqstDate_Cbx.Checked || _fromrqstdate == null || pd.EXPR_DATE.Value.Date >= (_fromrqstdate ?? pd.EXPR_DATE.Value.Date)) &&
                      (!ToRqstDate_Cbx.Checked || _torqstdate == null || pd.EXPR_DATE.Value.Date <= (_torqstdate ?? pd.EXPR_DATE.Value.Date)) &&
                      (!CrntServ_Cbx.Checked || _fighfileno == null || pd.Request_Row.FIGH_FILE_NO == (_fighfileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
@@ -4242,7 +4246,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                OldPydts2_Gv.ExpandAllGroups();
             }
 
-            if(HistPydt_Rlt.RolloutStatus)
+            if (HistPydt_Rlt.RolloutStatus)
             {
                HistPydtBs.DataSource =
                   iScsc.Payment_Details
@@ -4264,11 +4268,11 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                   );
             }
 
-            if(HistServ_Rlt.RolloutStatus)
+            if (HistServ_Rlt.RolloutStatus)
             {
                HistServBs.DataSource =
                   iScsc.Fighters
-                  .Where(s => 
+                  .Where(s =>
                      iScsc.Payment_Details
                      .Any(pd =>
                         pd.Request_Row.FIGH_FILE_NO == s.FILE_NO &&
@@ -4293,7 +4297,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
 
                if (CrntCoch_Cbx.Checked)
                   HistPydt_Gv.ActiveFilterString += string.Format("AND FIGH_FILE_NO = {0}", _cochfileno);
-               if(CrntExpn_Cbx.Checked)
+               if (CrntExpn_Cbx.Checked)
                   HistPydt_Gv.ActiveFilterString += string.Format("AND EXPN_CODE = {0}", _expncode);
             }
 
@@ -4479,7 +4483,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                      ex.Expense_Type.Request_Requester.RQTP_CODE == "016" &&
                      ex.Expense_Type.Request_Requester.RQTT_CODE == "001" &&
                      ex.EXPN_STAT == "002" /* هزینه های فعال */
-                  );               
+                  );
             }
             else
             {
@@ -4743,7 +4747,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
       private void Rqpm_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
          try
-         {            
+         {
             var _rqpm = RqpmBs.Current as Data.Request_Parameter;
             if (_rqpm == null) return;
 
@@ -4757,7 +4761,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                   break;
                default:
                   break;
-            }            
+            }
 
             iScsc.SubmitChanges();
             requery = true;
@@ -4793,7 +4797,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
             Totl2PydsAmnt_Txt.EditValue = PydsBs1.List.OfType<Data.Payment_Discount>().Where(pd => pd.AMNT_TYPE == "005" && pd.EXPN_CODE == _pydt.EXPN_CODE).Sum(pd => pd.AMNT);
 
             // Calculate amount
-            if(_cexc.CALC_TYPE == "001") // %
+            if (_cexc.CALC_TYPE == "001") // %
             {
                Totl2RcptAmnt_Txt.EditValue = (_pydt.PROF_AMNT_DNRM * _cexc.PRCT_VALU / 100) - PydsBs1.List.OfType<Data.Payment_Discount>().Where(pd => pd.AMNT_TYPE == "005" && pd.EXPN_CODE == _pydt.EXPN_CODE).Sum(pd => pd.AMNT);
                Totl1RcptAmnt_Txt.EditValue = (_pydt.PROF_AMNT_DNRM + _pydt.DEDU_AMNT_DNRM) - (_pydt.PROF_AMNT_DNRM * _cexc.PRCT_VALU / 100) - PydsBs1.List.OfType<Data.Payment_Discount>().Where(pd => pd.AMNT_TYPE != "005" && pd.EXPN_CODE == _pydt.EXPN_CODE).Sum(pd => pd.AMNT);
@@ -4817,7 +4821,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
 
             if (_pydt.FIGH_FILE_NO == null) { CbmtCode_GLov.Focus(); CbmtCode_GLov.ShowPopup(); return; }
 
-            if(!RtoaBs.List.OfType<Data.App_Base_Define>().Any(p => p.ENTY_NAME == "Payment_To_Another_Account" && p.TITL_DESC.StartsWith(_pydt.FIGH_FILE_NO.ToString())))
+            if (!RtoaBs.List.OfType<Data.App_Base_Define>().Any(p => p.ENTY_NAME == "Payment_To_Another_Account" && p.TITL_DESC.StartsWith(_pydt.FIGH_FILE_NO.ToString())))
             {
                iScsc.ExecuteCommand(
                   "INSERT INTO dbo.App_Base_Define (Code, Rwno, Titl_Desc, Enty_Name) VALUES(0, {0}, N'{1} - {2} - {3} - {4}', 'Payment_To_Another_Account');",
@@ -5040,11 +5044,11 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                case 0:
                   // Decriment or delete record
                   if (ModifierKeys.HasFlag(Keys.Control))
-                  {                     
+                  {
                      if (_pydt == null) return;
                      _pydt.QNTY = 1;
                   }
-                  
+
                   RemoveExpn_Butn_Click(null, null);
                   break;
                case 1:
@@ -5055,7 +5059,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                   // Incriment record
                   //1403/06/23 * error operation in call action
                   //AddItem_ButtonClick(null, null);
-                  
+
                   if (_pydt == null) return;
                   _pydt.QNTY += 1;
 
@@ -5322,7 +5326,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
          try
          {
             var _pmct = PmctBs1.Current as Data.Payment_Contract;
-            if(_pmct == null) return;
+            if (_pmct == null) return;
 
             iScsc.ExecuteCommand(
                "MERGE dbo.Payment_Contract_Detail T" + Environment.NewLine +
@@ -5420,11 +5424,11 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
             {
                case 0:
                   switch (_btxt.Tag.ToString())
-	               {
+                  {
                      case "cell":
                         FindFighBs.DataSource =
                            iScsc.Fighters
-                           .Where(f => 
+                           .Where(f =>
                               Equal_Rb.Checked ? f.CELL_PHON_DNRM == _btxt.Text :
                               Contain_Rb.Checked ? f.CELL_PHON_DNRM.Contains(_btxt.Text) :
                               Start_Rb.Checked ? f.CELL_PHON_DNRM.StartsWith(_btxt.Text) :
@@ -5461,7 +5465,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                               f.SERV_NO_DNRM.EndsWith(_btxt.Text)
                            );
                         break;
-	               }
+                  }
                   break;
                default:
                   break;
@@ -5523,7 +5527,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
             Pcdt_Gv.PostEditor();
 
             var _pymt = PymtsBs1.Current as Data.Payment;
-            if(_pymt == null)return;
+            if (_pymt == null) return;
 
             //if (PmctBs1.List.Count != 1) return;
 
@@ -5715,8 +5719,8 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
             }
 
             PydtsBs1.List.OfType<Data.Payment_Detail>().FirstOrDefault(pd => pd.EXPN_CODE == _expn.CODE).QNTY = Convert.ToSingle(Qnty1_Txt.Text);
-            
-            if(per1000_Cbx.Checked)
+
+            if (per1000_Cbx.Checked)
                PydtsBs1.List.OfType<Data.Payment_Detail>().FirstOrDefault(pd => pd.EXPN_CODE == _expn.CODE).EXPN_PRIC = (long)(Convert.ToSingle(Pric1_Txt.Text) * 1000);
             else
                PydtsBs1.List.OfType<Data.Payment_Detail>().FirstOrDefault(pd => pd.EXPN_CODE == _expn.CODE).EXPN_PRIC = (long)Convert.ToSingle(Pric1_Txt.Text);
@@ -5724,9 +5728,9 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
             PydtActn1_Butn_ButtonClick(sender, new DevExpress.XtraEditors.Controls.ButtonPressedEventArgs(PydtActn1_Butn.Buttons[1]));
 
             OrdrItem1_Txt.Text = CochCode1_Txt.Text = "";
-            Pric1_Txt.EditValue = Qnty1_Txt.EditValue = null;            
+            Pric1_Txt.EditValue = Qnty1_Txt.EditValue = null;
             OrdrItem1_Txt.Focus();
-            Expn_Gv.ActiveFilterString = Coch_Gv.ActiveFilterString = "";            
+            Expn_Gv.ActiveFilterString = Coch_Gv.ActiveFilterString = "";
          }
          catch (Exception exc)
          {
@@ -5834,7 +5838,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
             }
 
             File.AppendAllText(ExportLabel_Txt.Text,
-               string.Join(Environment.NewLine, OldRqstBs1.List.OfType<Data.Request>().Where(r => r.Request_Rows.Any(rr => rr.Fighter.CELL_PHON_DNRM != null && rr.Fighter.CELL_PHON_DNRM.Length >= 8)).Select(rr => rr.Request_Rows.FirstOrDefault().Fighter.CELL_PHON_DNRM ))
+               string.Join(Environment.NewLine, OldRqstBs1.List.OfType<Data.Request>().Where(r => r.Request_Rows.Any(rr => rr.Fighter.CELL_PHON_DNRM != null && rr.Fighter.CELL_PHON_DNRM.Length >= 8)).Select(rr => rr.Request_Rows.FirstOrDefault().Fighter.CELL_PHON_DNRM))
             );
 
             MessageBox.Show(this, "شماره تلفن مشتریان در فایل مربوطه ذخیره شد", "ذخیره سازی اطلاعات", MessageBoxButtons.OK);
@@ -5914,7 +5918,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                string.Join(Environment.NewLine, HistServBs.List.OfType<Data.Fighter>().Where(s => s.CELL_PHON_DNRM != null && s.CELL_PHON_DNRM.Length >= 8).Select(s => s.CELL_PHON_DNRM))
             );
 
-            MessageBox.Show(this, "شماره تلفن مشتریان در فایل مربوطه ذخیره شد", "ذخیره سازی اطلاعات", MessageBoxButtons.OK);            
+            MessageBox.Show(this, "شماره تلفن مشتریان در فایل مربوطه ذخیره شد", "ذخیره سازی اطلاعات", MessageBoxButtons.OK);
          }
          catch (Exception exc)
          {
@@ -5925,7 +5929,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
             ExportLabel_Txt.EditValue = SelectExportContactFile_Butn.Tag = null;
          }
 
-      }      
+      }
 
       private void HistServBs_CurrentChanged(object sender, EventArgs e)
       {
@@ -6007,14 +6011,14 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
             if (!checkValidateDate(_fromEndDate.HasValue ? _fromEndDate.Value : DateTime.Now.AddDays(-1))) return;
 
             // --- تبدیل ورودی‌ها قبل از Query ---
-            int? fromUseMint = FromUseMint_Cbx.Checked ? (int?) FromUseMint_Txt.Text.ToInt32() : null;
-            int? toUseMint = ToUseMint_Cbx.Checked ? (int?) ToUseMint_Txt.Text.ToInt32() : null;
-            int? fromCrntMint = FromCrntMint_Cbx.Checked ? (int?) FromCrntMint_Txt.Text.ToInt32() : null;
-            int? toCrntMint = ToCrntMint_Cbx.Checked ? (int?) ToCrntMint_Txt.Text.ToInt32() : null;
-            int? fromFineMint = FromFineMint_Cbx.Checked ? (int?) FromFineMint_Txt.Text.ToInt32() : null;
-            int? toFineMint = ToFineMint_Cbx.Checked ? (int?) ToFineMint_Txt.Text.ToInt32() : null;
-            int? fromFineAmnt = FromFineAmnt_Cbx.Checked ? (int?) FromFineAmnt_Txt.Text.ToInt32() : null;
-            int? toFineAmnt = ToFineAmnt_Cbx.Checked ? (int?) ToFineAmnt_Txt.Text.ToInt32() : null;
+            int? fromUseMint = FromUseMint_Cbx.Checked ? (int?)FromUseMint_Txt.Text.ToInt32() : null;
+            int? toUseMint = ToUseMint_Cbx.Checked ? (int?)ToUseMint_Txt.Text.ToInt32() : null;
+            int? fromCrntMint = FromCrntMint_Cbx.Checked ? (int?)FromCrntMint_Txt.Text.ToInt32() : null;
+            int? toCrntMint = ToCrntMint_Cbx.Checked ? (int?)ToCrntMint_Txt.Text.ToInt32() : null;
+            int? fromFineMint = FromFineMint_Cbx.Checked ? (int?)FromFineMint_Txt.Text.ToInt32() : null;
+            int? toFineMint = ToFineMint_Cbx.Checked ? (int?)ToFineMint_Txt.Text.ToInt32() : null;
+            int? fromFineAmnt = FromFineAmnt_Cbx.Checked ? (int?)FromFineAmnt_Txt.Text.ToInt32() : null;
+            int? toFineAmnt = ToFineAmnt_Cbx.Checked ? (int?)ToFineAmnt_Txt.Text.ToInt32() : null;
 
             // --- جمع‌آوری جنسیت و سرویس ---
             var sexTypes = new List<string>();
@@ -6032,27 +6036,27 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
                _quryStr += string.Format("AND a.CRET_BY = '{0}'", CurrentUser);//_quryStr.Where(a => a.CRET_BY == CurrentUser);
 
             // فیلتر نوع اعتبار
-            if(ValdType_Cbx.CheckState != CheckState.Indeterminate)
+            if (ValdType_Cbx.CheckState != CheckState.Indeterminate)
                _quryStr += string.Format("AND a.VALD_TYPE = '{0}'", (ValdType_Cbx.Checked ? "002" : "001"));//_quryStr.Where(a => a.VALD_TYPE == (ValdType_Cbx.Checked ? "002" : "001"));
 
             // فیلتر وضعیت جریمه
             if (FineStat_Cbx.CheckState != CheckState.Indeterminate)
-            _quryStr += string.Format("AND a.FINE_STAT = '{0}'", (FineStat_Cbx.Checked ? "002" : "001"));//_quryStr.Where(a => a.FINE_STAT == (FineStat_Cbx.Checked ? "002" : "001"));
+               _quryStr += string.Format("AND a.FINE_STAT = '{0}'", (FineStat_Cbx.Checked ? "002" : "001"));//_quryStr.Where(a => a.FINE_STAT == (FineStat_Cbx.Checked ? "002" : "001"));
 
             // فیلتر پرداخت جریمه
             if (FinePay_Cbx.Checked)
-                _quryStr += string.Format("AND EXISTS(SELECT * FROM Payment_Method pm WHERE a.FINE_RQST_RQID = pm.RQRO_RQST_RQID)");//_quryStr.Where(a => iScsc.Payment_Methods.Any(pm => pm.RQRO_RQST_RQID == a.FINE_RQST_RQID));
+               _quryStr += string.Format("AND EXISTS(SELECT * FROM Payment_Method pm WHERE a.FINE_RQST_RQID = pm.RQRO_RQST_RQID)");//_quryStr.Where(a => iScsc.Payment_Methods.Any(pm => pm.RQRO_RQST_RQID == a.FINE_RQST_RQID));
 
             // فیلتر جنسیت و نوع سرویس
             if (sexTypes.Any())
-                _quryStr += string.Format("AND a.SERV_SEX_TYPE IN ('{0}')", string.Join(",", sexTypes));//_quryStr.Where(a => sexTypes.Contains(a.SERV_SEX_TYPE));
+               _quryStr += string.Format("AND a.SERV_SEX_TYPE IN ('{0}')", string.Join(",", sexTypes));//_quryStr.Where(a => sexTypes.Contains(a.SERV_SEX_TYPE));
 
             if (servTypes.Any())
-                _quryStr += string.Format("AND a.SERV_TYPE IN ('{0}')", string.Join(",", servTypes));//_quryStr.Where(a => servTypes.Contains(a.SERV_TYPE));
+               _quryStr += string.Format("AND a.SERV_TYPE IN ('{0}')", string.Join(",", servTypes));//_quryStr.Where(a => servTypes.Contains(a.SERV_TYPE));
 
             // فیلتر نام سرویس و شماره تلفن
             if (ServName_Cbx.Checked && !string.IsNullOrWhiteSpace(ServName_Txt.Text))
-                _quryStr += string.Format("AND a.SERV_NAME_DNRM LIKE N'%{0}%'", ServName_Txt.Text.Replace(' ', '%'));//_quryStr.Where(a => a.SERV_NAME_DNRM.Contains(ServName_Txt.Text));
+               _quryStr += string.Format("AND a.SERV_NAME_DNRM LIKE N'%{0}%'", ServName_Txt.Text.Replace(' ', '%'));//_quryStr.Where(a => a.SERV_NAME_DNRM.Contains(ServName_Txt.Text));
 
             if (ServCellPhon_Cbx.Checked && !string.IsNullOrWhiteSpace(ServCellPhon_Txt.Text))
                _quryStr += string.Format("AND a.SERV_CELL_PHON_DNRM LIKE N'%{0}%'", ServCellPhon_Txt); ;//_quryStr.Where(a => a.SERV_CELL_PHON_DNRM.Contains(ServCellPhon_Txt.Text));
@@ -6084,7 +6088,7 @@ PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
 
             // فیلتر تاریخ با DbFunctions برای EF
             if (_fromStrtDate.HasValue)
-               _quryStr += string.Format("AND CAST(a.STRT_TIME AS DATE) >= '{0}'", _fromStrtDate.Value.ToString("yyyy-MM-dd"));                
+               _quryStr += string.Format("AND CAST(a.STRT_TIME AS DATE) >= '{0}'", _fromStrtDate.Value.ToString("yyyy-MM-dd"));
 
             if (_toStrtDate.HasValue)
                _quryStr += string.Format("AND CAST(a.STRT_TIME AS DATE) <= '{0}'", _toStrtDate.Value.ToString("yyyy-MM-dd"));

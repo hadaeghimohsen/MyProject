@@ -33,12 +33,8 @@ namespace System.Scsc.Ui.ReportManager
          {
             if (tc_master.SelectedTab == tp_001)
             {
-               var rqtps = Rqtp_Lov.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
-               var rcmts = Rcmt_Lov.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
                var users = User_Lov.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
                long? fileno = null;
-               if (Figh_Lov.EditValue != null && Figh_Lov.EditValue.ToString() != "")
-                  fileno = (long?)Figh_Lov.EditValue;
                
                List<string> _slctPos = new List<string>();
                foreach (int _sRow in Pos_Gv.GetSelectedRows())
@@ -53,8 +49,6 @@ namespace System.Scsc.Ui.ReportManager
                      (pm.Payment.PYMT_STAT != "002") &&
                      (pm.ACTN_DATE.Value.Date >= FromDate1_Date.Value.Value.Date ) &&
                      (pm.ACTN_DATE.Value.Date <= ToDate1_Date.Value.Value.Date ) &&
-                     (rqtps.Count == 0 || rqtps.Contains(pm.Request_Row.RQTP_CODE)) &&
-                     (rcmts.Count == 0 || rcmts.Contains(pm.RCPT_MTOD)) &&
                      (users.Count == 0 || (users.Contains(pm.CRET_BY) /*|| users.Contains(pm.MDFY_BY)*/)) &&
                      (pm.Request_Row.FIGH_FILE_NO == (fileno ?? pm.Request_Row.FIGH_FILE_NO)) &&
                      (Fga_Uclb_U.Contains(pm.Payment.CLUB_CODE_DNRM)) &&
@@ -77,8 +71,7 @@ namespace System.Scsc.Ui.ReportManager
                   );
             }
             else if(tc_master.SelectedTab == tp_002)
-            {
-               var rqtps = Rqtp_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
+            {               
                var users = User_Lov2.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
 
                long? fileno = null;//, coch = null;               
@@ -95,8 +88,7 @@ namespace System.Scsc.Ui.ReportManager
                      /*pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay >= FromTime2_Te.Time.TimeOfDay &&
                      pd.Request_Row.Request.RQST_DATE.Value.TimeOfDay <= ToTime2_Te.Time.TimeOfDay &&*/
                      
-                     pd.Request_Row.Request.RQST_STAT == "002" &&
-                     (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
+                     pd.Request_Row.Request.RQST_STAT == "002" &&                     
                      (users.Count == 0 || (users.Contains(pd.CRET_BY) /*|| users.Contains(pd.MDFY_BY)*/)) &&                     
                      //(pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
                      (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
@@ -111,11 +103,7 @@ namespace System.Scsc.Ui.ReportManager
             }
             else if (tc_master.SelectedTab == tp_003)
             {
-               var rqtps = Rqtp_Lov3.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
                var users = User_Lov3.Properties.Items.OfType<CheckedListBoxItem>().Where(i => i.CheckState == CheckState.Checked).Select(i => i.Value).ToList();
-               long? fileno = null;
-               if (Figh_Lov3.EditValue != null && Figh_Lov3.EditValue.ToString() != "")
-                  fileno = (long?)Figh_Lov3.EditValue;
 
                PydsBs3.DataSource =
                   iScsc.Payment_Discounts
@@ -126,11 +114,9 @@ namespace System.Scsc.Ui.ReportManager
                      pd.CRET_DATE.Value.Date <= ToDate3_Date.Value.Value.Date &&
                      pd.Request_Row.Request.RQST_STAT == "002" &&
                      pd.Payment.PYMT_STAT != "002" &&
-                     (rqtps.Count == 0 || rqtps.Contains(pd.Request_Row.RQTP_CODE)) &&
                      (users.Count == 0 || (users.Contains(pd.CRET_BY) /*|| users.Contains(pd.MDFY_BY)*/)) &&
                      (pd.STAT == "002") &&
                      //(pd.AMNT_TYPE != "004" /* به جز ملبغ های مابه التفاوت */) &&
-                     (pd.Request_Row.FIGH_FILE_NO == (fileno ?? pd.Request_Row.FIGH_FILE_NO)) &&
                      ((Pyds004_Cb.Checked && pd.AMNT_TYPE == "004") || (Pyds004_Cb.Checked == false && pd.AMNT_TYPE != "004")) &&
                      (Fga_Uclb_U.Contains(pd.Payment.CLUB_CODE_DNRM)) &&
                      // 1397/09/02 * اضافه شدن فیلتر مربوط به مربی
@@ -382,8 +368,6 @@ namespace System.Scsc.Ui.ReportManager
             FromDate14_Date.Value = FromDate13_Date.Value = FromDate12_Date.Value = FromDate11_Date.Value = FromDate10_Date.Value = FromDate7_Date.Value = FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate2_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate1_Date.Value;
             ToDate14_Date.Value   = ToDate13_Date.Value = ToDate12_Date.Value = ToDate11_Date.Value = ToDate10_Date.Value = ToDate7_Date.Value = ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate2_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate1_Date.Value;
 
-            Rqtp_Lov2.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov.EditValue;
-            Figh_Lov2.EditValue = Figh_Lov3.EditValue = Figh_Lov.EditValue;
             User_Lov2.EditValue = User_Lov3.EditValue = User_Lov.EditValue;
          }
          else if(tc_master.SelectedTab == tp_002)
@@ -398,13 +382,6 @@ namespace System.Scsc.Ui.ReportManager
             FromDate14_Date.Value = FromDate13_Date.Value = FromDate12_Date.Value = FromDate11_Date.Value = FromDate10_Date.Value = FromDate7_Date.Value = FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate3_Date.Value = FromDate4_Date.Value = FromDate2_Date.Value;
             ToDate14_Date.Value = ToDate13_Date.Value = ToDate12_Date.Value = ToDate11_Date.Value = ToDate10_Date.Value = ToDate7_Date.Value = ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate3_Date.Value = ToDate4_Date.Value = ToDate2_Date.Value;
             
-            if(FromTime2_Te.EditValue == null)
-               FromTime2_Te.EditValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 00, 00, 00);
-            if(ToTime2_Te.EditValue == null)
-               ToTime2_Te.EditValue = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23, 59, 00);
-
-            Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue = Rqtp_Lov2.EditValue;
-            Figh_Lov.EditValue = Figh_Lov3.EditValue = Figh_Lov2.EditValue;
             User_Lov.EditValue = User_Lov3.EditValue = User_Lov2.EditValue;
          }
          else if (tc_master.SelectedTab == tp_003)
@@ -418,8 +395,6 @@ namespace System.Scsc.Ui.ReportManager
             FromDate14_Date.Value = FromDate13_Date.Value = FromDate12_Date.Value = FromDate11_Date.Value = FromDate10_Date.Value = FromDate7_Date.Value = FromDate9_Date.Value = FromDate8_Date.Value = FromDate6_Date.Value = FromDate1_Date.Value = FromDate2_Date.Value = FromDate4_Date.Value = FromDate3_Date.Value;
             ToDate14_Date.Value = ToDate13_Date.Value = ToDate12_Date.Value = ToDate11_Date.Value = ToDate10_Date.Value = ToDate7_Date.Value = ToDate9_Date.Value = ToDate8_Date.Value = ToDate6_Date.Value = ToDate1_Date.Value = ToDate2_Date.Value = ToDate4_Date.Value = ToDate3_Date.Value;
 
-            Rqtp_Lov2.EditValue = Rqtp_Lov.EditValue = Rqtp_Lov3.EditValue;
-            Figh_Lov2.EditValue = Figh_Lov.EditValue = Figh_Lov3.EditValue;
             User_Lov2.EditValue = User_Lov.EditValue = User_Lov3.EditValue;
          }
          else if (tc_master.SelectedTab == tp_004)
@@ -757,7 +732,7 @@ namespace System.Scsc.Ui.ReportManager
                                           User_Lov2.EditValue, 
                                           Figh_Lov2.EditValue/*cochfileno*/, 
                                           Cbmt_Lov2.EditValue/*cbmtcode*/, 
-                                          Ctgy_lov2.EditValue,
+                                          "",
                                           Sunt_Lov2.EditValue,
                                           ManPosPay_Cbx.CheckState.ToString("d").PadLeft(3, '0'),
                                           SlctPos_Cbx.CheckState.ToString("d").PadLeft(3, '0'),
@@ -795,7 +770,7 @@ namespace System.Scsc.Ui.ReportManager
                               User_Lov2.EditValue, 
                               Figh_Lov2.EditValue, 
                               Cbmt_Lov2.EditValue/*cbmtcode*/, 
-                              Ctgy_lov2.EditValue,
+                              "",
                               Sunt_Lov2.EditValue,
                               ManPosPay_Cbx.CheckState.ToString("d").PadLeft(3, '0'),
                               SlctPos_Cbx.CheckState.ToString("d").PadLeft(3, '0'),

@@ -1900,8 +1900,8 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
-            var pymt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
-            if (pymt == null) return;
+            var __pymt = vF_SavePaymentsBs.Current as Data.VF_Save_PaymentsResult;
+            if (__pymt == null) return;
 
             var pydt = PydtsBs1.Current as Data.Payment_Detail;
             if (pydt == null) return;
@@ -1916,13 +1916,16 @@ namespace System.Scsc.Ui.Common
                      PydsAmnt_Txt.Focus();
                   }
 
-                  amnt = (pymt.SUM_EXPN_PRIC * Convert.ToInt64(PydsAmnt_Txt.EditValue)) / 100;
+                  amnt = (__pymt.SUM_EXPN_PRIC * Convert.ToInt64(PydsAmnt_Txt.EditValue)) / 100;
                   break;
                case "1":
                   amnt = Convert.ToInt64(PydsAmnt_Txt.EditValue);
                   if (amnt == 0) return;
                   break;
             }
+
+            // 1405/03/25 * اگر مبلغ تخفیف بیشتر از مبلغ بدهی باشد باید جلو آن گرفته شود
+            if (__pymt.SUM_EXPN_PRIC - (__pymt.SUM_RCPT_EXPN_PRIC + __pymt.SUM_PYMT_DSCN_DNRM) < amnt) { MessageBox.Show("مبلغ تخفیف نباید از مبلغ بدهی صورتحساب بیشتر باشد"); return; }
 
             // 1401/09/19 * #MahsaAmini
             // اگر تخفیف برای پرسنل بخواهیم ثبت کنیم باید چک کنیم که آیا تخفیف وارد شده بیشتر سهم پرسنل نباشد
@@ -1933,7 +1936,7 @@ namespace System.Scsc.Ui.Common
                var _calcexpn =
                   iScsc.CALC_EXPN_U(
                      new XElement("Request",
-                         new XAttribute("rqid", pymt.RQID),
+                         new XAttribute("rqid", __pymt.RQID),
                          new XAttribute("expncode", _pydt.EXPN_CODE)
                      )
                   );
@@ -1946,7 +1949,7 @@ namespace System.Scsc.Ui.Common
                }
             }
 
-            iScsc.INS_PYDS_P(pymt.CASH_CODE, pymt.RQID, (short?)1, pydt.EXPN_CODE, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, null);
+            iScsc.INS_PYDS_P(__pymt.CASH_CODE, __pymt.RQID, (short?)1, pydt.EXPN_CODE, amnt, PydsType_Lov.EditValue.ToString(), "002", PydsDesc_Txt.Text, null, null);
 
             PydsAmnt_Txt.EditValue = null;
             PydsDesc_Txt.EditValue = null;
@@ -2010,6 +2013,9 @@ namespace System.Scsc.Ui.Common
 
             if (PymtAmnt_Txt.EditValue == null || PymtAmnt_Txt.EditValue.ToString() == "" || Convert.ToInt64(PymtAmnt_Txt.EditValue) == 0) return;
 
+            // 1405/03/25 * اگر صورتحساب بدهی ندارد دیگر پرداخت مبلغ جدید برای صورتحساب اشباه هست 
+            if (__pymt.SUM_EXPN_PRIC - (__pymt.SUM_RCPT_EXPN_PRIC + __pymt.SUM_PYMT_DSCN_DNRM) == 0) { MessageBox.Show("صورتحساب تسویه شده دیگر نیاز به پرداخت وصولی ندارد"); return; }
+
             //1403/08/26 * اگر تاریخ پرداخت بیشتر از تاریخ جاری باشد
             if (PymtDate_DateTime001.Value.HasValue && PymtDate_DateTime001.Value.Value.Date > DateTime.Now.Date)
             {
@@ -2070,6 +2076,7 @@ namespace System.Scsc.Ui.Common
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
                                              new XAttribute("amnt", Convert.ToInt64(PymtAmnt_Txt.EditValue)),
+                                             new XAttribute("expnidtyvalu", PydtsBs1.List.OfType<Data.Payment_Detail>().Where(a => a.EXPN_IDTY_VALU_DNRM != null).Select(a => a.EXPN_IDTY_VALU_DNRM).FirstOrDefault() ?? ""),
                                              new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
                                              new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
                                              new XAttribute("rcptfilepath", /*RcptFilePath_Txt.EditValue ??*/ ""),
@@ -2611,6 +2618,23 @@ namespace System.Scsc.Ui.Common
                // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
                UsePos_Cb.Checked = false;
 
+               // 1405/04/04 * بررسی اینکه آیا ما برای پرداخت بدهی شناسه دار میباشد یا خیر
+               var __expnIdties =
+                  iScsc.Payment_Details
+                  .Where(a => iScsc.VF_Request_Changing(__figh.FILE_NO).Any(b => b.RQID == a.PYMT_RQST_RQID && b.DEBT_DNRM > 0) && a.EXPN_IDTY_VALU_DNRM != null);
+
+               var distinctValues =
+                  __expnIdties
+                   .Select(a => a.EXPN_IDTY_VALU_DNRM)
+                   .Distinct()
+                   .ToList();
+
+               if (!(distinctValues.Count <= 1))
+               {
+                  MessageBox.Show(this, "برای هزینه های شناسه دار مقادیر متفاوتی وجود دارد که نمیتوانید برای پرداخت بدهی از این مسیر استفاده کنید. لطفا در پروفایل مشتری قسمت صورتحساب ها اقدام کنید", "هزینه های شناسه دار", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                  return;
+               }
+
                // 1404/12/16 * بدست آوردن درخواست بدهکار برای ارسال شماره درخواست به پوز
                var __rqstDebt = iScsc.VF_Request_Changing(__figh.FILE_NO).OrderByDescending(a => a.DEBT_DNRM).FirstOrDefault();
 
@@ -2633,6 +2657,7 @@ namespace System.Scsc.Ui.Common
                                        new XAttribute("router", GetType().Name),
                                        new XAttribute("callback", 21),
                                        new XAttribute("amnt", paydebt ),
+                                       new XAttribute("expnidtyvalu", __expnIdties.Select(x => x.EXPN_IDTY_VALU_DNRM).FirstOrDefault() ?? ""),
                                        new XAttribute("modual", GetType().Name), 
                                        new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                     )

@@ -722,36 +722,6 @@
       <Column Name="DOMN_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="Global.Transaction_Log" Member="Transaction_Logs">
-    <Type Name="Transaction_Log">
-      <Column Name="POSD_PSID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
-      <Column Name="RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="TLID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="TRAN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
-      <Column Name="PAY_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="ISSU_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="RESP_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
-      <Column Name="RESP_DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="TERM_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="TRAN_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="CARD_NO" Type="System.String" DbType="VarChar(16)" CanBeNull="true" />
-      <Column Name="FLOW_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="REF_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="SERL_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
-      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
-      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Association Name="Gateway_Transaction_Log" Member="Gateway" ThisKey="GTWY_MAC_ADRS" OtherKey="MAC_ADRS" Type="Gateway" IsForeignKey="true" />
-      <Association Name="Sub_System_Transaction_Log" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
-      <Association Name="Pos_Device_Transaction_Log" Member="Pos_Device" ThisKey="POSD_PSID" OtherKey="PSID" Type="Pos_Device" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="DataGuard.D$REGN" Member="D_REGNs">
     <Type Name="D_REGN">
       <Column Name="VALU" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
@@ -974,11 +944,11 @@
       <Association Name="Sub_System_User_Privilege" Member="User_Privileges" ThisKey="SUB_SYS" OtherKey="Sub_Sys" Type="User_Privilege" />
       <Association Name="Sub_System_Role" Member="Roles" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Role" />
       <Association Name="Sub_System_Role_Privilege" Member="Role_Privileges" ThisKey="SUB_SYS" OtherKey="Sub_Sys" Type="Role_Privilege" />
-      <Association Name="Sub_System_Transaction_Log" Member="Transaction_Logs" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Transaction_Log" />
       <Association Name="Sub_System_Localization" Member="Localizations" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Localization" />
       <Association Name="Sub_System_Form" Member="Forms" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Form" />
       <Association Name="Sub_System_Script" Member="Scripts" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Script" />
       <Association Name="Sub_System_Tiny_Sub_System" Member="Tiny_Sub_Systems" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Tiny_Sub_System" />
+      <Association Name="Sub_System_Transaction_Log" Member="Transaction_Logs" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Transaction_Log" />
     </Type>
   </Table>
   <Table Name="Msgb.Message_Broad_Settings" Member="Message_Broad_Settings">
@@ -1193,8 +1163,8 @@
       <Column Name="CRET_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="MDFY_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" UpdateCheck="Never" />
-      <Association Name="Pos_Device_Transaction_Log" Member="Transaction_Logs" ThisKey="PSID" OtherKey="POSD_PSID" Type="Transaction_Log" />
       <Association Name="Pos_Device_User_Access_Po" Member="User_Access_Pos" ThisKey="PSID" OtherKey="POSD_PSID" Type="User_Access_Po" />
+      <Association Name="Pos_Device_Transaction_Log" Member="Transaction_Logs" ThisKey="PSID" OtherKey="POSD_PSID" Type="Transaction_Log" />
     </Type>
   </Table>
   <Table Name="Global.User_Access_Pos" Member="User_Access_Pos">
@@ -1287,6 +1257,40 @@
       <Association Name="User_User_Finger" Member="User_Fingers" ThisKey="ID" OtherKey="USER_ID" Type="User_Finger" />
       <Association Name="User_User_Access_Po" Member="User_Access_Pos" ThisKey="ID" OtherKey="USER_ID" Type="User_Access_Po" />
       <Association Name="Region_User" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="Global.Transaction_Log" Member="Transaction_Logs">
+    <Type Name="Transaction_Log">
+      <Column Name="POSD_PSID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SUB_SYS" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="GTWY_MAC_ADRS" Type="System.String" DbType="VarChar(17)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TLID" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TRAN_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="PAY_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ISSU_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RESP_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="RESP_DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TERM_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="TRAN_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CARD_NO" Type="System.String" DbType="VarChar(16)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="FLOW_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="REF_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SERL_NO" Type="System.String" DbType="VarChar(20)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MUDL_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="SECT_NAME" Type="System.String" DbType="VarChar(11)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="EXPN_IDTY_VALU" Type="System.String" DbType="VarChar(100)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Gateway_Transaction_Log" Member="Gateway" ThisKey="GTWY_MAC_ADRS" OtherKey="MAC_ADRS" Type="Gateway" IsForeignKey="true" />
+      <Association Name="Pos_Device_Transaction_Log" Member="Pos_Device" ThisKey="POSD_PSID" OtherKey="PSID" Type="Pos_Device" IsForeignKey="true" />
+      <Association Name="Sub_System_Transaction_Log" Member="Sub_System" ThisKey="SUB_SYS" OtherKey="SUB_SYS" Type="Sub_System" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="DataGuard.SaveHostInfo" Method="SaveHostInfo">

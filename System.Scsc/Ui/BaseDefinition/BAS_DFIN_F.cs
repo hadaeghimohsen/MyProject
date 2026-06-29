@@ -2865,7 +2865,9 @@ namespace System.Scsc.Ui.BaseDefinition
                      new XAttribute("limtcalcattnindy", Stng.LIMT_CALC_ATTN_INDY ?? "001"),
 
                      new XAttribute("cardexpnstat", Stng.CARD_EXPN_STAT ?? "001"),
-                     new XAttribute("cardexpncode", Stng.CARD_EXPN_CODE ?? 0)
+                     new XAttribute("cardexpncode", Stng.CARD_EXPN_CODE ?? 0),
+
+                     new XAttribute("ignrentrattnmint", Stng.IGNR_ENTR_ATTN_MINT ?? 0)
                   )
                )
             );

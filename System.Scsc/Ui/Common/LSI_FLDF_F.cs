@@ -1621,8 +1621,25 @@ namespace System.Scsc.Ui.Common
                // از این گزینه برای این استفاده میکنیم که بعد از پرداخت نباید درخواست ثبت نام پایانی شود
                UsePos_Cb = false;
 
+               // 1405/04/04 * بررسی اینکه آیا ما برای پرداخت بدهی شناسه دار میباشد یا خیر
+               var __expnIdties =
+                  iScsc.Payment_Details
+                  .Where(a => iScsc.VF_Request_Changing(__figh.FILE_NO).Any(b => b.RQID == a.PYMT_RQST_RQID && b.DEBT_DNRM > 0) && a.EXPN_IDTY_VALU_DNRM != null);
+
+               var distinctValues = 
+                  __expnIdties
+                   .Select(a => a.EXPN_IDTY_VALU_DNRM)
+                   .Distinct()
+                   .ToList();
+
+               if (!(distinctValues.Count <= 1))
+               {
+                  MessageBox.Show(this, "برای هزینه های شناسه دار مقادیر متفاوتی وجود دارد که نمیتوانید برای پرداخت بدهی از این مسیر استفاده کنید. لطفا در پروفایل مشتری قسمت صورتحساب ها اقدام کنید", "هزینه های شناسه دار", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                  return;
+               }
+
                // 1404/12/16 * بدست آوردن درخواست بدهکار برای ارسال شماره درخواست به پوز
-               var __rqstDebt = iScsc.VF_Request_Changing(__figh.FILE_NO).OrderByDescending(a => a.DEBT_DNRM).FirstOrDefault();
+               var __rqstDebt = iScsc.VF_Request_Changing(__figh.FILE_NO).OrderByDescending(a => a.DEBT_DNRM).FirstOrDefault();               
 
                _DefaultGateway.Gateway(
                   new Job(SendType.External, "localhost",
@@ -1643,6 +1660,7 @@ namespace System.Scsc.Ui.Common
                                        new XAttribute("router", GetType().Name),
                                        new XAttribute("callback", 21 /* Call Payg_Oprt_F */),
                                        new XAttribute("amnt", paydebt ),
+                                       new XAttribute("expnidtyvalu", __expnIdties.Select(x => x.EXPN_IDTY_VALU_DNRM).FirstOrDefault() ?? ""),
                                        new XAttribute("modual", GetType().Name), 
                                        new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                     )

@@ -108,6 +108,10 @@
          this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
          this.label13 = new System.Windows.Forms.Label();
          this.SendBkgdWorkIntr_Nud = new DevExpress.XtraEditors.SpinEdit();
+         this.LL_SmsTotalAll = new System.Windows.Forms.LinkLabel();
+         this.label14 = new System.Windows.Forms.Label();
+         this.LL_Error = new System.Windows.Forms.LinkLabel();
+         this.label15 = new System.Windows.Forms.Label();
          ((System.ComponentModel.ISupportInitialize)(this.SmsBn)).BeginInit();
          this.SmsBn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.SmsBs)).BeginInit();
@@ -1163,6 +1167,57 @@
          this.SendBkgdWorkIntr_Nud.ToolTip = "مدت زمان انتظار برای اجرای دستورهای پس زمینه بعدی";
          this.SendBkgdWorkIntr_Nud.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.SendWorkIntr_Nud_EditValueChanging);
          // 
+         // LL_SmsTotalAll
+         // 
+         this.LL_SmsTotalAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.LL_SmsTotalAll.AutoSize = true;
+         this.LL_SmsTotalAll.Font = new System.Drawing.Font("B Kamran", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LL_SmsTotalAll.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LL_SmsTotalAll.Location = new System.Drawing.Point(23, 90);
+         this.LL_SmsTotalAll.Name = "LL_SmsTotalAll";
+         this.LL_SmsTotalAll.Size = new System.Drawing.Size(23, 38);
+         this.LL_SmsTotalAll.TabIndex = 6;
+         this.LL_SmsTotalAll.TabStop = true;
+         this.LL_SmsTotalAll.Text = "0";
+         // 
+         // label14
+         // 
+         this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label14.Font = new System.Drawing.Font("B Davat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label14.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.label14.Location = new System.Drawing.Point(283, 85);
+         this.label14.Name = "label14";
+         this.label14.Size = new System.Drawing.Size(216, 51);
+         this.label14.TabIndex = 5;
+         this.label14.Text = "تعداد کل پیامک‌ها";
+         this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+         // 
+         // LL_Error
+         // 
+         this.LL_Error.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.LL_Error.AutoSize = true;
+         this.LL_Error.Font = new System.Drawing.Font("B Kamran", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.LL_Error.LinkBehavior = System.Windows.Forms.LinkBehavior.HoverUnderline;
+         this.LL_Error.LinkColor = System.Drawing.Color.Red;
+         this.LL_Error.Location = new System.Drawing.Point(23, 294);
+         this.LL_Error.Name = "LL_Error";
+         this.LL_Error.Size = new System.Drawing.Size(23, 38);
+         this.LL_Error.TabIndex = 6;
+         this.LL_Error.TabStop = true;
+         this.LL_Error.Text = "0";
+         // 
+         // label15
+         // 
+         this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.label15.Font = new System.Drawing.Font("B Davat", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         this.label15.Location = new System.Drawing.Point(328, 289);
+         this.label15.Name = "label15";
+         this.label15.Size = new System.Drawing.Size(171, 51);
+         this.label15.TabIndex = 5;
+         this.label15.Text = "پیامک‌های خطا دار";
+         this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+         // 
          // MSTR_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1218,6 +1273,10 @@
          this.Controls.Add(this.SmsApp_Butn);
          this.Controls.Add(this.SendBkgdWorkIntr_Nud);
          this.Controls.Add(this.SendWorkIntr_Nud);
+         this.Controls.Add(this.LL_SmsTotalAll);
+         this.Controls.Add(this.label14);
+         this.Controls.Add(this.LL_Error);
+         this.Controls.Add(this.label15);
          this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.Name = "MSTR_PAGE_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -1326,6 +1385,10 @@
       private MaxUi.RoundedButton BackGrnd_Butn;
       private DevExpress.XtraEditors.TextEdit textEdit6;
       private Windows.Forms.Label label13;
-      private DevExpress.XtraEditors.SpinEdit SendBkgdWorkIntr_Nud;
-   }
+       private DevExpress.XtraEditors.SpinEdit SendBkgdWorkIntr_Nud;
+       private Windows.Forms.LinkLabel LL_SmsTotalAll;
+       private Windows.Forms.Label label14;
+       private Windows.Forms.LinkLabel LL_Error;
+       private Windows.Forms.Label label15;
+    }
 }

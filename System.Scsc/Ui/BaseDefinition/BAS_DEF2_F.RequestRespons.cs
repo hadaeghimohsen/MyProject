@@ -237,6 +237,7 @@ namespace System.Scsc.Ui.BaseDefinition
          DRedrBs.DataSource = iScsc.D_REDRs;
          MtodBs.DataSource = iScsc.Methods;
          DRqstBs.DataSource = iScsc.D_RQSTs;
+         RqtpBs.DataSource = iScsc.Request_Types;
          VLevlApbsBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Dresser_Level");
 
          job.Status = StatusType.Successful;

@@ -4131,7 +4131,7 @@ namespace System.RoboTech.Data
 		{
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_x", DbType="Xml", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_x", DbType="Xml", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Xml.Linq.XElement x
 		{
 			get
@@ -11906,7 +11906,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAG_PROF", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IMAG_PROF", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary IMAG_PROF
 		{
 			get
@@ -26466,7 +26466,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INLN_KEYB_DNRM", DbType="Xml", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INLN_KEYB_DNRM", DbType="Xml", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Xml.Linq.XElement INLN_KEYB_DNRM
 		{
 			get
@@ -27769,7 +27769,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INLN_KEYB_DNRM", DbType="Xml", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INLN_KEYB_DNRM", DbType="Xml", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Xml.Linq.XElement INLN_KEYB_DNRM
 		{
 			get
@@ -48039,7 +48039,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_IMAG", DbType="Image", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ORDR_IMAG", DbType="Image", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary ORDR_IMAG
 		{
 			get
@@ -48407,7 +48407,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INLN_KEYB_DNRM", DbType="Xml", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_INLN_KEYB_DNRM", DbType="Xml", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Xml.Linq.XElement INLN_KEYB_DNRM
 		{
 			get
@@ -53323,7 +53323,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_SIGN", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_SIGN", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary SERV_SIGN
 		{
 			get
@@ -53717,7 +53717,7 @@ namespace System.RoboTech.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIGN_IMAG", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SIGN_IMAG", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 		public System.Data.Linq.Binary SIGN_IMAG
 		{
 			get

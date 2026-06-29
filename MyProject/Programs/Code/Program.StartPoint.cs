@@ -8,6 +8,7 @@ using System.JobRouting.Routering;
 using System.Threading;
 using System.Globalization;
 using System.IO;
+using System.Diagnostics;
 
 namespace MyProject.Programs.Code
 {
@@ -36,10 +37,13 @@ namespace MyProject.Programs.Code
           //Thread.CurrentThread.CurrentCulture = Thread.CurrentThread.CurrentUICulture;
           //Thread.CurrentThread.CurrentCulture.NumberFormat.DigitSubstitution = DigitShapes.NativeNational;
           
-          Application.EnableVisualStyles();
-          Application.SetCompatibleTextRenderingDefault(false);
+           Application.EnableVisualStyles();
+           Application.SetCompatibleTextRenderingDefault(false);
 
-          // 1403/06/12
+           Application.ThreadException += (sender, e) => { Debug.WriteLine("Unhandled UI thread exception: " + e.Exception.ToString()); };
+           AppDomain.CurrentDomain.UnhandledException += (sender, e) => { Debug.WriteLine("Unhandled exception: " + (e.ExceptionObject as Exception).ToString()); };
+
+           // 1403/06/12
           bool _createdNew;
           Mutex _app = new Mutex(false, "UniTech", out _createdNew);
           if (!_createdNew)

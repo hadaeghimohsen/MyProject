@@ -241,14 +241,9 @@ namespace System.DataGuard.Login.Ui
       /// <param name="job"></param>
       private void ActionCallForm(Job job)
       {
-          var xinput = job.Input as XElement;
+         var xinput = job.Input as XElement;
 
-          if (iProject != null)
-          {
-             iProject.Dispose();
-             iProject = null;
-          }
-          iProject = new Data.iProjectDataContext(ConnectionString);
+         iProject = new Data.iProjectDataContext(ConnectionString);
          SelectedUser = iProject.Users.FirstOrDefault(u => u.USERDB.ToLower() == xinput.Attribute("username").Value.ToLower());
          User_RondButn.ImageProfile = GetUserImage(SelectedUser);
          UserName_Lb.Text = SelectedUser.TitleFa;

@@ -46,6 +46,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
       private string router;
       private int? callback;
       private string modual, section;
+      private string expnidtyvalu;
 
       private long? Tlid; // Transaction_Log
 
@@ -342,6 +343,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
                      new XAttribute("modual", modual ?? ""), 
                      new XAttribute("section", section ?? ""),
+                     new XAttribute("expnidtyvalu", expnidtyvalu ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", posResult.ResponseCode ?? ""),
@@ -421,6 +423,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
                      new XAttribute("modual", modual ?? ""),
                      new XAttribute("section", section ?? ""),
+                     new XAttribute("expnidtyvalu", expnidtyvalu ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", posResult.GetRespCode() ?? ""),
@@ -562,7 +565,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             // 1404/08/19 * پوز بانک ملت باید کد فاکتور هم براش ارسال کرد
             if (rqid == 0) { rqid = pos.PSID; }
             Transaction TXN = new Transaction(connection);
-            var posResult = TXN.Debits_Goods_And_Service(rqid.ToString(), "1", Amnt_Txt.EditValue.ToString(), "", "", "", false);
+            var posResult = TXN.Debits_Goods_And_Service(rqid.ToString(), "1", Amnt_Txt.EditValue.ToString(), expnidtyvalu ?? "", "", "", false);
             Tlid = MellatPcPos_SaveTransactionLog(posResult);
 
             switch (posResult.ReturnCode)
@@ -601,6 +604,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
                      new XAttribute("modual", modual ?? ""),
                      new XAttribute("section", section ?? ""),
+                     new XAttribute("expnidtyvalu", expnidtyvalu ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", posResult == null ? "" : posResult.ReturnCode.ToString()),
@@ -700,6 +704,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
                      new XAttribute("modual", modual ?? ""),
                      new XAttribute("section", section ?? ""),
+                     new XAttribute("expnidtyvalu", expnidtyvalu ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", posResult.response.AppResponseCode ?? ""),
@@ -785,6 +790,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
                      new XAttribute("modual", modual ?? ""),
                      new XAttribute("section", section ?? ""),
+                     new XAttribute("expnidtyvalu", expnidtyvalu ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", (Math.Abs(posResult.ErrorCode)).ToString("D2") ?? ""),
@@ -886,6 +892,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
                      new XAttribute("modual", modual ?? ""),
                      new XAttribute("section", section ?? ""),
+                     new XAttribute("expnidtyvalu", expnidtyvalu ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", (Math.Abs(posResult.ErrorCode)).ToString("D2") ?? ""),
@@ -1020,6 +1027,7 @@ namespace System.DataGuard.SecPolicy.Share.Ui
                      new XAttribute("rqtpcode", rqtpcode ?? ""),
                      new XAttribute("modual", modual ?? ""),
                      new XAttribute("section", section ?? ""),
+                     new XAttribute("expnidtyvalu", expnidtyvalu ?? ""),
                      new XAttribute("tlid", Tlid),
                      new XAttribute("amnt", Amnt_Txt.EditValue),
                      new XAttribute("respcode", posResult.ResponseCode ?? ""),

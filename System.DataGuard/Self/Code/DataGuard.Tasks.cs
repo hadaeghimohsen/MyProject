@@ -64,11 +64,6 @@ namespace System.DataGuard.Self.Code
             if (GetConnectionString.Output != null)
             {
                ConnectionString = GetConnectionString.Output.ToString();
-               if (iProject != null)
-               {
-                  iProject.Dispose();
-                  iProject = null;
-               }
                iProject = new Data.iProjectDataContext(ConnectionString);
             }
             /// Get Query On V#TopNActiveSessionCurrentGateway View And Check Count of Records

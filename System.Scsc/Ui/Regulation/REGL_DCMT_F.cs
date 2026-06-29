@@ -531,7 +531,7 @@ namespace System.Scsc.Ui.Regulation
             var gropcode = Grop_Lov.EditValue;
             if(gropcode == null || gropcode.ToString() == "")return;
 
-            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, (long)gropcode, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, _expn.BRND_CODE, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR);
+            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, (long)gropcode, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, _expn.BRND_CODE, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR, _expn.EXPN_IDTY_VALU, _expn.EXPN_IDTY_STAT);
             requery = true;
          }
          catch { }
@@ -549,7 +549,7 @@ namespace System.Scsc.Ui.Regulation
             var _expn = ExpnBs.Current as Data.Expense;
             if (_expn == null) return;
 
-            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, null, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, _expn.BRND_CODE, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR);
+            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, null, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, _expn.BRND_CODE, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR, _expn.EXPN_IDTY_VALU, _expn.EXPN_IDTY_STAT);
          }
          catch { }
       }
@@ -701,7 +701,7 @@ namespace System.Scsc.Ui.Regulation
             var brndcode = Brnd_Lov.EditValue;
             if (brndcode == null || brndcode.ToString() == "") return;
 
-            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, _expn.GROP_CODE, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, (long)brndcode, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR);
+            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, _expn.GROP_CODE, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, (long)brndcode, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR, _expn.EXPN_IDTY_VALU, _expn.EXPN_IDTY_STAT);
             requery = true;
          }
          catch { }
@@ -719,7 +719,7 @@ namespace System.Scsc.Ui.Regulation
             var _expn = ExpnBs.Current as Data.Expense;
             if (_expn == null) return;
 
-            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, _expn.GROP_CODE, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, null, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR);
+            iScsc.UPD_EXPN_P(_expn.CODE, _expn.PRIC, _expn.EXPN_STAT, _expn.ADD_QUTS, _expn.COVR_DSCT, _expn.EXPN_TYPE, _expn.BUY_PRIC, _expn.BUY_EXTR_PRCT, _expn.NUMB_OF_STOK, _expn.NUMB_OF_SALE, _expn.COVR_TAX, _expn.NUMB_OF_ATTN_MONT, _expn.NUMB_OF_ATTN_WEEK, _expn.MODL_NUMB_BAR_CODE, _expn.PRVT_COCH_EXPN, _expn.NUMB_CYCL_DAY, _expn.NUMB_MONT_OFER, _expn.MIN_NUMB, _expn.GROP_CODE, _expn.EXPN_DESC, _expn.MIN_TIME, _expn.RELY_CMND, _expn.ORDR_ITEM, null, _expn.MIN_PRIC, _expn.MAX_PRIC, _expn.UNIT_APBS_CODE, _expn.CAN_CALC_PROF, _expn.MUST_FILL_OWNR, _expn.EXPN_IDTY_VALU, _expn.EXPN_IDTY_STAT);
          }
          catch { }
       }
@@ -1074,6 +1074,110 @@ namespace System.Scsc.Ui.Regulation
          {
             if (requery)
                Execute_Query();
+         }
+      }
+
+      private void UpdtEivg_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _expn = ExpnBs.Current as Data.Expense;
+
+            if (_expn == null) return;
+
+            if (_expn.EXPN_IDTY_STAT == "002" && string.IsNullOrWhiteSpace(_expn.EXPN_IDTY_VALU))
+            {
+               MessageBox.Show("لطفاً شناسه را وارد کنید");
+               ExpnIdtyValu_Txt.Focus();
+               return; // خروج بدون هیچ تغییری
+            }
+
+            // نمایش پیام تاییدیه
+            if (MessageBox.Show(
+                "آیا از بروزرسانی رکوردها اطمینان دارید؟",
+                "تاییدیه",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) != DialogResult.Yes) { return; }
+
+            var isIdtyStat002 = _expn.EXPN_IDTY_STAT == "002";
+            var idtyValu = isIdtyStat002 ? _expn.EXPN_IDTY_VALU : null;
+
+            ExpnBs.List.OfType<Data.Expense>()
+                      .Where(a => a.MTOD_CODE == _expn.MTOD_CODE && (ExpnAllRecd_Rb.Checked || (ExpnDactv_Rb.Checked && _expn.EXPN_STAT == "001") || (ExpnActv_Rb.Checked && _expn.EXPN_STAT == "002")))
+                      .ToList()
+                      .ForEach(a =>
+                      {
+                         a.EXPN_IDTY_STAT = _expn.EXPN_IDTY_STAT;
+                         a.EXPN_IDTY_VALU = idtyValu;
+                      });
+
+            var _rqtp = _expn.Expense_Type.Request_Requester.Request_Type.CODE;
+            if(_rqtp == "001" || _rqtp == "009")
+            {
+               iScsc.Expenses
+                  .Where(a => 
+                     a.Expense_Type.Request_Requester.Request_Type.CODE == (_rqtp == "001" ? "009" : "001") && 
+                     a.MTOD_CODE == _expn.MTOD_CODE && 
+                     (ExpnAllRecd_Rb.Checked || (ExpnDactv_Rb.Checked && _expn.EXPN_STAT == "001") || (ExpnActv_Rb.Checked && _expn.EXPN_STAT == "002")))
+                  .ToList()
+                  .ForEach(a =>
+                  {
+                     a.EXPN_IDTY_STAT = _expn.EXPN_IDTY_STAT;
+                     a.EXPN_IDTY_VALU = idtyValu;
+                  });
+            }
+
+            ExpnBs.EndEdit();
+            iScsc.SubmitChanges();
+            Execute_Query();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void UpdtEiva_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _expn = ExpnBs.Current as Data.Expense;
+
+            if (_expn == null) return;
+
+            if (_expn.EXPN_IDTY_STAT == "002" && string.IsNullOrWhiteSpace(_expn.EXPN_IDTY_VALU))
+            {
+               MessageBox.Show("لطفاً شناسه را وارد کنید");
+               ExpnIdtyValu_Txt.Focus();
+               return; // خروج بدون هیچ تغییری
+            }
+
+            // نمایش پیام تاییدیه
+            if (MessageBox.Show(
+                "آیا از بروزرسانی رکوردها اطمینان دارید؟",
+                "تاییدیه",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question) != DialogResult.Yes) { return; }
+
+            var isIdtyStat002 = _expn.EXPN_IDTY_STAT == "002";
+            var idtyValu = isIdtyStat002 ? _expn.EXPN_IDTY_VALU : null;
+
+            ExpnBs.List.OfType<Data.Expense>()
+                      .Where(a => (ExpnDactv_Rb.Checked && _expn.EXPN_STAT == "001") || (ExpnActv_Rb.Checked && _expn.EXPN_STAT == "002"))
+                      .ToList()
+                      .ForEach(a =>
+                      {
+                         a.EXPN_IDTY_STAT = _expn.EXPN_IDTY_STAT;
+                         a.EXPN_IDTY_VALU = idtyValu;
+                      });
+
+            ExpnBs.EndEdit();
+            iScsc.SubmitChanges();
+            Execute_Query();
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
    }

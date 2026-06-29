@@ -732,6 +732,7 @@
          this.gridColumn828 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn829 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn830 = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.gridColumn242 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit34 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
          this.DoPrint_Pkb = new System.MaxUi.NewPickBtn();
          this.imageList2 = new System.Windows.Forms.ImageList(this.components);
@@ -3788,8 +3789,8 @@
          // 
          this.splitContainer1.Panel2.Controls.Add(this.Gb_ExpenseItem);
          this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.splitContainer1.Size = new System.Drawing.Size(1581, 987);
-         this.splitContainer1.SplitterDistance = 1138;
+         this.splitContainer1.Size = new System.Drawing.Size(1328, 895);
+         this.splitContainer1.SplitterDistance = 885;
          this.splitContainer1.TabIndex = 0;
          // 
          // splitContainerControl2
@@ -3802,7 +3803,7 @@
          this.splitContainerControl2.Panel1.Text = "Panel1";
          this.splitContainerControl2.Panel2.Controls.Add(this.flowLayoutPanel1);
          this.splitContainerControl2.Panel2.Text = "Panel2";
-         this.splitContainerControl2.Size = new System.Drawing.Size(1138, 940);
+         this.splitContainerControl2.Size = new System.Drawing.Size(885, 848);
          this.splitContainerControl2.SplitterPosition = 261;
          this.splitContainerControl2.TabIndex = 69;
          this.splitContainerControl2.Text = "splitContainerControl2";
@@ -3818,7 +3819,7 @@
          this.Rqst_Tc.Name = "Rqst_Tc";
          this.Rqst_Tc.RightToLeftLayout = true;
          this.Rqst_Tc.SelectedIndex = 0;
-         this.Rqst_Tc.Size = new System.Drawing.Size(872, 940);
+         this.Rqst_Tc.Size = new System.Drawing.Size(619, 848);
          this.Rqst_Tc.TabIndex = 69;
          // 
          // tp_001
@@ -3827,7 +3828,7 @@
          this.tp_001.Location = new System.Drawing.Point(4, 22);
          this.tp_001.Name = "tp_001";
          this.tp_001.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_001.Size = new System.Drawing.Size(864, 914);
+         this.tp_001.Size = new System.Drawing.Size(611, 822);
          this.tp_001.TabIndex = 0;
          this.tp_001.Text = "فاکتور خرید جاری - F2";
          this.tp_001.UseVisualStyleBackColor = true;
@@ -3839,7 +3840,7 @@
          this.flowLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
          this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-         this.flowLayoutPanel3.Size = new System.Drawing.Size(858, 908);
+         this.flowLayoutPanel3.Size = new System.Drawing.Size(605, 816);
          this.flowLayoutPanel3.TabIndex = 34;
          this.flowLayoutPanel3.WrapContents = false;
          // 
@@ -3847,7 +3848,7 @@
          // 
          this.tabControl7.Controls.Add(this.tabPage18);
          this.tabControl7.Controls.Add(this.tabPage20);
-         this.tabControl7.Location = new System.Drawing.Point(269, 3);
+         this.tabControl7.Location = new System.Drawing.Point(16, 3);
          this.tabControl7.Name = "tabControl7";
          this.tabControl7.RightToLeftLayout = true;
          this.tabControl7.SelectedIndex = 0;
@@ -6323,7 +6324,8 @@
             this.gridColumn827,
             this.gridColumn828,
             this.gridColumn829,
-            this.gridColumn830});
+            this.gridColumn830,
+            this.gridColumn242});
          this.Pydt3_Gv.GridControl = this.gridControl29;
          this.Pydt3_Gv.Name = "Pydt3_Gv";
          this.Pydt3_Gv.OptionsDetail.EnableMasterViewMode = false;
@@ -6356,8 +6358,8 @@
          this.gridColumn708.OptionsColumn.AllowEdit = false;
          this.gridColumn708.OptionsColumn.ReadOnly = true;
          this.gridColumn708.Visible = true;
-         this.gridColumn708.VisibleIndex = 1;
-         this.gridColumn708.Width = 86;
+         this.gridColumn708.VisibleIndex = 2;
+         this.gridColumn708.Width = 103;
          // 
          // gridColumn709
          // 
@@ -6367,7 +6369,7 @@
          this.gridColumn709.Name = "gridColumn709";
          this.gridColumn709.OptionsColumn.FixedWidth = true;
          this.gridColumn709.Visible = true;
-         this.gridColumn709.VisibleIndex = 2;
+         this.gridColumn709.VisibleIndex = 3;
          this.gridColumn709.Width = 59;
          // 
          // repositoryItemButtonEdit8
@@ -7281,7 +7283,20 @@
          this.gridColumn830.Name = "gridColumn830";
          this.gridColumn830.Visible = true;
          this.gridColumn830.VisibleIndex = 0;
-         this.gridColumn830.Width = 259;
+         this.gridColumn830.Width = 156;
+         // 
+         // gridColumn242
+         // 
+         this.gridColumn242.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+         this.gridColumn242.AppearanceCell.Options.UseBackColor = true;
+         this.gridColumn242.Caption = "شناسه هزینه";
+         this.gridColumn242.FieldName = "EXPN_IDTY_VALU_DNRM";
+         this.gridColumn242.Name = "gridColumn242";
+         this.gridColumn242.OptionsColumn.AllowEdit = false;
+         this.gridColumn242.OptionsColumn.ReadOnly = true;
+         this.gridColumn242.Visible = true;
+         this.gridColumn242.VisibleIndex = 1;
+         this.gridColumn242.Width = 86;
          // 
          // repositoryItemLookUpEdit34
          // 
@@ -21687,7 +21702,7 @@
          this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
          this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-         this.flowLayoutPanel1.Size = new System.Drawing.Size(261, 940);
+         this.flowLayoutPanel1.Size = new System.Drawing.Size(261, 848);
          this.flowLayoutPanel1.TabIndex = 33;
          this.flowLayoutPanel1.WrapContents = false;
          // 
@@ -25194,7 +25209,7 @@
          this.RqstBn1.Name = "RqstBn1";
          this.RqstBn1.PositionItem = this.bindingNavigatorPositionItem;
          this.RqstBn1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-         this.RqstBn1.Size = new System.Drawing.Size(1138, 47);
+         this.RqstBn1.Size = new System.Drawing.Size(885, 47);
          this.RqstBn1.TabIndex = 2;
          this.RqstBn1.Text = "bindingNavigator1";
          // 
@@ -25427,7 +25442,7 @@
          this.Gb_ExpenseItem.Name = "Gb_ExpenseItem";
          this.Gb_ExpenseItem.RightToLeftLayout = true;
          this.Gb_ExpenseItem.SelectedIndex = 0;
-         this.Gb_ExpenseItem.Size = new System.Drawing.Size(439, 987);
+         this.Gb_ExpenseItem.Size = new System.Drawing.Size(439, 895);
          this.Gb_ExpenseItem.TabIndex = 5;
          // 
          // tabPage1
@@ -25436,7 +25451,7 @@
          this.tabPage1.Location = new System.Drawing.Point(4, 22);
          this.tabPage1.Name = "tabPage1";
          this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage1.Size = new System.Drawing.Size(431, 961);
+         this.tabPage1.Size = new System.Drawing.Size(431, 869);
          this.tabPage1.TabIndex = 0;
          this.tabPage1.Text = "کالا و خدمات";
          this.tabPage1.UseVisualStyleBackColor = true;
@@ -25451,7 +25466,7 @@
          this.splitContainerControl1.Panel1.Text = "Panel1";
          this.splitContainerControl1.Panel2.Controls.Add(this.splitContainerControl3);
          this.splitContainerControl1.Panel2.Text = "Panel2";
-         this.splitContainerControl1.Size = new System.Drawing.Size(425, 955);
+         this.splitContainerControl1.Size = new System.Drawing.Size(425, 863);
          this.splitContainerControl1.SplitterPosition = 51;
          this.splitContainerControl1.TabIndex = 3;
          this.splitContainerControl1.Text = "splitContainerControl1";
@@ -25483,7 +25498,7 @@
          this.splitContainerControl3.Panel1.Text = "Panel1";
          this.splitContainerControl3.Panel2.Controls.Add(this.splitContainerControl5);
          this.splitContainerControl3.Panel2.Text = "Panel2";
-         this.splitContainerControl3.Size = new System.Drawing.Size(425, 899);
+         this.splitContainerControl3.Size = new System.Drawing.Size(425, 807);
          this.splitContainerControl3.SplitterPosition = 157;
          this.splitContainerControl3.TabIndex = 2;
          this.splitContainerControl3.Text = "splitContainerControl3";
@@ -25501,7 +25516,7 @@
          this.splitContainerControl4.Panel2.Controls.Add(this.splitContainerControl10);
          this.splitContainerControl4.Panel2.Controls.Add(this.CochInfo_Pn);
          this.splitContainerControl4.Panel2.Text = "Panel2";
-         this.splitContainerControl4.Size = new System.Drawing.Size(157, 899);
+         this.splitContainerControl4.Size = new System.Drawing.Size(157, 807);
          this.splitContainerControl4.SplitterPosition = 359;
          this.splitContainerControl4.TabIndex = 92;
          this.splitContainerControl4.Text = "splitContainerControl4";
@@ -25706,7 +25721,7 @@
          this.splitContainerControl10.Panel2.Controls.Add(this.gridControl16);
          this.splitContainerControl10.Panel2.Controls.Add(this.bindingNavigator1);
          this.splitContainerControl10.Panel2.Text = "Panel2";
-         this.splitContainerControl10.Size = new System.Drawing.Size(157, 469);
+         this.splitContainerControl10.Size = new System.Drawing.Size(157, 377);
          this.splitContainerControl10.SplitterPosition = 248;
          this.splitContainerControl10.TabIndex = 92;
          this.splitContainerControl10.Text = "splitContainerControl10";
@@ -26226,7 +26241,7 @@
          this.gridControl16.Name = "gridControl16";
          this.gridControl16.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemButtonEdit1});
-         this.gridControl16.Size = new System.Drawing.Size(157, 191);
+         this.gridControl16.Size = new System.Drawing.Size(157, 99);
          this.gridControl16.TabIndex = 17;
          this.gridControl16.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView20});
@@ -26389,7 +26404,7 @@
          this.splitContainerControl5.Panel1.Text = "Panel1";
          this.splitContainerControl5.Panel2.Controls.Add(this.flowLayoutPanel4);
          this.splitContainerControl5.Panel2.Text = "Panel2";
-         this.splitContainerControl5.Size = new System.Drawing.Size(263, 899);
+         this.splitContainerControl5.Size = new System.Drawing.Size(263, 807);
          this.splitContainerControl5.SplitterPosition = 0;
          this.splitContainerControl5.TabIndex = 2;
          this.splitContainerControl5.Text = "splitContainerControl5";
@@ -26408,7 +26423,7 @@
          this.Expn_Gc.RepositoryItems.AddRange(new DevExpress.XtraEditors.Repository.RepositoryItem[] {
             this.repositoryItemLookUpEdit2,
             this.AddItem_Butn});
-         this.Expn_Gc.Size = new System.Drawing.Size(263, 828);
+         this.Expn_Gc.Size = new System.Drawing.Size(263, 736);
          this.Expn_Gc.TabIndex = 1;
          this.Expn_Gc.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.Expn_Gv});
@@ -28200,7 +28215,7 @@
          this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
          this.Name = "OIC_TOTL_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(1581, 987);
+         this.Size = new System.Drawing.Size(1328, 895);
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PcdtiActn_Butn)).EndInit();
@@ -31414,5 +31429,6 @@
       private Windows.Forms.BindingSource DActvBs;
       private DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit repositoryItemLookUpEdit3;
       private DevExpress.XtraEditors.Repository.RepositoryItemTimeEdit repositoryItemTimeEdit3;
+      private DevExpress.XtraGrid.Columns.GridColumn gridColumn242;
    }
 }

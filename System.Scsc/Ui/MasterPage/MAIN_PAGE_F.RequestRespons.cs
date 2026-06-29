@@ -931,7 +931,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -1358,7 +1358,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
    }

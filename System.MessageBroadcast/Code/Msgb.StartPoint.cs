@@ -22,8 +22,8 @@ namespace System.MessageBroadcast.Code
          _Wall = _wall;
 
          // Set Method For Timers
-         _SenderBgwk = new Timer(){Interval = 1000};
-         _CustBgwk = new Timer() { Interval = 1000};
+         _SenderBgwk = new Timer() { Interval = 1000 };
+         _CustBgwk = new Timer() { Interval = 1000 };
 
          _SenderBgwk.Tick += _SenderBgwk_Tick;
          _CustBgwk.Tick += _CustBgwk_Tick;
@@ -43,7 +43,7 @@ namespace System.MessageBroadcast.Code
          public string UserName { get; set; }
          public string Password { get; set; }
 
-      public string SendSms(string message, string formLine, string[] rcpts)
+         public string SendSms(string message, string formLine, string[] rcpts)
          {
             try
             {
@@ -254,7 +254,8 @@ namespace System.MessageBroadcast.Code
             _authTokenOrApiKey = tokenOrApiKey;
          }
 
-         public IPPanelEdgeClient(string username, string password) {
+         public IPPanelEdgeClient(string username, string password)
+         {
             //var tokenOrApiKey = 
             var _jsonRslt = JObject.Parse(Login(username, password));
             if (_jsonRslt["meta"]["status"].Value<bool>() == true)
@@ -803,7 +804,7 @@ namespace System.MessageBroadcast.Code
                var obj = _js.DeserializeObject(json) as Dictionary<string, object>;
                return obj;
             }
-             catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); return null; }
+            catch (Exception ex) { System.Diagnostics.Debug.WriteLine(ex.ToString()); return null; }
          }
          #endregion
       }

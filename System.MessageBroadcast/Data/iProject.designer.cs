@@ -180,10 +180,10 @@ namespace System.MessageBroadcast.Data
 			return ((int)(result.ReturnValue));
 		}
 		
-		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Global.ExecuteJobScheduleSubSystem")]
-		public void ExecuteJobScheduleSubSystem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="Global.ExecuteJobScheduleSubSystem", IsComposable=true)]
+		public object ExecuteJobScheduleSubSystem([global::System.Data.Linq.Mapping.ParameterAttribute(Name="X", DbType="Xml")] System.Xml.Linq.XElement x)
 		{
-			this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x);
+			return ((object)(this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), x).ReturnValue));
 		}
 	}
 	
@@ -3829,6 +3829,12 @@ namespace System.MessageBroadcast.Data
 		
 		private string _PING_IP_ADRS;
 		
+		private string _STOR_ID;
+		
+		private System.Nullable<int> _BRNC_INDX;
+		
+		private string _BASE_URL;
+		
 		private string _CRET_BY;
 		
 		private System.Nullable<System.DateTime> _CRET_DATE;
@@ -3893,6 +3899,12 @@ namespace System.MessageBroadcast.Data
     partial void OnSLEP_INTRChanged();
     partial void OnPING_IP_ADRSChanging(string value);
     partial void OnPING_IP_ADRSChanged();
+    partial void OnSTOR_IDChanging(string value);
+    partial void OnSTOR_IDChanged();
+    partial void OnBRNC_INDXChanging(System.Nullable<int> value);
+    partial void OnBRNC_INDXChanged();
+    partial void OnBASE_URLChanging(string value);
+    partial void OnBASE_URLChanged();
     partial void OnCRET_BYChanging(string value);
     partial void OnCRET_BYChanged();
     partial void OnCRET_DATEChanging(System.Nullable<System.DateTime> value);
@@ -3930,7 +3942,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TYPE", DbType="VarChar(3)")]
 		public string TYPE
 		{
 			get
@@ -3950,7 +3962,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BGWK_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BGWK_STAT", DbType="VarChar(3)")]
 		public string BGWK_STAT
 		{
 			get
@@ -3970,7 +3982,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BGWK_INTR", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BGWK_INTR", DbType="Int")]
 		public System.Nullable<int> BGWK_INTR
 		{
 			get
@@ -3990,7 +4002,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CUST_BGWK_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CUST_BGWK_STAT", DbType="VarChar(3)")]
 		public string CUST_BGWK_STAT
 		{
 			get
@@ -4010,7 +4022,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CUST_BGWK_INTR", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CUST_BGWK_INTR", DbType="Int")]
 		public System.Nullable<int> CUST_BGWK_INTR
 		{
 			get
@@ -4030,7 +4042,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE", DbType="NVarChar(500)")]
 		public string WEB_SITE
 		{
 			get
@@ -4050,7 +4062,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USER_NAME", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_USER_NAME", DbType="VarChar(250)")]
 		public string USER_NAME
 		{
 			get
@@ -4070,7 +4082,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASS_WORD", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PASS_WORD", DbType="VarChar(250)")]
 		public string PASS_WORD
 		{
 			get
@@ -4090,7 +4102,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE_LOGN", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE_LOGN", DbType="VarChar(250)")]
 		public string WEB_SITE_LOGN
 		{
 			get
@@ -4110,7 +4122,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE_PSWD", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WEB_SITE_PSWD", DbType="VarChar(250)")]
 		public string WEB_SITE_PSWD
 		{
 			get
@@ -4130,7 +4142,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LINE_NUMB", DbType="VarChar(30)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LINE_NUMB", DbType="VarChar(30)")]
 		public string LINE_NUMB
 		{
 			get
@@ -4150,7 +4162,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LINE_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LINE_TYPE", DbType="VarChar(3)")]
 		public string LINE_TYPE
 		{
 			get
@@ -4170,7 +4182,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DFLT_STAT", DbType="VarChar(3)")]
 		public string DFLT_STAT
 		{
 			get
@@ -4190,7 +4202,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_ROW_FTCH", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LAST_ROW_FTCH", DbType="BigInt")]
 		public System.Nullable<long> LAST_ROW_FTCH
 		{
 			get
@@ -4210,7 +4222,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FTCH_ROW", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FTCH_ROW", DbType="Int")]
 		public System.Nullable<int> FTCH_ROW
 		{
 			get
@@ -4230,7 +4242,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALRM_TO_USER_ID", DbType="BigInt", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALRM_TO_USER_ID", DbType="BigInt")]
 		public System.Nullable<long> ALRM_TO_USER_ID
 		{
 			get
@@ -4254,7 +4266,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALRM_MIN_REMN_CHRG", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALRM_MIN_REMN_CHRG", DbType="Int")]
 		public System.Nullable<int> ALRM_MIN_REMN_CHRG
 		{
 			get
@@ -4274,7 +4286,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_STOP_CHRG", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MIN_STOP_CHRG", DbType="Int")]
 		public System.Nullable<int> MIN_STOP_CHRG
 		{
 			get
@@ -4294,7 +4306,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALRM_DESC", DbType="NVarChar(500)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ALRM_DESC", DbType="NVarChar(500)")]
 		public string ALRM_DESC
 		{
 			get
@@ -4314,7 +4326,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_TYPE", DbType="VarChar(3)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SERV_TYPE", DbType="VarChar(3)")]
 		public string SERV_TYPE
 		{
 			get
@@ -4334,7 +4346,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GTWY_MAC_ADRS", DbType="VarChar(17)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GTWY_MAC_ADRS", DbType="VarChar(17)")]
 		public string GTWY_MAC_ADRS
 		{
 			get
@@ -4358,7 +4370,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLEP_INTR", DbType="Int", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SLEP_INTR", DbType="Int")]
 		public System.Nullable<int> SLEP_INTR
 		{
 			get
@@ -4378,7 +4390,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PING_IP_ADRS", DbType="VarChar(15)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PING_IP_ADRS", DbType="VarChar(15)")]
 		public string PING_IP_ADRS
 		{
 			get
@@ -4398,7 +4410,67 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_STOR_ID", DbType="NVarChar(50)")]
+		public string STOR_ID
+		{
+			get
+			{
+				return this._STOR_ID;
+			}
+			set
+			{
+				if ((this._STOR_ID != value))
+				{
+					this.OnSTOR_IDChanging(value);
+					this.SendPropertyChanging();
+					this._STOR_ID = value;
+					this.SendPropertyChanged("STOR_ID");
+					this.OnSTOR_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BRNC_INDX", DbType="Int")]
+		public System.Nullable<int> BRNC_INDX
+		{
+			get
+			{
+				return this._BRNC_INDX;
+			}
+			set
+			{
+				if ((this._BRNC_INDX != value))
+				{
+					this.OnBRNC_INDXChanging(value);
+					this.SendPropertyChanging();
+					this._BRNC_INDX = value;
+					this.SendPropertyChanged("BRNC_INDX");
+					this.OnBRNC_INDXChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BASE_URL", DbType="VarChar(200)")]
+		public string BASE_URL
+		{
+			get
+			{
+				return this._BASE_URL;
+			}
+			set
+			{
+				if ((this._BASE_URL != value))
+				{
+					this.OnBASE_URLChanging(value);
+					this.SendPropertyChanging();
+					this._BASE_URL = value;
+					this.SendPropertyChanged("BASE_URL");
+					this.OnBASE_URLChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_BY", DbType="VarChar(250)")]
 		public string CRET_BY
 		{
 			get
@@ -4418,7 +4490,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CRET_DATE", DbType="DateTime")]
 		public System.Nullable<System.DateTime> CRET_DATE
 		{
 			get
@@ -4438,7 +4510,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_BY", DbType="VarChar(250)")]
 		public string MDFY_BY
 		{
 			get
@@ -4458,7 +4530,7 @@ namespace System.MessageBroadcast.Data
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime", UpdateCheck=UpdateCheck.Never)]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MDFY_DATE", DbType="DateTime")]
 		public System.Nullable<System.DateTime> MDFY_DATE
 		{
 			get

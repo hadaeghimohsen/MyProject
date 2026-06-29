@@ -137,7 +137,8 @@ namespace System.MessageBroadcast.Code
           }
           finally
           {
-             iProject = new Data.iProjectDataContext(ConnectionString);
+            if(ConnectionString != null)
+               iProject = new Data.iProjectDataContext(ConnectionString);
           }
       }
 

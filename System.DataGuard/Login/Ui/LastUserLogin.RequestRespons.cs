@@ -114,13 +114,8 @@ namespace System.DataGuard.Login.Ui
          
          CurrentUser = "scott";
 
-          ConnectionString = GetConnectionString.Output.ToString();
-          if (iProject != null)
-          {
-             iProject.Dispose();
-             iProject = null;
-          }
-          iProject = new Data.iProjectDataContext(GetConnectionString.Output.ToString());
+         ConnectionString = GetConnectionString.Output.ToString();
+         iProject = new Data.iProjectDataContext(GetConnectionString.Output.ToString());
 
          _DefaultGateway.Gateway(
             new Job(SendType.External, "Localhost", "Commons", 09 /* Execute LangChangToEnglish */, SendType.Self)

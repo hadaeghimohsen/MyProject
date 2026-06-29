@@ -41,9 +41,8 @@
     <Reference Include="DataEditShamsi">
       <HintPath>..\System.Scsc\bin\Debug\DataEditShamsi.dll</HintPath>
     </Reference>
-    <Reference Include="DateTimeSelector, Version=1.1.1.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Debug\DateTimeSelector.dll</HintPath>
+    <Reference Include="DateTimeSelector">
+      <HintPath>..\MyProject\bin\Debug\DateTimeSelector.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v13.1, Version=13.1.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
       <Private>True</Private>
@@ -167,7 +166,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data\iProject.designer.cs">
+    <Compile Include="Data\iProject1.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>iProject.dbml</DependentUpon>
@@ -1106,6 +1105,7 @@
     <None Include="Data\iProject.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>iProject1.designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>

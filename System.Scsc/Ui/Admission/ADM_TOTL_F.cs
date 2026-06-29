@@ -1371,6 +1371,7 @@ namespace System.Scsc.Ui.Admission
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
                                              new XAttribute("amnt", amnt),
+                                             new XAttribute("expnidtyvalu", pymt.Payment_Details.FirstOrDefault().EXPN_IDTY_VALU_DNRM ?? ""),
                                              new XAttribute("modual", GetType().Name), 
                                              new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                           )
@@ -2079,6 +2080,7 @@ namespace System.Scsc.Ui.Admission
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
                                              new XAttribute("amnt", Convert.ToInt64( PymtAmnt_Txt.EditValue)),
+                                             new XAttribute("expnidtyvalu", pymt.Payment_Details.FirstOrDefault().EXPN_IDTY_VALU_DNRM ?? ""),
                                              new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
                                              new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
                                              new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? ""),

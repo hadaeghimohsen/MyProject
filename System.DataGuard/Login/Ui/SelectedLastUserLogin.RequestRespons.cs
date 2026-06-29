@@ -187,14 +187,9 @@ namespace System.DataGuard.Login.Ui
                      Password_Be.Focus();
                      User_RondButn.ImageProfile = GetUserImage(SelectedUser);
                      User_Txt.Text = SelectedUser.USERDB;
-                      User_RondButn.Tag = SelectedUser;
+                     User_RondButn.Tag = SelectedUser;
 
-                      if (iProject != null)
-                      {
-                         iProject.Dispose();
-                         iProject = null;
-                      }
-                      iProject = new Data.iProjectDataContext(ConnectionString);
+                     iProject = new Data.iProjectDataContext(ConnectionString);
 
                      try
                      {

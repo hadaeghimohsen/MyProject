@@ -241,6 +241,11 @@ namespace System.DataGuard.SecPolicy.Share.Ui
             else
                Amnt_Txt.EditValue = 1000;
 
+            if (Xinput.Attribute("expnidtyvalu") != null)
+               expnidtyvalu = Xinput.Attribute("expnidtyvalu").Value;
+            else
+               expnidtyvalu = null;
+
             if (Xinput.Attribute("modual") != null)
                modual = Xinput.Attribute("modual").Value;
             else

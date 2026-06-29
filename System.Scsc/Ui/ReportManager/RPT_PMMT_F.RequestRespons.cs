@@ -71,8 +71,7 @@ namespace System.Scsc.Ui.ReportManager
          }
          else if (keyData == Keys.Enter)
          {
-            if (!(Find_Butn.Focused || Back_Butn.Focused || Submit_Butn.Focused) )
-               SendKeys.Send("{TAB}");
+            
          }
          else if (keyData == Keys.F5)
          {
@@ -125,7 +124,7 @@ namespace System.Scsc.Ui.ReportManager
                switch (control.CNTL_NAME.ToLower())
                {
                   case "rcptmtod_lb":
-                     RcptMtod_Lb.Text = control.LABL_TEXT;
+                     //RcptMtod_Lb.Text = control.LABL_TEXT;
                      //RcptMtod_Lb.Text = control.LABL_TEXT; // ToolTip
                      //RcptMtod_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -180,7 +179,7 @@ namespace System.Scsc.Ui.ReportManager
                      //tp_004.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "parm2_gb":
-                     Parm2_Gb.Text = control.LABL_TEXT;
+                     //Parm2_Gb.Text = control.LABL_TEXT;
                      //Parm2_Gb.Text = control.LABL_TEXT; // ToolTip
                      //Parm2_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -195,7 +194,7 @@ namespace System.Scsc.Ui.ReportManager
                      //ToDate2_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "rqtpcode2_lb":
-                     RqtpCode2_Lb.Text = control.LABL_TEXT;
+                     //RqtpCode2_Lb.Text = control.LABL_TEXT;
                      //RqtpCode2_Lb.Text = control.LABL_TEXT; // ToolTip
                      //RqtpCode2_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -210,17 +209,17 @@ namespace System.Scsc.Ui.ReportManager
                      //Cashier2_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "cbmtcode2_lb":
-                     CbmtCode2_Lb.Text = control.LABL_TEXT;
+                     //CbmtCode2_Lb.Text = control.LABL_TEXT;
                      //CbmtCode2_Lb.Text = control.LABL_TEXT; // ToolTip
                      //CbmtCode2_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "find2_butn":
-                     Find2_Butn.Text = control.LABL_TEXT;
+                     //Find2_Butn.Text = control.LABL_TEXT;
                      //Find2_Butn.Text = control.LABL_TEXT; // ToolTip
                      //Find2_Butn.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "back2_butn":
-                     Back2_Butn.Text = control.LABL_TEXT;
+                     //Back2_Butn.Text = control.LABL_TEXT;
                      //Back2_Butn.Text = control.LABL_TEXT; // ToolTip
                      //Back2_Butn.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -280,7 +279,7 @@ namespace System.Scsc.Ui.ReportManager
                      //PayStat_Clm.Caption = control.LABL_TEXT; // Place Holder
                      break;
                   case "parm1_gb":
-                     Parm1_Gb.Text = control.LABL_TEXT;
+                     //Parm1_Gb.Text = control.LABL_TEXT;
                      //Parm1_Gb.Text = control.LABL_TEXT; // ToolTip
                      //Parm1_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -295,12 +294,12 @@ namespace System.Scsc.Ui.ReportManager
                      //ToDate1_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "rqtpcode1_lb":
-                     RqtpCode1_Lb.Text = control.LABL_TEXT;
+                     //RqtpCode1_Lb.Text = control.LABL_TEXT;
                      //RqtpCode1_Lb.Text = control.LABL_TEXT; // ToolTip
                      //RqtpCode1_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "cochfileno1_lb":
-                     CochFileNo1_Lb.Text = control.LABL_TEXT;
+                     //CochFileNo1_Lb.Text = control.LABL_TEXT;
                      //CochFileNo1_Lb.Text = control.LABL_TEXT; // ToolTip
                      //CochFileNo1_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -310,12 +309,12 @@ namespace System.Scsc.Ui.ReportManager
                      //Cashier1_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "find_butn":
-                     Find_Butn.Text = control.LABL_TEXT;
+                     //Find_Butn.Text = control.LABL_TEXT;
                      //Find_Butn.Text = control.LABL_TEXT; // ToolTip
                      //Find_Butn.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "back_butn":
-                     Back_Butn.Text = control.LABL_TEXT;
+                     //Back_Butn.Text = control.LABL_TEXT;
                      //Back_Butn.Text = control.LABL_TEXT; // ToolTip
                      //Back_Butn.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -360,7 +359,7 @@ namespace System.Scsc.Ui.ReportManager
                      //MdfyBy1_Clm.Caption = control.LABL_TEXT; // Place Holder
                      break;
                   case "parm3_gb":
-                     Parm3_Gb.Text = control.LABL_TEXT;
+                     //Parm3_Gb.Text = control.LABL_TEXT;
                      //Parm3_Gb.Text = control.LABL_TEXT; // ToolTip
                      //Parm3_Gb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -370,12 +369,12 @@ namespace System.Scsc.Ui.ReportManager
                      //FromDate3_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "rqtpcode3_lb":
-                     RqtpCode3_Lb.Text = control.LABL_TEXT;
+                     //RqtpCode3_Lb.Text = control.LABL_TEXT;
                      //RqtpCode3_Lb.Text = control.LABL_TEXT; // ToolTip
                      //RqtpCode3_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "cochfileno3_lb":
-                     CochFileNo3_Lb.Text = control.LABL_TEXT;
+                     //CochFileNo3_Lb.Text = control.LABL_TEXT;
                      //CochFileNo3_Lb.Text = control.LABL_TEXT; // ToolTip
                      //CochFileNo3_Lb.Text = control.LABL_TEXT; // Place Holder
                      break;
@@ -390,12 +389,12 @@ namespace System.Scsc.Ui.ReportManager
                      //Pyds004_Cb.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "find3_butn":
-                     Find3_Butn.Text = control.LABL_TEXT;
+                     //Find3_Butn.Text = control.LABL_TEXT;
                      //Find3_Butn.Text = control.LABL_TEXT; // ToolTip
                      //Find3_Butn.Text = control.LABL_TEXT; // Place Holder
                      break;
                   case "back3_butn":
-                     Back3_Butn.Text = control.LABL_TEXT;
+                     //Back3_Butn.Text = control.LABL_TEXT;
                      //Back3_Butn.Text = control.LABL_TEXT; // ToolTip
                      //Back3_Butn.Text = control.LABL_TEXT; // Place Holder
                      break;

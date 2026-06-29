@@ -1674,7 +1674,15 @@ namespace System.Scsc.Ui.Notifications
                      var _wrst = iScsc.Fighters.FirstOrDefault(w => w.FNGR_PRNT_DNRM == WristBand_Txt.Text);
                      if (_wrst == null) return;
 
-                     if (_attn.NUMB_OF_ATTN_MONT == _attn.SUM_ATTN_MONT_DNRM) { MessageBox.Show(this, "برای دوره فعلی دیگر جلسه آزادی وجودی ندارد که از آن برای همراهان استفاده کنید", "اتمام تعداد جلسات", MessageBoxButtons.OK, MessageBoxIcon.Stop); return; }
+                     // 1405-03-31 * 
+                     if (_attn.NUMB_OF_ATTN_MONT == _attn.SUM_ATTN_MONT_DNRM) 
+                     {
+                        if (_attn.Attendance_Wrists.Any())
+                        {
+                           MessageBox.Show(this, "برای دوره فعلی دیگر جلسه آزادی وجودی ندارد که از آن برای همراهان استفاده کنید", "اتمام تعداد جلسات", MessageBoxButtons.OK, MessageBoxIcon.Stop); 
+                           return;
+                        }
+                     }
 
                      if (!AutoAddToList_Cbx.Checked && MessageBox.Show(this, "آیا با اضافه کردن دستبند به لیست موافق هستید؟", "عملیات", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
                      

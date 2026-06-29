@@ -70,6 +70,7 @@
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Web.Services" />
@@ -89,6 +90,7 @@
     <Compile Include="Code\Msgb.StartPoint.cs" />
     <Compile Include="Code\Msgb.Tasks.cs" />
     <Compile Include="Code\Msgb.Uis.cs" />
+    <Compile Include="Code\LidomaSmsClient.cs" />
     <Compile Include="Data\iProject.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

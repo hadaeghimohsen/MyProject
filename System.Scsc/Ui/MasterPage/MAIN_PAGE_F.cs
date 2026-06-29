@@ -44,6 +44,9 @@ namespace System.Scsc.Ui.MasterPage
       private IEnumerable<Data.V_Setting> _settings;
       private long _doActionStep = 0;
       private bool requery = false;
+      private bool? _lastPingResult = null;
+      private DateTime _lastPingTime = DateTime.MinValue;
+      private Dictionary<string, TcpClient> _tcpClients = new Dictionary<string, TcpClient>();
 
       #region Task manager for run form
       private class RunTask
@@ -194,18 +197,29 @@ namespace System.Scsc.Ui.MasterPage
          requery = false;
       }
 
+      private void LogToBox(string message)
+      {
+         if (Logs_Txt == null) return;
+         if (Logs_Txt.InvokeRequired)
+            Logs_Txt.Invoke(new Action(() =>
+               Logs_Txt.Text = DateTime.Now.ToShortTimeString() + " - " + message + Environment.NewLine + Logs_Txt.Text));
+         else
+            Logs_Txt.Text = DateTime.Now.ToShortTimeString() + " - " + message + Environment.NewLine + Logs_Txt.Text;
+      }
+
       private bool CheckInternetConnection()
       {
+         if (_lastPingResult.HasValue && (DateTime.Now - _lastPingTime).TotalSeconds < 30)
+            return _lastPingResult.Value;
          try
          {
             Ping ping = new Ping();
-            //PingReply pingStatus = ping.Send("google.com");
             PingReply pingStatus = ping.Send(new IPAddress(new byte[] { 8, 8, 8, 8 }), 2000);
-            if (pingStatus.Status == IPStatus.Success)
-               return true;
-            return false;
+            _lastPingResult = pingStatus.Status == IPStatus.Success;
+            _lastPingTime = DateTime.Now;
+            return _lastPingResult.Value;
          }
-         catch { return false; }
+         catch { _lastPingResult = false; _lastPingTime = DateTime.Now; return false; }
       }
 
       private DevExpress.Utils.SuperToolTip SuperToolTipAttnButn(XElement xdata)
@@ -438,7 +452,7 @@ namespace System.Scsc.Ui.MasterPage
                      }
                   }
                }
-               catch { MessageBox.Show("داده خوانده شده از دستگاه قابل تبدیل به عددی را ندارد"); }
+               catch { LogToBox("داده خوانده شده از دستگاه قابل تبدیل به عددی را ندارد"); }
             }
 
             // 1398/10/03 * سیستم کدینگ کارت برای نرم افزار برای مشتریان چموش
@@ -528,7 +542,7 @@ namespace System.Scsc.Ui.MasterPage
                      }
                   }
                }
-               catch { MessageBox.Show("داده خوانده شده از دستگاه قابل تبدیل به عددی را ندارد"); }
+               catch { LogToBox("داده خوانده شده از دستگاه قابل تبدیل به عددی را ندارد"); }
             }
 
             //var temp = Convert.ToInt64(enrollNumber);
@@ -1307,8 +1321,6 @@ namespace System.Scsc.Ui.MasterPage
             //System.Diagnostics.Debug.WriteLine("Add New Data Read");
 
             //System.Diagnostics.Debug.WriteLine(enrollNumber);
-            //new Thread(AlarmShow).Start();
-            //return;
 
             if (InvokeRequired)
             {
@@ -1470,7 +1482,7 @@ namespace System.Scsc.Ui.MasterPage
                );
             }
          }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         catch (Exception exc) { LogToBox("Sp_ExpnExtr_DataReceived: " + exc.Message); }
       }
 
       private void SendCommandDevExpn(string cmndText, string devName, string enrollNumber)
@@ -1572,7 +1584,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch
          {
-            //MessageBox.Show(exc.Message);
+            //LogToBox(exc.Message);
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Tomato;
          }
          finally
@@ -1670,7 +1682,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -1684,7 +1696,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -1874,6 +1886,7 @@ namespace System.Scsc.Ui.MasterPage
                      MemoryStream ms = new MemoryStream();
                      BitmapFormat.GetBitmap(FPBuffer, mfpWidth, mfpHeight, ref ms);
                      Bitmap fngrImg = new Bitmap(ms);
+                     ms.Dispose();
 
                      var fngr_img_tmpl = new List<object>();
                      fngr_img_tmpl.Add(fngrImg);
@@ -2635,7 +2648,7 @@ namespace System.Scsc.Ui.MasterPage
                   }
                );
          }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         catch (Exception exc) { LogToBox(exc.Message); }
       }
 
       void axCZKEM1_OnHIDNum(int CardNumber)
@@ -2663,7 +2676,7 @@ namespace System.Scsc.Ui.MasterPage
                _DefaultGateway.Gateway(_InteractWithScsc);
             }
          }
-         catch (Exception exc) { /*MessageBox.Show(exc.Message);*/ }
+         catch (Exception exc) { /*LogToBox(exc.Message);*/ }
       }
 
       private void axCZKEM1_OnAttTransactionEx(string EnrollNumber, int IsInValid, int AttState, int VerifyMethod, int Year, int Month, int Day, int Hour, int Minute, int Second, int WorkCode)
@@ -2688,7 +2701,7 @@ namespace System.Scsc.Ui.MasterPage
                OnAttTransactionEx(EnrollNumber);
             return;
          }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         catch (Exception exc) { LogToBox(exc.Message); }
       }
 
       private void OnAttTransactionEx(string EnrollNumber)
@@ -3477,6 +3490,46 @@ namespace System.Scsc.Ui.MasterPage
                   return;
                }
 
+               // 1405-03-30
+               // 1. اول تنظیمات رو بگیرید
+               var clubSetting = iScsc.Settings.FirstOrDefault();
+
+               if (clubSetting != null)
+               {
+                  int secondsToAdd = clubSetting.IGNR_ENTR_ATTN_MINT ?? 0; // این ثانیه هست
+
+                  // 2. حالا رکورد مورد نظر رو پیدا کنید
+                  var _attn = iScsc.Attendances
+                      .Where(a =>
+                          _mbsp.Select(m => m.RWNO).Contains(a.Member_Ship.RWNO) &&
+                          a.FNGR_PRNT_DNRM == EnrollNumber &&
+                          a.ATTN_DATE == DateTime.Now.Date &&
+                          a.EXIT_TIME == null &&
+                          a.ATTN_STAT == "002"
+                      )
+                      .ToList()
+                      .FirstOrDefault(a =>
+                          a.ENTR_TIME != null &&
+                             // محاسبه اختلاف زمان بر حسب ثانیه
+                          (DateTime.Now.TimeOfDay - a.ENTR_TIME.Value).TotalSeconds < secondsToAdd
+                      );
+
+                  if (_attn != null)
+                  {
+                     // این یعنی کاربر کمتر از secondsToAdd ثانیه پیش ورود زده
+                     // پس اجازه ورود مجدد نده و صدا پخش کن
+
+                     // Play Enter Sound
+                     _DefaultGateway.Gateway(
+                         new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                         {
+                            Input = new XElement("Sound", new XAttribute("type", "004"))
+                         }
+                     );
+                     return;
+                  }
+               }
+
                if (_mbsp.Count() >= 2)
                {
                   //_wplayer_url = @".\Media\SubSys\Kernel\Desktop\Sounds\Popcorn.mp3";
@@ -3578,7 +3631,7 @@ namespace System.Scsc.Ui.MasterPage
                #endregion
             }
          }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         catch (Exception exc) { LogToBox(exc.Message); }
       }
 
       void Stop_FingerPrint()
@@ -3648,7 +3701,7 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception exc)
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
             return false;
          }
       }
@@ -3743,7 +3796,7 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception exc)
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
             return false;
          }
       }
@@ -3877,7 +3930,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
             return false;
          }
       }
@@ -3936,7 +3989,7 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception exc)
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
             return false;
          }
       }
@@ -4151,7 +4204,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
             return false;
          }
       }
@@ -4464,7 +4517,7 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception exc)
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
             return false;
          }
       }
@@ -4628,7 +4681,7 @@ namespace System.Scsc.Ui.MasterPage
          catch (Exception exc)
          {
             BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
             return false;
          }
       }
@@ -4823,7 +4876,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            //MessageBox.Show(exc.Message);
+            //LogToBox(exc.Message);
             ActionCenter_Butn.ToolTip = exc.Message;
          }
       }
@@ -4843,7 +4896,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -4889,7 +4942,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
       #endregion
@@ -5393,7 +5446,7 @@ namespace System.Scsc.Ui.MasterPage
             }
             catch (Exception exc)
             {
-               //MessageBox.Show(exc.Message);
+               //LogToBox(exc.Message);
                // Send [Error] command to gate
                if (_gate.DEV_COMP_TYPE == "001")
                {
@@ -5579,26 +5632,22 @@ namespace System.Scsc.Ui.MasterPage
          try
          {
             if (message == null) return;
-            TcpClient client = new TcpClient(server, port);
-
+            string key = server + ":" + port;
+            TcpClient client;
+            if (!_tcpClients.TryGetValue(key, out client) || client == null || !client.Connected)
+            {
+               client = new TcpClient(server, port);
+               _tcpClients[key] = client;
+            }
             NetworkStream stream = client.GetStream();
-
             stream.Write(message, 0, message.Length);
-
-            //var data = new Byte[17];
-
-            //// String to store the response ASCII representation.
-            //String responseData = String.Empty;
-
-            //// Read the first batch of the TcpServer response bytes.
-            //Int32 bytes = stream.Read(data, 0, data.Length);
-
-            stream.Close();
-            client.Close();
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
+            string key = server + ":" + port;
+            if (_tcpClients.ContainsKey(key))
+               _tcpClients.Remove(key);
          }
       }
 
@@ -5828,6 +5877,8 @@ namespace System.Scsc.Ui.MasterPage
 
             // اگر اطلاعاتی از کارتخوان و کارت عضویت وجود نداشته باشد برای اولین بار آن را ثبت میکنیم
             lastDataRead.Add(new DataReadFromCardReader() { MacAdrs = _devName, EnrollNumber = _fngrPrnt, LastTimeRead = DateTime.Now });
+            if (lastDataRead.Count > 50)
+               lastDataRead.RemoveAll(d => DateTime.Now.Subtract(d.LastTimeRead).TotalSeconds >= 3);
             //System.Diagnostics.Debug.WriteLine("Add New Data Read");
 
             //System.Diagnostics.Debug.WriteLine(enrollNumber);
@@ -5836,9 +5887,11 @@ namespace System.Scsc.Ui.MasterPage
 
             if (InvokeRequired)
             {
+               #region Needed Invoke Run Code
                Invoke(
                   new Action(() =>
                   {
+                     #region Read data from network
                      // ابتدا بررسی میکنیم که داده ورودی مربوط به کدام بخش دستگاه های بازی میشود
                      // 1 - بازی های زمان متغییر مانند بیلیارد
                      // 2 - بازی های زمان ثابت مانند شهربازی
@@ -5849,17 +5902,21 @@ namespace System.Scsc.Ui.MasterPage
                      // 1404/06/24 * Save last finger print in memory
                      string _storLastFngrPrnt = FngrPrnt_Txt.Text;
                      // set Finger Print Data on Text Box                     
-                     FngrPrnt_Txt.Text = _fngrPrnt;
+                     FngrPrnt_Txt.Text = _fngrPrnt;                     
 
                      // 1402/11/16 * Send Signal to receive data
                      GetValuDataFromExtrDev(_getDev, _fngrPrnt);
+                     #endregion
 
+                     #region Read data from database and validator
                      // Check Exists Service and Valid Card
                      var _serv = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == _fngrPrnt);
+                     #endregion
 
                      // 1404/05/28 اگر مشتری تعریف شده باشد باید کد کارتشو درون پایگاه داده ذخیره کرد برای اینکه بخواهیم جلسه اضافه کم کنیم
                      if (_serv != null)
                      {
+                        #region سیستم استخر علی محمدی برای مشتریان اشتراکی و مهمان
                         // 1404/06/24 * #MahsaAmini
                         // عملیات برای مشتریان اشتراکی
                         // برای استفاده کردن از کارت استخر بارانا که بتوانیم ورود و خروج ساعت را داشته باشیم برای مشتریان اشتراکی
@@ -5906,55 +5963,65 @@ namespace System.Scsc.Ui.MasterPage
 
                            return;
                         }
+                        #endregion
+                        #region سیستم استخر علی محمد برای کنترل خروج کارت های شارژ شده
                         else if (_getDev.DEV_TYPE == "001" /* Card Reader */ && _getDev.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */ && _getDev.SEND_CMND_TYPE.In("002") /* Close */ && _getDev.EXPN_CODE != null /* Fine Amount */)
                         {
-                           // 1404/07/27 * اگر کارت متعلق به پرسنل باشد باید چک کنیم که ایا ورود ان زده شده یا خیر
+                           #region کارت پرسنل باشه
+                           // 1404/07/27 * اگر کارت متعلق به پرسنل باشد باید چک کنیم که ایا ورود ان زده شده یا خیر                           
                            if (_serv.FGPB_TYPE_DNRM == "003")
                            {
-                              var _attn = iScsc.Attendances.FirstOrDefault(a => a.FIGH_FILE_NO == _serv.FILE_NO && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null);
+                              var _attn = iScsc.Attendances.FirstOrDefault(a => 
+                                 a.FIGH_FILE_NO == _serv.FILE_NO && 
+                                 a.ATTN_DATE.Date == DateTime.Now.Date && 
+                                 a.EXIT_TIME == null);
+
                               if (_attn != null)
                               {
-                                 iScsc.INS_ATTN_P(null, _attn.FIGH_FILE_NO, DateTime.Now, null, "001", _attn.MBSP_RWNO_DNRM, "002", "001");
+                                 iScsc.INS_ATTN_P(null, _attn.FIGH_FILE_NO, DateTime.Now, null, "001", _attn.MBSP_RWNO_DNRM, "002", "001");                                 
+                              }
 
-                                 _getDev.External_Device_Link_External_Devices.Where(el => el.STAT == "002")
-                                    .ToList()
-                                    .ForEach(ed =>
-                                       // در این مرحله باز کردن گیت رو فرمان میدیم
-                                       OprtExtDev(
-                                          new XElement("MainPage",
-                                             new XAttribute("type", "extdev"),
-                                             new XAttribute("devtype", ed.External_Device1.DEV_TYPE),
-                                             new XAttribute("contype", "002"),
-                                             new XAttribute("cmdtype", "close"),
-                                             new XAttribute("cmdsend", ""),
-                                             new XAttribute("ip", ed.External_Device1.IP_ADRS),
-                                             new XAttribute("sendport", ed.External_Device1.PORT_SEND)
-                                          )
+                              _getDev.External_Device_Link_External_Devices.Where(el => el.STAT == "002")
+                                 .ToList()
+                                 .ForEach(ed =>
+                                    // در این مرحله باز کردن گیت رو فرمان میدیم
+                                    OprtExtDev(
+                                       new XElement("MainPage",
+                                          new XAttribute("type", "extdev"),
+                                          new XAttribute("devtype", ed.External_Device1.DEV_TYPE),
+                                          new XAttribute("contype", "002"),
+                                          new XAttribute("cmdtype", "close"),
+                                          new XAttribute("cmdsend", ""),
+                                          new XAttribute("ip", ed.External_Device1.IP_ADRS),
+                                          new XAttribute("sendport", ed.External_Device1.PORT_SEND)
                                        )
-                                    );
-                              }
-                              else
-                              {
-                                 _getDev.External_Device_Link_External_Devices.Where(el => el.STAT == "002")
-                                    .ToList()
-                                    .ForEach(ed =>
-                                       // در این مرحله باز کردن گیت رو فرمان میدیم
-                                       OprtExtDev(
-                                          new XElement("MainPage",
-                                             new XAttribute("type", "extdev"),
-                                             new XAttribute("devtype", ed.External_Device1.DEV_TYPE),
-                                             new XAttribute("contype", "002"),
-                                             new XAttribute("cmdtype", "error"),
-                                             new XAttribute("cmdsend", ""),
-                                             new XAttribute("ip", ed.External_Device1.IP_ADRS),
-                                             new XAttribute("sendport", ed.External_Device1.PORT_SEND)
-                                          )
-                                       )
-                                    );
-                              }
+                                    )
+                                 );
+
+                              //else
+                              //{
+                              //   _getDev.External_Device_Link_External_Devices.Where(el => el.STAT == "002")
+                              //      .ToList()
+                              //      .ForEach(ed =>
+                              //         // در این مرحله باز کردن گیت رو فرمان میدیم
+                              //         OprtExtDev(
+                              //            new XElement("MainPage",
+                              //               new XAttribute("type", "extdev"),
+                              //               new XAttribute("devtype", ed.External_Device1.DEV_TYPE),
+                              //               new XAttribute("contype", "002"),
+                              //               new XAttribute("cmdtype", "close"),
+                              //               new XAttribute("cmdsend", ""),
+                              //               new XAttribute("ip", ed.External_Device1.IP_ADRS),
+                              //               new XAttribute("sendport", ed.External_Device1.PORT_SEND)
+                              //            )
+                              //         )
+                              //      );
+                              //}
                               return;
                            }
+                           #endregion
 
+                           #region در استخر علی محمدی اگر کارتی نامعتبر روی دستگاه گذاشته شود
                            // 1404/07/26 * اگر کارتی که روی دستگاه گذاشته میشود به هیچ رکورد معتبری متصل نباشد
                            if (!iScsc.Card_Link_Operations.Any(c => c.CARD_FILE_NO == _serv.FILE_NO && c.VALD_TYPE == "002" && c.STRT_TIME.Value.Date == DateTime.Now.Date))
                            {
@@ -5975,7 +6042,9 @@ namespace System.Scsc.Ui.MasterPage
                                  );
                               return;
                            }
+                           #endregion
 
+                           #region پردازش عملیات برای اینکه زمانی که مشتری میخواد خروج کند ایا شامل جریمه میشود یا خیر
                            // 1404/06/29 * برای سیستم های محاسبه زمانی باید چک کنیم که مشتری به موقع از سیستم خارج شده یا خیر
                            // پیدا کردن رکورد حضوری در جدول حضور و غیاب برای مشتری که اخرین بار حضوری زده
                            iScsc.LNK_CRDO_P(
@@ -5990,6 +6059,7 @@ namespace System.Scsc.Ui.MasterPage
                            // در این قسمت باید چک کنیم که ایا این خروج باید جریمه پرداخت کند یا خیر
                            // اگر شامل جریمه میشود باید فرم درامد متفرقه را باز کند
                            var _cardLinkOprt = iScsc.Card_Link_Operations.FirstOrDefault(c => c.CARD_FILE_NO == _serv.FILE_NO && c.VALD_TYPE == "002");
+                           #region شامل مبلغ جریمه
                            if (_cardLinkOprt != null && _cardLinkOprt.FINE_RQST_RQID != null)
                            {
                               // Play Failed Operation Sound
@@ -6018,6 +6088,8 @@ namespace System.Scsc.Ui.MasterPage
                                  )
                               );
                            }
+                           #endregion
+                           #region بدون مبلغ جریمه و خروج همراه با خداحافظی
                            else
                            {
                               // Play Exit Sound
@@ -6047,12 +6119,15 @@ namespace System.Scsc.Ui.MasterPage
                                     )
                                  );
                            }
+                           #endregion
                            return;
+                           #endregion
                         }
+                        #endregion
                         else
                         {
                            // انالیز کارت گذاشتن روی دستگاه برای اینکه بخواهیم جلسه بیشتری از مشتری کم کنیم
-                           iScsc.ExecuteCommand("INSERT INTO dbo.External_Device_DataRead (EDEV_CODE, FNGR_PRNT, CODE) VALUES ({0}, '{1}', 0);", _getDev.CODE, _fngrPrnt);
+                           iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.External_Device_DataRead (EDEV_CODE, FNGR_PRNT, CODE) VALUES ({0}, '{1}', 0);", _getDev.CODE, _fngrPrnt));
                         }
                      }
 
@@ -6347,9 +6422,10 @@ namespace System.Scsc.Ui.MasterPage
                      }
                   })
                );
+               #endregion
             }
          }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         catch (Exception exc) { LogToBox(exc.Message); }
 
       }
 
@@ -6981,7 +7057,7 @@ namespace System.Scsc.Ui.MasterPage
                OnOpenDresser(EnrollNumber);
             return;
          }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         catch (Exception exc) { LogToBox(exc.Message); }
       }
 
       private void SendOprtDresser(string devIP, string cmndName, string cmndsend)
@@ -9325,7 +9401,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -9372,7 +9448,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -9516,7 +9592,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -9845,7 +9921,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -9931,7 +10007,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -9975,7 +10051,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -10141,7 +10217,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -10190,7 +10266,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -10285,7 +10361,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -10322,7 +10398,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -10339,7 +10415,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -10378,7 +10454,7 @@ namespace System.Scsc.Ui.MasterPage
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -10491,7 +10567,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -10827,7 +10903,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -10846,7 +10922,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -11070,7 +11146,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -11164,7 +11240,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
          finally
          {
@@ -11206,7 +11282,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
          finally
          {
@@ -11262,7 +11338,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -11279,7 +11355,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -11294,7 +11370,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
          finally
          {
@@ -11318,7 +11394,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
          finally
          {
@@ -11338,7 +11414,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -11402,7 +11478,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
          finally
          {
@@ -11424,7 +11500,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -11436,7 +11512,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -11483,7 +11559,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -11517,7 +11593,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
                PrtnrProc1_Pbc.Position = PrtnrProc2_Pbc.Position = PrtnrProc3_Pbc.Position = i;
             }
          }
-         catch (Exception exc) { MessageBox.Show(exc.Message); }
+         catch (Exception exc) { LogToBox(exc.Message); }
       }
 
       private void ANote_Lov_ButtonPressed(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
@@ -11552,7 +11628,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -11638,7 +11714,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -11992,7 +12068,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12038,7 +12114,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
          finally
          {
@@ -12161,7 +12237,9 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
                      new XAttribute("limtcalcattnindy", Stng.LIMT_CALC_ATTN_INDY ?? "001"),
 
                      new XAttribute("cardexpnstat", Stng.CARD_EXPN_STAT ?? "001"),
-                     new XAttribute("cardexpncode", Stng.CARD_EXPN_CODE ?? 0)
+                     new XAttribute("cardexpncode", Stng.CARD_EXPN_CODE ?? 0),
+
+                     new XAttribute("ignrentrattnmint", Stng.IGNR_ENTR_ATTN_MINT ?? 0)
                   )
                )
             );
@@ -12169,7 +12247,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
          finally
          {
@@ -12186,7 +12264,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12198,7 +12276,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12215,7 +12293,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12274,7 +12352,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12291,7 +12369,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12384,7 +12462,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12425,7 +12503,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12471,7 +12549,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12490,7 +12568,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12575,7 +12653,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12592,7 +12670,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12617,7 +12695,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12646,7 +12724,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
          finally
          {
@@ -12667,7 +12745,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
          finally
          {
@@ -12711,7 +12789,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
          finally
          {
@@ -12761,7 +12839,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12783,7 +12861,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12829,7 +12907,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12875,7 +12953,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 
@@ -12927,7 +13005,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
          finally
          {
@@ -12949,7 +13027,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
          finally
          {
@@ -12981,7 +13059,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
          }
          catch (Exception exc)
          {
-            MessageBox.Show(exc.Message);
+            LogToBox(exc.Message);
          }
       }
 

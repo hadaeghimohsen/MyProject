@@ -218,11 +218,6 @@ namespace System.DataGuard.Login.Ui
 
          if(te_username.Text.Trim() != "")
          {
-            if (iProject != null)
-            {
-               iProject.Dispose();
-               iProject = null;
-            }
             iProject = new Data.iProjectDataContext(ConnectionString);
             SelectedUser = iProject.Users.FirstOrDefault(u => u.USERDB.ToLower() == te_username.Text.ToLower());
             User_RondButn.ImageProfile = GetUserImage(SelectedUser);

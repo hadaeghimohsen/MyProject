@@ -1061,7 +1061,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var rpsp = RpspBs.Current as Data.Robot_Product_StepPrice;
             if (rpsp == null) return;
 
-            iRoboTech.ExecuteCommand("BEGIN DELETE Robot_Product_StepPrice WHERE Rbpr_Code = {0} AND RWNO = {1} END;", rpsp.RBPR_CODE, rpsp.RWNO);
+            iRoboTech.ExecuteCommand(string.Format("BEGIN DELETE Robot_Product_StepPrice WHERE Rbpr_Code = {0} AND RWNO = {1} END;", rpsp.RBPR_CODE, rpsp.RWNO));
             requery = true;
          }
          catch (Exception exc)
@@ -1125,7 +1125,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف رکورد", MessageBoxButtons.YesNo, MessageBoxIcon.Question) != DialogResult.Yes) return;
 
-            iRoboTech.ExecuteCommand("BEGIN DELETE dbo.Robot_External_Query WHERE Code = {0}; END;", rexq.CODE);
+            iRoboTech.ExecuteCommand(string.Format("BEGIN DELETE dbo.Robot_External_Query WHERE Code = {0}; END;", rexq.CODE));
 
             requery = true;
          }
@@ -1277,7 +1277,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var xParam = _dsExtrQury.ToXml();
 
             iRoboTech.CommandTimeout = int.MaxValue;
-            iRoboTech.ExecuteCommand("BEGIN EXEC dbo." + rexq.INS_EXEC_WITH + " @X = {0}; END;", xParam.ToString());
+            iRoboTech.ExecuteCommand(string.Format("BEGIN EXEC dbo." + rexq.INS_EXEC_WITH + " @X = {0}; END;", xParam.ToString()));
 
             MessageBox.Show(this, "اطلاعات با موفقیت درون سیستم فروشگاه انلاین شما قرار گرفت", "انتقال اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Information);
             requery = true;
@@ -1337,7 +1337,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var xParam = _dsExtrQury.ToXml();
 
             iRoboTech.CommandTimeout = int.MaxValue;
-            iRoboTech.ExecuteCommand("BEGIN EXEC dbo." + rexq.UPD_EXEC_WITH + " @X = {0}; END;", xParam.ToString());
+            iRoboTech.ExecuteCommand(string.Format("BEGIN EXEC dbo." + rexq.UPD_EXEC_WITH + " @X = {0}; END;", xParam.ToString()));
 
             MessageBox.Show(this, "اطلاعات با موفقیت درون سیستم فروشگاه انلاین شما قرار گرفت", "انتقال اطلاعات", MessageBoxButtons.OK, MessageBoxIcon.Information);
             requery = true;
@@ -2407,7 +2407,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if (uagp == null)
             {
-               iRoboTech.ExecuteCommand("INSERT INTO dbo.User_Access_Group_Product (User_Id, Grop_Code, Aces_Stat, Code) VALUES ({0}, {1}, '002', 0);", user.USER_ID, gexp.CODE);
+                iRoboTech.ExecuteCommand(string.Format("INSERT INTO dbo.User_Access_Group_Product (User_Id, Grop_Code, Aces_Stat, Code) VALUES ({0}, {1}, '002', 0);", user.USER_ID, gexp.CODE));
             }
             else
             {

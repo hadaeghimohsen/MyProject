@@ -154,7 +154,7 @@
          this.iNSR_NUMBTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.MomCellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DadCellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
-         this.CELL_PHON_TextEdit = new DevExpress.XtraEditors.TextEdit();
+         this.CellPhon_Txt = new DevExpress.XtraEditors.TextEdit();
          this.MomChatId_Txt = new DevExpress.XtraEditors.TextEdit();
          this.DISE_CODE_LookUpEdit = new DevExpress.XtraEditors.LookUpEdit();
          this.DstpBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -360,7 +360,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.iNSR_NUMBTextEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MomCellPhon_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DadCellPhon_Txt.Properties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CELL_PHON_TextEdit.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CellPhon_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.MomChatId_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DISE_CODE_LookUpEdit.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DstpBs1)).BeginInit();
@@ -1947,26 +1947,26 @@
          this.DadCellPhon_Txt.Size = new System.Drawing.Size(117, 22);
          this.DadCellPhon_Txt.TabIndex = 8;
          // 
-         // CELL_PHON_TextEdit
+         // CellPhon_Txt
          // 
-         this.CELL_PHON_TextEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-         this.CELL_PHON_TextEdit.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "CELL_PHON", true));
-         this.CELL_PHON_TextEdit.EditValue = "";
-         this.CELL_PHON_TextEdit.Location = new System.Drawing.Point(553, 113);
-         this.CELL_PHON_TextEdit.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-         this.CELL_PHON_TextEdit.Name = "CELL_PHON_TextEdit";
-         this.CELL_PHON_TextEdit.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-         this.CELL_PHON_TextEdit.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.CELL_PHON_TextEdit.Properties.Appearance.Options.UseBackColor = true;
-         this.CELL_PHON_TextEdit.Properties.Appearance.Options.UseFont = true;
-         this.CELL_PHON_TextEdit.Properties.Appearance.Options.UseTextOptions = true;
-         this.CELL_PHON_TextEdit.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
-         this.CELL_PHON_TextEdit.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-         this.CELL_PHON_TextEdit.Properties.AppearanceFocused.Options.UseBackColor = true;
-         this.CELL_PHON_TextEdit.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-         this.CELL_PHON_TextEdit.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.CELL_PHON_TextEdit.Size = new System.Drawing.Size(117, 22);
-         this.CELL_PHON_TextEdit.TabIndex = 6;
+         this.CellPhon_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.CellPhon_Txt.DataBindings.Add(new System.Windows.Forms.Binding("EditValue", this.FgpbsBs1, "CELL_PHON", true));
+         this.CellPhon_Txt.EditValue = "";
+         this.CellPhon_Txt.Location = new System.Drawing.Point(553, 113);
+         this.CellPhon_Txt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+         this.CellPhon_Txt.Name = "CellPhon_Txt";
+         this.CellPhon_Txt.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+         this.CellPhon_Txt.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+         this.CellPhon_Txt.Properties.Appearance.Options.UseBackColor = true;
+         this.CellPhon_Txt.Properties.Appearance.Options.UseFont = true;
+         this.CellPhon_Txt.Properties.Appearance.Options.UseTextOptions = true;
+         this.CellPhon_Txt.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+         this.CellPhon_Txt.Properties.AppearanceFocused.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+         this.CellPhon_Txt.Properties.AppearanceFocused.Options.UseBackColor = true;
+         this.CellPhon_Txt.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+         this.CellPhon_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.CellPhon_Txt.Size = new System.Drawing.Size(117, 22);
+         this.CellPhon_Txt.TabIndex = 6;
          // 
          // MomChatId_Txt
          // 
@@ -2643,7 +2643,7 @@
          this.groupBox1.Controls.Add(this.CardNumb_Text);
          this.groupBox1.Controls.Add(this.SEX_TYPE_LookUpEdit);
          this.groupBox1.Controls.Add(this.label5);
-         this.groupBox1.Controls.Add(this.CELL_PHON_TextEdit);
+         this.groupBox1.Controls.Add(this.CellPhon_Txt);
          this.groupBox1.Controls.Add(this.IdtyNumb_Txt);
          this.groupBox1.Controls.Add(this.SexType_Lb);
          this.groupBox1.Controls.Add(this.NATL_CODE_TextEdit);
@@ -3451,7 +3451,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.iNSR_NUMBTextEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MomCellPhon_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DadCellPhon_Txt.Properties)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CELL_PHON_TextEdit.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CellPhon_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.MomChatId_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DISE_CODE_LookUpEdit.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.DstpBs1)).EndInit();
@@ -3527,7 +3527,7 @@
       private DevExpress.XtraEditors.TextEdit POST_ADRS_TextEdit;
       private DevExpress.XtraEditors.TextEdit EMAL_ADRS_TextEdit;
       private DevExpress.XtraEditors.TextEdit TELL_PHON_TextEdit;
-      private DevExpress.XtraEditors.TextEdit CELL_PHON_TextEdit;
+      private DevExpress.XtraEditors.TextEdit CellPhon_Txt;
       private DevExpress.XtraEditors.TextEdit iNSR_NUMBTextEdit;
       private DevExpress.XtraEditors.TextEdit NATL_CODE_TextEdit;
       private DevExpress.XtraEditors.TextEdit FATH_NAME_TextEdit;

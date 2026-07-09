@@ -220,8 +220,13 @@ namespace System.Scsc.Ui.ChangeRials
             var Rqst = RqstBs1.Current as Data.Request;
             if (Rqst != null && Rqst.RQST_STAT == "001")
             {
-               var glrl = GlrlBs1.Current as Data.Gain_Loss_Rial;
-               if(glrl.AMNT > GlrdBs1.List.OfType<Data.Gain_Loss_Rail_Detail>().Sum(g => g.AMNT))
+               var __glrl = GlrlBs1.Current as Data.Gain_Loss_Rial;
+
+               // 1405/04/08 * اگر مبلغ وارد شده صفر باشد باید جلو ثبت نهایی کردن درخواست گرفته شود
+               if(__glrl.AMNT == 0 ||  GlrdBs1.List.OfType<Data.Gain_Loss_Rail_Detail>().Any(a => a.RWNO == 0))
+                  throw (new Exception("مبلغ درخواست ثبتی شما صفر میباشد، لطفا اصلاح کنید"));
+
+               if(__glrl.AMNT > GlrdBs1.List.OfType<Data.Gain_Loss_Rail_Detail>().Sum(g => g.AMNT))
                   throw (new Exception("مبلغ کل وارد شده با مبلغ های پرداختی یکسان نمی باشد، لطفا بررسی و اصلاح نمایید"));
 
                if (MessageBox.Show(this, "آیا با ذخیره کردن تغییرات ریالی موافق هستید؟", "ذخیره کردن تغییرات ریالی", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2) != DialogResult.Yes) return;

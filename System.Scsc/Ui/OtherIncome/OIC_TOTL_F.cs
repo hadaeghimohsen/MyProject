@@ -998,7 +998,7 @@ namespace System.Scsc.Ui.OtherIncome
                   return;
                }
 
-               iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID));
             }
 
             if (Accept_Cb.Checked /* 1402/11/01 if payment no debt */ && PymtsBs1.List.OfType<Data.Payment>().Any(p => (p.SUM_EXPN_PRIC + p.SUM_EXPN_EXTR_PRCT) - (p.SUM_RCPT_EXPN_PRIC + p.SUM_PYMT_DSCN_DNRM) > 0))
@@ -1089,7 +1089,7 @@ namespace System.Scsc.Ui.OtherIncome
                                        )
                                  }
                               }
-                           )                     
+                           )
                         }
                      )
                   );
@@ -1263,7 +1263,7 @@ namespace System.Scsc.Ui.OtherIncome
                      return;
                   }
 
-                  iScsc.ExecuteCommand("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID);
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Public SET Frst_Name = N'{0}', Last_Name = N'{1}', Cell_Phon = '{2}' WHERE Rqro_Rqst_Rqid = {3};", FrstName_Txt.Text, LastName_Txt.Text, CellPhon_Txt.Text, rqst.RQID));
                }
 
                if (Accept_Cb.Checked)
@@ -1355,7 +1355,7 @@ namespace System.Scsc.Ui.OtherIncome
                   }
                   else
                   {
-                     iScsc.ExecuteCommand("UPDATE dbo.Payment_Detail SET Cbmt_Code_Dnrm = {0}, Figh_File_No = {1}, Qnty = {2} WHERE Code = {3};", _cbmt.CODE, _coch.FILE_NO, _pydt.QNTY, _pydt.CODE);
+                     iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET Cbmt_Code_Dnrm = {0}, Figh_File_No = {1}, Qnty = {2} WHERE Code = {3};", _cbmt.CODE, _coch.FILE_NO, _pydt.QNTY, _pydt.CODE));
                   }
                }
             }
@@ -2151,7 +2151,7 @@ namespace System.Scsc.Ui.OtherIncome
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
                                              new XAttribute("amnt", Convert.ToInt64(PymtAmnt_Txt.EditValue)),
-                                             new XAttribute("expnidtyvalu", pymt.Payment_Details.FirstOrDefault(a => a.EXPN_IDTY_VALU_DNRM != null).EXPN_IDTY_VALU_DNRM ?? ""),
+                                             new XAttribute("expnidtyvalu", pymt.Payment_Details.Where(a => a.EXPN_IDTY_VALU_DNRM != null).Select(a => a.EXPN_IDTY_VALU_DNRM).FirstOrDefault() ?? ""),
                                              new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
                                              new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
                                              new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? ""),
@@ -2360,7 +2360,7 @@ namespace System.Scsc.Ui.OtherIncome
                // 1403/08/13
                if (ModifierKeys == Keys.Control)
                {
-                  iScsc.ExecuteCommand("UPDATE dbo.Payment_Detail SET EXPR_DATE = '{0}' WHERE CODE = {1};", pydt.EXPR_DATE, pydt.CODE);
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment_Detail SET EXPR_DATE = '{0}' WHERE CODE = {1};", pydt.EXPR_DATE, pydt.CODE));
                   return;
                }
 
@@ -3061,7 +3061,7 @@ namespace System.Scsc.Ui.OtherIncome
                }
             }
 
-            iScsc.ExecuteCommand("UPDATE Payment_Detail SET TRAN_DATE = GETDATE() WHERE Code IN ({0}) AND TRAN_DATE IS NULL;", string.Join(",", _pydts.Select(pd => pd.CODE)));
+            iScsc.ExecuteCommand(string.Format("UPDATE Payment_Detail SET TRAN_DATE = GETDATE() WHERE Code IN ({0}) AND TRAN_DATE IS NULL;", string.Join(",", _pydts.Select(pd => pd.CODE))));
 
             if (evntLogs.Count() > 1)
             {
@@ -3112,7 +3112,7 @@ namespace System.Scsc.Ui.OtherIncome
                }
             }
 
-            iScsc.ExecuteCommand("UPDATE a SET a.MUST_EXIT_TIME_DNRM = DateAdd(Minute, ISNULL(cm.Clas_Time, 90), a.Entr_Time) FROM dbo.Attendance a, dbo.Club_Method cm WHERE a.Cbmt_Code_Dnrm = cm.Code AND a.Code in ({0}) AND a.Must_Exit_Time_Dnrm IS NULL;", string.Join(",", _attns.Select(a => a.CODE)));
+            iScsc.ExecuteCommand(string.Format("UPDATE a SET a.MUST_EXIT_TIME_DNRM = DateAdd(Minute, ISNULL(cm.Clas_Time, 90), a.Entr_Time) FROM dbo.Attendance a, dbo.Club_Method cm WHERE a.Cbmt_Code_Dnrm = cm.Code AND a.Code in ({0}) AND a.Must_Exit_Time_Dnrm IS NULL;", string.Join(",", _attns.Select(a => a.CODE))));
 
             ////////////////// End of Calc
 
@@ -3460,7 +3460,7 @@ namespace System.Scsc.Ui.OtherIncome
             PydsAmnt_Txt.EditValue = _fgdc.DSCT_AMNT;
             PydsDesc_Txt.Text = string.Format("کد تخفیف " + "( {0} )" + " بابت : " + "( {1} )" + " توسط کاربر : " + "( {2} )" + " ذخیره شد.", _fgdc.DISC_CODE, _fgdc.DSCT_DESC, CurrentUser);
             PydsDesc_Txt.Tag = _fgdc.CODE;
-            iScsc.ExecuteCommand("UPDATE dbo.Fighter_Discount_Card SET RQST_RQID = {0} WHERE CODE = {1};", _rqst.RQID, _fgdc.CODE);
+            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Discount_Card SET RQST_RQID = {0} WHERE CODE = {1};", _rqst.RQID, _fgdc.CODE));
             SavePyds_Butn_Click(null, null);
             PydsDesc_Txt.Tag = null;
             PymtOprt_Tc.SelectedTab = PymtDsct_Tp;
@@ -4590,7 +4590,7 @@ namespace System.Scsc.Ui.OtherIncome
             if (!_cont)
             {
                // Save Contact in Database
-               iScsc.ExecuteCommand("INSERT INTO dbo.Fighter_Public(Regn_Prvn_Cnty_Code, Regn_Prvn_Code, Regn_Code, Rqro_Rqst_Rqid, Rqro_Rwno, Figh_File_No, Rect_Code, Frst_Name, Last_Name, Cell_Phon) VALUES('{0}', '{1}', '{2}', {3}, 1, {4}, '002', N'{5}', N'{6}', '{7}');", cntycode, prvncode, regncode, rqid, fileno, FrstName1_Txt.Text, LastName1_Txt.Text, CellPhon1_Txt.Text);
+                iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.Fighter_Public(Regn_Prvn_Cnty_Code, Regn_Prvn_Code, Regn_Code, Rqro_Rqst_Rqid, Rqro_Rwno, Figh_File_No, Rect_Code, Frst_Name, Last_Name, Cell_Phon) VALUES('{0}', '{1}', '{2}', {3}, 1, {4}, '002', N'{5}', N'{6}', '{7}');", cntycode, prvncode, regncode, rqid, fileno, FrstName1_Txt.Text, LastName1_Txt.Text, CellPhon1_Txt.Text));
                FrstName1_Txt.Text = LastName1_Txt.Text = CellPhon1_Txt.Text = "";
                FgpbCustTell_Gv.FindFilterText = "";
                CellPhon1_Txt.Focus();

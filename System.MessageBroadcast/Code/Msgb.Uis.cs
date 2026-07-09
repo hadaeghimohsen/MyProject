@@ -13,5 +13,6 @@ namespace System.MessageBroadcast.Code
 
       internal Ui.MasterPage.MSTR_PAGE_F _Mstr_Page_F { get; set; }
       internal Ui.SmsApp.SEND_MESG_F _Send_Mesg_F { get; set; }
+      internal Ui.SmsApp.WEBS_MESG_F _Webs_Mesg_F { get; set; }
    }
 }

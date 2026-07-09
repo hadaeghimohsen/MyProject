@@ -51,6 +51,9 @@ namespace System.MessageBroadcast.Code
             case 07:
                Send_Mesg_F(job);
                break;
+            case 08:
+               Webs_Mesg_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -69,6 +72,9 @@ namespace System.MessageBroadcast.Code
                break;
             case "SEND_MESG_F":
                _Send_Mesg_F.SendRequest(job);
+               break;
+            case "WEBS_MESG_F":
+               _Webs_Mesg_F.SendRequest(job);
                break;
             default:
                job.Status = StatusType.Failed;

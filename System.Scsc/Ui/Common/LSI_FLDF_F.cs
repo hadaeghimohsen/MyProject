@@ -432,7 +432,7 @@ namespace System.Scsc.Ui.Common
          var tellPhon = TellPhon_Txt.Text;
          var servNo = ServNo_Txt.Text;
          var globCode = GlobCode_Txt.Text;
-         var hasFngrPrnt = HasValuFngrPrnt_Cbx.Checked;
+         //var hasFngrPrnt = HasValuFngrPrnt_Cbx.Checked;
          var bothSex = BothSex_Rb.Checked;
          var menRb = Men_Rb.Checked;
          var suntCode = (SuntCode_Lov.EditValue == null || SuntCode_Lov.Text == "") ? null : SuntCode_Lov.EditValue.ToString();
@@ -451,7 +451,7 @@ namespace System.Scsc.Ui.Common
             var ctx = new Data.iScscDataContext(connStr);
             var query = ctx.Fighters.Where(f =>
                clubs.Contains(f.CLUB_CODE_DNRM)
-            && (hasFngrPrnt ? f.FNGR_PRNT_DNRM.Length >= 1 : (f.FNGR_PRNT_DNRM == null || f.FNGR_PRNT_DNRM.Trim().Length == 0))
+            && (HasValuFngrPrnt_Cbx.CheckState == CheckState.Indeterminate || (HasValuFngrPrnt_Cbx.CheckState == CheckState.Checked ? f.FNGR_PRNT_DNRM.Length >= 1 : (f.FNGR_PRNT_DNRM == null || f.FNGR_PRNT_DNRM.Trim().Length == 0)))
             && f.CONF_STAT == "002"
             && f.FGPB_TYPE_DNRM != "003"
             && f.ACTV_TAG_DNRM == "101"
@@ -521,7 +521,7 @@ namespace System.Scsc.Ui.Common
             var skip = currentSkip;
             var clubs = Fga_Uclb_U;
 
-            var hasFngrPrnt = HasValuFngrPrnt_Cbx.Checked;
+            //var hasFngrPrnt = HasValuFngrPrnt_Cbx.Checked;
             var bothSex = BothSex_Rb.Checked;
             var menRb = Men_Rb.Checked;
             var frstName = FrstName_Txt.Text;
@@ -536,7 +536,7 @@ namespace System.Scsc.Ui.Common
             var nextPage =
                      _searchContext.Fighters.Where(f =>
                         clubs.Contains(f.CLUB_CODE_DNRM)
-                     && (hasFngrPrnt ? f.FNGR_PRNT_DNRM.Length >= 1 : (f.FNGR_PRNT_DNRM == null || f.FNGR_PRNT_DNRM.Trim().Length == 0))
+                     && (HasValuFngrPrnt_Cbx.CheckState == CheckState.Indeterminate || (HasValuFngrPrnt_Cbx.CheckState == CheckState.Checked ? f.FNGR_PRNT_DNRM.Length >= 1 : (f.FNGR_PRNT_DNRM == null || f.FNGR_PRNT_DNRM.Trim().Length == 0)))
                      && f.CONF_STAT == "002"
                      && f.FGPB_TYPE_DNRM != "003"
                      && f.ACTV_TAG_DNRM == "101"

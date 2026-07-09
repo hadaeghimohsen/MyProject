@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
 using System.Scsc.ExtCode;
 using DevExpress.XtraEditors;
+using System.Text.RegularExpressions;
 
 namespace System.Scsc.Ui.Admission
 {
@@ -91,7 +92,7 @@ namespace System.Scsc.Ui.Admission
                //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
                //DefaultTabPage001();
                RqstBnASav1.Enabled = false;
-               RQTT_CODE_LookUpEdit1.EditValue = "001";
+               RqttCode_Lov.EditValue = "001";
                RefDesc_Txt.EditValue = "";
             }
 
@@ -108,7 +109,7 @@ namespace System.Scsc.Ui.Admission
             //Btn_RqstDelete1.Visible = Btn_RqstSav1.Visible = false;
             //DefaultTabPage001();
             RqstBnASav1.Enabled = false;
-            RQTT_CODE_LookUpEdit1.EditValue = "001";
+            RqttCode_Lov.EditValue = "001";
             RefDesc_Txt.EditValue = "";
          }
       }
@@ -178,24 +179,36 @@ namespace System.Scsc.Ui.Admission
                   })
             );
 
+            // 1405/04/12 * چک کردن شماره تلفن های وارد شده توسط کاربر
+            if (!CellPhon_Txt.ValidatePhoneField( "شماره موبایل کاربر")) return;
+            if (!DadCellPhon_Txt.ValidatePhoneField("شماره موبایل پدر")) return;
+            if (!MomCellPhon_Txt.ValidatePhoneField("شماره موبایل مادر")) return;
+
+            // اگر اینجا رسیدیم یعنی:
+            // 1- یا شماره خالی است (مشکلی نداره)
+            // 2- یا شماره معتبر است ✅
+            // ادامه کد...
+
             // 1404/01/24 * Duplicate checking (CellPhon, NatlCode)
-            WhoCellPhon_ButtonClick(CELL_PHON_TextEdit, null);
+            WhoCellPhon_ButtonClick(CellPhon_Txt, null);
             if (FighsBs1.Count > 0) return;
-            NATL_CODE_TextEdit_ButtonClick(null, null);
+            NatlCode_Txt_ButtonClick(null, null);
             if (FighsBs1.Count > 0) return;
 
-            if (FNGR_PRNT_TextEdit.Text == "") { 
+            if (NatlCode_Txt.EditValue == null || NatlCode_Txt.Text == "") { NatlCodeVald_Cbx.Checked = false; } else { NatlCodeVald_Cbx.Checked = true; }
+
+            if (FngrPrnt_Txt.Text == "") { 
                if(MessageBox.Show(this, "کد شناسایی خالی میباشد آیا مایل به ایجاد کد پیش فرض هستید؟", "هشدار کد شناسایی", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes) 
                   MaxF_Butn001_Click(null, null); 
                else
                {
-                  FNGR_PRNT_TextEdit.Focus();
+                  FngrPrnt_Txt.Focus();
                   return;
                }
             }
 
-            if (RQTT_CODE_LookUpEdit1.EditValue == null || RQTT_CODE_LookUpEdit1.EditValue.ToString() == "")
-               RQTT_CODE_LookUpEdit1.EditValue = "001";
+            if (RqttCode_Lov.EditValue == null || RqttCode_Lov.EditValue.ToString() == "")
+               RqttCode_Lov.EditValue = "001";
 
             if (Rqst == null || Rqst.RQID >= 0)
             {
@@ -239,7 +252,7 @@ namespace System.Scsc.Ui.Admission
                               new XElement("Request",
                                  new XAttribute("rqid", Rqst == null ? 0 : Rqst.RQID),
                                  new XAttribute("rqtpcode", "001"),
-                                 new XAttribute("rqttcode", RQTT_CODE_LookUpEdit1.EditValue),
+                                 new XAttribute("rqttcode", RqttCode_Lov.EditValue),
                                  //new XAttribute("prvncode", REGN_PRVN_CODELookUpEdit.EditValue),
                                  //new XAttribute("regncode", REGN_CODELookUpEdit.EditValue),
                                  new XElement("Fighter",
@@ -248,13 +261,13 @@ namespace System.Scsc.Ui.Admission
                                     new XElement("Last_Name", LAST_NAME_TextEdit.Text.Trim()),
                                     new XElement("Fath_Name", FATH_NAME_TextEdit.Text.Trim()),
                                     new XElement("Sex_Type", SEX_TYPE_LookUpEdit.EditValue),
-                                    new XElement("Natl_Code", new XAttribute("chckvald", NatlCodeVald_Cbx.Checked), NATL_CODE_TextEdit.Text.Trim()),
+                                    new XElement("Natl_Code", new XAttribute("chckvald", NatlCodeVald_Cbx.Checked), NatlCode_Txt.Text.Trim()),
                                     new XElement("Brth_Date", BRTH_DATE_PersianDateEdit.Value == null ? "" : BRTH_DATE_PersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
-                                    new XElement("Cell_Phon", CELL_PHON_TextEdit.Text.Trim()),
+                                    new XElement("Cell_Phon", CellPhon_Txt.Text.Trim()),
                                     new XElement("Tell_Phon", TELL_PHON_TextEdit.Text.Trim()),
                                     new XElement("Dad_Cell_Phon", DadCellPhon_Txt.Text.Trim()),
                                     new XElement("Mom_Cell_Phon", MomCellPhon_Txt.Text.Trim()),
-                                    new XElement("Type", RQTT_CODE_LookUpEdit1.EditValue),
+                                    new XElement("Type", RqttCode_Lov.EditValue),
                                     new XElement("Post_Adrs", POST_ADRS_TextEdit.Text),
                                     new XElement("Emal_Adrs", ""),
                                     new XElement("Insr_Numb", (iNSR_NUMBTextEdit.Text ?? "").ToString().Trim()),
@@ -263,7 +276,7 @@ namespace System.Scsc.Ui.Admission
                                     new XElement("Cbmt_Code", CbmtCode_Lov.EditValue ?? ""),
                                     new XElement("Dise_Code", ""),
                                     new XElement("Blod_Grop", ""),
-                                    new XElement("Fngr_Prnt", (FNGR_PRNT_TextEdit.EditValue ?? "").ToString().Trim()),
+                                    new XElement("Fngr_Prnt", (FngrPrnt_Txt.EditValue ?? "").ToString().Trim()),
                                     new XElement("Sunt_Bunt_Dept_Orgn_Code", SUNT_BUNT_DEPT_ORGN_CODELookUpEdit.EditValue ?? ""),
                                     new XElement("Sunt_Bunt_Dept_Code", SUNT_BUNT_DEPT_CODELookUpEdit.EditValue ?? ""),
                                     new XElement("Sunt_Bunt_Code", SUNT_BUNT_CODELookUpEdit.EditValue ?? ""),
@@ -407,7 +420,7 @@ namespace System.Scsc.Ui.Admission
                      new Job(SendType.External, "Localhost", "MAIN_PAGE_F", 41, SendType.SelfToUserInterface) {
                         Input = 
                         new XElement("User",
-                           new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text),
+                           new XAttribute("enrollnumb", FngrPrnt_Txt.Text),
                            new XAttribute("cardnumb", CardNumb_Text.Text),
                            new XAttribute("namednrm", FRST_NAME_TextEdit.Text + ", " + LAST_NAME_TextEdit.Text)
                         )
@@ -505,7 +518,7 @@ namespace System.Scsc.Ui.Admission
                         new List<Job>
                         {
                            new Job(SendType.Self, 64 /* Execute Adm_Totl_F */),
-                           new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", FNGR_PRNT_TextEdit.Text), new XAttribute("formcaller", GetType().Name))}
+                           new Job(SendType.SelfToUserInterface, "ADM_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "renewcontract"), new XAttribute("enrollnumber", FngrPrnt_Txt.Text), new XAttribute("formcaller", GetType().Name))}
                         })
                   );
                }
@@ -576,9 +589,9 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (FNGR_PRNT_TextEdit.Text != "" && MessageBox.Show(this, "آیا با تغییر کد شناسایی موافق هستید؟", "تغییر کد شناسایی", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
+            if (FngrPrnt_Txt.Text != "" && MessageBox.Show(this, "آیا با تغییر کد شناسایی موافق هستید؟", "تغییر کد شناسایی", MessageBoxButtons.YesNo) != DialogResult.Yes) return;
 
-            FNGR_PRNT_TextEdit.EditValue = 
+            FngrPrnt_Txt.EditValue = 
                 iScsc.Fighters
                 .Where(f => f.FNGR_PRNT_DNRM != null && f.FNGR_PRNT_DNRM.Length > 0)
                 .Select(f => f.FNGR_PRNT_DNRM)
@@ -590,7 +603,7 @@ namespace System.Scsc.Ui.Admission
          }
          catch
          {
-             FNGR_PRNT_TextEdit.EditValue = 1;
+             FngrPrnt_Txt.EditValue = 1;
          }
       }
 
@@ -598,13 +611,13 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (RQTT_CODE_LookUpEdit1.EditValue == null || RQTT_CODE_LookUpEdit1.EditValue.ToString() == "")
-               RQTT_CODE_LookUpEdit1.EditValue = "001";
+            if (RqttCode_Lov.EditValue == null || RqttCode_Lov.EditValue.ToString() == "")
+               RqttCode_Lov.EditValue = "001";
 
             // 1401/02/22 * 
 
             long ctgycode = (long)CtgyCode_Lov.EditValue;
-            string rqttcode = (string)RQTT_CODE_LookUpEdit1.EditValue;
+            string rqttcode = (string)RqttCode_Lov.EditValue;
             var expn = iScsc.Expenses.Where(exp => exp.Expense_Type.Request_Requester.RQTP_CODE == "001" && exp.Expense_Type.Request_Requester.RQTT_CODE == "001" && exp.Expense_Type.Request_Requester.Regulation.REGL_STAT == "002" && exp.Expense_Type.Request_Requester.Regulation.TYPE == "001" && /*exp.MTOD_CODE == mtodcode &&*/ exp.CTGY_CODE == ctgycode && exp.EXPN_STAT == "002").FirstOrDefault();
 
             /// سیستم تغییر تاریخ شروع و پایان
@@ -841,13 +854,13 @@ namespace System.Scsc.Ui.Admission
                                           new XAttribute("router", GetType().Name),
                                           new XAttribute("callback", 20),
                                           new XAttribute("amnt", amnt),
-                                          new XAttribute("expnidtyvalu", pymt.Payment_Details.FirstOrDefault().EXPN_IDTY_VALU_DNRM ?? ""),
+                                          new XAttribute("expnidtyvalu", pymt.Payment_Details.Where(a => a.EXPN_IDTY_VALU_DNRM != null).Select(a => a.EXPN_IDTY_VALU_DNRM).FirstOrDefault() ?? ""),
                                           new XAttribute("modual", GetType().Name), 
                                           new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                        )
                                  }
                               }
-                           )                     
+                           )
                         }
                      )
                   );
@@ -1149,7 +1162,7 @@ namespace System.Scsc.Ui.Admission
          {
             RqstBnDeleteFngrPrnt1_Click(null, null);
 
-            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+            if (FngrPrnt_Txt.Text == "") { FngrPrnt_Txt.Focus(); return; }
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",
@@ -1161,7 +1174,7 @@ namespace System.Scsc.Ui.Admission
                            new XElement("DeviceControlFunction", 
                               new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.1" /* Add Face */ : "5.2.3.8" /* Add Finger */)), 
                               new XAttribute("funcdesc", "Add User Info"), 
-                              new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                              new XAttribute("enrollnumb", FngrPrnt_Txt.Text)
                            )
                      }
                   })
@@ -1174,7 +1187,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+            if (FngrPrnt_Txt.Text == "") { FngrPrnt_Txt.Focus(); return; }
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",
@@ -1186,7 +1199,7 @@ namespace System.Scsc.Ui.Admission
                            new XElement("DeviceControlFunction", 
                               new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.2" /* Delete Face */ : "5.2.3.5" /* Delete Finger */)), 
                               new XAttribute("funcdesc", "Delete User Info"), 
-                              new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                              new XAttribute("enrollnumb", FngrPrnt_Txt.Text)
                            )
                      }
                   })
@@ -1199,7 +1212,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+            if (FngrPrnt_Txt.Text == "") { FngrPrnt_Txt.Focus(); return; }
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",
@@ -1210,7 +1223,7 @@ namespace System.Scsc.Ui.Admission
                         Input = new XElement("DeviceControlFunction", 
                            new XAttribute("functype", "5.2.7.2" /* Duplicate */), 
                            new XAttribute("funcdesc", "Duplicate User Info Into All Device"), 
-                           new XAttribute("enrollnumb", FNGR_PRNT_TextEdit.Text)
+                           new XAttribute("enrollnumb", FngrPrnt_Txt.Text)
                         )
                      }
                   })
@@ -1223,7 +1236,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+            if (FngrPrnt_Txt.Text == "") { FngrPrnt_Txt.Focus(); return; }
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
@@ -1232,7 +1245,7 @@ namespace System.Scsc.Ui.Admission
                      new XElement("Command",
                         new XAttribute("type", "fngrprntdev"),
                         new XAttribute("fngractn", "enroll"),
-                        new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+                        new XAttribute("fngrprnt", FngrPrnt_Txt.Text)
                      )
                }
             );
@@ -1244,7 +1257,7 @@ namespace System.Scsc.Ui.Admission
       {
          try
          {
-            if (FNGR_PRNT_TextEdit.Text == "") { FNGR_PRNT_TextEdit.Focus(); return; }
+            if (FngrPrnt_Txt.Text == "") { FngrPrnt_Txt.Focus(); return; }
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "MAIN_PAGE_F", 10 /* Execute actn_Calf_F */, SendType.SelfToUserInterface)
@@ -1253,7 +1266,7 @@ namespace System.Scsc.Ui.Admission
                      new XElement("Command",
                         new XAttribute("type", "fngrprntdev"),
                         new XAttribute("fngractn", "delete"),
-                        new XAttribute("fngrprnt", FNGR_PRNT_TextEdit.Text)
+                        new XAttribute("fngrprnt", FngrPrnt_Txt.Text)
                      )
                }
             );
@@ -1643,7 +1656,7 @@ namespace System.Scsc.Ui.Admission
       private void FNGR_PRNT_TextEdit_TextChanged(object sender, EventArgs e)
       {
          if (AutoTrans_Cb.Checked)
-            CardNumb_Text.Text = FNGR_PRNT_TextEdit.Text;
+            CardNumb_Text.Text = FngrPrnt_Txt.Text;
       }
 
       private void PosStng_Butn_Click(object sender, EventArgs e)
@@ -1836,7 +1849,7 @@ namespace System.Scsc.Ui.Admission
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
                                              new XAttribute("amnt", Convert.ToInt64(PymtAmnt_Txt.EditValue)),
-                                             new XAttribute("expnidtyvalu", pymt.Payment_Details.FirstOrDefault().EXPN_IDTY_VALU_DNRM ?? ""),
+                                             new XAttribute("expnidtyvalu", pymt.Payment_Details.Where(a => a.EXPN_IDTY_VALU_DNRM != null).Select(a => a.EXPN_IDTY_VALU_DNRM).FirstOrDefault() ?? ""),
                                              new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
                                              new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
                                              new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? ""),
@@ -1970,7 +1983,7 @@ namespace System.Scsc.Ui.Admission
                new List<Job>
                {
                   new Job(SendType.Self, 130 /* Execute Adm_Brsr_F */),
-                  new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", FNGR_PRNT_TextEdit.Text))}
+                  new Job(SendType.SelfToUserInterface, "ADM_BRSR_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "fighter"), new XAttribute("enrollnumber", FngrPrnt_Txt.Text))}
                })
          );
       }
@@ -2112,7 +2125,7 @@ namespace System.Scsc.Ui.Admission
                _advp
                .Advertising_Campaigns
                .FirstOrDefault(c => 
-                  c.CELL_PHON == CELL_PHON_TextEdit.Text && 
+                  c.CELL_PHON == CellPhon_Txt.Text && 
                   c.RECD_STAT == "003" &&
                   c.ACTN_DATE != null
                );
@@ -2534,18 +2547,18 @@ namespace System.Scsc.Ui.Admission
          }
       }
 
-      private void NATL_CODE_TextEdit_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      private void NatlCode_Txt_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
          try
          {
             FighsBs1.List.Clear();
 
-            if (NATL_CODE_TextEdit.EditValue == null || NATL_CODE_TextEdit.Text == "") { NATL_CODE_TextEdit.Focus(); return; }
+            if (NatlCode_Txt.EditValue == null || NatlCode_Txt.Text == "") { NatlCode_Txt.Focus(); return; }
 
             FighsBs1.DataSource =
                iScsc.Fighters
                   .Where(
-                     f => f.NATL_CODE_DNRM.Contains(NATL_CODE_TextEdit.Text) &&
+                     f => f.NATL_CODE_DNRM.Contains(NatlCode_Txt.Text) &&
                           f.CONF_STAT == "002" &&
                           f.FGPB_TYPE_DNRM == "001" &&
                           (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) ||
@@ -2692,7 +2705,7 @@ namespace System.Scsc.Ui.Admission
                new Job(SendType.External, "Localhost",
                   new List<Job>
                   {
-                     new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", FNGR_PRNT_TextEdit.Text))},
+                     new Job(SendType.SelfToUserInterface, "ADM_CHNG_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "setcard"), new XAttribute("value", FngrPrnt_Txt.Text))},
                      new Job(SendType.SelfToUserInterface, GetType().Name, 00 /* Execute ProcessCmdKey */){Input = Keys.Escape}
                   })
             );

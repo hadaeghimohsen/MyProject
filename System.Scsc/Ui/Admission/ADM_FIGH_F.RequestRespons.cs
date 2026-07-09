@@ -617,13 +617,32 @@ namespace System.Scsc.Ui.Admission
          #endregion
 
       finishcommand:
+         var _stng = iScsc.Settings.FirstOrDefault(a => Fga_Uclb_U.Contains(a.CLUB_CODE));
          DRqpmBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Request_Parameter");
          RtoaBs.DataSource = iScsc.App_Base_Defines.Where(a => a.ENTY_NAME == "Payment_To_Another_Account");
          //FighsBs1.DataSource = iScsc.Fighters.Where(f => f.CONF_STAT == "002" && f.FGPB_TYPE_DNRM != "007" /*&& !f.NAME_DNRM.Contains("مشتری, جلسه ای")*/ && (Fga_Uclb_U.Contains(f.CLUB_CODE_DNRM) || (f.CLUB_CODE_DNRM == null ? f.Club_Methods.Where(cb => Fga_Uclb_U.Contains(cb.CLUB_CODE)).Any() : false)) && Convert.ToInt32(f.ACTV_TAG_DNRM ?? "101") >= 101);
          VPosBs1.DataSource = iScsc.V_Pos_Devices;
          if (VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value) != null)
             Pos_Lov.EditValue = VPosBs1.List.OfType<Data.V_Pos_Device>().FirstOrDefault(p => p.GTWY_MAC_ADRS == HostNameInfo.Attribute("cpu").Value).PSID;
-         CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && cbmt.Method.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
+
+         // 1405/04/12 * دریافت لیست کلاس‌ها بر اساس وضعیت فیلتر
+         var query = iScsc.Club_Methods
+                          .Where(a => Fga_Uclb_U.Contains(a.CLUB_CODE) &&
+                                      a.MTOD_STAT == "002" &&
+                                      a.Method.MTOD_STAT == "002" &&
+                                      a.Fighter.ACTV_TAG_DNRM == "101"); // مقایسه رشته‌ای
+
+         // اگر وضعیت 002 باشد، فیلتر زمان را اعمال کن
+         if (_stng.FLTR_TMWK_STAT == "002")
+         {
+            TimeSpan currentTime = DateTime.Now.TimeOfDay;
+            query = query.Where(a =>
+                (a.FLTR_TMWK_STAT == "001" || a.FLTR_TMWK_STAT == null) ||
+                (a.FLTR_TMWK_STAT == "002" && a.END_TIME >= currentTime)
+            );
+         }
+         CbmtBs1.DataSource = query.ToList();
+
          OrgnBs1.DataSource = iScsc.Organs;
          
          HldyBs.DataSource =
@@ -691,11 +710,11 @@ namespace System.Scsc.Ui.Admission
                   //FIGH_FILE_NOLookUpEdit.EditValue = figh.FILE_NO;
                   //RQTT_CODE_LookUpEdit3.EditValue = figh.FGPB_TYPE_DNRM;
                }
-               FNGR_PRNT_TextEdit.EditValue = xinput.Attribute("enrollnumber").Value;
+               FngrPrnt_Txt.EditValue = xinput.Attribute("enrollnumber").Value;
             }
             else if (xinput.Attribute("type").Value == "setcard")
             {
-               FNGR_PRNT_TextEdit.Text = xinput.Attribute("value").Value;
+               FngrPrnt_Txt.Text = xinput.Attribute("value").Value;
                //MaxF_Butn001_Click(null, null);
                CardNumb_Text.Text = xinput.Attribute("value").Value;
             }

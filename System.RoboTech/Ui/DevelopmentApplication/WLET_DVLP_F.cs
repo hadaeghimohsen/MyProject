@@ -184,7 +184,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
 
             if(srdc.VALD_TYPE == "001" || ( srdc.VALD_TYPE == "002" && MessageBox.Show(this, "آیا با حذف تخفیف موافق هستید؟", "حذف تخفیف", MessageBoxButtons.YesNo, MessageBoxIcon.Question ) != DialogResult.Yes ))
 
-            iRoboTech.ExecuteCommand("UPDATE dbo.Service_Robot_Discount_Card SET VALD_TYPE = '001' WHERE DCID = {0}", srdc.DCID);
+            iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.Service_Robot_Discount_Card SET VALD_TYPE = '001' WHERE DCID = {0}", srdc.DCID));
 
             requery = true;
          }

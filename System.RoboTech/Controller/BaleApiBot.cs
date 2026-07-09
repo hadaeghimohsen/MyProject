@@ -5862,7 +5862,7 @@ namespace System.RoboTech.Controller
 
          // 1399/11/27 * بروزرسانی جدول تبلیغات که دیگر برای گزینه بعدی فراخوانی همین رکوردها ارسال نشود
          if(sends.Count >= 1)
-            iRobotTech.ExecuteCommand("UPDATE dbo.Send_Advertising SET STAT = '004' WHERE ID IN ({0}) AND STAT = '005';", string.Join(",", sends.Select(s => s.ID)) );
+            iRobotTech.ExecuteCommand(string.Format("UPDATE dbo.Send_Advertising SET STAT = '004' WHERE ID IN ({0}) AND STAT = '005';", string.Join(",", sends.Select(s => s.ID)) ));
 
          foreach (Data.Send_Advertising send in sends)
          {

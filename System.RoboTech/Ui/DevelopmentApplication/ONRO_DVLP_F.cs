@@ -677,9 +677,9 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             if(butn.Tag.ToString() == "Stp1")
             {
                var ordr25 = Ordr25Stp1Bs.Current as Data.Order;
-               if (ordr25 == null) return;
+                if (ordr25 == null) return;
 
-               iRoboTech.ExecuteCommand("DELETE dbo.[Order] WHERE Code = {0};", ordr25.CODE);
+                iRoboTech.ExecuteCommand(string.Format("DELETE dbo.[Order] WHERE Code = {0};", ordr25.CODE));
             }
             else if (butn.Tag.ToString() == "Stp2")
             {
@@ -711,10 +711,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                }
 
                // حذف کردن درخواست سفارش
-               iRoboTech.ExecuteCommand("DELETE dbo.[Order] WHERE Ordr_Code = {0};", ordr25.CODE);
+                iRoboTech.ExecuteCommand(string.Format("DELETE dbo.[Order] WHERE Ordr_Code = {0};", ordr25.CODE));
 
-               // حذف کردن درخواست پذیرش سفارش انلاین
-               iRoboTech.ExecuteCommand("DELETE dbo.[Order] WHERE Code = {0};", ordr25.CODE);
+                // حذف کردن درخواست پذیرش سفارش انلاین
+                iRoboTech.ExecuteCommand(string.Format("DELETE dbo.[Order] WHERE Code = {0};", ordr25.CODE));
             }
 
             //iRoboTech.SubmitChanges();
@@ -1501,7 +1501,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   RbprBs.IndexOf(prod.FirstOrDefault());
 
                if(ordr4.HOW_SHIP == "000")
-                  iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET HOW_SHIP = '001' WHERE Code = {0};", ordr4.CODE);
+                   iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.[Order] SET HOW_SHIP = '001' WHERE Code = {0};", ordr4.CODE));
 
                AddTarfTToCart_Butn_Click(null, null);
 
@@ -1659,7 +1659,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                RbprBs.IndexOf(prod.FirstOrDefault());
 
             if (ordr4.HOW_SHIP == "000")
-               iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET HOW_SHIP = '001' WHERE Code = {0};", ordr4.CODE);
+                iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.[Order] SET HOW_SHIP = '001' WHERE Code = {0};", ordr4.CODE));
 
             AddTarfTToCart_Butn_Click(null, null);
 

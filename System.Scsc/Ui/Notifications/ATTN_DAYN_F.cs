@@ -218,7 +218,7 @@ namespace System.Scsc.Ui.Notifications
 
                      if (_ctrlHold)
                      {
-                        iScsc.ExecuteCommand("DELETE dbo.Dresser_Attendance WHERE Attn_Code = {0}; DELETE dbo.Attendance WHERE Code = {0};", _attn.CODE);
+                        iScsc.ExecuteCommand(string.Format("DELETE dbo.Dresser_Attendance WHERE Attn_Code = {0}; DELETE dbo.Attendance WHERE Code = {0};", _attn.CODE));
                      }
 
                      requery = true;

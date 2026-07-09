@@ -114,7 +114,7 @@ namespace System.Scsc.Ui.BaseDefinition
             var pdcs = PdcsBs.Current as Data.Payment_Detail_Commodity_Sale;
             if (pdcs == null) return;
 
-            iScsc.ExecuteCommand("DELETE Payment_Detail_Commodity_Sale WHERE CODE = {0}", pdcs.CODE);
+            iScsc.ExecuteCommand(string.Format("DELETE Payment_Detail_Commodity_Sale WHERE CODE = {0}", pdcs.CODE));
             requery = true;
          }
          catch (Exception exc)

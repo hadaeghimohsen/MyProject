@@ -12,6 +12,8 @@ using System.Xml.Linq;
 using System.Data.SqlClient;
 using DevExpress.XtraGrid.Views.Grid;
 using System.IO;
+using System.Text.RegularExpressions;
+using System.Scsc.ExtCode;
 
 namespace System.Scsc.Ui.OtherIncome
 {
@@ -37,7 +39,7 @@ namespace System.Scsc.Ui.OtherIncome
                GC.WaitForPendingFinalizers();
                iScsc = new Data.iScscDataContext(ConnectionString);
                if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))                  
-                  vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);
+                  FighsBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);
 
                rqstindex = RqstBs1.Position;
 
@@ -61,39 +63,110 @@ namespace System.Scsc.Ui.OtherIncome
          catch { }
       }
 
-      private void Execute_Query_Force()
+      //private void Execute_Query_Force()
+      //{
+      //   setOnDebt = false;
+      //   try
+      //   {
+      //      //if (tb_master.SelectedTab == tp_001)
+      //      {
+      //         GC.Collect();
+      //         GC.WaitForPendingFinalizers();
+      //         iScsc = new Data.iScscDataContext(ConnectionString);
+      //         //if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))
+      //         vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);
+
+      //         rqstindex = RqstBs1.Position;
+
+      //         var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
+      //            .Where(rqst =>
+      //                  rqst.RQTP_CODE == "025" &&
+      //                  rqst.RQST_STAT == "001" &&
+      //                  rqst.RQTT_CODE == "004" &&
+      //                  rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+
+      //         RqstBs1.DataSource =
+      //            iScsc.Requests
+      //            .Where(
+      //               rqst =>
+      //                  Rqids.Contains(rqst.RQID)
+      //            );
+
+      //         RqstBs1.Position = rqstindex;
+      //      }
+      //   }
+      //   catch { }
+      //}
+
+      // متد اصلی برای فراخوانی
+      private void Execute_Query_ForceAsync()
       {
          setOnDebt = false;
-         try
+
+         // اجرای در یک نخ جداگانه برای جلوگیری از قفل شدن UI
+         System.Threading.Tasks.Task.Factory.StartNew(() =>
          {
-            //if (tb_master.SelectedTab == tp_001)
+            try
             {
-               GC.Collect();
-               GC.WaitForPendingFinalizers();
-               iScsc = new Data.iScscDataContext(ConnectionString);
-               //if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))
-               vf_FighBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);
+               using (var iScsc = new Data.iScscDataContext(ConnectionString))
+               {
+                  iScsc.ObjectTrackingEnabled = false;
+                  iScsc.CommandTimeout = 120;
 
-               rqstindex = RqstBs1.Position;
+                  // کوئری اول
+                  var fighters = 
+                     iScsc.Fighters.AsQueryable();
 
-               var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
-                  .Where(rqst =>
-                        rqst.RQTP_CODE == "025" &&
-                        rqst.RQST_STAT == "001" &&
-                        rqst.RQTT_CODE == "004" &&
-                        rqst.SUB_SYS == 1).Select(r => r.RQID).ToList();
+                  if (CellPhon_Txt.Text.Trim() != "")
+                     fighters = 
+                        fighters
+                        .Where(a => a.CELL_PHON_DNRM == CellPhon_Txt.Text ||
+                           a.CELL_PHON_DNRM == "0" + CellPhon_Txt.Text ||
+                           a.CELL_PHON_DNRM == CellPhon_Txt.Text.Substring(1)
+                         );
 
-               RqstBs1.DataSource =
-                  iScsc.Requests
-                  .Where(
-                     rqst =>
-                        Rqids.Contains(rqst.RQID)
-                  );
+                  if (NatlCode_Txt.Text.Trim() != "")
+                     fighters =
+                        fighters
+                        .Where(a => a.NATL_CODE_DNRM == NatlCode_Txt.Text);
 
-               RqstBs1.Position = rqstindex;
+                  // بروزرسانی در UI Thread
+                  this.Invoke((Action)(() =>
+                  {
+                     FighsBs.DataSource = fighters;
+                  }));
+
+                  // کوئری دوم
+                  var filterCondition = new XElement("Request",
+                      new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : ""));
+
+                  var rqstQuery = iScsc.VF_Requests(filterCondition)
+                      .Where(rqst =>
+                          rqst.RQTP_CODE == "025" &&
+                          rqst.RQST_STAT == "001" &&
+                          rqst.RQTT_CODE == "004" &&
+                          rqst.SUB_SYS == 1)
+                      .Select(r => r.RQID)
+                      .ToList();
+
+                  var rqidSet = new HashSet<long>(rqstQuery);
+
+                  var requests = iScsc.Requests
+                      .Where(rqst => rqidSet.Contains(rqst.RQID))
+                      .ToList();
+
+                  // بروزرسانی در UI Thread
+                  this.Invoke((Action)(() =>
+                  {
+                     RqstBs1.DataSource = requests;
+                  }));
+               }
             }
-         }
-         catch { }
+            catch (Exception ex)
+            {
+               System.Diagnostics.Trace.WriteLine("Error in Execute_Query_ForceAsync: " + ex.Message);
+            }
+         });
       }
 
       private void RqstBs1_CurrentChanged(object sender, EventArgs e)
@@ -149,6 +222,57 @@ namespace System.Scsc.Ui.OtherIncome
                   return;
                }
             }
+
+            // 1405/04/12 * چک کردن شماره تلفن های وارد شده توسط کاربر
+            if (!CellPhon_Txt.ValidatePhoneField("شماره موبایل کاربر")) return;
+
+            // 1405/04/16 * اگر با شماره موبایل وارد شده اطلاعاتی قبلا ثبت شده را وارد پروفایل میشویم
+            if (CellPhon_Txt.Text.Trim() != "")
+            {
+               var _query =
+                  iScsc.Fighters
+                  .Where(a => a.CELL_PHON_DNRM == CellPhon_Txt.Text ||
+                              (CellPhon_Txt.Text != null && a.CELL_PHON_DNRM == "0" + CellPhon_Txt.Text) ||
+                              (CellPhon_Txt.Text != null && a.CELL_PHON_DNRM == CellPhon_Txt.Text.Substring(1)));
+
+               // اگر که مشتری فقط یک خروجی و رکورد داشته باشد
+               if(_query.Count() == 1)
+               {
+                  // انصراف دادن درخواست ثبت مشتری فعلی چون مشتری تکراری داره ثبت میشه
+                  iScsc.ADM_TCNL_F(
+                     new XElement("Process",
+                        new XElement("Request",
+                           new XAttribute("rqid", Rqst.RQID),
+                           new XElement("Fighter",
+                              new XAttribute("fileno", Rqst.Fighters.FirstOrDefault().FILE_NO)
+                           )
+                        )
+                     )
+                  );
+
+                  // 1399/12/09
+                  if (GoProfile_Pbt.PickChecked)
+                  {
+                     _DefaultGateway.Gateway(
+                        new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", _query.FirstOrDefault().FILE_NO)) }
+                     );
+                     return;
+                  }
+                  else
+                  {
+
+                  }
+               }
+               else
+               {
+
+               }
+            }
+
+            // اگر اینجا رسیدیم یعنی:
+            // 1- یا شماره خالی است (مشکلی نداره)
+            // 2- یا شماره معتبر است ✅
+            // ادامه کد...
 
             if (Rqst == null || Rqst.RQID >= 0)
             {
@@ -651,7 +775,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void vF_Last_Info_FighterResultBindingSource_CurrentChanged(object sender, EventArgs e)
       {
-         var fileno = (vf_FighBs.Current as Data.VF_Last_Info_FighterResult).FILE_NO;
+         var fileno = (FighsBs.Current as Data.VF_Last_Info_FighterResult).FILE_NO;
          //try
          //{
          //   UserProFile_Rb.ImageProfile = null;
@@ -675,7 +799,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            var CrntFigh = vf_FighBs.Current as Data.VF_Last_Info_FighterResult;
+            var CrntFigh = FighsBs.Current as Data.VF_Last_Info_FighterResult;
             if (CrntFigh == null) return;
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", CrntFigh.FILE_NO)) }
@@ -688,7 +812,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            var CrntFigh = vf_FighBs.Current as Data.VF_Last_Info_FighterResult;
+            var CrntFigh = FighsBs.Current as Data.VF_Last_Info_FighterResult;
             if (CrntFigh == null) return;
             _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",
@@ -706,7 +830,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            var figh = vf_FighBs.Current as Data.VF_Last_Info_FighterResult;
+            var figh = FighsBs.Current as Data.VF_Last_Info_FighterResult;
             if (figh == null) return;
 
             switch (e.Button.Index)
@@ -793,7 +917,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void Search_Butn_Click(object sender, EventArgs e)
       {
-         Execute_Query_Force();
+         Execute_Query_ForceAsync();
       }
 
       private void AdvnAdmnServ_Butn_Click(object sender, EventArgs e)

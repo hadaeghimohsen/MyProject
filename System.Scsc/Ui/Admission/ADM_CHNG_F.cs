@@ -84,6 +84,11 @@ namespace System.Scsc.Ui.Admission
             BRTH_DATE_PersianDateEdit.CommitChanges();
             COCH_CRTF_DATE_PersianDateEdit.CommitChanges();
 
+            // 1405/04/12 * چک کردن شماره تلفن های وارد شده توسط کاربر
+            if (!CellPhon_Txt.ValidatePhoneField("شماره موبایل کاربر")) return;
+            if (!DadCellPhon_Txt.ValidatePhoneField("شماره موبایل پدر")) return;
+            if (!MomCellPhon_Txt.ValidatePhoneField("شماره موبایل مادر")) return;
+
             if (Rqst == null || Rqst.RQID >= 0)
             {
                iScsc.PBL_RQST_F(
@@ -103,7 +108,7 @@ namespace System.Scsc.Ui.Admission
                               new XElement("Sex_Type", SEX_TYPE_LookUpEdit.EditValue ?? ""),
                               new XElement("Natl_Code", (NATL_CODE_TextEdit.Text ?? "").ToString().Trim()),
                               new XElement("Brth_Date", BRTH_DATE_PersianDateEdit.Value == null ? "" : BRTH_DATE_PersianDateEdit.Value.Value.ToString("yyyy-MM-dd")),
-                              new XElement("Cell_Phon", (CELL_PHON_TextEdit.Text ?? "").ToString().Trim()),
+                              new XElement("Cell_Phon", (CellPhon_Txt.Text ?? "").ToString().Trim()),
                               new XElement("Tell_Phon", (TELL_PHON_TextEdit.Text ?? "").ToString().Trim()),
                               new XElement("Post_Adrs", (POST_ADRS_TextEdit.Text ?? "").ToString().Trim()),
                               new XElement("Emal_Adrs", (EMAL_ADRS_TextEdit.Text ?? "").ToString().Trim()),

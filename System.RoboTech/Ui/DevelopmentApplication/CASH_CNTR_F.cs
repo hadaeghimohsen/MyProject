@@ -498,7 +498,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
                   RbprBs.IndexOf(prod.FirstOrDefault());
 
                if (ordr4.HOW_SHIP == "000")
-                  iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET HOW_SHIP = '001' WHERE Code = {0};", ordr4.CODE);
+                   iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.[Order] SET HOW_SHIP = '001' WHERE Code = {0};", ordr4.CODE));
 
                AddTarfToCart_DoAction();
 
@@ -627,10 +627,10 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             }
 
             // حذف کردن درخواست سفارش
-            iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET Ordr_Stat = '003' WHERE Ordr_Code = {0};", ordr25.CODE);
+            iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.[Order] SET Ordr_Stat = '003' WHERE Ordr_Code = {0};", ordr25.CODE));
 
             // حذف کردن درخواست پذیرش سفارش انلاین
-            iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET Ordr_Stat = '003' WHERE Code = {0};", ordr25.CODE);
+            iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.[Order] SET Ordr_Stat = '003' WHERE Code = {0};", ordr25.CODE));
 
             requery = true;
          }
@@ -1424,7 +1424,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var ordr = Ordr4Bs.Current as Data.Order;
             if (ordr == null) return;
 
-            iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET HOW_SHIP = {0} WHERE CODE = {1}", ship.Tag, ordr.CODE);
+            iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.[Order] SET HOW_SHIP = {0} WHERE CODE = {1}", ship.Tag, ordr.CODE));
             Ship001_Butn.NormalColorA = Ship001_Butn.NormalColorB =
             Ship002_Butn.NormalColorA = Ship002_Butn.NormalColorB =
             Ship003_Butn.NormalColorA = Ship003_Butn.NormalColorB =
@@ -1741,7 +1741,7 @@ namespace System.RoboTech.Ui.DevelopmentApplication
             var ordr4 = Ordr4Bs.Current as Data.Order;
             if (ordr4 == null) return;
 
-            iRoboTech.ExecuteCommand("UPDATE dbo.[Order] SET Ordr_Desc = {0} WHERE Code = {1};", Ordr4DescFrm1_Txt.Text, ordr4.CODE);
+            iRoboTech.ExecuteCommand(string.Format("UPDATE dbo.[Order] SET Ordr_Desc = {0} WHERE Code = {1};", Ordr4DescFrm1_Txt.Text, ordr4.CODE));
          }
          catch (Exception exc)
          {

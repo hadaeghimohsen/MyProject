@@ -91,6 +91,7 @@
     <Compile Include="Code\Msgb.Tasks.cs" />
     <Compile Include="Code\Msgb.Uis.cs" />
     <Compile Include="Code\LidomaSmsClient.cs" />
+    <Compile Include="Code\LidomaMarket.cs" />
     <Compile Include="Data\iProject.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -106,11 +107,20 @@
     <Compile Include="Ui\MasterPage\MSTR_PAGE_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="Ui\SmsApp\WEBS_MESG_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\SmsApp\WEBS_MESG_F.Designer.cs">
+      <DependentUpon>WEBS_MESG_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\SmsApp\SEND_MESG_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\SmsApp\SEND_MESG_F.Designer.cs">
       <DependentUpon>SEND_MESG_F.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ui\SmsApp\WEBS_MESG_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\SmsApp\SEND_MESG_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
@@ -128,6 +138,9 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Ui\MasterPage\MSTR_PAGE_F.resx">
       <DependentUpon>MSTR_PAGE_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\SmsApp\WEBS_MESG_F.resx">
+      <DependentUpon>WEBS_MESG_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\SmsApp\SEND_MESG_F.resx">
       <DependentUpon>SEND_MESG_F.cs</DependentUpon>

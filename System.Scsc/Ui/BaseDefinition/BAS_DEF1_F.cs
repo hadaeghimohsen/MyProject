@@ -2159,6 +2159,207 @@ namespace System.Scsc.Ui.BaseDefinition
             MessageBox.Show(exc.Message);
          }
       }
+
+      private void DuplCbmt_Stmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            if (CbmtBs.List.OfType<Data.Club_Method>().Any(a => a.CODE == 0)) return;
+
+            var _cbmt = CbmtBs.Current as Data.Club_Method;
+            if (_cbmt.CODE == 0) return;
+
+            var _dupl = CbmtBs.AddNew() as Data.Club_Method;
+            _dupl.CLUB_CODE = _cbmt.CLUB_CODE;
+            _dupl.MTOD_CODE = _cbmt.MTOD_CODE;
+            _dupl.COCH_FILE_NO = _cbmt.COCH_FILE_NO;
+            _dupl.DAY_TYPE = _cbmt.DAY_TYPE;
+            _dupl.STRT_TIME = _cbmt.STRT_TIME;
+            _dupl.END_TIME = _cbmt.END_TIME;
+            _dupl.SEX_TYPE = _cbmt.SEX_TYPE;
+            _dupl.CBMT_DESC = _cbmt.CBMT_DESC;
+            _dupl.DFLT_STAT = _cbmt.DFLT_STAT;
+            _dupl.CPCT_NUMB = _cbmt.CPCT_NUMB;
+            _dupl.CPCT_STAT = _cbmt.CPCT_STAT; 
+            _dupl.MTOD_STAT = _cbmt.MTOD_STAT;            
+            _dupl.CLAS_TIME = _cbmt.CLAS_TIME;
+            _dupl.CBMT_TIME = _cbmt.CBMT_TIME;
+            _dupl.CBMT_TIME_STAT = _cbmt.CBMT_TIME_STAT;
+            _dupl.DURT_ATTN_SOND_PATH = _cbmt.DURT_ATTN_SOND_PATH;
+            _dupl.FLTR_TMWK_STAT = _cbmt.FLTR_TMWK_STAT;
+
+            iScsc.Club_Methods.InsertOnSubmit(_dupl);
+
+            // جستجوی رکورد بر اساس کلید جدید
+            // بعد از InsertOnSubmit و SubmitChanges
+            var newRecord = CbmtBs.Cast<Data.Club_Method>()
+                                  .FirstOrDefault(x => x.CODE == _dupl.CODE);
+
+            if (newRecord != null)
+            {
+               int newPosition = CbmtBs.IndexOf(newRecord);
+               if (newPosition >= 0)
+                  CbmtBs.Position = newPosition;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private async void ActvDctvCbmt_Stmi_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _cbmt = CbmtBs.Current as Data.Club_Method;
+            _cbmt.MTOD_STAT = _cbmt.MTOD_STAT == "002" ? "001" : "002";
+
+            Cbmt005_Gv.PostEditor();
+            iScsc.SubmitChanges();
+            requery = true;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+
+         if (requery)
+            await Execute_Query();
+      }
+
+      private void DuplCbmtBefrTime_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if (CbmtBs.List.OfType<Data.Club_Method>().Any(a => a.CODE == 0)) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  // 1. ابتدا رکورد جدید را duplicate کنید
+                  DuplCbmt_Stmi_Click(null, null);
+
+                  // 2. رکورد جدید را دریافت کنید
+                  var _duplBefr = CbmtBs.Current as Data.Club_Method;
+                  if (_duplBefr == null) return;
+
+                  // 3. دریافت مقدار gap از کنترل (به دقیقه)
+                  int _mintGap = 0;
+                  if (DuplCbmtBefrTime_Btn.EditValue != null)
+                     _mintGap = Convert.ToInt32(DuplCbmtBefrTime_Btn.EditValue);
+
+                  // 4. محاسبه زمان‌های جدید برای سانس قبلی
+                  // تبدیل زمان شروع و پایان به TimeSpan
+                  TimeSpan currentStart = (TimeSpan)_duplBefr.STRT_TIME;
+                  TimeSpan currentEnd = (TimeSpan)_duplBefr.END_TIME;
+
+                  // محاسبه مدت زمان (اختلاف بین شروع و پایان)
+                  TimeSpan duration = currentEnd - currentStart;
+
+                  // اگر duration منفی شد (یعنی زمان از نیمه‌شب عبور کرده)
+                  if (duration.TotalMinutes < 0)
+                     duration = duration.Add(TimeSpan.FromHours(24));
+
+                  // محاسبه زمان شروع جدید = زمان شروع فعلی - GAP - مدت زمان
+                  // یعنی: 6:00 - 30 دقیقه - 1 ساعت = 4:30
+                  TimeSpan newStart = currentStart.Subtract(TimeSpan.FromMinutes(_mintGap)).Subtract(duration);
+
+                  // اگر از 0 کمتر شد (زمان منفی)، 24 ساعت اضافه میکنیم
+                  if (newStart.TotalHours < 0)
+                     newStart = newStart.Add(TimeSpan.FromHours(24));
+
+                  // زمان پایان جدید = زمان شروع جدید + مدت زمان
+                  // یعنی: 4:30 + 1 ساعت = 5:30
+                  TimeSpan newEnd = newStart.Add(duration);
+
+                  // اگر از 24 ساعت عبور کرد، 24 ساعت کم میکنیم
+                  if (newEnd.TotalHours >= 24)
+                     newEnd = newEnd.Subtract(TimeSpan.FromHours(24));
+
+                  // 5. اعمال زمان‌های جدید به رکورد
+                  _duplBefr.STRT_TIME = newStart;
+                  _duplBefr.END_TIME = newEnd;
+
+                  // 6. به‌روزرسانی BindingSource
+                  CbmtBs.ResetCurrentItem();
+
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
+      private void DuplCbmtAftrTime_Btn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+      {
+         try
+         {
+            if (CbmtBs.List.OfType<Data.Club_Method>().Any(a => a.CODE == 0)) return;
+
+            switch (e.Button.Index)
+            {
+               case 0:
+                  // 1. ابتدا رکورد جدید را duplicate کنید
+                  DuplCbmt_Stmi_Click(null, null);
+
+                  // 2. رکورد جدید را دریافت کنید
+                  var _duplAftr = CbmtBs.Current as Data.Club_Method;
+                  if (_duplAftr == null) return;
+
+                  // 3. دریافت مقدار gap از کنترل (به دقیقه)
+                  int _mintGap = 0;
+                  if (DuplCbmtAftrTime_Btn.EditValue != null)
+                     _mintGap = Convert.ToInt32(DuplCbmtAftrTime_Btn.EditValue);
+
+                  // 4. محاسبه زمان‌های جدید برای سانس بعدی
+                  // تبدیل زمان شروع و پایان به TimeSpan
+                  TimeSpan currentStart = (TimeSpan)_duplAftr.STRT_TIME;
+                  TimeSpan currentEnd = (TimeSpan)_duplAftr.END_TIME;
+
+                  // محاسبه مدت زمان (اختلاف بین شروع و پایان)
+                  TimeSpan duration = currentEnd - currentStart;
+
+                  // اگر duration منفی شد (یعنی زمان از نیمه‌شب عبور کرده)
+                  if (duration.TotalMinutes < 0)
+                     duration = duration.Add(TimeSpan.FromHours(24));
+
+                  // محاسبه زمان شروع جدید = زمان شروع فعلی + GAP + مدت زمان
+                  // یعنی: 7:30 + 30 دقیقه(GAP) + 1 ساعت(مدت) = 9:00
+                  TimeSpan newStart = currentStart.Add(TimeSpan.FromMinutes(_mintGap)).Add(duration);
+
+                  // اگر از 24 ساعت عبور کرد، 24 ساعت کم میکنیم
+                  if (newStart.TotalHours >= 24)
+                     newStart = newStart.Subtract(TimeSpan.FromHours(24));
+
+                  // زمان پایان جدید = زمان شروع جدید + مدت زمان
+                  TimeSpan newEnd = newStart.Add(duration);
+
+                  // اگر از 24 ساعت عبور کرد، 24 ساعت کم میکنیم
+                  if (newEnd.TotalHours >= 24)
+                     newEnd = newEnd.Subtract(TimeSpan.FromHours(24));
+
+                  // 5. اعمال زمان‌های جدید به رکورد
+                  _duplAftr.STRT_TIME = newStart;
+                  _duplAftr.END_TIME = newEnd;
+
+                  // 6. به‌روزرسانی BindingSource
+                  CbmtBs.ResetCurrentItem();
+
+                  break;
+               default:
+                  break;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
       #endregion
 
       #region Holdiday Rollout
@@ -2290,7 +2491,7 @@ namespace System.Scsc.Ui.BaseDefinition
             MessageBox.Show(exc.Message);
          }
       }
-      #endregion
-      #endregion
+      #endregion      
+      #endregion      
    }
 }

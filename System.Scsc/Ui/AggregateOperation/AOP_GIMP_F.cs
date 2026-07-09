@@ -129,7 +129,7 @@ namespace System.Scsc.Ui.AggregateOperation
             var agop = AgopBs1.Current as Data.Aggregation_Operation;
             if (agop == null) return;
 
-            iScsc.ExecuteCommand("DELETE dbo.Aggregation_Operation_Detail WHERE AGOP_CODE = {0};", agop.CODE);
+            iScsc.ExecuteCommand(string.Format("DELETE dbo.Aggregation_Operation_Detail WHERE AGOP_CODE = {0};", agop.CODE));
 
             requery = true;
          }

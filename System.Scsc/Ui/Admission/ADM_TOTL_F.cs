@@ -491,7 +491,8 @@ namespace System.Scsc.Ui.Admission
 
             if (_rqst.SSTT_MSTT_CODE == 2 && (_rqst.SSTT_CODE == 1 || _rqst.SSTT_CODE == 2 || _rqst.SSTT_CODE == 3))
             {
-               CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 /*&& (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE)*/)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
+               //CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 /*&& (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE)*/)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
+
                Gb_Expense3.Visible = true;
                MemberShip_Gbx.Visible = true;
                MbspInfo_Gbx.Visible = true;
@@ -541,7 +542,7 @@ namespace System.Scsc.Ui.Admission
             }
             else if (!(_rqst.SSTT_MSTT_CODE == 2 && (_rqst.SSTT_CODE == 1 || _rqst.SSTT_CODE == 2 || _rqst.SSTT_CODE == 3)) && _rqst.RQID > 0)
             {
-               CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 /*&& (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE)*/)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
+               //CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 /*&& (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(Rqst.REGN_PRVN_CODE + Rqst.REGN_CODE)*/)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
                Gb_Expense3.Visible = false;
                MemberShip_Gbx.Visible = true;
                MbspInfo_Gbx.Visible = true;
@@ -724,7 +725,7 @@ namespace System.Scsc.Ui.Admission
           {
               lov_regn = sender as LookUpEdit;
               if (lov_regn.EditValue == null || lov_regn.EditValue.ToString().Length != 3) return;
-              CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 /*&& (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(lov_prvn.EditValue.ToString() + lov_regn.EditValue.ToString())*/)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
+              //CbmtBs1.DataSource = iScsc.Club_Methods.Where(cbmt => Fga_Uclb_U.Contains(cbmt.CLUB_CODE) && cbmt.MTOD_STAT == "002" && Convert.ToInt32(cbmt.Fighter.ACTV_TAG_DNRM ?? "101") >= 101 /*&& (cbmt.Club.REGN_PRVN_CODE + cbmt.Club.REGN_CODE).Contains(lov_prvn.EditValue.ToString() + lov_regn.EditValue.ToString())*/)/*.OrderBy(cm => new { cm.CLUB_CODE, cm.COCH_FILE_NO, cm.DAY_TYPE, cm.STRT_TIME })*/;
           }
           catch
           {
@@ -1371,7 +1372,7 @@ namespace System.Scsc.Ui.Admission
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
                                              new XAttribute("amnt", amnt),
-                                             new XAttribute("expnidtyvalu", pymt.Payment_Details.FirstOrDefault().EXPN_IDTY_VALU_DNRM ?? ""),
+                                             new XAttribute("expnidtyvalu", pymt.Payment_Details.Where(a => a.EXPN_IDTY_VALU_DNRM != null).Select(a => a.EXPN_IDTY_VALU_DNRM).FirstOrDefault() ?? ""),
                                              new XAttribute("modual", GetType().Name), 
                                              new XAttribute("section", GetType().Name.Substring(0,3) + "_001_F")
                                           )
@@ -2080,7 +2081,7 @@ namespace System.Scsc.Ui.Admission
                                              new XAttribute("router", GetType().Name),
                                              new XAttribute("callback", 20),
                                              new XAttribute("amnt", Convert.ToInt64( PymtAmnt_Txt.EditValue)),
-                                             new XAttribute("expnidtyvalu", pymt.Payment_Details.FirstOrDefault().EXPN_IDTY_VALU_DNRM ?? ""),
+                                             new XAttribute("expnidtyvalu", pymt.Payment_Details.Where(a => a.EXPN_IDTY_VALU_DNRM != null).Select(a => a.EXPN_IDTY_VALU_DNRM).FirstOrDefault() ?? ""),
                                              new XAttribute("rcpttoothracnt", Rtoa_Lov.EditValue ?? ""),
                                              new XAttribute("flowno", FlowNo_Txt.EditValue ?? ""),
                                              new XAttribute("rcptfilepath", RcptFilePath_Txt.EditValue ?? ""),

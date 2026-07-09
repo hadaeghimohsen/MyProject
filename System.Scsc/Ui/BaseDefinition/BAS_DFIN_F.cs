@@ -1194,9 +1194,9 @@ namespace System.Scsc.Ui.BaseDefinition
                if (cbmt == null) return;
 
                if (cbmt.CODE == 0)
-                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE, cbmt.DURT_ATTN_SOND_PATH);
+                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE, cbmt.DURT_ATTN_SOND_PATH, cbmt.FLTR_TMWK_STAT);
                else
-                  iScsc.UPD_CBMT_P(cbmt.CODE, cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.MTOD_STAT, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE, cbmt.DURT_ATTN_SOND_PATH);
+                  iScsc.UPD_CBMT_P(cbmt.CODE, cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.MTOD_STAT, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE, cbmt.DURT_ATTN_SOND_PATH, cbmt.FLTR_TMWK_STAT);
                requery = true;
             }
             else if (Tb_Master.SelectedTab == tp_005)
@@ -1206,7 +1206,7 @@ namespace System.Scsc.Ui.BaseDefinition
                //iScsc.SubmitChanges();
                var cbmt = CbmtBs1.Current as Data.Club_Method;
                if (cbmt == null) return;
-               iScsc.UPD_CBMT_P(cbmt.CODE, cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.MTOD_STAT, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE, cbmt.DURT_ATTN_SOND_PATH);
+               iScsc.UPD_CBMT_P(cbmt.CODE, cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.MTOD_STAT, cbmt.DAY_TYPE, cbmt.STRT_TIME, cbmt.END_TIME, cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE, cbmt.DURT_ATTN_SOND_PATH, cbmt.FLTR_TMWK_STAT);
                requery = true;
             }
             if (Tb_Master.SelectedTab == tp_005)
@@ -2867,7 +2867,8 @@ namespace System.Scsc.Ui.BaseDefinition
                      new XAttribute("cardexpnstat", Stng.CARD_EXPN_STAT ?? "001"),
                      new XAttribute("cardexpncode", Stng.CARD_EXPN_CODE ?? 0),
 
-                     new XAttribute("ignrentrattnmint", Stng.IGNR_ENTR_ATTN_MINT ?? 0)
+                     new XAttribute("ignrentrattnmint", Stng.IGNR_ENTR_ATTN_MINT ?? 0),
+                     new XAttribute("fltrtmwkstat", Stng.FLTR_TMWK_STAT ?? "001")
                   )
                )
             );
@@ -4183,7 +4184,7 @@ namespace System.Scsc.Ui.BaseDefinition
             {
                if (!CbmtBs1.List.OfType<Data.Club_Method>().Any(t => t.MTOD_CODE == cbmt.MTOD_CODE && t.DAY_TYPE == cbmt.DAY_TYPE && t.STRT_TIME == i && t.END_TIME == i.Add(new TimeSpan(0, priod, 0))))
                {
-                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, i, i.Add(new TimeSpan(0, priod, 0)), cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE, cbmt.DURT_ATTN_SOND_PATH);
+                  iScsc.INS_CBMT_P(cbmt.CLUB_CODE, cbmt.MTOD_CODE, cbmt.COCH_FILE_NO, cbmt.DAY_TYPE, i, i.Add(new TimeSpan(0, priod, 0)), cbmt.SEX_TYPE, cbmt.CBMT_DESC, cbmt.DFLT_STAT, cbmt.CPCT_NUMB, cbmt.CPCT_STAT, cbmt.CBMT_TIME, cbmt.CBMT_TIME_STAT, cbmt.CLAS_TIME, cbmt.AMNT, cbmt.NATL_CODE, cbmt.DURT_ATTN_SOND_PATH, cbmt.FLTR_TMWK_STAT);
                }
 
                i = i.Add(new TimeSpan(0, priod, 0));
@@ -5993,10 +5994,10 @@ namespace System.Scsc.Ui.BaseDefinition
             if (_cbmt.CODE == 0)
             {
                fetchagine = true;
-               iScsc.INS_CBMT_P(_cbmt.CLUB_CODE, _cbmt.MTOD_CODE, _cbmt.COCH_FILE_NO, _cbmt.DAY_TYPE, _cbmt.STRT_TIME, _cbmt.END_TIME, _cbmt.SEX_TYPE, _cbmt.CBMT_DESC, _cbmt.DFLT_STAT, _cbmt.CPCT_NUMB, _cbmt.CPCT_STAT, _cbmt.CBMT_TIME, _cbmt.CBMT_TIME_STAT, _cbmt.CLAS_TIME, _cbmt.AMNT, _cbmt.NATL_CODE, _cbmt.DURT_ATTN_SOND_PATH);
+               iScsc.INS_CBMT_P(_cbmt.CLUB_CODE, _cbmt.MTOD_CODE, _cbmt.COCH_FILE_NO, _cbmt.DAY_TYPE, _cbmt.STRT_TIME, _cbmt.END_TIME, _cbmt.SEX_TYPE, _cbmt.CBMT_DESC, _cbmt.DFLT_STAT, _cbmt.CPCT_NUMB, _cbmt.CPCT_STAT, _cbmt.CBMT_TIME, _cbmt.CBMT_TIME_STAT, _cbmt.CLAS_TIME, _cbmt.AMNT, _cbmt.NATL_CODE, _cbmt.DURT_ATTN_SOND_PATH, _cbmt.FLTR_TMWK_STAT);
             }
             else
-               iScsc.UPD_CBMT_P(_cbmt.CODE, _cbmt.CLUB_CODE, _cbmt.MTOD_CODE, _cbmt.COCH_FILE_NO, _cbmt.MTOD_STAT, _cbmt.DAY_TYPE, _cbmt.STRT_TIME, _cbmt.END_TIME, _cbmt.SEX_TYPE, _cbmt.CBMT_DESC, _cbmt.DFLT_STAT, _cbmt.CPCT_NUMB, _cbmt.CPCT_STAT, _cbmt.CBMT_TIME, _cbmt.CBMT_TIME_STAT, _cbmt.CLAS_TIME, _cbmt.AMNT, _cbmt.NATL_CODE, _cbmt.DURT_ATTN_SOND_PATH);
+               iScsc.UPD_CBMT_P(_cbmt.CODE, _cbmt.CLUB_CODE, _cbmt.MTOD_CODE, _cbmt.COCH_FILE_NO, _cbmt.MTOD_STAT, _cbmt.DAY_TYPE, _cbmt.STRT_TIME, _cbmt.END_TIME, _cbmt.SEX_TYPE, _cbmt.CBMT_DESC, _cbmt.DFLT_STAT, _cbmt.CPCT_NUMB, _cbmt.CPCT_STAT, _cbmt.CBMT_TIME, _cbmt.CBMT_TIME_STAT, _cbmt.CLAS_TIME, _cbmt.AMNT, _cbmt.NATL_CODE, _cbmt.DURT_ATTN_SOND_PATH, _cbmt.FLTR_TMWK_STAT);
 
             requery = true;
          }

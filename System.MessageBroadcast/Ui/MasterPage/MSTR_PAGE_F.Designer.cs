@@ -28,21 +28,20 @@
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MSTR_PAGE_F));
+         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
-         DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
          this.label12 = new System.Windows.Forms.Label();
-         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+         this.imageList1 = new System.Windows.Forms.ImageList();
          this.LL_SmsSendCredit = new System.Windows.Forms.LinkLabel();
          this.LL_SmsSendWebService = new System.Windows.Forms.LinkLabel();
-         this.SmsBn = new System.Windows.Forms.BindingNavigator(this.components);
+         this.SmsBn = new System.Windows.Forms.BindingNavigator();
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-         this.SmsBs = new System.Windows.Forms.BindingSource(this.components);
+         this.SmsBs = new System.Windows.Forms.BindingSource();
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -75,7 +74,7 @@
          this.label6 = new System.Windows.Forms.Label();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.Host_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.HostBs = new System.Windows.Forms.BindingSource(this.components);
+         this.HostBs = new System.Windows.Forms.BindingSource();
          this.label7 = new System.Windows.Forms.Label();
          this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -92,7 +91,7 @@
          this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
          this.lookUpEdit3 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DLntpBs = new System.Windows.Forms.BindingSource(this.components);
+         this.DLntpBs = new System.Windows.Forms.BindingSource();
          this.SendWorkIntr_Nud = new DevExpress.XtraEditors.SpinEdit();
          this.Reload_Butn = new System.MaxUi.NewMaxBtn();
          this.Save_Butn = new System.MaxUi.NewMaxBtn();
@@ -104,7 +103,7 @@
          this.SmsApiWebSite_Lnk = new System.Windows.Forms.LinkLabel();
          this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
          this.BackGrnd_Butn = new System.MaxUi.RoundedButton();
-         this.TelegramBs = new System.Windows.Forms.BindingSource(this.components);
+         this.TelegramBs = new System.Windows.Forms.BindingSource();
          this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
          this.label13 = new System.Windows.Forms.Label();
          this.SendBkgdWorkIntr_Nud = new DevExpress.XtraEditors.SpinEdit();
@@ -112,6 +111,7 @@
          this.label14 = new System.Windows.Forms.Label();
          this.LL_Error = new System.Windows.Forms.LinkLabel();
          this.label15 = new System.Windows.Forms.Label();
+         this.WebsMesg_Btn = new System.MaxUi.NewMaxBtn();
          ((System.ComponentModel.ISupportInitialize)(this.SmsBn)).BeginInit();
          this.SmsBn.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.SmsBs)).BeginInit();
@@ -160,6 +160,7 @@
          this.imageList1.Images.SetKeyName(2, "IMAGE_1160.png");
          this.imageList1.Images.SetKeyName(3, "IMAGE_1164.png");
          this.imageList1.Images.SetKeyName(4, "IMAGE_1144.png");
+         this.imageList1.Images.SetKeyName(5, "IMAGE_1018.png");
          // 
          // LL_SmsSendCredit
          // 
@@ -598,7 +599,7 @@
          this.Host_Lov.Location = new System.Drawing.Point(538, 515);
          this.Host_Lov.Name = "Host_Lov";
          this.Host_Lov.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject7, "", null, null, true)});
          this.Host_Lov.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("IP_DNRM", "IP Address", 55, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("COMP_NAME_DNRM", "Computer Name", 108, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -852,7 +853,7 @@
          this.lookUpEdit3.Location = new System.Drawing.Point(633, 67);
          this.lookUpEdit3.Name = "lookUpEdit3";
          this.lookUpEdit3.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, "", null, null, true)});
          this.lookUpEdit3.Properties.Columns.AddRange(new DevExpress.XtraEditors.Controls.LookUpColumnInfo[] {
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("VALU", "VALU", 48, DevExpress.Utils.FormatType.None, "", false, DevExpress.Utils.HorzAlignment.Near),
             new DevExpress.XtraEditors.Controls.LookUpColumnInfo("DOMN_DESC", "نوع خط", 72, DevExpress.Utils.FormatType.None, "", true, DevExpress.Utils.HorzAlignment.Near)});
@@ -884,7 +885,7 @@
          this.SendWorkIntr_Nud.Properties.Appearance.Options.UseTextOptions = true;
          this.SendWorkIntr_Nud.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.SendWorkIntr_Nud.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject2, "", null, null, true)});
          this.SendWorkIntr_Nud.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
          this.SendWorkIntr_Nud.Properties.Increment = new decimal(new int[] {
             1000,
@@ -1018,7 +1019,7 @@
          this.UntilBeforeDay_Nud.Properties.Appearance.Options.UseTextOptions = true;
          this.UntilBeforeDay_Nud.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.UntilBeforeDay_Nud.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject3, "", null, null, true)});
          this.UntilBeforeDay_Nud.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
          this.UntilBeforeDay_Nud.Properties.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
          this.UntilBeforeDay_Nud.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -1067,7 +1068,7 @@
          this.spinEdit1.Properties.Appearance.Options.UseTextOptions = true;
          this.spinEdit1.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.spinEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject4, "", null, null, true)});
          this.spinEdit1.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
          this.spinEdit1.Properties.Increment = new decimal(new int[] {
             1000,
@@ -1151,7 +1152,7 @@
          this.SendBkgdWorkIntr_Nud.Properties.Appearance.Options.UseTextOptions = true;
          this.SendBkgdWorkIntr_Nud.Properties.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Center;
          this.SendBkgdWorkIntr_Nud.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject6, "", null, null, true)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, null, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, "", null, null, true)});
          this.SendBkgdWorkIntr_Nud.Properties.EditValueChangedFiringMode = DevExpress.XtraEditors.Controls.EditValueChangedFiringMode.Default;
          this.SendBkgdWorkIntr_Nud.Properties.Increment = new decimal(new int[] {
             1000,
@@ -1218,6 +1219,29 @@
          this.label15.Text = "پیامک‌های خطا دار";
          this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
          // 
+         // WebsMesg_Btn
+         // 
+         this.WebsMesg_Btn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+         this.WebsMesg_Btn.BackColor = System.Drawing.Color.Transparent;
+         this.WebsMesg_Btn.BackGroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(204)))), ((int)(((byte)(85)))));
+         this.WebsMesg_Btn.Caption = " ";
+         this.WebsMesg_Btn.Disabled = false;
+         this.WebsMesg_Btn.EnterColor = System.Drawing.Color.Transparent;
+         this.WebsMesg_Btn.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.WebsMesg_Btn.ForeColor = System.Drawing.SystemColors.ControlText;
+         this.WebsMesg_Btn.ImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.WebsMesg_Btn.ImageIndex = 5;
+         this.WebsMesg_Btn.ImageList = this.imageList1;
+         this.WebsMesg_Btn.InToBold = false;
+         this.WebsMesg_Btn.Location = new System.Drawing.Point(194, 19);
+         this.WebsMesg_Btn.Name = "WebsMesg_Btn";
+         this.WebsMesg_Btn.Size = new System.Drawing.Size(43, 38);
+         this.WebsMesg_Btn.TabIndex = 28;
+         this.WebsMesg_Btn.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+         this.WebsMesg_Btn.TextColor = System.Drawing.Color.Black;
+         this.WebsMesg_Btn.TextFont = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)), true);
+         this.WebsMesg_Btn.Click += new System.EventHandler(this.WebsMesg_Btn_Click);
+         // 
          // MSTR_PAGE_F
          // 
          this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
@@ -1232,6 +1256,7 @@
          this.Controls.Add(this.JustToday_Cbx);
          this.Controls.Add(this.lookUpEdit3);
          this.Controls.Add(this.Reload_Butn);
+         this.Controls.Add(this.WebsMesg_Btn);
          this.Controls.Add(this.Save_Butn);
          this.Controls.Add(this.groupBox1);
          this.Controls.Add(this.textEdit5);
@@ -1390,5 +1415,6 @@
        private Windows.Forms.Label label14;
        private Windows.Forms.LinkLabel LL_Error;
        private Windows.Forms.Label label15;
+       private MaxUi.NewMaxBtn WebsMesg_Btn;
     }
 }

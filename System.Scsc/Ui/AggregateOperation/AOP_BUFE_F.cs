@@ -4138,7 +4138,7 @@ namespace System.Scsc.Ui.AggregateOperation
             if (InCashType_Lov.EditValue == null || InCashType_Lov.EditValue.ToString() == "" || Convert.ToInt64(InCashType_Lov.EditValue) == 0) { InCashType_Lov.Focus(); return; }
             if (AmntInCash_Txt.EditValue == null || AmntInCash_Txt.EditValue.ToString() == "" || Convert.ToInt64(AmntInCash_Txt.EditValue) == 0) { AmntInCash_Txt.Focus(); return; }            
 
-            iScsc.ExecuteCommand("INSERT INTO dbo.Payment_Row_Type(Apdt_Agop_Code, Code, Amnt, Rcpt_Mtod, Bank, Amnt_Type_Code) VALUES({0}, 0, {1}, {2}, {3}, {4});", agop.CODE, AmntInCash_Txt.EditValue, ((SimpleButton)sender).Tag, DescInCash_Txt.EditValue, InCashType_Lov.EditValue);
+            iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.Payment_Row_Type(Apdt_Agop_Code, Code, Amnt, Rcpt_Mtod, Bank, Amnt_Type_Code) VALUES({0}, 0, {1}, {2}, {3}, {4});", agop.CODE, AmntInCash_Txt.EditValue, ((SimpleButton)sender).Tag, DescInCash_Txt.EditValue, InCashType_Lov.EditValue));
             AmntInCash_Txt.EditValue = DescInCash_Txt.EditValue = "";
             InCashType_Lov.EditValue = null;
             requery = true;
@@ -4164,7 +4164,7 @@ namespace System.Scsc.Ui.AggregateOperation
             if (OutCashType_Lov.EditValue == null || OutCashType_Lov.EditValue.ToString() == "" || Convert.ToInt64(OutCashType_Lov.EditValue) == 0) { OutCashType_Lov.Focus(); return; }
             if (AmntOutCash_Txt.EditValue == null || AmntOutCash_Txt.EditValue.ToString() == "" || Convert.ToInt64(AmntOutCash_Txt.EditValue) == 0) { AmntOutCash_Txt.Focus(); return; }
 
-            iScsc.ExecuteCommand("INSERT INTO dbo.Payment_Row_Type(Apdt_Agop_Code, Code, Amnt, Rcpt_Mtod, Bank, Amnt_Type_Code) VALUES({0}, 0, {1}, {2}, {3}, {4});", agop.CODE, Convert.ToInt64(AmntOutCash_Txt.EditValue) * -1, ((SimpleButton)sender).Tag, DescOutCash_Txt.EditValue, OutCashType_Lov.EditValue);
+            iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.Payment_Row_Type(Apdt_Agop_Code, Code, Amnt, Rcpt_Mtod, Bank, Amnt_Type_Code) VALUES({0}, 0, {1}, {2}, {3}, {4});", agop.CODE, Convert.ToInt64(AmntOutCash_Txt.EditValue) * -1, ((SimpleButton)sender).Tag, DescOutCash_Txt.EditValue, OutCashType_Lov.EditValue));
             AmntOutCash_Txt.EditValue = DescOutCash_Txt.EditValue = "";
             OutCashType_Lov.EditValue = null;
             requery = true;

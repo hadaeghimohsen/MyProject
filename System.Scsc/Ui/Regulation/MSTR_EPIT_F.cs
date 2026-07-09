@@ -145,7 +145,7 @@ namespace System.Scsc.Ui.Regulation
                      dragNode = e.Data.GetData(typeof(TreeListNode)) as TreeListNode;
                      targetNode = tl.CalcHitInfo(p).Node;
 
-                     iScsc.ExecuteCommand("BEGIN DECLARE @list NVARCHAR(MAX) = {0}; INSERT INTO dbo.Group_Expense(GEXP_CODE ,CODE , ORDR,GROP_DESC ) SELECT {1}, dbo.GNRT_NVID_U(), ROW_NUMBER() OVER (ORDER BY t.id), LTRIM(t.Item) FROM dbo.SplitString(@list, CHAR(10)) t WHERE NOT EXISTS (SELECT * FROM dbo.Group_Expense ge1 WHERE ge1.Gexp_Code = {1} AND ge1.Grop_Desc = LTRIM(t.Item)); END;", dataText, (long?)targetNode.GetValue("CODE"));
+                     iScsc.ExecuteCommand(string.Format("BEGIN DECLARE @list NVARCHAR(MAX) = {0}; INSERT INTO dbo.Group_Expense(GEXP_CODE ,CODE , ORDR,GROP_DESC ) SELECT {1}, dbo.GNRT_NVID_U(), ROW_NUMBER() OVER (ORDER BY t.id), LTRIM(t.Item) FROM dbo.SplitString(@list, CHAR(10)) t WHERE NOT EXISTS (SELECT * FROM dbo.Group_Expense ge1 WHERE ge1.Gexp_Code = {1} AND ge1.Grop_Desc = LTRIM(t.Item)); END;", dataText, (long?)targetNode.GetValue("CODE")));
                      requery = true;
                      e.Effect = DragDropEffects.None;
                   }
@@ -183,7 +183,7 @@ namespace System.Scsc.Ui.Regulation
             var crnt = GropBs2.Current as Data.Group_Expense;
             if (crnt == null) return;
 
-            iScsc.ExecuteCommand("DELETE dbo.Group_Expense WHERE Code = {0}", crnt.CODE);
+            iScsc.ExecuteCommand(string.Format("DELETE dbo.Group_Expense WHERE Code = {0}", crnt.CODE));
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)

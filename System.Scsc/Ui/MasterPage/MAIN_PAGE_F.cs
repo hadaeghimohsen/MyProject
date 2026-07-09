@@ -3493,37 +3493,57 @@ namespace System.Scsc.Ui.MasterPage
                // 1405-03-30
                // 1. اول تنظیمات رو بگیرید
                var clubSetting = iScsc.Settings.FirstOrDefault();
-
                if (clubSetting != null)
                {
                   int secondsToAdd = clubSetting.IGNR_ENTR_ATTN_MINT ?? 0; // این ثانیه هست
 
-                  // 2. حالا رکورد مورد نظر رو پیدا کنید
-                  var _attn = iScsc.Attendances
+                  // 2. فقط یک‌بار به دیتابیس مراجعه کن و هر دو حالت رو با هم بیار
+                  var recentAttn = iScsc.Attendances
                       .Where(a =>
                           _mbsp.Select(m => m.RWNO).Contains(a.Member_Ship.RWNO) &&
                           a.FNGR_PRNT_DNRM == EnrollNumber &&
                           a.ATTN_DATE == DateTime.Now.Date &&
-                          a.EXIT_TIME == null &&
-                          a.ATTN_STAT == "002"
-                      )
-                      .ToList()
-                      .FirstOrDefault(a =>
-                          a.ENTR_TIME != null &&
-                             // محاسبه اختلاف زمان بر حسب ثانیه
-                          (DateTime.Now.TimeOfDay - a.ENTR_TIME.Value).TotalSeconds < secondsToAdd
-                      );
+                          a.ATTN_STAT == "002")
+                      .ToList();
 
-                  if (_attn != null)
+                  var now = DateTime.Now.TimeOfDay;
+
+                  // 3. چک کن آیا ورود تکراریه
+                  var _attnIn = recentAttn.FirstOrDefault(a =>
+                      a.EXIT_TIME == null &&
+                      a.ENTR_TIME != null &&
+                      (now - a.ENTR_TIME.Value).TotalSeconds >= 0 &&
+                      (now - a.ENTR_TIME.Value).TotalSeconds < secondsToAdd);
+
+                  if (_attnIn != null)
                   {
                      // این یعنی کاربر کمتر از secondsToAdd ثانیه پیش ورود زده
                      // پس اجازه ورود مجدد نده و صدا پخش کن
-
                      // Play Enter Sound
                      _DefaultGateway.Gateway(
                          new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
                          {
                             Input = new XElement("Sound", new XAttribute("type", "004"))
+                         }
+                     );
+                     return;
+                  }
+
+                  // 4. چک کن آیا خروج تکراریه
+                  var _attnOut = recentAttn.FirstOrDefault(a =>
+                      a.EXIT_TIME != null &&
+                      (now - a.EXIT_TIME.Value).TotalSeconds >= 0 &&
+                      (now - a.EXIT_TIME.Value).TotalSeconds < secondsToAdd);
+
+                  if (_attnOut != null)
+                  {
+                     // این یعنی کاربر کمتر از secondsToAdd ثانیه پیش خروج زده
+                     // پس اجازه خروج مجدد نده و صدا پخش کن
+                     // Play Exit Sound
+                     _DefaultGateway.Gateway(
+                         new Job(SendType.External, "localhost", "MAIN_PAGE_F", 44 /* PlaySystemSound */, SendType.SelfToUserInterface)
+                         {
+                            Input = new XElement("Sound", new XAttribute("type", "005"))
                          }
                      );
                      return;
@@ -5143,6 +5163,7 @@ namespace System.Scsc.Ui.MasterPage
                }
                #endregion
 
+               #region Analises data from device
                // Saela gate control
                if (_gate.DEV_COMP_TYPE == "001")
                {
@@ -5186,22 +5207,27 @@ namespace System.Scsc.Ui.MasterPage
                      _fngrPrnt = Encoding.ASCII.GetString(_byteArray);
                   }
                }
+               #endregion
 
+               #region Send Signal to recieve data
                // 1402/11/16 * Send Signal to receive data
                if (InvokeRequired)
                   Invoke(new Action(() => GetValuDataFromExtrDev(_gate, _fngrPrnt)));
                else
                   GetValuDataFromExtrDev(_gate, _fngrPrnt);
+               #endregion
 
                // IF NOT VALID ENROLCODE
                if (_fngrPrnt.In("0004000", "00040000", "00010000", "00000000")) return;
 
+               #region Copy and Duplication Card
                // 1402/11/02 * اگر نیاز باشه برای کپی برداری از این آیتم استفاده کنیم
                if (AttnType_Lov.EditValue != null && AttnType_Lov.EditValue.ToString() == "011")
                {
                   OnAttTransactionEx(_fngrPrnt);
                   return;
                }
+               #endregion
 
                // Alarm 
                //new Thread(AlarmShow).Start();
@@ -5233,8 +5259,12 @@ namespace System.Scsc.Ui.MasterPage
 
                //var gate = iScsc.External_Devices.Where(ed => ed.STAT == "002" && ed.PORT_RECV == port).FirstOrDefault();
 
+
+               #region مجموعه آبی و استخر علی محمدی
+               // 1405/04/12 * مجموعه آبی و استخر علی محمدی
                if (_gate.ACTN_TYPE == "010" /* حضور و غیاب بلیط فروشی الکترونیک */)
                {
+                  // 1405/04/12 * این شرایط برای مجموعه آبی و استخر علی محمدی میباشد 
                   var _actvCardLinkOprt =
                      iScsc.Card_Link_Operations.FirstOrDefault(c => c.CARD_FNGR_PRNT_DNRM == _fngrPrnt && c.VALD_TYPE == "002" && c.CRET_DATE.Value.Date == DateTime.Now.Date);
                   if (_actvCardLinkOprt != null)
@@ -5290,6 +5320,7 @@ namespace System.Scsc.Ui.MasterPage
                   // 1404/07/26 * اگر کارت برای پرسنل باشد این اشخاص میتوانند ورود و خروج را انجام دهند
                   if (iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == _fngrPrnt && f.FGPB_TYPE_DNRM != "003")) return;
                }
+               #endregion
 
                // IF NOT EXISTS ANY SERVICE RETURN AND STOPED!!
                if (!iScsc.Fighters.Any(f => f.FNGR_PRNT_DNRM == _fngrPrnt))
@@ -10548,8 +10579,8 @@ namespace System.Scsc.Ui.MasterPage
                                     AfterChangedOutput = new Action<object>((output) => {
                                        if ((bool)output)
                                        {
-_dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
-                                           iScsc.ExecuteCommand("UPDATE dbo.Dresser SET Rec_Stat = '{0}' WHERE Code = {1};", _dres.REC_STAT, _dres.CODE);
+                                          _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
+                                          iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser SET Rec_Stat = '{0}' WHERE Code = {1};", _dres.REC_STAT, _dres.CODE));
 
                                           return;
                                        }
@@ -11431,7 +11462,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
             {
                case 1:
                   if (MessageBox.Show(this, "ایا با آزاد کردن کمد VIP موافق هستید?", "آزاد کردن کمد VIP", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
-                  iScsc.ExecuteCommand("UPDATE dbo.Dresser_Vip_Fighter SET Lock_Stat = '001', Expr_Date = GETDATE() WHERE Code = {0};", _dvip.CODE);
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Lock_Stat = '001', Expr_Date = GETDATE() WHERE Code = {0};", _dvip.CODE));
                   requery = true;
                   break;
                case 0:
@@ -11824,7 +11855,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
                   if (AtnwBs.List.OfType<Data.Attendance_Wrist>().Any(aw => /*aw.ATTN_CODE == _atnw.ATTN_CODE && aw.ATNW_FNGR_PRNT_DNRM == WristBand_Txt.Text*/aw.CODE == _atnw.CODE && aw.STAT == "002")) return;
 
                   // وضعیت برگشت دستبند را فعال میکنیم
-                  iScsc.ExecuteCommand("UPDATE dbo.Attendance_Wrist SET STAT = '002' WHERE CODE = {0};", _atnw.CODE);
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Attendance_Wrist SET STAT = '002' WHERE CODE = {0};", _atnw.CODE));
 
                   _tmp = _atnw.Dresser == null ? _atnw.Fighter1.FNGR_PRNT_DNRM : _atnw.Dresser.DRES_NUMB.ToString();
 
@@ -11840,7 +11871,7 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
                case 2:
                   if (MessageBox.Show(this, "آیا با حذف رکورد موافق هستید؟", "حذف دستبند", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1) != DialogResult.Yes) return;
 
-                  iScsc.ExecuteCommand("DELETE dbo.Attendance_Wrist WHERE Code = {0};", _atnw.CODE);
+                  iScsc.ExecuteCommand(string.Format("DELETE dbo.Attendance_Wrist WHERE Code = {0};", _atnw.CODE));
 
                   _tmp = _atnw.Dresser == null ? _atnw.Fighter1.FNGR_PRNT_DNRM : _atnw.Dresser.DRES_NUMB.ToString();
 
@@ -12239,7 +12270,8 @@ _dres.REC_STAT = _dres.REC_STAT == "002" ? "001" : "002";
                      new XAttribute("cardexpnstat", Stng.CARD_EXPN_STAT ?? "001"),
                      new XAttribute("cardexpncode", Stng.CARD_EXPN_CODE ?? 0),
 
-                     new XAttribute("ignrentrattnmint", Stng.IGNR_ENTR_ATTN_MINT ?? 0)
+                     new XAttribute("ignrentrattnmint", Stng.IGNR_ENTR_ATTN_MINT ?? 0),
+                     new XAttribute("fltrtmwkstat", Stng.FLTR_TMWK_STAT ?? "001")
                   )
                )
             );

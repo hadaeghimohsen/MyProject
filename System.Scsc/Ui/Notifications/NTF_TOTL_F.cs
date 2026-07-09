@@ -568,7 +568,7 @@ namespace System.Scsc.Ui.Notifications
             // 1404/05/28 * IF LAST Attendance has Exists WE Must closing gate for exit customer
             var _attn = iScsc.Attendances.FirstOrDefault(a => a.FIGH_FILE_NO == Convert.ToInt64(Lov_FileName2.EditValue) && a.ATTN_DATE.Date == DateTime.Now.Date && a.EXIT_TIME == null);
             if (_attn != null)
-               iScsc.ExecuteCommand("UPDATE dbo.Attendance SET EXIT_TIME = GETDATE() WHERE CODE = {0};", _attn.CODE);
+                iScsc.ExecuteCommand(string.Format("UPDATE dbo.Attendance SET EXIT_TIME = GETDATE() WHERE CODE = {0};", _attn.CODE));
             
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost",

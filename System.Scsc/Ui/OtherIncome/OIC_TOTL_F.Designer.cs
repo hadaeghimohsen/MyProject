@@ -13617,7 +13617,7 @@
          this.tp_002.Controls.Add(this.flowLayoutPanel2);
          this.tp_002.Location = new System.Drawing.Point(4, 22);
          this.tp_002.Name = "tp_002";
-         this.tp_002.Size = new System.Drawing.Size(864, 914);
+         this.tp_002.Size = new System.Drawing.Size(611, 822);
          this.tp_002.TabIndex = 1;
          this.tp_002.Text = "فاکتور خرید های قبلی - F9";
          this.tp_002.UseVisualStyleBackColor = true;
@@ -13634,7 +13634,7 @@
          this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
          this.flowLayoutPanel2.Location = new System.Drawing.Point(0, 0);
          this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-         this.flowLayoutPanel2.Size = new System.Drawing.Size(864, 914);
+         this.flowLayoutPanel2.Size = new System.Drawing.Size(611, 822);
          this.flowLayoutPanel2.TabIndex = 34;
          this.flowLayoutPanel2.WrapContents = false;
          // 
@@ -13666,7 +13666,7 @@
          this.Param1_Rlt.ForeColor = System.Drawing.Color.Black;
          this.Param1_Rlt.FrameOnMouseOverOnly = false;
          this.Param1_Rlt.GroupImage = null;
-         this.Param1_Rlt.Location = new System.Drawing.Point(305, 3);
+         this.Param1_Rlt.Location = new System.Drawing.Point(35, 3);
          this.Param1_Rlt.MaxHeight = 141;
          this.Param1_Rlt.Name = "Param1_Rlt";
          this.Param1_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -13967,7 +13967,7 @@
          this.RqstHist_Rlt.ForeColor = System.Drawing.Color.Black;
          this.RqstHist_Rlt.FrameOnMouseOverOnly = false;
          this.RqstHist_Rlt.GroupImage = null;
-         this.RqstHist_Rlt.Location = new System.Drawing.Point(305, 150);
+         this.RqstHist_Rlt.Location = new System.Drawing.Point(35, 150);
          this.RqstHist_Rlt.MaxHeight = 623;
          this.RqstHist_Rlt.Name = "RqstHist_Rlt";
          this.RqstHist_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -16058,7 +16058,7 @@
          this.RqstExpir_Rlt.ForeColor = System.Drawing.Color.Black;
          this.RqstExpir_Rlt.FrameOnMouseOverOnly = false;
          this.RqstExpir_Rlt.GroupImage = null;
-         this.RqstExpir_Rlt.Location = new System.Drawing.Point(305, 779);
+         this.RqstExpir_Rlt.Location = new System.Drawing.Point(35, 779);
          this.RqstExpir_Rlt.MaxHeight = 691;
          this.RqstExpir_Rlt.Name = "RqstExpir_Rlt";
          this.RqstExpir_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -16737,7 +16737,7 @@
          this.HistPydt_Rlt.ForeColor = System.Drawing.Color.Black;
          this.HistPydt_Rlt.FrameOnMouseOverOnly = false;
          this.HistPydt_Rlt.GroupImage = null;
-         this.HistPydt_Rlt.Location = new System.Drawing.Point(305, 807);
+         this.HistPydt_Rlt.Location = new System.Drawing.Point(35, 807);
          this.HistPydt_Rlt.MaxHeight = 564;
          this.HistPydt_Rlt.Name = "HistPydt_Rlt";
          this.HistPydt_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -18576,7 +18576,7 @@
          this.HistServ_Rlt.ForeColor = System.Drawing.Color.Black;
          this.HistServ_Rlt.FrameOnMouseOverOnly = false;
          this.HistServ_Rlt.GroupImage = null;
-         this.HistServ_Rlt.Location = new System.Drawing.Point(305, 835);
+         this.HistServ_Rlt.Location = new System.Drawing.Point(35, 835);
          this.HistServ_Rlt.MaxHeight = 564;
          this.HistServ_Rlt.Name = "HistServ_Rlt";
          this.HistServ_Rlt.Padding = new System.Windows.Forms.Padding(4, 30, 3, 3);
@@ -19570,7 +19570,7 @@
          this.tp_003.Location = new System.Drawing.Point(4, 22);
          this.tp_003.Name = "tp_003";
          this.tp_003.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_003.Size = new System.Drawing.Size(864, 914);
+         this.tp_003.Size = new System.Drawing.Size(611, 822);
          this.tp_003.TabIndex = 2;
          this.tp_003.Text = "دفترچه تلفن - F3";
          this.tp_003.UseVisualStyleBackColor = true;
@@ -19585,7 +19585,7 @@
          this.splitContainerControl6.Panel1.Text = "Panel1";
          this.splitContainerControl6.Panel2.Controls.Add(this.gridControl12);
          this.splitContainerControl6.Panel2.Text = "Panel2";
-         this.splitContainerControl6.Size = new System.Drawing.Size(858, 908);
+         this.splitContainerControl6.Size = new System.Drawing.Size(605, 816);
          this.splitContainerControl6.SplitterPosition = 216;
          this.splitContainerControl6.TabIndex = 1;
          this.splitContainerControl6.Text = "splitContainerControl6";
@@ -19600,7 +19600,7 @@
          this.splitContainerControl7.Panel1.Text = "Panel1";
          this.splitContainerControl7.Panel2.Controls.Add(this.groupBox8);
          this.splitContainerControl7.Panel2.Text = "Panel2";
-         this.splitContainerControl7.Size = new System.Drawing.Size(858, 216);
+         this.splitContainerControl7.Size = new System.Drawing.Size(605, 216);
          this.splitContainerControl7.SplitterPosition = 285;
          this.splitContainerControl7.TabIndex = 0;
          this.splitContainerControl7.Text = "splitContainerControl7";
@@ -19616,7 +19616,7 @@
          this.groupBox7.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox7.Location = new System.Drawing.Point(0, 0);
          this.groupBox7.Name = "groupBox7";
-         this.groupBox7.Size = new System.Drawing.Size(568, 216);
+         this.groupBox7.Size = new System.Drawing.Size(315, 216);
          this.groupBox7.TabIndex = 0;
          this.groupBox7.TabStop = false;
          this.groupBox7.Text = "پارامتر";
@@ -19634,7 +19634,7 @@
          this.UpdtCustTell_Butn.Appearance.Options.UseForeColor = true;
          this.UpdtCustTell_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.UpdtCustTell_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.UpdtCustTell_Butn.Location = new System.Drawing.Point(450, 172);
+         this.UpdtCustTell_Butn.Location = new System.Drawing.Point(197, 172);
          this.UpdtCustTell_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.UpdtCustTell_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.UpdtCustTell_Butn.Name = "UpdtCustTell_Butn";
@@ -19657,7 +19657,7 @@
          this.SearchCustTell_Butn.Appearance.Options.UseForeColor = true;
          this.SearchCustTell_Butn.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
          this.SearchCustTell_Butn.ImageLocation = DevExpress.XtraEditors.ImageLocation.MiddleRight;
-         this.SearchCustTell_Butn.Location = new System.Drawing.Point(450, 132);
+         this.SearchCustTell_Butn.Location = new System.Drawing.Point(197, 132);
          this.SearchCustTell_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.SearchCustTell_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.SearchCustTell_Butn.Name = "SearchCustTell_Butn";
@@ -19672,7 +19672,7 @@
          this.SetDateCustTell_Dt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SetDateCustTell_Dt.CustomFormat = "dd/MM/yyyy";
          this.SetDateCustTell_Dt.Format = Atf.UI.DateTimeSelectorFormat.Custom;
-         this.SetDateCustTell_Dt.Location = new System.Drawing.Point(450, 104);
+         this.SetDateCustTell_Dt.Location = new System.Drawing.Point(197, 104);
          this.SetDateCustTell_Dt.Name = "SetDateCustTell_Dt";
          this.SetDateCustTell_Dt.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.SetDateCustTell_Dt.Size = new System.Drawing.Size(100, 22);
@@ -19683,7 +19683,7 @@
          // 
          this.SetDateCustTell_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.SetDateCustTell_Rb.AutoSize = true;
-         this.SetDateCustTell_Rb.Location = new System.Drawing.Point(473, 76);
+         this.SetDateCustTell_Rb.Location = new System.Drawing.Point(220, 76);
          this.SetDateCustTell_Rb.Name = "SetDateCustTell_Rb";
          this.SetDateCustTell_Rb.Size = new System.Drawing.Size(77, 17);
          this.SetDateCustTell_Rb.TabIndex = 2;
@@ -19694,7 +19694,7 @@
          // 
          this.CrntDateCustTell_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.CrntDateCustTell_Rb.AutoSize = true;
-         this.CrntDateCustTell_Rb.Location = new System.Drawing.Point(478, 28);
+         this.CrntDateCustTell_Rb.Location = new System.Drawing.Point(225, 28);
          this.CrntDateCustTell_Rb.Name = "CrntDateCustTell_Rb";
          this.CrntDateCustTell_Rb.Size = new System.Drawing.Size(72, 17);
          this.CrntDateCustTell_Rb.TabIndex = 0;
@@ -19706,7 +19706,7 @@
          this.AllDateCustTell_Rb.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
          this.AllDateCustTell_Rb.AutoSize = true;
          this.AllDateCustTell_Rb.Checked = true;
-         this.AllDateCustTell_Rb.Location = new System.Drawing.Point(480, 52);
+         this.AllDateCustTell_Rb.Location = new System.Drawing.Point(227, 52);
          this.AllDateCustTell_Rb.Name = "AllDateCustTell_Rb";
          this.AllDateCustTell_Rb.Size = new System.Drawing.Size(70, 17);
          this.AllDateCustTell_Rb.TabIndex = 1;
@@ -19882,7 +19882,7 @@
             this.repositoryItemButtonEdit3,
             this.persianRepositoryItemDateEdit6,
             this.repositoryItemLookUpEdit13});
-         this.gridControl12.Size = new System.Drawing.Size(858, 687);
+         this.gridControl12.Size = new System.Drawing.Size(605, 595);
          this.gridControl12.TabIndex = 83;
          this.gridControl12.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.FgpbCustTell_Gv});
@@ -20434,7 +20434,7 @@
          this.tp_004.Location = new System.Drawing.Point(4, 22);
          this.tp_004.Name = "tp_004";
          this.tp_004.Padding = new System.Windows.Forms.Padding(3);
-         this.tp_004.Size = new System.Drawing.Size(864, 914);
+         this.tp_004.Size = new System.Drawing.Size(611, 822);
          this.tp_004.TabIndex = 3;
          this.tp_004.Text = "لیست رکورد زمان دار";
          this.tp_004.UseVisualStyleBackColor = true;
@@ -20450,7 +20450,7 @@
          this.splitContainerControl17.Panel2.Controls.Add(this.gridControl33);
          this.splitContainerControl17.Panel2.Controls.Add(this.VClnoBn);
          this.splitContainerControl17.Panel2.Text = "Panel2";
-         this.splitContainerControl17.Size = new System.Drawing.Size(858, 908);
+         this.splitContainerControl17.Size = new System.Drawing.Size(605, 816);
          this.splitContainerControl17.SplitterPosition = 290;
          this.splitContainerControl17.TabIndex = 0;
          this.splitContainerControl17.Text = "splitContainerControl17";
@@ -20461,7 +20461,7 @@
          this.groupBox11.Dock = System.Windows.Forms.DockStyle.Fill;
          this.groupBox11.Location = new System.Drawing.Point(0, 0);
          this.groupBox11.Name = "groupBox11";
-         this.groupBox11.Size = new System.Drawing.Size(858, 290);
+         this.groupBox11.Size = new System.Drawing.Size(605, 290);
          this.groupBox11.TabIndex = 0;
          this.groupBox11.TabStop = false;
          this.groupBox11.Text = "پارامتر";
@@ -20476,7 +20476,7 @@
          this.flowLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
          this.flowLayoutPanel5.Location = new System.Drawing.Point(3, 17);
          this.flowLayoutPanel5.Name = "flowLayoutPanel5";
-         this.flowLayoutPanel5.Size = new System.Drawing.Size(852, 270);
+         this.flowLayoutPanel5.Size = new System.Drawing.Size(599, 270);
          this.flowLayoutPanel5.TabIndex = 93;
          // 
          // groupBox13
@@ -20489,7 +20489,7 @@
          this.groupBox13.Controls.Add(this.FromStrtTime_Cbx);
          this.groupBox13.Controls.Add(this.FromStrtDate_Cbx);
          this.groupBox13.Controls.Add(this.ToStrtDate_Dt);
-         this.groupBox13.Location = new System.Drawing.Point(473, 3);
+         this.groupBox13.Location = new System.Drawing.Point(220, 3);
          this.groupBox13.Name = "groupBox13";
          this.groupBox13.Size = new System.Drawing.Size(376, 83);
          this.groupBox13.TabIndex = 0;
@@ -20605,7 +20605,7 @@
          this.groupBox14.Controls.Add(this.FromEndTime_Cbx);
          this.groupBox14.Controls.Add(this.FromEndDate_Cbx);
          this.groupBox14.Controls.Add(this.ToEndDate_Dt);
-         this.groupBox14.Location = new System.Drawing.Point(91, 3);
+         this.groupBox14.Location = new System.Drawing.Point(220, 92);
          this.groupBox14.Name = "groupBox14";
          this.groupBox14.Size = new System.Drawing.Size(376, 83);
          this.groupBox14.TabIndex = 0;
@@ -20720,7 +20720,7 @@
          this.groupBox15.Controls.Add(this.Gust_Cbx);
          this.groupBox15.Controls.Add(this.Men_Cbx);
          this.groupBox15.Controls.Add(this.ServCellPhon_Cbx);
-         this.groupBox15.Location = new System.Drawing.Point(473, 92);
+         this.groupBox15.Location = new System.Drawing.Point(220, 181);
          this.groupBox15.Name = "groupBox15";
          this.groupBox15.Size = new System.Drawing.Size(376, 84);
          this.groupBox15.TabIndex = 92;
@@ -20854,7 +20854,7 @@
          this.groupBox16.Controls.Add(this.ToCrntMint_Cbx);
          this.groupBox16.Controls.Add(this.FromUseMint_Cbx);
          this.groupBox16.Controls.Add(this.ToUseMint_Cbx);
-         this.groupBox16.Location = new System.Drawing.Point(91, 92);
+         this.groupBox16.Location = new System.Drawing.Point(220, 271);
          this.groupBox16.Name = "groupBox16";
          this.groupBox16.Size = new System.Drawing.Size(376, 84);
          this.groupBox16.TabIndex = 92;
@@ -21016,7 +21016,7 @@
          this.groupBox17.Controls.Add(this.ToFineAmnt_Cbx);
          this.groupBox17.Controls.Add(this.FromFineMint_Cbx);
          this.groupBox17.Controls.Add(this.ToFineMint_Cbx);
-         this.groupBox17.Location = new System.Drawing.Point(91, 182);
+         this.groupBox17.Location = new System.Drawing.Point(-162, 361);
          this.groupBox17.Name = "groupBox17";
          this.groupBox17.Size = new System.Drawing.Size(758, 84);
          this.groupBox17.TabIndex = 93;
@@ -21200,7 +21200,7 @@
             this.persianRepositoryItemDateEdit20,
             this.repositoryItemLookUpEdit3,
             this.repositoryItemTimeEdit3});
-         this.gridControl33.Size = new System.Drawing.Size(858, 588);
+         this.gridControl33.Size = new System.Drawing.Size(605, 496);
          this.gridControl33.TabIndex = 93;
          this.gridControl33.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.VClno_Gv});
@@ -21595,7 +21595,7 @@
          this.VClnoBn.Name = "VClnoBn";
          this.VClnoBn.PositionItem = this.toolStripTextBox6;
          this.VClnoBn.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-         this.VClnoBn.Size = new System.Drawing.Size(858, 25);
+         this.VClnoBn.Size = new System.Drawing.Size(605, 25);
          this.VClnoBn.TabIndex = 92;
          this.VClnoBn.Text = "bindingNavigator1";
          // 
@@ -27691,7 +27691,7 @@
          this.tabPage2.Location = new System.Drawing.Point(4, 22);
          this.tabPage2.Name = "tabPage2";
          this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage2.Size = new System.Drawing.Size(431, 961);
+         this.tabPage2.Size = new System.Drawing.Size(431, 869);
          this.tabPage2.TabIndex = 1;
          this.tabPage2.Text = "تنظیمات";
          this.tabPage2.UseVisualStyleBackColor = true;
@@ -27860,7 +27860,7 @@
          this.tabPage3.Controls.Add(this.DelEvntLogs_Butn);
          this.tabPage3.Location = new System.Drawing.Point(4, 22);
          this.tabPage3.Name = "tabPage3";
-         this.tabPage3.Size = new System.Drawing.Size(431, 961);
+         this.tabPage3.Size = new System.Drawing.Size(431, 869);
          this.tabPage3.TabIndex = 2;
          this.tabPage3.Text = "رخداد ها";
          this.tabPage3.UseVisualStyleBackColor = true;
@@ -27875,7 +27875,7 @@
          this.Evnt_Lbx.Location = new System.Drawing.Point(34, 0);
          this.Evnt_Lbx.Name = "Evnt_Lbx";
          this.Evnt_Lbx.ScrollAlwaysVisible = true;
-         this.Evnt_Lbx.Size = new System.Drawing.Size(397, 961);
+         this.Evnt_Lbx.Size = new System.Drawing.Size(397, 869);
          this.Evnt_Lbx.TabIndex = 9;
          // 
          // DelEvntLogs_Butn
@@ -27896,7 +27896,7 @@
          this.DelEvntLogs_Butn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.UltraFlat;
          this.DelEvntLogs_Butn.LookAndFeel.UseDefaultLookAndFeel = false;
          this.DelEvntLogs_Butn.Name = "DelEvntLogs_Butn";
-         this.DelEvntLogs_Butn.Size = new System.Drawing.Size(34, 961);
+         this.DelEvntLogs_Butn.Size = new System.Drawing.Size(34, 869);
          this.DelEvntLogs_Butn.TabIndex = 10;
          this.DelEvntLogs_Butn.Click += new System.EventHandler(this.DelEvntLogs_Butn_Click);
          // 
@@ -27906,7 +27906,7 @@
          this.tabPage4.Location = new System.Drawing.Point(4, 22);
          this.tabPage4.Name = "tabPage4";
          this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-         this.tabPage4.Size = new System.Drawing.Size(431, 961);
+         this.tabPage4.Size = new System.Drawing.Size(431, 869);
          this.tabPage4.TabIndex = 3;
          this.tabPage4.Text = "چاپ اسناد";
          this.tabPage4.UseVisualStyleBackColor = true;
@@ -27916,7 +27916,7 @@
          this.PrintDocs_Flp.Dock = System.Windows.Forms.DockStyle.Fill;
          this.PrintDocs_Flp.Location = new System.Drawing.Point(3, 3);
          this.PrintDocs_Flp.Name = "PrintDocs_Flp";
-         this.PrintDocs_Flp.Size = new System.Drawing.Size(425, 955);
+         this.PrintDocs_Flp.Size = new System.Drawing.Size(425, 863);
          this.PrintDocs_Flp.TabIndex = 0;
          // 
          // DDytpBs

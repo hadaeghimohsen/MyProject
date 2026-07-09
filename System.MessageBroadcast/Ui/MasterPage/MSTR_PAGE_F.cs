@@ -19,19 +19,21 @@ namespace System.MessageBroadcast.Ui.MasterPage
       public MSTR_PAGE_F()
       {
          InitializeComponent();
-          _pollTimer = new System.Windows.Forms.Timer();
+         if (components == null)
+            components = new System.ComponentModel.Container();
+         _pollTimer = new System.Windows.Forms.Timer();
          _pollTimer.Interval = 3000;
          _pollTimer.Tick += _pollTimer_Tick;
-          _creditTimer = new System.Windows.Forms.Timer();
+         _creditTimer = new System.Windows.Forms.Timer();
          _creditTimer.Interval = 30000;
-          _creditTimer.Tick += _creditTimer_Tick;
-          components.Add(_pollTimer);
-          components.Add(_creditTimer);
-       }
+         _creditTimer.Tick += _creditTimer_Tick;
+         components.Add(_pollTimer);
+         components.Add(_creditTimer);
+      }
 
-       private bool _PingStatus;
-       private System.Windows.Forms.Timer _pollTimer;
-       private System.Windows.Forms.Timer _creditTimer;
+      private bool _PingStatus;
+      private System.Windows.Forms.Timer _pollTimer;
+      private System.Windows.Forms.Timer _creditTimer;
       private int _creditTickCounter = 0;
 
       private void Execute_Query()
@@ -115,34 +117,34 @@ namespace System.MessageBroadcast.Ui.MasterPage
                         )
                      );
                }
-                else if (smsConf.SERV_TYPE == "004")
-                {
-                   if (iPPanelEdgeClient == null)
-                      iPPanelEdgeClient = new Code.Msgb.IPPanelEdgeClient(smsConf.USER_NAME, smsConf.PASS_WORD);
-                   xmsRespons =
-                      new XDocument(
-                         new XElement("iPPanelEdgeClient",
-                            new XElement("SendCredit", iPPanelEdgeClient.GetCredit())
-                         )
-                      );
-                }
-                else if (smsConf.SERV_TYPE == "005")
-                {
-                   if (LidomaClient == null)
-                      LidomaClient = new Code.LidomaSmsClient(smsConf.BASE_URL ?? "http://localhost:3000");
-                   var loginResult = LidomaClient.LoginAsync(smsConf.USER_NAME, smsConf.PASS_WORD).Result;
-                   if (loginResult)
-                   {
-                      var credit = LidomaClient.GetCreditAsync().Result;
-                      xmsRespons = new XDocument(
-                         new XElement("LidomaClient",
-                            new XElement("SendCredit", credit)
-                         )
-                      );
-                   }
-                }
+               else if (smsConf.SERV_TYPE == "004")
+               {
+                  if (iPPanelEdgeClient == null)
+                     iPPanelEdgeClient = new Code.Msgb.IPPanelEdgeClient(smsConf.USER_NAME, smsConf.PASS_WORD);
+                  xmsRespons =
+                     new XDocument(
+                        new XElement("iPPanelEdgeClient",
+                           new XElement("SendCredit", iPPanelEdgeClient.GetCredit())
+                        )
+                     );
+               }
+               else if (smsConf.SERV_TYPE == "005")
+               {
+                  if (LidomaClient == null)
+                     LidomaClient = new Code.LidomaSmsClient(smsConf.BASE_URL ?? "http://localhost:3000");
+                  var loginResult = LidomaClient.LoginAsync(smsConf.USER_NAME, smsConf.PASS_WORD).Result;
+                  if (loginResult)
+                  {
+                     var credit = LidomaClient.GetCreditAsync().Result;
+                     xmsRespons = new XDocument(
+                        new XElement("LidomaClient",
+                           new XElement("SendCredit", credit)
+                        )
+                     );
+                  }
+               }
 
-                if (xmsRespons != null && xmsRespons.Descendants("SendCredit").Count() > 0)
+               if (xmsRespons != null && xmsRespons.Descendants("SendCredit").Count() > 0)
                {
                   var credit = xmsRespons.Descendants("SendCredit").FirstOrDefault().Value;
                   if (InvokeRequired)
@@ -261,32 +263,32 @@ namespace System.MessageBroadcast.Ui.MasterPage
                      if (SmsClient == null)
                         SmsClient = new SmsService.Sms();
                   }
-                  else if(smsConf.SERV_TYPE == "002")
+                  else if (smsConf.SERV_TYPE == "002")
                   {
                      // iNoti Sms Provider
                      if (iNotiSmsClient == null)
                         iNotiSmsClient = new iNotiSmsService.iNotiSMS();
                   }
-                  else if(smsConf.SERV_TYPE == "003")
+                  else if (smsConf.SERV_TYPE == "003")
                   {
                      // Faraz SMS
                      if (FarazSmsClient == null)
                         FarazSmsClient = new Code.Msgb.FarazSms(smsConf.USER_NAME, smsConf.PASS_WORD);
                   }
-                   else if(smsConf.SERV_TYPE == "004")
-                   {
-                      // IPPanel
-                      if (iPPanelEdgeClient == null)
-                         iPPanelEdgeClient = new Code.Msgb.IPPanelEdgeClient(smsConf.USER_NAME, smsConf.PASS_WORD);
-                   }
-                   else if(smsConf.SERV_TYPE == "005")
-                   {
-                      // Lidoma Market
-                      if (LidomaClient == null)
-                         LidomaClient = new Code.LidomaSmsClient(smsConf.BASE_URL ?? "http://localhost:3000");
-                   }
+                  else if (smsConf.SERV_TYPE == "004")
+                  {
+                     // IPPanel
+                     if (iPPanelEdgeClient == null)
+                        iPPanelEdgeClient = new Code.Msgb.IPPanelEdgeClient(smsConf.USER_NAME, smsConf.PASS_WORD);
+                  }
+                  else if (smsConf.SERV_TYPE == "005")
+                  {
+                     // Lidoma Market
+                     if (LidomaClient == null)
+                        LidomaClient = new Code.LidomaSmsClient(smsConf.BASE_URL ?? "http://localhost:3000");
+                  }
 
-                   // 1398/07/05 * بررسی وضعیت اتصال اینترنت
+                  // 1398/07/05 * بررسی وضعیت اتصال اینترنت
                   #region Ping Network
                   _DefaultGateway.Gateway(
                      new Job(SendType.External, "localhost", "Commons", 38 /* Execute DoWork4PingNetwork */, SendType.Self)
@@ -373,7 +375,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
                               )
                            );
                      }
-                     else if(smsConf.SERV_TYPE == "003")
+                     else if (smsConf.SERV_TYPE == "003")
                      {
                         xmsRespons =
                            new XDocument(
@@ -382,30 +384,30 @@ namespace System.MessageBroadcast.Ui.MasterPage
                               )
                            );
                      }
-                      else if(smsConf.SERV_TYPE == "004")
-                      {
-                         xmsRespons =
-                            new XDocument(
-                               new XElement("iPPanelEdgeClient",
-                                  new XElement("SendCredit", iPPanelEdgeClient.GetCredit())
-                               )
-                            );
-                      }
-                      else if(smsConf.SERV_TYPE == "005")
-                      {
-                         var loginResult = LidomaClient.LoginAsync(smsConf.USER_NAME, smsConf.PASS_WORD).Result;
-                         if (loginResult)
-                         {
-                            var credit = LidomaClient.GetCreditAsync().Result;
-                            xmsRespons = new XDocument(
-                               new XElement("LidomaClient",
-                                  new XElement("SendCredit", credit)
-                               )
-                            );
-                         }
-                      }
+                     else if (smsConf.SERV_TYPE == "004")
+                     {
+                        xmsRespons =
+                           new XDocument(
+                              new XElement("iPPanelEdgeClient",
+                                 new XElement("SendCredit", iPPanelEdgeClient.GetCredit())
+                              )
+                           );
+                     }
+                     else if (smsConf.SERV_TYPE == "005")
+                     {
+                        var loginResult = LidomaClient.LoginAsync(smsConf.USER_NAME, smsConf.PASS_WORD).Result;
+                        if (loginResult)
+                        {
+                           var credit = LidomaClient.GetCreditAsync().Result;
+                           xmsRespons = new XDocument(
+                              new XElement("LidomaClient",
+                                 new XElement("SendCredit", credit)
+                              )
+                           );
+                        }
+                     }
 
-                      if (InvokeRequired)
+                     if (InvokeRequired)
                         Invoke(new Action(() =>
                         {
                            if (xmsRespons.Descendants("SendCredit").Count() > 0)
@@ -529,7 +531,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
                               // ارسال میشود
                               //_SenderBgwk.Interval = 600000;
                               //_SenderBgwk.Interval = 60000;
-                              
+
 
                               new Thread(InternetDisconnected).Start();
 
@@ -585,14 +587,14 @@ namespace System.MessageBroadcast.Ui.MasterPage
          var smsconf = SmsBs.Current as Data.Message_Broad_Setting;
 
          _DefaultGateway.Gateway(
-            new Job(SendType.External, "localhost", "", 03 /* Actn_Extr_P */, SendType.Self) 
-            { 
-               Input = 
-                  new XElement("Process", 
-                     new XElement("Action", 
+            new Job(SendType.External, "localhost", "", 03 /* Actn_Extr_P */, SendType.Self)
+            {
+               Input =
+                  new XElement("Process",
+                     new XElement("Action",
                         new XAttribute("type", "001"),
                         new XAttribute("value", Ts_SmsBgwkStat.IsOn ? "true" : "false"),
-                        new XElement("LineNumber", 
+                        new XElement("LineNumber",
                            new XAttribute("mbid", smsconf.MBID)
                         )
                      )
@@ -610,7 +612,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
                   new XElement("Process",
                      new XElement("Action",
                         new XAttribute("type", "002"),
-                        new XAttribute("value", Ts_SmsWorkerStat.IsOn ? "true" : "false")                        
+                        new XAttribute("value", Ts_SmsWorkerStat.IsOn ? "true" : "false")
                      )
                   )
             }
@@ -720,7 +722,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
       {
          var smsApi = SmsBs.Current as Data.Message_Broad_Setting;
 
-         if(smsApi.WEB_SITE != null)
+         if (smsApi.WEB_SITE != null)
             Process.Start(smsApi.WEB_SITE);
       }
 
@@ -772,6 +774,25 @@ namespace System.MessageBroadcast.Ui.MasterPage
                Thread.Sleep(100);
             }
             //BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = tempcolor;
+         }
+      }
+
+      private void WebsMesg_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            _DefaultGateway.Gateway(
+               new Job(SendType.External, "Localhost",
+                 new List<Job>
+                 {
+                    new Job(SendType.Self, 08 /* Execute Webs_Mesg_F */),
+                    new Job(SendType.SelfToUserInterface, "WEBS_MESG_F", 10 /* Actn_CalF_P */)
+                 })
+            );
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
          }
       }
 

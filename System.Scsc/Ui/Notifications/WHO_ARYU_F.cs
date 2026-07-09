@@ -1329,7 +1329,7 @@ namespace System.Scsc.Ui.Notifications
 
             if(_freelockvip)
                iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Lock_Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
-            iScsc.ExecuteCommand("INSERT INTO dbo.Dresser_Vip_Fighter (Dres_Code, Mbsp_Figh_File_No, Mbsp_Rwno, Mbsp_Rect_Code, Code, Stat) VALUES ({0}, {1}, {2}, '004', 0, '002');", _dvipcode, _attn.FIGH_FILE_NO, _attn.Member_Ship.RWNO);
+            iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.Dresser_Vip_Fighter (Dres_Code, Mbsp_Figh_File_No, Mbsp_Rwno, Mbsp_Rect_Code, Code, Stat) VALUES ({0}, {1}, {2}, '004', 0, '002');", _dvipcode, _attn.FIGH_FILE_NO, _attn.Member_Ship.RWNO));
 
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
@@ -1527,7 +1527,7 @@ namespace System.Scsc.Ui.Notifications
 
                   if(_freelockvip)
                      iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Lock_Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
-                  iScsc.ExecuteCommand("INSERT INTO dbo.Dresser_Attendance (Dres_Code, Attn_Code, Figh_File_No, Code, Drat_Code, Ders_Numb, Lend_Time) SELECT {0}, {1}, {2}, 0, {4}, {3}, CAST(GETDATE() AS TIME(0)) WHERE NOT EXISTS (SELECT 0 FROM dbo.Dresser_Attendance WHERE Dres_Code = {0} AND Attn_Code = {1});", _dres.CODE, _attn.CODE, fileno, _dres.DRES_NUMB, _attn.Dresser_Attendances.FirstOrDefault(d => d.DRAT_CODE == null).CODE);
+                  iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.Dresser_Attendance (Dres_Code, Attn_Code, Figh_File_No, Code, Drat_Code, Ders_Numb, Lend_Time) SELECT {0}, {1}, {2}, 0, {4}, {3}, CAST(GETDATE() AS TIME(0)) WHERE NOT EXISTS (SELECT 0 FROM dbo.Dresser_Attendance WHERE Dres_Code = {0} AND Attn_Code = {1});", _dres.CODE, _attn.CODE, fileno, _dres.DRES_NUMB, _attn.Dresser_Attendances.FirstOrDefault(d => d.DRAT_CODE == null).CODE));
                   
                   // 1405/02/26 * کسر جلسه بابت کمد همراه
                   iScsc.ExecuteCommand(
@@ -1617,7 +1617,7 @@ namespace System.Scsc.Ui.Notifications
                case 1:
                   if (_drat.Attendance.EXIT_TIME != null) return;
 
-                  iScsc.ExecuteCommand("DELETE dbo.Dresser_Attendance WHERE Attn_Code = {0} AND DERS_NUMB = {1};", _drat.ATTN_CODE, _drat.DERS_NUMB);
+                  iScsc.ExecuteCommand(string.Format("DELETE dbo.Dresser_Attendance WHERE Attn_Code = {0} AND DERS_NUMB = {1};", _drat.ATTN_CODE, _drat.DERS_NUMB));
 
                   // 1405/02/26 * کسر جلسه بابت کمد همراه
                   iScsc.ExecuteCommand(

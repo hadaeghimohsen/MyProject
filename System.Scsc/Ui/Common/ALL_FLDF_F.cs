@@ -283,7 +283,7 @@ namespace System.Scsc.Ui.Common
 
                      if(_ctrlHold)
                      {
-                        iScsc.ExecuteCommand("DELETE dbo.Dresser_Attendance WHERE Attn_Code = {0}; DELETE dbo.Attendance WHERE Code = {0};", _attn.CODE);
+                        iScsc.ExecuteCommand(string.Format("DELETE dbo.Dresser_Attendance WHERE Attn_Code = {0}; DELETE dbo.Attendance WHERE Code = {0};", _attn.CODE));
                      }
 
                      iScsc = new Data.iScscDataContext(ConnectionString);
@@ -917,6 +917,10 @@ namespace System.Scsc.Ui.Common
                         )
                      )
                   );
+                  requery = true;
+                  break;
+               case 2:
+                  iScsc.ExecuteCommand(string.Format("UPDATE dbo.Payment SET Debt_Amnt_Dnrm = 0 WHERE Rqst_Rqid = {0};", pymt.RQID));
                   requery = true;
                   break;
                default:
@@ -3533,7 +3537,7 @@ namespace System.Scsc.Ui.Common
 
             if(_fgdc.MTOD_CODE != null && MessageBox.Show(this, "آیا با تغییرات کد تخفیف از حالت خصوصی به حالت عمومی موافق هستید؟", "تغییر وضعیت رکورد تخفیف", MessageBoxButtons.YesNo) != DialogResult.Yes)
             {
-               iScsc.ExecuteCommand("UPDATE dbo.Fighter_Discount_Card SET MTOD_CODE = NULL, CTGY_CODE = NULL WHERE CODE = {0};", _fgdc.CODE);
+                iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Discount_Card SET MTOD_CODE = NULL, CTGY_CODE = NULL WHERE CODE = {0};", _fgdc.CODE));
                requery = true;
             }
          }
@@ -3570,7 +3574,7 @@ namespace System.Scsc.Ui.Common
             var _ctgy = CtgyBs.Current as Data.Category_Belt;
             if (_ctgy == null) return;
             
-            iScsc.ExecuteCommand("UPDATE dbo.Fighter_Discount_Card SET MTOD_CODE = {1}, CTGY_CODE = {2} WHERE CODE = {0};", _fgdc.CODE, _ctgy.MTOD_CODE, _ctgy.CODE);
+            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Discount_Card SET MTOD_CODE = {1}, CTGY_CODE = {2} WHERE CODE = {0};", _fgdc.CODE, _ctgy.MTOD_CODE, _ctgy.CODE));
             requery = true;            
          }
          catch (Exception exc)
@@ -3593,7 +3597,7 @@ namespace System.Scsc.Ui.Common
 
             if (_fgdc.RQST_RQID != null && _fgdc.STAT == "001") { MessageBox.Show(this, string.Format("این رکورد تخفیف برای شماره درخواست " + "[ {0} ]" + " استفاده شده است و دیگر قادر به ویرایش آن نیستید.", _fgdc.RQST_RQID), "عدم تغییر در رکورد تخفیف"); return; }
 
-            iScsc.ExecuteCommand("UPDATE dbo.Fighter_Discount_Card SET STAT = {1} WHERE CODE = {0};", _fgdc.CODE, (_fgdc.STAT == "001" ? "002" : "001"));
+            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Fighter_Discount_Card SET STAT = {1} WHERE CODE = {0};", _fgdc.CODE, (_fgdc.STAT == "001" ? "002" : "001")));
             requery = true;
          }
          catch (Exception exc)
@@ -5535,7 +5539,7 @@ namespace System.Scsc.Ui.Common
 
                   if(_freelockvip)
                      iScsc.ExecuteCommand(string.Format("UPDATE dbo.Dresser_Vip_Fighter SET Stat = '001' WHERE Code = {0};", _lockbydvip.CODE));
-                  iScsc.ExecuteCommand("INSERT INTO dbo.Dresser_Vip_Fighter (Dres_Code, Mbsp_Figh_File_No, Mbsp_Rwno, Mbsp_Rect_Code, Code, Stat) VALUES ({0}, {1}, {2}, '004', 0, '002');", _dvipcode, _fileno, _mbsp.RWNO);
+                  iScsc.ExecuteCommand(string.Format("INSERT INTO dbo.Dresser_Vip_Fighter (Dres_Code, Mbsp_Figh_File_No, Mbsp_Rwno, Mbsp_Rect_Code, Code, Stat) VALUES ({0}, {1}, {2}, '004', 0, '002');", _dvipcode, _fileno, _mbsp.RWNO));
                   break;
                default:
                   break;
@@ -6370,6 +6374,113 @@ namespace System.Scsc.Ui.Common
          {
             MessageBox.Show(exc.Message);
          }
+      }
+
+      private void Tfp2Ncp_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            // ===== مرحله 1: اعتبارسنجی فیلدها =====
+            // اعتبارسنجی شماره موبایل
+            if (!Tfp2Ncp_Txt.ValidatePhoneField("شماره موبایل"))
+            {
+               Tfp2Ncp_Txt.Focus();
+               return;
+            }
+
+            if (FngrPrnt_Txt.Text.Trim() == "")
+            {
+               MessageBox.Show(this, "شماره کد شناسایی خالی میباشد", "کد شناسایی", MessageBoxButtons.OK);
+               FngrPrnt_Txt.Focus();
+               return;
+            }
+
+            // اعتبارسنجی نام (فیلد اجباری)
+            //if (string.IsNullOrWhiteSpace(Tfp2Nfn_Txt.Text))
+            //{
+            //    MessageBox.Show("لطفاً نام خود را وارد کنید.", "خطا", 
+            //        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    Tfp2Nfn_Txt.Focus();
+            //    return;
+            //}
+
+            // اعتبارسنجی فامیلی (فیلد اجباری)
+            //if (string.IsNullOrWhiteSpace(Tfp2Nln_Txt.Text))
+            //{
+            //    MessageBox.Show("لطفاً فامیلی خود را وارد کنید.", "خطا", 
+            //        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //    Tfp2Nln_Txt.Focus();
+            //    return;
+            //}
+
+            // ===== مرحله 2: ساخت XML با XElement =====
+            XElement xRequest = new XElement("Fighter",
+                new XAttribute("fngrprnt", FngrPrnt_Txt.Text),
+                new XAttribute("fileno", _fileno),
+                new XElement("Transfer",
+                    new XAttribute("cellphon", Tfp2Ncp_Txt.Text.Trim()),
+                    new XAttribute("frstname", Tfp2Nfn_Txt.Text.Trim()),
+                    new XAttribute("lastname", Tfp2Nln_Txt.Text.Trim()),
+                    new XAttribute("sextype", Tfp2Nmen_Rb.Checked ? "001" : "002")
+                )
+            );
+
+            // ===== مرحله 3: فراخوانی تابع SQL Server =====
+            // فرض می‌کنیم iScsc از نوع DataContext شماست
+            // متد Dup_Figh_P باید به صورت زیر تعریف شده باشد:
+            // [Function(Name = "dbo.DUP_FIGH_P")]
+            // public ISingleResult<Dup_Figh_PResult> Dup_Figh_P([Parameter(Name = "X", DbType = "Xml")] string X, [Parameter(Name = "xRet", DbType = "Xml")] ref string xRet)
+
+            XElement xRet = null; // برای دریافت خروجی
+
+            // فراخوانی تابع (با توجه به ساختار LINQ2SQL شما)
+            iScsc.DUP_FIGH_P(xRequest, ref xRet);
+
+            // ===== مرحله 4: پردازش خروجی =====
+            if (!string.IsNullOrEmpty(xRet.ToString()))
+            {
+               // بارگذاری خروجی XML
+               //XElement xResponse = XElement.Parse(xRet);
+
+               // استخراج مقدار Attribute fileno
+               XAttribute filenoAttribute = xRet.Attribute("fileno");
+
+               if (filenoAttribute != null)
+               {
+                  _fileno = Convert.ToInt64(filenoAttribute.Value);
+
+                  // بروزرسانی اطلاعات فرم
+                  _DefaultGateway.Gateway(
+                     new Job(SendType.External, "localhost", GetType().Name, 07 /* Execute LoadData */, SendType.SelfToUserInterface) { Input = new XElement("Fighter", new XAttribute("fileno", _fileno)) }
+                  );
+
+                  // تنظیم requery برای اجرای مجدد کوئری
+                  requery = true;
+
+                  Tfp2Ncp_Txt.Text = Tfp2Nfn_Txt.Text = Tfp2Nln_Txt.Text = "";
+                  tb_1_tp_001.SelectedIndex = 0;
+               }
+               else
+               {
+                  MessageBox.Show("خطا در دریافت شماره پرونده از سرور.", "خطا",
+                      MessageBoxButtons.OK, MessageBoxIcon.Error);
+                  requery = false;
+               }
+            }
+            else
+            {
+               MessageBox.Show("پاسخی از سرور دریافت نشد.", "خطا",
+                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+               requery = false;
+            }
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(string.Format("خطا در ثبت اطلاعات:\n{0}", exc.Message), "خطا",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+            requery = false;
+         }
+         
       }
    }
 }

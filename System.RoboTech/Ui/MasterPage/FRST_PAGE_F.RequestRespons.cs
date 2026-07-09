@@ -386,7 +386,7 @@ namespace System.RoboTech.Ui.MasterPage
                   break;
                case "receptionorder::ok":
                   #region Recption Online Order
-                  iRoboTech.ExecuteCommand("BEGIN UPDATE dbo.[Order] SET Ordr_Stat = '002' WHERE Code = {0}; END;", param);
+                   iRoboTech.ExecuteCommand(string.Format("BEGIN UPDATE dbo.[Order] SET Ordr_Stat = '002' WHERE Code = {0}; END;", param));
 
                   frstLoad = false;
                   OrderAction_Recipt();

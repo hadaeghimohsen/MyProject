@@ -1,0 +1,418 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="iScsc" Class="iScscDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=iScsc;Integrated Security=True" SettingsObjectName="System.MessageBroadcast.Properties.Settings" SettingsPropertyName="iScscConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Attendance" Member="Attendances">
+    <Type Name="Attendance">
+      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="FIGH_FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="ATTN_DATE" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="ATTN_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MBSP_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MBSP_RECT_CODE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="COCH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ATTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ENTR_TIME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="EXIT_TIME" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="MUST_EXIT_TIME_DNRM" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="TOTL_SESN" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="ATTN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="DERS_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="FGPB_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CBMT_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MTOD_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CTGY_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IMAG_RCDC_RCID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IMAG_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="FNGR_PRNT_DNRM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BUFE_DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MBSP_STRT_DATE_DNRM" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MBSP_END_DATE_DNRM" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="BRTH_DATE_DNRM" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SUM_ATTN_MONT_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MBCO_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="SESN_SNID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ATTN_DESC" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GLOB_CODE_DNRM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PRNT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PRNT_CONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RCPT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="PMEX_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ATTN_SYS_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SEX_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SEND_MESG_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RTNG_NUMB" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="OWNR_CBMT_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="NUMB_OPEN_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Attendance_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="ATTN_CODE" Type="Attendance" />
+      <Association Name="Attendance_Attendance" Member="Attendance1" ThisKey="ATTN_CODE" OtherKey="CODE" Type="Attendance" IsForeignKey="true" />
+      <Association Name="Club_Method_Attendance" Member="Club_Method" ThisKey="CBMT_CODE_DNRM" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" />
+      <Association Name="Fighter_Attendance" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
+      <Association Name="Fighter_Attendance1" Member="Fighter1" ThisKey="FIGH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Method_Attendance" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
+      <Association Name="Category_Belt_Attendance" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
+      <Association Name="Club_Attendance" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Club_Method" Member="Club_Methods">
+    <Type Name="Club_Method">
+      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="COCH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DAY_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="STRT_TIME" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="END_TIME" Type="System.TimeSpan" DbType="Time NOT NULL" CanBeNull="false" />
+      <Column Name="MTOD_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="SEX_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CBMT_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CPCT_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CPCT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CBMT_TIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CBMT_TIME_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CLAS_TIME" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="NATL_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="DURT_ATTN_SOND_PATH" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="FLTR_TMWK_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Club_Method_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="CBMT_CODE_DNRM" Type="Attendance" />
+      <Association Name="Club_Method_Club_Method_Weekday" Member="Club_Method_Weekdays" ThisKey="CODE" OtherKey="CBMT_CODE" Type="Club_Method_Weekday" />
+      <Association Name="Fighter_Club_Method" Member="Fighter" ThisKey="COCH_FILE_NO" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
+      <Association Name="Method_Club_Method" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Club_Club_Method" Member="Club" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Expense" Member="Expenses">
+    <Type Name="Expense">
+      <Column Name="REGL_YEAR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="REGL_CODE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EXTP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CTGY_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="GROP_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BRND_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EXPN_DESC" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="PRIC" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="MIN_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MAX_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="EXTR_PRCT" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="EXPN_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ADD_QUTS" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="COVR_DSCT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="EXPN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BUY_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BUY_EXTR_PRCT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="NUMB_OF_STOK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NUMB_OF_SALE" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NUMB_OF_REMN_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ORDR_ITEM" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="COVR_TAX" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="NUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NUMB_OF_ATTN_WEEK" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MODL_NUMB_BAR_CODE" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PRVT_COCH_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MIN_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NUMB_CYCL_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NUMB_MONT_OFER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MIN_TIME" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="RELY_CMND" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PROF_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DEDU_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="UNIT_APBS_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CAN_CALC_PROF" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MUST_FILL_OWNR" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="EXPN_IDTY_VALU" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="EXPN_IDTY_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Method_Expense" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
+      <Association Name="Category_Belt_Expense" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Fighter" Member="Fighters">
+    <Type Name="Fighter">
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="FILE_NO" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TARF_CODE_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="MOST_DEBT_CLNG_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DEBT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="BUFE_DEBT_DNTM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DPST_AMNT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FGPB_RWNO_DNRM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MBSP_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MBCO_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MBFZ_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MBSM_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CAMP_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="TEST_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CLCL_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="HERT_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="PSFN_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="EXAM_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="BDFT_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="MBSP_STRT_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MBSP_END_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="CONF_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="CONF_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="FIGH_STAT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="RQST_RQID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="NAME_DNRM" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FRST_NAME_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="LAST_NAME_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="FATH_NAME_DNRM" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="POST_ADRS_DNRM" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="SEX_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BRTH_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="TELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="FGPB_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="INSR_NUMB_DNRM" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="INSR_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="TEST_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CAMP_DATE_DNRM" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="CTGY_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MTOD_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CLUB_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="COCH_FILE_NO_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="COCH_CRTF_YEAR_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CBMT_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DAY_TYPE_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ATTN_TIME_DNRM" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="ACTV_TAG_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="BLOD_GROP_DNRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="IMAG_RCDC_RCID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="IMAG_RWNO_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="CARD_NUMB_DNRM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="FNGR_PRNT_DNRM" Type="System.String" DbType="VarChar(20)" CanBeNull="true" />
+      <Column Name="SUNT_BUNT_DEPT_ORGN_CODE_DNRM" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="SUNT_BUNT_DEPT_CODE_DNRM" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="SUNT_BUNT_CODE_DNRM" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="SUNT_CODE_DNRM" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="ORGN_CODE_DNRM" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="CORD_X_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="CORD_Y_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="SERV_NO_DNRM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NATL_CODE_DNRM" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="GLOB_CODE_DNRM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MOM_CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="MOM_TELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="MOM_CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DAD_CELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="DAD_TELL_PHON_DNRM" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="DAD_CHAT_ID_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DPST_ACNT_SLRY_BANK_DNRM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DPST_ACNT_SLRY_DNRM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="RTNG_NUMB_DNRM" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="REF_CODE_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="LEFT_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RIGH_FILE_NO" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Fighter_Attendance" Member="Attendances" ThisKey="FILE_NO" OtherKey="COCH_FILE_NO" Type="Attendance" />
+      <Association Name="Fighter_Attendance1" Member="Attendances1" ThisKey="FILE_NO" OtherKey="FIGH_FILE_NO" Type="Attendance" />
+      <Association Name="Fighter_Club_Method" Member="Club_Methods" ThisKey="FILE_NO" OtherKey="COCH_FILE_NO" Type="Club_Method" />
+      <Association Name="Fighter_Fighter" Member="Fighters" ThisKey="FILE_NO" OtherKey="REF_CODE_DNRM" Type="Fighter" />
+      <Association Name="Fighter_Fighter" Member="Fighter1" ThisKey="REF_CODE_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
+      <Association Name="Method_Fighter" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
+      <Association Name="Category_Belt_Fighter" Member="Category_Belt" ThisKey="CTGY_CODE_DNRM" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
+      <Association Name="Region_Fighter" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+      <Association Name="Club_Fighter" Member="Club" ThisKey="CLUB_CODE_DNRM" OtherKey="CODE" Type="Club" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Method" Member="Methods">
+    <Type Name="Method">
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MTOD_DESC" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="NATL_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="EPIT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="MTOD_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CHCK_ATTN_ALRM" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SHAR_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="SHOW_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Method_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Attendance" />
+      <Association Name="Method_Club_Method" Member="Club_Methods" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Club_Method" />
+      <Association Name="Method_Expense" Member="Expenses" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Expense" />
+      <Association Name="Method_Fighter" Member="Fighters" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Fighter" />
+      <Association Name="Method_Method" Member="Methods" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Method" />
+      <Association Name="Method_Category_Belt" Member="Category_Belts" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Category_Belt" />
+      <Association Name="Method_Method" Member="Method1" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Category_Belt" Member="Category_Belts">
+    <Type Name="Category_Belt">
+      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CTGY_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CTGY_DESC" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="ORDR" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="RED" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="GREN" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="BLUE" Type="System.Int16" DbType="SmallInt" CanBeNull="true" />
+      <Column Name="NATL_CODE" Type="System.String" DbType="VarChar(2)" CanBeNull="true" />
+      <Column Name="EPIT_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="NUMB_OF_ATTN_MONT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRVT_COCH_EXPN" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="NUMB_CYCL_DAY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NUMB_MONT_OFER" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="FEE_AMNT" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="TAX_PRCT_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="DUTY_PRCT_DNRM" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="EXPN_EXTR_PRCT_DNRM" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="DFLT_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CTGY_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="GUST_NUMB" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RWRD_ATTN_PRIC" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SHOW_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Category_Belt_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Attendance" />
+      <Association Name="Category_Belt_Expense" Member="Expenses" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Expense" />
+      <Association Name="Category_Belt_Fighter" Member="Fighters" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Fighter" />
+      <Association Name="Category_Belt_Category_Belt" Member="Category_Belts" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Category_Belt" />
+      <Association Name="Category_Belt_Category_Belt" Member="Category_Belt1" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
+      <Association Name="Method_Category_Belt" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Club_Method_Weekday" Member="Club_Method_Weekdays">
+    <Type Name="Club_Method_Weekday">
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CBMT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="WEEK_DAY" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Club_Method_Club_Method_Weekday" Member="Club_Method" ThisKey="CBMT_CODE" OtherKey="CODE" Type="Club_Method" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Country" Member="Countries">
+    <Type Name="Country">
+      <Column Name="CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Country_Province" Member="Provinces" ThisKey="CODE" OtherKey="CNTY_CODE" Type="Province" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Province" Member="Provinces">
+    <Type Name="Province">
+      <Column Name="CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Province_Region" Member="Regions" ThisKey="CNTY_CODE,CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE" Type="Region" />
+      <Association Name="Country_Province" Member="Country" ThisKey="CNTY_CODE" OtherKey="CODE" Type="Country" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Region" Member="Regions">
+    <Type Name="Region">
+      <Column Name="PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(3) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Region_Fighter" Member="Fighters" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Fighter" />
+      <Association Name="Region_Region" Member="Regions" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,REGN_CODE" Type="Region" />
+      <Association Name="Region_Club" Member="Clubs" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" OtherKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" Type="Club" />
+      <Association Name="Province_Region" Member="Province" ThisKey="PRVN_CNTY_CODE,PRVN_CODE" OtherKey="CNTY_CODE,CODE" Type="Province" IsForeignKey="true" />
+      <Association Name="Region_Region" Member="Region1" ThisKey="PRVN_CNTY_CODE,PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Club" Member="Clubs">
+    <Type Name="Club">
+      <Column Name="REGN_PRVN_CNTY_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_PRVN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="REGN_CODE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="NAME" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="POST_ADRS" Type="System.String" DbType="NVarChar(1000)" CanBeNull="true" />
+      <Column Name="EMAL_ADRS" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="WEB_SITE" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="CORD_X" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="CORD_Y" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TELL_PHON" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CELL_PHON" Type="System.String" DbType="VarChar(11)" CanBeNull="true" />
+      <Column Name="CLUB_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="ZIP_CODE" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ECON_CODE" Type="System.String" DbType="VarChar(15)" CanBeNull="true" />
+      <Column Name="CLUB_DESC" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="INST_PAGE" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="SEX_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="TEMP_TAG" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Club_Attendance" Member="Attendances" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Attendance" />
+      <Association Name="Club_Club_Method" Member="Club_Methods" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Club_Method" />
+      <Association Name="Club_Fighter" Member="Fighters" ThisKey="CODE" OtherKey="CLUB_CODE_DNRM" Type="Fighter" />
+      <Association Name="Club_Club" Member="Clubs" ThisKey="CODE" OtherKey="CLUB_CODE" Type="Club" />
+      <Association Name="Club_Club" Member="Club1" ThisKey="CLUB_CODE" OtherKey="CODE" Type="Club" IsForeignKey="true" />
+      <Association Name="Region_Club" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>

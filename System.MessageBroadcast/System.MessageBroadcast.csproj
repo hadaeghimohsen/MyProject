@@ -97,6 +97,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>iProject.dbml</DependentUpon>
     </Compile>
+    <Compile Include="Data\iScsc.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>iScsc.dbml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ui\MasterPage\MSTR_PAGE_F.cs">
       <SubType>UserControl</SubType>
@@ -135,6 +140,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.map</DependentUpon>
     </Compile>
+    <None Include="Data\iScsc.dbml.layout">
+      <DependentUpon>iScsc.dbml</DependentUpon>
+    </None>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Ui\MasterPage\MSTR_PAGE_F.resx">
       <DependentUpon>MSTR_PAGE_F.cs</DependentUpon>
@@ -161,6 +169,11 @@
     <None Include="Data\iProject.dbml">
       <Generator>MSLinqToSQLGenerator</Generator>
       <LastGenOutput>iProject.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Data\iScsc.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>iScsc.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\DataSources\System.MessageBroadcast.Data.Default_Message.datasource" />

@@ -22,6 +22,28 @@ namespace System.MessageBroadcast.Code
             _httpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(60) };
         }
 
+        /// <summary>
+        /// نشان‌دهندهٔ اینکه لاگین موفق بوده و توکن هنوز معتبر است (تا ۲۳ ساعت).
+        /// </summary>
+        public bool IsAuthenticated
+        {
+            get
+            {
+                return !string.IsNullOrEmpty(_token) && DateTime.UtcNow < _tokenExpiry;
+            }
+        }
+
+        /// <summary>
+        /// توکن دریافتی از آخرین لاگین موفق (برای نمایش یا استفادهٔ مستقیم).
+        /// </summary>
+        public string Token
+        {
+            get
+            {
+                return _token;
+            }
+        }
+
         // ============================================================
         // 1. Authentication
         // ============================================================
@@ -169,6 +191,22 @@ namespace System.MessageBroadcast.Code
         {
             EnsureTokenValid();
             return await PostAsync("/ws/v1/customers/bulk", bulkData);
+        }
+
+        // ============================================================
+        // 5. Service Management (endpoint فرضی - در صورت تغییر مسیر، اینجا اصلاح شود)
+        // ============================================================
+
+        public async Task<JObject> CreateServiceAsync(object serviceData)
+        {
+            EnsureTokenValid();
+            return await PostAsync("/ws/v1/services", serviceData);
+        }
+
+        public async Task<JObject> CreateServicesBulkAsync(object bulkData)
+        {
+            EnsureTokenValid();
+            return await PostAsync("/ws/v1/services/bulk", bulkData);
         }
 
         // ============================================================

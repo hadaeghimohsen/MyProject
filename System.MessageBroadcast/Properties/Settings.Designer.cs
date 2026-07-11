@@ -52,5 +52,15 @@ namespace System.MessageBroadcast.Properties {
                 return ((string)(this["System_MessageBroadcast_iNotiSmsService_iNotiSMS"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=iScsc;Integrated Security=True")]
+        public string iScscConnectionString {
+            get {
+                return ((string)(this["iScscConnectionString"]));
+            }
+        }
     }
 }

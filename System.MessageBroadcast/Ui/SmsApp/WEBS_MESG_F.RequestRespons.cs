@@ -13,7 +13,9 @@ namespace System.MessageBroadcast.Ui.SmsApp
         public IRouter _DefaultGateway { get; set; }
 
         private Data.iProjectDataContext iProject;
-        private string ConnectionString;
+        private Data.iScscDataContext iScsc;
+        private string IScscConnectionString;
+        private string IProjectConnectionString;
         private string CurrentUser;
         private string FormCaller;
         private XElement xinput;
@@ -85,8 +87,16 @@ namespace System.MessageBroadcast.Ui.SmsApp
                 new Job(SendType.External, "Localhost", "Commons", 22 /* Execute GetConnectionString */, SendType.Self) { Input = "<Database>iProject</Database><Dbms>SqlServer</Dbms>" };
             _DefaultGateway.Gateway(GetConnectionString);
 
-            ConnectionString = GetConnectionString.Output.ToString();
+            IProjectConnectionString = GetConnectionString.Output.ToString();
             iProject = new Data.iProjectDataContext(GetConnectionString.Output.ToString());
+
+            GetConnectionString =
+                 new Job(SendType.External, "Localhost", "Commons", 22 /* Execute GetConnectionString */, SendType.Self) { Input = "<Database>iScsc</Database><Dbms>SqlServer</Dbms>" };
+            _DefaultGateway.Gateway(GetConnectionString);
+
+            IScscConnectionString = GetConnectionString.Output.ToString();
+            iScsc = new Data.iScscDataContext(GetConnectionString.Output.ToString());
+
 
             CurrentUser = iProject.GET_CRNTUSER_U(new XElement("User", new XAttribute("actntype", "001")));
             var GetHostInfo = new Job(SendType.External, "Localhost", "Commons", 24 /* Execute DoWork4GetHosInfo */, SendType.Self);
@@ -135,7 +145,22 @@ namespace System.MessageBroadcast.Ui.SmsApp
         /// </summary>
         private void LoadData(Job job)
         {
-            SubsBs.DataSource = iProject.Sub_Systems.Where(s => s.STAT == "002");
+            // بارگذاری تنظیمات وب‌سرویس لیدوما (Serv_Type = '005') جهت استفاده در احراز هویت خودکار
+            if (iProject != null)
+            {
+                var settings = iProject.Message_Broad_Settings.Where(m => m.SERV_TYPE == "005").ToList();
+                MgbsBs.DataSource = settings;
+
+                // مقداردهی خودکار فیلدهای تب لاگین از اولین رکورد تنظیمات
+                var first = settings.FirstOrDefault();
+                if (first != null)
+                {
+                    BaseUrl_Txt.EditValue = first.BASE_URL;
+                    UserName_Txt.EditValue = first.USER_NAME;
+                    Password_Txt.EditValue = first.PASS_WORD;
+                }
+            }
+
             job.Status = StatusType.Successful;
         }
 

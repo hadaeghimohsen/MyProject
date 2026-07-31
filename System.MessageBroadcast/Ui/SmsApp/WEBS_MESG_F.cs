@@ -1162,18 +1162,18 @@ namespace System.MessageBroadcast.Ui.SmsApp
                    var payload = new JObject();
                    payload["revenues"] = revenues;
 
-                   Log("در حال ارسال هزینه‌ها به لیدوما برای باشگاه: " + c.NAME);
-                   var res = await _lidoma.SetStoreRevenues(c.LDMA_CODE, payload);
+                    Log("در حال ارسال هزینه‌ها به لیدوما برای باشگاه: " + c.NAME);
+                    var res = await _lidoma.SetStoreRevenues(c.LDMA_CODE, payload);
 
-                   if (res["success"] == null || (bool?)res["success"] != true)
-                   {
-                      Log("خطا در ارسال هزینه‌ها: " + (res["error"]?.ToString() ?? "خطای ناشناخته"));
-                      continue;
-                   }
+                    if (res["success"] == null || (bool?)res["success"] != true)
+                    {
+                       Log("خطا در ارسال هزینه‌ها: " + (res["error"] != null ? res["error"].ToString() : "خطای ناشناخته"));
+                       continue;
+                    }
 
-                   // موفقیت: باشگاه را همگام شده می‌کنیم
-                   c.LDMA_STAT = "002";
-                   iScscLocal.SubmitChanges();
+                    // موفقیت: باشگاه را همگام شده می‌کنیم
+                    c.LDMA_STAT = "002";
+                    iScscLocal.SubmitChanges();
 
                    Log("باشگاه " + c.NAME + " با موفقیت همگام‌سازی شد.");
                 }

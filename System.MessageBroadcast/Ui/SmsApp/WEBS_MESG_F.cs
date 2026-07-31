@@ -127,11 +127,11 @@ namespace System.MessageBroadcast.Ui.SmsApp
                dataGridView1.Columns["JsonPayload"].Visible = false;
          };
 
-         LoadQueue();
+          LoadQueue();
 
-         _netTimer = new System.Windows.Forms.Timer { Interval = 30000 };
-         _netTimer.Tick += _netTimer_Tick;
-         _netTimer.Start();
+          _netTimer = new System.Windows.Forms.Timer { Interval = 600000 };
+          _netTimer.Tick += _netTimer_Tick;
+          _netTimer.Start();
 
          Log("فرم بارگذاری شد. بررسی وضعیت اینترنت...");
          bool ok = await IsInternetAvailableAsync();
@@ -147,15 +147,27 @@ namespace System.MessageBroadcast.Ui.SmsApp
       }
 
       // ============================================================
-      // 4. بررسی اتصال اینترنت (هر 30 ثانیه)
+      // 4. بررسی اتصال اینترنت (هر 10 دقیقه)
       // ============================================================
 
       private async void _netTimer_Tick(object sender, EventArgs e)
       {
-         bool ok = await IsInternetAvailableAsync();
-         SetConnectionStatus(ok);
-         if (ok)
-            await RunSendAllAsync();
+         _netTimer.Stop();
+         try
+         {
+            bool ok = await IsInternetAvailableAsync();
+            SetConnectionStatus(ok);
+            if (ok)
+               await RunSendAllAsync();
+         }
+         catch (Exception ex)
+         {
+            Log("خطا در هنگام ارسال: " + ex.Message);
+         }
+         finally
+         {
+            _netTimer.Start();
+         }
       }
 
       private async Task<bool> IsInternetAvailableAsync()
@@ -1046,7 +1058,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
                   foreach (var f in batch)
                   {
                      // فیلترهای مشتری
-                     if (f.FGPB_TYPE_DNRM != "001" || f.FGPB_TYPE_DNRM != "005") continue;    // مشتری - مهمان
+                     if (f.FGPB_TYPE_DNRM != "001" && f.FGPB_TYPE_DNRM != "005") continue;    // مشتری - مهمان
                      if (f.ACTV_TAG_DNRM != "101") continue;      // فعال
                      if (f.CONF_STAT != "002") continue;         // تأیید شده
                      if (f.FGPB_TYPE_DNRM == "001" && string.IsNullOrEmpty(f.CELL_PHON_DNRM)) continue; // شماره موبایل الزامی برای مشتریان واقعی

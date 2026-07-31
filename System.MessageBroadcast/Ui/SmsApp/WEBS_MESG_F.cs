@@ -83,17 +83,31 @@ namespace System.MessageBroadcast.Ui.SmsApp
             set { _error = value; OnChanged("Error"); }
          }
 
-         public event PropertyChangedEventHandler PropertyChanged;
-         private void OnChanged(string p)
-         {
-            if (PropertyChanged != null)
-               PropertyChanged(this, new PropertyChangedEventArgs(p));
-         }
-      }
+          public event PropertyChangedEventHandler PropertyChanged;
+          private void OnChanged(string p)
+          {
+             if (PropertyChanged != null)
+                PropertyChanged(this, new PropertyChangedEventArgs(p));
+          }
+       }
 
-      // ============================================================
-      // 2. فیلدها
-      // ============================================================
+       public class ExpenseView
+       {
+          public string code { get; set; }
+          public string groupCode { get; set; }
+          public string categoryCode { get; set; }
+          public string description { get; set; }
+          public decimal price { get; set; }
+          public int sessionCount { get; set; }
+          public int cycleDays { get; set; }
+          public int reminderDays { get; set; }
+          public string hasFiscalId { get; set; }
+          public string fiscalId { get; set; }
+       }
+
+       // ============================================================
+       // 2. فیلدها
+       // ============================================================
 
       private LidomaMarket _lidoma;
       private string _baseUrl;
@@ -595,23 +609,26 @@ namespace System.MessageBroadcast.Ui.SmsApp
             Log("ارسال در حال انجام است؛ لطفاً صبر کنید.");
             return;
          }
-         try
-         {
-            // 1. ابتدا باشگاه‌ها (Business)
-            await SendByTypeCoreAsync(QueueItemType.Business);
+          try
+          {
+             // 1. ابتدا باشگاه‌ها (Business)
+             await SendByTypeCoreAsync(QueueItemType.Business);
 
-            // 2. بررسی اینکه حداقل یک باشگاه StoreId داشته باشد
-            bool hasClubWithStoreId = await HasAnyClubWithStoreIdAsync();
-            if (!hasClubWithStoreId)
-            {
-               Log("هیچ باشگاهی StoreId (LDMA_CODE) ندارد. ارسال Services و Customers متوقف شد.");
-               return;
-            }
+             // 2. همگام‌سازی هزینه‌ها و درآمدها (Expenses)
+             await SyncExpensesAsync();
 
-            // 3. سپس Services و Customers
-            await SendByTypeCoreAsync(QueueItemType.Service);
-            await SendByTypeCoreAsync(QueueItemType.Customer);
-         }
+             // 3. بررسی اینکه حداقل یک باشگاه StoreId داشته باشد
+             bool hasClubWithStoreId = await HasAnyClubWithStoreIdAsync();
+             if (!hasClubWithStoreId)
+             {
+                Log("هیچ باشگاهی StoreId (LDMA_CODE) ندارد. ارسال Services و Customers متوقف شد.");
+                return;
+             }
+
+             // 4. سپس Services و Customers
+             await SendByTypeCoreAsync(QueueItemType.Service);
+             await SendByTypeCoreAsync(QueueItemType.Customer);
+          }
          finally { _sendLock.Release(); }
       }
 
@@ -1004,14 +1021,178 @@ namespace System.MessageBroadcast.Ui.SmsApp
                iScscLocal.SubmitChanges();
                Log(string.Format("همگام‌سازی باشگاه‌ها پایان یافت. {0} مورد پردازش شد.", done));
             }
-         }
-         catch (Exception ex)
-         {
-            Log("خطا در همگام‌سازی باشگاه‌ها: " + ex.Message);
-         }
-      }
+       }
+       catch (Exception ex)
+       {
+          Log("خطا در همگام‌سازی باشگاه‌ها: " + ex.Message);
+       }
+    }
 
-      private async Task SyncCustomersAsync()
+    private async Task SyncExpensesAsync()
+    {
+       try
+       {
+          using (var iProjectLocal = new Data.iProjectDataContext(IProjectConnectionString))
+          using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
+          {
+             var settings = iProjectLocal.Message_Broad_Settings.FirstOrDefault(s => s.SERV_TYPE == "005");
+             if (settings == null)
+             {
+                Log("تنظیمات لیدوما (SERV_TYPE=005) یافت نشد.");
+                return;
+             }
+
+             List<Data.Club> pending = iScscLocal.Clubs
+                 .Where(c => (c.LDMA_STAT ?? "001") == "001" || c.LDMA_STAT == "003")
+                 .ToList();
+
+             if (pending.Count == 0)
+             {
+                Log("باشگاهی برای همگام‌سازی هزینه‌ها یافت نشد.");
+                return;
+             }
+
+             int done = 0;
+             SetProgress(0, pending.Count);
+
+             foreach (var c in pending)
+             {
+                // فقط باشگاه‌هایی که از قبل در لیدوما ثبت شده‌اند
+                if (c.LDMA_CODE != null && c.LDMA_CODE != "")
+                {
+                   Log(string.Format("شروع همگام‌سازی هزینه‌ها برای باشگاه: {0}", c.NAME));
+
+                   var revenues = new JObject();
+                   var subscriptions = new JArray();
+                   var productSales = new JArray();
+
+                   // --- subscriptions (RQTP_CODE = '001') ---
+                   string subQuery = @"
+                      Select e.code, 
+                             e.MTOD_CODE as groupCode,
+                             e.CTGY_CODE as categoryCode,
+                             m.MTOD_DESC + N' - ' + cb.CTGY_DESC as [description],
+                             e.PRIC as price,
+                             e.NUMB_OF_ATTN_MONT as sessionCount,
+                             e.NUMB_CYCL_DAY as cycleDays,
+                             e.EXPN_IDTY_STAT as hasFiscalId,
+                             e.EXPN_IDTY_VALU as fiscalId
+                        from Expense e,
+                             Method m,
+                             Category_Belt cb,
+                             Expense_Type et,
+                             Request_Requester rr
+                       where e.extp_code = et.code
+                         and et.RQRQ_CODE = rr.code
+                         and rr.RQTP_CODE = '001'
+                         and e.EXPN_STAT = '002'
+                         and e.MTOD_CODE = m.CODE
+                         and e.CTGY_CODE = cb.CODE
+                         and e.CLUB_CODE = " + c.CODE;
+
+                   var subRows = iScscLocal.ExecuteQuery<ExpenseView>(subQuery).ToList();
+
+                   foreach (var row in subRows)
+                   {
+                      var item = new JObject();
+                      item["code"] = row.code;
+                      item["groupCode"] = row.groupCode;
+                      item["categoryCode"] = row.categoryCode;
+                      item["description"] = row.description ?? "";
+                      item["price"] = row.price;
+                      item["sessionCount"] = row.sessionCount;
+                      item["cycleDays"] = row.cycleDays;
+
+                      bool hasFiscalId = row.hasFiscalId != null && row.hasFiscalId.ToString() == "101";
+                      item["hasFiscalId"] = hasFiscalId;
+
+                      if (hasFiscalId && row.fiscalId != null)
+                         item["fiscalId"] = row.fiscalId.ToString();
+
+                      subscriptions.Add(item);
+                   }
+
+                   // --- productSales (RQTP_CODE = '016') ---
+                   string psQuery = @"
+                      Select e.code, 
+                             e.MTOD_CODE as groupCode,
+                             e.CTGY_CODE as categoryCode,
+                             m.MTOD_DESC + N' - ' + cb.CTGY_DESC as [description],
+                             e.PRIC as price,
+                             e.NUMB_CYCL_DAY as reminderDays,
+                             e.EXPN_IDTY_STAT as hasFiscalId,
+                             e.EXPN_IDTY_VALU as fiscalId
+                        from Expense e,
+                             Method m,
+                             Category_Belt cb,
+                             Expense_Type et,
+                             Request_Requester rr
+                       where e.extp_code = et.code
+                         and et.RQRQ_CODE = rr.code
+                         and rr.RQTP_CODE = '016'
+                         and e.EXPN_STAT = '002'
+                         and e.MTOD_CODE = m.CODE
+                         and e.CTGY_CODE = cb.CODE
+                         and e.CLUB_CODE = " + c.CODE;
+
+                   var psRows = iScscLocal.ExecuteQuery<ExpenseView>(psQuery).ToList();
+
+                   foreach (var row in psRows)
+                   {
+                      var item = new JObject();
+                      item["code"] = row.code;
+                      item["groupCode"] = row.groupCode;
+                      item["categoryCode"] = row.categoryCode;
+                      item["description"] = row.description ?? "";
+                      item["price"] = row.price;
+                      item["reminderDays"] = row.reminderDays;
+
+                      bool hasFiscalId = row.hasFiscalId != null && row.hasFiscalId.ToString() == "101";
+                      item["hasFiscalId"] = hasFiscalId;
+
+                      if (hasFiscalId && row.fiscalId != null)
+                         item["fiscalId"] = row.fiscalId.ToString();
+
+                      productSales.Add(item);
+                   }
+
+                   revenues["subscriptions"] = subscriptions;
+                   revenues["productSales"] = productSales;
+
+                   var payload = new JObject();
+                   payload["revenues"] = revenues;
+
+                   Log("در حال ارسال هزینه‌ها به لیدوما برای باشگاه: " + c.NAME);
+                   var res = await _lidoma.SetStoreRevenues(c.LDMA_CODE, payload);
+
+                   if (res["success"] == null || (bool?)res["success"] != true)
+                   {
+                      Log("خطا در ارسال هزینه‌ها: " + (res["error"]?.ToString() ?? "خطای ناشناخته"));
+                      continue;
+                   }
+
+                   // موفقیت: باشگاه را همگام شده می‌کنیم
+                   c.LDMA_STAT = "002";
+                   iScscLocal.SubmitChanges();
+
+                   Log("باشگاه " + c.NAME + " با موفقیت همگام‌سازی شد.");
+                }
+
+                done++;
+                SetProgress(done, pending.Count);
+             }
+
+             iScscLocal.SubmitChanges();
+             Log(string.Format("همگام‌سازی هزینه‌ها پایان یافت. {0} مورد پردازش شد.", done));
+          }
+       }
+       catch (Exception ex)
+       {
+          Log("خطا در همگام‌سازی هزینه‌ها: " + ex.Message);
+       }
+    }
+
+    private async Task SyncCustomersAsync()
       {
          try
          {

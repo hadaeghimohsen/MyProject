@@ -203,6 +203,28 @@ namespace System.MessageBroadcast.Code
             return await PostAsync("/ws/v1/services", serviceData);
         }
 
+        // ============================================================
+        // 7. Revenue Management
+        // ============================================================
+
+        public async Task<JObject> SetStoreRevenues(string storeId, object revenuesData)
+        {
+            EnsureTokenValid();
+            return await PutAsync("/ws/v1/stores/" + storeId + "/revenues", revenuesData);
+        }
+
+        private async Task<JObject> PutAsync(string path, object requestBody)
+        {
+            var json = JsonConvert.SerializeObject(requestBody);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
+            var request = new HttpRequestMessage(new HttpMethod("PUT"), _baseUrl + path) { Content = content };
+            var response = await _httpClient.SendAsync(request);
+            var responseJson = await response.Content.ReadAsStringAsync();
+            if (!response.IsSuccessStatusCode)
+                return JObject.FromObject(new { success = false, error = responseJson });
+            return JObject.Parse(responseJson);
+        }
+
         public async Task<JObject> CreateServicesBulkAsync(object bulkData)
         {
             EnsureTokenValid();

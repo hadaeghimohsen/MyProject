@@ -879,11 +879,14 @@ namespace System.Scsc.Ui.MasterPage
                   case "5.2.3.8.3":
                      result = Delete_CardNumber_Finger(xinput.Attribute("enrollnumb").Value);
                      break;
+                  case "5.2.3.8.4":
+                     Start_Enroll_Card(xinput.Attribute("enrollnumb").Value);
+                     break;
                   case "get":
                      job.Output = GetDataFromDev(xinput.Attribute("enrollnumb").Value);
                      break;
                   case "set":
-                     job.Output = SetDataToDev(xinput.Attribute("enrollnumb").Value, new List<string> { xinput.Attribute("fngrprntupdate").Value, xinput.Attribute("fngrprnt").Value, xinput.Attribute("faceupdate").Value, xinput.Attribute("face").Value });
+                     job.Output = SetDataToDev(xinput.Attribute("enrollnumb").Value, new List<string> { xinput.Attribute("fngrprntupdate").Value, xinput.Attribute("fngrprnt").Value, xinput.Attribute("faceupdate").Value, xinput.Attribute("face").Value, xinput.Attribute("cardupdate").Value, xinput.Attribute("card").Value });
                      break;
                }
                //if (result) MessageBox.Show(this, "عملیات با موفقیت انجام شد", "نتجیه عملیات", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -1118,15 +1121,19 @@ namespace System.Scsc.Ui.MasterPage
                         new XAttribute("mesgdesc", "Text")
                      );
                   break;
+               case "attnwithcoch":                  
                case "attn":
-                  Job _InteractWithScsc =
+                  if(cmnd.ToLower() == "attnwithcoch")
+                     figh = iScsc.Fighters.FirstOrDefault(f => f.FNGR_PRNT_DNRM == param.Split(',')[0]);
+
+                  _DefaultGateway.Gateway(
                      new Job(SendType.External, "Localhost",
                         new List<Job>
                         {
                            new Job(SendType.Self, 88 /* Execute Ntf_Totl_F */){Input = new XElement("Request", new XAttribute("actntype", "JustRunInBackground"))},
                            new Job(SendType.SelfToUserInterface, "NTF_TOTL_F", 10 /* Actn_CalF_P */){Input = new XElement("Request", new XAttribute("type", "attn"), new XAttribute("enrollnumber", figh.FNGR_PRNT_DNRM), new XAttribute("mbsprwno", param.Split(',')[1]), new XAttribute("chckattnalrm", "002"))}
-                        });
-                  _DefaultGateway.Gateway(_InteractWithScsc);
+                        })
+                  );
 
                   // نمایش اطلاعات ورود و خروج
                   var attn = iScsc.Attendances.Where(a => a.FNGR_PRNT_DNRM == figh.FNGR_PRNT_DNRM && a.ATTN_DATE == DateTime.Now.Date && a.MBSP_RWNO_DNRM == param.Split(',')[1].ToInt16()).OrderByDescending(a => a.CRET_DATE).FirstOrDefault();
@@ -1146,14 +1153,14 @@ namespace System.Scsc.Ui.MasterPage
                      if (attn.EXIT_TIME == null)
                         resultdesc = 
                            string.Format("{0} {1} {2}",
-                              "📥 ورود شما در ساعت",
+                           string.Format("📥 ورود {0} در ساعت", cmnd.ToLower() == "attn" ? "شما" : figh.NAME_DNRM),
                               attn.ENTR_TIME.Value.ToString().Substring(0, 5),
                               "ثبت شد"                              
                            );
                      else
                         resultdesc =
                            string.Format("{0} {1} {2}",
-                              "📤 خروج شما در ساعت",
+                           string.Format("📤 خروج {0} در ساعت", cmnd.ToLower() == "attn" ? "شما" : figh.NAME_DNRM),
                               attn.EXIT_TIME.Value.ToString().Substring(0, 5),
                               "ثبت شد"
                            );

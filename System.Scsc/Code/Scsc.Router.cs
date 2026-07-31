@@ -543,6 +543,9 @@ namespace System.Scsc.Code
             case 171:
                Bas_Def2_F(job);
                break;
+            case 172:
+               Srch_Engn_F(job);
+               break;
             default:
                job.Status = StatusType.Failed;
                break;
@@ -1037,6 +1040,9 @@ namespace System.Scsc.Code
                break;
             case "BAS_DEF2_F":
                _Bas_Def2_f.SendRequest(job);
+               break;
+            case "SRCH_ENGN_F":
+               _Srch_Engn_F.SendRequest(job);
                break;
 
             /* Show Changed */

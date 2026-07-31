@@ -817,6 +817,11 @@ namespace System.Scsc.Code
             if (_Bas_Def2_f == null)
                _Bas_Def2_f = new Ui.BaseDefinition.BAS_DEF2_F { _DefaultGateway = this };
          }
+         else if (value == "srch_engn_f")
+         {
+            if (_Srch_Engn_F == null)
+               _Srch_Engn_F = new Ui.Common.SRCH_ENGN_F { _DefaultGateway = this };
+         }
 
          // فرم های نمایش تغییرات
          else if (value == "show_atrq_f")
@@ -4986,6 +4991,30 @@ namespace System.Scsc.Code
                   new Job(SendType.SelfToUserInterface, "BAS_DEF2_F", 02 /* Execute Set */),
                   new Job(SendType.SelfToUserInterface, "BAS_DEF2_F", 07 /* Execute Load_Data */){WhereIsInputData = WhereIsInputDataType.StepBack},
                   new Job(SendType.SelfToUserInterface, "BAS_DEF2_F", 03 /* Execute Paint */)
+               });
+         }
+         else if (job.Status == StatusType.SignalForPreconditions)
+         {
+            job.Status = StatusType.Successful;
+         }
+      }
+
+      /// <summary>
+      /// Code 172
+      /// </summary>
+      /// <param name="job"></param>
+      private void Srch_Engn_F(Job job)
+      {
+         if (job.Status == StatusType.Running)
+         {
+            job.Status = StatusType.WaitForPreconditions;
+            job.OwnerDefineWorkWith.AddRange(
+               new List<Job>
+               {
+                  new Job(SendType.Self, 01 /* Execute GetUi */){Input = "srch_engn_f"},
+                  new Job(SendType.SelfToUserInterface, "SRCH_ENGN_F", 02 /* Execute Set */),
+                  new Job(SendType.SelfToUserInterface, "SRCH_ENGN_F", 07 /* Execute Load_Data */){WhereIsInputData = WhereIsInputDataType.StepBack},
+                  new Job(SendType.SelfToUserInterface, "SRCH_ENGN_F", 03 /* Execute Paint */)
                });
          }
          else if (job.Status == StatusType.SignalForPreconditions)

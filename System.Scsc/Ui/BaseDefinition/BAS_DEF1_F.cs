@@ -1036,6 +1036,26 @@ namespace System.Scsc.Ui.BaseDefinition
             await Execute_Query();
       }
 
+      private void SubMtod_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _mtod = MtodBs.Current as Data.Method;
+            if (_mtod == null) return;
+
+            AddMtod_Btn_Click(null, null);
+
+            var _newMtod = MtodBs.List.OfType<Data.Method>().FirstOrDefault(a => a.CODE == 0);
+            if (_newMtod == null) return;
+
+            _newMtod.MTOD_CODE = _mtod.CODE;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
+      }
+
       private async void UpdtExpn_Btn_Click(object sender, EventArgs e)
       {
          try
@@ -1252,6 +1272,26 @@ namespace System.Scsc.Ui.BaseDefinition
 
          if (requery)
             await Execute_Query();
+      }
+
+      private void SubCtgy_Btn_Click(object sender, EventArgs e)
+      {
+         try
+         {
+            var _ctgy = CtgyBs.Current as Data.Category_Belt;
+            if (_ctgy == null) return;
+
+            AddCtgy_Btn_Click(null, null);
+
+            var _newCtgy = CtgyBs.List.OfType<Data.Category_Belt>().FirstOrDefault(a => a.CODE == 0);
+            if (_newCtgy == null) return;
+
+            _newCtgy.CTGY_CODE = _ctgy.CODE;
+         }
+         catch (Exception exc)
+         {
+            MessageBox.Show(exc.Message);
+         }
       }
       #endregion      
       #endregion
@@ -2491,7 +2531,7 @@ namespace System.Scsc.Ui.BaseDefinition
             MessageBox.Show(exc.Message);
          }
       }
-      #endregion      
+      #endregion
       #endregion      
    }
 }

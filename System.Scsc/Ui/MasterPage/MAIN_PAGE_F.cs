@@ -2236,6 +2236,23 @@ namespace System.Scsc.Ui.MasterPage
       bool Fp5DevIsConnected = false;
       bool Fp6DevIsConnected = false;
       XElement xHost = null;
+      //private System.Windows.Forms.Timer refreshEventTimer;
+      //private void StartEventRefreshTimer()
+      //{
+      //   refreshEventTimer = new System.Windows.Forms.Timer();
+      //   refreshEventTimer.Interval = 120000; // هر ۲ دقیقه
+      //   refreshEventTimer.Tick += RefreshEvents;
+      //   refreshEventTimer.Start();
+      //}
+
+      //private void RefreshEvents(object sender, EventArgs e)
+      //{
+      //   // ثبت مجدد رویدادها برای جلوگیری از قطع شدن
+      //   axCZKEM1.RegEvent(1, 65535);
+      //   axCZKEM2.RegEvent(1, 65535);
+      //   axCZKEM3.RegEvent(1, 65535);
+      //}
+
       void Start_FingerPrint()
       {
          try
@@ -2280,12 +2297,15 @@ namespace System.Scsc.Ui.MasterPage
                                     {
                                        Fp1DevIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
                                        if (!dev.Init)
-                                       {
+                                       {                                          
                                           // fire event for fetch 
                                           axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
                                           // New code 
                                           axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
                                           dev.Init = true;
+
+                                          // راه‌اندازی تایمر برای ثبت مجدد رویدادها
+                                          //StartEventRefreshTimer();
                                        }
 
                                        if (Fp1DevIsConnected == true)
@@ -2338,6 +2358,9 @@ namespace System.Scsc.Ui.MasterPage
                                     // New code 
                                     axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
                                     dev.Init = true;
+                                    
+                                    // راه‌اندازی تایمر برای ثبت مجدد رویدادها
+                                    //StartEventRefreshTimer();
                                  }
                                  if (Fp1DevIsConnected == true)
                                  {
@@ -2409,18 +2432,22 @@ namespace System.Scsc.Ui.MasterPage
                                     {
                                        Fp2DevIsConnected = axCZKEM2.Connect_Net(fingerPrintSetting.IP_ADR2, Convert.ToInt32(fingerPrintSetting.PORT_NUM2));
                                        if (!dev.Init)
-                                       {
+                                       {                                          
                                           // fire event for fetch 
                                           axCZKEM2.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
                                           // New code 
                                           axCZKEM2.OnHIDNum += axCZKEM1_OnHIDNum;
                                           dev.Init = true;
+
+                                          // راه‌اندازی تایمر برای ثبت مجدد رویدادها
+                                          //StartEventRefreshTimer();
                                        }
                                        if (Fp2DevIsConnected == true)
                                        {
                                           Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
                                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
                                           Tsp_AttnSys.ForeColor = Color.Green;
+
                                           int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                           axCZKEM2.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
                                        }
@@ -2459,18 +2486,22 @@ namespace System.Scsc.Ui.MasterPage
                                  if (!Fp2DevIsConnected)
                                  {
                                     AttnType_Lov.EditValue = "001";
-                                    Fp2DevIsConnected = axCZKEM2.Connect_Net(fingerPrintSetting.IP_ADR2, Convert.ToInt32(fingerPrintSetting.PORT_NUM2));
+                                    Fp2DevIsConnected = axCZKEM2.Connect_Net(fingerPrintSetting.IP_ADR2, Convert.ToInt32(fingerPrintSetting.PORT_NUM2));                                    
                                     // fire event for fetch 
                                     axCZKEM2.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
                                     // New code 
                                     axCZKEM2.OnHIDNum += axCZKEM1_OnHIDNum;
                                     dev.Init = true;
+
+                                    // راه‌اندازی تایمر برای ثبت مجدد رویدادها
+                                    //StartEventRefreshTimer();
                                  }
                                  if (Fp2DevIsConnected == true)
                                  {
                                     Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
                                     this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
                                     Tsp_AttnSys.ForeColor = Color.Green;
+
                                     int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                     axCZKEM2.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
 
@@ -2537,12 +2568,15 @@ namespace System.Scsc.Ui.MasterPage
                                     {
                                        Fp1DevIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
                                        if (!dev.Init)
-                                       {
+                                       {                                          
                                           // fire event for fetch 
                                           axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
                                           // New code 
                                           axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
                                           dev.Init = true;
+
+                                          // راه‌اندازی تایمر برای ثبت مجدد رویدادها
+                                          //StartEventRefreshTimer();
                                        }
 
                                        if (Fp1DevIsConnected == true)
@@ -2551,6 +2585,7 @@ namespace System.Scsc.Ui.MasterPage
                                           Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
                                           this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
                                           Tsp_AttnSys.ForeColor = Color.Green;
+                                          
                                           int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                           axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
                                        }
@@ -2590,11 +2625,15 @@ namespace System.Scsc.Ui.MasterPage
                                  if (!Fp1DevIsConnected)
                                  {
                                     Fp1DevIsConnected = axCZKEM1.Connect_Net(fingerPrintSetting.IP_ADDR, Convert.ToInt32(fingerPrintSetting.PORT_NUMB));
+                                    
                                     // fire event for fetch 
                                     axCZKEM1.OnAttTransactionEx += axCZKEM1_OnAttTransactionEx;
                                     // New code 
                                     axCZKEM1.OnHIDNum += axCZKEM1_OnHIDNum;
                                     dev.Init = true;
+
+                                    // راه‌اندازی تایمر برای ثبت مجدد رویدادها
+                                    //StartEventRefreshTimer();
                                  }
                                  if (Fp1DevIsConnected == true)
                                  {
@@ -2602,6 +2641,7 @@ namespace System.Scsc.Ui.MasterPage
                                     Tsp_AttnSys.Text = "دستگاه حضور غیاب فعال می باشد";
                                     this.AttendanceSystemAlert_Butn.Image = global::System.Scsc.Properties.Resources.IMAGE_1219;
                                     Tsp_AttnSys.ForeColor = Color.Green;
+                                    
                                     int iMachineNumber = 1;//In fact,when you are using the tcp/ip communication,this parameter will be ignored,that is any integer will all right.Here we use 1.
                                     axCZKEM1.RegEvent(iMachineNumber, 65535);//Here you can register the realtime events that you want to be triggered(the parameters 65535 means registering all)
                                  }
@@ -4018,6 +4058,28 @@ namespace System.Scsc.Ui.MasterPage
       {
          try
          {
+            // ============================================
+            // 1. ابتدا اطلاعات کامل کاربر را از دستگاه مبدا بخوانید
+            // ============================================
+            //string enrollid = "1001"; // شناسه کاربر
+            string name = "", password = "", cardNumber = "";
+            int privilege = 0;
+            bool enabled = false;
+
+            // دریافت اطلاعات کاربر (شامل نام، رمز، کارت و...)
+            bool userInfoRead = axCZKEM1.SSR_GetUserInfo(1, enrollid, out name, out password, out privilege, out enabled);
+
+            if (!userInfoRead)
+            {
+               LogToBox("کاربر در دستگاه مبدا پیدا نشد.");
+               return false;
+            }
+
+            // دریافت شماره کارت کاربر (اگر دارد)
+            string cardNo = "";
+            axCZKEM1.GetStrCardNumber(out cardNo);
+
+
             string tmpData = "";
             int tmplen = 0;
             int flag = 0;
@@ -4031,33 +4093,98 @@ namespace System.Scsc.Ui.MasterPage
             {
                if (Fp2DevIsConnected)
                {
-                  //MessageBox.Show("2nd Device Enrolling");
+                  // 3-1. دستگاه مقصد را غیرفعال کنید
+                  axCZKEM2.EnableDevice(1, false);
+
+                  // 3-2. ابتدا کاربر را در دستگاه مقصد ایجاد کنید
+                  // ابتدا شماره کارت را تنظیم کنید
+                  if (!string.IsNullOrEmpty(cardNo))
+                  {
+                     axCZKEM2.SetStrCardNumber(cardNo);
+                  }
+
                   result = axCZKEM2.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM2.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+
+                  // 3-4. اطلاعات دستگاه را به‌روزرسانی و فعال کنید
+                  axCZKEM2.RefreshData(1);
+                  axCZKEM2.EnableDevice(1, true);
                }
                if (Fp3DevIsConnected)
                {
-                  //MessageBox.Show("3rd Device Enrolling");
+                  // 3-1. دستگاه مقصد را غیرفعال کنید
+                  axCZKEM3.EnableDevice(1, false);
+
+                  // 3-2. ابتدا کاربر را در دستگاه مقصد ایجاد کنید
+                  // ابتدا شماره کارت را تنظیم کنید
+                  if (!string.IsNullOrEmpty(cardNo))
+                  {
+                     axCZKEM3.SetStrCardNumber(cardNo);
+                  }
+
                   result = axCZKEM3.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM3.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+
+                  // 3-4. اطلاعات دستگاه را به‌روزرسانی و فعال کنید
+                  axCZKEM3.RefreshData(1);
+                  axCZKEM3.EnableDevice(1, true);
                }
                if (Fp4DevIsConnected)
                {
-                  //MessageBox.Show("3rd Device Enrolling");
+                  // 3-1. دستگاه مقصد را غیرفعال کنید
+                  axCZKEM4.EnableDevice(1, false);
+
+                  // 3-2. ابتدا کاربر را در دستگاه مقصد ایجاد کنید
+                  // ابتدا شماره کارت را تنظیم کنید
+                  if (!string.IsNullOrEmpty(cardNo))
+                  {
+                     axCZKEM4.SetStrCardNumber(cardNo);
+                  }
+
                   result = axCZKEM4.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM4.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+
+                  // 3-4. اطلاعات دستگاه را به‌روزرسانی و فعال کنید
+                  axCZKEM4.RefreshData(1);
+                  axCZKEM4.EnableDevice(1, true);
                }
                if (Fp5DevIsConnected)
                {
-                  //MessageBox.Show("3rd Device Enrolling");
+                  // 3-1. دستگاه مقصد را غیرفعال کنید
+                  axCZKEM5.EnableDevice(1, false);
+
+                  // 3-2. ابتدا کاربر را در دستگاه مقصد ایجاد کنید
+                  // ابتدا شماره کارت را تنظیم کنید
+                  if (!string.IsNullOrEmpty(cardNo))
+                  {
+                     axCZKEM5.SetStrCardNumber(cardNo);
+                  }
+
                   result = axCZKEM5.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM5.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+
+                  // 3-4. اطلاعات دستگاه را به‌روزرسانی و فعال کنید
+                  axCZKEM5.RefreshData(1);
+                  axCZKEM5.EnableDevice(1, true);
                }
                if (Fp6DevIsConnected)
                {
-                  //MessageBox.Show("3rd Device Enrolling");
+                  // 3-1. دستگاه مقصد را غیرفعال کنید
+                  axCZKEM6.EnableDevice(1, false);
+
+                  // 3-2. ابتدا کاربر را در دستگاه مقصد ایجاد کنید
+                  // ابتدا شماره کارت را تنظیم کنید
+                  if (!string.IsNullOrEmpty(cardNo))
+                  {
+                     axCZKEM6.SetStrCardNumber(cardNo);
+                  }
+
                   result = axCZKEM6.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM6.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+
+                  // 3-4. اطلاعات دستگاه را به‌روزرسانی و فعال کنید
+                  axCZKEM6.RefreshData(1);
+                  axCZKEM6.EnableDevice(1, true);
                }
             }
             #endregion
@@ -4074,143 +4201,174 @@ namespace System.Scsc.Ui.MasterPage
             {
                if (Fp2DevIsConnected)
                {
+                  // 3-1. دستگاه مقصد را غیرفعال کنید
+                  axCZKEM2.EnableDevice(1, false);
+
                   //MessageBox.Show("2nd Device Enrolling");
                   result = axCZKEM2.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM2.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+
+                  // 3-4. اطلاعات دستگاه را به‌روزرسانی و فعال کنید
+                  axCZKEM2.RefreshData(1);
+                  axCZKEM2.EnableDevice(1, true);
                }
                if (Fp3DevIsConnected)
                {
-                  //MessageBox.Show("3rd Device Enrolling");
+                  // 3-1. دستگاه مقصد را غیرفعال کنید
+                  axCZKEM3.EnableDevice(1, false);
+
                   result = axCZKEM3.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM3.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+
+                  // 3-4. اطلاعات دستگاه را به‌روزرسانی و فعال کنید
+                  axCZKEM3.RefreshData(1);
+                  axCZKEM3.EnableDevice(1, true);
                }
                if (Fp4DevIsConnected)
                {
-                  //MessageBox.Show("3rd Device Enrolling");
+                  // 3-1. دستگاه مقصد را غیرفعال کنید
+                  axCZKEM4.EnableDevice(1, false);
+
                   result = axCZKEM4.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM4.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+
+                  // 3-4. اطلاعات دستگاه را به‌روزرسانی و فعال کنید
+                  axCZKEM4.RefreshData(1);
+                  axCZKEM4.EnableDevice(1, true);
                }
                if (Fp5DevIsConnected)
                {
-                  //MessageBox.Show("3rd Device Enrolling");
+                  // 3-1. دستگاه مقصد را غیرفعال کنید
+                  axCZKEM5.EnableDevice(1, false);
+
                   result = axCZKEM5.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM5.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+
+                  // 3-4. اطلاعات دستگاه را به‌روزرسانی و فعال کنید
+                  axCZKEM5.RefreshData(1);
+                  axCZKEM5.EnableDevice(1, true);
                }
                if (Fp6DevIsConnected)
                {
-                  //MessageBox.Show("3rd Device Enrolling");
+                  // 3-1. دستگاه مقصد را غیرفعال کنید
+                  axCZKEM6.EnableDevice(1, false);
+
                   result = axCZKEM6.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM6.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+
+                  // 3-4. اطلاعات دستگاه را به‌روزرسانی و فعال کنید
+                  axCZKEM6.RefreshData(1);
+                  axCZKEM6.EnableDevice(1, true);
                }
             }
             #endregion
 
-            string aCardNumber = "";
-            string sName = "";
-            string sPassword = "";
-            int iPrivilege = 0;
-            bool benabled = false;
+            //string aCardNumber = "";
+            //string sName = "";
+            //string sPassword = "";
+            //int iPrivilege = 0;
+            //bool benabled = false;
 
-            #region SetCard User
-            if (axCZKEM1.SSR_GetUserInfo(1, enrollid, out sName, out sPassword, out iPrivilege, out benabled))
-            {
-               // sdwEnrollNumber now holds the card number
-               axCZKEM1.GetStrCardNumber(out aCardNumber);
-               if (aCardNumber != null && aCardNumber != "")
-               {
-                  if (Fp2DevIsConnected)
-                  {
-                     axCZKEM2.EnableDevice(1, false);
+            //#region SetCard User
+            //if (axCZKEM1.SSR_GetUserInfo(1, enrollid, out sName, out sPassword, out iPrivilege, out benabled))
+            //{
+            //   // sdwEnrollNumber now holds the card number
+            //   axCZKEM1.GetStrCardNumber(out aCardNumber);
+            //   if (aCardNumber != null && aCardNumber != "")
+            //   {
+            //      if (Fp2DevIsConnected)
+            //      {
+            //         axCZKEM2.EnableDevice(1, false);
 
-                     axCZKEM2.SetStrCardNumber(aCardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
-                     if (axCZKEM2.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
-                     {
-                        BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
-                     }
-                     else
-                     {
-                        int idwErrorCode = 0;
-                        axCZKEM2.GetLastError(ref idwErrorCode);
-                        BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
-                     }
-                     axCZKEM2.RefreshData(1);//the data in the device should be refreshed
-                     axCZKEM2.EnableDevice(1, true);
-                  }
-                  if (Fp3DevIsConnected)
-                  {
-                     axCZKEM3.EnableDevice(1, false);
+            //         axCZKEM2.SetStrCardNumber(aCardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+            //         if (axCZKEM2.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
+            //         {
+            //            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+            //         }
+            //         else
+            //         {
+            //            int idwErrorCode = 0;
+            //            axCZKEM2.GetLastError(ref idwErrorCode);
+            //            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+            //         }
+            //         axCZKEM2.RefreshData(1);//the data in the device should be refreshed
+            //         axCZKEM2.EnableDevice(1, true);
+            //      }
+            //      if (Fp3DevIsConnected)
+            //      {
+            //         axCZKEM3.EnableDevice(1, false);
 
-                     axCZKEM3.SetStrCardNumber(aCardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
-                     if (axCZKEM3.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
-                     {
-                        BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
-                     }
-                     else
-                     {
-                        int idwErrorCode = 0;
-                        axCZKEM3.GetLastError(ref idwErrorCode);
-                        BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
-                     }
-                     axCZKEM3.RefreshData(1);//the data in the device should be refreshed
-                     axCZKEM3.EnableDevice(1, true);
-                  }
-                  if (Fp4DevIsConnected)
-                  {
-                     axCZKEM4.EnableDevice(1, false);
+            //         axCZKEM3.SetStrCardNumber(aCardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+            //         if (axCZKEM3.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
+            //         {
+            //            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+            //         }
+            //         else
+            //         {
+            //            int idwErrorCode = 0;
+            //            axCZKEM3.GetLastError(ref idwErrorCode);
+            //            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+            //         }
+            //         axCZKEM3.RefreshData(1);//the data in the device should be refreshed
+            //         axCZKEM3.EnableDevice(1, true);
+            //      }
+            //      if (Fp4DevIsConnected)
+            //      {
+            //         axCZKEM4.EnableDevice(1, false);
 
-                     axCZKEM4.SetStrCardNumber(aCardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
-                     if (axCZKEM4.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
-                     {
-                        BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
-                     }
-                     else
-                     {
-                        int idwErrorCode = 0;
-                        axCZKEM4.GetLastError(ref idwErrorCode);
-                        BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
-                     }
-                     axCZKEM4.RefreshData(1);//the data in the device should be refreshed
-                     axCZKEM4.EnableDevice(1, true);
-                  }
-                  if (Fp5DevIsConnected)
-                  {
-                     axCZKEM5.EnableDevice(1, false);
+            //         axCZKEM4.SetStrCardNumber(aCardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+            //         if (axCZKEM4.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
+            //         {
+            //            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+            //         }
+            //         else
+            //         {
+            //            int idwErrorCode = 0;
+            //            axCZKEM4.GetLastError(ref idwErrorCode);
+            //            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+            //         }
+            //         axCZKEM4.RefreshData(1);//the data in the device should be refreshed
+            //         axCZKEM4.EnableDevice(1, true);
+            //      }
+            //      if (Fp5DevIsConnected)
+            //      {
+            //         axCZKEM5.EnableDevice(1, false);
 
-                     axCZKEM5.SetStrCardNumber(aCardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
-                     if (axCZKEM5.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
-                     {
-                        BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
-                     }
-                     else
-                     {
-                        int idwErrorCode = 0;
-                        axCZKEM5.GetLastError(ref idwErrorCode);
-                        BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
-                     }
-                     axCZKEM5.RefreshData(1);//the data in the device should be refreshed
-                     axCZKEM5.EnableDevice(1, true);
-                  }
-                  if (Fp6DevIsConnected)
-                  {
-                     axCZKEM6.EnableDevice(1, false);
+            //         axCZKEM5.SetStrCardNumber(aCardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+            //         if (axCZKEM5.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
+            //         {
+            //            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+            //         }
+            //         else
+            //         {
+            //            int idwErrorCode = 0;
+            //            axCZKEM5.GetLastError(ref idwErrorCode);
+            //            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+            //         }
+            //         axCZKEM5.RefreshData(1);//the data in the device should be refreshed
+            //         axCZKEM5.EnableDevice(1, true);
+            //      }
+            //      if (Fp6DevIsConnected)
+            //      {
+            //         axCZKEM6.EnableDevice(1, false);
 
-                     axCZKEM6.SetStrCardNumber(aCardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
-                     if (axCZKEM6.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
-                     {
-                        BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
-                     }
-                     else
-                     {
-                        int idwErrorCode = 0;
-                        axCZKEM6.GetLastError(ref idwErrorCode);
-                        BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
-                     }
-                     axCZKEM6.RefreshData(1);//the data in the device should be refreshed
-                     axCZKEM6.EnableDevice(1, true);
-                  }
-               }
-            }
-            #endregion
+            //         axCZKEM6.SetStrCardNumber(aCardNumber);//Before you using function SetUserInfo,set the card number to make sure you can upload it to the device
+            //         if (axCZKEM6.SSR_SetUserInfo(1, enrollid, enrollid, "", 0, true))//upload the user's information(card number included)
+            //         {
+            //            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+            //         }
+            //         else
+            //         {
+            //            int idwErrorCode = 0;
+            //            axCZKEM6.GetLastError(ref idwErrorCode);
+            //            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+            //         }
+            //         axCZKEM6.RefreshData(1);//the data in the device should be refreshed
+            //         axCZKEM6.EnableDevice(1, true);
+            //      }
+            //   }
+            //}
+            //#endregion
 
             // Play Enter Sound
             // 1404/03/30 ** New version for play sound
@@ -4242,44 +4400,102 @@ namespace System.Scsc.Ui.MasterPage
             {
                // Part 1 : Finger Print
                #region Finger Print
-               axCZKEM1.RefreshData(1);
-               var result = axCZKEM1.GetUserTmpExStr(1, enrollid, 6, out flag, out tmpData, out tmplen);
+               // ابتدا بررسی کن که کاربر وجود دارد یا نه
+               string name = "", password = "", cardNumber = "";
+               int privilege = 0;
+               bool enabled = false;
+               bool userExists = axCZKEM1.SSR_GetUserInfo(1, enrollid, out name, out password, out privilege, out enabled);
 
-               _data.Add(tmpData);
-               #endregion
+               if (userExists)
+               {
+                  // کاربر وجود دارد → اطلاعات را بخوان
+                  axCZKEM1.RefreshData(1);
+                  var result = axCZKEM1.GetUserTmpExStr(1, enrollid, 6, out flag, out tmpData, out tmplen);
+                  _data.Add(string.IsNullOrEmpty(tmpData) ? "" : tmpData);
 
-               // Reset old data
-               tmpData = null;
+                  // Reset old data
+                  tmpData = null;
 
-               // Part 2 : Face User
-               #region Face User
-               // Part 1 : Finger Print            
-               axCZKEM1.RefreshData(1);
-               result = axCZKEM1.GetUserFaceStr(1, enrollid, 111, ref tmpData, ref tmplen);
+                  // Part 2 : Face User
+                  #region Face User
+                  axCZKEM1.RefreshData(1);
+                  tmpData = "";
+                  tmplen = 0;
+                  result = axCZKEM1.GetUserFaceStr(1, enrollid, 111, ref tmpData, ref tmplen);
+                  _data.Add(string.IsNullOrEmpty(tmpData) ? "" : tmpData);
+                  #endregion
 
-               _data.Add(tmpData);
+                  // Part 3 : Card
+                  #region Card
+                  // حافظه موقت کارت را پاک کن تا اطلاعات قبلی تداخل نکند
+                  axCZKEM1.SetStrCardNumber("");
+
+                  // دوباره اطلاعات کاربر را بخوان تا کارت در حافظه موقت قرار گیرد
+                  axCZKEM1.SSR_GetUserInfo(1, enrollid, out name, out password, out privilege, out enabled);
+
+                  // شماره کارت را بخوان
+                  axCZKEM1.GetStrCardNumber(out cardNumber);
+                  _data.Add(string.IsNullOrEmpty(cardNumber) ? "" : cardNumber);
+                  #endregion
+               }
+               else
+               {
+                  // کاربر وجود ندارد → هر سه مقدار خالی برگردان
+                  _data.Add(""); // انگشت
+                  _data.Add(""); // چهره
+                  _data.Add(""); // کارت
+               }
                #endregion
             }
             else if (Fp2DevIsConnected)
             {
                // Part 1 : Finger Print
                #region Finger Print
-               axCZKEM2.RefreshData(1);
-               var result = axCZKEM2.GetUserTmpExStr(1, enrollid, 6, out flag, out tmpData, out tmplen);
+               // ابتدا بررسی کن که کاربر وجود دارد یا نه
+               string name = "", password = "", cardNumber = "";
+               int privilege = 0;
+               bool enabled = false;
+               bool userExists = axCZKEM2.SSR_GetUserInfo(1, enrollid, out name, out password, out privilege, out enabled);
 
-               _data.Add(tmpData);
-               #endregion
+               if (userExists)
+               {
+                  // کاربر وجود دارد → اطلاعات را بخوان
+                  axCZKEM2.RefreshData(1);
+                  var result = axCZKEM2.GetUserTmpExStr(1, enrollid, 6, out flag, out tmpData, out tmplen);
+                  _data.Add(string.IsNullOrEmpty(tmpData) ? "" : tmpData);
 
-               // Reset old data
-               tmpData = null;
+                  // Reset old data
+                  tmpData = null;
 
-               // Part 2 : Face User
-               #region Face User
-               // Part 1 : Finger Print            
-               axCZKEM2.RefreshData(1);
-               result = axCZKEM2.GetUserFaceStr(1, enrollid, 111, ref tmpData, ref tmplen);
+                  // Part 2 : Face User
+                  #region Face User
+                  axCZKEM2.RefreshData(1);
+                  tmpData = "";
+                  tmplen = 0;
+                  result = axCZKEM2.GetUserFaceStr(1, enrollid, 111, ref tmpData, ref tmplen);
+                  _data.Add(string.IsNullOrEmpty(tmpData) ? "" : tmpData);
+                  #endregion
 
-               _data.Add(tmpData);
+                  // Part 3 : Card
+                  #region Card
+                  // حافظه موقت کارت را پاک کن تا اطلاعات قبلی تداخل نکند
+                  axCZKEM2.SetStrCardNumber("");
+
+                  // دوباره اطلاعات کاربر را بخوان تا کارت در حافظه موقت قرار گیرد
+                  axCZKEM2.SSR_GetUserInfo(1, enrollid, out name, out password, out privilege, out enabled);
+
+                  // شماره کارت را بخوان
+                  axCZKEM2.GetStrCardNumber(out cardNumber);
+                  _data.Add(string.IsNullOrEmpty(cardNumber) ? "" : cardNumber);
+                  #endregion
+               }
+               else
+               {
+                  // کاربر وجود ندارد → هر سه مقدار خالی برگردان
+                  _data.Add(""); // انگشت
+                  _data.Add(""); // چهره
+                  _data.Add(""); // کارت
+               }
                #endregion
             }
 
@@ -4301,11 +4517,14 @@ namespace System.Scsc.Ui.MasterPage
          try
          {
             // Finger print data
-            string fngrprntupdate = _data[0], faceupdate = _data[2];
+            string fngrprntupdate = _data[0], faceupdate = _data[2], cardupdate = _data[4];
             string tmpData = _data[1];
             int tmplen = 0;
             int flag = 0;
             bool result = false;
+
+            // 1405/05/05 * IF NOT EXISTS DATA RETURN FALSE
+            if (string.IsNullOrEmpty(_data[1]) && string.IsNullOrEmpty(_data[3]) && string.IsNullOrEmpty(_data[5])) return false;
 
             // Part 1 : Finger Print
             #region Finger Print
@@ -4314,57 +4533,117 @@ namespace System.Scsc.Ui.MasterPage
             {
                if (Fp1DevIsConnected)
                {
+                  // 1. غیرفعال کردن دستگاه قبل از هر عملیات نوشتن
+                  axCZKEM1.EnableDevice(1, false);
+
+                  // 2. لغو هر عملیات در حال اجرا
+                  axCZKEM1.CancelOperation();
+
                   for (int i = 0; i < 10; i++)
                   {
                      axCZKEM1.SSR_DelUserTmpExt(1, enrollid, i);
                   }
                   result = axCZKEM1.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM1.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+
+                  // 8. به‌روزرسانی و فعال کردن مجدد دستگاه
+                  axCZKEM1.RefreshData(1);
+                  axCZKEM1.EnableDevice(1, true);
                }
                if (Fp2DevIsConnected)
                {
+                  // 1. غیرفعال کردن دستگاه قبل از هر عملیات نوشتن
+                  axCZKEM2.EnableDevice(1, false);
+
+                  // 2. لغو هر عملیات در حال اجرا
+                  axCZKEM2.CancelOperation();
+
                   for (int i = 0; i < 10; i++)
                   {
                      axCZKEM2.SSR_DelUserTmpExt(1, enrollid, i);
                   }
                   result = axCZKEM2.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM2.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+
+                  // 8. به‌روزرسانی و فعال کردن مجدد دستگاه
+                  axCZKEM2.RefreshData(1);
+                  axCZKEM2.EnableDevice(1, true);
                }
                if (Fp3DevIsConnected)
                {
+                  // 1. غیرفعال کردن دستگاه قبل از هر عملیات نوشتن
+                  axCZKEM3.EnableDevice(1, false);
+
+                  // 2. لغو هر عملیات در حال اجرا
+                  axCZKEM3.CancelOperation();
+
                   for (int i = 0; i < 10; i++)
                   {
                      axCZKEM3.SSR_DelUserTmpExt(1, enrollid, i);
                   }
                   result = axCZKEM3.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM3.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+
+                  // 8. به‌روزرسانی و فعال کردن مجدد دستگاه
+                  axCZKEM3.RefreshData(1);
+                  axCZKEM3.EnableDevice(1, true);
                }
                if (Fp4DevIsConnected)
                {
+                  // 1. غیرفعال کردن دستگاه قبل از هر عملیات نوشتن
+                  axCZKEM4.EnableDevice(1, false);
+
+                  // 2. لغو هر عملیات در حال اجرا
+                  axCZKEM4.CancelOperation();
+
                   for (int i = 0; i < 10; i++)
                   {
                      axCZKEM4.SSR_DelUserTmpExt(1, enrollid, i);
                   }
                   result = axCZKEM4.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM4.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+
+                  // 8. به‌روزرسانی و فعال کردن مجدد دستگاه
+                  axCZKEM4.RefreshData(1);
+                  axCZKEM4.EnableDevice(1, true);
                }
                if (Fp5DevIsConnected)
                {
+                  // 1. غیرفعال کردن دستگاه قبل از هر عملیات نوشتن
+                  axCZKEM5.EnableDevice(1, false);
+
+                  // 2. لغو هر عملیات در حال اجرا
+                  axCZKEM5.CancelOperation();
+
                   for (int i = 0; i < 10; i++)
                   {
                      axCZKEM5.SSR_DelUserTmpExt(1, enrollid, i);
                   }
                   result = axCZKEM5.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM5.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+
+                  // 8. به‌روزرسانی و فعال کردن مجدد دستگاه
+                  axCZKEM5.RefreshData(1);
+                  axCZKEM5.EnableDevice(1, true);
                }
                if (Fp6DevIsConnected)
                {
+                  // 1. غیرفعال کردن دستگاه قبل از هر عملیات نوشتن
+                  axCZKEM6.EnableDevice(1, false);
+
+                  // 2. لغو هر عملیات در حال اجرا
+                  axCZKEM6.CancelOperation();
+
                   for (int i = 0; i < 10; i++)
                   {
                      axCZKEM6.SSR_DelUserTmpExt(1, enrollid, i);
                   }
                   result = axCZKEM6.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM6.SetUserTmpExStr(1, enrollid, 6, flag, tmpData);
+
+                  // 8. به‌روزرسانی و فعال کردن مجدد دستگاه
+                  axCZKEM6.RefreshData(1);
+                  axCZKEM6.EnableDevice(1, true);
                }
             }
             #endregion
@@ -4381,49 +4660,141 @@ namespace System.Scsc.Ui.MasterPage
             {
                if (Fp1DevIsConnected)
                {
+                  axCZKEM1.EnableDevice(1, false);
+                  axCZKEM1.CancelOperation();
+
                   axCZKEM1.DelUserFace(1, enrollid, 111);
-                  axCZKEM1.RefreshData(1);//the data in the device should be refreshed
+                  //axCZKEM1.RefreshData(1);//the data in the device should be refreshed
                   result = axCZKEM1.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM1.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+
+                  axCZKEM1.RefreshData(1);
+                  axCZKEM1.EnableDevice(1, true);
                }
                if (Fp2DevIsConnected)
                {
+                  axCZKEM2.EnableDevice(1, false);
+                  axCZKEM2.CancelOperation();
+
                   axCZKEM2.DelUserFace(1, enrollid, 111);
-                  axCZKEM2.RefreshData(1);//the data in the device should be refreshed
+                  //axCZKEM1.RefreshData(1);//the data in the device should be refreshed
                   result = axCZKEM2.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM2.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+
+                  axCZKEM2.RefreshData(1);
+                  axCZKEM2.EnableDevice(1, true);
                }
                if (Fp3DevIsConnected)
                {
+                  axCZKEM3.EnableDevice(1, false);
+                  axCZKEM3.CancelOperation();
+
                   axCZKEM3.DelUserFace(1, enrollid, 111);
-                  axCZKEM3.RefreshData(1);//the data in the device should be refreshed
+                  //axCZKEM1.RefreshData(1);//the data in the device should be refreshed
                   result = axCZKEM3.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM3.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+
+                  axCZKEM3.RefreshData(1);
+                  axCZKEM3.EnableDevice(1, true);
                }
                if (Fp4DevIsConnected)
                {
+                  axCZKEM4.EnableDevice(1, false);
+                  axCZKEM4.CancelOperation();
+
                   axCZKEM4.DelUserFace(1, enrollid, 111);
-                  axCZKEM4.RefreshData(1);//the data in the device should be refreshed
+                  //axCZKEM1.RefreshData(1);//the data in the device should be refreshed
                   result = axCZKEM4.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM4.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+
+                  axCZKEM4.RefreshData(1);
+                  axCZKEM4.EnableDevice(1, true);
                }
                if (Fp5DevIsConnected)
                {
+                  axCZKEM5.EnableDevice(1, false);
+                  axCZKEM5.CancelOperation();
+
                   axCZKEM5.DelUserFace(1, enrollid, 111);
-                  axCZKEM5.RefreshData(1);//the data in the device should be refreshed
+                  //axCZKEM1.RefreshData(1);//the data in the device should be refreshed
                   result = axCZKEM5.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM5.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+
+                  axCZKEM5.RefreshData(1);
+                  axCZKEM5.EnableDevice(1, true);
                }
                if (Fp6DevIsConnected)
                {
+                  axCZKEM6.EnableDevice(1, false);
+                  axCZKEM6.CancelOperation();
+
                   axCZKEM6.DelUserFace(1, enrollid, 111);
-                  axCZKEM6.RefreshData(1);//the data in the device should be refreshed
+                  //axCZKEM1.RefreshData(1);//the data in the device should be refreshed
                   result = axCZKEM6.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
                   result = axCZKEM6.SetUserFaceStr(1, enrollid, 111, tmpData, tmplen);
+
+                  axCZKEM6.RefreshData(1);
+                  axCZKEM6.EnableDevice(1, true);
                }
             }
             #endregion
 
+            // Card data
+            tmpData = _data[5];
+
+            #region Card User
+            if(cardupdate == "002" && tmpData != null && tmpData.Length >= 1)
+            {
+               if (Fp1DevIsConnected)
+               {
+                  axCZKEM1.EnableDevice(1, false);
+                  axCZKEM1.SetStrCardNumber(tmpData); // شماره کارت جدید
+                  axCZKEM1.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  axCZKEM1.RefreshData(1);
+                  axCZKEM1.EnableDevice(1, true);
+               }
+               if (Fp2DevIsConnected)
+               {
+                  axCZKEM2.EnableDevice(1, false);
+                  axCZKEM2.SetStrCardNumber(tmpData); // شماره کارت جدید
+                  axCZKEM2.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  axCZKEM2.RefreshData(1);
+                  axCZKEM2.EnableDevice(1, true);
+               }
+               if (Fp3DevIsConnected)
+               {
+                  axCZKEM3.EnableDevice(1, false);
+                  axCZKEM3.SetStrCardNumber(tmpData); // شماره کارت جدید
+                  axCZKEM3.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  axCZKEM3.RefreshData(1);
+                  axCZKEM3.EnableDevice(1, true);
+               }
+               if (Fp4DevIsConnected)
+               {
+                  axCZKEM4.EnableDevice(1, false);
+                  axCZKEM4.SetStrCardNumber(tmpData); // شماره کارت جدید
+                  axCZKEM4.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  axCZKEM4.RefreshData(1);
+                  axCZKEM4.EnableDevice(1, true);
+               }
+               if (Fp5DevIsConnected)
+               {
+                  axCZKEM5.EnableDevice(1, false);
+                  axCZKEM5.SetStrCardNumber(tmpData); // شماره کارت جدید
+                  axCZKEM5.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  axCZKEM5.RefreshData(1);
+                  axCZKEM5.EnableDevice(1, true);
+               }
+               if (Fp6DevIsConnected)
+               {
+                  axCZKEM6.EnableDevice(1, false);
+                  axCZKEM6.SetStrCardNumber(tmpData); // شماره کارت جدید
+                  axCZKEM6.SSR_SetUserInfo(1, enrollid, "", "", 0, true);
+                  axCZKEM6.RefreshData(1);
+                  axCZKEM6.EnableDevice(1, true);
+               }
+            }
+            #endregion
             // Play Enter Sound
             // 1404/03/30 ** New version for play sound
             _DefaultGateway.Gateway(
@@ -4564,16 +4935,51 @@ namespace System.Scsc.Ui.MasterPage
                   }
                );
 
+               // 1. غیرفعال کردن دستگاه قبل از هر عملیات
+               axCZKEM1.EnableDevice(1, false);
+
+               // 2. لغو هر عملیات در حال اجرا
                axCZKEM1.CancelOperation();
-               axCZKEM1.DelUserFace(iMachineNumber, sUserID, iFingerIndex);
-               axCZKEM1.RefreshData(1);//the data in the device should be refreshed
-               if (axCZKEM1.StartEnrollEx(sUserID, iFingerIndex, iFlag))
+
+               // 3. حذف چهره قبلی کاربر (اگر وجود دارد)
+               // این کار از تداخل با چهره جدید جلوگیری می‌کند
+               axCZKEM1.DelUserFace(1, sUserID, 111);
+
+               // 4. ثبت اطلاعات کاربر (اطمینان از وجود کاربر در دستگاه)
+               bool userCreated = axCZKEM1.SSR_SetUserInfo(1, sUserID, sUserID, "", 0, true);
+               if (!userCreated)
                {
+                  axCZKEM1.EnableDevice(1, true);
+                  return false;
+               }
+
+               // 5. شروع فرآیند ثبت چهره (استفاده از 111 برای چهره)
+               bool enrollStarted = axCZKEM1.StartEnrollEx(sUserID, 111, 0);
+
+               if (enrollStarted)
+               {
+                  // تغییر رنگ دکمه برای نشان‌دادن موفقیت
                   BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
-                  //MessageBox.Show("Start to Enroll a new User,UserID=" + sUserID + " Face ID=" + iFingerIndex.ToString() + " Flag=" + iFlag.ToString(), "Start");
-                  axCZKEM1.StartIdentify();//After enrolling templates,you should let the device into the 1:N verification condition
-                  axCZKEM1.RefreshData(1);//the data in the device should be refreshed
+
+                  // دستگاه را به حالت شناسایی 1:N برگردانید
+                  axCZKEM1.StartIdentify();
+
+                  // به‌روزرسانی اطلاعات دستگاه
+                  axCZKEM1.RefreshData(1);
+
+                  // فعال کردن مجدد دستگاه
+                  axCZKEM1.EnableDevice(1, true);
+
                   return true;
+               }
+               else
+               {
+                  // تغییر رنگ دکمه برای نشان‌دادن خطا
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+
+                  // فعال کردن مجدد دستگاه
+                  axCZKEM1.EnableDevice(1, true);
+                  return false;
                }
             }
 
@@ -4588,16 +4994,51 @@ namespace System.Scsc.Ui.MasterPage
                   }
                );
 
+               // 1. غیرفعال کردن دستگاه قبل از هر عملیات
+               axCZKEM2.EnableDevice(1, false);
+
+               // 2. لغو هر عملیات در حال اجرا
                axCZKEM2.CancelOperation();
-               axCZKEM2.DelUserFace(iMachineNumber, sUserID, iFingerIndex);
-               axCZKEM2.RefreshData(1);//the data in the device should be refreshed
-               if (axCZKEM2.StartEnrollEx(sUserID, iFingerIndex, iFlag))
+
+               // 3. حذف چهره قبلی کاربر (اگر وجود دارد)
+               // این کار از تداخل با چهره جدید جلوگیری می‌کند
+               axCZKEM2.DelUserFace(1, sUserID, 111);
+
+               // 4. ثبت اطلاعات کاربر (اطمینان از وجود کاربر در دستگاه)
+               bool userCreated = axCZKEM2.SSR_SetUserInfo(1, sUserID, sUserID, "", 0, true);
+               if (!userCreated)
                {
+                  axCZKEM2.EnableDevice(1, true);
+                  return false;
+               }
+
+               // 5. شروع فرآیند ثبت چهره (استفاده از 111 برای چهره)
+               bool enrollStarted = axCZKEM2.StartEnrollEx(sUserID, 111, 0);
+
+               if (enrollStarted)
+               {
+                  // تغییر رنگ دکمه برای نشان‌دادن موفقیت
                   BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
-                  //MessageBox.Show("Start to Enroll a new User,UserID=" + sUserID + " Face ID=" + iFingerIndex.ToString() + " Flag=" + iFlag.ToString(), "Start");
-                  axCZKEM2.StartIdentify();//After enrolling templates,you should let the device into the 1:N verification condition
-                  axCZKEM2.RefreshData(1);//the data in the device should be refreshed
+
+                  // دستگاه را به حالت شناسایی 1:N برگردانید
+                  axCZKEM2.StartIdentify();
+
+                  // به‌روزرسانی اطلاعات دستگاه
+                  axCZKEM2.RefreshData(1);
+
+                  // فعال کردن مجدد دستگاه
+                  axCZKEM2.EnableDevice(1, true);
+
                   return true;
+               }
+               else
+               {
+                  // تغییر رنگ دکمه برای نشان‌دادن خطا
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+
+                  // فعال کردن مجدد دستگاه
+                  axCZKEM2.EnableDevice(1, true);
+                  return false;
                }
             }
 
@@ -4612,19 +5053,53 @@ namespace System.Scsc.Ui.MasterPage
                   }
                );
 
+               // 1. غیرفعال کردن دستگاه قبل از هر عملیات
+               axCZKEM3.EnableDevice(1, false);
+
+               // 2. لغو هر عملیات در حال اجرا
                axCZKEM3.CancelOperation();
-               axCZKEM3.DelUserFace(iMachineNumber, sUserID, iFingerIndex);
-               axCZKEM3.RefreshData(1);//the data in the device should be refreshed
-               if (axCZKEM3.StartEnrollEx(sUserID, iFingerIndex, iFlag))
+
+               // 3. حذف چهره قبلی کاربر (اگر وجود دارد)
+               // این کار از تداخل با چهره جدید جلوگیری می‌کند
+               axCZKEM3.DelUserFace(1, sUserID, 111);
+
+               // 4. ثبت اطلاعات کاربر (اطمینان از وجود کاربر در دستگاه)
+               bool userCreated = axCZKEM3.SSR_SetUserInfo(1, sUserID, sUserID, "", 0, true);
+               if (!userCreated)
                {
+                  axCZKEM3.EnableDevice(1, true);
+                  return false;
+               }
+
+               // 5. شروع فرآیند ثبت چهره (استفاده از 111 برای چهره)
+               bool enrollStarted = axCZKEM3.StartEnrollEx(sUserID, 111, 0);
+
+               if (enrollStarted)
+               {
+                  // تغییر رنگ دکمه برای نشان‌دادن موفقیت
                   BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
-                  //MessageBox.Show("Start to Enroll a new User,UserID=" + sUserID + " Face ID=" + iFingerIndex.ToString() + " Flag=" + iFlag.ToString(), "Start");
-                  axCZKEM3.StartIdentify();//After enrolling templates,you should let the device into the 1:N verification condition
-                  axCZKEM3.RefreshData(1);//the data in the device should be refreshed
+
+                  // دستگاه را به حالت شناسایی 1:N برگردانید
+                  axCZKEM3.StartIdentify();
+
+                  // به‌روزرسانی اطلاعات دستگاه
+                  axCZKEM3.RefreshData(1);
+
+                  // فعال کردن مجدد دستگاه
+                  axCZKEM3.EnableDevice(1, true);
+
                   return true;
                }
-            }
+               else
+               {
+                  // تغییر رنگ دکمه برای نشان‌دادن خطا
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
 
+                  // فعال کردن مجدد دستگاه
+                  axCZKEM3.EnableDevice(1, true);
+                  return false;
+               }
+            }
             return true;
          }
          catch
@@ -4640,49 +5115,85 @@ namespace System.Scsc.Ui.MasterPage
          {
             if (Fp1DevIsConnected)
             {
+               // 1. غیرفعال کردن دستگاه قبل از هر عملیات
+               axCZKEM1.EnableDevice(1, false);
+
                axCZKEM1.CancelOperation();
                axCZKEM1.DelUserFace(1, enrollid, 111);
                axCZKEM1.RefreshData(1);//the data in the device should be refreshed
+
+               // فعال کردن مجدد دستگاه
+               axCZKEM1.EnableDevice(1, true);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
             if (Fp2DevIsConnected)
             {
+               // 1. غیرفعال کردن دستگاه قبل از هر عملیات
+               axCZKEM2.EnableDevice(1, false);
+
                axCZKEM2.CancelOperation();
                axCZKEM2.DelUserFace(1, enrollid, 111);
                axCZKEM2.RefreshData(1);//the data in the device should be refreshed
+
+               // فعال کردن مجدد دستگاه
+               axCZKEM2.EnableDevice(1, true);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
             if (Fp3DevIsConnected)
             {
+               // 1. غیرفعال کردن دستگاه قبل از هر عملیات
+               axCZKEM3.EnableDevice(1, false);
+
                axCZKEM3.CancelOperation();
                axCZKEM3.DelUserFace(1, enrollid, 111);
                axCZKEM3.RefreshData(1);//the data in the device should be refreshed
+
+               // فعال کردن مجدد دستگاه
+               axCZKEM3.EnableDevice(1, true);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
             if (Fp4DevIsConnected)
             {
+               // 1. غیرفعال کردن دستگاه قبل از هر عملیات
+               axCZKEM4.EnableDevice(1, false);
+
                axCZKEM4.CancelOperation();
                axCZKEM4.DelUserFace(1, enrollid, 111);
                axCZKEM4.RefreshData(1);//the data in the device should be refreshed
+
+               // فعال کردن مجدد دستگاه
+               axCZKEM4.EnableDevice(1, true);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
             if (Fp5DevIsConnected)
             {
+               // 1. غیرفعال کردن دستگاه قبل از هر عملیات
+               axCZKEM5.EnableDevice(1, false);
+
                axCZKEM5.CancelOperation();
                axCZKEM5.DelUserFace(1, enrollid, 111);
                axCZKEM5.RefreshData(1);//the data in the device should be refreshed
+
+               // فعال کردن مجدد دستگاه
+               axCZKEM5.EnableDevice(1, true);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
             if (Fp6DevIsConnected)
             {
+               // 1. غیرفعال کردن دستگاه قبل از هر عملیات
+               axCZKEM6.EnableDevice(1, false);
+
                axCZKEM6.CancelOperation();
                axCZKEM6.DelUserFace(1, enrollid, 111);
                axCZKEM6.RefreshData(1);//the data in the device should be refreshed
+
+               // فعال کردن مجدد دستگاه
+               axCZKEM6.EnableDevice(1, true);
 
                BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Green;
             }
@@ -4696,6 +5207,89 @@ namespace System.Scsc.Ui.MasterPage
                }
             );
 
+            return true;
+         }
+         catch (Exception exc)
+         {
+            BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red;
+            LogToBox(exc.Message);
+            return false;
+         }
+      }
+
+      private bool Start_Enroll_Card(string enrollid)
+      {
+         try
+         {
+            if (Fp1DevIsConnected)
+            {
+               // 1. دستگاه را برای عملیات نوشتن آماده کنید
+               axCZKEM1.EnableDevice(1, false);
+               axCZKEM1.CancelOperation();
+
+               // 2. دستور شروع ثبت کارت را صادر کنید
+               // پارامترها: (UserID, FingerIndex, Flag)
+               // FingerIndex = 0 برای ثبت کارت
+               // Flag = 0 (معمولاً برای شروع فرآیند ثبت)
+               bool enrollStarted = axCZKEM1.StartEnrollEx(enrollid, 0, 0);
+
+               if (enrollStarted)
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                  // دستگاه را به حالت عادی برگردانید
+                  axCZKEM1.StartIdentify();
+                  axCZKEM1.RefreshData(1);
+                  axCZKEM1.EnableDevice(1, true);
+                  return true;
+               }
+               else { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; axCZKEM1.EnableDevice(1, true); return false; }
+            }
+            else if (Fp2DevIsConnected)
+            {
+               // 1. دستگاه را برای عملیات نوشتن آماده کنید
+               axCZKEM2.EnableDevice(1, false);
+               axCZKEM2.CancelOperation();
+
+               // 2. دستور شروع ثبت کارت را صادر کنید
+               // پارامترها: (UserID, FingerIndex, Flag)
+               // FingerIndex = 0 برای ثبت کارت
+               // Flag = 0 (معمولاً برای شروع فرآیند ثبت)
+               bool enrollStarted = axCZKEM2.StartEnrollEx(enrollid, 0, 0);
+
+               if (enrollStarted)
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                  // دستگاه را به حالت عادی برگردانید
+                  axCZKEM2.StartIdentify();
+                  axCZKEM2.RefreshData(1);
+                  axCZKEM2.EnableDevice(1, true);
+                  return true;
+               }
+               else { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; axCZKEM2.EnableDevice(1, true); return false; }
+            }
+            else if (Fp3DevIsConnected)
+            {
+               // 1. دستگاه را برای عملیات نوشتن آماده کنید
+               axCZKEM2.EnableDevice(1, false);
+               axCZKEM2.CancelOperation();
+
+               // 2. دستور شروع ثبت کارت را صادر کنید
+               // پارامترها: (UserID, FingerIndex, Flag)
+               // FingerIndex = 0 برای ثبت کارت
+               // Flag = 0 (معمولاً برای شروع فرآیند ثبت)
+               bool enrollStarted = axCZKEM2.StartEnrollEx(enrollid, 0, 0);
+
+               if (enrollStarted)
+               {
+                  BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.BlanchedAlmond;
+                  // دستگاه را به حالت عادی برگردانید
+                  axCZKEM2.StartIdentify();
+                  axCZKEM2.RefreshData(1);
+                  axCZKEM2.EnableDevice(1, true);
+                  return true;
+               }
+               else { BackGrnd_Butn.NormalColorA = BackGrnd_Butn.NormalColorB = Color.Red; axCZKEM2.EnableDevice(1, true); return false; }
+            }
             return true;
          }
          catch (Exception exc)
@@ -13117,6 +13711,36 @@ namespace System.Scsc.Ui.MasterPage
                  new Job(SendType.SelfToUserInterface, "BAS_DEF2_F", 10 /* Actn_CalF_P */)
               })
          );
+      }
+
+      private CancellationTokenSource _searchCts;
+
+      private async void SrchEngn_Txt_EditValueChanging(object sender, DevExpress.XtraEditors.Controls.ChangingEventArgs e)
+      {
+         if (_searchCts != null)
+            _searchCts.Cancel();
+         _searchCts = new CancellationTokenSource();
+         var token = _searchCts.Token;
+         try
+         {
+            await Task.Delay(400, token);
+            string text = SrchEngn_Txt.Text.Trim();
+            if (!string.IsNullOrEmpty(text))
+            {
+               _DefaultGateway.Gateway(
+                  new Job(SendType.External, "Localhost",
+                     new List<Job>
+                     {
+                        new Job(SendType.Self, 172 /* Execute Srch_Engn_F */),
+                        new Job(SendType.SelfToUserInterface, "SRCH_ENGN_F", 10 /* Actn_CalF_F */)
+                        {
+                           Input = text
+                        }
+                     })
+               );
+            }
+         }
+         catch (OperationCanceledException) { }
       }
    }
 }

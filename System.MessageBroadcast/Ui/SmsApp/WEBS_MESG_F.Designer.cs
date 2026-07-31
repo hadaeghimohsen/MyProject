@@ -836,6 +836,7 @@
          // richTextBoxLog
          // 
          this.richTextBoxLog.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.richTextBoxLog.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
          this.richTextBoxLog.Location = new System.Drawing.Point(3, 270);
          this.richTextBoxLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
          this.richTextBoxLog.Name = "richTextBoxLog";

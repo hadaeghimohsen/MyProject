@@ -227,9 +227,6 @@
          this.colDEDU_AMNT_DNRM = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMBSP_RWNO = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colINVC_NUMB1 = new DevExpress.XtraGrid.Columns.GridColumn();
-         this.AgopBs1 = new System.Windows.Forms.BindingSource(this.components);
-         this.CtgyBs = new System.Windows.Forms.BindingSource(this.components);
-         this.RqtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
          this.Param_Ro = new System.MaxUi.Rollout();
          this.label28 = new System.Windows.Forms.Label();
@@ -1660,6 +1657,9 @@
          this.label29 = new System.Windows.Forms.Label();
          this.label30 = new System.Windows.Forms.Label();
          this.ToDate13_Date = new Atf.UI.DateTimeSelector();
+         this.AgopBs1 = new System.Windows.Forms.BindingSource(this.components);
+         this.CtgyBs = new System.Windows.Forms.BindingSource(this.components);
+         this.RqtpBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.ClopBs = new System.Windows.Forms.BindingSource(this.components);
          this.PydtBs5 = new System.Windows.Forms.BindingSource(this.components);
          this.VInvtBs1 = new System.Windows.Forms.BindingSource(this.components);
@@ -1747,9 +1747,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Sxtp2_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pydt_Butn)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.AgopBs1)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CtgyBs)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.RqtpBs1)).BeginInit();
          this.flowLayoutPanel1.SuspendLayout();
          this.Param_Ro.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.Sunt_Lov2.Properties)).BeginInit();
@@ -2180,6 +2177,9 @@
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemButtonEdit3)).BeginInit();
          this.flowLayoutPanel10.SuspendLayout();
          this.rollout13.SuspendLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.AgopBs1)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CtgyBs)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqtpBs1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.ClopBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PydtBs5)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.VInvtBs1)).BeginInit();
@@ -3235,18 +3235,6 @@
          this.colINVC_NUMB1.VisibleIndex = 7;
          this.colINVC_NUMB1.Width = 45;
          // 
-         // AgopBs1
-         // 
-         this.AgopBs1.DataSource = typeof(System.Scsc.Data.Aggregation_Operation);
-         // 
-         // CtgyBs
-         // 
-         this.CtgyBs.DataSource = typeof(System.Scsc.Data.Category_Belt);
-         // 
-         // RqtpBs1
-         // 
-         this.RqtpBs1.DataSource = typeof(System.Scsc.Data.Request_Type);
-         // 
          // flowLayoutPanel1
          // 
          this.flowLayoutPanel1.AutoScroll = true;
@@ -3944,15 +3932,13 @@
          this.gridColumn26.FieldName = "NAME_DNRM";
          this.gridColumn26.Name = "gridColumn26";
          this.gridColumn26.Visible = true;
-         this.gridColumn26.VisibleIndex = 7;
+         this.gridColumn26.VisibleIndex = 2;
          // 
          // gridColumn27
          // 
          this.gridColumn27.Caption = "نام پدر";
          this.gridColumn27.FieldName = "FATH_NAME_DNRM";
          this.gridColumn27.Name = "gridColumn27";
-         this.gridColumn27.Visible = true;
-         this.gridColumn27.VisibleIndex = 6;
          // 
          // gridColumn28
          // 
@@ -3975,15 +3961,13 @@
          this.gridColumn31.FieldName = "CELL_PHON_DNRM";
          this.gridColumn31.Name = "gridColumn31";
          this.gridColumn31.Visible = true;
-         this.gridColumn31.VisibleIndex = 1;
+         this.gridColumn31.VisibleIndex = 0;
          // 
          // gridColumn32
          // 
          this.gridColumn32.Caption = "شماره ثابت";
          this.gridColumn32.FieldName = "TELL_PHON_DNRM";
          this.gridColumn32.Name = "gridColumn32";
-         this.gridColumn32.Visible = true;
-         this.gridColumn32.VisibleIndex = 0;
          // 
          // gridColumn33
          // 
@@ -4015,24 +3999,18 @@
          this.gridColumn38.Caption = "رسته";
          this.gridColumn38.FieldName = "Category_Belt.CTGY_DESC";
          this.gridColumn38.Name = "gridColumn38";
-         this.gridColumn38.Visible = true;
-         this.gridColumn38.VisibleIndex = 2;
          // 
          // gridColumn39
          // 
          this.gridColumn39.Caption = "سبک";
          this.gridColumn39.FieldName = "Method.MTOD_DESC";
          this.gridColumn39.Name = "gridColumn39";
-         this.gridColumn39.Visible = true;
-         this.gridColumn39.VisibleIndex = 3;
          // 
          // gridColumn40
          // 
          this.gridColumn40.Caption = "شیفت";
          this.gridColumn40.FieldName = "Club.NAME";
          this.gridColumn40.Name = "gridColumn40";
-         this.gridColumn40.Visible = true;
-         this.gridColumn40.VisibleIndex = 4;
          // 
          // gridColumn41
          // 
@@ -4091,11 +4069,11 @@
          // 
          // gridColumn52
          // 
-         this.gridColumn52.Caption = "کد انگشتی";
+         this.gridColumn52.Caption = "کد شناسایی";
          this.gridColumn52.FieldName = "FNGR_PRNT_DNRM";
          this.gridColumn52.Name = "gridColumn52";
          this.gridColumn52.Visible = true;
-         this.gridColumn52.VisibleIndex = 5;
+         this.gridColumn52.VisibleIndex = 1;
          // 
          // gridColumn53
          // 
@@ -18538,6 +18516,18 @@
          this.ToDate13_Date.TabIndex = 1;
          this.ToDate13_Date.UsePersianFormat = true;
          // 
+         // AgopBs1
+         // 
+         this.AgopBs1.DataSource = typeof(System.Scsc.Data.Aggregation_Operation);
+         // 
+         // CtgyBs
+         // 
+         this.CtgyBs.DataSource = typeof(System.Scsc.Data.Category_Belt);
+         // 
+         // RqtpBs1
+         // 
+         this.RqtpBs1.DataSource = typeof(System.Scsc.Data.Request_Type);
+         // 
          // ClopBs
          // 
          this.ClopBs.DataSource = typeof(System.Scsc.Data.Card_Link_Operation);
@@ -18990,9 +18980,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.repositoryItemTimeEdit1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Sxtp2_Lov)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.Pydt_Butn)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.AgopBs1)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.CtgyBs)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.RqtpBs1)).EndInit();
          this.flowLayoutPanel1.ResumeLayout(false);
          this.Param_Ro.ResumeLayout(false);
          this.Param_Ro.PerformLayout();
@@ -19455,6 +19442,9 @@
          this.flowLayoutPanel10.ResumeLayout(false);
          this.rollout13.ResumeLayout(false);
          this.rollout13.PerformLayout();
+         ((System.ComponentModel.ISupportInitialize)(this.AgopBs1)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.CtgyBs)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.RqtpBs1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.ClopBs)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.PydtBs5)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.VInvtBs1)).EndInit();

@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.Windows.Forms.Label label16;
          System.Windows.Forms.Label label8;
          System.Windows.Forms.Label label11;
@@ -248,7 +249,7 @@
          this.MenGust_Rb = new System.Windows.Forms.RadioButton();
          this.AllGust_Rb = new System.Windows.Forms.RadioButton();
          this.gridControl9 = new DevExpress.XtraGrid.GridControl();
-         this.GustBs = new System.Windows.Forms.BindingSource();
+         this.GustBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView7 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colREGN_PRVN_CNTY_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colREGN_PRVN_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -348,9 +349,9 @@
          this.grouper31 = new System.MaxUi.Grouper();
          this.ExitLockDres_Butn = new System.MaxUi.Button();
          this.dateTimeSelector1 = new Atf.UI.DateTimeSelector();
-         this.LockDresAttnBs = new System.Windows.Forms.BindingSource();
+         this.LockDresAttnBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridControl7 = new DevExpress.XtraGrid.GridControl();
-         this.LockDresBs = new System.Windows.Forms.BindingSource();
+         this.LockDresBs = new System.Windows.Forms.BindingSource(this.components);
          this.LockDres_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridColumn1 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.gridColumn2 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -376,7 +377,7 @@
          this.StrtOpenDvip_Butn = new System.MaxUi.Button();
          this.grouper8 = new System.MaxUi.Grouper();
          this.ServDvip_Butn = new System.MaxUi.Button();
-         this.DVipBs = new System.Windows.Forms.BindingSource();
+         this.DVipBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridControl5 = new DevExpress.XtraGrid.GridControl();
          this.gridView3 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colDRES_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -393,13 +394,13 @@
          this.colMember_Ship = new DevExpress.XtraGrid.Columns.GridColumn();
          this.grouper3 = new System.MaxUi.Grouper();
          this.dateTimeSelector2 = new Atf.UI.DateTimeSelector();
-         this.AttnBs = new System.Windows.Forms.BindingSource();
+         this.AttnBs = new System.Windows.Forms.BindingSource(this.components);
          this.ActnSlctServOpenDres_Butn = new System.MaxUi.Button();
          this.SlctServDres_Butn = new System.MaxUi.Button();
          this.QStrtTime_Tim = new DevExpress.XtraEditors.TimeEdit();
          this.gridControl2 = new DevExpress.XtraGrid.GridControl();
-         this.DresBs = new System.Windows.Forms.BindingSource();
-         this.CompaBs = new System.Windows.Forms.BindingSource();
+         this.DresBs = new System.Windows.Forms.BindingSource(this.components);
+         this.CompaBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridView2 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCOMA_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCODE1 = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -429,7 +430,7 @@
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMethod = new DevExpress.XtraGrid.Columns.GridColumn();
          this.repositoryItemLookUpEdit1 = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DevntBs = new System.Windows.Forms.BindingSource();
+         this.DevntBs = new System.Windows.Forms.BindingSource(this.components);
          this.persianRepositoryItemDateEdit2 = new dxExample.PersianRepositoryItemDateEdit();
          this.AcptActnDres_Cbx = new System.MaxUi.CheckButton();
          this.grouper1 = new System.MaxUi.Grouper();
@@ -444,7 +445,7 @@
          this.Partners_Butn = new System.MaxUi.RoundedButton();
          this.ServProFile_Rb = new System.MaxUi.RoundedButton();
          this.CrntServOpenDres_Butn = new System.MaxUi.Button();
-         this.CrntOpenBs = new System.Windows.Forms.BindingSource();
+         this.CrntOpenBs = new System.Windows.Forms.BindingSource(this.components);
          this.DresConf_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.CrntDresNumb_Txt = new DevExpress.XtraEditors.TextEdit();
          this.ActnCrntServOpenDres_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -454,7 +455,7 @@
          this.DelLogs_Btn = new System.MaxUi.Button();
          this.grouper32 = new System.MaxUi.Grouper();
          this.gridControl8 = new DevExpress.XtraGrid.GridControl();
-         this.VPosBs1 = new System.Windows.Forms.BindingSource();
+         this.VPosBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.gridView5 = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colPSID = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colBANK_NAME = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -514,7 +515,7 @@
          this.CloseStop_Butn = new System.MaxUi.Button();
          this.OpenStart_Butn = new System.MaxUi.Button();
          this.gridControl3 = new DevExpress.XtraGrid.GridControl();
-         this.ExdvBs = new System.Windows.Forms.BindingSource();
+         this.ExdvBs = new System.Windows.Forms.BindingSource(this.components);
          this.Exdv_Gv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colCODE2 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colDEV_COMP_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -546,7 +547,7 @@
          this.AcptActnAtnw_Cbx = new System.MaxUi.CheckButton();
          this.AtnwCont_Btn = new System.MaxUi.Button();
          this.AtwnWrst_Butn = new System.MaxUi.Button();
-         this.AtnwBs = new System.Windows.Forms.BindingSource();
+         this.AtnwBs = new System.Windows.Forms.BindingSource(this.components);
          this.AtnwFigh_Butn = new System.MaxUi.Button();
          this.ServProFileAtnw_Rb = new System.MaxUi.RoundedButton();
          this.grouper12 = new System.MaxUi.Grouper();
@@ -582,7 +583,7 @@
          this.colAttendance = new DevExpress.XtraGrid.Columns.GridColumn();
          this.grouper14 = new System.MaxUi.Grouper();
          this.AtwnAllBack_Butn = new System.MaxUi.Button();
-         this.AtnwBn = new System.Windows.Forms.BindingNavigator();
+         this.AtnwBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
          this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
@@ -601,21 +602,21 @@
          this.label15 = new System.Windows.Forms.Label();
          this.label12 = new System.Windows.Forms.Label();
          this.mOST_DEBT_CLNG_AMNTSpinEdit = new DevExpress.XtraEditors.SpinEdit();
-         this.StngBs1 = new System.Windows.Forms.BindingSource();
+         this.StngBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.lookUpEdit7 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DysnoBs = new System.Windows.Forms.BindingSource();
+         this.DysnoBs = new System.Windows.Forms.BindingSource(this.components);
          this.lookUpEdit11 = new DevExpress.XtraEditors.LookUpEdit();
          this.spinEdit7 = new DevExpress.XtraEditors.SpinEdit();
          this.spinEdit6 = new DevExpress.XtraEditors.SpinEdit();
          this.DebtPath_BTxt = new DevExpress.XtraEditors.ButtonEdit();
          this.grouper30 = new System.MaxUi.Grouper();
          this.lookUpEdit36 = new DevExpress.XtraEditors.LookUpEdit();
-         this.ExpnBs = new System.Windows.Forms.BindingSource();
+         this.ExpnBs = new System.Windows.Forms.BindingSource(this.components);
          this.label48 = new System.Windows.Forms.Label();
          this.label47 = new System.Windows.Forms.Label();
          this.label42 = new System.Windows.Forms.Label();
          this.lookUpEdit29 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DActvBs1 = new System.Windows.Forms.BindingSource();
+         this.DActvBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.lookUpEdit28 = new DevExpress.XtraEditors.LookUpEdit();
          this.textEdit11 = new DevExpress.XtraEditors.TextEdit();
          this.HolyDay_Lb = new System.Windows.Forms.Label();
@@ -667,7 +668,7 @@
          this.lookUpEdit16 = new DevExpress.XtraEditors.LookUpEdit();
          this.label27 = new System.Windows.Forms.Label();
          this.lookUpEdit12 = new DevExpress.XtraEditors.LookUpEdit();
-         this.VCompBs = new System.Windows.Forms.BindingSource();
+         this.VCompBs = new System.Windows.Forms.BindingSource(this.components);
          this.label24 = new System.Windows.Forms.Label();
          this.spinEdit5 = new DevExpress.XtraEditors.SpinEdit();
          this.textEdit10 = new DevExpress.XtraEditors.TextEdit();
@@ -692,7 +693,7 @@
          this.textEdit7 = new DevExpress.XtraEditors.TextEdit();
          this.grouper20 = new System.MaxUi.Grouper();
          this.lookUpEdit1 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DAeatBs = new System.Windows.Forms.BindingSource();
+         this.DAeatBs = new System.Windows.Forms.BindingSource(this.components);
          this.label9 = new System.Windows.Forms.Label();
          this.lookUpEdit2 = new DevExpress.XtraEditors.LookUpEdit();
          this.label10 = new System.Windows.Forms.Label();
@@ -707,13 +708,13 @@
          this.iP_ADDRTextEdit = new DevExpress.XtraEditors.TextEdit();
          this.grouper18 = new System.MaxUi.Grouper();
          this.bAR_CODE_DATA_TYPEComboBox = new System.Windows.Forms.ComboBox();
-         this.DbcdtBs1 = new System.Windows.Forms.BindingSource();
+         this.DbcdtBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.BarCodeDataType_Lb = new System.Windows.Forms.Label();
          this.label17 = new System.Windows.Forms.Label();
          this.lookUpEdit13 = new DevExpress.XtraEditors.LookUpEdit();
          this.ComPortName1_Lb = new System.Windows.Forms.Label();
          this.lookUpEdit3 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DAtsmBs1 = new System.Windows.Forms.BindingSource();
+         this.DAtsmBs1 = new System.Windows.Forms.BindingSource(this.components);
          this.grouper17 = new System.MaxUi.Grouper();
          this.ConfCncl_Butn = new System.MaxUi.Button();
          this.ConfSave_Butn = new System.MaxUi.Button();
@@ -829,8 +830,8 @@
          this.button6 = new System.MaxUi.Button();
          this.SondSave_Btn = new System.MaxUi.Button();
          this.SondPath_BTxt = new DevExpress.XtraEditors.ButtonEdit();
-         this.SondBs = new System.Windows.Forms.BindingSource();
-         this.ScmpBs = new System.Windows.Forms.BindingSource();
+         this.SondBs = new System.Windows.Forms.BindingSource(this.components);
+         this.ScmpBs = new System.Windows.Forms.BindingSource(this.components);
          this.gridControl11 = new DevExpress.XtraGrid.GridControl();
          this.SondGv = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.colSCHM_CODE = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -838,7 +839,7 @@
          this.Sond_ABtn = new DevExpress.XtraEditors.Repository.RepositoryItemButtonEdit();
          this.colSOND_TYPE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.Sond_Lov = new DevExpress.XtraEditors.Repository.RepositoryItemLookUpEdit();
-         this.DSondBs = new System.Windows.Forms.BindingSource();
+         this.DSondBs = new System.Windows.Forms.BindingSource(this.components);
          this.colCRET_BY8 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE8 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colSchema_Profile = new DevExpress.XtraGrid.Columns.GridColumn();
@@ -852,10 +853,10 @@
          this.colCRET_BY7 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colCRET_DATE7 = new DevExpress.XtraGrid.Columns.GridColumn();
          this.UserScmp_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.UserBs = new System.Windows.Forms.BindingSource();
+         this.UserBs = new System.Windows.Forms.BindingSource(this.components);
          this.Conf_Pnl = new System.Windows.Forms.FlowLayoutPanel();
          this.checkButton1 = new System.MaxUi.CheckButton();
-         this.ConfPnl_Img = new System.Windows.Forms.ImageList();
+         this.ConfPnl_Img = new System.Windows.Forms.ImageList(this.components);
          this.checkButton3 = new System.MaxUi.CheckButton();
          this.checkButton4 = new System.MaxUi.CheckButton();
          this.checkButton2 = new System.MaxUi.CheckButton();
@@ -864,7 +865,7 @@
          this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
          this.rollout1 = new System.MaxUi.Rollout();
          this.Evnt_Gc = new DevExpress.XtraGrid.GridControl();
-         this.vEvntBs = new System.Windows.Forms.BindingSource();
+         this.vEvntBs = new System.Windows.Forms.BindingSource(this.components);
          this.Evnt_Gv = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
          this.gridBand1 = new DevExpress.XtraGrid.Views.BandedGrid.GridBand();
          this.colCELL_PHON_DNRM = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
@@ -888,10 +889,10 @@
          this.AddNewNote_Butn = new System.MaxUi.Button();
          this.label3 = new System.Windows.Forms.Label();
          this.textEdit1 = new DevExpress.XtraEditors.TextEdit();
-         this.NoteBs = new System.Windows.Forms.BindingSource();
+         this.NoteBs = new System.Windows.Forms.BindingSource(this.components);
          this.textEdit2 = new DevExpress.XtraEditors.MemoEdit();
          this.ANote_Lov = new DevExpress.XtraEditors.SearchLookUpEdit();
-         this.ANoteBs = new System.Windows.Forms.BindingSource();
+         this.ANoteBs = new System.Windows.Forms.BindingSource(this.components);
          this.searchLookUpEdit1View = new DevExpress.XtraGrid.Views.Grid.GridView();
          this.gridControl4 = new DevExpress.XtraGrid.GridControl();
          this.advBandedGridView2 = new DevExpress.XtraGrid.Views.BandedGrid.AdvBandedGridView();
@@ -911,7 +912,7 @@
          this.colMDFY_DATE3 = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colAggregation_Operation = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
          this.colFighter = new DevExpress.XtraGrid.Views.BandedGrid.BandedGridColumn();
-         this.buttonEdit1 = new DevExpress.XtraEditors.ButtonEdit();
+         this.SrchEngn_Txt = new DevExpress.XtraEditors.ButtonEdit();
          this.ShowMain_Btn = new DevExpress.XtraEditors.SimpleButton();
          this.OnlineDres_Butn = new DevExpress.XtraEditors.ButtonEdit();
          this.ChngAttnActn_Butn = new DevExpress.XtraEditors.SimpleButton();
@@ -931,14 +932,14 @@
          this.AttendanceSystemAlert_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ActionCenter_Butn = new DevExpress.XtraEditors.SimpleButton();
          this.ShowDesktop_Butn = new DevExpress.XtraEditors.SimpleButton();
-         this.FighBs = new System.Windows.Forms.BindingSource();
-         this.Sp_Barcode = new System.IO.Ports.SerialPort();
-         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer();
+         this.FighBs = new System.Windows.Forms.BindingSource(this.components);
+         this.Sp_Barcode = new System.IO.Ports.SerialPort(this.components);
+         this.Tm_FingerPrintWorker = new System.Windows.Forms.Timer(this.components);
          this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-         this.Tm_ShowTime = new System.Windows.Forms.Timer();
-         this.Sp_GateAttn = new System.IO.Ports.SerialPort();
-         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort();
-         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip();
+         this.Tm_ShowTime = new System.Windows.Forms.Timer(this.components);
+         this.Sp_GateAttn = new System.IO.Ports.SerialPort(this.components);
+         this.Sp_ExpnExtr = new System.IO.Ports.SerialPort(this.components);
+         this.AllMenu_Cmn = new System.Windows.Forms.ContextMenuStrip(this.components);
          this.bbi_basdifnbutn_Mn = new System.Windows.Forms.ToolStripMenuItem();
          this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
          this.اطلاعاتثبتنامToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -975,9 +976,9 @@
          this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripSeparator();
          this.OpenGate_Tsm = new System.Windows.Forms.ToolStripMenuItem();
          this.CloseGate_Tsm = new System.Windows.Forms.ToolStripMenuItem();
-         this.Tm_Exdv = new System.Windows.Forms.Timer();
-         this.CWlet_Tm = new System.Windows.Forms.Timer();
-         this.TestLockerInLoop_Tmr = new System.Windows.Forms.Timer();
+         this.Tm_Exdv = new System.Windows.Forms.Timer(this.components);
+         this.CWlet_Tm = new System.Windows.Forms.Timer(this.components);
+         this.TestLockerInLoop_Tmr = new System.Windows.Forms.Timer(this.components);
          this.BrwsFile_Ofd = new System.Windows.Forms.OpenFileDialog();
          label16 = new System.Windows.Forms.Label();
          label8 = new System.Windows.Forms.Label();
@@ -1218,7 +1219,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView2)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3.CalendarTimeProperties)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SrchEngn_Txt.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.OnlineDres_Butn.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnType_Lov.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).BeginInit();
@@ -1392,7 +1393,7 @@
          this.spc_desktop.Panel2.AutoScroll = true;
          this.spc_desktop.Panel2.BackColor = System.Drawing.SystemColors.Control;
          this.spc_desktop.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-         this.spc_desktop.Panel2.Controls.Add(this.buttonEdit1);
+         this.spc_desktop.Panel2.Controls.Add(this.SrchEngn_Txt);
          this.spc_desktop.Panel2.Controls.Add(this.ShowMain_Btn);
          this.spc_desktop.Panel2.Controls.Add(this.OnlineDres_Butn);
          this.spc_desktop.Panel2.Controls.Add(this.ChngAttnActn_Butn);
@@ -11735,23 +11736,24 @@
          this.colFighter.FieldName = "Fighter";
          this.colFighter.Name = "colFighter";
          // 
-         // buttonEdit1
+         // SrchEngn_Txt
          // 
-         this.buttonEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+         this.SrchEngn_Txt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-         this.buttonEdit1.Location = new System.Drawing.Point(485, 5);
-         this.buttonEdit1.Name = "buttonEdit1";
-         this.buttonEdit1.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-         this.buttonEdit1.Properties.Appearance.Options.UseFont = true;
-         this.buttonEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("buttonEdit1.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject95, "", null, null, true)});
-         this.buttonEdit1.Properties.LookAndFeel.SkinName = "VS2010";
-         this.buttonEdit1.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
-         this.buttonEdit1.Properties.NullText = "هر چی میخوای اینجا جستجو کن ...";
-         this.buttonEdit1.Properties.NullValuePrompt = "هر چی میخوای اینجا جستجو کن ...";
-         this.buttonEdit1.Properties.NullValuePromptShowForEmptyValue = true;
-         this.buttonEdit1.Size = new System.Drawing.Size(257, 24);
-         this.buttonEdit1.TabIndex = 0;
+         this.SrchEngn_Txt.Location = new System.Drawing.Point(485, 5);
+         this.SrchEngn_Txt.Name = "SrchEngn_Txt";
+         this.SrchEngn_Txt.Properties.Appearance.Font = new System.Drawing.Font("IRANSans", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
+         this.SrchEngn_Txt.Properties.Appearance.Options.UseFont = true;
+         this.SrchEngn_Txt.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", -1, true, true, true, DevExpress.XtraEditors.ImageLocation.MiddleCenter, ((System.Drawing.Image)(resources.GetObject("SrchEngn_Txt.Properties.Buttons"))), new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject95, "", null, null, true)});
+         this.SrchEngn_Txt.Properties.LookAndFeel.SkinName = "VS2010";
+         this.SrchEngn_Txt.Properties.LookAndFeel.UseDefaultLookAndFeel = false;
+         this.SrchEngn_Txt.Properties.NullText = "هر چی میخوای اینجا جستجو کن ...";
+         this.SrchEngn_Txt.Properties.NullValuePrompt = "هر چی میخوای اینجا جستجو کن ...";
+         this.SrchEngn_Txt.Properties.NullValuePromptShowForEmptyValue = true;
+         this.SrchEngn_Txt.Size = new System.Drawing.Size(257, 24);
+         this.SrchEngn_Txt.TabIndex = 0;
+         this.SrchEngn_Txt.EditValueChanging += new DevExpress.XtraEditors.Controls.ChangingEventHandler(this.SrchEngn_Txt_EditValueChanging);
          // 
          // ShowMain_Btn
          // 
@@ -12736,7 +12738,7 @@
          ((System.ComponentModel.ISupportInitialize)(this.advBandedGridView2)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3.CalendarTimeProperties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.persianRepositoryItemDateEdit3)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.buttonEdit1.Properties)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.SrchEngn_Txt.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.OnlineDres_Butn.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.AttnType_Lov.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CardNumb_Text.Properties)).EndInit();
@@ -13558,7 +13560,7 @@
       private MaxUi.Rollout Base_Rlt;
       private MaxUi.Button BasDef2_Btn;
       private MaxUi.Button BasDef1_Btn;
-      private DevExpress.XtraEditors.ButtonEdit buttonEdit1;
+      private DevExpress.XtraEditors.ButtonEdit SrchEngn_Txt;
       private Windows.Forms.Label Day_Lb;
       private Windows.Forms.Label Name_lb;
       private Windows.Forms.PictureBox bkImg_pbx;

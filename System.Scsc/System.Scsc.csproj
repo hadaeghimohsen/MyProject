@@ -730,6 +730,12 @@
     <Compile Include="Ui\Common\LSI_FDLF_F.Designer.cs">
       <DependentUpon>LSI_FDLF_F.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ui\Common\SRCH_ENGN_F.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Common\SRCH_ENGN_F.Designer.cs">
+      <DependentUpon>SRCH_ENGN_F.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ui\Common\LSI_FLDF_F.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -737,6 +743,9 @@
       <DependentUpon>LSI_FLDF_F.cs</DependentUpon>
     </Compile>
     <Compile Include="Ui\Common\LSI_FDLF_F.RequestRespons.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Ui\Common\SRCH_ENGN_F.RequestRespons.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Ui\Common\LSI_FLDF_F.RequestRespons.cs">
@@ -1657,6 +1666,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Common\LSI_FDLF_F.resx">
       <DependentUpon>LSI_FDLF_F.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ui\Common\SRCH_ENGN_F.resx">
+      <DependentUpon>SRCH_ENGN_F.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ui\Common\LSI_FLDF_F.resx">
       <DependentUpon>LSI_FLDF_F.cs</DependentUpon>

@@ -415,6 +415,7 @@
          this.colCRET_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_BY = new DevExpress.XtraGrid.Columns.GridColumn();
          this.colMDFY_DATE = new DevExpress.XtraGrid.Columns.GridColumn();
+         this.colEXPN_IDTY_VALU = new DevExpress.XtraGrid.Columns.GridColumn();
          this.xTp_004 = new DevExpress.XtraTab.XtraTabPage();
          this.Flp_002 = new System.Windows.Forms.FlowLayoutPanel();
          this.rollout2 = new System.MaxUi.Rollout();
@@ -523,7 +524,6 @@
          this.گروهوزیرگروهخدماتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.تنظیماتToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
          this.Rollout_Cms = new System.Windows.Forms.ContextMenuStrip(this.components);
-         this.colEXPN_IDTY_VALU = new DevExpress.XtraGrid.Columns.GridColumn();
          ((System.ComponentModel.ISupportInitialize)(this.Actv1_Lov)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.DActvBs)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.PayStat_Lov)).BeginInit();
@@ -5612,6 +5612,16 @@
          this.colMDFY_DATE.VisibleIndex = 25;
          this.colMDFY_DATE.Width = 87;
          // 
+         // colEXPN_IDTY_VALU
+         // 
+         this.colEXPN_IDTY_VALU.Caption = "شناسه پرداخت هزینه";
+         this.colEXPN_IDTY_VALU.FieldName = "EXPN_IDTY_VALU";
+         this.colEXPN_IDTY_VALU.Name = "colEXPN_IDTY_VALU";
+         this.colEXPN_IDTY_VALU.OptionsColumn.AllowEdit = false;
+         this.colEXPN_IDTY_VALU.OptionsColumn.ReadOnly = true;
+         this.colEXPN_IDTY_VALU.Visible = true;
+         this.colEXPN_IDTY_VALU.VisibleIndex = 9;
+         // 
          // xTp_004
          // 
          this.xTp_004.Controls.Add(this.Flp_002);
@@ -7155,16 +7165,6 @@
          this.Rollout_Cms.Name = "Rollout_Cms";
          this.Rollout_Cms.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
          this.Rollout_Cms.Size = new System.Drawing.Size(61, 4);
-         // 
-         // colEXPN_IDTY_VALU
-         // 
-         this.colEXPN_IDTY_VALU.Caption = "شناسه پرداخت هزینه";
-         this.colEXPN_IDTY_VALU.FieldName = "EXPN_IDTY_VALU";
-         this.colEXPN_IDTY_VALU.Name = "colEXPN_IDTY_VALU";
-         this.colEXPN_IDTY_VALU.OptionsColumn.AllowEdit = false;
-         this.colEXPN_IDTY_VALU.OptionsColumn.ReadOnly = true;
-         this.colEXPN_IDTY_VALU.Visible = true;
-         this.colEXPN_IDTY_VALU.VisibleIndex = 9;
          // 
          // BAS_DEF2_F
          // 

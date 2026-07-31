@@ -1017,7 +1017,7 @@ namespace System.Scsc.Ui.Common
                         {
                            Input = 
                               new XElement("DeviceControlFunction", 
-                                 new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.1" /* Add Face */ : "5.2.3.8" /* Add Finger */)), 
+                                 new XAttribute("functype", (ModifierKeys == Keys.Control ? "5.2.3.8.1" /* Add Face */ : (ModifierKeys == Keys.Shift ? "5.2.3.8.4" /* Add Card */ : "5.2.3.8" /* Add Finger */))), 
                                  new XAttribute("funcdesc", "Add User Info"), 
                                  new XAttribute("enrollnumb", figh.FNGR_PRNT_DNRM)
                               )
@@ -2565,18 +2565,22 @@ namespace System.Scsc.Ui.Common
                                                 {
                                                    var _fngr = _data[0];
                                                    var _face = _data[1];
+                                                   var _card = _data[2];
 
                                                    var _imgFngr = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 13980505495708 /* Finger Print */);
                                                    var _imgFace = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 14032589693230 /* Face ID */);
+                                                   var _txtCard = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 14050722862355 /* Card ID */);
 
                                                    FngrPrntImgProc_Lb.BackColor = _fngr != null ? Color.Lime : Color.FromArgb(224, 224, 224);
                                                    FaceImgProc_Lb.BackColor = _face != null ? Color.Lime : Color.FromArgb(224, 224, 224);
+                                                   CardTxtProc_Lb.BackColor = _card != null ? Color.Lime : Color.FromArgb(224, 224, 224);
 
-                                                   if(_imgFngr != null || _imgFace != null)
+                                                   if(_imgFngr != null || _imgFace != null || _txtCard != null)
                                                    {
                                                       iScsc.ExecuteCommand(
                                                          (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";") +
-                                                         (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";")
+                                                         (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";") + 
+                                                         (Card_Cbx.Checked ? (_txtCard != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _card, _txtCard.RCDC_RCID, _txtCard.RWNO) : ";") : ";") 
                                                       );
                                                       
                                                       RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
@@ -2600,18 +2604,22 @@ namespace System.Scsc.Ui.Common
                                              {
                                                 var _fngr = _data[0];
                                                 var _face = _data[1];
+                                                var _card = _data[2];
 
                                                 var _imgFngr = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 13980505495708 /* Finger Print */);
                                                 var _imgFace = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 14032589693230 /* Face ID */);
+                                                var _txtCard = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 14050722862355 /* Card ID */);
 
                                                 FngrPrntImgProc_Lb.BackColor = _fngr != null ? Color.Lime : Color.FromArgb(224, 224, 224);
                                                 FaceImgProc_Lb.BackColor = _face != null ? Color.Lime : Color.FromArgb(224, 224, 224);
+                                                CardTxtProc_Lb.BackColor = _card != null ? Color.Lime : Color.FromArgb(224, 224, 224);
 
-                                                if (_imgFngr != null || _imgFace != null)
+                                                if (_imgFngr != null || _imgFace != null && _txtCard != null)
                                                 {
                                                    iScsc.ExecuteCommand(
                                                       (Fngr_Cbx.Checked ? (_imgFngr != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _fngr, _imgFngr.RCDC_RCID, _imgFngr.RWNO) : ";") : ";") +
-                                                      (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";")
+                                                      (Face_Cbx.Checked ? (_imgFace != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _face, _imgFace.RCDC_RCID, _imgFace.RWNO) : ";") : ";") +
+                                                      (Card_Cbx.Checked ? (_txtCard != null ? string.Format("UPDATE dbo.Image_Document SET IMAG = '{0}' WHERE RCDC_RCID = {1} AND RWNO = {2};", _card, _txtCard.RCDC_RCID, _txtCard.RWNO) : ";") : ";") 
                                                    );
 
                                                    RsltOprDev_Txt.Text = string.Format("داده برای مشتری " + "*{0}*" + " ذخیره شد", _serv.NAME_DNRM);
@@ -2638,6 +2646,7 @@ namespace System.Scsc.Ui.Common
                      // Fetch data from database
                      var _imgFngr = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 13980505495708 /* Finger Print */);
                      var _imgFace = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 14032589693230 /* Face ID */);
+                     var _txtCard = iScsc.Image_Documents.FirstOrDefault(i => i.Receive_Document.Request_Row.FIGH_FILE_NO == _serv.FILE_NO && i.Receive_Document.Request_Document.DCMT_DSID == 14050722862355 /* Card ID */);
 
                      //++_indx;
                      if (InvokeRequired)
@@ -2647,6 +2656,7 @@ namespace System.Scsc.Ui.Common
                            RsltOprDev_Txt.Text = string.Format("پردازش اطلاعات ارسال " + "*{0}*" + "...", _serv.NAME_DNRM);
                            FngrPrntImgProc_Lb.BackColor = (_imgFngr != null && (_imgFngr.IMAG != null && _imgFngr.IMAG.Length > 100)) ? Color.Lime : Color.FromArgb(224, 224, 224);
                            FaceImgProc_Lb.BackColor = (_imgFngr != null && (_imgFngr.IMAG != null && _imgFngr.IMAG.Length > 100)) ? Color.Lime : Color.FromArgb(224, 224, 224);
+                           CardTxtProc_Lb.BackColor = (_txtCard != null && (_txtCard.IMAG != null && _txtCard.IMAG.Length >= 1)) ? Color.Lime : Color.FromArgb(224, 224, 224);
                            //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
                         }));
                      }
@@ -2656,6 +2666,7 @@ namespace System.Scsc.Ui.Common
                         //FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
                         FngrPrntImgProc_Lb.BackColor = (_imgFngr != null && (_imgFngr.IMAG != null && _imgFngr.IMAG.Length > 100)) ? Color.Lime : Color.FromArgb(224, 224, 224);
                         FaceImgProc_Lb.BackColor = (_imgFngr != null && (_imgFngr.IMAG != null && _imgFngr.IMAG.Length > 100)) ? Color.Lime : Color.FromArgb(224, 224, 224);
+                        CardTxtProc_Lb.BackColor = (_txtCard != null && (_txtCard.IMAG != null && _txtCard.IMAG.Length >= 1)) ? Color.Lime : Color.FromArgb(224, 224, 224);
                      }
 
                      _DefaultGateway.Gateway(
@@ -2673,7 +2684,9 @@ namespace System.Scsc.Ui.Common
                                        new XAttribute("fngrprnt", _imgFngr != null ? (_imgFngr.IMAG ?? "") : ""),
                                        new XAttribute("fngrprntupdate", Fngr_Cbx.Checked ? "002": "001"),
                                        new XAttribute("face", _imgFace != null ? (_imgFace.IMAG ?? "") : ""),
-                                       new XAttribute("faceupdate", Face_Cbx.Checked ? "002": "001")
+                                       new XAttribute("faceupdate", Face_Cbx.Checked ? "002": "001"),
+                                       new XAttribute("card", _txtCard != null ? (_txtCard.IMAG ?? "") : ""),
+                                       new XAttribute("cardupdate", Card_Cbx.Checked ? "002": "001")
                                     ),
                                  AfterChangedOutput = 
                                     new Action<object>(
@@ -2802,9 +2815,11 @@ namespace System.Scsc.Ui.Common
       {
          try
          {
+            iScsc = new Data.iScscDataContext(ConnectionString);
+
             if (SendRecv_Cmbx.SelectedIndex.NotIn(0, 1, 3)) { SendRecv_Cmbx.Focus(); return; }
 
-            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Image_Document SET IMAG = NULL WHERE LEN(IMAG) < 100;"));
+            iScsc.ExecuteCommand(string.Format("UPDATE dbo.Image_Document SET IMAG = NULL WHERE LEN(IMAG) < 4;"));
 
             string SuntCode = "";
             if (SuntCode_Lov.EditValue == null || SuntCode_Lov.Text == "")
@@ -2850,7 +2865,7 @@ namespace System.Scsc.Ui.Common
                       rr.Receive_Documents.Any(rd =>
                         rd.Image_Documents.Any(im => 
                            (im.IMAG == null /* Image IS Null */ || im.IMAG.Length < 100 /* Image IS NOT VALID */) &&
-                           ((Fngr_Cbx.Checked && rd.Request_Document.DCMT_DSID == 13980505495708) /* Finger Print */ || (Face_Cbx.Checked && rd.Request_Document.DCMT_DSID == 14032589693230 /* Face */))
+                           ((Fngr_Cbx.Checked && rd.Request_Document.DCMT_DSID == 13980505495708) /* Finger Print */ || (Face_Cbx.Checked && rd.Request_Document.DCMT_DSID == 14032589693230 /* Face */) || (Card_Cbx.Checked && rd.Request_Document.DCMT_DSID == 14050722862355 /* Card */))
                         )
                      )
                    )
@@ -2980,7 +2995,7 @@ namespace System.Scsc.Ui.Common
                Lbls_Click(YellowGreen_Lbl, e);
                FngrDev_Pbc.Position = (int)(100 * _indx) / _all;
                RsltCont_Lb.Text = string.Format("Q: {0:n0} / P: {1:n0}", _all - _indx, _indx);
-               var _index = FighBs.IndexOf(_serv);
+               var _index = FighBs.List.OfType<Data.Fighter>().ToList().FindIndex(a => a.FILE_NO == _serv.FILE_NO);
                if (_index == -1) continue;
                FighBs.Position = _index;
                FngrPrntProc_Lb.Text = _serv.FNGR_PRNT_DNRM;
@@ -3003,7 +3018,6 @@ namespace System.Scsc.Ui.Common
                }
 
                GetDataFromDevice_Butn.Enabled = SetDataToDevice_Butn.Enabled = false;
-
                
                await Task.Run(() => FngrDevOpr_Tmr_Tick(_serv, null));
             }

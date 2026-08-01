@@ -22,7 +22,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
       // 1. مدل‌های داده
       // ============================================================
 
-      public enum QueueItemType { Business, Service, Customer }
+      public enum QueueItemType { Business, Service, Customer, Expense }
 
       public class BusinessModel
       {
@@ -83,31 +83,31 @@ namespace System.MessageBroadcast.Ui.SmsApp
             set { _error = value; OnChanged("Error"); }
          }
 
-          public event PropertyChangedEventHandler PropertyChanged;
-          private void OnChanged(string p)
-          {
-             if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(p));
-          }
-       }
+         public event PropertyChangedEventHandler PropertyChanged;
+         private void OnChanged(string p)
+         {
+            if (PropertyChanged != null)
+               PropertyChanged(this, new PropertyChangedEventArgs(p));
+         }
+      }
 
-       public class ExpenseView
-       {
-          public string code { get; set; }
-          public string groupCode { get; set; }
-          public string categoryCode { get; set; }
-          public string description { get; set; }
-          public decimal price { get; set; }
-          public int sessionCount { get; set; }
-          public int cycleDays { get; set; }
-          public int reminderDays { get; set; }
-          public string hasFiscalId { get; set; }
-          public string fiscalId { get; set; }
-       }
+      public class ExpenseModel
+      {
+         public long code { get; set; }
+         public long groupCode { get; set; }
+         public long categoryCode { get; set; }
+         public string description { get; set; }
+         public decimal price { get; set; }
+         public int sessionCount { get; set; }
+         public int cycleDays { get; set; }
+         public int reminderDays { get; set; }
+         public string hasFiscalId { get; set; }
+         public string fiscalId { get; set; }
+      }
 
-       // ============================================================
-       // 2. فیلدها
-       // ============================================================
+      // ============================================================
+      // 2. فیلدها
+      // ============================================================
 
       private LidomaMarket _lidoma;
       private string _baseUrl;
@@ -141,11 +141,11 @@ namespace System.MessageBroadcast.Ui.SmsApp
                dataGridView1.Columns["JsonPayload"].Visible = false;
          };
 
-          LoadQueue();
+         LoadQueue();
 
-          _netTimer = new System.Windows.Forms.Timer { Interval = 600000 };
-          _netTimer.Tick += _netTimer_Tick;
-          _netTimer.Start();
+         _netTimer = new System.Windows.Forms.Timer { Interval = 600000 };
+         _netTimer.Tick += _netTimer_Tick;
+         _netTimer.Start();
 
          Log("فرم بارگذاری شد. بررسی وضعیت اینترنت...");
          bool ok = await IsInternetAvailableAsync();
@@ -609,26 +609,24 @@ namespace System.MessageBroadcast.Ui.SmsApp
             Log("ارسال در حال انجام است؛ لطفاً صبر کنید.");
             return;
          }
-          try
-          {
-             // 1. ابتدا باشگاه‌ها (Business)
-             await SendByTypeCoreAsync(QueueItemType.Business);
+         try
+         {
+            // 1. ابتدا باشگاه‌ها (Business)
+            await SendByTypeCoreAsync(QueueItemType.Business);
 
-             // 2. همگام‌سازی هزینه‌ها و درآمدها (Expenses)
-             await SyncExpensesAsync();
+            // 3. بررسی اینکه حداقل یک باشگاه StoreId داشته باشد
+            bool hasClubWithStoreId = await HasAnyClubWithStoreIdAsync();
+            if (!hasClubWithStoreId)
+            {
+               Log("هیچ باشگاهی StoreId (LDMA_CODE) ندارد. ارسال Services و Customers متوقف شد.");
+               return;
+            }
 
-             // 3. بررسی اینکه حداقل یک باشگاه StoreId داشته باشد
-             bool hasClubWithStoreId = await HasAnyClubWithStoreIdAsync();
-             if (!hasClubWithStoreId)
-             {
-                Log("هیچ باشگاهی StoreId (LDMA_CODE) ندارد. ارسال Services و Customers متوقف شد.");
-                return;
-             }
-
-             // 4. سپس Services و Customers
-             await SendByTypeCoreAsync(QueueItemType.Service);
-             await SendByTypeCoreAsync(QueueItemType.Customer);
-          }
+            // 4. سپس Services و Customers
+            await SendByTypeCoreAsync(QueueItemType.Service);
+            await SendByTypeCoreAsync(QueueItemType.Customer);
+            await SendByTypeCoreAsync(QueueItemType.Expense);
+         }
          finally { _sendLock.Release(); }
       }
 
@@ -709,6 +707,10 @@ namespace System.MessageBroadcast.Ui.SmsApp
          else if (type == QueueItemType.Customer)
          {
             await SyncCustomersAsync();
+         }
+         else if (type == QueueItemType.Expense)
+         {
+            await SyncExpensesAsync();
          }
 
          SetStatusLabel("آخرین ارسال: " + DateTime.Now.ToString("HH:mm:ss"));
@@ -1021,178 +1023,138 @@ namespace System.MessageBroadcast.Ui.SmsApp
                iScscLocal.SubmitChanges();
                Log(string.Format("همگام‌سازی باشگاه‌ها پایان یافت. {0} مورد پردازش شد.", done));
             }
-       }
-       catch (Exception ex)
-       {
-          Log("خطا در همگام‌سازی باشگاه‌ها: " + ex.Message);
-       }
-    }
+         }
+         catch (Exception ex)
+         {
+            Log("خطا در همگام‌سازی باشگاه‌ها: " + ex.Message);
+         }
+      }
 
-    private async Task SyncExpensesAsync()
-    {
-       try
-       {
-          using (var iProjectLocal = new Data.iProjectDataContext(IProjectConnectionString))
-          using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
-          {
-             var settings = iProjectLocal.Message_Broad_Settings.FirstOrDefault(s => s.SERV_TYPE == "005");
-             if (settings == null)
-             {
-                Log("تنظیمات لیدوما (SERV_TYPE=005) یافت نشد.");
-                return;
-             }
+      private async Task SyncExpensesAsync()
+      {
+         try
+         {
+            using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
+            {
+               // 1. چک کن آیا حداقل یک Club LDMA_CODE داره
+               var clubs = iScscLocal.Clubs
+                   .Where(c => c.LDMA_CODE != null && c.LDMA_CODE != "")
+                   .ToList();
 
-             List<Data.Club> pending = iScscLocal.Clubs
-                 .Where(c => (c.LDMA_STAT ?? "001") == "001" || c.LDMA_STAT == "003")
-                 .ToList();
+               if (clubs.Count == 0)
+               {
+                  Log("هیچ باشگاهی StoreId (LDMA_CODE) ندارد. ابتدا باشگاه‌ها را همگام‌سازی کنید.");
+                  return;
+               }
 
-             if (pending.Count == 0)
-             {
-                Log("باشگاهی برای همگام‌سازی هزینه‌ها یافت نشد.");
-                return;
-             }
+               // 2. تمام Expenseهای pending و فعال
+               var pendingExpenses = iScscLocal.Expenses
+                   .Where(e => e.EXPN_STAT == "002" &&
+                              ((e.LDMA_STAT ?? "001") == "001" || e.LDMA_STAT == "003"))
+                   .ToList();
 
-             int done = 0;
-             SetProgress(0, pending.Count);
+               if (pendingExpenses.Count == 0)
+               {
+                  Log("هزینه/درآمدی برای همگام‌سازی یافت نشد.");
+                  return;
+               }
 
-             foreach (var c in pending)
-             {
-                // فقط باشگاه‌هایی که از قبل در لیدوما ثبت شده‌اند
-                if (c.LDMA_CODE != null && c.LDMA_CODE != "")
-                {
-                   Log(string.Format("شروع همگام‌سازی هزینه‌ها برای باشگاه: {0}", c.NAME));
+               Log(string.Format("تعداد کل هزینه/درآمدهای pending: {0}", pendingExpenses.Count));
 
-                   var revenues = new JObject();
-                   var subscriptions = new JArray();
-                   var productSales = new JArray();
-
-                   // --- subscriptions (RQTP_CODE = '001') ---
-                   string subQuery = @"
-                      Select e.code, 
-                             e.MTOD_CODE as groupCode,
-                             e.CTGY_CODE as categoryCode,
-                             m.MTOD_DESC + N' - ' + cb.CTGY_DESC as [description],
-                             e.PRIC as price,
-                             e.NUMB_OF_ATTN_MONT as sessionCount,
-                             e.NUMB_CYCL_DAY as cycleDays,
-                             e.EXPN_IDTY_STAT as hasFiscalId,
-                             e.EXPN_IDTY_VALU as fiscalId
-                        from Expense e,
-                             Method m,
-                             Category_Belt cb,
-                             Expense_Type et,
-                             Request_Requester rr
-                       where e.extp_code = et.code
-                         and et.RQRQ_CODE = rr.code
-                         and rr.RQTP_CODE = '001'
-                         and e.EXPN_STAT = '002'
-                         and e.MTOD_CODE = m.CODE
-                         and e.CTGY_CODE = cb.CODE
-                         and e.CLUB_CODE = " + c.CODE;
-
-                   var subRows = iScscLocal.ExecuteQuery<ExpenseView>(subQuery).ToList();
-
-                   foreach (var row in subRows)
+               // 3. تفکیک به دو دسته
+               var subItems = pendingExpenses
+                   .Where(e => e.Expense_Type.Request_Requester.RQTP_CODE == "001")
+                   .Select(e => new
                    {
-                      var item = new JObject();
-                      item["code"] = row.code;
-                      item["groupCode"] = row.groupCode;
-                      item["categoryCode"] = row.categoryCode;
-                      item["description"] = row.description ?? "";
-                      item["price"] = row.price;
-                      item["sessionCount"] = row.sessionCount;
-                      item["cycleDays"] = row.cycleDays;
+                      code = e.code.ToString(),
+                      groupCode = e.MTOD_CODE.ToString(),
+                      categoryCode = e.CTGY_CODE.ToString(),
+                      description = (e.Method.MTOD_DESC + " - " + e.Category_Belt.CTGY_DESC) ?? "",
+                      price = e.PRIC,
+                      sessionCount = e.NUMB_OF_ATTN_MONT,
+                      cycleDays = e.NUMB_CYCL_DAY,
+                      hasFiscalId = e.EXPN_IDTY_STAT == "101",
+                      fiscalId = e.EXPN_IDTY_STAT == "101" && e.EXPN_IDTY_VALU != null
+                                  ? e.EXPN_IDTY_VALU.ToString() : null
+                   })
+                   .ToList();
 
-                      bool hasFiscalId = row.hasFiscalId != null && row.hasFiscalId.ToString() == "101";
-                      item["hasFiscalId"] = hasFiscalId;
-
-                      if (hasFiscalId && row.fiscalId != null)
-                         item["fiscalId"] = row.fiscalId.ToString();
-
-                      subscriptions.Add(item);
-                   }
-
-                   // --- productSales (RQTP_CODE = '016') ---
-                   string psQuery = @"
-                      Select e.code, 
-                             e.MTOD_CODE as groupCode,
-                             e.CTGY_CODE as categoryCode,
-                             m.MTOD_DESC + N' - ' + cb.CTGY_DESC as [description],
-                             e.PRIC as price,
-                             e.NUMB_CYCL_DAY as reminderDays,
-                             e.EXPN_IDTY_STAT as hasFiscalId,
-                             e.EXPN_IDTY_VALU as fiscalId
-                        from Expense e,
-                             Method m,
-                             Category_Belt cb,
-                             Expense_Type et,
-                             Request_Requester rr
-                       where e.extp_code = et.code
-                         and et.RQRQ_CODE = rr.code
-                         and rr.RQTP_CODE = '016'
-                         and e.EXPN_STAT = '002'
-                         and e.MTOD_CODE = m.CODE
-                         and e.CTGY_CODE = cb.CODE
-                         and e.CLUB_CODE = " + c.CODE;
-
-                   var psRows = iScscLocal.ExecuteQuery<ExpenseView>(psQuery).ToList();
-
-                   foreach (var row in psRows)
+               var psItems = pendingExpenses
+                   .Where(e => e.Expense_Type.Request_Requester.RQTP_CODE == "016")
+                   .Select(e => new
                    {
-                      var item = new JObject();
-                      item["code"] = row.code;
-                      item["groupCode"] = row.groupCode;
-                      item["categoryCode"] = row.categoryCode;
-                      item["description"] = row.description ?? "";
-                      item["price"] = row.price;
-                      item["reminderDays"] = row.reminderDays;
+                      code = e.code.ToString(),
+                      groupCode = e.MTOD_CODE.ToString(),
+                      categoryCode = e.CTGY_CODE.ToString(),
+                      description = (e.Method.MTOD_DESC + " - " + e.Category_Belt.CTGY_DESC) ?? "",
+                      price = e.PRIC,
+                      reminderDays = e.NUMB_CYCL_DAY,
+                      hasFiscalId = e.EXPN_IDTY_STAT == "101",
+                      fiscalId = e.EXPN_IDTY_STAT == "101" && e.EXPN_IDTY_VALU != null
+                                  ? e.EXPN_IDTY_VALU.ToString() : null
+                   })
+                   .ToList();
 
-                      bool hasFiscalId = row.hasFiscalId != null && row.hasFiscalId.ToString() == "101";
-                      item["hasFiscalId"] = hasFiscalId;
+               if (subItems.Count == 0 && psItems.Count == 0)
+               {
+                  Log("هیچ هزینه/درآمد معتبری برای ارسال وجود ندارد.");
+                  return;
+               }
 
-                      if (hasFiscalId && row.fiscalId != null)
-                         item["fiscalId"] = row.fiscalId.ToString();
+               var revenues = new JObject();
+               revenues["subscriptions"] = JToken.FromObject(subItems);
+               revenues["productSales"] = JToken.FromObject(psItems);
 
-                      productSales.Add(item);
-                   }
+               var payload = new JObject();
+               payload["revenues"] = revenues;
 
-                   revenues["subscriptions"] = subscriptions;
-                   revenues["productSales"] = productSales;
+               // 4. برای هر Club که StoreId داره، ارسال کن
+               int totalDone = 0;
 
-                   var payload = new JObject();
-                   payload["revenues"] = revenues;
+               foreach (var club in clubs)
+               {
+                  try
+                  {
+                     Log(string.Format("در حال ارسال هزینه‌ها برای باشگاه: {0} (StoreId: {1})", club.NAME, club.LDMA_CODE));
+                     var res = await _lidoma.SetStoreRevenues(club.LDMA_CODE, payload);
 
-                    Log("در حال ارسال هزینه‌ها به لیدوما برای باشگاه: " + c.NAME);
-                    var res = await _lidoma.SetStoreRevenues(c.LDMA_CODE, payload);
+                     var success = res["success"];
+                     var error = res["error"];
+                     bool syncOk = (success != null && (bool)success);
 
-                    if (res["success"] == null || (bool?)res["success"] != true)
-                    {
-                       Log("خطا در ارسال هزینه‌ها: " + (res["error"] != null ? res["error"].ToString() : "خطای ناشناخته"));
-                       continue;
-                    }
+                     if (syncOk)
+                     {
+                        // تمام pending expenses رو mark کن
+                        foreach (var exp in pendingExpenses)
+                           exp.LDMA_STAT = "002";
 
-                    // موفقیت: باشگاه را همگام شده می‌کنیم
-                    c.LDMA_STAT = "002";
-                    iScscLocal.SubmitChanges();
+                        iScscLocal.SubmitChanges();
+                        totalDone = pendingExpenses.Count;
 
-                   Log("باشگاه " + c.NAME + " با موفقیت همگام‌سازی شد.");
-                }
+                        Log(string.Format("باشگاه {0} با موفقیت همگام شد. ({1} هزینه)", club.NAME, pendingExpenses.Count));
+                     }
+                     else
+                     {
+                        Log(string.Format("خطا در ارسال هزینه‌ها برای باشگاه {0}: {1}",
+                            club.NAME, error != null ? error.ToString() : "خطای ناشناس"));
+                     }
+                  }
+                  catch (Exception ex)
+                  {
+                     Log(string.Format("خطا در پردازش باشگاه {0}: {1}", club.NAME, ex.Message));
+                  }
+               }
 
-                done++;
-                SetProgress(done, pending.Count);
-             }
+               Log(string.Format("همگام‌سازی هزینه‌ها تمام شد. کل {0} هزینه پردازش شد.", totalDone));
+            }
+         }
+         catch (Exception ex)
+         {
+            Log("خطا در SyncExpensesAsync: " + ex.Message);
+         }
+      }
 
-             iScscLocal.SubmitChanges();
-             Log(string.Format("همگام‌سازی هزینه‌ها پایان یافت. {0} مورد پردازش شد.", done));
-          }
-       }
-       catch (Exception ex)
-       {
-          Log("خطا در همگام‌سازی هزینه‌ها: " + ex.Message);
-       }
-    }
-
-    private async Task SyncCustomersAsync()
+      private async Task SyncCustomersAsync()
       {
          try
          {

@@ -9,21 +9,40 @@ WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `
 ## فایل‌های تغییر یافته
 1. `System.MessageBroadcast/Ui/SmsApp/WEBS_MESG_F.cs` — متدهای اصلی همگام‌سازی
 2. `System.MessageBroadcast/Data/iScsc.designer.cs` — انتیتی‌های Club, Fighter, Method, Category_Belt, Club_Method, Club_Method_Weekday, Regulation, D_ATYP
-3. `C:\Users\Hadaegh\AppData\Local\Temp\opencode\add_ldma_code.sql` — اسکریپت SQL افزودن LDMA_CODE
-4. `C:\Users\Hadaegh\AppData\Local\Temp\opencode\add_cascade_triggers.sql` — اسکریپت SQL تریگرهای cascade
+3. `C:\Users\Hadaegh\AppData\Local\Temp\opencode\add_ldma_code.sql` — اسکریپت SQL افودودن LDMA_CODE
+4. `C:\Users\Hadaegh\AppData\Local\Temp\opencustom\restore_triggers_final.sql` — اسکریپت SQL تریگرهای cascade ادغام شده + الگوی جدید (OR)
 5. `System.MessageBroadcast/Data/iScsc.dbml` + `.layout` — طراحی LINQ-to-SQL
 
 ## ستون‌های اضافه شده به SQL
 - `LDMA_CODE VARCHAR(250) NULL` به تمام ۱۷۷ جدولی که ستون `LDMA_STAT` داشتند.
-- تمام تریگرهای `CG$ASYNL_%` فعال: اضافه شدن `IF UPDATE(LDMA_CODE) RETURN` بعد از NESTLEVEL.
+- تمام تریگرهای `CG$ASYNL_%` فعال: چک `IF UPDATE(LDMA_CODE) OR UPDATE(LDMA_STAT) OR UPDATE(LDMA_DATE) RETURN` بعد از NESTLEVEL.
 
-## Triggerهای کascade برای جداول وابسته (add_cascade_triggers.sql)
-- `CG$CLB_UPD_CLUB_METHOD`: روی `Club_Method` — اگر ردیفی با `MTOD_STAT='002'` تغییر کند → `Club.LDMA_STAT='003'`
-- `CG$CLB_UPD_CLBMT_WDAY`: روی `Club_Method_Weekday` — اگر ردیفی با `STAT='002'` تغییر کند → `Club.LDMA_STAT='003'`
-- `CG$CLB_UPD_METHOD`: روی `Method` — اگر ردیفی با `SHOW_STAT='002'` تغییر کند → `Club.LDMA_STAT='003'`
-- `CG$CLB_UPD_CTGY_BELT`: روی `Category_Belt` — اگر ردیفی با `SHOW_STAT='002' AND CTGY_STAT='002'` تغییر کند → `Club.LDMA_STAT='003'`
-- `CG$CLB_UPD_FIGHTER`: روی `Fighter` — اگر مربی (FGPB_TYPE_DNRM='003', ACTV_TAG_DNRM='101') تغییر کند → `Club.LDMA_STAT='003'`
+## تریگرهای ASYNL و منطق Cascade (در 5 تریگر ادغام شده)
+تریگرهای `CG$CLB_UPD_*` به‌صورت جداگانه حذف شده و منطق cascade به‌صورت خودکار در تریگرهای `CG$ASYNL_*` مربوطه ادغام شده است:
+
+- **CG$ASYNL_MTOD** (روی `Method`): اگر `SHOW_STAT='002'` تغییر کند → `Club.LDMA_STAT='003'`
+  - از طریق `Club_Method` (MTOD_CODE = Method.CODE) → `Club`
+- **CG$ASYNL_CBMT** (روی `Club_Method`): اگر `MTOD_STAT='002'` تغییر کند → `Club.LDMA_STAT='003'`
+  - مستقیم از `Club_Method.CLUB_CODE` → `Club.CODE`
+- **CG$ASYNL_CBMW** (روی `Club_Method_Weekday`): اگر `STAT='002'` تغییر کند → `Club.LDMA_STAT='003'`
+  - از طریق `Club_Method` (CODE = CBMT_CODE) → `Club_Method.CLUB_CODE` → `Club`
+- **CG$ASYNL_CTGY** (روی `Category_Belt`): اگر `SHOW_STAT='002' AND CTGY_STAT='002'` تغییر کند → `Club.LDMA_STAT='003'`
+  - از طریق `Club_Method` (MTOD_CODE = Category_Belt.MTOD_CODE) → `Club`
+- **CG$ASYNL_FIGH** (روی `Fighter`): اگر `FGPB_TYPE_DNRM='003' AND ACTV_TAG_DNRM='101'` تغییر کند → `Club.LDMA_STAT='003'`
+  - مستقیم از `Fighter.CLUB_CODE_DNRM` → `Club.CODE`
 - همه این تریگرها فقط باشگاه‌هایی را آپدیت می‌کنند که LDMA_STATشون NULL، '001' یا '002' است (نه '003' که قبلاً به‌روزرسانی شده)
+
+## الگوی جدید برای تمام تریگرهای ASYNL (168+ تریگر)
+- قبل: 
+  ```sql
+  IF UPDATE(LDMA_CODE) RETURN;
+  IF UPDATE(LDMA_STAT) AND UPDATE(LDMA_DATE) RETURN;
+  ```
+- بعد (تغییر یافته در تمام ۱۷۷ تریگر CG$ASYNL_%):
+  ```sql
+  IF UPDATE(LDMA_CODE) OR UPDATE(LDMA_STAT) OR UPDATE(LDMA_DATE) RETURN;
+  ```
+- تعداد تریگرهای به‌روز شده: 173 (168 با LDMA_CODE + 5 درهم + 3 بدون LDMA_CODE که الگوی جدید اعمال شد)
 
 ## گردش کار ارسال (RunSendAllAsync)
 1. **Business** → `SendByTypeCoreAsync(Business)` → صف + `SyncClubsAsync()`
@@ -34,7 +53,7 @@ WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `
 ## متد SyncClubsAsync (WEBS_MESG_F.cs ~690)
 - Local DataContext: `using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))`
 - **فیلتر pending**: `(c.LDMA_STAT ?? "001") == "001" || c.LDMA_STAT == "003"`
-- **Triggerهای DB**: اگر هر ردیف در جداول وابسته تغییر کند، Triggerهای `CG$CLB_UPD_*` به‌صورت خودکار `Club.LDMA_STAT='003'` می‌شود
+- **Triggerهای DB**: اگر هر ردیف در جداول وابسته تغییر کند، Triggerهای `CG$ASYNL_*` به‌صورت خودکار `Club.LDMA_STAT='003'` می‌شود
 - **Update vs Create**: اگر `c.LDMA_CODE` مقدار دارد → `UpdateStoreAsync(LDMA_CODE, storeData)` وگرنه `CreateStoreAsync(storeData)`
 - **بعد از ارسال موفق**: `LDMA_STAT='002'` برای خود باشگاه + تمام ردیف‌های وابسته:
   - **اولین بار** (CreateStoreAsync): همه ردیف‌های وابسته به '002' (با شرایط JSON building)

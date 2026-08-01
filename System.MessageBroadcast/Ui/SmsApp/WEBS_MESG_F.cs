@@ -1061,37 +1061,37 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
                Log(string.Format("تعداد کل هزینه/درآمدهای pending: {0}", pendingExpenses.Count));
 
-               // 3. تفکیک به دو دسته
-               var subItems = pendingExpenses
-                   .Where(e => e.Expense_Type.Request_Requester.RQTP_CODE == "001")
-                   .Select(e => new
-                   {
-                      code = e.code.ToString(),
-                      groupCode = e.MTOD_CODE.ToString(),
-                      categoryCode = e.CTGY_CODE.ToString(),
-                      description = (e.Method.MTOD_DESC + " - " + e.Category_Belt.CTGY_DESC) ?? "",
-                      price = e.PRIC,
-                      sessionCount = e.NUMB_OF_ATTN_MONT,
-                      cycleDays = e.NUMB_CYCL_DAY,
-                      hasFiscalId = e.EXPN_IDTY_STAT == "101",
-                      fiscalId = e.EXPN_IDTY_STAT == "101" && e.EXPN_IDTY_VALU != null
-                                  ? e.EXPN_IDTY_VALU.ToString() : null
-                   })
-                   .ToList();
+                // 3. تفکیک به دو دسته
+                var subItems = pendingExpenses
+                    .Where(e => e.Expense_Type.Request_Requester.RQTP_CODE == "001")
+                    .Select(e => new
+                    {
+                       code = e.CODE.ToString(),
+                       groupCode = e.MTOD_CODE.ToString(),
+                       categoryCode = e.CTGY_CODE.ToString(),
+                       description = (e.Method.MTOD_DESC + " - " + e.Category_Belt.CTGY_DESC) ?? "",
+                       price = e.PRIC,
+                       sessionCount = e.NUMB_OF_ATTN_MONT,
+                       cycleDays = e.NUMB_CYCL_DAY,
+                       hasFiscalId = e.EXPN_IDTY_STAT == "002",
+                       fiscalId = e.EXPN_IDTY_STAT == "002" && e.EXPN_IDTY_VALU != null
+                                   ? e.EXPN_IDTY_VALU.ToString() : ""
+                    })
+                    .ToList();
 
-               var psItems = pendingExpenses
+                var psItems = pendingExpenses
                    .Where(e => e.Expense_Type.Request_Requester.RQTP_CODE == "016")
                    .Select(e => new
                    {
-                      code = e.code.ToString(),
+                      code = e.CODE.ToString(),
                       groupCode = e.MTOD_CODE.ToString(),
                       categoryCode = e.CTGY_CODE.ToString(),
                       description = (e.Method.MTOD_DESC + " - " + e.Category_Belt.CTGY_DESC) ?? "",
                       price = e.PRIC,
                       reminderDays = e.NUMB_CYCL_DAY,
-                      hasFiscalId = e.EXPN_IDTY_STAT == "101",
-                      fiscalId = e.EXPN_IDTY_STAT == "101" && e.EXPN_IDTY_VALU != null
-                                  ? e.EXPN_IDTY_VALU.ToString() : null
+                      hasFiscalId = e.EXPN_IDTY_STAT == "002",
+                      fiscalId = e.EXPN_IDTY_STAT == "002" && e.EXPN_IDTY_VALU != null
+                                  ? e.EXPN_IDTY_VALU.ToString() : ""
                    })
                    .ToList();
 
@@ -1118,9 +1118,9 @@ namespace System.MessageBroadcast.Ui.SmsApp
                      Log(string.Format("در حال ارسال هزینه‌ها برای باشگاه: {0} (StoreId: {1})", club.NAME, club.LDMA_CODE));
                      var res = await _lidoma.SetStoreRevenues(club.LDMA_CODE, payload);
 
-                     var success = res["success"];
+                     var success = res["return"]["status"];
                      var error = res["error"];
-                     bool syncOk = (success != null && (bool)success);
+                     bool syncOk = (success != null && success.ToString() == "200");
 
                      if (syncOk)
                      {

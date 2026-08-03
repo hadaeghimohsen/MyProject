@@ -60,26 +60,26 @@ namespace System.MessageBroadcast.Code
          }
       }
 
-      protected override void RequestToUserInterface(Job job)
-      {
-         switch (job.Gateway)
-         {
-            case "Wall":
-               _Wall.SendRequest(job);
-               break;
-            case "MSTR_PAGE_F":
-               _Mstr_Page_F.SendRequest(job);
-               break;
-            case "SEND_MESG_F":
-               _Send_Mesg_F.SendRequest(job);
-               break;
-            case "WEBS_MESG_F":
-               _Webs_Mesg_F.SendRequest(job);
-               break;
-            default:
-               job.Status = StatusType.Failed;
-               break;
-         }
-      }
+       protected override void RequestToUserInterface(Job job)
+       {
+          switch (job.Gateway)
+          {
+             case "Wall":
+                if (_Wall != null) _Wall.SendRequest(job);
+                break;
+             case "MSTR_PAGE_F":
+                if (_Mstr_Page_F != null) _Mstr_Page_F.SendRequest(job);
+                break;
+             case "SEND_MESG_F":
+                if (_Send_Mesg_F != null) _Send_Mesg_F.SendRequest(job);
+                break;
+             case "WEBS_MESG_F":
+                if (_Webs_Mesg_F != null) _Webs_Mesg_F.SendRequest(job);
+                break;
+             default:
+                job.Status = StatusType.Failed;
+                break;
+          }
+       }
    }
 }

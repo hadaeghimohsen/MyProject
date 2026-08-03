@@ -127,10 +127,13 @@ namespace System.MessageBroadcast.Code
                         }
                      );
 
-                  var smsConf = ctx.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
+                   var smsConf = ctx.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
+                   var smsConfList = smsConf.ToList();
+                   var currentSmsConf = smsConfList.FirstOrDefault();
+                   if (currentSmsConf == null) return;
 
-                  // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
-                  if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = 1000 * 60 * 10; }, null); return; }
+                   // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
+                   if (xHost == null || currentSmsConf == null || xHost.Attribute("cpu").Value != currentSmsConf.GTWY_MAC_ADRS) { if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = 1000 * 60 * 10; }, null); return; }
 
                   if (smsConf.Count(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002") == 0)
                   {
@@ -160,7 +163,7 @@ namespace System.MessageBroadcast.Code
                                     // اگر اینترنت قطع باشد یک وقفه ده دقیقه ای انجام میشود و پیام به برای 
                                     // System Try
                                     // ارسال میشود
-                                    if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000; }, null);
+                                    if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = (currentSmsConf != null ? (int?)currentSmsConf.SLEP_INTR : null) ?? 600000; }, null);
 
                                     // 1401/04/11 * IF Internet is not Connected System must be Show Alarm DC
                                     Gateway(
@@ -178,7 +181,7 @@ namespace System.MessageBroadcast.Code
                                           {
                                              ToolTipIcon.Warning,
                                              "بررسی وضعیت اتصال اینترنت",
-                                             string.Format("اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از {0} دقیقه مجددا فعال میشود", (smsConf.FirstOrDefault().SLEP_INTR ?? 600000) / 60000),
+                                             string.Format("اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از {0} دقیقه مجددا فعال میشود", (currentSmsConf != null ? (int?)currentSmsConf.SLEP_INTR : null) ?? 600000 / 60000),
                                              2000
                                           }
                                        }
@@ -244,8 +247,8 @@ namespace System.MessageBroadcast.Code
                               }
                            }
 
-                           // Check Line Type is Active
-                           if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == bulkSms.FirstOrDefault().LINE_TYPE && sc.BGWK_STAT == "002") == null) return;
+                            // Check Line Type is Active
+                            if (currentSmsConf == null || smsConfList.FirstOrDefault(sc => sc.LINE_TYPE == bulkSms.FirstOrDefault().LINE_TYPE && sc.BGWK_STAT == "002") == null) return;
 
                            // 1397/12/06 * چک کردن گزینه اینکه قبل از ارسال بررسی کنیم که شارژ داریم یا خیر
                            #region Check Sms Server
@@ -290,7 +293,7 @@ namespace System.MessageBroadcast.Code
                                     }
                                  );
 
-                                 if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000; }, null);
+                                 if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = (currentSmsConf != null ? (int?)currentSmsConf.SLEP_INTR : null) ?? 600000; }, null);
 
                                  _DefaultGateway.Gateway(
                                     new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)
@@ -441,7 +444,7 @@ namespace System.MessageBroadcast.Code
                                           // اگر اینترنت قطع باشد یک وقفه ده دقیقه ای انجام میشود و پیام به برای 
                                           // System Try
                                           // ارسال میشود
-                                          if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000; }, null);
+                                          if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = (currentSmsConf != null ? (int?)currentSmsConf.SLEP_INTR : null) ?? 600000; }, null);
 
                                           // 1401/04/11 * IF Internet is not Connected System must be Show Alarm DC
                                           Gateway(
@@ -459,7 +462,7 @@ namespace System.MessageBroadcast.Code
                                                 {
                                                    ToolTipIcon.Warning,
                                                    "بررسی وضعیت اتصال اینترنت",
-                                                   string.Format("اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از {0} دقیقه مجددا فعال میشود", (smsConf.FirstOrDefault().SLEP_INTR ?? 600000) / 60000),
+                                                   string.Format("اینترنت سیستم غیرفعال می باشد، سامانه پیامکی پس از {0} دقیقه مجددا فعال میشود", (currentSmsConf != null ? (int?)currentSmsConf.SLEP_INTR : null) ?? 600000 / 60000),
                                                    2000
                                                 }
                                              }
@@ -582,7 +585,7 @@ namespace System.MessageBroadcast.Code
                                     }
                                  );
 
-                                 if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = smsConf.FirstOrDefault().SLEP_INTR ?? 600000; }, null);
+                                 if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = (currentSmsConf != null ? (int?)currentSmsConf.SLEP_INTR : null) ?? 600000; }, null);
 
                                  _DefaultGateway.Gateway(
                                     new Job(SendType.External, "localhost", "Wall", 22 /* Execute SetSystemNotification */, SendType.SelfToUserInterface)

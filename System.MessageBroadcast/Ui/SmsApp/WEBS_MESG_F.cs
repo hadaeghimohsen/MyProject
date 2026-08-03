@@ -166,7 +166,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
                       .FirstOrDefault(m => m.SERV_TYPE == "005");
                   if (setting != null && setting.BGWK_INTR.HasValue)
                   {
-                     return setting.BGWK_INTR.Value * 1000;
+                     return setting.BGWK_INTR.Value;
                   }
                }
             }

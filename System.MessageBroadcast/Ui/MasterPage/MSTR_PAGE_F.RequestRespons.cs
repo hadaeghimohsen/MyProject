@@ -181,40 +181,55 @@ namespace System.MessageBroadcast.Ui.MasterPage
          if(xinput != null)
          {
             _tmpjob = job;
-            switch(xinput.Attribute("actntype").Value)
-            {
-               case "getcredit":
-                  Btn_SmsServerRefresh_Click(null, null);
-                  break;
-               case "SmsWorkerOff":
-                  Ts_SmsWorkerStat.IsOn = false;
-                  break;
-               case "SmsWorkerOn":
-                  Ts_SmsWorkerStat.IsOn = true;
-                  break;
-               case "SmsServerOff":
-                  Ts_SmsBgwkStat.IsOn = false;
-                  break;
-               case "SmsServerOn":
-                  Ts_SmsBgwkStat.IsOn = true;
-                  break;
-               case "SmsServerWorkerOff":
-                  Ts_SmsWorkerStat.IsOn = false;
-                  Ts_SmsBgwkStat.IsOn = false;
-                  break;
-               case "SmsServerWorkerOn":
-                  Ts_SmsWorkerStat.IsOn = true;
-                  Ts_SmsBgwkStat.IsOn = true;
-                  break;
+             switch(xinput.Attribute("actntype").Value)
+             {
+                case "getcredit":
+                   SafeInvoke(() => Btn_SmsServerRefresh_Click(null, null));
+                   break;
+                case "SmsWorkerOff":
+                   SafeInvoke(() => Ts_SmsWorkerStat.IsOn = false);
+                   break;
+                case "SmsWorkerOn":
+                   SafeInvoke(() => Ts_SmsWorkerStat.IsOn = true);
+                   break;
+                case "SmsServerOff":
+                   SafeInvoke(() => Ts_SmsBgwkStat.IsOn = false);
+                   break;
+                case "SmsServerOn":
+                   SafeInvoke(() => Ts_SmsBgwkStat.IsOn = true);
+                   break;
+                case "SmsServerWorkerOff":
+                   SafeInvoke(() => {
+                      Ts_SmsWorkerStat.IsOn = false;
+                      Ts_SmsBgwkStat.IsOn = false;
+                   });
+                   break;
+                case "SmsServerWorkerOn":
+                   SafeInvoke(() => {
+                      Ts_SmsWorkerStat.IsOn = true;
+                      Ts_SmsBgwkStat.IsOn = true;
+                   });
+                   break;
                case "InternetConnected":
                   new Threading.Thread(InternetConnected).Start();
-                  break;
-               case "InternetDisconnected":
-                  new Threading.Thread(InternetDisconnected).Start();
-                  break;
-            }
-         }
-         job.Status = StatusType.Successful;
-      }
-   }
+                   break;
+                case "InternetDisconnected":
+                   new Threading.Thread(InternetDisconnected).Start();
+                   break;
+             }
+          }
+          job.Status = StatusType.Successful;
+       }
+
+       /// <summary>
+       /// Thread-safe UI invocation helper (C# 5.0 compatible)
+       /// </summary>
+       private void SafeInvoke(Action action)
+       {
+          if (InvokeRequired)
+             Invoke(action);
+          else
+             action();
+       }
+    }
 }

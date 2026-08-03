@@ -154,6 +154,51 @@ namespace System.MessageBroadcast.Ui.SmsApp
             await RunSendAllAsync();
       }
 
+      private int GetBackgroundIntervalMs()
+      {
+         try
+         {
+            if (IProjectConnectionString != null)
+            {
+               using (var iProjectLocal = new Data.iProjectDataContext(IProjectConnectionString))
+               {
+                  var setting = iProjectLocal.Message_Broad_Settings
+                      .FirstOrDefault(m => m.SERV_TYPE == "005");
+                  if (setting != null && setting.BGWK_INTR.HasValue)
+                  {
+                     return setting.BGWK_INTR.Value * 1000;
+                  }
+               }
+            }
+         }
+         catch (Exception ex)
+         {
+            Log("خطا در خواندن BGWK_INTR از دیتابیس: " + ex.Message);
+         }
+         return 600000;
+      }
+
+      private bool IsBackgroundWorkEnabled()
+      {
+         try
+         {
+            if (IProjectConnectionString != null)
+            {
+               using (var iProjectLocal = new Data.iProjectDataContext(IProjectConnectionString))
+               {
+                  var setting = iProjectLocal.Message_Broad_Settings
+                      .FirstOrDefault(m => m.SERV_TYPE == "005" && m.BGWK_STAT == "002");
+                  return setting != null;
+               }
+            }
+         }
+         catch (Exception ex)
+         {
+            Log("خطا در خواندن BGWK_STAT از دیتابیس: " + ex.Message);
+         }
+         return true;
+      }
+
       private void WEBS_MESG_F_Disposed(object sender, EventArgs e)
       {
          if (_netTimer != null) _netTimer.Stop();
@@ -169,6 +214,16 @@ namespace System.MessageBroadcast.Ui.SmsApp
          _netTimer.Stop();
          try
          {
+            // Use database-configured interval
+            _netTimer.Interval = GetBackgroundIntervalMs();
+
+            // Check if background work is enabled for Lidoma (SERV_TYPE = '005', BGWK_STAT = '002')
+            if (!IsBackgroundWorkEnabled())
+            {
+               Log("ارسال پس‌زمینه غیرفعال است (BGWK_STAT != '002').");
+               return;
+            }
+
             bool ok = await IsInternetAvailableAsync();
             SetConnectionStatus(ok);
             if (ok)

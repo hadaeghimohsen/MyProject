@@ -99,7 +99,7 @@ namespace System.MessageBroadcast.Code
          });
       }
 
-      void _SenderBgwk_Tick(object sender, EventArgs e)
+      private async void _SenderBgwk_Tick(object sender, EventArgs e)
       {
          if (_senderBusy) return;
          _senderBusy = true;
@@ -107,7 +107,7 @@ namespace System.MessageBroadcast.Code
          if (ConnectionString == null) _GetConnectionString();
          var connStr = ConnectionString;
          if (connStr == null) return;
-         Task.Run(() =>
+         await Task.Run(async () =>
          {
             try
             {
@@ -370,9 +370,9 @@ namespace System.MessageBroadcast.Code
                                var message = bulkSms.FirstOrDefault().MSGB_TEXT;
                                var bulkSmsList = bulkSms.ToList();
 
-                               var loginResult = LidomaClient.LoginAsync(
-                                   smsConf.FirstOrDefault().USER_NAME,
-                                   smsConf.FirstOrDefault().PASS_WORD).Result;
+                                var loginResult = await LidomaClient.LoginAsync(
+                                    smsConf.FirstOrDefault().USER_NAME,
+                                    smsConf.FirstOrDefault().PASS_WORD);
 
                                if (loginResult)
                                {
@@ -382,7 +382,7 @@ namespace System.MessageBroadcast.Code
                                   {
                                      var batch = bulkSmsList.Skip(i).Take(batchSize).ToList();
                                      var receptors = batch.Select(bs => bs.PHON_NUMB).ToArray();
-                                     var rslt = LidomaClient.SendBatchAsync(storeId, branchIndex, senderNumber, receptors, message).Result;
+                                      var rslt = await LidomaClient.SendBatchAsync(storeId, branchIndex, senderNumber, receptors, message);
                                      if (rslt["success"] != null && (bool)rslt["success"])
                                      {
                                         var entries = rslt["entries"];
@@ -685,13 +685,13 @@ namespace System.MessageBroadcast.Code
                             var receptor = sms.PHON_NUMB;
                             var message = sms.MSGB_TEXT;
 
-                            var loginResult = LidomaClient.LoginAsync(
-                                smsConf.FirstOrDefault().USER_NAME,
-                                smsConf.FirstOrDefault().PASS_WORD).Result;
+                             var loginResult = await LidomaClient.LoginAsync(
+                                 smsConf.FirstOrDefault().USER_NAME,
+                                 smsConf.FirstOrDefault().PASS_WORD);
 
                             if (loginResult)
                             {
-                               var rslt = LidomaClient.SendSingleAsync(storeId, branchIndex, senderNumber, receptor, message).Result;
+                                var rslt = await LidomaClient.SendSingleAsync(storeId, branchIndex, senderNumber, receptor, message);
                                if (rslt["success"] != null && (bool)rslt["success"])
                                {
                                   var entries = rslt["entries"];
@@ -865,13 +865,13 @@ namespace System.MessageBroadcast.Code
                   var baseUrl = smsConf.FirstOrDefault().BASE_URL ?? "http://localhost:3000";
                   LidomaClient = new LidomaSmsClient(baseUrl);
                }
-               var loginResult = LidomaClient.LoginAsync(
-                   smsConf.FirstOrDefault().USER_NAME,
-                   smsConf.FirstOrDefault().PASS_WORD).Result;
+                var loginResult = LidomaClient.LoginAsync(
+                    smsConf.FirstOrDefault().USER_NAME,
+                    smsConf.FirstOrDefault().PASS_WORD).GetAwaiter().GetResult();
 
-               if (loginResult)
-               {
-                  var credit = LidomaClient.GetCreditAsync().Result;
+                if (loginResult)
+                {
+                   var credit = LidomaClient.GetCreditAsync().GetAwaiter().GetResult();
                   return new XDocument(
                      new XElement("LidomaSms",
                         new XElement("SendCredit", credit)

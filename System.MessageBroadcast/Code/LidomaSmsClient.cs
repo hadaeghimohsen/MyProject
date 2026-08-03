@@ -19,7 +19,7 @@ namespace System.MessageBroadcast.Code
         public LidomaSmsClient(string baseUrl)
         {
             _baseUrl = baseUrl.TrimEnd('/');
-            _httpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(60) };
+            _httpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(30) };
         }
 
         public async Task<bool> LoginAsync(string username, string password)

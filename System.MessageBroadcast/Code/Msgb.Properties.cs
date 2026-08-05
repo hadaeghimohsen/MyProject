@@ -40,63 +40,70 @@ namespace System.MessageBroadcast.Code
       #endregion
 
       #region Event Block
-      void _CustBgwk_Tick(object sender, EventArgs e)
+      private async void _CustBgwk_Tick(object sender, EventArgs e)
       {
          if (_custBusy) return;
          _custBusy = true;
-         if (ConnectionString == null) _GetConnectionString();
-         var connStr = ConnectionString;
-         if (connStr == null) return;
-         Task.Run(() =>
+         try
          {
-            try
+            if (ConnectionString == null) _GetConnectionString();
+            var connStr = ConnectionString;
+            if (connStr == null) return;
+            await Task.Run(async () =>
             {
-               using (var ctx = new Data.iProjectDataContext(connStr))
+               try
                {
-                  // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
-                  // اولین گام بدست آوردن نام سیستم فعلی
-                  if (xHost == null)
-                     _DefaultGateway.Gateway(
-                        new Job(SendType.External, "Localhost", "DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
-                        {
-                           AfterChangedOutput =
-                           new Action<object>((output) =>
+                  using (var ctx = new Data.iProjectDataContext(connStr))
+                  {
+                     // 1398/06/09 * بررسی اینکه آیا باید از طریق این سیستم پیامک ارسال شود یا خیر
+                     // اولین گام بدست آوردن نام سیستم فعلی
+                     if (xHost == null)
+                        _DefaultGateway.Gateway(
+                           new Job(SendType.External, "Localhost", "DataGuard", 04 /* Execute DoWork4GetHostInfo */, SendType.Self)
                            {
-                              xHost = output as XElement;
-                           })
-                        }
-                     );
+                              AfterChangedOutput =
+                              new Action<object>((output) =>
+                              {
+                                 xHost = output as XElement;
+                              })
+                           }
+                        );
 
-                  var smsConf = ctx.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
+                     var smsConf = ctx.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
 
-                  // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
-                  if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { _CustBgwk.Interval = 1000 * 60 * 10; return; }
+                     // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
+                     if (xHost == null || xHost.Attribute("cpu").Value != smsConf.FirstOrDefault().GTWY_MAC_ADRS) { _CustBgwk.Interval = 1000 * 60 * 10; return; }
 
-                  if (smsConf.Count(sms => sms.TYPE == "001" && sms.CUST_BGWK_STAT == "002") == 0)
-                  {
-                     _CustBgwk.Enabled = false;
-                     _CustBgwk.Stop();
-                  }
-                  else
-                  {
-                     _CustBgwk.Interval = (int)smsConf.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.CUST_BGWK_INTR);
-                  }
+                     if (smsConf.Count(sms => sms.TYPE == "001" && sms.CUST_BGWK_STAT == "002") == 0)
+                     {
+                        _CustBgwk.Enabled = false;
+                        _CustBgwk.Stop();
+                     }
+                     else
+                     {
+                        _CustBgwk.Interval = (int)smsConf.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.CUST_BGWK_INTR);
+                     }
 
-                  if (SmsWorkerStat)
-                  {
-                     ctx.PrepareSendCustSms(new XElement("Process", ""));
+                     if (SmsWorkerStat)
+                     {
+                        ctx.PrepareSendCustSms(new XElement("Process", ""));
+                     }
                   }
                }
-            }
-            catch (Exception ex)
-            {
-               System.Diagnostics.Debug.WriteLine("_CustBgwk_Tick error: " + ex.ToString());
-            }
-            finally
-            {
-               _custBusy = false;
-            }
-         });
+               catch (Exception ex)
+               {
+                  System.Diagnostics.Debug.WriteLine("_CustBgwk_Tick (Task) error: " + ex.ToString());
+               }
+            });
+         }
+         catch (Exception ex)
+         {
+            System.Diagnostics.Debug.WriteLine("_CustBgwk_Tick error: " + ex.ToString());
+         }
+         finally
+         {
+            _custBusy = false;
+         }
       }
 
       private async void _SenderBgwk_Tick(object sender, EventArgs e)
@@ -127,13 +134,13 @@ namespace System.MessageBroadcast.Code
                         }
                      );
 
-                   var smsConf = ctx.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
-                   var smsConfList = smsConf.ToList();
-                   var currentSmsConf = smsConfList.FirstOrDefault();
-                   if (currentSmsConf == null) return;
+                  var smsConf = ctx.Message_Broad_Settings.Where(m => m.DFLT_STAT == "002");
+                  var smsConfList = smsConf.ToList();
+                  var currentSmsConf = smsConfList.FirstOrDefault();
+                  if (currentSmsConf == null) return;
 
-                   // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
-                   if (xHost == null || currentSmsConf == null || xHost.Attribute("cpu").Value != currentSmsConf.GTWY_MAC_ADRS) { if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = 1000 * 60 * 10; }, null); return; }
+                  // 1398/06/09 * بررسی اینکه سامانه ارسال پیامک ایا با سیستم فعلی اجازه ارسال را دارد یا خیر
+                  if (xHost == null || currentSmsConf == null || xHost.Attribute("cpu").Value != currentSmsConf.GTWY_MAC_ADRS) { if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = 1000 * 60 * 10; }, null); return; }
 
                   if (smsConf.Count(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002") == 0)
                   {
@@ -242,17 +249,17 @@ namespace System.MessageBroadcast.Code
                               // Lidoma Market Provider
                               if (LidomaClient == null)
                               {
-                                 var baseUrl = smsConf.FirstOrDefault().BASE_URL ?? "http://localhost:3000";
-                                 LidomaClient = new LidomaSmsClient(baseUrl);
+                                 LidomaClient = LidomaSmsClient.Instance;
                               }
                            }
 
-                            // Check Line Type is Active
-                            if (currentSmsConf == null || smsConfList.FirstOrDefault(sc => sc.LINE_TYPE == bulkSms.FirstOrDefault().LINE_TYPE && sc.BGWK_STAT == "002") == null) return;
+
+                           // Check Line Type is Active
+                           if (currentSmsConf == null || smsConfList.FirstOrDefault(sc => sc.LINE_TYPE == bulkSms.FirstOrDefault().LINE_TYPE && sc.BGWK_STAT == "002") == null) return;
 
                            // 1397/12/06 * چک کردن گزینه اینکه قبل از ارسال بررسی کنیم که شارژ داریم یا خیر
                            #region Check Sms Server
-                           var xsmsserver = _GetSmsServerStatus(ctx);
+                           var xsmsserver = await _GetSmsServerStatus(ctx);
                            if (xsmsserver == null) return;
                            int SendCredit = 0;
                            // 1398/06/08 * بررسی اینکه آیا سامانه شارژ دارد یا خیر
@@ -364,60 +371,60 @@ namespace System.MessageBroadcast.Code
                                  });
                               }
                            }
-                            else if (smsConf.FirstOrDefault().SERV_TYPE == "005")
-                            {
-                               // Lidoma Market - Bulk Send (one2many)
-                               var storeId = smsConf.FirstOrDefault().STOR_ID;
-                               var branchIndex = smsConf.FirstOrDefault().BRNC_INDX ?? 0;
-                               var senderNumber = smsConf.FirstOrDefault().LINE_NUMB;
-                               var message = bulkSms.FirstOrDefault().MSGB_TEXT;
-                               var bulkSmsList = bulkSms.ToList();
+                           else if (smsConf.FirstOrDefault().SERV_TYPE == "005")
+                           {
+                              // Lidoma Market - Bulk Send (one2many)
+                              var storeId = smsConf.FirstOrDefault().STOR_ID;
+                              var branchIndex = smsConf.FirstOrDefault().BRNC_INDX ?? 0;
+                              var senderNumber = smsConf.FirstOrDefault().LINE_NUMB;
+                              var message = bulkSms.FirstOrDefault().MSGB_TEXT;
+                              var bulkSmsList = bulkSms.ToList();
 
-                                var loginResult = await LidomaClient.LoginAsync(
-                                    smsConf.FirstOrDefault().USER_NAME,
-                                    smsConf.FirstOrDefault().PASS_WORD);
+                              var loginResult = await LidomaClient.LoginAsync(
+                                  smsConf.FirstOrDefault().USER_NAME,
+                                  smsConf.FirstOrDefault().PASS_WORD);
 
-                               if (loginResult)
-                               {
-                                  int batchSize = 200;
-                                  int totalProcessed = 0;
-                                  for (int i = 0; i < bulkSmsList.Count; i += batchSize)
-                                  {
-                                     var batch = bulkSmsList.Skip(i).Take(batchSize).ToList();
-                                     var receptors = batch.Select(bs => bs.PHON_NUMB).ToArray();
-                                      var rslt = await LidomaClient.SendBatchAsync(storeId, branchIndex, senderNumber, receptors, message);
-                                     if (rslt["success"] != null && (bool)rslt["success"])
-                                     {
-                                        var entries = rslt["entries"];
-                                        batch.ForEach(bs =>
-                                        {
-                                           var ent = entries;
-                                           bs.MESG_ID = ent != null && ent["messageid"] != null ? ent["messageid"].ToString() : "1";
-                                        });
-                                     }
-                                     else
-                                     {
-                                        batch.ForEach(sms =>
-                                        {
-                                           sms.MESG_ID = "0";
-                                           sms.EROR_CODE = rslt["error"] != null ? rslt["error"].ToString() : "-1";
-                                           sms.EROR_MESG = rslt["message"] != null ? rslt["message"].ToString() : "خطای ارسال";
-                                        });
-                                     }
-                                     totalProcessed += batch.Count;
-                                     if (totalProcessed >= 1000) break;
-                                  }
-                               }
-                               else
-                               {
-                                  bulkSmsList.ForEach(sms =>
-                                  {
-                                     sms.MESG_ID = "0";
-                                     sms.EROR_CODE = "-1";
-                                     sms.EROR_MESG = "خطای احراز هویت";
-                                  });
-                               }
-                            }
+                              if (loginResult)
+                              {
+                                 int batchSize = 200;
+                                 int totalProcessed = 0;
+                                 for (int i = 0; i < bulkSmsList.Count; i += batchSize)
+                                 {
+                                    var batch = bulkSmsList.Skip(i).Take(batchSize).ToList();
+                                    var receptors = batch.Select(bs => bs.PHON_NUMB).ToArray();
+                                    var rslt = await LidomaClient.SendBatchAsync(storeId, branchIndex, senderNumber, receptors, message);
+                                    if (rslt["return"]["status"] != null && rslt["return"]["status"].ToString() == "200")
+                                    {
+                                       var entries = rslt["entries"];
+                                       batch.ForEach(bs =>
+                                       {
+                                          var ent = entries;
+                                          bs.MESG_ID = ent != null && ent["messageid"] != null ? ent["messageid"].ToString() : "1";
+                                       });
+                                    }
+                                    else
+                                    {
+                                       batch.ForEach(sms =>
+                                       {
+                                          sms.MESG_ID = "0";
+                                          sms.EROR_CODE = rslt["error"] != null ? rslt["error"].ToString() : "-1";
+                                          sms.EROR_MESG = rslt["message"] != null ? rslt["message"].ToString() : "خطای ارسال";
+                                       });
+                                    }
+                                    totalProcessed += batch.Count;
+                                    if (totalProcessed >= 1000) break;
+                                 }
+                              }
+                              else
+                              {
+                                 bulkSmsList.ForEach(sms =>
+                                 {
+                                    sms.MESG_ID = "0";
+                                    sms.EROR_CODE = "-1";
+                                    sms.EROR_MESG = "خطای احراز هویت";
+                                 });
+                              }
+                           }
 
                            smsSendCount = bulkSms.Count();
                         }
@@ -534,17 +541,17 @@ namespace System.MessageBroadcast.Code
                               // Lidoma Market Provider
                               if (LidomaClient == null)
                               {
-                                 var baseUrl = smsConf.FirstOrDefault().BASE_URL ?? "http://localhost:3000";
-                                 LidomaClient = new LidomaSmsClient(baseUrl);
+                                 LidomaClient = LidomaSmsClient.Instance;
                               }
                            }
+
 
                            // Check Line Type is Active
                            if (smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE && sc.BGWK_STAT == "002") == null) continue;
 
                            // 1397/12/06 * چک کردن گزینه اینکه قبل از ارسال بررسی کنیم که شارژ داریم یا خیر
                            #region Check Sms Server
-                           var xsmsserver = _GetSmsServerStatus(ctx);
+                           var xsmsserver = await _GetSmsServerStatus(ctx);
                            if (xsmsserver == null) return;
                            int SendCredit = 0;
                            // 1398/06/08 * بررسی اینکه آیا سامانه شارژ دارد یا خیر
@@ -657,75 +664,75 @@ namespace System.MessageBroadcast.Code
                                        break;
                                  }
                               }
-                            }
+                           }
 
-                            System.Threading.Thread.Sleep(50);
-                            ctx.SubmitChanges();
+                           System.Threading.Thread.Sleep(50);
+                           ctx.SubmitChanges();
 
-                            ++smsSendCount;
-                         }
-                          else if (smsConf.FirstOrDefault().SERV_TYPE == "004")
-                         {
-                            var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, new List<string> { sms.PHON_NUMB }, sms.MSGB_TEXT));
-                            if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
-                               sms.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>();
-                            else
-                            {
-                               sms.MESG_ID = "0";
-                               sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
-                               sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
-                            }
-                            ctx.SubmitChanges();
-                            ++smsSendCount;
-                            System.Threading.Thread.Sleep(50);
-                         }
-                         else if (smsConf.FirstOrDefault().SERV_TYPE == "005")
-                         {
-                            // Lidoma Market - Single Send (one2one)
-                            var storeId = smsConf.FirstOrDefault().STOR_ID;
-                            var branchIndex = smsConf.FirstOrDefault().BRNC_INDX ?? 0;
-                            var senderNumber = smsConf.FirstOrDefault().LINE_NUMB;
-                            var receptor = sms.PHON_NUMB;
-                            var message = sms.MSGB_TEXT;
+                           ++smsSendCount;
+                        }
+                        else if (smsConf.FirstOrDefault().SERV_TYPE == "004")
+                        {
+                           var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, new List<string> { sms.PHON_NUMB }, sms.MSGB_TEXT));
+                           if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
+                              sms.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>();
+                           else
+                           {
+                              sms.MESG_ID = "0";
+                              sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
+                              sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
+                           }
+                           ctx.SubmitChanges();
+                           ++smsSendCount;
+                           System.Threading.Thread.Sleep(50);
+                        }
+                        else if (smsConf.FirstOrDefault().SERV_TYPE == "005")
+                        {
+                           // Lidoma Market - Single Send (one2one)
+                           var storeId = smsConf.FirstOrDefault().STOR_ID;
+                           var branchIndex = smsConf.FirstOrDefault().BRNC_INDX ?? 0;
+                           var senderNumber = smsConf.FirstOrDefault().LINE_NUMB;
+                           var receptor = sms.PHON_NUMB;
+                           var message = sms.MSGB_TEXT;
 
-                             var loginResult = await LidomaClient.LoginAsync(
-                                 smsConf.FirstOrDefault().USER_NAME,
-                                 smsConf.FirstOrDefault().PASS_WORD);
+                           var loginResult = await LidomaClient.LoginAsync(
+                               smsConf.FirstOrDefault().USER_NAME,
+                               smsConf.FirstOrDefault().PASS_WORD);
 
-                            if (loginResult)
-                            {
-                                var rslt = await LidomaClient.SendSingleAsync(storeId, branchIndex, senderNumber, receptor, message);
-                               if (rslt["success"] != null && (bool)rslt["success"])
-                               {
-                                  var entries = rslt["entries"];
-                                  sms.MESG_ID = entries != null && entries["messageid"] != null ? entries["messageid"].ToString() : "1";
-                               }
-                               else
-                               {
-                                  sms.MESG_ID = "0";
-                                  sms.EROR_CODE = rslt["error"] != null ? rslt["error"].ToString() : "-1";
-                                  sms.EROR_MESG = rslt["message"] != null ? rslt["message"].ToString() : "خطای ارسال";
-                               }
-                            }
-                            else
-                            {
-                               sms.MESG_ID = "0";
-                               sms.EROR_CODE = "-1";
-                               sms.EROR_MESG = "خطای احراز هویت";
-                            }
-                            ctx.SubmitChanges();
-                            ++smsSendCount;
-                            System.Threading.Thread.Sleep(50);
-                         }
-                         else
-                         {
-                            break;
-                         }
+                           if (loginResult)
+                           {
+                              var rslt = await LidomaClient.SendSingleAsync(storeId, branchIndex, senderNumber, receptor, message);
+                              if (rslt["return"]["status"] != null && rslt["return"]["status"].ToString() == "200")
+                              {
+                                 var entries = rslt["entries"];
+                                 sms.MESG_ID = entries != null && entries["messageid"] != null ? entries["messageid"].ToString() : "1";
+                              }
+                              else
+                              {
+                                 sms.MESG_ID = "0";
+                                 sms.EROR_CODE = rslt["error"] != null ? rslt["error"].ToString() : "-1";
+                                 sms.EROR_MESG = rslt["message"] != null ? rslt["message"].ToString() : "خطای ارسال";
+                              }
+                           }
+                           else
+                           {
+                              sms.MESG_ID = "0";
+                              sms.EROR_CODE = "-1";
+                              sms.EROR_MESG = "خطای احراز هویت";
+                           }
+                           ctx.SubmitChanges();
+                           ++smsSendCount;
+                           System.Threading.Thread.Sleep(50);
+                        }
+                        else
+                        {
+                           break;
+                        }
 
-                         if (smsSendCount >= 500)
-                         {
-                            break;
-                         }
+                        if (smsSendCount >= 500)
+                        {
+                           break;
+                        }
                      }
                      #endregion
 
@@ -787,7 +794,7 @@ namespace System.MessageBroadcast.Code
          iProject = new Data.iProjectDataContext(GetConnectionString.Output.ToString());
       }
 
-      private XDocument _GetSmsServerStatus(Data.iProjectDataContext ctx)
+      private async Task<XDocument> _GetSmsServerStatus(Data.iProjectDataContext ctx)
       {
          try
          {
@@ -865,16 +872,15 @@ namespace System.MessageBroadcast.Code
                // Lidoma Market
                if (LidomaClient == null)
                {
-                  var baseUrl = smsConf.FirstOrDefault().BASE_URL ?? "http://localhost:3000";
-                  LidomaClient = new LidomaSmsClient(baseUrl);
+                  LidomaClient = LidomaSmsClient.Instance;
                }
-                var loginResult = LidomaClient.LoginAsync(
-                    smsConf.FirstOrDefault().USER_NAME,
-                    smsConf.FirstOrDefault().PASS_WORD).GetAwaiter().GetResult();
+               var loginResult = await LidomaClient.LoginAsync(
+                   smsConf.FirstOrDefault().USER_NAME,
+                   smsConf.FirstOrDefault().PASS_WORD);
 
-                if (loginResult)
-                {
-                   var credit = LidomaClient.GetCreditAsync().GetAwaiter().GetResult();
+               if (loginResult)
+               {
+                  var credit = await LidomaClient.GetCreditAsync();
                   return new XDocument(
                      new XElement("LidomaSms",
                         new XElement("SendCredit", credit)

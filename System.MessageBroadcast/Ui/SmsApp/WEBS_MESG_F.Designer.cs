@@ -86,7 +86,6 @@
          this.lblCustData = new DevExpress.XtraEditors.LabelControl();
          this.tp_006 = new System.Windows.Forms.TabPage();
          this.richTextBoxLog = new System.Windows.Forms.RichTextBox();
-         this.dataGridView1 = new System.Windows.Forms.DataGridView();
          this.pnlQueueTop = new System.Windows.Forms.Panel();
          this.btnCheckNow = new System.Windows.Forms.Button();
          this.btnSendAll = new System.Windows.Forms.Button();
@@ -128,7 +127,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.CustOut_Mmo.Properties)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.CustData_Mmo.Properties)).BeginInit();
          this.tp_006.SuspendLayout();
-         ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
          this.pnlQueueTop.SuspendLayout();
          this.statusStrip1.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.SubsBs)).BeginInit();
@@ -211,7 +209,7 @@
          this.tabControl1.Name = "tabControl1";
          this.tabControl1.RightToLeftLayout = true;
          this.tabControl1.SelectedIndex = 0;
-         this.tabControl1.Size = new System.Drawing.Size(879, 454);
+         this.tabControl1.Size = new System.Drawing.Size(879, 628);
          this.tabControl1.TabIndex = 2;
          // 
          // tp_001
@@ -822,43 +820,27 @@
          // tp_006
          // 
          this.tp_006.Controls.Add(this.richTextBoxLog);
-         this.tp_006.Controls.Add(this.dataGridView1);
          this.tp_006.Controls.Add(this.pnlQueueTop);
          this.tp_006.Location = new System.Drawing.Point(4, 33);
          this.tp_006.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
          this.tp_006.Name = "tp_006";
          this.tp_006.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
          this.tp_006.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.tp_006.Size = new System.Drawing.Size(871, 417);
+         this.tp_006.Size = new System.Drawing.Size(871, 591);
          this.tp_006.TabIndex = 5;
          this.tp_006.Text = "مدیریت ارسال (آفلاین/صف)";
          // 
          // richTextBoxLog
          // 
-         this.richTextBoxLog.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.richTextBoxLog.Dock = System.Windows.Forms.DockStyle.Fill;
          this.richTextBoxLog.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-         this.richTextBoxLog.Location = new System.Drawing.Point(3, 270);
+         this.richTextBoxLog.Location = new System.Drawing.Point(3, 100);
          this.richTextBoxLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
          this.richTextBoxLog.Name = "richTextBoxLog";
          this.richTextBoxLog.ReadOnly = true;
-         this.richTextBoxLog.Size = new System.Drawing.Size(865, 145);
+         this.richTextBoxLog.Size = new System.Drawing.Size(865, 489);
          this.richTextBoxLog.TabIndex = 2;
          this.richTextBoxLog.Text = "";
-         // 
-         // dataGridView1
-         // 
-         this.dataGridView1.AllowUserToAddRows = false;
-         this.dataGridView1.AllowUserToDeleteRows = false;
-         this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-         this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-         this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-         this.dataGridView1.Location = new System.Drawing.Point(3, 100);
-         this.dataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-         this.dataGridView1.MultiSelect = false;
-         this.dataGridView1.Name = "dataGridView1";
-         this.dataGridView1.ReadOnly = true;
-         this.dataGridView1.Size = new System.Drawing.Size(865, 315);
-         this.dataGridView1.TabIndex = 1;
          // 
          // pnlQueueTop
          // 
@@ -960,7 +942,7 @@
          this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabelConn,
             this.toolStripProgressBar1});
-         this.statusStrip1.Location = new System.Drawing.Point(0, 482);
+         this.statusStrip1.Location = new System.Drawing.Point(0, 656);
          this.statusStrip1.Name = "statusStrip1";
          this.statusStrip1.Padding = new System.Windows.Forms.Padding(12, 0, 1, 0);
          this.statusStrip1.Size = new System.Drawing.Size(879, 22);
@@ -996,7 +978,7 @@
          this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
          this.Name = "WEBS_MESG_F";
          this.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-         this.Size = new System.Drawing.Size(879, 504);
+         this.Size = new System.Drawing.Size(879, 678);
          this.Load += new System.EventHandler(this.WEBS_MESG_F_Load);
          this.panel1.ResumeLayout(false);
          this.tabControl1.ResumeLayout(false);
@@ -1031,7 +1013,6 @@
          ((System.ComponentModel.ISupportInitialize)(this.CustOut_Mmo.Properties)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.CustData_Mmo.Properties)).EndInit();
          this.tp_006.ResumeLayout(false);
-         ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
          this.pnlQueueTop.ResumeLayout(false);
          this.pnlQueueTop.PerformLayout();
          this.statusStrip1.ResumeLayout(false);
@@ -1090,6 +1071,13 @@
         private DevExpress.XtraEditors.SimpleButton BtnCreateStore;
         private DevExpress.XtraEditors.SimpleButton BtnGetStore;
         private DevExpress.XtraEditors.SimpleButton BtnGetStores;
+        private DevExpress.XtraEditors.SimpleButton BtnGetStoreOrgans;
+        private DevExpress.XtraEditors.SimpleButton BtnSetStoreOrgans;
+        private DevExpress.XtraEditors.SimpleButton BtnGetStoreServices;
+        private DevExpress.XtraEditors.SimpleButton BtnSetStoreServices;
+        private DevExpress.XtraEditors.SimpleButton BtnGetStoreRevenues;
+        private DevExpress.XtraEditors.SimpleButton BtnCreateServicesBulk;
+        private DevExpress.XtraEditors.SimpleButton BtnOpenOrgansForm;
         private DevExpress.XtraEditors.MemoEdit StoreData_Mmo;
         private DevExpress.XtraEditors.LabelControl lblStoreData;
         private DevExpress.XtraEditors.TextEdit Limit_Txt;
@@ -1106,7 +1094,6 @@
         private DevExpress.XtraEditors.LabelControl lblCustData;
         private System.Windows.Forms.TabPage tp_006;
         private System.Windows.Forms.RichTextBox richTextBoxLog;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel pnlQueueTop;
         private System.Windows.Forms.Button btnCheckNow;
         private System.Windows.Forms.Button btnSendAll;

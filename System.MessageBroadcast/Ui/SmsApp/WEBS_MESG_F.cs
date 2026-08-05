@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Net.Http;
@@ -93,6 +94,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
       public class ExpenseModel
       {
+         public string storeId { get; set; }
          public long code { get; set; }
          public long groupCode { get; set; }
          public long categoryCode { get; set; }
@@ -134,12 +136,12 @@ namespace System.MessageBroadcast.Ui.SmsApp
          Directory.CreateDirectory(Path.GetDirectoryName(_queueFile));
 
          _queue = new BindingList<QueueItem>();
-         dataGridView1.DataSource = _queue;
-         dataGridView1.DataBindingComplete += (s, ev) =>
-         {
-            if (dataGridView1.Columns["JsonPayload"] != null)
-               dataGridView1.Columns["JsonPayload"].Visible = false;
-         };
+         //dataGridView1.DataSource = _queue;
+         //dataGridView1.DataBindingComplete += (s, ev) =>
+         //{
+         //   if (dataGridView1.Columns["JsonPayload"] != null)
+         //      dataGridView1.Columns["JsonPayload"].Visible = false;
+         //};
 
          LoadQueue();
 
@@ -280,7 +282,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
       private async Task<bool> EnsureLoggedInAsync()
       {
-         if (_lidoma != null && _lidoma.IsAuthenticated) return true;
+         if (_lidoma != null /*&& _lidoma.IsAuthenticated*/) return true;
 
          var conf = ReadLidomaConfig();
          if (conf == null)
@@ -289,7 +291,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
             return false;
          }
          _baseUrl = conf.Item1;
-         _lidoma = new LidomaMarket(_baseUrl ?? "https://api.lidomamarket.ir");
+         _lidoma = LidomaMarket.Instance;
          bool ok = await _lidoma.LoginAsync(conf.Item2, conf.Item3);
          Log(ok ? "ورود به لیدوما موفق بود." : "ورود به لیدوما ناموفق بود.");
          return ok;
@@ -336,7 +338,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
             }
 
             Status_Mmo.Text = "در حال ورود به " + baseUrl + " ...";
-            _lidoma = new LidomaMarket(baseUrl);
+            _lidoma = LidomaMarket.Instance;
             _baseUrl = baseUrl;
             bool ok = await _lidoma.LoginAsync(user, pass);
 
@@ -553,6 +555,311 @@ namespace System.MessageBroadcast.Ui.SmsApp
          catch (Exception ex) { StoreOut_Mmo.Text = "خطا: " + ex.Message; }
       }
 
+      // tp_004 - Store Management Extensions (Organs, Services, Revenues, Bulk)
+
+      private async void BtnGetStoreOrgans_Click(object sender, EventArgs e)
+      {
+         string reason;
+         if (!EnsureLoggedIn(out reason)) { StoreOut_Mmo.Text = reason; return; }
+         try
+         {
+            StoreOut_Mmo.Text = "در حال دریافت ارگان‌ها از دیتابیس...";
+            var organs = await GetOrgansFromDatabaseAsync();
+            StoreOut_Mmo.Text = organs.ToString(Formatting.Indented);
+         }
+         catch (Exception ex) { StoreOut_Mmo.Text = "خطا: " + ex.Message; }
+      }
+
+      private async void BtnSetStoreOrgans_Click(object sender, EventArgs e)
+      {
+         string reason;
+         if (!EnsureLoggedIn(out reason)) { StoreOut_Mmo.Text = reason; return; }
+         var storeId = StoreSlug_Txt.Text.Trim();
+         if (string.IsNullOrEmpty(storeId)) { StoreOut_Mmo.Text = "شناسه فروشگاه را وارد کنید."; return; }
+         try
+         {
+            StoreOut_Mmo.Text = "در حال ساخت JSON ارگان‌ها از دیتابیس...";
+            var organs = await GetOrgansFromDatabaseAsync();
+            var subscriptionDiscounts = await GetSubscriptionDiscountsFromDatabaseAsync();
+            var productSalesDiscounts = await GetProductSalesDiscountsFromDatabaseAsync();
+
+            var discountsObj = new JObject(
+                new JProperty("subscriptions", subscriptionDiscounts),
+                new JProperty("productSales", productSalesDiscounts)
+            );
+
+            var organsData = new JObject(
+                new JProperty("organs", new JObject(
+                    new JProperty("items", organs),
+                    new JProperty("discounts", discountsObj)
+                ))
+            );
+
+            StoreOut_Mmo.Text = "در حال ذخیره ارگان‌ها به Lidoma API...";
+            var res = await _lidoma.SetStoreOrgansAsync(storeId, organsData);
+            StoreOut_Mmo.Text = res.ToString(Formatting.Indented);
+         }
+         catch (Exception ex) { StoreOut_Mmo.Text = "خطا: " + ex.Message; }
+      }
+
+      private async void BtnGetStoreServices_Click(object sender, EventArgs e)
+      {
+         string reason;
+         if (!EnsureLoggedIn(out reason)) { StoreOut_Mmo.Text = reason; return; }
+         var storeId = StoreSlug_Txt.Text.Trim();
+         if (string.IsNullOrEmpty(storeId)) { StoreOut_Mmo.Text = "شناسه فروشگاه را وارد کنید."; return; }
+         try
+         {
+            StoreOut_Mmo.Text = "در حال دریافت سرویس‌ها...";
+            var res = await _lidoma.GetStoreServicesAsync(storeId);
+            StoreOut_Mmo.Text = res != null ? res.ToString(Formatting.Indented) : "نتیجه‌ای یافت نشد.";
+         }
+         catch (Exception ex) { StoreOut_Mmo.Text = "خطا: " + ex.Message; }
+      }
+
+      private async void BtnSetStoreServices_Click(object sender, EventArgs e)
+      {
+         string reason;
+         if (!EnsureLoggedIn(out reason)) { StoreOut_Mmo.Text = reason; return; }
+         var storeId = StoreSlug_Txt.Text.Trim();
+         var json = StoreData_Mmo.Text.Trim();
+         if (string.IsNullOrEmpty(storeId) || string.IsNullOrEmpty(json)) { StoreOut_Mmo.Text = "شناسه فروشگاه و دادهٔ سرویس‌ها (JSON) را وارد کنید."; return; }
+         try
+         {
+            var data = ParseJson(json);
+            StoreOut_Mmo.Text = "در حال ذخیره سرویس‌ها...";
+            var res = await _lidoma.SetStoreServicesAsync(storeId, data);
+            StoreOut_Mmo.Text = res.ToString(Formatting.Indented);
+         }
+         catch (Exception ex) { StoreOut_Mmo.Text = "خطا: " + ex.Message; }
+      }
+
+      private async void BtnGetStoreRevenues_Click(object sender, EventArgs e)
+      {
+         string reason;
+         if (!EnsureLoggedIn(out reason)) { StoreOut_Mmo.Text = reason; return; }
+         var storeId = StoreSlug_Txt.Text.Trim();
+         if (string.IsNullOrEmpty(storeId)) { StoreOut_Mmo.Text = "شناسه فروشگاه را وارد کنید."; return; }
+         try
+         {
+            StoreOut_Mmo.Text = "در حال دریافت درآمدها...";
+            var res = await _lidoma.GetStoreRevenuesAsync(storeId);
+            StoreOut_Mmo.Text = res != null ? res.ToString(Formatting.Indented) : "نتیجه‌ای یافت نشد.";
+         }
+         catch (Exception ex) { StoreOut_Mmo.Text = "خطا: " + ex.Message; }
+      }
+
+      private async void BtnCreateServicesBulk_Click(object sender, EventArgs e)
+      {
+         string reason;
+         if (!EnsureLoggedIn(out reason)) { StoreOut_Mmo.Text = reason; return; }
+         var json = StoreData_Mmo.Text.Trim();
+         if (string.IsNullOrEmpty(json)) { StoreOut_Mmo.Text = "دادهٔ سرویس‌ها (JSON) را وارد کنید."; return; }
+         try
+         {
+            var data = ParseJson(json);
+            StoreOut_Mmo.Text = "در حال ایجاد سرویس‌های گروهی...";
+            var res = await _lidoma.CreateServicesBulkAsync(data);
+            StoreOut_Mmo.Text = res.ToString(Formatting.Indented);
+         }
+         catch (Exception ex) { StoreOut_Mmo.Text = "خطا: " + ex.Message; }
+      }
+
+      private void BtnOpenOrgansForm_Click(object sender, EventArgs e)
+      {
+         var storeId = StoreSlug_Txt.Text.Trim();
+         //var form = new frmStoreOrgans(storeId);
+         //form.Show();
+      }
+
+      // ============================================================
+      // Helper Methods: Database Reading for Organs & Discounts
+      // ============================================================
+
+      /// <summary>
+      /// Executes Query 1 from dbo.Sub_Unit to get organs.
+      /// Returns JArray with items: { code, name }
+      /// </summary>
+      private async Task<JArray> GetOrgansFromDatabaseAsync()
+      {
+         Log("Executing Query 1: Getting organs from dbo.Sub_Unit");
+         var organs = new JArray();
+
+         try
+         {
+            using (var connection = new SqlConnection(IScscConnectionString))
+            {
+               await connection.OpenAsync();
+
+               const string query = @"SELECT ORGN_CODE_DNRM AS Code, SUNT_DESC AS Name FROM dbo.Sub_Unit ORDER BY ORGN_CODE_DNRM";
+
+               using (var command = new SqlCommand(query, connection))
+               {
+                  using (var reader = await command.ExecuteReaderAsync())
+                  {
+                     while (await reader.ReadAsync())
+                     {
+                        var organ = new JObject(
+                            new JProperty("code", reader.IsDBNull(0) ? null : reader.GetString(0)),
+                            new JProperty("name", reader.IsDBNull(1) ? null : reader.GetString(1))
+                        );
+                        organs.Add(organ);
+                     }
+                  }
+               }
+            }
+         }
+         catch (Exception ex)
+         {
+            Log("Error getting organs: " + ex.Message);
+            throw;
+         }
+
+         Log(string.Format("Retrieved {0} organs", organs.Count));
+         return organs;
+      }
+
+      /// <summary>
+      /// Executes Query 2 from dbo.Basic_Calculate_Discount (Rqtp_Code IN 001, 009).
+      /// Returns JArray with subscription discounts.
+      /// IMPORTANT: Only adds startsAt/endsAt if Kind == 'dateRange' AND value is not null.
+      /// </summary>
+      private async Task<JArray> GetSubscriptionDiscountsFromDatabaseAsync()
+      {
+         Log("Executing Query 2: Getting subscription discounts (Rqtp_Code IN 001, 009)");
+         var discounts = new JArray();
+
+         try
+         {
+            using (var connection = new SqlConnection(IScscConnectionString))
+            {
+               await connection.OpenAsync();
+
+               const string query = @"SELECT a.CODE AS Code, a.ORGN_CODE_DNRM AS OrganCode, a.EXPN_CODE AS RevenueCode,
+CASE a.ACTN_TYPE WHEN '001' THEN 'regular' WHEN '002' THEN 'periodic' WHEN '003' THEN 'dateRange' WHEN '004' THEN 'deposit' WHEN '005' THEN 'loyalCustomer' WHEN '006' THEN 'newCustomerReferral' WHEN '007' THEN 'campaign' WHEN '008' THEN 'birthdayGift' WHEN '009' THEN 'serviceCommission' WHEN '010' THEN 'referralCommission' END AS Kind,
+CASE a.DSCT_TYPE WHEN '001' THEN 'percent' ELSE 'amount' END AS Type,
+a.PRCT_DSCT AS Value,
+CASE a.STAT WHEN '002' THEN 'true' ELSE 'false' END AS IsActive,
+a.FROM_DATE AS StartsAt, a.TO_DATE AS EndsAt
+FROM dbo.Basic_Calculate_Discount a WHERE a.Rqtp_Code IN ('001', '009') ORDER BY a.CODE";
+
+               using (var command = new SqlCommand(query, connection))
+               {
+                  using (var reader = await command.ExecuteReaderAsync())
+                  {
+                     while (await reader.ReadAsync())
+                     {
+                        var discount = new JObject(
+                            new JProperty("code", reader.IsDBNull(0) ? null : reader.GetString(0)),
+                            new JProperty("organCode", reader.IsDBNull(1) ? null : reader.GetString(1)),
+                            new JProperty("revenueCode", reader.IsDBNull(2) ? null : reader.GetString(2))
+                        );
+
+                        var kind = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        var type = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        var value = reader.IsDBNull(5) ? (decimal?)null : reader.GetDecimal(5);
+                        var isActiveStr = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        var isActive = isActiveStr != null && isActiveStr == "true";
+
+                        discount.Add(new JProperty("kind", kind));
+                        discount.Add(new JProperty("type", type));
+                        discount.Add(new JProperty("value", value));
+                        discount.Add(new JProperty("isActive", isActive));
+
+                        // ONLY add startsAt and endsAt if Kind == 'dateRange' AND value is not null
+                        if (kind == "dateRange" && value.HasValue)
+                        {
+                           var startsAt = reader.IsDBNull(7) ? (DateTime?)null : reader.GetDateTime(7);
+                           var endsAt = reader.IsDBNull(8) ? (DateTime?)null : reader.GetDateTime(8);
+
+                           if (startsAt.HasValue)
+                           {
+                              discount.Add(new JProperty("startsAt", startsAt.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")));
+                           }
+                           if (endsAt.HasValue)
+                           {
+                              discount.Add(new JProperty("endsAt", endsAt.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")));
+                           }
+                        }
+
+                        discounts.Add(discount);
+                     }
+                  }
+               }
+            }
+         }
+         catch (Exception ex)
+         {
+            Log("Error getting subscription discounts: " + ex.Message);
+            throw;
+         }
+
+         Log(string.Format("Retrieved {0} subscription discounts", discounts.Count));
+         return discounts;
+      }
+
+      /// <summary>
+      /// Executes Query 3 from dbo.Basic_Calculate_Discount (Rqtp_Code IN 016).
+      /// Returns JArray with product sales discounts.
+      /// </summary>
+      private async Task<JArray> GetProductSalesDiscountsFromDatabaseAsync()
+      {
+         Log("Executing Query 3: Getting product sales discounts (Rqtp_Code IN 016)");
+         var discounts = new JArray();
+
+         try
+         {
+            using (var connection = new SqlConnection(IScscConnectionString))
+            {
+               await connection.OpenAsync();
+
+               const string query = @"SELECT a.CODE AS Code, a.ORGN_CODE_DNRM AS OrganCode, a.EXPN_CODE AS RevenueCode,
+CASE a.ACTN_TYPE WHEN '001' THEN 'regular' WHEN '002' THEN 'periodic' WHEN '003' THEN 'dateRange' WHEN '004' THEN 'deposit' WHEN '005' THEN 'loyalCustomer' WHEN '006' THEN 'newCustomerReferral' WHEN '007' THEN 'campaign' WHEN '008' THEN 'birthdayGift' WHEN '009' THEN 'serviceCommission' WHEN '010' THEN 'referralCommission' END AS Kind,
+CASE a.DSCT_TYPE WHEN '001' THEN 'percent' ELSE 'amount' END AS Type,
+a.PRCT_DSCT AS Value,
+CASE a.STAT WHEN '002' THEN 'true' ELSE 'false' END AS IsActive,
+a.FROM_DATE AS StartsAt, a.TO_DATE AS EndsAt
+FROM dbo.Basic_Calculate_Discount a WHERE a.Rqtp_Code IN ('016') ORDER BY a.CODE";
+
+               using (var command = new SqlCommand(query, connection))
+               {
+                  using (var reader = await command.ExecuteReaderAsync())
+                  {
+                     while (await reader.ReadAsync())
+                     {
+                        var discount = new JObject(
+                            new JProperty("code", reader.IsDBNull(0) ? null : reader.GetString(0)),
+                            new JProperty("organCode", reader.IsDBNull(1) ? null : reader.GetString(1)),
+                            new JProperty("revenueCode", reader.IsDBNull(2) ? null : reader.GetString(2))
+                        );
+
+                        var kind = reader.IsDBNull(3) ? null : reader.GetString(3);
+                        var type = reader.IsDBNull(4) ? null : reader.GetString(4);
+                        var value = reader.IsDBNull(5) ? (decimal?)null : reader.GetDecimal(5);
+                        var isActiveStr = reader.IsDBNull(6) ? null : reader.GetString(6);
+                        var isActive = isActiveStr != null && isActiveStr == "true";
+
+                        discount.Add(new JProperty("kind", kind));
+                        discount.Add(new JProperty("type", type));
+                        discount.Add(new JProperty("value", value));
+                        discount.Add(new JProperty("isActive", isActive));
+
+                        discounts.Add(discount);
+                     }
+                  }
+               }
+            }
+         }
+         catch (Exception ex)
+         {
+            Log("Error getting product sales discounts: " + ex.Message);
+            throw;
+         }
+
+         Log(string.Format("Retrieved {0} product sales discounts", discounts.Count));
+         return discounts;
+      }
+
       // tp_005 - Customers
 
       private async void BtnCreateCustomer_Click(object sender, EventArgs e)
@@ -727,9 +1034,41 @@ namespace System.MessageBroadcast.Ui.SmsApp
                   try
                   {
                      JObject payload = JObject.Parse(it.JsonPayload);
-                     JObject res = (type == QueueItemType.Business)
-                         ? await _lidoma.CreateStoreAsync(payload)
-                         : await _lidoma.CreateServiceAsync(payload);
+                     JObject res;
+                     if (type == QueueItemType.Business)
+                     {
+                        res = await _lidoma.CreateStoreAsync(payload);
+                     }
+                     else if (type == QueueItemType.Service)
+                     {
+                        res = await _lidoma.CreateServiceAsync(payload);
+                     }
+                     else if (type == QueueItemType.Expense)
+                     {
+                        // Send individual expense via SetStoreRevenuesAsync
+                        var storeIdToken = payload["storeId"];
+                        var storeId = (storeIdToken != null) ? storeIdToken.ToString() : null;
+                        if (string.IsNullOrEmpty(storeId))
+                        {
+                           res = JObject.FromObject(new { success = false, error = "storeId is required for expense" });
+                        }
+                        else
+                        {
+                           // Build revenues payload from single expense
+                           var revenues = new JObject();
+                           var reminderDaysToken = payload["reminderDays"];
+                           var expenseType = (reminderDaysToken != null) ? "productSales" : "subscriptions";
+                           var expenseArr = new JArray { payload };
+                           revenues[expenseType] = expenseArr;
+                           var revenuePayload = new JObject();
+                           revenuePayload["revenues"] = revenues;
+                           res = await _lidoma.SetStoreRevenuesAsync(storeId, revenuePayload);
+                        }
+                     }
+                     else
+                     {
+                        res = await _lidoma.CreateServiceAsync(payload);
+                     }
 
                      if (IsSuccess(res))
                      {
@@ -1089,6 +1428,12 @@ namespace System.MessageBroadcast.Ui.SmsApp
       {
          try
          {
+            if (!await EnsureLoggedInAsync())
+            {
+               Log("اتصال به لیدوما انجام نشد. همگام‌سازی هزینه‌ها لغو شد.");
+               return;
+            }
+
             using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
             {
                // 1. چک کن آیا حداقل یک Club LDMA_CODE داره
@@ -1116,26 +1461,9 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
                Log(string.Format("تعداد کل هزینه/درآمدهای pending: {0}", pendingExpenses.Count));
 
-                // 3. تفکیک به دو دسته
-                var subItems = pendingExpenses
-                    .Where(e => e.Expense_Type.Request_Requester.RQTP_CODE == "001")
-                    .Select(e => new
-                    {
-                       code = e.CODE.ToString(),
-                       groupCode = e.MTOD_CODE.ToString(),
-                       categoryCode = e.CTGY_CODE.ToString(),
-                       description = (e.Method.MTOD_DESC + " - " + e.Category_Belt.CTGY_DESC) ?? "",
-                       price = e.PRIC,
-                       sessionCount = e.NUMB_OF_ATTN_MONT,
-                       cycleDays = e.NUMB_CYCL_DAY,
-                       hasFiscalId = e.EXPN_IDTY_STAT == "002",
-                       fiscalId = e.EXPN_IDTY_STAT == "002" && e.EXPN_IDTY_VALU != null
-                                   ? e.EXPN_IDTY_VALU.ToString() : ""
-                    })
-                    .ToList();
-
-                var psItems = pendingExpenses
-                   .Where(e => e.Expense_Type.Request_Requester.RQTP_CODE == "016")
+               // 3. تفکیک به دو دسته
+               var subItems = pendingExpenses
+                   .Where(e => e.Expense_Type.Request_Requester.RQTP_CODE == "001")
                    .Select(e => new
                    {
                       code = e.CODE.ToString(),
@@ -1143,12 +1471,29 @@ namespace System.MessageBroadcast.Ui.SmsApp
                       categoryCode = e.CTGY_CODE.ToString(),
                       description = (e.Method.MTOD_DESC + " - " + e.Category_Belt.CTGY_DESC) ?? "",
                       price = e.PRIC,
-                      reminderDays = e.NUMB_CYCL_DAY,
+                      sessionCount = e.NUMB_OF_ATTN_MONT,
+                      cycleDays = e.NUMB_CYCL_DAY,
                       hasFiscalId = e.EXPN_IDTY_STAT == "002",
                       fiscalId = e.EXPN_IDTY_STAT == "002" && e.EXPN_IDTY_VALU != null
                                   ? e.EXPN_IDTY_VALU.ToString() : ""
                    })
                    .ToList();
+
+               var psItems = pendingExpenses
+                  .Where(e => e.Expense_Type.Request_Requester.RQTP_CODE == "016")
+                  .Select(e => new
+                  {
+                     code = e.CODE.ToString(),
+                     groupCode = e.MTOD_CODE.ToString(),
+                     categoryCode = e.CTGY_CODE.ToString(),
+                     description = (e.Method.MTOD_DESC + " - " + e.Category_Belt.CTGY_DESC) ?? "",
+                     price = e.PRIC,
+                     reminderDays = e.NUMB_CYCL_DAY,
+                     hasFiscalId = e.EXPN_IDTY_STAT == "002",
+                     fiscalId = e.EXPN_IDTY_STAT == "002" && e.EXPN_IDTY_VALU != null
+                                 ? e.EXPN_IDTY_VALU.ToString() : ""
+                  })
+                  .ToList();
 
                if (subItems.Count == 0 && psItems.Count == 0)
                {
@@ -1171,12 +1516,9 @@ namespace System.MessageBroadcast.Ui.SmsApp
                   try
                   {
                      Log(string.Format("در حال ارسال هزینه‌ها برای باشگاه: {0} (StoreId: {1})", club.NAME, club.LDMA_CODE));
-                     var res = await _lidoma.SetStoreRevenues(club.LDMA_CODE, payload);
+                     var res = await _lidoma.SetStoreRevenuesAsync(club.LDMA_CODE, payload);
 
-                     var success = res["return"]["status"];
-                     var error = res["error"];
-                     bool syncOk = (success != null && success.ToString() == "200");
-
+                     bool syncOk = IsSuccess(res);
                      if (syncOk)
                      {
                         // تمام pending expenses رو mark کن
@@ -1191,7 +1533,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
                      else
                      {
                         Log(string.Format("خطا در ارسال هزینه‌ها برای باشگاه {0}: {1}",
-                            club.NAME, error != null ? error.ToString() : "خطای ناشناس"));
+                            club.NAME, res["error"] != null ? res["error"].ToString() : "خطای ناشناس"));
                      }
                   }
                   catch (Exception ex)
@@ -1213,6 +1555,12 @@ namespace System.MessageBroadcast.Ui.SmsApp
       {
          try
          {
+            if (!await EnsureLoggedInAsync())
+            {
+               Log("اتصال به لیدوما انجام نشد. همگام‌سازی مشتریان لغو شد.");
+               return;
+            }
+
             using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
             {
                // 1. اول بررسی کن کدام باشگاه‌ها StoreId (LDMA_CODE) دارند
@@ -1251,7 +1599,10 @@ namespace System.MessageBroadcast.Ui.SmsApp
                for (int i = 0; i < pending.Count; i += 50)
                {
                   var batch = pending.Skip(i).Take(50).ToList();
-                  var customersArr = new JArray();
+
+                  // Split batch into new customers (no LDMA_CODE) and existing customers (has LDMA_CODE)
+                  var newCustomers = new List<Data.Fighter>();
+                  var existingCustomers = new List<Data.Fighter>();
 
                   foreach (var f in batch)
                   {
@@ -1259,9 +1610,110 @@ namespace System.MessageBroadcast.Ui.SmsApp
                      if (f.FGPB_TYPE_DNRM != "001" && f.FGPB_TYPE_DNRM != "005") continue;    // مشتری - مهمان
                      if (f.ACTV_TAG_DNRM != "101") continue;      // فعال
                      if (f.CONF_STAT != "002") continue;         // تأیید شده
-                     if (f.FGPB_TYPE_DNRM == "001" && string.IsNullOrEmpty(f.CELL_PHON_DNRM)) continue; // شماره موبایل الزامی برای مشتریان واقعی
+                     if (f.FGPB_TYPE_DNRM == "001" && (f.CELL_PHON_DNRM == null || f.CELL_PHON_DNRM == "")) continue; // شماره موبایل الزامی برای مشتریان واقعی
 
-                     // ساخت شیء کامل مشتری بر اساس قالب لیدوما
+                     if (string.IsNullOrEmpty(f.LDMA_CODE))
+                        newCustomers.Add(f);
+                     else
+                        existingCustomers.Add(f);
+                  }
+
+                  // 1. Process new customers via CreateCustomersBulkAsync
+                  if (newCustomers.Count > 0)
+                  {
+                     var customersArr = new JArray();
+                     foreach (var f in newCustomers)
+                     {
+                        // ساخت شیء کامل مشتری بر اساس قالب لیدوما
+                        var customerObj = new JObject();
+                        customerObj.Add("fileNo", f.FILE_NO.ToString());
+                        customerObj.Add("firstName", f.FRST_NAME_DNRM ?? "");
+                        customerObj.Add("lastName", f.LAST_NAME_DNRM ?? "");
+                        customerObj.Add("fatherName", f.FATH_NAME_DNRM ?? "");
+                        customerObj.Add("debtAmount", f.DEBT_DNRM.HasValue ? f.DEBT_DNRM.Value.ToString() : "0");
+                        customerObj.Add("depositAmount", f.DPST_AMNT_DNRM.HasValue ? f.DPST_AMNT_DNRM.Value.ToString() : "0");
+                        customerObj.Add("confirmedAt", f.CONF_DATE.HasValue
+                            ? f.CONF_DATE.Value.ToString("yyyy/MM/dd hh:mm:ss tt")
+                            : "");
+                        customerObj.Add("gender", (f.SEX_TYPE_DNRM ?? "") == "001" ? "male" : "female");
+                        customerObj.Add("birthDate", f.BRTH_DATE_DNRM.HasValue
+                            ? f.BRTH_DATE_DNRM.Value.ToString("yyyy/MM/dd")
+                            : "");
+                        customerObj.Add("phone", f.CELL_PHON_DNRM ?? "");
+                        customerObj.Add("landline", f.TELL_PHON_DNRM ?? "");
+                        customerObj.Add("insuranceNumber", f.INSR_NUMB_DNRM ?? "");
+                        customerObj.Add("insuranceExpiresAt", f.INSR_DATE_DNRM.HasValue
+                            ? f.INSR_DATE_DNRM.Value.ToString("yyyy/MM/dd")
+                            : "");
+                        customerObj.Add("fingerprintCode", f.FNGR_PRNT_DNRM ?? "");
+                        customerObj.Add("organizationCode", f.ORGN_CODE_DNRM ?? "0000000000");
+                        customerObj.Add("subscriptionNo", f.SERV_NO_DNRM ?? "");
+                        customerObj.Add("nationlCode", f.INSR_NUMB_DNRM ?? "");
+                        customerObj.Add("fatherMobile", f.DAD_CELL_PHON_DNRM ?? "");
+                        customerObj.Add("dadTellPhon", f.DAD_TELL_PHON_DNRM ?? "");
+                        customerObj.Add("motherMobile", f.MOM_CELL_PHON_DNRM ?? "");
+                        customerObj.Add("momTellPhon", f.MOM_TELL_PHON_DNRM ?? "");
+                        customerObj.Add("bankName", f.DPST_ACNT_SLRY_BANK_DNRM ?? "");
+                        customerObj.Add("bankAccount", f.DPST_ACNT_SLRY_DNRM ?? "");
+
+                        customersArr.Add(customerObj);
+                     }
+
+                     // storeId از Club مربوعه
+                     var firstWithClub = newCustomers.FirstOrDefault(f => f.CLUB_CODE_DNRM.HasValue);
+                     if (firstWithClub == null) continue;
+                     var club = clubs.FirstOrDefault(c => c.CODE == firstWithClub.CLUB_CODE_DNRM.Value);
+                     if (club == null) continue;
+
+                     var requestPayload = new JObject();
+                     requestPayload.Add("storeId", club.LDMA_CODE);
+                     requestPayload.Add("customers", customersArr);
+
+                     JObject res = await _lidoma.CreateCustomersBulkAsync(requestPayload);
+
+                     if (IsSuccess(res))
+                     {
+                        var entries = res["entries"] as JArray;
+                        if (entries != null)
+                        {
+                           foreach (var entry in entries)
+                           {
+                              var phoneToken = entry["phone"];
+                              var customerIdToken = entry["customerId"];
+                              var phone = (phoneToken != null) ? phoneToken.ToString() : null;
+                              var customerId = (customerIdToken != null) ? customerIdToken.ToString() : null;
+                              if (!string.IsNullOrEmpty(phone) && !string.IsNullOrEmpty(customerId))
+                              {
+                                 var fighter = newCustomers.FirstOrDefault(f => f.CELL_PHON_DNRM == phone);
+                                 if (fighter != null)
+                                 {
+                                    fighter.LDMA_CODE = customerId;
+                                    fighter.LDMA_STAT = "002";
+                                    fighter.LDMA_DATE = DateTime.Now;
+                                 }
+                              }
+                           }
+                        }
+                        else
+                        {
+                           foreach (var f in newCustomers)
+                           {
+                              f.LDMA_STAT = "002";
+                              f.LDMA_DATE = DateTime.Now;
+                           }
+                        }
+
+                        Log(string.Format("ایجاد موفق {0} مشتری جدید", newCustomers.Count));
+                     }
+                     else
+                     {
+                        Log(string.Format("خطا در ایجاد مشتریان جدید: {0}", res != null ? res.ToString() : "پاسخی دریافت نشد"));
+                     }
+                  }
+
+                  // 2. Process existing customers via UpdateCustomerAsync
+                  foreach (var f in existingCustomers)
+                  {
                      var customerObj = new JObject();
                      customerObj.Add("fileNo", f.FILE_NO.ToString());
                      customerObj.Add("firstName", f.FRST_NAME_DNRM ?? "");
@@ -1293,69 +1745,23 @@ namespace System.MessageBroadcast.Ui.SmsApp
                      customerObj.Add("bankName", f.DPST_ACNT_SLRY_BANK_DNRM ?? "");
                      customerObj.Add("bankAccount", f.DPST_ACNT_SLRY_DNRM ?? "");
 
-                     customersArr.Add(customerObj);
-                  }
+                     var resUpdate = await _lidoma.UpdateCustomerAsync(f.LDMA_CODE, customerObj);
 
-                  if (customersArr.Count == 0)
-                     continue;
-
-                  // 3. storeId از Club مربوطه
-                  var firstWithClub = batch.FirstOrDefault(f => f.CLUB_CODE_DNRM.HasValue);
-                  if (firstWithClub == null) continue;
-                  var club = clubs.FirstOrDefault(c => c.CODE == firstWithClub.CLUB_CODE_DNRM.Value);
-                  if (club == null) continue;
-
-                  var requestPayload = new JObject();
-                  requestPayload.Add("storeId", club.LDMA_CODE);
-                  requestPayload.Add("customers", customersArr);
-
-                  JObject res = await _lidoma.CreateCustomersBulkAsync(requestPayload);
-
-                  if (IsSuccess(res))
-                  {
-                     var entries = res["entries"] as JArray;
-                     if (entries != null)
+                     if (IsSuccess(resUpdate))
                      {
-                        foreach (var entry in entries)
-                        {
-                           var phoneToken = entry["phone"];
-                           var customerIdToken = entry["customerId"];
-                           var phone = (phoneToken != null) ? phoneToken.ToString() : null;
-                           var customerId = (customerIdToken != null) ? customerIdToken.ToString() : null;
-                           if (!string.IsNullOrEmpty(phone) && !string.IsNullOrEmpty(customerId))
-                           {
-                              var fighter = batch.FirstOrDefault(f => f.CELL_PHON_DNRM == phone);
-                              if (fighter != null)
-                              {
-                                 fighter.LDMA_CODE = customerId;
-                                 fighter.LDMA_STAT = "002";
-                                 fighter.LDMA_DATE = DateTime.Now;
-                              }
-                           }
-                        }
+                        f.LDMA_STAT = "002";
+                        f.LDMA_DATE = DateTime.Now;
+                        Log(string.Format("به‌روزرسانی موفق مشتری: fileNo={0}", f.FILE_NO));
                      }
                      else
                      {
-                        foreach (var f in batch)
-                           if (f.FGPB_TYPE_DNRM == "001"
-                               && f.ACTV_TAG_DNRM == "101"
-                               && f.CONF_STAT == "002")
-                           {
-                              f.LDMA_STAT = "002";
-                              f.LDMA_DATE = DateTime.Now;
-                           }
+                        Log(string.Format("خطا در به‌روزرسانی مشتری fileNo={0}: {1}",
+                            f.FILE_NO, resUpdate != null ? resUpdate.ToString() : "پاسخی دریافت نشد"));
                      }
-
-                     iScscLocal.SubmitChanges();
-                     Log(string.Format("ارسال موفق بسته مشتریان: {0} مورد", customersArr.Count));
-                  }
-                  else
-                  {
-                     Log(string.Format("خطا در ارسال بسته مشتریان: {0}", res != null ? res.ToString() : "پاسخی دریافت نشد"));
-                     break;
                   }
 
-                  done += customersArr.Count;
+                  iScscLocal.SubmitChanges();
+                  done += newCustomers.Count + existingCustomers.Count;
                   SetProgress(done, pending.Count);
                }
 
@@ -1382,6 +1788,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
       public void EnqueueBusiness(BusinessModel model) { AddItem(QueueItemType.Business, model); }
       public void EnqueueService(ServiceModel model) { AddItem(QueueItemType.Service, model); }
       public void EnqueueCustomer(CustomerModel model) { AddItem(QueueItemType.Customer, model); }
+      public void EnqueueExpense(ExpenseModel model) { AddItem(QueueItemType.Expense, model); }
 
       private void AddItem(QueueItemType type, object model)
       {

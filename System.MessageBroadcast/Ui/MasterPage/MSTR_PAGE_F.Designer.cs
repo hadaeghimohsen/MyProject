@@ -28,6 +28,7 @@
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MSTR_PAGE_F));
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -36,12 +37,12 @@
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
          DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
          this.label12 = new System.Windows.Forms.Label();
-         this.imageList1 = new System.Windows.Forms.ImageList();
+         this.imageList1 = new System.Windows.Forms.ImageList(this.components);
          this.LL_SmsSendCredit = new System.Windows.Forms.LinkLabel();
          this.LL_SmsSendWebService = new System.Windows.Forms.LinkLabel();
-         this.SmsBn = new System.Windows.Forms.BindingNavigator();
+         this.SmsBn = new System.Windows.Forms.BindingNavigator(this.components);
          this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-         this.SmsBs = new System.Windows.Forms.BindingSource();
+         this.SmsBs = new System.Windows.Forms.BindingSource(this.components);
          this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
          this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
          this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -74,7 +75,7 @@
          this.label6 = new System.Windows.Forms.Label();
          this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
          this.Host_Lov = new DevExpress.XtraEditors.LookUpEdit();
-         this.HostBs = new System.Windows.Forms.BindingSource();
+         this.HostBs = new System.Windows.Forms.BindingSource(this.components);
          this.label7 = new System.Windows.Forms.Label();
          this.labelControl5 = new DevExpress.XtraEditors.LabelControl();
          this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
@@ -91,7 +92,7 @@
          this.textEdit4 = new DevExpress.XtraEditors.TextEdit();
          this.textEdit5 = new DevExpress.XtraEditors.TextEdit();
          this.lookUpEdit3 = new DevExpress.XtraEditors.LookUpEdit();
-         this.DLntpBs = new System.Windows.Forms.BindingSource();
+         this.DLntpBs = new System.Windows.Forms.BindingSource(this.components);
          this.SendWorkIntr_Nud = new DevExpress.XtraEditors.SpinEdit();
          this.Reload_Butn = new System.MaxUi.NewMaxBtn();
          this.Save_Butn = new System.MaxUi.NewMaxBtn();
@@ -103,7 +104,7 @@
          this.SmsApiWebSite_Lnk = new System.Windows.Forms.LinkLabel();
          this.spinEdit1 = new DevExpress.XtraEditors.SpinEdit();
          this.BackGrnd_Butn = new System.MaxUi.RoundedButton();
-         this.TelegramBs = new System.Windows.Forms.BindingSource();
+         this.TelegramBs = new System.Windows.Forms.BindingSource(this.components);
          this.textEdit6 = new DevExpress.XtraEditors.TextEdit();
          this.label13 = new System.Windows.Forms.Label();
          this.SendBkgdWorkIntr_Nud = new DevExpress.XtraEditors.SpinEdit();

@@ -1,28 +1,58 @@
 using System;
-using System.Collections.Generic;
+using System.Configuration;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace System.MessageBroadcast.Code
 {
-    public class LidomaSmsClient : IDisposable
+    /// <summary>
+    /// Lidoma Market API client for SMS sending operations.
+    /// Inherits from LidomaApiClientBase for shared functionality.
+    /// Only keeps SMS-related methods; all other methods removed as dead code.
+    /// </summary>
+    public class LidomaSmsClient : LidomaApiClientBase
     {
-        private readonly HttpClient _httpClient;
-        private readonly string _baseUrl;
-        private string _token;
-        private DateTime _tokenExpiry;
+        // ============================================================
+        // Singleton Pattern
+        // ============================================================
+        private static readonly Lazy<LidomaSmsClient> _lazyInstance =
+            new Lazy<LidomaSmsClient>(() => new LidomaSmsClient());
 
-        public LidomaSmsClient(string baseUrl)
+        /// <summary>
+        /// Default constructor - uses URL from app.config
+        /// </summary>
+        private LidomaSmsClient()
+            : base(30)
         {
-            _baseUrl = baseUrl.TrimEnd('/');
-            _httpClient = new HttpClient { Timeout = TimeSpan.FromSeconds(30) };
         }
 
-        public async Task<bool> LoginAsync(string username, string password)
+        /// <summary>
+        /// Parameterized constructor (for backward compatibility)
+        /// </summary>
+        public LidomaSmsClient(string baseUrl)
+            : base(baseUrl, 30)
+        {
+        }
+
+        /// <summary>
+        /// Singleton instance
+        /// </summary>
+        public static LidomaSmsClient Instance
+        {
+            get { return _lazyInstance.Value; }
+        }
+
+        // ============================================================
+        // Authentication
+        // ============================================================
+
+        public async Task<bool> LoginAsync(string username, string password, CancellationToken cancellationToken = default(CancellationToken))
         {
             try
             {
@@ -30,31 +60,38 @@ namespace System.MessageBroadcast.Code
                 var json = JsonConvert.SerializeObject(request);
                 var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var response = await _httpClient.PostAsync(_baseUrl + "/ws/v1/login", content);
+                var response = await ExecuteWithRetryAsync(() => _httpClient.PostAsync(_baseUrl + "/ws/v1/login", content), cancellationToken);
                 var responseJson = await response.Content.ReadAsStringAsync();
 
                 if (!response.IsSuccessStatusCode)
+                {
+                    var handlerResult = await HandleErrorResponse(response, _baseUrl + "/ws/v1/login", responseJson);
+                    if (handlerResult.ShouldReturnNull || handlerResult.ShouldRefreshToken)
+                        return false;
                     return false;
+                }
 
                 var result = JObject.Parse(responseJson);
                 var entriesToken = result["entries"];
-                _token = entriesToken != null && entriesToken["token"] != null ? entriesToken["token"].ToString() : null;
-
-                if (string.IsNullOrEmpty(_token))
-                    return false;
-
-                _httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", _token);
-                _tokenExpiry = DateTime.UtcNow.AddHours(23);
-                return true;
+                if (entriesToken != null && entriesToken["token"] != null)
+                {
+                    SetToken(entriesToken["token"].ToString());
+                    return true;
+                }
+                return false;
             }
             catch (Exception ex)
             {
-                System.Diagnostics.Debug.WriteLine("LidomaSmsClient.LoginAsync: " + ex.ToString());
+                Logger.LogError("LidomaSmsClient.LoginAsync: ", ex);
                 return false;
             }
         }
 
-        public async Task<JObject> SendSingleAsync(string storeId, int branchIndex, string sender, string receptor, string message)
+        // ============================================================
+        // SMS Methods
+        // ============================================================
+
+        public async Task<JObject> SendSingleAsync(string storeId, int branchIndex, string sender, string receptor, string message, CancellationToken cancellationToken = default(CancellationToken))
         {
             EnsureTokenValid();
             var request = new
@@ -65,10 +102,10 @@ namespace System.MessageBroadcast.Code
                 messages = new[] { new { receptor, message } },
                 sender
             };
-            return await SendRequestAsync(request);
+            return await SendRequestAsync(request, cancellationToken);
         }
 
-        public async Task<JObject> SendBatchAsync(string storeId, int branchIndex, string sender, string[] receptors, string message)
+        public async Task<JObject> SendBatchAsync(string storeId, int branchIndex, string sender, string[] receptors, string message, CancellationToken cancellationToken = default(CancellationToken))
         {
             EnsureTokenValid();
             var request = new
@@ -80,85 +117,94 @@ namespace System.MessageBroadcast.Code
                 message,
                 sender
             };
-            return await SendRequestAsync(request);
+            return await SendRequestAsync(request, cancellationToken);
         }
 
-        private async Task<JObject> SendRequestAsync(object request)
+        private async Task<JObject> SendRequestAsync(object request, CancellationToken cancellationToken = default(CancellationToken))
         {
             var json = JsonConvert.SerializeObject(request);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-            var response = await _httpClient.PostAsync(_baseUrl + "/ws/v1/sms/send", content);
-            var responseJson = await response.Content.ReadAsStringAsync();
+            var url = _baseUrl + "/ws/v1/sms/send";
+            Logger.LogInfo("POST " + url);
 
-            if (!response.IsSuccessStatusCode)
+            try
             {
-                return JObject.FromObject(new { success = false, error = responseJson });
-            }
+                var response = await ExecuteWithRetryAsync(() => _httpClient.PostAsync(url, content, cancellationToken), cancellationToken);
+                var responseJson = await response.Content.ReadAsStringAsync();
 
-            return JObject.Parse(responseJson);
-        }
+                Logger.LogInfo("POST " + url + " - Status: " + response.StatusCode);
 
-        public async Task<JObject> GetStatusAsync(string messageIds)
-        {
-            EnsureTokenValid();
-            var response = await _httpClient.GetAsync(_baseUrl + "/ws/v1/sms/status?messageid=" + messageIds);
-            var responseJson = await response.Content.ReadAsStringAsync();
-
-            if (!response.IsSuccessStatusCode)
-                return JObject.FromObject(new { success = false, error = responseJson });
-
-            return JObject.Parse(responseJson);
-        }
-
-        public async Task<long> GetCreditAsync()
-        {
-            EnsureTokenValid();
-            var response = await _httpClient.GetAsync(_baseUrl + "/ws/v1/account/charge");
-            var responseJson = await response.Content.ReadAsStringAsync();
-
-            if (!response.IsSuccessStatusCode)
-                return 0;
-
-            var result = JObject.Parse(responseJson);
-            var entriesCharge = result["entries"];
-            var charge = entriesCharge != null && entriesCharge["charge"] != null ? entriesCharge["charge"].ToString() : null;
-            long credit;
-            return long.TryParse(charge, out credit) ? credit : 0;
-        }
-
-        public async Task<string> GetServerStatusAsync()
-        {
-            EnsureTokenValid();
-            var response = await _httpClient.GetAsync(_baseUrl + "/ws/v1/server/status");
-            var responseJson = await response.Content.ReadAsStringAsync();
-
-            if (!response.IsSuccessStatusCode)
-                return "unknown";
-
-            var result = JObject.Parse(responseJson);
-            var entriesStatus = result["entries"];
-            var statusVal = entriesStatus != null && entriesStatus["status"] != null ? entriesStatus["status"].ToString() : null;
-            return statusVal ?? "unknown";
-        }
-
-        private void EnsureTokenValid()
-        {
-            if (string.IsNullOrEmpty(_token) || DateTime.UtcNow >= _tokenExpiry)
-            {
-                _httpClient.DefaultRequestHeaders.Authorization = null;
-                if (!string.IsNullOrEmpty(_token))
+                if (!response.IsSuccessStatusCode)
                 {
-                    _token = null;
-                    _tokenExpiry = DateTime.MinValue;
+                    var handlerResult = await HandleErrorResponse(response, url, responseJson);
+                    if (handlerResult.ShouldReturnNull)
+                        return null;
+                    if (handlerResult.ShouldRetry)
+                        throw new HttpRequestException("Retryable error: " + response.StatusCode);
+                    return JObject.FromObject(new { success = false, error = responseJson });
                 }
+
+                return JObject.Parse(responseJson);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("POST " + url + " failed", ex);
+                throw;
             }
         }
 
-        public void Dispose()
+        // ============================================================
+        // Account Info
+        // ============================================================
+
+        public async Task<long> GetCreditAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (_httpClient != null)
-                _httpClient.Dispose();
+            EnsureTokenValid();
+            var url = _baseUrl + "/ws/v1/account/charge";
+            Logger.LogInfo("GET " + url);
+
+            try
+            {
+                var response = await ExecuteWithRetryAsync(() => _httpClient.GetAsync(url, cancellationToken), cancellationToken);
+                var responseJson = await response.Content.ReadAsStringAsync();
+
+                Logger.LogInfo("GET " + url + " - Status: " + response.StatusCode);
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var handlerResult = await HandleErrorResponse(response, url, responseJson);
+                    if (handlerResult.ShouldReturnNull)
+                        return 0;
+                    if (handlerResult.ShouldRetry)
+                        throw new HttpRequestException("Retryable error: " + response.StatusCode);
+                    return 0;
+                }
+
+                var result = JObject.Parse(responseJson);
+                var entriesCharge = result["entries"];
+                var charge = entriesCharge != null && entriesCharge["remaincredit"] != null ? entriesCharge["remaincredit"].ToString() : null;
+                long credit;
+                return long.TryParse(charge, out credit) ? credit : 0;
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("GET " + url + " failed", ex);
+                throw;
+            }
         }
+
+        // ============================================================
+        // Dead Code Removed (use LidomaMarket class for these methods):
+        //   - GetStatusAsync (use LidomaMarket.GetMessageStatusAsync instead)
+        //   - GetServerStatusAsync (use LidomaMarket.GetServerStatusAsync instead)
+        //   - GetStoreServicesAsync (use LidomaMarket.GetStoreServicesAsync instead)
+        //   - SetStoreServicesAsync (use LidomaMarket.SetStoreServicesAsync instead)
+        //   - GetStoreRevenuesAsync (use LidomaMarket.GetStoreRevenuesAsync instead)
+        //   - SetStoreRevenuesAsync (use LidomaMarket.SetStoreRevenuesAsync instead)
+        //   - GetStoreOrgansAsync (use LidomaMarket.GetStoreOrgansAsync instead)
+        //   - SetStoreOrgansAsync (use LidomaMarket.SetStoreOrgansAsync instead)
+        //   - UpdateCustomerAsync (use LidomaMarket.UpdateCustomerAsync instead)
+        // ============================================================
     }
 }

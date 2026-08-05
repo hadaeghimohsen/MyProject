@@ -57,26 +57,26 @@ namespace System.MessageBroadcast.Ui.MasterPage
          }
       }
 
-      private void _creditTimer_Tick(object sender, EventArgs e)
-      {
-         try
-         {
-            UpdateSmsCredit();
-         }
-         catch (Exception ex)
-         {
-            Debug.WriteLine("_creditTimer_Tick error: " + ex.ToString());
-         }
-      }
+       private async void _creditTimer_Tick(object sender, EventArgs e)
+       {
+          try
+          {
+             await UpdateSmsCredit();
+          }
+          catch (Exception ex)
+          {
+             Debug.WriteLine("_creditTimer_Tick error: " + ex.ToString());
+          }
+       }
 
-      private void UpdateSmsCredit()
+       private async Task UpdateSmsCredit()
       {
          try
          {
             var smsConf = SmsBs.Current as Data.Message_Broad_Setting;
             if (smsConf == null) return;
 
-            Action refreshCredit = new Action(() =>
+             Func<Task> refreshCredit = new Func<Task>(async () =>
             {
                XDocument xmsRespons = null;
 
@@ -130,12 +130,12 @@ namespace System.MessageBroadcast.Ui.MasterPage
                }
                else if (smsConf.SERV_TYPE == "005")
                {
-                  if (LidomaClient == null)
-                     LidomaClient = new Code.LidomaSmsClient(smsConf.BASE_URL ?? "http://localhost:3000");
-                  var loginResult = LidomaClient.LoginAsync(smsConf.USER_NAME, smsConf.PASS_WORD).Result;
-                  if (loginResult)
-                  {
-                     var credit = LidomaClient.GetCreditAsync().Result;
+                   if (LidomaClient == null)
+                      LidomaClient = Code.LidomaSmsClient.Instance;
+                   var loginResult = await LidomaClient.LoginAsync(smsConf.USER_NAME, smsConf.PASS_WORD);
+                   if (loginResult)
+                   {
+                      var credit = await LidomaClient.GetCreditAsync();
                      xmsRespons = new XDocument(
                         new XElement("LidomaClient",
                            new XElement("SendCredit", credit)
@@ -168,8 +168,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
                            _PingStatus = (bool)pingStatus;
                            if (_PingStatus)
                            {
-                              Thread _tmpWorker = new Thread(new ThreadStart(refreshCredit));
-                              _tmpWorker.Start();
+                         Task.Run(refreshCredit);
                            }
                         }
                      )
@@ -243,15 +242,14 @@ namespace System.MessageBroadcast.Ui.MasterPage
       private System.MessageBroadcast.Code.Msgb.IPPanelEdgeClient iPPanelEdgeClient; // Web Service IP Panel
       private Code.LidomaSmsClient LidomaClient; // Web Service Lidoma Market
 
-      private void Btn_SmsServerRefresh_Click(object sender, EventArgs e)
+        private async void Btn_SmsServerRefresh_Click(object sender, EventArgs e)
       {
          try
          {
             Btn_SmsServerRefresh.Enabled = false;
 
             #region SmsServerRefresh
-            Action smsServerRefresh = new Action(
-               () =>
+            Func<Task> smsServerRefresh = new Func<Task>(async () =>
                {
                   //1398/06/08 * مشخص کردن رکورد برای سامانه پیامکی
                   //var smsConf = iProject.Message_Broad_Settings;
@@ -281,12 +279,12 @@ namespace System.MessageBroadcast.Ui.MasterPage
                      if (iPPanelEdgeClient == null)
                         iPPanelEdgeClient = new Code.Msgb.IPPanelEdgeClient(smsConf.USER_NAME, smsConf.PASS_WORD);
                   }
-                  else if (smsConf.SERV_TYPE == "005")
-                  {
-                     // Lidoma Market
-                     if (LidomaClient == null)
-                        LidomaClient = new Code.LidomaSmsClient(smsConf.BASE_URL ?? "http://localhost:3000");
-                  }
+                   else if (smsConf.SERV_TYPE == "005")
+                   {
+                      // Lidoma Market
+                      if (LidomaClient == null)
+                         LidomaClient = Code.LidomaSmsClient.Instance;
+                   }
 
                   // 1398/07/05 * بررسی وضعیت اتصال اینترنت
                   #region Ping Network
@@ -393,12 +391,15 @@ namespace System.MessageBroadcast.Ui.MasterPage
                               )
                            );
                      }
-                     else if (smsConf.SERV_TYPE == "005")
-                     {
-                        var loginResult = LidomaClient.LoginAsync(smsConf.USER_NAME, smsConf.PASS_WORD).Result;
-                        if (loginResult)
-                        {
-                           var credit = LidomaClient.GetCreditAsync().Result;
+                      else if (smsConf.SERV_TYPE == "005")
+                      {
+                         // Lidoma Market
+                         if (LidomaClient == null)
+                            LidomaClient = Code.LidomaSmsClient.Instance;
+                         var loginResult = await LidomaClient.LoginAsync(smsConf.USER_NAME, smsConf.PASS_WORD);
+                         if (loginResult)
+                         {
+                            var credit = await LidomaClient.GetCreditAsync();
                            xmsRespons = new XDocument(
                               new XElement("LidomaClient",
                                  new XElement("SendCredit", credit)
@@ -572,12 +573,10 @@ namespace System.MessageBroadcast.Ui.MasterPage
 
             if (_PingStatus)
             {
-               Thread _tmpWorker = new Thread(new ThreadStart(smsServerRefresh));
-               _tmpWorker.Start();
+                await smsServerRefresh();
 
-               new Thread(InternetConnected).Start();
+                new Thread(InternetConnected).Start();
             }
-            //_tmpWorker.Join();
          }
          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Btn_SmsServerRefresh_Click error: " + ex.ToString()); }
       }

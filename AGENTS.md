@@ -1,4 +1,5 @@
 # Lidoma Sync — Memory & Context
+# STABLE VERSION 1.0 - 2026-08-07 - All core systems COMPLETED and reviewed
 
 ## معماری کلی
 WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `$""` / `nameof` / `using var`).
@@ -100,10 +101,30 @@ WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `
 - `NULL` یا `"001"` = منتظر ارسال (نفرستاده شده)
 - `"003"` = به‌روزرسانی (قبلاً فرستاده شده، حالا تغییر کرده)
 - `"002"` = همگام‌سازی شده
+- `"004"` = ارسال ناموفق (Failed، قابل ری‌تای)
+
+## همگام‌سازی ارگان‌ها (SyncOrgansAsync)
+- فیلتر pending: `LDMA_STAT == "003"` (فقط ارگان‌های به‌روزرسانی شده)
+- پس از موفقیت: `LDMA_STAT = "002"` برای Sub_Unit، Basic_Calculate_Discount (Rqtp_Code 001/009 و 016)
+- پس از شکست: `LDMA_STAT = "004"` برای همان ردیف‌ها
+- SubmitChanges در انتها برای ذخیره تمام تغییرات
 
 ## فیوزهای امنیتی
 - `HasAnyClubWithStoreIdAsync()`: قبل از Services/Customers چک می‌کند حداقل یک Club LDMA_CODE داشته باشد
-  - استفاده از `c.LDMA_CODE != null && c.LDMA_CODE != ""` به جای `string.IsNullOrEmpty` در LINQ-to-SQL (VS 2013)
-- `RunSendAllAsync`: Business → چک `HasAnyClubWithStoreIdAsync` → Services → Customers
+   - استفاده از `c.LDMA_CODE != null && c.LDMA_CODE != ""` به جای `string.IsNullOrEmpty` در LINQ-to-SQL (VS 2013)
+- `RunSendAllAsync`: Business → چک `HasAnyClubWithStoreIdAsync` → Services → Customers → Expense → Organ
 - `_sendLock.WaitAsync(0)`: فقط یک ارسال همزمان مجاز است
 - `EnsureLoggedInAsync()`: قبل از هر ارسال لاگین را چک می‌کند
+
+## فایل‌های COMPLETED (STABLE VERSION 1.0 - 2026-08-07)
+تمام فایل‌های زیر با کامنت `// ========== COMPLETED - DO NOT MODIFY WITHOUT REVIEW ==========` علامت‌گذاری شده‌اند:
+- WEBS_MESG_F.cs
+- LidomaMarket.cs
+- LidomaSmsClient.cs
+- LidomaApiClientBase.cs
+- Logger.cs
+- Msgb.Properties.cs
+- MSTR_PAGE_F.cs
+- MSTR_PAGE_F.RequestRespons.cs
+- App.config
+- **NOT FOUND**: `frmStoreOrgans.cs` — این فایل در پروژه وجود ندارد

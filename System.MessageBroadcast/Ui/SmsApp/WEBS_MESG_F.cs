@@ -1,7 +1,10 @@
-﻿using System;
+﻿// ========== COMPLETED - DO NOT MODIFY WITHOUT REVIEW ==========
+// STABLE VERSION 1.0 - 2026-08-07
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
@@ -23,7 +26,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
       // 1. مدل‌های داده
       // ============================================================
 
-      public enum QueueItemType { Business, Service, Customer, Expense }
+      public enum QueueItemType { Business, Service, Customer, Expense, Organ }
 
       public class BusinessModel
       {
@@ -117,6 +120,10 @@ namespace System.MessageBroadcast.Ui.SmsApp
       private readonly SemaphoreSlim _sendLock = new SemaphoreSlim(1, 1);
       private BindingList<QueueItem> _queue;
       private string _queueFile;
+      private bool _serverStatusChecked = false;
+      private DateTime _lastServerStatusCheck = DateTime.MinValue;
+      private JObject _cachedServerStatus;
+      private JObject _cachedAccountStatus;
 
       public WEBS_MESG_F()
       {
@@ -145,7 +152,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
          LoadQueue();
 
-         _netTimer = new System.Windows.Forms.Timer { Interval = 600000 };
+         _netTimer = new System.Windows.Forms.Timer { Interval = GetConfigIntervalMs("ServerStatusIntervalMinutes", 5) };
          _netTimer.Tick += _netTimer_Tick;
          _netTimer.Start();
 
@@ -154,6 +161,25 @@ namespace System.MessageBroadcast.Ui.SmsApp
          SetConnectionStatus(ok);
          if (ok)
             await RunSendAllAsync();
+      }
+
+      private int GetConfigIntervalMs(string key, int defaultMinutes)
+      {
+         try
+         {
+            var val = ConfigurationManager.AppSettings[key];
+            if (val != null)
+            {
+               int minutes;
+               if (int.TryParse(val, out minutes) && minutes > 0)
+                  return minutes * 60 * 1000;
+            }
+         }
+         catch (Exception ex)
+         {
+            Log("خطا در خواندن تنظیمات تایمر: " + ex.Message);
+         }
+         return defaultMinutes * 60 * 1000;
       }
 
       private int GetBackgroundIntervalMs()
@@ -680,185 +706,177 @@ namespace System.MessageBroadcast.Ui.SmsApp
       /// Executes Query 1 from dbo.Sub_Unit to get organs.
       /// Returns JArray with items: { code, name }
       /// </summary>
-      private async Task<JArray> GetOrgansFromDatabaseAsync()
-      {
-         Log("Executing Query 1: Getting organs from dbo.Sub_Unit");
-         var organs = new JArray();
+       private async Task<JArray> GetOrgansFromDatabaseAsync()
+       {
+          Log("Executing Query 1: Getting organs from dbo.Sub_Unit");
+          var organs = new JArray();
 
-         try
-         {
-            using (var connection = new SqlConnection(IScscConnectionString))
-            {
-               await connection.OpenAsync();
+          try
+          {
+             using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
+             {
+                 var query = iScscLocal.Sub_Units
+                    .Where(s => s.LDMA_STAT == null || s.LDMA_STAT == "003")
+                    .OrderBy(s => s.ORGN_CODE_DNRM);
 
-               const string query = @"SELECT ORGN_CODE_DNRM AS Code, SUNT_DESC AS Name FROM dbo.Sub_Unit ORDER BY ORGN_CODE_DNRM";
+                foreach (var s in query)
+                {
+                   var organ = new JObject(
+                       new JProperty("code", s.ORGN_CODE_DNRM != null ? s.ORGN_CODE_DNRM : null),
+                       new JProperty("name", s.SUNT_DESC != null ? s.SUNT_DESC : null)
+                   );
+                   organs.Add(organ);
+                }
+             }
+          }
+          catch (Exception ex)
+          {
+             Log("Error getting organs: " + ex.Message);
+             throw;
+          }
 
-               using (var command = new SqlCommand(query, connection))
-               {
-                  using (var reader = await command.ExecuteReaderAsync())
-                  {
-                     while (await reader.ReadAsync())
-                     {
-                        var organ = new JObject(
-                            new JProperty("code", reader.IsDBNull(0) ? null : reader.GetString(0)),
-                            new JProperty("name", reader.IsDBNull(1) ? null : reader.GetString(1))
-                        );
-                        organs.Add(organ);
-                     }
-                  }
-               }
-            }
-         }
-         catch (Exception ex)
-         {
-            Log("Error getting organs: " + ex.Message);
-            throw;
-         }
+          Log(string.Format("Retrieved {0} organs", organs.Count));
+          return organs;
+       }
 
-         Log(string.Format("Retrieved {0} organs", organs.Count));
-         return organs;
-      }
+       /// <summary>
+       /// Executes Query 2 from dbo.Basic_Calculate_Discount (Rqtp_Code IN 001, 009).
+       /// Returns JArray with subscription discounts.
+       /// IMPORTANT: Only adds startsAt/endsAt if Kind == 'dateRange' AND value is not null.
+       /// </summary>
+       private async Task<JArray> GetSubscriptionDiscountsFromDatabaseAsync()
+       {
+          Log("Executing Query 2: Getting subscription discounts (Rqtp_Code IN 001, 009)");
+          var discounts = new JArray();
 
-      /// <summary>
-      /// Executes Query 2 from dbo.Basic_Calculate_Discount (Rqtp_Code IN 001, 009).
-      /// Returns JArray with subscription discounts.
-      /// IMPORTANT: Only adds startsAt/endsAt if Kind == 'dateRange' AND value is not null.
-      /// </summary>
-      private async Task<JArray> GetSubscriptionDiscountsFromDatabaseAsync()
-      {
-         Log("Executing Query 2: Getting subscription discounts (Rqtp_Code IN 001, 009)");
-         var discounts = new JArray();
+          try
+          {
+             using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
+             {
+                 var query = iScscLocal.Basic_Calculate_Discounts
+                    .Where(d => (d.RQTP_CODE == "001" || d.RQTP_CODE == "009")
+                       && (d.LDMA_STAT ==  null || d.LDMA_STAT == "003")
+                       && d.Expense.EXPN_STAT == "002" 
+                       && (d.Method.MTOD_STAT == "002" && d.Method.SHOW_STAT == "002")
+                       && (d.Category_Belt.CTGY_STAT == "002" && d.Category_Belt.SHOW_STAT == "002"))
+                    .OrderBy(d => d.CODE);
 
-         try
-         {
-            using (var connection = new SqlConnection(IScscConnectionString))
-            {
-               await connection.OpenAsync();
+                foreach (var d in query)
+                {
+                   var discount = new JObject(
+                       new JProperty("code", d.CODE.ToString()),
+                       new JProperty("organCode", d.ORGN_CODE_DNRM != null ? d.ORGN_CODE_DNRM : null),
+                       new JProperty("revenueCode", d.EXPN_CODE.HasValue ? d.EXPN_CODE.Value.ToString() : null)
+                   );
 
-               const string query = @"SELECT a.CODE AS Code, a.ORGN_CODE_DNRM AS OrganCode, a.EXPN_CODE AS RevenueCode,
-CASE a.ACTN_TYPE WHEN '001' THEN 'regular' WHEN '002' THEN 'periodic' WHEN '003' THEN 'dateRange' WHEN '004' THEN 'deposit' WHEN '005' THEN 'loyalCustomer' WHEN '006' THEN 'newCustomerReferral' WHEN '007' THEN 'campaign' WHEN '008' THEN 'birthdayGift' WHEN '009' THEN 'serviceCommission' WHEN '010' THEN 'referralCommission' END AS Kind,
-CASE a.DSCT_TYPE WHEN '001' THEN 'percent' ELSE 'amount' END AS Type,
-a.PRCT_DSCT AS Value,
-CASE a.STAT WHEN '002' THEN 'true' ELSE 'false' END AS IsActive,
-a.FROM_DATE AS StartsAt, a.TO_DATE AS EndsAt
-FROM dbo.Basic_Calculate_Discount a WHERE a.Rqtp_Code IN ('001', '009') ORDER BY a.CODE";
+                   var kind = GetDiscountKind(d.ACTN_TYPE);
+                   var type = d.DSCT_TYPE == "001" ? "percent" : "amount";
+                   var value = d.PRCT_DSCT;
+                   var isActive = d.STAT == "002";
 
-               using (var command = new SqlCommand(query, connection))
-               {
-                  using (var reader = await command.ExecuteReaderAsync())
-                  {
-                     while (await reader.ReadAsync())
-                     {
-                        var discount = new JObject(
-                            new JProperty("code", reader.IsDBNull(0) ? null : reader.GetString(0)),
-                            new JProperty("organCode", reader.IsDBNull(1) ? null : reader.GetString(1)),
-                            new JProperty("revenueCode", reader.IsDBNull(2) ? null : reader.GetString(2))
-                        );
+                   discount.Add(new JProperty("kind", kind));
+                   discount.Add(new JProperty("type", type));
+                   discount.Add(new JProperty("value", value));
+                   discount.Add(new JProperty("isActive", isActive));
 
-                        var kind = reader.IsDBNull(3) ? null : reader.GetString(3);
-                        var type = reader.IsDBNull(4) ? null : reader.GetString(4);
-                        var value = reader.IsDBNull(5) ? (decimal?)null : reader.GetDecimal(5);
-                        var isActiveStr = reader.IsDBNull(6) ? null : reader.GetString(6);
-                        var isActive = isActiveStr != null && isActiveStr == "true";
+                   // ONLY add startsAt and endsAt if Kind == 'dateRange' AND value is not null
+                   if (kind == "dateRange" && value.HasValue)
+                   {
+                      if (d.FROM_DATE.HasValue)
+                      {
+                         discount.Add(new JProperty("startsAt", d.FROM_DATE.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")));
+                      }
+                      if (d.TO_DATE.HasValue)
+                      {
+                         discount.Add(new JProperty("endsAt", d.TO_DATE.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")));
+                      }
+                   }
 
-                        discount.Add(new JProperty("kind", kind));
-                        discount.Add(new JProperty("type", type));
-                        discount.Add(new JProperty("value", value));
-                        discount.Add(new JProperty("isActive", isActive));
+                   discounts.Add(discount);
+                }
+             }
+          }
+          catch (Exception ex)
+          {
+             Log("Error getting subscription discounts: " + ex.Message);
+             throw;
+          }
 
-                        // ONLY add startsAt and endsAt if Kind == 'dateRange' AND value is not null
-                        if (kind == "dateRange" && value.HasValue)
-                        {
-                           var startsAt = reader.IsDBNull(7) ? (DateTime?)null : reader.GetDateTime(7);
-                           var endsAt = reader.IsDBNull(8) ? (DateTime?)null : reader.GetDateTime(8);
+          Log(string.Format("Retrieved {0} subscription discounts", discounts.Count));
+          return discounts;
+       }
 
-                           if (startsAt.HasValue)
-                           {
-                              discount.Add(new JProperty("startsAt", startsAt.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")));
-                           }
-                           if (endsAt.HasValue)
-                           {
-                              discount.Add(new JProperty("endsAt", endsAt.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")));
-                           }
-                        }
+       private static string GetDiscountKind(string actnType)
+       {
+          switch (actnType)
+          {
+             case "001": return "regular";
+             case "002": return "periodic";
+             case "003": return "dateRange";
+             case "004": return "deposit";
+             case "005": return "loyalCustomer";
+             case "006": return "newCustomerReferral";
+             case "007": return "campaign";
+             case "008": return "birthdayGift";
+             case "009": return "serviceCommission";
+             case "010": return "referralCommission";
+             default: return null;
+          }
+       }
 
-                        discounts.Add(discount);
-                     }
-                  }
-               }
-            }
-         }
-         catch (Exception ex)
-         {
-            Log("Error getting subscription discounts: " + ex.Message);
-            throw;
-         }
+       /// <summary>
+       /// Executes Query 3 from dbo.Basic_Calculate_Discount (Rqtp_Code IN 016).
+       /// Returns JArray with product sales discounts.
+       /// </summary>
+       private async Task<JArray> GetProductSalesDiscountsFromDatabaseAsync()
+       {
+          Log("Executing Query 3: Getting product sales discounts (Rqtp_Code IN 016)");
+          var discounts = new JArray();
 
-         Log(string.Format("Retrieved {0} subscription discounts", discounts.Count));
-         return discounts;
-      }
+          try
+          {
+             using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
+             {
+                var query = iScscLocal.Basic_Calculate_Discounts
+                   .Where(d => d.RQTP_CODE == "016" 
+                      && d.Expense.EXPN_STAT == "002" 
+                      && (d.LDMA_STAT == null || d.LDMA_STAT == "003") 
+                      && d.Expense.EXPN_STAT == "002" 
+                      && (d.Method.MTOD_STAT == "002" && d.Method.SHOW_STAT == "002")
+                      && (d.Category_Belt.CTGY_STAT == "002" && d.Category_Belt.SHOW_STAT == "002"))
+                   .OrderBy(d => d.CODE);
 
-      /// <summary>
-      /// Executes Query 3 from dbo.Basic_Calculate_Discount (Rqtp_Code IN 016).
-      /// Returns JArray with product sales discounts.
-      /// </summary>
-      private async Task<JArray> GetProductSalesDiscountsFromDatabaseAsync()
-      {
-         Log("Executing Query 3: Getting product sales discounts (Rqtp_Code IN 016)");
-         var discounts = new JArray();
+                foreach (var d in query)
+                {
+                   var discount = new JObject(
+                       new JProperty("code", d.CODE.ToString()),
+                       new JProperty("organCode", d.ORGN_CODE_DNRM != null ? d.ORGN_CODE_DNRM : null),
+                       new JProperty("revenueCode", d.EXPN_CODE.HasValue ? d.EXPN_CODE.Value.ToString() : null)
+                   );
 
-         try
-         {
-            using (var connection = new SqlConnection(IScscConnectionString))
-            {
-               await connection.OpenAsync();
+                   var kind = GetDiscountKind(d.ACTN_TYPE);
+                   var type = d.DSCT_TYPE == "001" ? "percent" : "amount";
+                   var value = d.PRCT_DSCT;
+                   var isActive = d.STAT == "002";
 
-               const string query = @"SELECT a.CODE AS Code, a.ORGN_CODE_DNRM AS OrganCode, a.EXPN_CODE AS RevenueCode,
-CASE a.ACTN_TYPE WHEN '001' THEN 'regular' WHEN '002' THEN 'periodic' WHEN '003' THEN 'dateRange' WHEN '004' THEN 'deposit' WHEN '005' THEN 'loyalCustomer' WHEN '006' THEN 'newCustomerReferral' WHEN '007' THEN 'campaign' WHEN '008' THEN 'birthdayGift' WHEN '009' THEN 'serviceCommission' WHEN '010' THEN 'referralCommission' END AS Kind,
-CASE a.DSCT_TYPE WHEN '001' THEN 'percent' ELSE 'amount' END AS Type,
-a.PRCT_DSCT AS Value,
-CASE a.STAT WHEN '002' THEN 'true' ELSE 'false' END AS IsActive,
-a.FROM_DATE AS StartsAt, a.TO_DATE AS EndsAt
-FROM dbo.Basic_Calculate_Discount a WHERE a.Rqtp_Code IN ('016') ORDER BY a.CODE";
+                   discount.Add(new JProperty("kind", kind));
+                   discount.Add(new JProperty("type", type));
+                   discount.Add(new JProperty("value", value));
+                   discount.Add(new JProperty("isActive", isActive));
 
-               using (var command = new SqlCommand(query, connection))
-               {
-                  using (var reader = await command.ExecuteReaderAsync())
-                  {
-                     while (await reader.ReadAsync())
-                     {
-                        var discount = new JObject(
-                            new JProperty("code", reader.IsDBNull(0) ? null : reader.GetString(0)),
-                            new JProperty("organCode", reader.IsDBNull(1) ? null : reader.GetString(1)),
-                            new JProperty("revenueCode", reader.IsDBNull(2) ? null : reader.GetString(2))
-                        );
+                   discounts.Add(discount);
+                }
+             }
+          }
+          catch (Exception ex)
+          {
+             Log("Error getting product sales discounts: " + ex.Message);
+             throw;
+          }
 
-                        var kind = reader.IsDBNull(3) ? null : reader.GetString(3);
-                        var type = reader.IsDBNull(4) ? null : reader.GetString(4);
-                        var value = reader.IsDBNull(5) ? (decimal?)null : reader.GetDecimal(5);
-                        var isActiveStr = reader.IsDBNull(6) ? null : reader.GetString(6);
-                        var isActive = isActiveStr != null && isActiveStr == "true";
-
-                        discount.Add(new JProperty("kind", kind));
-                        discount.Add(new JProperty("type", type));
-                        discount.Add(new JProperty("value", value));
-                        discount.Add(new JProperty("isActive", isActive));
-
-                        discounts.Add(discount);
-                     }
-                  }
-               }
-            }
-         }
-         catch (Exception ex)
-         {
-            Log("Error getting product sales discounts: " + ex.Message);
-            throw;
-         }
-
-         Log(string.Format("Retrieved {0} product sales discounts", discounts.Count));
-         return discounts;
-      }
+          Log(string.Format("Retrieved {0} product sales discounts", discounts.Count));
+          return discounts;
+       }
 
       // tp_005 - Customers
 
@@ -988,6 +1006,7 @@ FROM dbo.Basic_Calculate_Discount a WHERE a.Rqtp_Code IN ('016') ORDER BY a.CODE
             await SendByTypeCoreAsync(QueueItemType.Service);
             await SendByTypeCoreAsync(QueueItemType.Customer);
             await SendByTypeCoreAsync(QueueItemType.Expense);
+            await SendByTypeCoreAsync(QueueItemType.Organ);
          }
          finally { _sendLock.Release(); }
       }
@@ -1105,6 +1124,10 @@ FROM dbo.Basic_Calculate_Discount a WHERE a.Rqtp_Code IN ('016') ORDER BY a.CODE
          else if (type == QueueItemType.Expense)
          {
             await SyncExpensesAsync();
+         }
+         else if (type == QueueItemType.Organ)
+         {
+            await SyncOrgansAsync();
          }
 
          SetStatusLabel("آخرین ارسال: " + DateTime.Now.ToString("HH:mm:ss"));
@@ -1450,6 +1473,8 @@ FROM dbo.Basic_Calculate_Discount a WHERE a.Rqtp_Code IN ('016') ORDER BY a.CODE
                // 2. تمام Expenseهای pending و فعال
                var pendingExpenses = iScscLocal.Expenses
                    .Where(e => e.EXPN_STAT == "002" &&
+                               e.Method.MTOD_STAT == "002" && e.Method.SHOW_STAT == "002" &&
+                               e.Category_Belt.CTGY_STAT == "002" && e.Category_Belt.CTGY_STAT == "002" &&
                               ((e.LDMA_STAT ?? "001") == "001" || e.LDMA_STAT == "003"))
                    .ToList();
 
@@ -1463,7 +1488,7 @@ FROM dbo.Basic_Calculate_Discount a WHERE a.Rqtp_Code IN ('016') ORDER BY a.CODE
 
                // 3. تفکیک به دو دسته
                var subItems = pendingExpenses
-                   .Where(e => e.Expense_Type.Request_Requester.RQTP_CODE == "001")
+                   .Where(e => e.Expense_Type.Request_Requester.RQTP_CODE == "001" || e.Expense_Type.Request_Requester.RQTP_CODE == "009")
                    .Select(e => new
                    {
                       code = e.CODE.ToString(),
@@ -1771,6 +1796,132 @@ FROM dbo.Basic_Calculate_Discount a WHERE a.Rqtp_Code IN ('016') ORDER BY a.CODE
          catch (Exception ex)
          {
             Log("خطا در همگام‌سازی اعضا: " + ex.Message);
+         }
+      }
+
+      private async Task SyncOrgansAsync()
+      {
+         try
+         {
+            if (!await EnsureLoggedInAsync())
+            {
+               Log("اتصال به لیدوما انجام نشد. همگام‌سازی ارگان‌ها لغو شد.");
+               return;
+            }
+
+            using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
+            {
+               // 1. Check if any club has a store ID (LDMA_CODE)
+               var clubsWithStoreId = iScscLocal.Clubs
+                   .Where(c => c.LDMA_CODE != null && c.LDMA_CODE != "")
+                   .ToList();
+
+               if (clubsWithStoreId.Count == 0)
+               {
+                  Log("هیچ باشگاهی StoreId (LDMA_CODE) ندارد. ابتدا باشگاه‌ها را همگام‌سازی کنید.");
+                  return;
+               }
+
+               Log(string.Format("شروع همگام‌سازی ارگان‌ها برای {0} باشگاه...", clubsWithStoreId.Count));
+               SetProgress(0, clubsWithStoreId.Count);
+
+               int done = 0;
+               foreach (var club in clubsWithStoreId)
+               {
+                  try
+                  {
+                     var storeSlug = club.LDMA_CODE;
+                     if (string.IsNullOrEmpty(storeSlug))
+                     {
+                        Log(string.Format("باشگاه {0} (CODE={1}) StoreId ندارد - رد شد", club.NAME, club.CODE));
+                        done++;
+                        SetProgress(done, clubsWithStoreId.Count);
+                        continue;
+                     }
+
+                     // Read data from database
+                     Log(string.Format("در حال ساخت JSON ارگان‌ها برای باشگاه {0}...", storeSlug));
+
+                     // Check if any organ has a ready for send
+                     var _subunits = iScscLocal.Sub_Units
+                        .Where(a => a.LDMA_STAT == null || a.LDMA_STAT == "003")
+                        .ToList();
+
+                     if(_subunits.Count == 0)
+                     {
+                        Log("هیچ سازمان و ارگانی برای ارسال وجود ندارد");
+                        return;
+                     }
+
+                     var organs = await GetOrgansFromDatabaseAsync();
+                     var subscriptionDiscounts = await GetSubscriptionDiscountsFromDatabaseAsync();
+                     var productSalesDiscounts = await GetProductSalesDiscountsFromDatabaseAsync();
+
+                     // Build the complete JSON structure
+                     var discountsObj = new JObject(
+                         new JProperty("subscriptions", subscriptionDiscounts),
+                         new JProperty("productSales", productSalesDiscounts)
+                     );
+
+                     var organsData = new JObject(
+                         new JProperty("organs", new JObject(
+                             new JProperty("items", organs),
+                             new JProperty("discounts", discountsObj)
+                         ))
+                     );
+
+                     Log("در حال ارسال ارگان‌ها به Lidoma API...");
+                     var res = await _lidoma.SetStoreOrgansAsync(storeSlug, organsData);
+
+                      if (IsSuccess(res))
+                      {
+                         Log(string.Format("ارسال ارگان‌ها برای باشگاه {0} موفق بود", storeSlug));
+
+                         // Update LDMA_STAT = '002' (Completed) for all pending record
+                         foreach (var organ in iScscLocal.Sub_Units.Where(o => (o.LDMA_STAT == null || o.LDMA_STAT == "003")).ToList())
+                            organ.LDMA_STAT = "002";
+
+                         foreach (var sub in iScscLocal.Basic_Calculate_Discounts
+                            .Where(d => (d.RQTP_CODE == "001" || d.RQTP_CODE == "009") && (d.LDMA_STAT == null || d.LDMA_STAT == "003")).ToList())
+                            sub.LDMA_STAT = "002";
+
+                         foreach (var prod in iScscLocal.Basic_Calculate_Discounts
+                            .Where(d => d.RQTP_CODE == "016" && d.Expense.EXPN_STAT == "002" && (d.LDMA_STAT == null || d.LDMA_STAT == "003")).ToList())
+                            prod.LDMA_STAT = "002";
+                      }
+                      else
+                      {
+                         Log(string.Format("خطا در ارسال ارگان‌ها برای باشگاه {0}: {1}", storeSlug, res != null ? res.ToString() : "پاسخی دریافت نشد"));
+
+                         //// Update LDMA_STAT = '004' (Failed) for all pending record
+                         //foreach (var organ in iScscLocal.Sub_Units.Where(o => o.LDMA_STAT == "003").ToList())
+                         //   organ.LDMA_STAT = "004";
+
+                         //foreach (var sub in iScscLocal.Basic_Calculate_Discounts
+                         //   .Where(d => (d.RQTP_CODE == "001" || d.RQTP_CODE == "009") && d.LDMA_STAT == "003").ToList())
+                         //   sub.LDMA_STAT = "004";
+
+                         //foreach (var prod in iScscLocal.Basic_Calculate_Discounts
+                         //   .Where(d => d.RQTP_CODE == "016" && d.Expense.EXPN_STAT == "002" && d.LDMA_STAT == "003").ToList())
+                         //   prod.LDMA_STAT = "004";
+                      }
+                  }
+                  catch (Exception ex)
+                  {
+                     Log(string.Format("خطا در همگام‌سازی ارگان‌ها برای باشگاه: {0}", ex.Message));
+                  }
+
+                  done++;
+                  SetProgress(done, clubsWithStoreId.Count);
+               }
+
+               iScscLocal.SubmitChanges();
+               Log(string.Format("همگام‌سازی ارگان‌ها پایان یافت. {0} مورد پردازش شد.", done));
+            }
+         }
+         catch (Exception ex)
+         {
+            Log("خطا در همگام‌سازی ارگان‌ها: " + ex.Message);
          }
       }
 

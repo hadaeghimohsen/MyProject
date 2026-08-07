@@ -1,6 +1,9 @@
-﻿using System;
+﻿// ========== COMPLETED - DO NOT MODIFY WITHOUT REVIEW ==========
+// STABLE VERSION 1.0 - 2026-08-07
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Drawing;
 using System.Data;
 using System.Linq;
@@ -25,7 +28,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
          _pollTimer.Interval = 3000;
          _pollTimer.Tick += _pollTimer_Tick;
          _creditTimer = new System.Windows.Forms.Timer();
-         _creditTimer.Interval = 30000;
+         _creditTimer.Interval = GetConfigIntervalMs("CreditCheckIntervalMinutes", 5);
          _creditTimer.Tick += _creditTimer_Tick;
          components.Add(_pollTimer);
          components.Add(_creditTimer);
@@ -35,6 +38,25 @@ namespace System.MessageBroadcast.Ui.MasterPage
       private System.Windows.Forms.Timer _pollTimer;
       private System.Windows.Forms.Timer _creditTimer;
       private int _creditTickCounter = 0;
+      private bool _creditCheckInProgress = false;
+
+      private int GetConfigIntervalMs(string key, int defaultMinutes)
+      {
+         try
+         {
+            var val = ConfigurationManager.AppSettings[key];
+            if (val != null)
+            {
+               int minutes;
+               if (int.TryParse(val, out minutes) && minutes > 0)
+                  return minutes * 60 * 1000;
+            }
+         }
+         catch
+         {
+         }
+         return defaultMinutes * 60 * 1000;
+      }
 
       private void Execute_Query()
       {
@@ -43,6 +65,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
          UpdateSmsCounts();
          _pollTimer.Start();
          _creditTimer.Start();
+         WebsMesg_Btn_Click(null, null);
       }
 
       private void _pollTimer_Tick(object sender, EventArgs e)
@@ -57,102 +80,112 @@ namespace System.MessageBroadcast.Ui.MasterPage
          }
       }
 
-       private async void _creditTimer_Tick(object sender, EventArgs e)
-       {
-          try
-          {
-             await UpdateSmsCredit();
-          }
-          catch (Exception ex)
-          {
-             Debug.WriteLine("_creditTimer_Tick error: " + ex.ToString());
-          }
-       }
+      private async void _creditTimer_Tick(object sender, EventArgs e)
+      {
+         if (_creditCheckInProgress)
+         {
+            Debug.WriteLine("Credit check already in progress, skipping.");
+            return;
+         }
+         _creditCheckInProgress = true;
+         try
+         {
+            await UpdateSmsCredit();
+         }
+         catch (Exception ex)
+         {
+            Debug.WriteLine("_creditTimer_Tick error: " + ex.ToString());
+         }
+         finally
+         {
+            _creditCheckInProgress = false;
+         }
+      }
 
-       private async Task UpdateSmsCredit()
+      private async Task UpdateSmsCredit()
       {
          try
          {
             var smsConf = SmsBs.Current as Data.Message_Broad_Setting;
             if (smsConf == null) return;
 
-             Func<Task> refreshCredit = new Func<Task>(async () =>
-            {
-               XDocument xmsRespons = null;
+            Func<Task> refreshCredit = new Func<Task>(async () =>
+           {
+              XDocument xmsRespons = null;
 
-               if (smsConf.SERV_TYPE == "001")
-               {
-                  if (SmsClient == null)
-                     SmsClient = new SmsService.Sms();
-                  xmsRespons = XDocument.Parse(
-                     SmsClient.XmsRequest(
-                        new XElement("xmsrequest",
-                           new XElement("userid", smsConf.USER_NAME),
-                           new XElement("password", smsConf.PASS_WORD),
-                           new XElement("action", "getcredit"),
-                           new XElement("body", "")
-                        ).ToString()
-                     ).ToString()
-                  );
-               }
-               else if (smsConf.SERV_TYPE == "002")
-               {
-                  if (iNotiSmsClient == null)
-                     iNotiSmsClient = new iNotiSmsService.iNotiSMS();
-                  xmsRespons =
-                     new XDocument(
-                        new XElement("iNotiSms",
-                           new XElement("SendCredit", iNotiSmsClient.GetChargeRemaining(smsConf.USER_NAME, smsConf.PASS_WORD))
-                        )
-                     );
-               }
-               else if (smsConf.SERV_TYPE == "003")
-               {
-                  if (FarazSmsClient == null)
-                     FarazSmsClient = new Code.Msgb.FarazSms(smsConf.USER_NAME, smsConf.PASS_WORD);
-                  xmsRespons =
-                     new XDocument(
-                        new XElement("FarazSmsClient",
-                           new XElement("SendCredit", FarazSmsClient.GetCredit())
-                        )
-                     );
-               }
-               else if (smsConf.SERV_TYPE == "004")
-               {
-                  if (iPPanelEdgeClient == null)
-                     iPPanelEdgeClient = new Code.Msgb.IPPanelEdgeClient(smsConf.USER_NAME, smsConf.PASS_WORD);
-                  xmsRespons =
-                     new XDocument(
-                        new XElement("iPPanelEdgeClient",
-                           new XElement("SendCredit", iPPanelEdgeClient.GetCredit())
-                        )
-                     );
-               }
-               else if (smsConf.SERV_TYPE == "005")
-               {
-                   if (LidomaClient == null)
-                      LidomaClient = Code.LidomaSmsClient.Instance;
-                   var loginResult = await LidomaClient.LoginAsync(smsConf.USER_NAME, smsConf.PASS_WORD);
-                   if (loginResult)
-                   {
-                      var credit = await LidomaClient.GetCreditAsync();
-                     xmsRespons = new XDocument(
-                        new XElement("LidomaClient",
-                           new XElement("SendCredit", credit)
-                        )
-                     );
-                  }
-               }
+              if (smsConf.SERV_TYPE == "001")
+              {
+                 if (SmsClient == null)
+                    SmsClient = new SmsService.Sms();
+                 xmsRespons = XDocument.Parse(
+                    SmsClient.XmsRequest(
+                       new XElement("xmsrequest",
+                          new XElement("userid", smsConf.USER_NAME),
+                          new XElement("password", smsConf.PASS_WORD),
+                          new XElement("action", "getcredit"),
+                          new XElement("body", "")
+                       ).ToString()
+                    ).ToString()
+                 );
+              }
+              else if (smsConf.SERV_TYPE == "002")
+              {
+                 if (iNotiSmsClient == null)
+                    iNotiSmsClient = new iNotiSmsService.iNotiSMS();
+                 xmsRespons =
+                    new XDocument(
+                       new XElement("iNotiSms",
+                          new XElement("SendCredit", iNotiSmsClient.GetChargeRemaining(smsConf.USER_NAME, smsConf.PASS_WORD))
+                       )
+                    );
+              }
+              else if (smsConf.SERV_TYPE == "003")
+              {
+                 if (FarazSmsClient == null)
+                    FarazSmsClient = new Code.Msgb.FarazSms(smsConf.USER_NAME, smsConf.PASS_WORD);
+                 xmsRespons =
+                    new XDocument(
+                       new XElement("FarazSmsClient",
+                          new XElement("SendCredit", FarazSmsClient.GetCredit())
+                       )
+                    );
+              }
+              else if (smsConf.SERV_TYPE == "004")
+              {
+                 if (iPPanelEdgeClient == null)
+                    iPPanelEdgeClient = new Code.Msgb.IPPanelEdgeClient(smsConf.USER_NAME, smsConf.PASS_WORD);
+                 xmsRespons =
+                    new XDocument(
+                       new XElement("iPPanelEdgeClient",
+                          new XElement("SendCredit", iPPanelEdgeClient.GetCredit())
+                       )
+                    );
+              }
+              else if (smsConf.SERV_TYPE == "005")
+              {
+                 if (LidomaClient == null)
+                    LidomaClient = Code.LidomaSmsClient.Instance;
+                 var loginResult = await LidomaClient.LoginAsync(smsConf.USER_NAME, smsConf.PASS_WORD);
+                 if (loginResult)
+                 {
+                    var credit = await LidomaClient.GetCreditAsync();
+                    xmsRespons = new XDocument(
+                       new XElement("LidomaClient",
+                          new XElement("SendCredit", credit)
+                       )
+                    );
+                 }
+              }
 
-               if (xmsRespons != null && xmsRespons.Descendants("SendCredit").Count() > 0)
-               {
-                  var credit = xmsRespons.Descendants("SendCredit").FirstOrDefault().Value;
-                  if (InvokeRequired)
-                     Invoke(new Action(() => LL_SmsSendCredit.Text = credit));
-                  else
-                     LL_SmsSendCredit.Text = credit;
-               }
-            });
+              if (xmsRespons != null && xmsRespons.Descendants("SendCredit").Count() > 0)
+              {
+                 var credit = xmsRespons.Descendants("SendCredit").FirstOrDefault().Value;
+                 if (InvokeRequired)
+                    Invoke(new Action(() => LL_SmsSendCredit.Text = credit));
+                 else
+                    LL_SmsSendCredit.Text = credit;
+              }
+           });
 
             var smsConf1 = SmsBs.Current as Data.Message_Broad_Setting;
             if (smsConf1 == null) return;
@@ -168,7 +201,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
                            _PingStatus = (bool)pingStatus;
                            if (_PingStatus)
                            {
-                         Task.Run(refreshCredit);
+                              Task.Run(refreshCredit);
                            }
                         }
                      )
@@ -242,7 +275,7 @@ namespace System.MessageBroadcast.Ui.MasterPage
       private System.MessageBroadcast.Code.Msgb.IPPanelEdgeClient iPPanelEdgeClient; // Web Service IP Panel
       private Code.LidomaSmsClient LidomaClient; // Web Service Lidoma Market
 
-        private async void Btn_SmsServerRefresh_Click(object sender, EventArgs e)
+      private async void Btn_SmsServerRefresh_Click(object sender, EventArgs e)
       {
          try
          {
@@ -279,12 +312,12 @@ namespace System.MessageBroadcast.Ui.MasterPage
                      if (iPPanelEdgeClient == null)
                         iPPanelEdgeClient = new Code.Msgb.IPPanelEdgeClient(smsConf.USER_NAME, smsConf.PASS_WORD);
                   }
-                   else if (smsConf.SERV_TYPE == "005")
-                   {
-                      // Lidoma Market
-                      if (LidomaClient == null)
-                         LidomaClient = Code.LidomaSmsClient.Instance;
-                   }
+                  else if (smsConf.SERV_TYPE == "005")
+                  {
+                     // Lidoma Market
+                     if (LidomaClient == null)
+                        LidomaClient = Code.LidomaSmsClient.Instance;
+                  }
 
                   // 1398/07/05 * بررسی وضعیت اتصال اینترنت
                   #region Ping Network
@@ -391,15 +424,15 @@ namespace System.MessageBroadcast.Ui.MasterPage
                               )
                            );
                      }
-                      else if (smsConf.SERV_TYPE == "005")
-                      {
-                         // Lidoma Market
-                         if (LidomaClient == null)
-                            LidomaClient = Code.LidomaSmsClient.Instance;
-                         var loginResult = await LidomaClient.LoginAsync(smsConf.USER_NAME, smsConf.PASS_WORD);
-                         if (loginResult)
-                         {
-                            var credit = await LidomaClient.GetCreditAsync();
+                     else if (smsConf.SERV_TYPE == "005")
+                     {
+                        // Lidoma Market
+                        if (LidomaClient == null)
+                           LidomaClient = Code.LidomaSmsClient.Instance;
+                        var loginResult = await LidomaClient.LoginAsync(smsConf.USER_NAME, smsConf.PASS_WORD);
+                        if (loginResult)
+                        {
+                           var credit = await LidomaClient.GetCreditAsync();
                            xmsRespons = new XDocument(
                               new XElement("LidomaClient",
                                  new XElement("SendCredit", credit)
@@ -573,9 +606,9 @@ namespace System.MessageBroadcast.Ui.MasterPage
 
             if (_PingStatus)
             {
-                await smsServerRefresh();
+               await smsServerRefresh();
 
-                new Thread(InternetConnected).Start();
+               new Thread(InternetConnected).Start();
             }
          }
          catch (Exception ex) { System.Diagnostics.Debug.WriteLine("Btn_SmsServerRefresh_Click error: " + ex.ToString()); }
@@ -785,7 +818,8 @@ namespace System.MessageBroadcast.Ui.MasterPage
                  new List<Job>
                  {
                     new Job(SendType.Self, 08 /* Execute Webs_Mesg_F */),
-                    new Job(SendType.SelfToUserInterface, "WEBS_MESG_F", 10 /* Actn_CalF_P */)
+                    new Job(SendType.SelfToUserInterface, "WEBS_MESG_F", 10 /* Actn_CalF_P */),
+                    new Job(SendType.SelfToUserInterface, "WEBS_MESG_F", 04 /* UnPaint */)
                  })
             );
          }

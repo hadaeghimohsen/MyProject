@@ -231,7 +231,9 @@ namespace MyProject.Commons.Desktop.Ui
                         },
                         #endregion
                         #region DoWork
-                        new Job(SendType.External, "Program", "Scsc", 122 /* Execute Main_Page_F */,SendType.Self)
+                        new Job(SendType.External, "Program", "Msgb", 02 /* Execute Main_Page_F */,SendType.Self),
+                        new Job(SendType.External, "Program", "Msgb:MSTR_PAGE_F", 04 /* Execute Unpaint */,SendType.SelfToUserInterface),
+                        new Job(SendType.External, "Program", "Scsc", 122 /* Execute Main_Page_F */,SendType.Self),                        
                         #endregion
                      })                     
                   });

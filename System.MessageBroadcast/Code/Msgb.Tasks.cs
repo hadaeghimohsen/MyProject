@@ -113,6 +113,16 @@ namespace System.MessageBroadcast.Code
                      case "true":
                         _CustBgwk.Start();
                         _SenderBgwk.Start();
+
+                        // 1405/05/16 * در این قسمت فقط کافیست که به فرم مربوطه درخواست ایجاد شدن رو بدهیم و تمام تا اطلاعات به صورت پس زمینه ارسال گردد
+                        //Gateway(
+                        //   new Job(SendType.External, "localhost",
+                        //      new List<Job>
+                        //      {
+                        //         new Job(SendType.Self, 08 /* Execute Webs_Mesg_F */),
+                        //         new Job(SendType.SelfToUserInterface, "WEBS_MESG_F", 04 /* Execute unPaint */)
+                        //      })
+                        //);
                         break;
                      case "false":
                         _CustBgwk.Stop();
@@ -120,7 +130,7 @@ namespace System.MessageBroadcast.Code
                         break;
                      default:
                         break;
-                  }
+                  }                  
                   break;
                case "004":
                   _SenderBgwk.Interval = Convert.ToInt32(action.Element("Action").Attribute("value").Value);

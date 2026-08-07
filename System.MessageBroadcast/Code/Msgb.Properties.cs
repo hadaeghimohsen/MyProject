@@ -1,4 +1,6 @@
-﻿using System;
+﻿// ========== COMPLETED - DO NOT MODIFY WITHOUT REVIEW ==========
+// STABLE VERSION 1.0 - 2026-08-07
+using System;
 using System.Collections.Generic;
 using System.JobRouting.Jobs;
 using System.Linq;
@@ -149,7 +151,7 @@ namespace System.MessageBroadcast.Code
                   }
                   else
                   {
-                     if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = (int)smsConf.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.BGWK_INTR); }, null);
+                      if (uiContext != null) uiContext.Post(_ => { _SenderBgwk.Interval = (int)smsConfList.Where(sms => sms.TYPE == "001" && sms.BGWK_STAT == "002").Average(sms => sms.BGWK_INTR); }, null);
                   }
 
                   // 1398/07/05 * بررسی اینکه آیا اینترنت برقرار می باشد یا خیر
@@ -325,15 +327,20 @@ namespace System.MessageBroadcast.Code
                            if (smsConf.FirstOrDefault().SERV_TYPE == "002")
                            {
                               var rslt = iNotiSmsClient.SendBatchSMS(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, bulkSms.Select(bs => bs.PHON_NUMB).ToArray(), bulkSms.FirstOrDefault().MSGB_TEXT);
-                              if (rslt > 0)
-                                 bulkSms.ToList().ForEach(bs => bs.MESG_ID = rslt.ToString());
-                              else
-                              {
-                                 bulkSms.ToList()
-                                 .ForEach(sms =>
-                                 {
-                                    sms.MESG_ID = "0";
-                                    sms.EROR_CODE = rslt.ToString();
+                               if (rslt > 0)
+                                  bulkSms.ToList().ForEach(bs =>
+                                  {
+                                     bs.MESG_ID = rslt.ToString();
+                                     bs.STAT = "002";
+                                  });
+                               else
+                               {
+                                  bulkSms.ToList()
+                                  .ForEach(sms =>
+                                  {
+                                     sms.MESG_ID = "0";
+                                     sms.EROR_CODE = rslt.ToString();
+                                     sms.STAT = "002";
                                     switch (rslt)
                                     {
                                        case -1:
@@ -352,25 +359,34 @@ namespace System.MessageBroadcast.Code
                                           sms.EROR_MESG = "خطای ناشناخته";
                                           break;
                                     }
-                                 });
-                              }
-                           }
-                           else if (smsConf.FirstOrDefault().SERV_TYPE == "004")
-                           {
+                                   });
+                               }
+                               ctx.SubmitChanges();
+                            }
+                            else if (smsConf.FirstOrDefault().SERV_TYPE == "004")
+                            {
                               var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, bulkSms.Select(bs => bs.PHON_NUMB).ToArray(), bulkSms.FirstOrDefault().MSGB_TEXT));
-                              if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
-                                 bulkSms.ToList().ForEach(bs => bs.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>());
-                              else
-                              {
-                                 bulkSms.ToList()
-                                 .ForEach(sms =>
-                                 {
-                                    sms.MESG_ID = "0";
-                                    sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
-                                    sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
-                                 });
-                              }
-                           }
+                               if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
+                               {
+                                  bulkSms.ToList().ForEach(bs =>
+                                  {
+                                     bs.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>();
+                                     bs.STAT = "002";
+                                  });
+                               }
+                               else
+                               {
+                                  bulkSms.ToList()
+                                  .ForEach(sms =>
+                                  {
+                                     sms.MESG_ID = "0";
+                                     sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
+                                     sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
+                                     sms.STAT = "002";
+                                  });
+                               }
+                               ctx.SubmitChanges();
+                            }
                            else if (smsConf.FirstOrDefault().SERV_TYPE == "005")
                            {
                               // Lidoma Market - Bulk Send (one2many)
@@ -395,35 +411,79 @@ namespace System.MessageBroadcast.Code
                                     var rslt = await LidomaClient.SendBatchAsync(storeId, branchIndex, senderNumber, receptors, message);
                                     if (rslt["return"]["status"] != null && rslt["return"]["status"].ToString() == "200")
                                     {
-                                       var entries = rslt["entries"];
-                                       batch.ForEach(bs =>
+                                       var entries = rslt["entries"] as JArray;
+
+                                       if (entries != null && entries.Count > 0)
                                        {
-                                          var ent = entries;
-                                          bs.MESG_ID = ent != null && ent["messageid"] != null ? ent["messageid"].ToString() : "1";
-                                       });
+                                          // ساخت Dictionary برای نگاشت شماره به messageid
+                                          var phoneMessageMap = new Dictionary<string, string>();
+
+                                          foreach (var entry in entries)
+                                          {
+                                             string receptor = entry["receptor"] != null ? entry["receptor"].ToString() : "";
+                                             string messageId = entry["messageid"] != null ? entry["messageid"].ToString() : "";
+
+                                             if (!string.IsNullOrEmpty(receptor) && !string.IsNullOrEmpty(messageId))
+                                             {
+                                                phoneMessageMap[receptor] = messageId;
+                                             }
+                                          }
+
+                                          // نسبت دادن messageid به هر آیتم
+                                          foreach (var bs in batch)
+                                          {
+                                             if (phoneMessageMap.ContainsKey(bs.PHON_NUMB))
+                                             {
+                                                bs.MESG_ID = phoneMessageMap[bs.PHON_NUMB];
+                                                bs.STAT = "002";
+                                             }
+                                             else
+                                             {
+                                                bs.MESG_ID = "1"; // مقدار پیش‌فرض
+                                                bs.STAT = "002";
+                                             }
+                                          }
+                                       }
+                                       else
+                                       {
+                                          // اگر entries خالی یا null بود
+                                          foreach (var bs in batch)
+                                          {
+                                             bs.MESG_ID = "1";
+                                             bs.STAT = "002";
+                                          }
+                                       }
                                     }
                                     else
                                     {
                                        batch.ForEach(sms =>
                                        {
-                                          sms.MESG_ID = "0";
-                                          sms.EROR_CODE = rslt["error"] != null ? rslt["error"].ToString() : "-1";
-                                          sms.EROR_MESG = rslt["message"] != null ? rslt["message"].ToString() : "خطای ارسال";
+                                          //sms.MESG_ID = "0";
+                                          sms.EROR_CODE = rslt["return"]["status"] != null ? rslt["return"]["status"].ToString() : "-1";
+                                          sms.EROR_MESG = rslt["return"]["message"] != null ? rslt["return"]["message"].ToString() : "خطای ارسال";
+                                          sms.STAT = "002";
                                        });
                                     }
-                                    totalProcessed += batch.Count;
-                                    if (totalProcessed >= 1000) break;
-                                 }
-                              }
-                              else
-                              {
-                                 bulkSmsList.ForEach(sms =>
-                                 {
-                                    sms.MESG_ID = "0";
-                                    sms.EROR_CODE = "-1";
-                                    sms.EROR_MESG = "خطای احراز هویت";
-                                 });
-                              }
+                                     totalProcessed += batch.Count;
+                                     if (totalProcessed >= 1000) break;
+                                  }
+
+                                  // ذخیره وضعیت ارسال پیامک‌های گروهی به دیتابیس
+                                  ctx.SubmitChanges();
+                                  System.Diagnostics.Debug.WriteLine(string.Format("Bulk SMS sent and saved to database. Total processed: {0}", totalProcessed));
+                               }
+                               else
+                               {
+                                   bulkSmsList.ForEach(sms =>
+                                   {
+                                      sms.MESG_ID = "0";
+                                      sms.EROR_CODE = "-1";
+                                      sms.EROR_MESG = "خطای احراز هویت";
+                                      sms.STAT = "002";
+                                   });
+                                  ctx.SubmitChanges();
+                                  System.Diagnostics.Debug.WriteLine("Bulk SMS login failed - error state saved to database.");
+                               }
                            }
 
                            smsSendCount = bulkSms.Count();
@@ -612,127 +672,166 @@ namespace System.MessageBroadcast.Code
                            }
                            #endregion
 
-                           if (smsConf.FirstOrDefault().SERV_TYPE == "001")
-                           {
-                              // Send Sms For Phone Number
-                              XDocument xmsRespons = XDocument.Parse(
-                                 SmsClient.XmsRequest(
-                                    new XElement("xmsrequest",
-                                       new XElement("userid", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE).USER_NAME),
-                                       new XElement("password", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE).PASS_WORD),
-                                       new XElement("action", "smssend"),
-                                       new XElement("body",
-                                          new XElement("type", "oto"),
-                                          new XElement("recipient",
-                                             new XAttribute("mobile", sms.PHON_NUMB),
-                                             sms.MSGB_TEXT
-                                          )
-                                       )
-                                    ).ToString()
-                                 ).ToString()
-                              );
+                            if (smsConf.FirstOrDefault().SERV_TYPE == "001")
+                            {
+                               // Send Sms For Phone Number
+                               XDocument xmsRespons = XDocument.Parse(
+                                  SmsClient.XmsRequest(
+                                     new XElement("xmsrequest",
+                                        new XElement("userid", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE).USER_NAME),
+                                        new XElement("password", smsConf.FirstOrDefault(sc => sc.LINE_TYPE == sms.LINE_TYPE).PASS_WORD),
+                                        new XElement("action", "smssend"),
+                                        new XElement("body",
+                                           new XElement("type", "oto"),
+                                           new XElement("recipient",
+                                              new XAttribute("mobile", sms.PHON_NUMB),
+                                              sms.MSGB_TEXT
+                                           )
+                                        )
+                                     ).ToString()
+                                  ).ToString()
+                               );
 
-                              sms.MESG_ID = xmsRespons.Descendants("recipient").FirstOrDefault().Value;
-                              sms.EROR_CODE = xmsRespons.Descendants("code").FirstOrDefault().Attribute("id").Value;
-                              sms.EROR_MESG = xmsRespons.Descendants("code").FirstOrDefault().Value;
-                           }
-                           else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
-                           {
-                              var rslt = iNotiSmsClient.SendSingleSMS(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, sms.PHON_NUMB, sms.MSGB_TEXT);
-                              if (rslt > 0)
-                                 sms.MESG_ID = rslt.ToString();
-                              else
-                              {
-                                 sms.MESG_ID = "0";
-                                 sms.EROR_CODE = rslt.ToString();
-                                 switch (rslt)
-                                 {
-                                    case -1:
-                                       sms.EROR_MESG = "اطلاعات کاربری نامعتبر";
-                                       break;
-                                    case -2:
-                                       sms.EROR_MESG = "شماره خط نامعتبر";
-                                       break;
-                                    case -3:
-                                       sms.EROR_MESG = "شماره موبایل نا معتبر";
-                                       break;
-                                    case -4:
-                                       sms.EROR_MESG = "موجودی نا کافی";
-                                       break;
-                                    default:
-                                       sms.EROR_MESG = "خطای ناشناخته";
-                                       break;
-                                 }
-                              }
-                           }
+                               sms.MESG_ID = xmsRespons.Descendants("recipient").FirstOrDefault().Value;
+                               sms.EROR_CODE = xmsRespons.Descendants("code").FirstOrDefault().Attribute("id").Value;
+                               sms.EROR_MESG = xmsRespons.Descendants("code").FirstOrDefault().Value;
+                               sms.STAT = "002";
+                               ctx.SubmitChanges();
+                               ++smsSendCount;
+                            }
+                            else if (smsConf.FirstOrDefault().SERV_TYPE == "002")
+                            {
+                               var rslt = iNotiSmsClient.SendSingleSMS(smsConf.FirstOrDefault().USER_NAME, smsConf.FirstOrDefault().PASS_WORD, smsConf.FirstOrDefault().LINE_NUMB, sms.PHON_NUMB, sms.MSGB_TEXT);
+                               if (rslt > 0)
+                                   sms.MESG_ID = rslt.ToString();
+                               else
+                               {
+                                   sms.MESG_ID = "0";
+                                   sms.EROR_CODE = rslt.ToString();
+                                   switch (rslt)
+                                   {
+                                      case -1:
+                                         sms.EROR_MESG = "اطلاعات کاربری نامعتبر";
+                                         break;
+                                      case -2:
+                                         sms.EROR_MESG = "شماره خط نامعتبر";
+                                         break;
+                                      case -3:
+                                         sms.EROR_MESG = "شماره موبایل نا معتبر";
+                                         break;
+                                      case -4:
+                                         sms.EROR_MESG = "موجودی نا کافی";
+                                         break;
+                                      default:
+                                         sms.EROR_MESG = "خطای ناشناخته";
+                                         break;
+                                   }
+                               }
+                               sms.STAT = "002";
+                               ctx.SubmitChanges();
+                               ++smsSendCount;
+                               System.Threading.Thread.Sleep(50);
+                            }
+                            else if (smsConf.FirstOrDefault().SERV_TYPE == "004")
+                            {
+                               var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, new List<string> { sms.PHON_NUMB }, sms.MSGB_TEXT));
+                               if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
+                                   sms.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>();
+                               else
+                               {
+                                   sms.MESG_ID = "0";
+                                   sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
+                                   sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
+                                }
+                               sms.STAT = "002";
+                               ctx.SubmitChanges();
+                               ++smsSendCount;
+                               System.Threading.Thread.Sleep(50);
+                            }
+                            else if (smsConf.FirstOrDefault().SERV_TYPE == "005")
+                            {
+                               // Lidoma Market - Single Send (one2one)
+                               var storeId = smsConf.FirstOrDefault().STOR_ID;
+                               var branchIndex = smsConf.FirstOrDefault().BRNC_INDX ?? 0;
+                               var senderNumber = smsConf.FirstOrDefault().LINE_NUMB;
+                               var receptor = sms.PHON_NUMB;
+                               var message = sms.MSGB_TEXT;
 
-                           System.Threading.Thread.Sleep(50);
-                           ctx.SubmitChanges();
+                               var loginResult = await LidomaClient.LoginAsync(
+                                   smsConf.FirstOrDefault().USER_NAME,
+                                   smsConf.FirstOrDefault().PASS_WORD);
 
-                           ++smsSendCount;
-                        }
-                        else if (smsConf.FirstOrDefault().SERV_TYPE == "004")
-                        {
-                           var rslt = JObject.Parse(iPPanelEdgeClient.SendWebserviceSms(smsConf.FirstOrDefault().LINE_NUMB, new List<string> { sms.PHON_NUMB }, sms.MSGB_TEXT));
-                           if ((long)rslt["data"]["message_outbox_ids"][0] > 0)
-                              sms.MESG_ID = rslt["data"]["message_outbox_ids"][0].Value<string>();
-                           else
-                           {
-                              sms.MESG_ID = "0";
-                              sms.EROR_CODE = rslt["meta"]["message_code"].Value<string>();
-                              sms.EROR_MESG = rslt["meta"]["message"].Value<string>();
-                           }
-                           ctx.SubmitChanges();
-                           ++smsSendCount;
-                           System.Threading.Thread.Sleep(50);
-                        }
-                        else if (smsConf.FirstOrDefault().SERV_TYPE == "005")
-                        {
-                           // Lidoma Market - Single Send (one2one)
-                           var storeId = smsConf.FirstOrDefault().STOR_ID;
-                           var branchIndex = smsConf.FirstOrDefault().BRNC_INDX ?? 0;
-                           var senderNumber = smsConf.FirstOrDefault().LINE_NUMB;
-                           var receptor = sms.PHON_NUMB;
-                           var message = sms.MSGB_TEXT;
+                               if (loginResult)
+                               {
+                                  var rslt = await LidomaClient.SendSingleAsync(storeId, branchIndex, senderNumber, receptor, message);
+                                  if (rslt["return"]["status"] != null && rslt["return"]["status"].ToString() == "200")
+                                  {
+                                     var entries = rslt["entries"] as JArray;
 
-                           var loginResult = await LidomaClient.LoginAsync(
-                               smsConf.FirstOrDefault().USER_NAME,
-                               smsConf.FirstOrDefault().PASS_WORD);
+                                     if (entries != null && entries.Count > 0)
+                                     {
+                                        // ساخت Dictionary برای نگاشت شماره به messageid
+                                        var phoneMessageMap = new Dictionary<string, string>();
 
-                           if (loginResult)
-                           {
-                              var rslt = await LidomaClient.SendSingleAsync(storeId, branchIndex, senderNumber, receptor, message);
-                              if (rslt["return"]["status"] != null && rslt["return"]["status"].ToString() == "200")
-                              {
-                                 var entries = rslt["entries"];
-                                 sms.MESG_ID = entries != null && entries["messageid"] != null ? entries["messageid"].ToString() : "1";
-                              }
-                              else
-                              {
-                                 sms.MESG_ID = "0";
-                                 sms.EROR_CODE = rslt["error"] != null ? rslt["error"].ToString() : "-1";
-                                 sms.EROR_MESG = rslt["message"] != null ? rslt["message"].ToString() : "خطای ارسال";
-                              }
-                           }
-                           else
-                           {
-                              sms.MESG_ID = "0";
-                              sms.EROR_CODE = "-1";
-                              sms.EROR_MESG = "خطای احراز هویت";
-                           }
-                           ctx.SubmitChanges();
-                           ++smsSendCount;
-                           System.Threading.Thread.Sleep(50);
-                        }
-                        else
-                        {
-                           break;
-                        }
+                                        foreach (var entry in entries)
+                                        {
+                                           receptor = entry["receptor"] != null ? entry["receptor"].ToString() : "";
+                                           string messageId = entry["messageid"] != null ? entry["messageid"].ToString() : "";
 
-                        if (smsSendCount >= 500)
-                        {
-                           break;
-                        }
+                                           if (!string.IsNullOrEmpty(receptor) && !string.IsNullOrEmpty(messageId))
+                                           {
+                                              phoneMessageMap[receptor] = messageId;
+                                           }
+                                        }
+
+                                        // نسبت دادن messageid به هر آیتم
+                                        if (phoneMessageMap.ContainsKey(sms.PHON_NUMB))
+                                        {
+                                           sms.MESG_ID = phoneMessageMap[sms.PHON_NUMB];
+                                           sms.STAT = "002";
+                                        }
+                                        else
+                                        {
+                                           sms.MESG_ID = "1"; // مقدار پیش‌فرض
+                                           sms.STAT = "002";
+                                        }
+                                     }
+                                     else
+                                     {
+                                        // اگر entries خالی یا null بود
+                                        sms.MESG_ID = "1";
+                                        sms.STAT = "002";
+                                     }
+                                  }
+                                  else
+                                  {
+                                     //sms.MESG_ID = "0";
+                                     sms.EROR_CODE = rslt["return"]["status"] != null ? rslt["return"]["status"].ToString() : "-1";
+                                     sms.EROR_MESG = rslt["return"]["message"] != null ? rslt["return"]["message"].ToString() : "خطای ارسال";
+                                     sms.STAT = "002";
+                                  }
+                               }
+                               else
+                               {
+                                  //sms.MESG_ID = "0";
+                                  sms.EROR_CODE = "-1";
+                                  sms.EROR_MESG = "خطای احراز هویت";
+                                  sms.STAT = "002";
+                               }
+                               ctx.SubmitChanges();
+                               ++smsSendCount;
+                               System.Threading.Thread.Sleep(50);
+                            }
+                            else
+                            {
+                               break;
+                            }
+
+                         if (smsSendCount >= 500)
+                         {
+                            break;
+                         }
+                         }
                      }
                      #endregion
 

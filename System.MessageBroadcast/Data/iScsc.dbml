@@ -123,6 +123,7 @@
       <Association Name="Method_Category_Belt" Member="Category_Belts" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Category_Belt" />
       <Association Name="Method_Fighter" Member="Fighters" ThisKey="CODE" OtherKey="MTOD_CODE_DNRM" Type="Fighter" />
       <Association Name="Method_Expense" Member="Expenses" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Expense" />
+      <Association Name="Method_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="MTOD_CODE" Type="Basic_Calculate_Discount" />
       <Association Name="Method_Method" Member="Method1" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
     </Type>
   </Table>
@@ -163,6 +164,7 @@
       <Association Name="Category_Belt_Category_Belt" Member="Category_Belts" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Category_Belt" />
       <Association Name="Category_Belt_Fighter" Member="Fighters" ThisKey="CODE" OtherKey="CTGY_CODE_DNRM" Type="Fighter" />
       <Association Name="Category_Belt_Expense" Member="Expenses" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Expense" />
+      <Association Name="Category_Belt_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="CTGY_CODE" Type="Basic_Calculate_Discount" />
       <Association Name="Category_Belt_Category_Belt" Member="Category_Belt1" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
       <Association Name="Method_Category_Belt" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
     </Type>
@@ -364,6 +366,7 @@
       <Association Name="Fighter_Fighter" Member="Fighter1" ThisKey="REF_CODE_DNRM" OtherKey="FILE_NO" Type="Fighter" IsForeignKey="true" />
       <Association Name="Method_Fighter" Member="Method" ThisKey="MTOD_CODE_DNRM" OtherKey="CODE" Type="Method" IsForeignKey="true" />
       <Association Name="Region_Fighter" Member="Region" ThisKey="REGN_PRVN_CNTY_CODE,REGN_PRVN_CODE,REGN_CODE" OtherKey="PRVN_CNTY_CODE,PRVN_CODE,CODE" Type="Region" IsForeignKey="true" />
+      <Association Name="Sub_Unit_Fighter" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE_DNRM,SUNT_BUNT_DEPT_CODE_DNRM,SUNT_BUNT_CODE_DNRM,SUNT_CODE_DNRM" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Regulation" Member="Regulations">
@@ -391,6 +394,7 @@
       <Column Name="LDMA_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Association Name="Regulation_Expense" Member="Expenses" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Expense" />
       <Association Name="Regulation_Request_Requester" Member="Request_Requesters" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Request_Requester" />
+      <Association Name="Regulation_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="YEAR,CODE" OtherKey="REGL_YEAR,REGL_CODE" Type="Basic_Calculate_Discount" />
     </Type>
   </Table>
   <Table Name="dbo.D$ATYP" Member="D_ATYPs">
@@ -448,6 +452,7 @@
       <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" UpdateCheck="Never" />
       <Column Name="LDMA_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" UpdateCheck="Never" />
+      <Association Name="Expense_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="CODE" OtherKey="EXPN_CODE" Type="Basic_Calculate_Discount" />
       <Association Name="Category_Belt_Expense" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Method_Expense" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" DeleteRule="SET NULL" />
       <Association Name="Regulation_Expense" Member="Regulation" ThisKey="REGL_YEAR,REGL_CODE" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" DeleteRule="SET NULL" />
@@ -492,6 +497,113 @@
       <Column Name="LDMA_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
       <Association Name="Request_Requester_Expense_Type" Member="Expense_Types" ThisKey="CODE" OtherKey="RQRQ_CODE" Type="Expense_Type" />
       <Association Name="Regulation_Request_Requester" Member="Regulation" ThisKey="REGL_YEAR,REGL_CODE" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" DeleteRule="SET NULL" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Basic_Calculate_Discount" Member="Basic_Calculate_Discounts">
+    <Type Name="Basic_Calculate_Discount">
+      <Column Name="SUNT_BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="SUNT_BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="SUNT_BUNT_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" CanBeNull="false" />
+      <Column Name="SUNT_CODE" Type="System.String" DbType="VarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="ORGN_CODE_DNRM" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="REGL_YEAR" Type="System.Int16" DbType="SmallInt NOT NULL" CanBeNull="false" />
+      <Column Name="REGL_CODE" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RWNO" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CODE" Type="System.Int64" DbType="BigInt NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="EPIT_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="RQTP_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="RQTT_CODE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="AMNT_DSCT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PRCT_DSCT" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DSCT_TYPE" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="ACTN_TYPE" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="DSCT_DESC" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="FROM_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TO_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="MTOD_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CTGY_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="EXPN_CODE" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="Category_Belt_Basic_Calculate_Discount" Member="Category_Belt" ThisKey="CTGY_CODE" OtherKey="CODE" Type="Category_Belt" IsForeignKey="true" />
+      <Association Name="Expense_Basic_Calculate_Discount" Member="Expense" ThisKey="EXPN_CODE" OtherKey="CODE" Type="Expense" IsForeignKey="true" />
+      <Association Name="Method_Basic_Calculate_Discount" Member="Method" ThisKey="MTOD_CODE" OtherKey="CODE" Type="Method" IsForeignKey="true" />
+      <Association Name="Regulation_Basic_Calculate_Discount" Member="Regulation" ThisKey="REGL_YEAR,REGL_CODE" OtherKey="YEAR,CODE" Type="Regulation" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Sub_Unit_Basic_Calculate_Discount" Member="Sub_Unit" ThisKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" Type="Sub_Unit" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Organ" Member="Organs">
+    <Type Name="Organ">
+      <Column Name="CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ORGN_DESC" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="Organ_Department" Member="Departments" ThisKey="CODE" OtherKey="ORGN_CODE" Type="Department" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Department" Member="Departments">
+    <Type Name="Department">
+      <Column Name="ORGN_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DEPT_DESC" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="Department_Base_Unit" Member="Base_Units" ThisKey="ORGN_CODE,CODE" OtherKey="DEPT_ORGN_CODE,DEPT_CODE" Type="Base_Unit" />
+      <Association Name="Organ_Department" Member="Organ" ThisKey="ORGN_CODE" OtherKey="CODE" Type="Organ" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Base_Unit" Member="Base_Units">
+    <Type Name="Base_Unit">
+      <Column Name="DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="DEPT_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BUNT_DESC" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="Base_Unit_Sub_Unit" Member="Sub_Units" ThisKey="DEPT_ORGN_CODE,DEPT_CODE,CODE" OtherKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE" Type="Sub_Unit" />
+      <Association Name="Department_Base_Unit" Member="Department" ThisKey="DEPT_ORGN_CODE,DEPT_CODE" OtherKey="ORGN_CODE,CODE" Type="Department" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Sub_Unit" Member="Sub_Units">
+    <Type Name="Sub_Unit">
+      <Column Name="BUNT_DEPT_ORGN_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BUNT_DEPT_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="BUNT_CODE" Type="System.String" DbType="VarChar(2) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CODE" Type="System.String" DbType="VarChar(4) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SUNT_DESC" Type="System.String" DbType="NVarChar(250) NOT NULL" CanBeNull="false" />
+      <Column Name="ORGN_CODE_DNRM" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="PENT" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="CRET_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="CRET_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MDFY_BY" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Column Name="MDFY_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_STAT" Type="System.String" DbType="VarChar(3)" CanBeNull="true" />
+      <Column Name="LDMA_DATE" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="LDMA_CODE" Type="System.String" DbType="VarChar(250)" CanBeNull="true" />
+      <Association Name="Sub_Unit_Fighter" Member="Fighters" ThisKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" OtherKey="SUNT_BUNT_DEPT_ORGN_CODE_DNRM,SUNT_BUNT_DEPT_CODE_DNRM,SUNT_BUNT_CODE_DNRM,SUNT_CODE_DNRM" Type="Fighter" />
+      <Association Name="Sub_Unit_Basic_Calculate_Discount" Member="Basic_Calculate_Discounts" ThisKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE,CODE" OtherKey="SUNT_BUNT_DEPT_ORGN_CODE,SUNT_BUNT_DEPT_CODE,SUNT_BUNT_CODE,SUNT_CODE" Type="Basic_Calculate_Discount" />
+      <Association Name="Base_Unit_Sub_Unit" Member="Base_Unit" ThisKey="BUNT_DEPT_ORGN_CODE,BUNT_DEPT_CODE,BUNT_CODE" OtherKey="DEPT_ORGN_CODE,DEPT_CODE,CODE" Type="Base_Unit" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
 </Database>

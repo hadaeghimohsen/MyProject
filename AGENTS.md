@@ -103,6 +103,19 @@ WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `
 - `"002"` = همگام‌سازی شده
 - `"004"` = ارسال ناموفق (Failed، قابل ری‌تای)
 
+## ریست ستون‌های LDMA (RESET_LDMA_P)
+- **اگر کاربر خواست ستون‌های `LDMA_STAT` / `LDMA_DATE` / `LDMA_CODE` را در iScsc NULL کند** → فقط اجرا کن:
+  ```sql
+  EXEC RESET_LDMA_P;
+  ```
+- Stored Procedure `RESET_LDMA_P` در دیتابیس `iScsc` وجود دارد و:
+  1. تمام تریگرها را DISABLE می‌کند (جلوگیری از خطای permission CG$AUPD_HLDY و خطای recursion 32-level CG$AINS_MSXD)
+  2. برای هر جدولی که حداقل یکی از این ستون‌ها را دارد (۱۷۷ جدول / ۵۳۱ ستون): `UPDATE ... SET LDMA_STAT=NULL, LDMA_DATE=NULL, LDMA_CODE=NULL WHERE ... IS NOT NULL`
+  3. تریگرها را دوباره ENABLE می‌کند
+- فایل سورس اسکریپت: `C:\Users\Hadaegh\AppData\Local\Temp\opencustom\create_reset_ldma_proc.sql`
+- اسکریپت یک‌بار مصرف قبلی (بدون SP): `C:\Users\Hadaegh\AppData\Local\Temp\opencustom\reset_ldma_columns.sql`
+- تست: بعد از اجرا باید COUNT غیر-NULL = 0 باشد (Club, Sub_Unit, Basic_Calculate_Discount, Fighter, Method, Club_Method, Club_Method_Weekday, Category_Belt, Organ)
+
 ## همگام‌سازی ارگان‌ها (SyncOrgansAsync)
 - فیلتر pending: `LDMA_STAT == "003"` (فقط ارگان‌های به‌روزرسانی شده)
 - پس از موفقیت: `LDMA_STAT = "002"` برای Sub_Unit، Basic_Calculate_Discount (Rqtp_Code 001/009 و 016)

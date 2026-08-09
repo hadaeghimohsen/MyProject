@@ -1184,7 +1184,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
                      var regl = iScscLocal.Regulations.FirstOrDefault(a => a.TYPE == "001" && a.REGL_STAT == "002");
 
                      var storeData = new JObject();
-                     storeData.Add("name", c.NAME ?? "");
+                     storeData.Add("name", c.CLUB_DESC ?? "");
                      storeData.Add("template", c.TEMP_TAG ?? "gym");
                      storeData.Add("about", c.CMNT ?? "");
                      storeData.Add("billingType", "percentage");
@@ -1927,9 +1927,10 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
       private bool IsSuccess(JObject res)
       {
-         if (res == null) return false;
-         if (res.Property("success") == null) return true;
-         return (bool)res["success"];
+         if (res == null || res["return"]["status"] == null) return false;
+         if (res["return"]["status"].ToString() == "200") return true;
+         else return false;
+         //return (bool)res["success"];
       }
 
       // ============================================================

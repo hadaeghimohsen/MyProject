@@ -1764,15 +1764,22 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
                    iScscLocal.SubmitChanges();
 
-                   if (batchSuccess)
-                   {
-                      // Successful batch: try growing the batch size back toward 50
-                      if (currentBatchSize < 50)
-                      {
-                         currentBatchSize = Math.Min(currentBatchSize * 2, 50);
-                         Log(String.Format("Batch size increased back to {0}", currentBatchSize));
-                      }
-                   }
+                    if (batchSuccess)
+                    {
+                       // Increase batch size by 2x on success, up to configured max (default 400)
+                       int maxBatchSize = 400;
+                       var maxBatchConfig = ConfigurationManager.AppSettings["MaxBatchSize"];
+                       if (maxBatchConfig != null)
+                       {
+                          int parsedMax;
+                          if (Int32.TryParse(maxBatchConfig, out parsedMax) && parsedMax > 0)
+                             maxBatchSize = parsedMax;
+                       }
+
+                       currentBatchSize = Math.Min(currentBatchSize * 2, maxBatchSize);
+                       if (currentBatchSize > 50)
+                          Log(String.Format("Batch size increased to {0} (adaptive growth)", currentBatchSize));
+                    }
                    else
                    {
                       // Batch failed: adapt by reducing batch size

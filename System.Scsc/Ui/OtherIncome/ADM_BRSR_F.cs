@@ -38,10 +38,11 @@ namespace System.Scsc.Ui.OtherIncome
                GC.Collect();
                GC.WaitForPendingFinalizers();
                iScsc = new Data.iScscDataContext(ConnectionString);
-               if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))                  
-                  FighsBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);
+               if (iScsc.Settings.Any(s => Fga_Uclb_U.Contains(s.CLUB_CODE) && s.RUN_QURY == "002"))
+                  Search_Butn_Click(null, null);
+                  //FighsBs.DataSource = iScsc.VF_Last_Info_Fighter(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null).OrderBy(f => f.REGN_PRVN_CODE + f.REGN_CODE);
 
-               rqstindex = RqstBs1.Position;
+               /*rqstindex = RqstBs1.Position;
 
                var Rqids = iScsc.VF_Requests(new XElement("Request", new XAttribute("cretby", ShowRqst_PickButn.PickChecked ? CurrentUser : "")))
                   .Where(rqst =>
@@ -57,7 +58,7 @@ namespace System.Scsc.Ui.OtherIncome
                         Rqids.Contains(rqst.RQID)
                   );
 
-               RqstBs1.Position = rqstindex;
+               RqstBs1.Position = rqstindex;*/
             }
          }
          catch { }
@@ -115,7 +116,7 @@ namespace System.Scsc.Ui.OtherIncome
 
                   // کوئری اول
                   var fighters = 
-                     iScsc.Fighters.AsQueryable();
+                     iScsc.Fighters.AsQueryable().Where(a => a.CONF_STAT == "002" && a.ACTV_TAG_DNRM == "101");
 
                   if (CellPhon_Txt.Text.Trim() != "")
                      fighters = 
@@ -775,7 +776,7 @@ namespace System.Scsc.Ui.OtherIncome
 
       private void vF_Last_Info_FighterResultBindingSource_CurrentChanged(object sender, EventArgs e)
       {
-         var fileno = (FighsBs.Current as Data.VF_Last_Info_FighterResult).FILE_NO;
+         //var fileno = (FighsBs.Current as Data.VF_Last_Info_FighterResult).FILE_NO;
          //try
          //{
          //   UserProFile_Rb.ImageProfile = null;

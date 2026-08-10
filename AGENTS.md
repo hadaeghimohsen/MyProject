@@ -78,8 +78,11 @@ WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `
 - ابتدا Clubهای دارای `LDMA_CODE != null && != ""` را می‌گیرد
 - Fighterهایی که `CLUB_CODE_DNRM` در باشگاه‌های بالا داشته باشند
 - **فیلتر pending**: `(c.LDMA_STAT ?? "001") == "001" || c.LDMA_STAT == "003"` (مهم: NULL معادل 001)
-- **فیلتر داخل حلقه**: `FGPB_TYPE_DNRM='001'`, `ACTV_TAG_DNRM='101'`, `CONF_STAT='002'`, `CELL_PHON_DNRM` اجباری
-- **بسته‌های ۵۰ تایی** ارسال می‌شوند
+- **فیلتر داخل حلقه**: `FGPB_TYPE_DNRM='001' یا '005'`, `ACTV_TAG_DNRM='101'`, `CONF_STAT='002'`, `CELL_PHON_DNRM` اجباری (11 رقم) برای FGPB_TYPE_DNRM='001'
+- **بسته‌های ادغامی (Adaptive batch size)**: شروع با حجم 50، در صورت شکست نیمی می‌شود تا حداقل 1
+- اگر درخواست جدید (CreateCustomersBulkAsync) شکست بخورد: تمام مشتریان بسته LDMA_STAT='004' می‌شوند، حجم بسته نصف شده و i را برمی‌گرداند تا مشتریان دوباره با حجم کوچکتر ارسال شوند
+- اگر حجم بسته 1 باشد و هنوز شکست بخورد: مشتریان '004' می‌مانند و در چرخه همگام‌سازی آینده دوباره سعی می‌شود
+- اگر درخواست موفق باشد: حجم بسته تا حداکثر 50 دو برابر می‌شود
 - **storeId** از `Club.LDMA_CODE` (متعلق به باشگاه Fighter اول در بسته)
 - **پاسخ API**: `entries[].phone` و `entries[].userId` → مطابقت با `CELL_PHON_DNRM` و ذخیره `userId` به عنوان `Fighter.LDMA_CODE`
 - اگر `entries` نباشد → fallback: همه fighters batch را LDMA_STAT='002' کن

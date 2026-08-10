@@ -1,6 +1,6 @@
 # STABLE VERSION 1.0 - 2026-08-07
 
-## COMPLETED FEATURES
+## FEATURES
 
 ### 1. SMS Sending System
 - **Bulk Send**: Business, Service, Customer, Expense, Organ queue items
@@ -107,6 +107,19 @@
 | MSTR_PAGE_F.RequestRespons.cs | `System.MessageBroadcast/Ui/MasterPage/` | Job routing requests |
 | App.config | `System.MessageBroadcast/` | Configuration |
 
+## CUSTOMER SYNC — ADAPTIVE BATCH SIZE
+
+The `SyncCustomersAsync` method in WEBS_MESG_F.cs uses an adaptive batch size mechanism for sending customers via `CreateCustomersBulkAsync`:
+
+- **Start**: batch size = 50 customers per request
+- **On success**: batch size grows back toward 50 (doubles each time, capped at 50)
+- **On failure**: batch size halves (50 → 25 → 12 → 6 → 3 → 1)
+- **At batch size 1**: if still failing, mark customers with `LDMA_STAT = '004'` (Failed) and `LDMA_DATE = DateTime.Now`
+- **Retry loop**: when batch fails, the loop index `i` is rolled back by the previous batch size so the customers are retried with a smaller batch
+- **Existing customers**: processed one-by-one via `UpdateCustomerAsync` (not batched)
+- **JSON building**: extracted into a helper method `BuildCustomerBulkPayload(customers, clubs)` to avoid code duplication between new and retry customers
+- **API response**: `entries[].phone` matched against `fighter.CELL_PHON_DNRM` to set `fighter.LDMA_CODE = customerId` and `fighter.LDMA_STAT = "002"`
+
 ## LDMA_STAT Lifecycle
 | Value | Meaning |
 |---|---|
@@ -114,6 +127,21 @@
 | `"002"` | Completed (synced successfully) |
 | `"003"` | Updated (changed, needs re-sync) |
 | `"004"` | Failed (sync error, retry possible) |
+
+## FILES
+
+| File | Path | Purpose |
+|---|---|---|
+| WEBS_MESG_F.cs | `System.MessageBroadcast/Ui/SmsApp/` | Main form, all sync methods |
+| LidomaMarket.cs | `System.MessageBroadcast/Code/` | Lidoma Market API client (Singleton) |
+| LidomaSmsClient.cs | `System.MessageBroadcast/Code/` | Lidoma SMS client (Singleton) |
+| LidomaApiClientBase.cs | `System.MessageBroadcast/Code/` | Base API client (retry, HTTP helpers) |
+| Logger.cs | `System.MessageBroadcast/Code/` | File-based logging system |
+| Msgb.Properties.cs | `System.MessageBroadcast/Code/` | SMS sending logic (bulk + single) |
+| MSTR_PAGE_F.cs | `System.MessageBroadcast/Ui/MasterPage/` | Master page with timers |
+| MSTR_PAGE_F.RequestRespons.cs | `System.MessageBroadcast/Ui/MasterPage/` | Job routing requests |
+| App.config | `System.MessageBroadcast/` | Configuration |
+| RESET_LDMA_P.sql | `System.MessageBroadcast/Data/` | SQL stored procedure script to reset LDMA columns |
 
 ## GUIDELINES FOR FUTURE UPDATES
 

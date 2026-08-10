@@ -706,178 +706,178 @@ namespace System.MessageBroadcast.Ui.SmsApp
       /// Executes Query 1 from dbo.Sub_Unit to get organs.
       /// Returns JArray with items: { code, name }
       /// </summary>
-       private async Task<JArray> GetOrgansFromDatabaseAsync()
-       {
-          Log("Executing Query 1: Getting organs from dbo.Sub_Unit");
-          var organs = new JArray();
+      private async Task<JArray> GetOrgansFromDatabaseAsync()
+      {
+         Log("Executing Query 1: Getting organs from dbo.Sub_Unit");
+         var organs = new JArray();
 
-          try
-          {
-             using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
-             {
-                 var query = iScscLocal.Sub_Units
-                    .Where(s => s.LDMA_STAT == null || s.LDMA_STAT == "003")
-                    .OrderBy(s => s.ORGN_CODE_DNRM);
+         try
+         {
+            using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
+            {
+               var query = iScscLocal.Sub_Units
+                  .Where(s => s.LDMA_STAT == null || s.LDMA_STAT == "003")
+                  .OrderBy(s => s.ORGN_CODE_DNRM);
 
-                foreach (var s in query)
-                {
-                   var organ = new JObject(
-                       new JProperty("code", s.ORGN_CODE_DNRM != null ? s.ORGN_CODE_DNRM : null),
-                       new JProperty("name", s.SUNT_DESC != null ? s.SUNT_DESC : null)
-                   );
-                   organs.Add(organ);
-                }
-             }
-          }
-          catch (Exception ex)
-          {
-             Log("Error getting organs: " + ex.Message);
-             throw;
-          }
+               foreach (var s in query)
+               {
+                  var organ = new JObject(
+                      new JProperty("code", s.ORGN_CODE_DNRM != null ? s.ORGN_CODE_DNRM : null),
+                      new JProperty("name", s.SUNT_DESC != null ? s.SUNT_DESC : null)
+                  );
+                  organs.Add(organ);
+               }
+            }
+         }
+         catch (Exception ex)
+         {
+            Log("Error getting organs: " + ex.Message);
+            throw;
+         }
 
-          Log(string.Format("Retrieved {0} organs", organs.Count));
-          return organs;
-       }
+         Log(string.Format("Retrieved {0} organs", organs.Count));
+         return organs;
+      }
 
-       /// <summary>
-       /// Executes Query 2 from dbo.Basic_Calculate_Discount (Rqtp_Code IN 001, 009).
-       /// Returns JArray with subscription discounts.
-       /// IMPORTANT: Only adds startsAt/endsAt if Kind == 'dateRange' AND value is not null.
-       /// </summary>
-       private async Task<JArray> GetSubscriptionDiscountsFromDatabaseAsync()
-       {
-          Log("Executing Query 2: Getting subscription discounts (Rqtp_Code IN 001, 009)");
-          var discounts = new JArray();
+      /// <summary>
+      /// Executes Query 2 from dbo.Basic_Calculate_Discount (Rqtp_Code IN 001, 009).
+      /// Returns JArray with subscription discounts.
+      /// IMPORTANT: Only adds startsAt/endsAt if Kind == 'dateRange' AND value is not null.
+      /// </summary>
+      private async Task<JArray> GetSubscriptionDiscountsFromDatabaseAsync()
+      {
+         Log("Executing Query 2: Getting subscription discounts (Rqtp_Code IN 001, 009)");
+         var discounts = new JArray();
 
-          try
-          {
-             using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
-             {
-                 var query = iScscLocal.Basic_Calculate_Discounts
-                    .Where(d => (d.RQTP_CODE == "001" || d.RQTP_CODE == "009")
-                       && ((d.LDMA_STAT ?? "001") == "001" || d.LDMA_STAT == "003") 
-                       && d.Expense.EXPN_STAT == "002" 
-                       && (d.Method.MTOD_STAT == "002" && d.Method.SHOW_STAT == "002")
-                       && (d.Category_Belt.CTGY_STAT == "002" && d.Category_Belt.SHOW_STAT == "002")
-                       && iScscLocal.Club_Methods.Any(a => a.MTOD_CODE == d.MTOD_CODE && a.MTOD_STAT == "002"))
-                    .OrderBy(d => d.CODE);
+         try
+         {
+            using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
+            {
+               var query = iScscLocal.Basic_Calculate_Discounts
+                  .Where(d => (d.RQTP_CODE == "001" || d.RQTP_CODE == "009")
+                     && ((d.LDMA_STAT ?? "001") == "001" || d.LDMA_STAT == "003")
+                     && d.Expense.EXPN_STAT == "002"
+                     && (d.Method.MTOD_STAT == "002" && d.Method.SHOW_STAT == "002")
+                     && (d.Category_Belt.CTGY_STAT == "002" && d.Category_Belt.SHOW_STAT == "002")
+                     && iScscLocal.Club_Methods.Any(a => a.MTOD_CODE == d.MTOD_CODE && a.MTOD_STAT == "002"))
+                  .OrderBy(d => d.CODE);
 
-                foreach (var d in query)
-                {
-                   var discount = new JObject(
-                       new JProperty("code", d.CODE.ToString()),
-                       new JProperty("organCode", d.ORGN_CODE_DNRM != null ? d.ORGN_CODE_DNRM : null),
-                       new JProperty("revenueCode", d.EXPN_CODE.HasValue ? d.EXPN_CODE.Value.ToString() : null)
-                   );
+               foreach (var d in query)
+               {
+                  var discount = new JObject(
+                      new JProperty("code", d.CODE.ToString()),
+                      new JProperty("organCode", d.ORGN_CODE_DNRM != null ? d.ORGN_CODE_DNRM : null),
+                      new JProperty("revenueCode", d.EXPN_CODE.HasValue ? d.EXPN_CODE.Value.ToString() : null)
+                  );
 
-                   var kind = GetDiscountKind(d.ACTN_TYPE);
-                   var type = d.DSCT_TYPE == "001" ? "percent" : "amount";
-                   var value = d.PRCT_DSCT;
-                   var isActive = d.STAT == "002";
+                  var kind = GetDiscountKind(d.ACTN_TYPE);
+                  var type = d.DSCT_TYPE == "001" ? "percent" : "amount";
+                  var value = d.PRCT_DSCT;
+                  var isActive = d.STAT == "002";
 
-                   discount.Add(new JProperty("kind", kind));
-                   discount.Add(new JProperty("type", type));
-                   discount.Add(new JProperty("value", value));
-                   discount.Add(new JProperty("isActive", isActive));
+                  discount.Add(new JProperty("kind", kind));
+                  discount.Add(new JProperty("type", type));
+                  discount.Add(new JProperty("value", value));
+                  discount.Add(new JProperty("isActive", isActive));
 
-                   // ONLY add startsAt and endsAt if Kind == 'dateRange' AND value is not null
-                   if (kind == "dateRange" && value.HasValue)
-                   {
-                      if (d.FROM_DATE.HasValue)
-                      {
-                         discount.Add(new JProperty("startsAt", d.FROM_DATE.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")));
-                      }
-                      if (d.TO_DATE.HasValue)
-                      {
-                         discount.Add(new JProperty("endsAt", d.TO_DATE.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")));
-                      }
-                   }
+                  // ONLY add startsAt and endsAt if Kind == 'dateRange' AND value is not null
+                  if (kind == "dateRange" && value.HasValue)
+                  {
+                     if (d.FROM_DATE.HasValue)
+                     {
+                        discount.Add(new JProperty("startsAt", d.FROM_DATE.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")));
+                     }
+                     if (d.TO_DATE.HasValue)
+                     {
+                        discount.Add(new JProperty("endsAt", d.TO_DATE.Value.ToString("yyyy-MM-ddTHH:mm:ss.fffZ")));
+                     }
+                  }
 
-                   discounts.Add(discount);
-                }
-             }
-          }
-          catch (Exception ex)
-          {
-             Log("Error getting subscription discounts: " + ex.Message);
-             throw;
-          }
+                  discounts.Add(discount);
+               }
+            }
+         }
+         catch (Exception ex)
+         {
+            Log("Error getting subscription discounts: " + ex.Message);
+            throw;
+         }
 
-          Log(string.Format("Retrieved {0} subscription discounts", discounts.Count));
-          return discounts;
-       }
+         Log(string.Format("Retrieved {0} subscription discounts", discounts.Count));
+         return discounts;
+      }
 
-       private static string GetDiscountKind(string actnType)
-       {
-          switch (actnType)
-          {
-             case "001": return "regular";
-             case "002": return "periodic";
-             case "003": return "dateRange";
-             case "004": return "deposit";
-             case "005": return "loyalCustomer";
-             case "006": return "newCustomerReferral";
-             case "007": return "campaign";
-             case "008": return "birthdayGift";
-             case "009": return "serviceCommission";
-             case "010": return "referralCommission";
-             default: return null;
-          }
-       }
+      private static string GetDiscountKind(string actnType)
+      {
+         switch (actnType)
+         {
+            case "001": return "regular";
+            case "002": return "periodic";
+            case "003": return "dateRange";
+            case "004": return "deposit";
+            case "005": return "loyalCustomer";
+            case "006": return "newCustomerReferral";
+            case "007": return "campaign";
+            case "008": return "birthdayGift";
+            case "009": return "serviceCommission";
+            case "010": return "referralCommission";
+            default: return null;
+         }
+      }
 
-       /// <summary>
-       /// Executes Query 3 from dbo.Basic_Calculate_Discount (Rqtp_Code IN 016).
-       /// Returns JArray with product sales discounts.
-       /// </summary>
-       private async Task<JArray> GetProductSalesDiscountsFromDatabaseAsync()
-       {
-          Log("Executing Query 3: Getting product sales discounts (Rqtp_Code IN 016)");
-          var discounts = new JArray();
+      /// <summary>
+      /// Executes Query 3 from dbo.Basic_Calculate_Discount (Rqtp_Code IN 016).
+      /// Returns JArray with product sales discounts.
+      /// </summary>
+      private async Task<JArray> GetProductSalesDiscountsFromDatabaseAsync()
+      {
+         Log("Executing Query 3: Getting product sales discounts (Rqtp_Code IN 016)");
+         var discounts = new JArray();
 
-          try
-          {
-             using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
-             {
-                var query = iScscLocal.Basic_Calculate_Discounts
-                   .Where(d => d.RQTP_CODE == "016" 
-                      && d.Expense.EXPN_STAT == "002" 
-                      && ((d.LDMA_STAT ?? "001") == "001" || d.LDMA_STAT == "003") 
-                      && (d.Method.MTOD_STAT == "002" && d.Method.SHOW_STAT == "002")
-                      && (d.Category_Belt.CTGY_STAT == "002" && d.Category_Belt.SHOW_STAT == "002")
-                      && iScscLocal.Club_Methods.Any(a => a.MTOD_CODE == d.MTOD_CODE && a.MTOD_STAT == "002"))
-                   .OrderBy(d => d.CODE);
+         try
+         {
+            using (var iScscLocal = new Data.iScscDataContext(IScscConnectionString))
+            {
+               var query = iScscLocal.Basic_Calculate_Discounts
+                  .Where(d => d.RQTP_CODE == "016"
+                     && d.Expense.EXPN_STAT == "002"
+                     && ((d.LDMA_STAT ?? "001") == "001" || d.LDMA_STAT == "003")
+                     && (d.Method.MTOD_STAT == "002" && d.Method.SHOW_STAT == "002")
+                     && (d.Category_Belt.CTGY_STAT == "002" && d.Category_Belt.SHOW_STAT == "002")
+                     && iScscLocal.Club_Methods.Any(a => a.MTOD_CODE == d.MTOD_CODE && a.MTOD_STAT == "002"))
+                  .OrderBy(d => d.CODE);
 
-                foreach (var d in query)
-                {
-                   var discount = new JObject(
-                       new JProperty("code", d.CODE.ToString()),
-                       new JProperty("organCode", d.ORGN_CODE_DNRM != null ? d.ORGN_CODE_DNRM : null),
-                       new JProperty("revenueCode", d.EXPN_CODE.HasValue ? d.EXPN_CODE.Value.ToString() : null)
-                   );
+               foreach (var d in query)
+               {
+                  var discount = new JObject(
+                      new JProperty("code", d.CODE.ToString()),
+                      new JProperty("organCode", d.ORGN_CODE_DNRM != null ? d.ORGN_CODE_DNRM : null),
+                      new JProperty("revenueCode", d.EXPN_CODE.HasValue ? d.EXPN_CODE.Value.ToString() : null)
+                  );
 
-                   var kind = GetDiscountKind(d.ACTN_TYPE);
-                   var type = d.DSCT_TYPE == "001" ? "percent" : "amount";
-                   var value = d.PRCT_DSCT;
-                   var isActive = d.STAT == "002";
+                  var kind = GetDiscountKind(d.ACTN_TYPE);
+                  var type = d.DSCT_TYPE == "001" ? "percent" : "amount";
+                  var value = d.PRCT_DSCT;
+                  var isActive = d.STAT == "002";
 
-                   discount.Add(new JProperty("kind", kind));
-                   discount.Add(new JProperty("type", type));
-                   discount.Add(new JProperty("value", value));
-                   discount.Add(new JProperty("isActive", isActive));
+                  discount.Add(new JProperty("kind", kind));
+                  discount.Add(new JProperty("type", type));
+                  discount.Add(new JProperty("value", value));
+                  discount.Add(new JProperty("isActive", isActive));
 
-                   discounts.Add(discount);
-                }
-             }
-          }
-          catch (Exception ex)
-          {
-             Log("Error getting product sales discounts: " + ex.Message);
-             throw;
-          }
+                  discounts.Add(discount);
+               }
+            }
+         }
+         catch (Exception ex)
+         {
+            Log("Error getting product sales discounts: " + ex.Message);
+            throw;
+         }
 
-          Log(string.Format("Retrieved {0} product sales discounts", discounts.Count));
-          return discounts;
-       }
+         Log(string.Format("Retrieved {0} product sales discounts", discounts.Count));
+         return discounts;
+      }
 
       // tp_005 - Customers
 
@@ -1604,7 +1604,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
                // 2. مشتریان (Fighter) این باشگاه‌ها را پیدا کن
                var clubCodes = clubs.Select(c => c.CODE).ToList();
                List<Data.Fighter> all = iScscLocal.Fighters
-                   //.Where(f => f.CLUB_CODE_DNRM.HasValue && clubCodes.Contains(f.CLUB_CODE_DNRM.Value))
+                  //.Where(f => f.CLUB_CODE_DNRM.HasValue && clubCodes.Contains(f.CLUB_CODE_DNRM.Value))
                    .ToList();
 
                Log(string.Format("تعداد کل اعضا/مشتریان در دیتابیس: {0}", all.Count));
@@ -1619,201 +1619,252 @@ namespace System.MessageBroadcast.Ui.SmsApp
                   return;
                }
 
-                Log(string.Format("شروع همگام‌سازی {0} عضو با لیدوما (به صورت بسته‌های تطبیقی)...", pending.Count));
-                SetProgress(0, pending.Count);
+               Log(string.Format("شروع همگام‌سازی {0} عضو با لیدوما (به صورت بسته‌های تطبیقی)...", pending.Count));
+               SetProgress(0, pending.Count);
 
                 int done = 0;
                 int currentBatchSize = 50;
 
-                for (int i = 0; i < pending.Count; i += currentBatchSize)
+                // Throttling/Delay configuration
+                int defaultDelayMs = 3000;
+                int minDelayMs = 1000;
+                int maxDelayMs = 5000;
+
+                var cfgDelay = ConfigurationManager.AppSettings["BatchDelayMs"];
+                if (cfgDelay != null)
                 {
-                   var batch = pending.Skip(i).Take(currentBatchSize).ToList();
+                   int parsed;
+                   if (Int32.TryParse(cfgDelay, out parsed) && parsed > 0)
+                      defaultDelayMs = parsed;
+                }
+                var cfgMin = ConfigurationManager.AppSettings["MinBatchDelayMs"];
+                if (cfgMin != null)
+                {
+                   int parsed;
+                   if (Int32.TryParse(cfgMin, out parsed) && parsed > 0)
+                      minDelayMs = parsed;
+                }
+                var cfgMax = ConfigurationManager.AppSettings["MaxBatchDelayMs"];
+                if (cfgMax != null)
+                {
+                   int parsed;
+                   if (Int32.TryParse(cfgMax, out parsed) && parsed > 0)
+                      maxDelayMs = parsed;
+                }
 
-                   // Split batch into new customers (no LDMA_CODE) and existing customers (has LDMA_CODE)
-                   var newCustomers = new List<Data.Fighter>();
-                   var existingCustomers = new List<Data.Fighter>();
+                for (int i = 0; i < pending.Count; i += currentBatchSize)
+               {
+                  var batch = pending.Skip(i).Take(currentBatchSize).ToList();
 
-                   foreach (var f in batch)
-                   {
-                      // فیلترهای مشتری
-                      if (f.FGPB_TYPE_DNRM != "001" && f.FGPB_TYPE_DNRM != "005") continue;    // مشتری - مهمان
-                      if (f.ACTV_TAG_DNRM != "101") continue;      // فعال
-                      if (f.CONF_STAT != "002") continue;         // تأیید شده
-                      if (f.FGPB_TYPE_DNRM == "001" && (f.CELL_PHON_DNRM == null || f.CELL_PHON_DNRM == "" || f.CELL_PHON_DNRM.Length != 11)) continue; // شماره موبایل الزامی برای مشتریان واقعی
-                      if (String.IsNullOrEmpty(f.DAD_CELL_PHON_DNRM) || f.DAD_CELL_PHON_DNRM.Length != 11) f.DAD_CELL_PHON_DNRM = "";
-                      if (String.IsNullOrEmpty(f.MOM_CELL_PHON_DNRM) || f.MOM_CELL_PHON_DNRM.Length != 11) f.MOM_CELL_PHON_DNRM = "";
+                  // Split batch into new customers (no LDMA_CODE) and existing customers (has LDMA_CODE)
+                  var newCustomers = new List<Data.Fighter>();
+                  var existingCustomers = new List<Data.Fighter>();
 
-                      if (f.LDMA_CODE == null || f.LDMA_CODE == "")
-                         newCustomers.Add(f);
-                      else
-                         existingCustomers.Add(f);
-                   }
+                  foreach (var f in batch)
+                  {
+                     // فیلترهای مشتری
+                     if (f.FGPB_TYPE_DNRM != "001" && f.FGPB_TYPE_DNRM != "005") continue;    // مشتری - مهمان
+                     if (f.ACTV_TAG_DNRM != "101") continue;      // فعال
+                     if (f.CONF_STAT != "002") continue;         // تأیید شده
+                     if (f.FGPB_TYPE_DNRM == "001" && (f.CELL_PHON_DNRM == null || f.CELL_PHON_DNRM == "" || f.CELL_PHON_DNRM.Length != 11)) continue; // شماره موبایل الزامی برای مشتریان واقعی
+                     if (String.IsNullOrEmpty(f.DAD_CELL_PHON_DNRM) || f.DAD_CELL_PHON_DNRM.Length != 11) f.DAD_CELL_PHON_DNRM = "";
+                     if (String.IsNullOrEmpty(f.MOM_CELL_PHON_DNRM) || f.MOM_CELL_PHON_DNRM.Length != 11) f.MOM_CELL_PHON_DNRM = "";
 
-                   bool batchSuccess = true;
+                     if (f.LDMA_CODE == null || f.LDMA_CODE == "")
+                        newCustomers.Add(f);
+                     else
+                        existingCustomers.Add(f);
+                  }
 
-                    // 1. Process new customers via CreateCustomersBulkAsync with adaptive batch size
-                    if (newCustomers.Count > 0)
-                    {
-                       var requestPayload = BuildCustomerBulkPayload(newCustomers, clubs);
-                       if (requestPayload == null)
-                       {
-                          Log("عدم امکان ساخت درخواست: هیچ باشگاهی برای مشتریان یافت نشد.");
-                          batchSuccess = false;
-                       }
-                       else
-                       {
-                          JObject res = await _lidoma.CreateCustomersBulkAsync(requestPayload);
+                  bool batchSuccess = true;
 
-                          if (IsSuccess(res))
-                          {
-                             var entries = res["entries"] as JArray;
-                             if (entries != null)
-                             {
-                                foreach (var entry in entries)
-                                {
-                                   var phoneToken = entry["phone"];
-                                   var customerIdToken = entry["customerId"];
-                                   var phone = (phoneToken != null) ? phoneToken.ToString() : null;
-                                   var customerId = (customerIdToken != null) ? customerIdToken.ToString() : null;
-                                   if (!String.IsNullOrEmpty(phone) && !String.IsNullOrEmpty(customerId))
-                                   {
-                                      var fighter = newCustomers.FirstOrDefault(f => f.CELL_PHON_DNRM == phone);
-                                      if (fighter != null)
-                                      {
-                                         fighter.LDMA_CODE = customerId;
-                                         fighter.LDMA_STAT = "002";
-                                         fighter.LDMA_DATE = DateTime.Now;
-                                      }
-                                   }
-                                }
-                             }
-                             else
-                             {
-                                foreach (var f in newCustomers)
-                                {
-                                   f.LDMA_STAT = "002";
-                                   f.LDMA_DATE = DateTime.Now;
-                                }
-                             }
+                  // 1. Process new customers via CreateCustomersBulkAsync with adaptive batch size
+                  if (newCustomers.Count > 0)
+                  {
+                     var requestPayload = BuildCustomerBulkPayload(newCustomers, clubs);
+                     if (requestPayload == null)
+                     {
+                        Log("عدم امکان ساخت درخواست: هیچ باشگاهی برای مشتریان یافت نشد.");
+                        batchSuccess = false;
+                     }
+                     else
+                     {
+                        JObject res = await _lidoma.CreateCustomersBulkAsync(requestPayload);
 
-                             Log(String.Format("ایجاد موفق {0} مشتری جدید", newCustomers.Count));
-                          }
-                          else
-                          {
-                             batchSuccess = false;
-                             Log(String.Format("خطا در ایجاد مشتریان جدید: {0}", res != null ? res.ToString() : "پاسخی دریافت نشد"));
-                          }
-                       }
-                    }
+                        if (IsSuccess(res))
+                        {
+                           var entries = res["entries"] as JArray;
+                           if (entries != null)
+                           {
+                              foreach (var entry in entries)
+                              {
+                                 var phoneToken = entry["phone"];
+                                 var customerIdToken = entry["customerId"];
+                                 var phone = (phoneToken != null) ? phoneToken.ToString() : null;
+                                 var customerId = (customerIdToken != null) ? customerIdToken.ToString() : null;
+                                 if (!String.IsNullOrEmpty(phone) && !String.IsNullOrEmpty(customerId))
+                                 {
+                                    var fighter = newCustomers.FirstOrDefault(f => f.CELL_PHON_DNRM == phone);
+                                    if (fighter != null)
+                                    {
+                                       fighter.LDMA_CODE = customerId;
+                                       fighter.LDMA_STAT = "002";
+                                       fighter.LDMA_DATE = DateTime.Now;
+                                    }
+                                 }
+                              }
+                           }
+                           else
+                           {
+                              foreach (var f in newCustomers)
+                              {
+                                 f.LDMA_STAT = "002";
+                                 f.LDMA_DATE = DateTime.Now;
+                              }
+                           }
 
-                    // 2. Process existing customers via UpdateCustomerAsync
-                   foreach (var f in existingCustomers)
-                   {
-                      if (f.DEBT_DNRM < 0)
-                      {
-                         f.DPST_AMNT_DNRM += f.DEBT_DNRM * -1;
-                         f.DEBT_DNRM = 0;
-                      }
+                           Log(String.Format("ایجاد موفق {0} مشتری جدید", newCustomers.Count));
+                        }
+                        else
+                        {
+                           batchSuccess = false;
+                           Log(String.Format("خطا در ایجاد مشتریان جدید: {0}", res != null ? res.ToString() : "پاسخی دریافت نشد"));
+                        }
+                     }
+                  }
 
-                      var customerObj = new JObject();
-                      customerObj.Add("fileNo", f.FILE_NO.ToString());
-                      customerObj.Add("firstName", f.FRST_NAME_DNRM ?? "");
-                      customerObj.Add("lastName", f.LAST_NAME_DNRM ?? "");
-                      customerObj.Add("fatherName", f.FATH_NAME_DNRM ?? "");
-                      customerObj.Add("debtAmount", f.DEBT_DNRM.HasValue ? f.DEBT_DNRM.Value.ToString() : "0");
-                      customerObj.Add("depositAmount", f.DPST_AMNT_DNRM.HasValue ? f.DPST_AMNT_DNRM.Value.ToString() : "0");
-                      customerObj.Add("confirmedAt", f.CONF_DATE.HasValue
-                          ? f.CONF_DATE.Value.ToString("yyyy/MM/dd hh:mm:ss tt")
-                          : "");
-                      customerObj.Add("gender", (f.SEX_TYPE_DNRM ?? "") == "001" ? "male" : "female");
-                      customerObj.Add("birthDate", f.BRTH_DATE_DNRM.HasValue
-                          ? f.BRTH_DATE_DNRM.Value.ToString("yyyy/MM/dd")
-                          : "");
-                      customerObj.Add("phone", f.CELL_PHON_DNRM ?? "");
-                      customerObj.Add("landline", f.TELL_PHON_DNRM ?? "");
-                      customerObj.Add("insuranceNumber", f.INSR_NUMB_DNRM ?? "");
-                      customerObj.Add("insuranceExpiresAt", f.INSR_DATE_DNRM.HasValue
-                          ? f.INSR_DATE_DNRM.Value.ToString("yyyy/MM/dd")
-                          : "");
-                      customerObj.Add("fingerprintCode", f.FNGR_PRNT_DNRM ?? "");
-                      customerObj.Add("organizationCode", f.ORGN_CODE_DNRM ?? "0000000000");
-                      customerObj.Add("subscriptionNo", f.SERV_NO_DNRM ?? "");
-                      customerObj.Add("nationlCode", f.INSR_NUMB_DNRM ?? "");
-                      customerObj.Add("fatherMobile", f.DAD_CELL_PHON_DNRM ?? "");
-                      customerObj.Add("dadTellPhon", f.DAD_TELL_PHON_DNRM ?? "");
-                      customerObj.Add("motherMobile", f.MOM_CELL_PHON_DNRM ?? "");
-                      customerObj.Add("momTellPhon", f.MOM_TELL_PHON_DNRM ?? "");
-                      customerObj.Add("bankName", f.DPST_ACNT_SLRY_BANK_DNRM ?? "");
-                      customerObj.Add("bankAccount", f.DPST_ACNT_SLRY_DNRM ?? "");
+                  // 2. Process existing customers via UpdateCustomerAsync
+                  foreach (var f in existingCustomers)
+                  {
+                     if (f.DEBT_DNRM < 0)
+                     {
+                        f.DPST_AMNT_DNRM += f.DEBT_DNRM * -1;
+                        f.DEBT_DNRM = 0;
+                     }
 
-                      var resUpdate = await _lidoma.UpdateCustomerAsync(f.LDMA_CODE, customerObj);
+                     var customerObj = new JObject();
+                     customerObj.Add("fileNo", f.FILE_NO.ToString());
+                     customerObj.Add("firstName", f.FRST_NAME_DNRM ?? "");
+                     customerObj.Add("lastName", f.LAST_NAME_DNRM ?? "");
+                     customerObj.Add("fatherName", f.FATH_NAME_DNRM ?? "");
+                     customerObj.Add("debtAmount", f.DEBT_DNRM.HasValue ? f.DEBT_DNRM.Value.ToString() : "0");
+                     customerObj.Add("depositAmount", f.DPST_AMNT_DNRM.HasValue ? f.DPST_AMNT_DNRM.Value.ToString() : "0");
+                     customerObj.Add("confirmedAt", f.CONF_DATE.HasValue
+                         ? f.CONF_DATE.Value.ToString("yyyy/MM/dd hh:mm:ss tt")
+                         : "");
+                     customerObj.Add("gender", (f.SEX_TYPE_DNRM ?? "") == "001" ? "male" : "female");
+                     customerObj.Add("birthDate", f.BRTH_DATE_DNRM.HasValue
+                         ? f.BRTH_DATE_DNRM.Value.ToString("yyyy/MM/dd")
+                         : "");
+                     customerObj.Add("phone", f.CELL_PHON_DNRM ?? "");
+                     customerObj.Add("landline", f.TELL_PHON_DNRM ?? "");
+                     customerObj.Add("insuranceNumber", f.INSR_NUMB_DNRM ?? "");
+                     customerObj.Add("insuranceExpiresAt", f.INSR_DATE_DNRM.HasValue
+                         ? f.INSR_DATE_DNRM.Value.ToString("yyyy/MM/dd")
+                         : "");
+                     customerObj.Add("fingerprintCode", f.FNGR_PRNT_DNRM ?? "");
+                     customerObj.Add("organizationCode", f.ORGN_CODE_DNRM ?? "0000000000");
+                     customerObj.Add("subscriptionNo", f.SERV_NO_DNRM ?? "");
+                     customerObj.Add("nationlCode", f.INSR_NUMB_DNRM ?? "");
+                     customerObj.Add("fatherMobile", f.DAD_CELL_PHON_DNRM ?? "");
+                     customerObj.Add("dadTellPhon", f.DAD_TELL_PHON_DNRM ?? "");
+                     customerObj.Add("motherMobile", f.MOM_CELL_PHON_DNRM ?? "");
+                     customerObj.Add("momTellPhon", f.MOM_TELL_PHON_DNRM ?? "");
+                     customerObj.Add("bankName", f.DPST_ACNT_SLRY_BANK_DNRM ?? "");
+                     customerObj.Add("bankAccount", f.DPST_ACNT_SLRY_DNRM ?? "");
 
-                      if (IsSuccess(resUpdate))
-                      {
-                         f.LDMA_STAT = "002";
-                         f.LDMA_DATE = DateTime.Now;
-                         Log(String.Format("به‌روزرسانی موفق مشتری: fileNo={0}", f.FILE_NO));
-                      }
-                      else
-                      {
-                         batchSuccess = false;
-                         Log(String.Format("خطا در به‌روزرسانی مشتری fileNo={0}: {1}",
-                             f.FILE_NO, resUpdate != null ? resUpdate.ToString() : "پاسخی دریافت نشد"));
-                      }
-                   }
+                     var resUpdate = await _lidoma.UpdateCustomerAsync(f.LDMA_CODE, customerObj);
 
-                   iScscLocal.SubmitChanges();
+                     if (IsSuccess(resUpdate))
+                     {
+                        f.LDMA_STAT = "002";
+                        f.LDMA_DATE = DateTime.Now;
+                        Log(String.Format("به‌روزرسانی موفق مشتری: fileNo={0}", f.FILE_NO));
+                     }
+                     else
+                     {
+                        batchSuccess = false;
+                        Log(String.Format("خطا در به‌روزرسانی مشتری fileNo={0}: {1}",
+                            f.FILE_NO, resUpdate != null ? resUpdate.ToString() : "پاسخی دریافت نشد"));
+                     }
+                  }
 
-                    if (batchSuccess)
-                    {
-                       // Increase batch size by 2x on success, up to configured max (default 400)
-                       int maxBatchSize = 400;
-                       var maxBatchConfig = ConfigurationManager.AppSettings["MaxBatchSize"];
-                       if (maxBatchConfig != null)
-                       {
-                          int parsedMax;
-                          if (Int32.TryParse(maxBatchConfig, out parsedMax) && parsedMax > 0)
-                             maxBatchSize = parsedMax;
-                       }
+                  iScscLocal.SubmitChanges();
 
-                       currentBatchSize = Math.Min(currentBatchSize * 2, maxBatchSize);
-                       if (currentBatchSize > 50)
-                          Log(String.Format("Batch size increased to {0} (adaptive growth)", currentBatchSize));
-                    }
-                   else
-                   {
-                      // Batch failed: adapt by reducing batch size
-                      if (currentBatchSize > 1)
-                      {
-                         int previousBatchSize = currentBatchSize;
-                         currentBatchSize = Math.Max(currentBatchSize / 2, 1);
-                         Log(String.Format("Batch failed at size {0}; reducing to {1}", previousBatchSize, currentBatchSize));
+                  if (batchSuccess)
+                  {
+                     // Increase batch size by 2x on success, up to configured max (default 400)
+                     int maxBatchSize = 400;
+                     var maxBatchConfig = ConfigurationManager.AppSettings["MaxBatchSize"];
+                     if (maxBatchConfig != null)
+                     {
+                        int parsedMax;
+                        if (Int32.TryParse(maxBatchConfig, out parsedMax) && parsedMax > 0)
+                           maxBatchSize = parsedMax;
+                     }
 
-                         // Mark failed customers as LDMA_STAT = '004' (Failed) so they can be retried separately
-                         foreach (var f in newCustomers)
-                         {
-                            f.LDMA_STAT = "004";
-                            f.LDMA_DATE = DateTime.Now;
-                         }
-                         foreach (var f in existingCustomers)
-                         {
-                            f.LDMA_STAT = "004";
-                            f.LDMA_DATE = DateTime.Now;
-                         }
-                         iScscLocal.SubmitChanges();
+                     currentBatchSize = Math.Min(currentBatchSize * 2, maxBatchSize);
+                     if (currentBatchSize > 50)
+                        Log(String.Format("Batch size increased to {0} (adaptive growth)", currentBatchSize));
+                  }
+                  else
+                  {
+                     // Batch failed: adapt by reducing batch size
+                     if (currentBatchSize > 1)
+                     {
+                        int previousBatchSize = currentBatchSize;
+                        currentBatchSize = Math.Max(currentBatchSize / 2, 1);
+                        Log(String.Format("Batch failed at size {0}; reducing to {1}", previousBatchSize, currentBatchSize));
 
-                         // Roll back the loop index so the failing customers are retried with the smaller batch size
-                         i = i - previousBatchSize;
-                      }
-                      else
-                      {
-                         // Already at batch size 1 and still failing: individual customers stay marked as '004'
-                         // They will be retried in a future sync cycle
-                         Log("Batch size already at 1 and still failing. Failed customers remain marked as LDMA_STAT='004'.");
-                      }
-                   }
+                        // Mark failed customers as LDMA_STAT = '004' (Failed) so they can be retried separately
+                        foreach (var f in newCustomers)
+                        {
+                           f.LDMA_STAT = "004";
+                           f.LDMA_DATE = DateTime.Now;
+                        }
+                        foreach (var f in existingCustomers)
+                        {
+                           f.LDMA_STAT = "004";
+                           f.LDMA_DATE = DateTime.Now;
+                        }
+                        iScscLocal.SubmitChanges();
+
+                        // Roll back the loop index so the failing customers are retried with the smaller batch size
+                        i = i - previousBatchSize;
+                     }
+                     else
+                     {
+                        // Already at batch size 1 and still failing: individual customers stay marked as '004'
+                        // They will be retried in a future sync cycle
+                        Log("Batch size already at 1 and still failing. Failed customers remain marked as LDMA_STAT='004'.");
+                     }
+                  }
                    done += newCustomers.Count + existingCustomers.Count;
                    SetProgress(done, pending.Count);
+
+                   // Throttling: Delay before next batch to prevent system freeze
+                   // Dynamic delay: larger batches get longer delay, smaller batches get shorter delay
+                   int delayMs;
+                   if (currentBatchSize >= 200)
+                   {
+                      delayMs = maxDelayMs;
+                   }
+                   else if (currentBatchSize >= 100)
+                   {
+                      delayMs = (minDelayMs + maxDelayMs) / 2;
+                   }
+                   else if (currentBatchSize >= 50)
+                   {
+                      delayMs = defaultDelayMs;
+                   }
+                   else
+                   {
+                      delayMs = Math.Max(minDelayMs / 2, 500);
+                   }
+
+                   SetStatusLabel(String.Format("در حال ارسال... ({0}/{1}) - استراحت {2}ms", done, pending.Count, delayMs));
+                   Log(String.Format("Delay {0}ms before next batch (size={1})...", delayMs, currentBatchSize));
+                   await Task.Delay(delayMs);
                 }
 
                Log(string.Format("همگام‌سازی اعضا پایان یافت. {0} مورد پردازش شد.", done));
@@ -1823,65 +1874,65 @@ namespace System.MessageBroadcast.Ui.SmsApp
          {
             Log("خطا در همگام‌سازی اعضا: " + ex.Message);
          }
-       }
+      }
 
-       private JObject BuildCustomerBulkPayload(List<Data.Fighter> customers, List<Data.Club> clubs)
-       {
-          var customersArr = new JArray();
-          foreach (var f in customers)
-          {
-             if (f.DEBT_DNRM < 0)
-             {
-                f.DPST_AMNT_DNRM += f.DEBT_DNRM * -1;
-                f.DEBT_DNRM = 0;
-             }
+      private JObject BuildCustomerBulkPayload(List<Data.Fighter> customers, List<Data.Club> clubs)
+      {
+         var customersArr = new JArray();
+         foreach (var f in customers)
+         {
+            if (f.DEBT_DNRM < 0)
+            {
+               f.DPST_AMNT_DNRM += f.DEBT_DNRM * -1;
+               f.DEBT_DNRM = 0;
+            }
 
-             var customerObj = new JObject();
-             customerObj.Add("fileNo", f.FILE_NO.ToString());
-             customerObj.Add("firstName", f.FRST_NAME_DNRM ?? "");
-             customerObj.Add("lastName", f.LAST_NAME_DNRM ?? "");
-             customerObj.Add("fatherName", f.FATH_NAME_DNRM ?? "");
-             customerObj.Add("debtAmount", f.DEBT_DNRM.HasValue ? f.DEBT_DNRM.Value.ToString() : "0");
-             customerObj.Add("depositAmount", f.DPST_AMNT_DNRM.HasValue ? f.DPST_AMNT_DNRM.Value.ToString() : "0");
-             customerObj.Add("confirmedAt", f.CONF_DATE.HasValue
-                 ? f.CONF_DATE.Value.ToString("yyyy/MM/dd hh:mm:ss tt")
-                 : "");
-             customerObj.Add("gender", (f.SEX_TYPE_DNRM ?? "") == "001" ? "male" : "female");
-             customerObj.Add("birthDate", f.BRTH_DATE_DNRM.HasValue
-                 ? f.BRTH_DATE_DNRM.Value.ToString("yyyy/MM/dd")
-                 : "");
-             customerObj.Add("phone", f.CELL_PHON_DNRM ?? "");
-             customerObj.Add("landline", f.TELL_PHON_DNRM ?? "");
-             customerObj.Add("insuranceNumber", f.INSR_NUMB_DNRM ?? "");
-             customerObj.Add("insuranceExpiresAt", f.INSR_DATE_DNRM.HasValue
-                 ? f.INSR_DATE_DNRM.Value.ToString("yyyy/MM/dd")
-                 : "");
-             customerObj.Add("fingerprintCode", f.FNGR_PRNT_DNRM ?? "");
-             customerObj.Add("organizationCode", f.ORGN_CODE_DNRM ?? "0000000000");
-             customerObj.Add("subscriptionNo", f.SERV_NO_DNRM ?? "");
-             customerObj.Add("nationlCode", f.INSR_NUMB_DNRM ?? "");
-             customerObj.Add("fatherMobile", f.DAD_CELL_PHON_DNRM ?? "");
-             customerObj.Add("dadTellPhon", f.DAD_TELL_PHON_DNRM ?? "");
-             customerObj.Add("motherMobile", f.MOM_CELL_PHON_DNRM ?? "");
-             customerObj.Add("momTellPhon", f.MOM_TELL_PHON_DNRM ?? "");
-             customerObj.Add("bankName", f.DPST_ACNT_SLRY_BANK_DNRM ?? "");
-             customerObj.Add("bankAccount", f.DPST_ACNT_SLRY_DNRM ?? "");
+            var customerObj = new JObject();
+            customerObj.Add("fileNo", f.FILE_NO.ToString());
+            customerObj.Add("firstName", f.FRST_NAME_DNRM ?? "");
+            customerObj.Add("lastName", f.LAST_NAME_DNRM ?? "");
+            customerObj.Add("fatherName", f.FATH_NAME_DNRM ?? "");
+            customerObj.Add("debtAmount", f.DEBT_DNRM.HasValue ? f.DEBT_DNRM.Value.ToString() : "0");
+            customerObj.Add("depositAmount", f.DPST_AMNT_DNRM.HasValue ? f.DPST_AMNT_DNRM.Value.ToString() : "0");
+            customerObj.Add("confirmedAt", f.CONF_DATE.HasValue
+                ? f.CONF_DATE.Value.ToString("yyyy/MM/dd hh:mm:ss tt")
+                : "");
+            customerObj.Add("gender", (f.SEX_TYPE_DNRM ?? "") == "001" ? "male" : "female");
+            customerObj.Add("birthDate", f.BRTH_DATE_DNRM.HasValue
+                ? f.BRTH_DATE_DNRM.Value.ToString("yyyy/MM/dd")
+                : "");
+            customerObj.Add("phone", f.CELL_PHON_DNRM ?? "");
+            customerObj.Add("landline", f.TELL_PHON_DNRM ?? "");
+            customerObj.Add("insuranceNumber", f.INSR_NUMB_DNRM ?? "");
+            customerObj.Add("insuranceExpiresAt", f.INSR_DATE_DNRM.HasValue
+                ? f.INSR_DATE_DNRM.Value.ToString("yyyy/MM/dd")
+                : "");
+            customerObj.Add("fingerprintCode", f.FNGR_PRNT_DNRM ?? "");
+            customerObj.Add("organizationCode", f.ORGN_CODE_DNRM ?? "0000000000");
+            customerObj.Add("subscriptionNo", f.SERV_NO_DNRM ?? "");
+            customerObj.Add("nationlCode", f.INSR_NUMB_DNRM ?? "");
+            customerObj.Add("fatherMobile", f.DAD_CELL_PHON_DNRM ?? "");
+            customerObj.Add("dadTellPhon", f.DAD_TELL_PHON_DNRM ?? "");
+            customerObj.Add("motherMobile", f.MOM_CELL_PHON_DNRM ?? "");
+            customerObj.Add("momTellPhon", f.MOM_TELL_PHON_DNRM ?? "");
+            customerObj.Add("bankName", f.DPST_ACNT_SLRY_BANK_DNRM ?? "");
+            customerObj.Add("bankAccount", f.DPST_ACNT_SLRY_DNRM ?? "");
 
-             customersArr.Add(customerObj);
-          }
+            customersArr.Add(customerObj);
+         }
 
-          var firstWithClub = customers.FirstOrDefault(f => f.CLUB_CODE_DNRM.HasValue);
-          if (firstWithClub == null) return null;
-          var club = clubs.FirstOrDefault(c => c.CODE == firstWithClub.CLUB_CODE_DNRM.Value);
-          if (club == null) return null;
+         var firstWithClub = customers.FirstOrDefault(f => f.CLUB_CODE_DNRM.HasValue);
+         if (firstWithClub == null) return null;
+         var club = clubs.FirstOrDefault(c => c.CODE == firstWithClub.CLUB_CODE_DNRM.Value);
+         if (club == null) return null;
 
-          var requestPayload = new JObject();
-          requestPayload.Add("storeId", club.LDMA_CODE);
-          requestPayload.Add("customers", customersArr);
-          return requestPayload;
-       }
+         var requestPayload = new JObject();
+         requestPayload.Add("storeId", club.LDMA_CODE);
+         requestPayload.Add("customers", customersArr);
+         return requestPayload;
+      }
 
-       private async Task SyncOrgansAsync()
+      private async Task SyncOrgansAsync()
       {
          try
          {
@@ -1929,7 +1980,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
                         .Where(a => a.LDMA_STAT == null || a.LDMA_STAT == "003")
                         .ToList();
 
-                     if(_subunits.Count == 0)
+                     if (_subunits.Count == 0)
                      {
                         Log("هیچ سازمان و ارگانی برای ارسال وجود ندارد");
                         return;
@@ -1955,38 +2006,38 @@ namespace System.MessageBroadcast.Ui.SmsApp
                      Log("در حال ارسال ارگان‌ها به Lidoma API...");
                      var res = await _lidoma.SetStoreOrgansAsync(storeSlug, organsData);
 
-                      if (IsSuccess(res))
-                      {
-                         Log(string.Format("ارسال ارگان‌ها برای باشگاه {0} موفق بود", storeSlug));
+                     if (IsSuccess(res))
+                     {
+                        Log(string.Format("ارسال ارگان‌ها برای باشگاه {0} موفق بود", storeSlug));
 
-                         // Update LDMA_STAT = '002' (Completed) for all pending record
-                         foreach (var organ in iScscLocal.Sub_Units.Where(o => (o.LDMA_STAT == null || o.LDMA_STAT == "003")).ToList())
-                            organ.LDMA_STAT = "002";
+                        // Update LDMA_STAT = '002' (Completed) for all pending record
+                        foreach (var organ in iScscLocal.Sub_Units.Where(o => (o.LDMA_STAT == null || o.LDMA_STAT == "003")).ToList())
+                           organ.LDMA_STAT = "002";
 
-                         foreach (var sub in iScscLocal.Basic_Calculate_Discounts
-                            .Where(d => (d.RQTP_CODE == "001" || d.RQTP_CODE == "009") && (d.LDMA_STAT == null || d.LDMA_STAT == "003")).ToList())
-                            sub.LDMA_STAT = "002";
+                        foreach (var sub in iScscLocal.Basic_Calculate_Discounts
+                           .Where(d => (d.RQTP_CODE == "001" || d.RQTP_CODE == "009") && (d.LDMA_STAT == null || d.LDMA_STAT == "003")).ToList())
+                           sub.LDMA_STAT = "002";
 
-                         foreach (var prod in iScscLocal.Basic_Calculate_Discounts
-                            .Where(d => d.RQTP_CODE == "016" && d.Expense.EXPN_STAT == "002" && (d.LDMA_STAT == null || d.LDMA_STAT == "003")).ToList())
-                            prod.LDMA_STAT = "002";
-                      }
-                      else
-                      {
-                         Log(string.Format("خطا در ارسال ارگان‌ها برای باشگاه {0}: {1}", storeSlug, res != null ? res.ToString() : "پاسخی دریافت نشد"));
+                        foreach (var prod in iScscLocal.Basic_Calculate_Discounts
+                           .Where(d => d.RQTP_CODE == "016" && d.Expense.EXPN_STAT == "002" && (d.LDMA_STAT == null || d.LDMA_STAT == "003")).ToList())
+                           prod.LDMA_STAT = "002";
+                     }
+                     else
+                     {
+                        Log(string.Format("خطا در ارسال ارگان‌ها برای باشگاه {0}: {1}", storeSlug, res != null ? res.ToString() : "پاسخی دریافت نشد"));
 
-                         //// Update LDMA_STAT = '004' (Failed) for all pending record
-                         //foreach (var organ in iScscLocal.Sub_Units.Where(o => o.LDMA_STAT == "003").ToList())
-                         //   organ.LDMA_STAT = "004";
+                        //// Update LDMA_STAT = '004' (Failed) for all pending record
+                        //foreach (var organ in iScscLocal.Sub_Units.Where(o => o.LDMA_STAT == "003").ToList())
+                        //   organ.LDMA_STAT = "004";
 
-                         //foreach (var sub in iScscLocal.Basic_Calculate_Discounts
-                         //   .Where(d => (d.RQTP_CODE == "001" || d.RQTP_CODE == "009") && d.LDMA_STAT == "003").ToList())
-                         //   sub.LDMA_STAT = "004";
+                        //foreach (var sub in iScscLocal.Basic_Calculate_Discounts
+                        //   .Where(d => (d.RQTP_CODE == "001" || d.RQTP_CODE == "009") && d.LDMA_STAT == "003").ToList())
+                        //   sub.LDMA_STAT = "004";
 
-                         //foreach (var prod in iScscLocal.Basic_Calculate_Discounts
-                         //   .Where(d => d.RQTP_CODE == "016" && d.Expense.EXPN_STAT == "002" && d.LDMA_STAT == "003").ToList())
-                         //   prod.LDMA_STAT = "004";
-                      }
+                        //foreach (var prod in iScscLocal.Basic_Calculate_Discounts
+                        //   .Where(d => d.RQTP_CODE == "016" && d.Expense.EXPN_STAT == "002" && d.LDMA_STAT == "003").ToList())
+                        //   prod.LDMA_STAT = "004";
+                     }
                   }
                   catch (Exception ex)
                   {

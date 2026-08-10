@@ -93,6 +93,9 @@
 | `AccountStatusIntervalMinutes` | `10` | Account status check timer |
 | `CreditCheckIntervalMinutes` | `5` | Credit check timer |
 | `MaxBatchSize` | `400` | Maximum batch size for customer sync (adaptive growth cap) |
+| `BatchDelayMs` | `3000` | Default delay between batches (milliseconds) |
+| `MinBatchDelayMs` | `1000` | Minimum delay between batches (milliseconds) |
+| `MaxBatchDelayMs` | `5000` | Maximum delay between batches (milliseconds) |
 
 ## FILES
 
@@ -120,6 +123,14 @@ The `SyncCustomersAsync` method in WEBS_MESG_F.cs uses an adaptive batch size me
 - **Existing customers**: processed one-by-one via `UpdateCustomerAsync` (not batched)
 - **JSON building**: extracted into a helper method `BuildCustomerBulkPayload(customers, clubs)` to avoid code duplication between new and retry customers
 - **API response**: `entries[].phone` matched against `fighter.CELL_PHON_DNRM` to set `fighter.LDMA_CODE = customerId` and `fighter.LDMA_STAT = "002"`
+- **Throttling/Delay**: After each batch, a configurable delay is inserted to prevent UI freezing:
+  - Batch size >= 200: 5000ms delay
+  - Batch size >= 100: 3000ms delay
+  - Batch size >= 50: 3000ms delay (default)
+  - Batch size < 50: 500ms delay
+  - Config settings: `BatchDelayMs` (default 3000), `MinBatchDelayMs` (1000), `MaxBatchDelayMs` (5000)
+  - Status label updated with progress and delay info during wait
+  - `await Task.Delay(delayMs)` yields control back to UI thread
 
 ## LDMA_STAT Lifecycle
 | Value | Meaning |

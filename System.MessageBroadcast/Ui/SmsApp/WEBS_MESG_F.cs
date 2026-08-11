@@ -1622,37 +1622,37 @@ namespace System.MessageBroadcast.Ui.SmsApp
                Log(string.Format("شروع همگام‌سازی {0} عضو با لیدوما (به صورت بسته‌های تطبیقی)...", pending.Count));
                SetProgress(0, pending.Count);
 
-                int done = 0;
-                int currentBatchSize = 50;
+               int done = 0;
+               int currentBatchSize = 50;
 
-                // Throttling/Delay configuration
-                int defaultDelayMs = 3000;
-                int minDelayMs = 1000;
-                int maxDelayMs = 5000;
+               // Throttling/Delay configuration
+               int defaultDelayMs = 3000;
+               int minDelayMs = 1000;
+               int maxDelayMs = 5000;
 
-                var cfgDelay = ConfigurationManager.AppSettings["BatchDelayMs"];
-                if (cfgDelay != null)
-                {
-                   int parsed;
-                   if (Int32.TryParse(cfgDelay, out parsed) && parsed > 0)
-                      defaultDelayMs = parsed;
-                }
-                var cfgMin = ConfigurationManager.AppSettings["MinBatchDelayMs"];
-                if (cfgMin != null)
-                {
-                   int parsed;
-                   if (Int32.TryParse(cfgMin, out parsed) && parsed > 0)
-                      minDelayMs = parsed;
-                }
-                var cfgMax = ConfigurationManager.AppSettings["MaxBatchDelayMs"];
-                if (cfgMax != null)
-                {
-                   int parsed;
-                   if (Int32.TryParse(cfgMax, out parsed) && parsed > 0)
-                      maxDelayMs = parsed;
-                }
+               var cfgDelay = ConfigurationManager.AppSettings["BatchDelayMs"];
+               if (cfgDelay != null)
+               {
+                  int parsed;
+                  if (Int32.TryParse(cfgDelay, out parsed) && parsed > 0)
+                     defaultDelayMs = parsed;
+               }
+               var cfgMin = ConfigurationManager.AppSettings["MinBatchDelayMs"];
+               if (cfgMin != null)
+               {
+                  int parsed;
+                  if (Int32.TryParse(cfgMin, out parsed) && parsed > 0)
+                     minDelayMs = parsed;
+               }
+               var cfgMax = ConfigurationManager.AppSettings["MaxBatchDelayMs"];
+               if (cfgMax != null)
+               {
+                  int parsed;
+                  if (Int32.TryParse(cfgMax, out parsed) && parsed > 0)
+                     maxDelayMs = parsed;
+               }
 
-                for (int i = 0; i < pending.Count; i += currentBatchSize)
+               for (int i = 0; i < pending.Count; i += currentBatchSize)
                {
                   var batch = pending.Skip(i).Take(currentBatchSize).ToList();
 
@@ -1678,88 +1678,88 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
                   bool batchSuccess = true;
 
-                   // 1. Process new customers via CreateCustomersBulkAsync with adaptive batch size
-                   if (newCustomers.Count > 0)
-                   {
-                      var requestPayload = BuildCustomerBulkPayload(newCustomers, clubs);
-                      if (requestPayload == null)
-                      {
-                         Log("عدم امکان ساخت درخواست: هیچ باشگاهی برای مشتریان یافت نشد.");
-                         batchSuccess = false;
-                         // Mark all new customers as failed since we couldn't build the request
-                         foreach (var f in newCustomers)
-                         {
-                            f.LDMA_STAT = "004";
-                            f.LDMA_DATE = DateTime.Now;
-                         }
-                      }
-                      else
-                      {
-                         JObject res = await _lidoma.CreateCustomersBulkAsync(requestPayload);
+                  // 1. Process new customers via CreateCustomersBulkAsync with adaptive batch size
+                  if (newCustomers.Count > 0)
+                  {
+                     var requestPayload = BuildCustomerBulkPayload(newCustomers, clubs);
+                     if (requestPayload == null)
+                     {
+                        Log("عدم امکان ساخت درخواست: هیچ باشگاهی برای مشتریان یافت نشد.");
+                        batchSuccess = false;
+                        // Mark all new customers as failed since we couldn't build the request
+                        foreach (var f in newCustomers)
+                        {
+                           f.LDMA_STAT = "004";
+                           f.LDMA_DATE = DateTime.Now;
+                        }
+                     }
+                     else
+                     {
+                        JObject res = await _lidoma.CreateCustomersBulkAsync(requestPayload);
 
-                         if (IsSuccess(res))
-                         {
-                            // Track which customers were successfully processed via phone matching
-                            List<Data.Fighter> matchedCustomers = new List<Data.Fighter>();
+                        if (IsSuccess(res))
+                        {
+                           // Track which customers were successfully processed via phone matching
+                           List<Data.Fighter> matchedCustomers = new List<Data.Fighter>();
 
-                            var entries = res["entries"] as JArray;
-                            if (entries != null)
-                            {
-                               foreach (var entry in entries)
-                               {
-                                  var phoneToken = entry["phone"];
-                                  var customerIdToken = entry["customerId"];
-                                  var phone = (phoneToken != null) ? phoneToken.ToString() : null;
-                                  var customerId = (customerIdToken != null) ? customerIdToken.ToString() : null;
-                                  if (!String.IsNullOrEmpty(phone) && !String.IsNullOrEmpty(customerId))
-                                  {
-                                     var fighter = newCustomers.FirstOrDefault(f => f.CELL_PHON_DNRM == phone);
-                                     if (fighter != null)
-                                     {
-                                        fighter.LDMA_CODE = customerId;
-                                        fighter.LDMA_STAT = "002";
-                                        fighter.LDMA_DATE = DateTime.Now;
-                                        matchedCustomers.Add(fighter);
-                                     }
-                                  }
-                                  else
-                                  {
-                                     // Entry with null/empty phone or customerId — mark as failed
-                                     Log(String.Format("ورودی entries دارای phone یا customerId خالی: phone={0}, customerId={1}",
-                                         String.IsNullOrEmpty(phone) ? "null/empty" : phone,
-                                         String.IsNullOrEmpty(customerId) ? "null/empty" : customerId));
-                                  }
-                               }
-                            }
-                            else
-                            {
-                               // entries array is null — fallback: mark all as success (API returned no entries)
-                               Log("API returned success but no entries array — marking all new customers as sent (fallback).");
-                               foreach (var f in newCustomers)
-                               {
-                                  f.LDMA_STAT = "002";
-                                  f.LDMA_DATE = DateTime.Now;
-                               }
-                            }
+                           var entries = res["entries"] as JArray;
+                           if (entries != null)
+                           {
+                              foreach (var entry in entries)
+                              {
+                                 var phoneToken = entry["phone"];
+                                 var customerIdToken = entry["customerId"];
+                                 var phone = (phoneToken != null) ? phoneToken.ToString() : null;
+                                 var customerId = (customerIdToken != null) ? customerIdToken.ToString() : null;
+                                 if (!String.IsNullOrEmpty(phone) && !String.IsNullOrEmpty(customerId))
+                                 {
+                                    var fighter = newCustomers.FirstOrDefault(f => f.CELL_PHON_DNRM == phone);
+                                    if (fighter != null)
+                                    {
+                                       fighter.LDMA_CODE = customerId;
+                                       fighter.LDMA_STAT = "002";
+                                       fighter.LDMA_DATE = DateTime.Now;
+                                       matchedCustomers.Add(fighter);
+                                    }
+                                 }
+                                 else
+                                 {
+                                    // Entry with null/empty phone or customerId — mark as failed
+                                    Log(String.Format("ورودی entries دارای phone یا customerId خالی: phone={0}, customerId={1}",
+                                        String.IsNullOrEmpty(phone) ? "null/empty" : phone,
+                                        String.IsNullOrEmpty(customerId) ? "null/empty" : customerId));
+                                 }
+                              }
+                           }
+                           else
+                           {
+                              // entries array is null — fallback: mark all as success (API returned no entries)
+                              Log("API returned success but no entries array — marking all new customers as sent (fallback).");
+                              foreach (var f in newCustomers)
+                              {
+                                 f.LDMA_STAT = "002";
+                                 f.LDMA_DATE = DateTime.Now;
+                              }
+                           }
 
-                            // Mark any new customers NOT in the matched list as FAILED (individual failure)
-                            var unmatchedNew = newCustomers.Except(matchedCustomers).ToList();
-                            foreach (var f in unmatchedNew)
-                            {
-                               f.LDMA_STAT = "004";
-                               f.LDMA_DATE = DateTime.Now;
-                               Log(String.Format("مشتری جدید ارسال نشد (phone mismatch): fileNo={0}", f.FILE_NO));
-                            }
+                           // Mark any new customers NOT in the matched list as FAILED (individual failure)
+                           var unmatchedNew = newCustomers.Except(matchedCustomers).ToList();
+                           foreach (var f in unmatchedNew)
+                           {
+                              f.LDMA_STAT = "004";
+                              f.LDMA_DATE = DateTime.Now;
+                              Log(String.Format("مشتری جدید ارسال نشد (phone mismatch): fileNo={0}", f.FILE_NO));
+                           }
 
-                            Log(String.Format("ایجاد موفق {0} مشتری جدید ({1} نامطابقت)", newCustomers.Count, unmatchedNew.Count));
-                         }
-                         else
-                         {
-                            batchSuccess = false;
-                            Log(String.Format("خطا در ایجاد مشتریان جدید: {0}", res != null ? res.ToString() : "پاسخی دریافت نشد"));
-                         }
-                      }
-                   }
+                           Log(String.Format("ایجاد موفق {0} مشتری جدید ({1} نامطابقت)", newCustomers.Count, unmatchedNew.Count));
+                        }
+                        else
+                        {
+                           batchSuccess = false;
+                           Log(String.Format("خطا در ایجاد مشتریان جدید: {0}", res != null ? res.ToString() : "پاسخی دریافت نشد"));
+                        }
+                     }
+                  }
 
                   // 2. Process existing customers via UpdateCustomerAsync
                   foreach (var f in existingCustomers)
@@ -1819,108 +1819,108 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
                   iScscLocal.SubmitChanges();
 
-                   if (batchSuccess)
-                   {
-                      // Increase batch size by 2x on success, up to configured max (default 400)
-                      int maxBatchSize = 400;
-                      var maxBatchConfig = ConfigurationManager.AppSettings["MaxBatchSize"];
-                      if (maxBatchConfig != null)
-                      {
-                         int parsedMax;
-                         if (Int32.TryParse(maxBatchConfig, out parsedMax) && parsedMax > 0)
-                            maxBatchSize = parsedMax;
-                      }
+                  if (batchSuccess)
+                  {
+                     // Increase batch size by 2x on success, up to configured max (default 400)
+                     int maxBatchSize = 400;
+                     var maxBatchConfig = ConfigurationManager.AppSettings["MaxBatchSize"];
+                     if (maxBatchConfig != null)
+                     {
+                        int parsedMax;
+                        if (Int32.TryParse(maxBatchConfig, out parsedMax) && parsedMax > 0)
+                           maxBatchSize = parsedMax;
+                     }
 
-                      currentBatchSize = Math.Min(currentBatchSize * 2, maxBatchSize);
-                      if (currentBatchSize > 50)
-                         Log(String.Format("Batch size increased to {0} (adaptive growth)", currentBatchSize));
-                   }
-                   else
-                   {
-                      // Batch failed: reduce batch size and mark only unprocessed customers as failed
-                      if (currentBatchSize > 1)
-                      {
-                         int previousBatchSize = currentBatchSize;
-                         currentBatchSize = Math.Max(currentBatchSize / 2, 1);
-                         Log(String.Format("Batch failed at size {0}; reducing to {1}", previousBatchSize, currentBatchSize));
+                     currentBatchSize = Math.Min(currentBatchSize * 2, maxBatchSize);
+                     if (currentBatchSize > 50)
+                        Log(String.Format("Batch size increased to {0} (adaptive growth)", currentBatchSize));
+                  }
+                  else
+                  {
+                     // Batch failed: reduce batch size and mark only unprocessed customers as failed
+                     if (currentBatchSize > 1)
+                     {
+                        int previousBatchSize = currentBatchSize;
+                        currentBatchSize = Math.Max(currentBatchSize / 2, 1);
+                        Log(String.Format("Batch failed at size {0}; reducing to {1}", previousBatchSize, currentBatchSize));
 
-                         // Mark only NEW customers that weren't successfully sent as '004'
-                         // (customers already marked '002' above should remain '002')
-                         foreach (var f in newCustomers)
-                         {
-                            // Only mark as failed if NOT already marked as '002' (success)
-                            if ((f.LDMA_STAT ?? "001") != "002")
-                            {
-                               f.LDMA_STAT = "004";
-                               f.LDMA_DATE = DateTime.Now;
-                            }
-                         }
-                         // Mark only EXISTING customers that weren't successfully updated as '004'
-                         foreach (var f in existingCustomers)
-                         {
-                            // Only mark as failed if NOT already marked as '002' (success)
-                            if ((f.LDMA_STAT ?? "001") != "002")
-                            {
-                               f.LDMA_STAT = "004";
-                               f.LDMA_DATE = DateTime.Now;
-                            }
-                         }
-                         iScscLocal.SubmitChanges();
+                        // Mark only NEW customers that weren't successfully sent as '004'
+                        // (customers already marked '002' above should remain '002')
+                        foreach (var f in newCustomers)
+                        {
+                           // Only mark as failed if NOT already marked as '002' (success)
+                           if ((f.LDMA_STAT ?? "001") != "002")
+                           {
+                              f.LDMA_STAT = "004";
+                              f.LDMA_DATE = DateTime.Now;
+                           }
+                        }
+                        // Mark only EXISTING customers that weren't successfully updated as '004'
+                        foreach (var f in existingCustomers)
+                        {
+                           // Only mark as failed if NOT already marked as '002' (success)
+                           if ((f.LDMA_STAT ?? "001") != "002")
+                           {
+                              f.LDMA_STAT = "004";
+                              f.LDMA_DATE = DateTime.Now;
+                           }
+                        }
+                        iScscLocal.SubmitChanges();
 
-                         // Roll back the loop index so the failing customers are retried with the smaller batch size
-                         i = i - previousBatchSize;
-                      }
-                      else
-                      {
-                         // Already at batch size 1 and still failing: mark remaining as '004'
-                         // Customers already marked '002' remain successful
-                         foreach (var f in newCustomers)
-                         {
-                            if ((f.LDMA_STAT ?? "001") != "002")
-                            {
-                               f.LDMA_STAT = "004";
-                               f.LDMA_DATE = DateTime.Now;
-                            }
-                         }
-                         foreach (var f in existingCustomers)
-                         {
-                            if ((f.LDMA_STAT ?? "001") != "002")
-                            {
-                               f.LDMA_STAT = "004";
-                               f.LDMA_DATE = DateTime.Now;
-                            }
-                         }
-                         iScscLocal.SubmitChanges();
-                         Log("Batch size already at 1 and still failing. Failed customers remain marked as LDMA_STAT='004'.");
-                      }
-                   }
-                   done += newCustomers.Count + existingCustomers.Count;
-                   SetProgress(done, pending.Count);
+                        // Roll back the loop index so the failing customers are retried with the smaller batch size
+                        i = i - previousBatchSize;
+                     }
+                     else
+                     {
+                        // Already at batch size 1 and still failing: mark remaining as '004'
+                        // Customers already marked '002' remain successful
+                        foreach (var f in newCustomers)
+                        {
+                           if ((f.LDMA_STAT ?? "001") != "002")
+                           {
+                              f.LDMA_STAT = "004";
+                              f.LDMA_DATE = DateTime.Now;
+                           }
+                        }
+                        foreach (var f in existingCustomers)
+                        {
+                           if ((f.LDMA_STAT ?? "001") != "002")
+                           {
+                              f.LDMA_STAT = "004";
+                              f.LDMA_DATE = DateTime.Now;
+                           }
+                        }
+                        iScscLocal.SubmitChanges();
+                        Log("Batch size already at 1 and still failing. Failed customers remain marked as LDMA_STAT='004'.");
+                     }
+                  }
+                  done += newCustomers.Count + existingCustomers.Count;
+                  SetProgress(done, pending.Count);
 
-                   // Throttling: Delay before next batch to prevent system freeze
-                   // Dynamic delay: larger batches get longer delay, smaller batches get shorter delay
-                   int delayMs;
-                   if (currentBatchSize >= 200)
-                   {
-                      delayMs = maxDelayMs;
-                   }
-                   else if (currentBatchSize >= 100)
-                   {
-                      delayMs = (minDelayMs + maxDelayMs) / 2;
-                   }
-                   else if (currentBatchSize >= 50)
-                   {
-                      delayMs = defaultDelayMs;
-                   }
-                   else
-                   {
-                      delayMs = Math.Max(minDelayMs / 2, 500);
-                   }
+                  // Throttling: Delay before next batch to prevent system freeze
+                  // Dynamic delay: larger batches get longer delay, smaller batches get shorter delay
+                  int delayMs;
+                  if (currentBatchSize >= 200)
+                  {
+                     delayMs = maxDelayMs;
+                  }
+                  else if (currentBatchSize >= 100)
+                  {
+                     delayMs = (minDelayMs + maxDelayMs) / 2;
+                  }
+                  else if (currentBatchSize >= 50)
+                  {
+                     delayMs = defaultDelayMs;
+                  }
+                  else
+                  {
+                     delayMs = Math.Max(minDelayMs / 2, 500);
+                  }
 
-                   SetStatusLabel(String.Format("در حال ارسال... ({0}/{1}) - استراحت {2}ms", done, pending.Count, delayMs));
-                   Log(String.Format("Delay {0}ms before next batch (size={1})...", delayMs, currentBatchSize));
-                   await Task.Delay(delayMs);
-                }
+                  SetStatusLabel(String.Format("در حال ارسال... ({0}/{1}) - استراحت {2}ms", done, pending.Count, delayMs));
+                  Log(String.Format("Delay {0}ms before next batch (size={1})...", delayMs, currentBatchSize));
+                  await Task.Delay(delayMs);
+               }
 
                Log(string.Format("همگام‌سازی اعضا پایان یافت. {0} مورد پردازش شد.", done));
             }
@@ -1976,9 +1976,9 @@ namespace System.MessageBroadcast.Ui.SmsApp
             customersArr.Add(customerObj);
          }
 
-         var firstWithClub = customers.FirstOrDefault(f => f.CLUB_CODE_DNRM.HasValue);
-         if (firstWithClub == null) return null;
-         var club = clubs.FirstOrDefault(c => c.CODE == firstWithClub.CLUB_CODE_DNRM.Value);
+         //var firstWithClub = customers.FirstOrDefault(f => f.CLUB_CODE_DNRM.HasValue);
+         //if (firstWithClub == null) return null;
+         var club = clubs.FirstOrDefault(c => c.LDMA_CODE != null);
          if (club == null) return null;
 
          var requestPayload = new JObject();

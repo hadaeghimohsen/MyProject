@@ -1821,8 +1821,8 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
                   if (batchSuccess)
                   {
-                     // Increase batch size by 2x on success, up to configured max (default 400)
-                     int maxBatchSize = 400;
+                     // Increase batch size by 2x on success, up to maximum of 200 customers per request
+                     int maxBatchSize = 200;
                      var maxBatchConfig = ConfigurationManager.AppSettings["MaxBatchSize"];
                      if (maxBatchConfig != null)
                      {

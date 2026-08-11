@@ -79,7 +79,7 @@ WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `
 - Fighterهایی که `CLUB_CODE_DNRM` در باشگاه‌های بالا داشته باشند
 - **فیلتر pending**: `(c.LDMA_STAT ?? "001") == "001" || c.LDMA_STAT == "003"` (مهم: NULL معادل 001)
 - **فیلتر داخل حلقه**: `FGPB_TYPE_DNRM='001' یا '005'`, `ACTV_TAG_DNRM='101'`, `CONF_STAT='002'`, `CELL_PHON_DNRM` اجباری (11 رقم) برای FGPB_TYPE_DNRM='001'
-- **بسته‌های ادغامی (Adaptive batch size)**: شروع با حجم 50، در صورت شکست نیمی می‌شود تا حداقل 1؛ در صورت موفقیت 2 برابر می‌شود تا حداکثر (MaxBatchSize در App.config، پیش‌فرض 400)
+- **بسته‌های ادغامی (Adaptive batch size)**: شروع با حجم 50، در صورت شکست نیمی می‌شود تا حداقل 1؛ در صورت موفقیت 2 برابر می‌شود تا حداکثر 200 مشتری در هر درخواست (MaxBatchSize در App.config، پیش‌فرض 200)
 - اگر درخواست جدید (CreateCustomersBulkAsync) شکست بخورد: مشتریان بسته‌ای که موفق نشده‌اند LDMA_STAT='004' می‌شوند، حجم بسته نصف شده و i به عقب برمی‌گردد تا مشتریان دوباره با حجم کوچکتر ارسال شوند
 - اگر حجم بسته 1 باشد و هنوز شکست بخورد: مشتریان '004' می‌مانند و در چرخه همگام‌سازی آینده دوباره سعی می‌شود
 - در صورت موفقیت: مشتریانی که در entries[] بازگشت داده نشده‌اند (phone match نشده) به‌صورت فردی LDMA_STAT='004' دریافت می‌کنند
@@ -90,7 +90,7 @@ WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `
 - **قالب JSON مشتری**: fileNo, frstName, lastName, fathName, debtDnrm, dpstDnrm, confDate, sexType, brthDate, cellPhon, tellPhon, insrNumb, insrDate, fngrPrnt, orgnCode, servNo, natlCode, dadCellPhon, dadTellPhon, momCellPhon, momTellPhon, dpstAcntSlryBank, dpstAcntSlry
 
 ## تنظیمات App.config (Throttling / Batch Sync)
-- **MaxBatchSize** (پیش‌فرض: 400): حداکثر اندازه بسته برای همگام‌سازی مشتریان
+- **MaxBatchSize** (پیش‌فرض: 200): حداکثر اندازه بسته برای همگام‌سازی مشتریان
 - **BatchDelayMs** (پیش‌فرض: 3000): تاخیر پیش‌فرض بین بسته‌ها (میلی‌ثانیقه)
 - **MinBatchDelayMs** (پیش‌فرض: 1000): حداقل تاخیر بین بسته‌ها
 - **MaxBatchDelayMs** (پیش‌فرض: 5000): حداکثر تاخیر بین بسته‌ها

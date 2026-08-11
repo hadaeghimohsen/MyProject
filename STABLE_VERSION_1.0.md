@@ -92,7 +92,7 @@
 | `ServerStatusIntervalMinutes` | `5` | Server status check timer |
 | `AccountStatusIntervalMinutes` | `10` | Account status check timer |
 | `CreditCheckIntervalMinutes` | `5` | Credit check timer |
-| `MaxBatchSize` | `400` | Maximum batch size for customer sync (adaptive growth cap) |
+| `MaxBatchSize` | `200` | Maximum batch size for customer sync (adaptive growth cap) |
 | `BatchDelayMs` | `3000` | Default delay between batches (milliseconds) |
 | `MinBatchDelayMs` | `1000` | Minimum delay between batches (milliseconds) |
 | `MaxBatchDelayMs` | `5000` | Maximum delay between batches (milliseconds) |
@@ -116,7 +116,7 @@
 The `SyncCustomersAsync` method in WEBS_MESG_F.cs uses an adaptive batch size mechanism for sending customers via `CreateCustomersBulkAsync`:
 
 - **Start**: batch size = 50 customers per request
-- **On success**: batch size doubles (50 → 100 → 200 → 400 → ...) up to configurable MaxBatchSize (default 400 in App.config)
+- **On success**: batch size doubles (50 → 100 → 200) up to maximum 200 customers per request in App.config
 - **On failure**: batch size halves (50 → 25 → 12 → 6 → 3 → 1)
 - **At batch size 1**: if still failing, mark customers with `LDMA_STAT = '004'` (Failed) and `LDMA_DATE = DateTime.Now`
 - **Retry loop**: when batch fails, the loop index `i` is rolled back by the previous batch size so the customers are retried with a smaller batch

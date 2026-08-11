@@ -78,7 +78,18 @@ WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `
 - ابتدا Clubهای دارای `LDMA_CODE != null && != ""` را می‌گیرد
 - Fighterهایی که `CLUB_CODE_DNRM` در باشگاه‌های بالا داشته باشند
 - **فیلتر pending**: `(c.LDMA_STAT ?? "001") == "001" || c.LDMA_STAT == "003"` (مهم: NULL معادل 001)
-## تنظیمات جدید App.config (Throttling / Batch Sync)
+- **فیلتر داخل حلقه**: `FGPB_TYPE_DNRM='001' یا '005'`, `ACTV_TAG_DNRM='101'`, `CONF_STAT='002'`, `CELL_PHON_DNRM` اجباری (11 رقم) برای FGPB_TYPE_DNRM='001'
+- **بسته‌های ادغامی (Adaptive batch size)**: شروع با حجم 50، در صورت شکست نیمی می‌شود تا حداقل 1؛ در صورت موفقیت 2 برابر می‌شود تا حداکثر (MaxBatchSize در App.config، پیش‌فرض 400)
+- اگر درخواست جدید (CreateCustomersBulkAsync) شکست بخورد: مشتریان بسته‌ای که موفق نشده‌اند LDMA_STAT='004' می‌شوند، حجم بسته نصف شده و i به عقب برمی‌گردد تا مشتریان دوباره با حجم کوچکتر ارسال شوند
+- اگر حجم بسته 1 باشد و هنوز شکست بخورد: مشتریان '004' می‌مانند و در چرخه همگام‌سازی آینده دوباره سعی می‌شود
+- در صورت موفقیت: مشتریانی که در entries[] بازگشت داده نشده‌اند (phone match نشده) به‌صورت فردی LDMA_STAT='004' دریافت می‌کنند
+- اگر درخواست موفق باشد: حجم بسته تا حداکثر 50 دو برابر می‌شود
+- **storeId** از `Club.LDMA_CODE` (متعلق به باشگاه Fighter اول در بسته)
+- **پاسخ API**: `entries[].phone` و `entries[].userId` → مطابقت با `CELL_PHON_DNRM` و ذخیره `userId` به عنوان `Fighter.LDMA_CODE`
+- اگر `entries` نباشد → fallback: همه fighters batch را LDMA_STAT='002' کن
+- **قالب JSON مشتری**: fileNo, frstName, lastName, fathName, debtDnrm, dpstDnrm, confDate, sexType, brthDate, cellPhon, tellPhon, insrNumb, insrDate, fngrPrnt, orgnCode, servNo, natlCode, dadCellPhon, dadTellPhon, momCellPhon, momTellPhon, dpstAcntSlryBank, dpstAcntSlry
+
+## تنظیمات App.config (Throttling / Batch Sync)
 - **MaxBatchSize** (پیش‌فرض: 400): حداکثر اندازه بسته برای همگام‌سازی مشتریان
 - **BatchDelayMs** (پیش‌فرض: 3000): تاخیر پیش‌فرض بین بسته‌ها (میلی‌ثانیقه)
 - **MinBatchDelayMs** (پیش‌فرض: 1000): حداقل تاخیر بین بسته‌ها
@@ -90,14 +101,6 @@ WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `
   - اندازه بسته < 50: تاخیر حداقل (500ms)
 - **پیشرفت**: برچسب وضعیت با اطلاعات پیشرفت و تاخیر به‌روزرسانی می‌شود
 - **واکنش‌پذیری UI**: `await Task.Delay(ms)` کنترل را به رابط کاربری باز می‌گرداند
-- **بسته‌های ادغامی (Adaptive batch size)**: شروع با حجم 50، در صورت شکست نیمی می‌شود تا حداقل 1؛ در صورت موفقیت 2 برابر می‌شود تا حداکثر (MaxBatchSize در App.config، پیش‌فرض 400)
-- اگر درخواست جدید (CreateCustomersBulkAsync) شکست بخورد: تمام مشتریان بسته LDMA_STAT='004' می‌شوند، حجم بسته نصف شده و i را برمی‌گرداند تا مشتریان دوباره با حجم کوچکتر ارسال شوند
-- اگر حجم بسته 1 باشد و هنوز شکست بخورد: مشتریان '004' می‌مانند و در چرخه همگام‌سازی آینده دوباره سعی می‌شود
-- اگر درخواست موفق باشد: حجم بسته تا حداکثر 50 دو برابر می‌شود
-- **storeId** از `Club.LDMA_CODE` (متعلق به باشگاه Fighter اول در بسته)
-- **پاسخ API**: `entries[].phone` و `entries[].userId` → مطابقت با `CELL_PHON_DNRM` و ذخیره `userId` به عنوان `Fighter.LDMA_CODE`
-- اگر `entries` نباشد → fallback: همه fighters batch را LDMA_STAT='002' کن
-- **قالب JSON مشتری**: fileNo, frstName, lastName, fathName, debtDnrm, dpstDnrm, confDate, sexType, brthDate, cellPhon, tellPhon, insrNumb, insrDate, fngrPrnt, orgnCode, servNo, natlCode, dadCellPhon, dadTellPhon, momCellPhon, momTellPhon, dpstAcntSlryBank, dpstAcntSlry
 
 ## قالب JSON درخواست مشتریان (با تطابق API)
 - درخواست: `{ "storeId": "...", "customers": [ { fileNo, ..., dpstAcntSlry } ] }`

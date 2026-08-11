@@ -123,6 +123,8 @@ The `SyncCustomersAsync` method in WEBS_MESG_F.cs uses an adaptive batch size me
 - **Existing customers**: processed one-by-one via `UpdateCustomerAsync` (not batched)
 - **JSON building**: extracted into a helper method `BuildCustomerBulkPayload(customers, clubs)` to avoid code duplication between new and retry customers
 - **API response**: `entries[].phone` matched against `fighter.CELL_PHON_DNRM` to set `fighter.LDMA_CODE = customerId` and `fighter.LDMA_STAT = "002"`
+- **Individual status tracking**: Customers not matched in `entries[]` are individually marked as `LDMA_STAT = "004"` (Failed)
+- **Batch failure handling**: Only customers NOT already marked `'002'` get `'004'` — successful customers are preserved
 - **Throttling/Delay**: After each batch, a configurable delay is inserted to prevent UI freezing:
   - Batch size >= 200: 5000ms delay
   - Batch size >= 100: 3000ms delay
@@ -130,7 +132,7 @@ The `SyncCustomersAsync` method in WEBS_MESG_F.cs uses an adaptive batch size me
   - Batch size < 50: 500ms delay
   - Config settings: `BatchDelayMs` (default 3000), `MinBatchDelayMs` (1000), `MaxBatchDelayMs` (5000)
   - Status label updated with progress and delay info during wait
-  - `await Task.Delay(delayMs)` yields control back to UI thread
+  - `await Task.Delay(delayMs)` yields control to UI thread
 
 ## LDMA_STAT Lifecycle
 | Value | Meaning |

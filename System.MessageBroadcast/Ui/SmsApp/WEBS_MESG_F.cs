@@ -1660,21 +1660,43 @@ namespace System.MessageBroadcast.Ui.SmsApp
                   var newCustomers = new List<Data.Fighter>();
                   var existingCustomers = new List<Data.Fighter>();
 
-                  foreach (var f in batch)
-                  {
-                     // فیلترهای مشتری
-                     if (f.FGPB_TYPE_DNRM != "001" && f.FGPB_TYPE_DNRM != "005") continue;    // مشتری - مهمان
-                     if (f.ACTV_TAG_DNRM != "101") continue;      // فعال
-                     if (f.CONF_STAT != "002") continue;         // تأیید شده
-                     if (f.FGPB_TYPE_DNRM == "001" && (f.CELL_PHON_DNRM == null || f.CELL_PHON_DNRM == "" || f.CELL_PHON_DNRM.Length != 11)) continue; // شماره موبایل الزامی برای مشتریان واقعی
-                     if (String.IsNullOrEmpty(f.DAD_CELL_PHON_DNRM) || f.DAD_CELL_PHON_DNRM.Length != 11) f.DAD_CELL_PHON_DNRM = "";
-                     if (String.IsNullOrEmpty(f.MOM_CELL_PHON_DNRM) || f.MOM_CELL_PHON_DNRM.Length != 11) f.MOM_CELL_PHON_DNRM = "";
+                   foreach (var f in batch)
+                   {
+                      // فیلترهای مشتری
+                      if (f.FGPB_TYPE_DNRM != "001" && f.FGPB_TYPE_DNRM != "005") continue;    // مشتری - مهمان
+                      if (f.ACTV_TAG_DNRM != "101") continue;      // فعال
+                      if (f.CONF_STAT != "002") continue;         // تأیید شده
 
-                     if (f.LDMA_CODE == null || f.LDMA_CODE == "")
-                        newCustomers.Add(f);
-                     else
-                        existingCustomers.Add(f);
-                  }
+                      // Validate phone number for customers (FGPB_TYPE_DNRM = '001')
+                      if (f.FGPB_TYPE_DNRM == "001")
+                      {
+                         if (!IsValidIranianMobileNumber(f.CELL_PHON_DNRM))
+                         {
+                            // Mark as failed with reason
+                            f.LDMA_STAT = "004";
+                            f.LDMA_DATE = DateTime.Now;
+                            Log(String.Format("شماره موبایل نامعتبر برای مشتری fileNo={0}: {1} - علامت‌گذاری به عنوان 004 (Failed)",
+                                f.FILE_NO, f.CELL_PHON_DNRM ?? "null"));
+                            continue; // Skip this customer
+                         }
+                      }
+
+                      // Clean parent phone numbers
+                      if (String.IsNullOrEmpty(f.DAD_CELL_PHON_DNRM) || !IsValidIranianMobileNumber(f.DAD_CELL_PHON_DNRM))
+                         f.DAD_CELL_PHON_DNRM = "";
+                      else
+                         f.DAD_CELL_PHON_DNRM = CleanPhoneNumber(f.DAD_CELL_PHON_DNRM);
+
+                      if (String.IsNullOrEmpty(f.MOM_CELL_PHON_DNRM) || !IsValidIranianMobileNumber(f.MOM_CELL_PHON_DNRM))
+                         f.MOM_CELL_PHON_DNRM = "";
+                      else
+                         f.MOM_CELL_PHON_DNRM = CleanPhoneNumber(f.MOM_CELL_PHON_DNRM);
+
+                      if (f.LDMA_CODE == null || f.LDMA_CODE == "")
+                         newCustomers.Add(f);
+                      else
+                         existingCustomers.Add(f);
+                   }
 
                   bool batchSuccess = true;
 
@@ -1801,7 +1823,8 @@ namespace System.MessageBroadcast.Ui.SmsApp
                      customerObj.Add("bankName", f.DPST_ACNT_SLRY_BANK_DNRM ?? "");
                      customerObj.Add("bankAccount", f.DPST_ACNT_SLRY_DNRM ?? "");
 
-                     var resUpdate = await _lidoma.UpdateCustomerAsync(f.LDMA_CODE, customerObj);
+                     var club = clubs.FirstOrDefault(a => a.LDMA_CODE != null);
+                     var resUpdate = await _lidoma.UpdateCustomerAsync(club.LDMA_CODE, customerObj);
 
                      if (IsSuccess(resUpdate))
                      {
@@ -1985,9 +2008,62 @@ namespace System.MessageBroadcast.Ui.SmsApp
          requestPayload.Add("storeId", club.LDMA_CODE);
          requestPayload.Add("customers", customersArr);
          return requestPayload;
-      }
+       }
 
-      private async Task SyncOrgansAsync()
+       private bool IsValidIranianMobileNumber(string phoneNumber)
+       {
+          if (String.IsNullOrWhiteSpace(phoneNumber))
+             return false;
+
+          // Remove any spaces, dashes, or special characters
+          string cleaned = phoneNumber.Trim().Replace(" ", "").Replace("-", "").Replace("+", "");
+
+          // Check if it starts with '09' and is exactly 11 digits
+          if (cleaned.Length != 11)
+             return false;
+
+          if (!cleaned.StartsWith("09"))
+             return false;
+
+          // Check if all characters are digits
+          foreach (char c in cleaned)
+          {
+             if (!Char.IsDigit(c))
+                return false;
+          }
+
+          // Validate Iranian mobile prefixes
+          string[] validPrefixes = {
+             "0910","0911","0912","0913","0914","0915","0916","0917","0918","0919",
+             "0901","0902","0903","0904","0905",
+             "0930","0933","0935","0936","0937","0938","0939",
+             "0920","0921","0922",
+             "0990","0991","0992","0993","0994"
+          };
+
+          string prefix = cleaned.Substring(0, 4);
+          bool isValidPrefix = false;
+          foreach (string vp in validPrefixes)
+          {
+             if (prefix == vp)
+             {
+                isValidPrefix = true;
+                break;
+             }
+          }
+
+          return isValidPrefix;
+       }
+
+       private string CleanPhoneNumber(string phoneNumber)
+       {
+          if (String.IsNullOrEmpty(phoneNumber))
+             return "";
+
+          return phoneNumber.Trim().Replace(" ", "").Replace("-", "").Replace("+", "");
+       }
+
+       private async Task SyncOrgansAsync()
       {
          try
          {

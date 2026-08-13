@@ -1214,11 +1214,11 @@ namespace System.MessageBroadcast.Ui.SmsApp
                      var branch = new JObject();
                      branch.Add("name", c.CLUB_DESC ?? "");
                      branch.Add("address", c.POST_ADRS ?? "");
-                     // Validate branch phone number
-                     string branchPhone = c.TELL_PHON ?? "";
-                     if (!String.IsNullOrEmpty(branchPhone) && !IsValidIranianMobileNumber(branchPhone))
+                     // Validate branch landline phone number (TELL_PHON)
+                     string branchPhone = CleanPhoneNumber(c.TELL_PHON ?? "");
+                     if (!String.IsNullOrEmpty(branchPhone) && !IsValidIranianLandline(branchPhone))
                      {
-                        Log(String.Format("شماره تلفن باشگاه {0} (CODE={1}) نامعتبر است: {2} - ارسال خالی",
+                        Log(String.Format("شماره تلفن ثابت باشگاه {0} (CODE={1}) نامعتبر است: {2} - ارسال خالی",
                             c.NAME, c.CODE, branchPhone));
                         branchPhone = "";
                      }
@@ -1250,11 +1250,12 @@ namespace System.MessageBroadcast.Ui.SmsApp
                      }
                      if (!String.IsNullOrEmpty(c.TELL_PHON))
                      {
-                        if (IsValidIranianMobileNumber(c.TELL_PHON))
+                        string tellPhoneCleaned = CleanPhoneNumber(c.TELL_PHON);
+                        if (IsValidIranianLandline(tellPhoneCleaned))
                         {
                            var contact = new JObject();
                            contact.Add("type", "mobile");
-                           contact.Add("value", c.TELL_PHON);
+                           contact.Add("value", tellPhoneCleaned);
                            contact.Add("label", "تلفن ثابت");
                            contacts.Add(contact);
                         }
@@ -2085,10 +2086,59 @@ namespace System.MessageBroadcast.Ui.SmsApp
              }
           }
 
-          return isValidPrefix;
-       }
+           return isValidPrefix;
+        }
 
-       private string CleanPhoneNumber(string phoneNumber)
+        private bool IsValidIranianLandline(string phoneNumber)
+        {
+           if (String.IsNullOrWhiteSpace(phoneNumber))
+              return false;
+
+           // Remove any spaces, dashes, or special characters
+           string cleaned = phoneNumber.Trim().Replace(" ", "").Replace("-", "").Replace("+", "").Replace("/", "");
+
+           // Check if all characters are digits
+           foreach (char c in cleaned)
+           {
+              if (!Char.IsDigit(c))
+                 return false;
+           }
+
+           // Iranian landline: 3-digit area code (starts with 0) + 7 or 8 subscriber digits
+           // Examples: 0711234567 (10 digits), 02112345678 (11 digits), 05112345678 (11 digits)
+           if (cleaned.Length != 10 && cleaned.Length != 11)
+              return false;
+
+           if (!cleaned.StartsWith("0"))
+              return false;
+
+           // Validate the 3-digit area code prefix
+           string prefix = cleaned.Substring(0, 3);
+           string[] validAreaCodes = {
+              "011","013","017",
+              "021","023","024","025","026","028",
+              "031","034","038",
+              "041","044","045",
+              "051","054","056","058",
+              "061","066",
+              "071","074","076","077","078",
+              "081","083","084","086","087"
+           };
+
+           bool isValidPrefix = false;
+           foreach (string vp in validAreaCodes)
+           {
+              if (prefix == vp)
+              {
+                 isValidPrefix = true;
+                 break;
+              }
+           }
+
+           return isValidPrefix;
+        }
+
+        private string CleanPhoneNumber(string phoneNumber)
        {
           if (String.IsNullOrEmpty(phoneNumber))
              return "";

@@ -31,6 +31,7 @@ WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `
   - از طریق `Club_Method` (MTOD_CODE = Category_Belt.MTOD_CODE) → `Club`
 - **CG$ASYNL_FIGH** (روی `Fighter`): اگر `FGPB_TYPE_DNRM='003' AND ACTV_TAG_DNRM='101'` تغییر کند → `Club.LDMA_STAT='003'`
   - مستقیم از `Fighter.CLUB_CODE_DNRM` → `Club.CODE`
+- **باگ CG$ASYNL_FIGH (2026-08-13)**: گارد قبلی `IF UPDATE(LDMA_CODE) OR UPDATE(LDMA_STAT) OR UPDATE(LDMA_DATE) RETURN` درست کار نمی‌کرد چون `UPDATE()` به‌محض حضور ستون در عبارت SET حتی بدون تغییر مقدار TRUE برمی‌گرداند. هر آپدیت تمام‌ستونه از طرف اپ (که LDMA_* را با همان مقدار قبلی بازنویسی می‌کرد) تریگر را نادیده می‌گرفت و `LDMA_STAT` به `'003'` تغییر نمی‌کرد. **راه‌حل**: مقایسه مقدار واقعی `inserted` vs `deleted` برای ستون‌های LDMA (فقط وقتی مقدار واقعاً عوض شده باشد = نوشتن خودِ سینک). اسکریپت: `System.MessageBroadcast/Data/CG$ASYNL_FIGH_fix.sql`
 - همه این تریگرها فقط باشگاه‌هایی را آپدیت می‌کنند که LDMA_STATشون NULL، '001' یا '002' است (نه '003' که قبلاً به‌روزرسانی شده)
 
 ## الگوی جدید برای تمام تریگرهای ASYNL (168+ تریگر)

@@ -183,6 +183,7 @@ The `SyncClubsAsync` method in WEBS_MESG_F.cs validates all phone-number fields 
 | MSTR_PAGE_F.RequestRespons.cs | `System.MessageBroadcast/Ui/MasterPage/` | Job routing requests |
 | App.config | `System.MessageBroadcast/` | Configuration |
 | RESET_LDMA_P.sql | `System.MessageBroadcast/Data/` | SQL stored procedure script to reset LDMA columns |
+| CG$ASYNL_FIGH_fix.sql | `System.MessageBroadcast/Data/` | Fixed Fighter sync trigger (value-based LDMA guard) |
 
 ## GUIDELINES FOR FUTURE UPDATES
 

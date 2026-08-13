@@ -144,8 +144,13 @@ The `SyncClubsAsync` method in WEBS_MESG_F.cs validates all phone-number fields 
 - **`CELL_PHON`** (whatsapp contact): invalid mobile number → contact entry skipped and logged
 - **`TELL_PHON`** (تلفن ثابت contact): invalid **landline** number → contact entry skipped and logged
 - **Mobile validation** (`IsValidIranianMobileNumber`): starts with 09, exactly 11 digits, valid prefix
-- **Landline validation** (`IsValidLandline`): accepts TWO valid formats — 8 digits without area code (e.g., 38421421) OR 11 digits with area code (e.g., 07138421421); digits only (spaces/dashes/parentheses stripped); any other length, empty, or non-digit characters → invalid
-- Validation uses `IsValidIranianMobileNumber()` for mobile fields and `IsValidLandline()` for landline fields
+- **Landline validation** (`ValidateLandlinePhone`): combined approach — cleans input (strips spaces/dashes/parentheses/+/non-digits), then:
+  - 8 digits (no area code, e.g., 38421421) → valid, sent as-is
+  - 11 digits (with area code, e.g., 07138421421 or 02138421421) → valid, sent as-is
+  - 9 digits starting with `0` (e.g., 038421421) → auto-fixed by removing the leading zero → 38421421
+  - Empty/null, letters, any other length (<8, 10, 12+, etc.) → invalid, replaced with `""`
+  - Returns the cleaned/fixed number (string), not a bool; invalid values logged and never block the sync
+- Validation uses `IsValidIranianMobileNumber()` for mobile fields and `ValidateLandlinePhone()` for landline fields
 - Behavior: invalid phone numbers NEVER block club sync — they are replaced with empty string / skipped, and a Persian log entry records the club name, CODE, field and invalid value
 - All other sync functionality (store create/update, methods, categories, trainers, weekdays) is unchanged
 

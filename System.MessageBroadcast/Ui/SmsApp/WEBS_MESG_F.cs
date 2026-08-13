@@ -1215,11 +1215,11 @@ namespace System.MessageBroadcast.Ui.SmsApp
                      branch.Add("name", c.CLUB_DESC ?? "");
                      branch.Add("address", c.POST_ADRS ?? "");
                      // Validate branch landline phone number (TELL_PHON)
-                     string branchPhone = CleanPhoneNumber(c.TELL_PHON ?? "");
-                     if (!String.IsNullOrEmpty(branchPhone) && !IsValidLandline(branchPhone))
+                     string branchPhone = ValidateLandlinePhone(c.TELL_PHON ?? "");
+                     if (!String.IsNullOrEmpty(c.TELL_PHON) && String.IsNullOrEmpty(branchPhone))
                      {
                         Log(String.Format("شماره تلفن ثابت باشگاه {0} (CODE={1}) نامعتبر است: {2} - ارسال خالی",
-                            c.NAME, c.CODE, branchPhone));
+                            c.NAME, c.CODE, CleanPhoneNumber(c.TELL_PHON)));
                         branchPhone = "";
                      }
                      branch.Add("phone", branchPhone);
@@ -1250,19 +1250,19 @@ namespace System.MessageBroadcast.Ui.SmsApp
                      }
                      if (!String.IsNullOrEmpty(c.TELL_PHON))
                      {
-                        string tellPhoneCleaned = CleanPhoneNumber(c.TELL_PHON);
-                        if (IsValidLandline(tellPhoneCleaned))
+                        string tellPhoneValidated = ValidateLandlinePhone(c.TELL_PHON);
+                        if (!String.IsNullOrEmpty(tellPhoneValidated))
                         {
                            var contact = new JObject();
                            contact.Add("type", "mobile");
-                           contact.Add("value", tellPhoneCleaned);
+                           contact.Add("value", tellPhoneValidated);
                            contact.Add("label", "تلفن ثابت");
                            contacts.Add(contact);
                         }
                         else
                         {
                            Log(String.Format("شماره تلفن ثابت باشگاه {0} (CODE={1}) نامعتبر است: {2} - حذف شد",
-                               c.NAME, c.CODE, c.TELL_PHON));
+                               c.NAME, c.CODE, CleanPhoneNumber(c.TELL_PHON)));
                         }
                      }
                      if (!string.IsNullOrEmpty(c.EMAL_ADRS))
@@ -2089,33 +2089,45 @@ namespace System.MessageBroadcast.Ui.SmsApp
            return isValidPrefix;
         }
 
-        private bool IsValidLandline(string phoneNumber)
+        private string ValidateLandlinePhone(string phoneNumber)
         {
+           // 1. Check if null or empty
            if (String.IsNullOrWhiteSpace(phoneNumber))
-              return false;
+              return "";
 
-           // Remove spaces, dashes, and special characters
+           // 2. Clean: remove spaces, dashes, parentheses, plus, etc.
            string cleaned = phoneNumber.Trim()
                .Replace(" ", "")
                .Replace("-", "")
                .Replace("(", "")
-               .Replace(")", "");
+               .Replace(")", "")
+               .Replace("+", "");
 
-           // Check if all characters are digits
+           // 3. Check if all characters are digits
            foreach (char c in cleaned)
            {
               if (!Char.IsDigit(c))
-                 return false;
+                 return "";  // Invalid: contains letters or special characters
            }
 
-           // Valid formats:
-           //   Format 1: 8 digits without area code  (e.g., 38421421)
-           //   Format 2: 11 digits with area code    (e.g., 07138421421)
-           if (cleaned.Length == 8 || cleaned.Length == 11)
-              return true;
+           // 4. Check length and format
+           int length = cleaned.Length;
+
+           // Valid: 8 digits (without area code) - send as-is
+           if (length == 8)
+              return cleaned;
+
+           // Valid: 11 digits (with area code) - send as-is
+           if (length == 11)
+              return cleaned;
+
+           // Fix: 9 digits starting with 0 -> remove the leading zero -> 8 digits
+           // Example: 038421421 -> 38421421
+           if (length == 9 && cleaned.StartsWith("0"))
+              return cleaned.Substring(1);
 
            // Any other length is invalid
-           return false;
+           return "";
         }
 
         private string CleanPhoneNumber(string phoneNumber)

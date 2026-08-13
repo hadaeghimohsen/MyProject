@@ -1189,7 +1189,15 @@ namespace System.MessageBroadcast.Ui.SmsApp
                      storeData.Add("template", c.TEMP_TAG ?? "gym");
                      storeData.Add("about", c.CMNT ?? "");
                      storeData.Add("billingType", "percentage");
-                     storeData.Add("ownerPhone", settings.WEB_SITE_LOGN ?? "");
+                     // Validate owner phone number
+                     string ownerPhone = settings.WEB_SITE_LOGN ?? "";
+                     if (!String.IsNullOrEmpty(ownerPhone) && !IsValidIranianMobileNumber(ownerPhone))
+                     {
+                        Log(String.Format("شماره موبایل مالک باشگاه {0} (CODE={1}) نامعتبر است: {2} - ارسال خالی",
+                            c.NAME, c.CODE, ownerPhone));
+                        ownerPhone = "";
+                     }
+                     storeData.Add("ownerPhone", ownerPhone);
                      storeData.Add("ownerPassword", settings.WEB_SITE_PSWD ?? "");
                      storeData.Add("city", city);
 
@@ -1204,9 +1212,17 @@ namespace System.MessageBroadcast.Ui.SmsApp
                      storeData.Add("location", location);
 
                      var branch = new JObject();
-                     branch.Add("name", c.NAME ?? "");
+                     branch.Add("name", c.CLUB_DESC ?? "");
                      branch.Add("address", c.POST_ADRS ?? "");
-                     branch.Add("phone", c.TELL_PHON ?? "");
+                     // Validate branch phone number
+                     string branchPhone = c.TELL_PHON ?? "";
+                     if (!String.IsNullOrEmpty(branchPhone) && !IsValidIranianMobileNumber(branchPhone))
+                     {
+                        Log(String.Format("شماره تلفن باشگاه {0} (CODE={1}) نامعتبر است: {2} - ارسال خالی",
+                            c.NAME, c.CODE, branchPhone));
+                        branchPhone = "";
+                     }
+                     branch.Add("phone", branchPhone);
 
                      var branchLoc = new JObject();
                      branchLoc.Add("lat", c.CORD_X ?? 0.0);
@@ -1215,21 +1231,38 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
                      var contacts = new JArray();
 
-                     if (!string.IsNullOrEmpty(c.CELL_PHON))
+                     // Validate CELL_PHON (mobile/whatsapp contact)
+                     if (!String.IsNullOrEmpty(c.CELL_PHON))
                      {
-                        var contact = new JObject();
-                        contact.Add("type", "whatsapp");
-                        contact.Add("value", c.CELL_PHON);
-                        contact.Add("label", "پشتیبانی");
-                        contacts.Add(contact);
+                        if (IsValidIranianMobileNumber(c.CELL_PHON))
+                        {
+                           var contact = new JObject();
+                           contact.Add("type", "whatsapp");
+                           contact.Add("value", c.CELL_PHON);
+                           contact.Add("label", "پشتیبانی");
+                           contacts.Add(contact);
+                        }
+                        else
+                        {
+                           Log(String.Format("شماره موبایل باشگاه {0} (CODE={1}) نامعتبر است: {2} - حذف شد",
+                               c.NAME, c.CODE, c.CELL_PHON));
+                        }
                      }
-                     if (!string.IsNullOrEmpty(c.TELL_PHON))
+                     if (!String.IsNullOrEmpty(c.TELL_PHON))
                      {
-                        var contact = new JObject();
-                        contact.Add("type", "mobile");
-                        contact.Add("value", c.TELL_PHON);
-                        contact.Add("label", "تلفن ثابت");
-                        contacts.Add(contact);
+                        if (IsValidIranianMobileNumber(c.TELL_PHON))
+                        {
+                           var contact = new JObject();
+                           contact.Add("type", "mobile");
+                           contact.Add("value", c.TELL_PHON);
+                           contact.Add("label", "تلفن ثابت");
+                           contacts.Add(contact);
+                        }
+                        else
+                        {
+                           Log(String.Format("شماره تلفن ثابت باشگاه {0} (CODE={1}) نامعتبر است: {2} - حذف شد",
+                               c.NAME, c.CODE, c.TELL_PHON));
+                        }
                      }
                      if (!string.IsNullOrEmpty(c.EMAL_ADRS))
                      {

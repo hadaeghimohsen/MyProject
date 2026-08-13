@@ -135,6 +135,18 @@ The `SyncCustomersAsync` method in WEBS_MESG_F.cs uses an adaptive batch size me
   - Status label updated with progress and delay info during wait
   - `await Task.Delay(delayMs)` yields control to UI thread
 
+## CLUB SYNC — PHONE NUMBER VALIDATION
+
+The `SyncClubsAsync` method in WEBS_MESG_F.cs validates all phone-number fields before building the store JSON payload:
+
+- **`ownerPhone`** (`settings.WEB_SITE_LOGN`): invalid number → replaced with `""` and logged
+- **`branch.phone`** (`c.TELL_PHON`): invalid number → replaced with `""` and logged
+- **`CELL_PHON`** (whatsapp contact): invalid number → contact entry skipped and logged
+- **`TELL_PHON`** (mobile contact): invalid number → contact entry skipped and logged
+- Validation uses the same `IsValidIranianMobileNumber()` helper as customer sync
+- Behavior: invalid phone numbers NEVER block club sync — they are replaced with empty string / skipped, and a Persian log entry records the club name, CODE, field and invalid value
+- All other sync functionality (store create/update, methods, categories, trainers, weekdays) is unchanged
+
 ## LDMA_STAT Lifecycle
 | Value | Meaning |
 |---|---|

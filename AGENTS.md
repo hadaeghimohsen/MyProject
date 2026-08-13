@@ -89,6 +89,7 @@ WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `
 - اگر `entries` نباشد → fallback: همه fighters batch را LDMA_STAT='002' کن
 - **قالب JSON مشتری**: fileNo, frstName, lastName, fathName, debtDnrm, dpstDnrm, confDate, sexType, brthDate, cellPhon, tellPhon, insrNumb, insrDate, fngrPrnt, orgnCode, servNo, natlCode, dadCellPhon, dadTellPhon, momCellPhon, momTellPhon, dpstAcntSlryBank, dpstAcntSlry
 - **اعتبارسنجی شماره موبایل**: قبل از ارسال، شماره موبایل مشتریان (`FGPB_TYPE_DNRM='001'`) با `IsValidIranianMobileNumber()` بررسی می‌شود؛ شماره‌های نامعتبر skip می‌شوند و `LDMA_STAT='004'` دریافت می‌کنند
+- **اعتبارسنجی شماره تلفن باشگاه‌ها**: در `SyncClubsAsync`، تمام فیلدهای شماره تلفن (`ownerPhone`, `branch.phone`, `CELL_PHON`, `TELL_PHON`) با `IsValidIranianMobileNumber()` بررسی می‌شود؛ شماره‌های نامعتبر با رشته خالی ("") جایگزین می‌شوند و لاگ می‌شوند
 
 ## تنظیمات App.config (Throttling / Batch Sync)
 - **MaxBatchSize** (پیش‌فرض: 200): حداکثر اندازه بسته برای همگام‌سازی مشتریان

@@ -1635,44 +1635,47 @@ namespace System.MessageBroadcast.Ui.SmsApp
                   return;
                }
 
-               // 2. مشتریان (Fighter) این باشگاه‌ها را پیدا کن
-               var clubCodes = clubs.Select(c => c.CODE).ToList();
-               List<Data.Fighter> all = iScscLocal.Fighters
-                  //.Where(f => f.CLUB_CODE_DNRM.HasValue && clubCodes.Contains(f.CLUB_CODE_DNRM.Value))
-                   .ToList();
+                // 2. مشتریان (Fighter) - همه فیلترها در سطح دیتابیس اعمال می‌شوند (IQueryable اجرای تاخیری)
+                // فقط ردیف‌های لازم وارد حافظه می‌شوند؛ ردیف‌های 002 (قبلاً همگام‌شده) هرگز بارگذاری نمی‌شوند
+                IQueryable<Data.Fighter> activeCustomersQuery = iScscLocal.Fighters
+                    .Where(f => f.CONF_STAT == "002"
+                             && f.ACTV_TAG_DNRM == "101"
+                             && f.FGPB_TYPE_DNRM == "001");
 
-               Log(string.Format("تعداد کل اعضا/مشتریان در دیتابیس: {0}", all.Count));
+                Log(string.Format("تعداد کل اعضا/مشتریان فعال در دیتابیس: {0}",
+                    activeCustomersQuery.Count()));
 
-               // 2.5. مکانیزم ارسال مجدد: مشتریان ناموفق (LDMA_STAT='004') که بیش از 24 ساعت از LDMA_DATE آنها گذشته
-               DateTime reactivationThreshold = DateTime.Now.AddHours(-24);
-               var failedCustomers = all
-                   .Where(c => c.LDMA_STAT == "004" && c.LDMA_DATE != null)
-                   .ToList();
+                // 2.5. مکانیزم ارسال مجدد: مشتریان ناموفق (LDMA_STAT='004') که بیش از 24 ساعت از LDMA_DATE آنها گذشته
+                DateTime reactivationThreshold = DateTime.Now.AddHours(-24);
+                List<Data.Fighter> failedCustomers = activeCustomersQuery
+                    .Where(c => c.LDMA_STAT == "004" && c.LDMA_DATE != null)
+                    .ToList();
 
-               int reactivatedCount = 0;
-               foreach (var fc in failedCustomers)
-               {
-                  if (fc.LDMA_DATE < reactivationThreshold)
-                  {
-                     // بیش از 24 ساعت گذشته: به وضعیت 003 تغییر بده تا دوباره همگام‌سازی شود
-                     fc.LDMA_STAT = "003";
-                     fc.LDMA_DATE = null;
-                     Log(String.Format("مشتری fileNo={0} (LDMA_STAT=004) پس از گذشت 24 ساعت فعال شد و برای ارسال مجدد آماده است.",
-                         fc.FILE_NO));
-                     reactivatedCount++;
-                  }
-               }
+                int reactivatedCount = 0;
+                foreach (var fc in failedCustomers)
+                {
+                   if (fc.LDMA_DATE < reactivationThreshold)
+                   {
+                      // بیش از 24 ساعت گذشته: به وضعیت 003 تغییر بده تا دوباره همگام‌سازی شود
+                      fc.LDMA_STAT = "003";
+                      fc.LDMA_DATE = null;
+                      Log(String.Format("مشتری fileNo={0} (LDMA_STAT=004) پس از گذشت 24 ساعت فعال شد و برای ارسال مجدد آماده است.",
+                          fc.FILE_NO));
+                      reactivatedCount++;
+                   }
+                }
 
-               if (reactivatedCount > 0)
-               {
-                  iScscLocal.SubmitChanges();
-                  Log(String.Format("{0} مشتری ناموفق (004) به وضعیت 003 تغییر یافتند و دوباره همگام‌سازی خواهند شد.",
-                      reactivatedCount));
-               }
+                if (reactivatedCount > 0)
+                {
+                   iScscLocal.SubmitChanges();
+                   Log(String.Format("{0} مشتری ناموفق (004) به وضعیت 003 تغییر یافتند و دوباره همگام‌سازی خواهند شد.",
+                       reactivatedCount));
+                }
 
-               List<Data.Fighter> pending = all
-                   .Where(c => (c.LDMA_STAT ?? "001") == "001" || c.LDMA_STAT == "003")
-                   .ToList();
+                // 2.6. فقط ردیف‌های pending (خالی/001/003) بارگذاری می‌شوند - فیلتر در SQL اجرا می‌شود
+                List<Data.Fighter> pending = activeCustomersQuery
+                    .Where(c => c.LDMA_STAT == null || c.LDMA_STAT == "001" || c.LDMA_STAT == "003")
+                    .ToList();
 
                if (pending.Count == 0)
                {
@@ -1723,12 +1726,10 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
                    foreach (var f in batch)
                    {
-                      // فیلترهای مشتری
-                      if (f.FGPB_TYPE_DNRM != "001" && f.FGPB_TYPE_DNRM != "005") continue;    // مشتری - مهمان
-                      if (f.ACTV_TAG_DNRM != "101") continue;      // فعال
-                      if (f.CONF_STAT != "002") continue;         // تأیید شده
+                      // فیلترهای CONF_STAT='002'، ACTV_TAG_DNRM='101'، FGPB_TYPE_DNRM='001'
+                      // قبلاً در سطح دیتابیس (IQueryable) اعمال شده‌اند - نیازی به تکرار در حافظه نیست
 
-                       // Validate and fix phone number for customers (FGPB_TYPE_DNRM = '001')
+                      // Validate and fix phone number for customers (FGPB_TYPE_DNRM = '001')
                        if (f.FGPB_TYPE_DNRM == "001")
                        {
                           string fixedMobile = ValidateAndFixMobileNumber(f.CELL_PHON_DNRM);

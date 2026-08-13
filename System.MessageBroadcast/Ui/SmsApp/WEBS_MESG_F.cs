@@ -1643,6 +1643,33 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
                Log(string.Format("تعداد کل اعضا/مشتریان در دیتابیس: {0}", all.Count));
 
+               // 2.5. مکانیزم ارسال مجدد: مشتریان ناموفق (LDMA_STAT='004') که بیش از 24 ساعت از LDMA_DATE آنها گذشته
+               DateTime reactivationThreshold = DateTime.Now.AddHours(-24);
+               var failedCustomers = all
+                   .Where(c => c.LDMA_STAT == "004" && c.LDMA_DATE != null)
+                   .ToList();
+
+               int reactivatedCount = 0;
+               foreach (var fc in failedCustomers)
+               {
+                  if (fc.LDMA_DATE < reactivationThreshold)
+                  {
+                     // بیش از 24 ساعت گذشته: به وضعیت 003 تغییر بده تا دوباره همگام‌سازی شود
+                     fc.LDMA_STAT = "003";
+                     fc.LDMA_DATE = null;
+                     Log(String.Format("مشتری fileNo={0} (LDMA_STAT=004) پس از گذشت 24 ساعت فعال شد و برای ارسال مجدد آماده است.",
+                         fc.FILE_NO));
+                     reactivatedCount++;
+                  }
+               }
+
+               if (reactivatedCount > 0)
+               {
+                  iScscLocal.SubmitChanges();
+                  Log(String.Format("{0} مشتری ناموفق (004) به وضعیت 003 تغییر یافتند و دوباره همگام‌سازی خواهند شد.",
+                      reactivatedCount));
+               }
+
                List<Data.Fighter> pending = all
                    .Where(c => (c.LDMA_STAT ?? "001") == "001" || c.LDMA_STAT == "003")
                    .ToList();

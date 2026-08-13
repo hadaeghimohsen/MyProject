@@ -125,6 +125,7 @@ The `SyncCustomersAsync` method in WEBS_MESG_F.cs uses an adaptive batch size me
 - **API response**: `entries[].phone` matched against `fighter.CELL_PHON_DNRM` to set `fighter.LDMA_CODE = customerId` and `fighter.LDMA_STAT = "002"`
 - **Individual status tracking**: Customers not matched in `entries[]` are individually marked as `LDMA_STAT = "004"` (Failed)
 - **Batch failure handling**: Only customers NOT already marked `'002'` get `'004'` — successful customers are preserved
+- **Re-sync mechanism for '004'**: Before the pending filter, customers with `LDMA_STAT = '004'` whose `LDMA_DATE` is older than 24 hours are reactivated: status changed to `'003'`, `LDMA_DATE` cleared (`null`), each reactivation logged, then `SubmitChanges()` persists it so they are picked up by the pending filter and re-synced. Customers failed less than 24 hours ago stay `'004'`. Only `LDMA_STAT` and `LDMA_DATE` columns are used (no `LDMA_ERROR`).
 - **Phone number validation & fix**: Before sending, Iranian mobile numbers (`FGPB_TYPE_DNRM='001'`) are processed with `ValidateAndFixMobileNumber()`:
   - `09033927103` (11 digits, `09`) → valid, sent as-is
   - `9033927103` (10 digits, starts `9`) → auto-fixed by adding leading `0`

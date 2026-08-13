@@ -590,7 +590,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
          try
          {
             StoreOut_Mmo.Text = "در حال دریافت ارگان‌ها از دیتابیس...";
-            var organs = await GetOrgansFromDatabaseAsync();
+            var organs = GetOrgansFromDatabaseAsync();
             StoreOut_Mmo.Text = organs.ToString(Formatting.Indented);
          }
          catch (Exception ex) { StoreOut_Mmo.Text = "خطا: " + ex.Message; }
@@ -605,9 +605,9 @@ namespace System.MessageBroadcast.Ui.SmsApp
          try
          {
             StoreOut_Mmo.Text = "در حال ساخت JSON ارگان‌ها از دیتابیس...";
-            var organs = await GetOrgansFromDatabaseAsync();
-            var subscriptionDiscounts = await GetSubscriptionDiscountsFromDatabaseAsync();
-            var productSalesDiscounts = await GetProductSalesDiscountsFromDatabaseAsync();
+            var organs = GetOrgansFromDatabaseAsync();
+            var subscriptionDiscounts = GetSubscriptionDiscountsFromDatabaseAsync();
+            var productSalesDiscounts = GetProductSalesDiscountsFromDatabaseAsync();
 
             var discountsObj = new JObject(
                 new JProperty("subscriptions", subscriptionDiscounts),
@@ -706,7 +706,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
       /// Executes Query 1 from dbo.Sub_Unit to get organs.
       /// Returns JArray with items: { code, name }
       /// </summary>
-      private async Task<JArray> GetOrgansFromDatabaseAsync()
+      private JArray GetOrgansFromDatabaseAsync()
       {
          Log("Executing Query 1: Getting organs from dbo.Sub_Unit");
          var organs = new JArray();
@@ -744,7 +744,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
       /// Returns JArray with subscription discounts.
       /// IMPORTANT: Only adds startsAt/endsAt if Kind == 'dateRange' AND value is not null.
       /// </summary>
-      private async Task<JArray> GetSubscriptionDiscountsFromDatabaseAsync()
+      private JArray GetSubscriptionDiscountsFromDatabaseAsync()
       {
          Log("Executing Query 2: Getting subscription discounts (Rqtp_Code IN 001, 009)");
          var discounts = new JArray();
@@ -829,7 +829,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
       /// Executes Query 3 from dbo.Basic_Calculate_Discount (Rqtp_Code IN 016).
       /// Returns JArray with product sales discounts.
       /// </summary>
-      private async Task<JArray> GetProductSalesDiscountsFromDatabaseAsync()
+      private JArray GetProductSalesDiscountsFromDatabaseAsync()
       {
          Log("Executing Query 3: Getting product sales discounts (Rqtp_Code IN 016)");
          var discounts = new JArray();
@@ -924,7 +924,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
       private async void btnSendServices_Click(object sender, EventArgs e)
       {
-         if (!await HasAnyClubWithStoreIdAsync())
+         if (!HasAnyClubWithStoreIdAsync())
          {
             Log("هیچ باشگاهی دارای StoreId (LDMA_CODE) نیست. ابتدا باشگاه‌ها را همگام‌سازی کنید.");
             MessageBox.Show("هیچ باشگاهی در لیدوما ثبت نشده است. ابتدا دکمه «ارسال باشگاه» را بزنید.", "پیش‌نیاز", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -935,7 +935,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
       private async void btnSendCustomers_Click(object sender, EventArgs e)
       {
-         if (!await HasAnyClubWithStoreIdAsync())
+         if (!HasAnyClubWithStoreIdAsync())
          {
             Log("هیچ باشگاهی دارای StoreId (LDMA_CODE) نیست. ابتدا باشگاه‌ها را همگام‌سازی کنید.");
             MessageBox.Show("هیچ باشگاهی در لیدوما ثبت نشده است. ابتدا دکمه «ارسال باشگاه» را بزنید.", "پیش‌نیاز", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -949,7 +949,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
          await RunSendAllAsync();
       }
 
-      private async Task<bool> HasAnyClubWithStoreIdAsync()
+      private bool HasAnyClubWithStoreIdAsync()
       {
          try
          {
@@ -996,7 +996,7 @@ namespace System.MessageBroadcast.Ui.SmsApp
             await SendByTypeCoreAsync(QueueItemType.Business);
 
             // 3. بررسی اینکه حداقل یک باشگاه StoreId داشته باشد
-            bool hasClubWithStoreId = await HasAnyClubWithStoreIdAsync();
+            bool hasClubWithStoreId = HasAnyClubWithStoreIdAsync();
             if (!hasClubWithStoreId)
             {
                Log("هیچ باشگاهی StoreId (LDMA_CODE) ندارد. ارسال Services و Customers متوقف شد.");
@@ -2294,9 +2294,9 @@ namespace System.MessageBroadcast.Ui.SmsApp
                         return;
                      }
 
-                     var organs = await GetOrgansFromDatabaseAsync();
-                     var subscriptionDiscounts = await GetSubscriptionDiscountsFromDatabaseAsync();
-                     var productSalesDiscounts = await GetProductSalesDiscountsFromDatabaseAsync();
+                     var organs = GetOrgansFromDatabaseAsync();
+                     var subscriptionDiscounts = GetSubscriptionDiscountsFromDatabaseAsync();
+                     var productSalesDiscounts = GetProductSalesDiscountsFromDatabaseAsync();
 
                      // Build the complete JSON structure
                      var discountsObj = new JObject(

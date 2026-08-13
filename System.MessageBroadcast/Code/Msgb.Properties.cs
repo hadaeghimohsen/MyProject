@@ -51,7 +51,7 @@ namespace System.MessageBroadcast.Code
             if (ConnectionString == null) _GetConnectionString();
             var connStr = ConnectionString;
             if (connStr == null) return;
-            await Task.Run(async () =>
+            await Task.Run(() =>
             {
                try
                {

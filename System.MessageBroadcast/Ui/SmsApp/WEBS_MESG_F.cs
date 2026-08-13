@@ -1701,19 +1701,30 @@ namespace System.MessageBroadcast.Ui.SmsApp
                       if (f.ACTV_TAG_DNRM != "101") continue;      // فعال
                       if (f.CONF_STAT != "002") continue;         // تأیید شده
 
-                      // Validate phone number for customers (FGPB_TYPE_DNRM = '001')
-                      if (f.FGPB_TYPE_DNRM == "001")
-                      {
-                         if (!IsValidIranianMobileNumber(f.CELL_PHON_DNRM))
-                         {
-                            // Mark as failed with reason
-                            f.LDMA_STAT = "004";
-                            f.LDMA_DATE = DateTime.Now;
-                            Log(String.Format("شماره موبایل نامعتبر برای مشتری fileNo={0}: {1} - علامت‌گذاری به عنوان 004 (Failed)",
-                                f.FILE_NO, f.CELL_PHON_DNRM ?? "null"));
-                            continue; // Skip this customer
-                         }
-                      }
+                       // Validate and fix phone number for customers (FGPB_TYPE_DNRM = '001')
+                       if (f.FGPB_TYPE_DNRM == "001")
+                       {
+                          string fixedMobile = ValidateAndFixMobileNumber(f.CELL_PHON_DNRM);
+                          if (String.IsNullOrEmpty(fixedMobile))
+                          {
+                             // Mark as failed with reason
+                             f.LDMA_STAT = "004";
+                             f.LDMA_DATE = DateTime.Now;
+                             Log(String.Format("شماره موبایل نامعتبر برای مشتری fileNo={0}: {1} - علامت‌گذاری به عنوان 004 (Failed)",
+                                 f.FILE_NO, f.CELL_PHON_DNRM ?? "null"));
+                             continue; // Skip this customer
+                          }
+                          else
+                          {
+                             // Apply the fix (added leading zero / removed +98 or 0098) before sending
+                             if (fixedMobile != f.CELL_PHON_DNRM)
+                             {
+                                Log(String.Format("شماره موبایل مشتری fileNo={0} اصلاح شد: {1} → {2}",
+                                    f.FILE_NO, f.CELL_PHON_DNRM ?? "null", fixedMobile));
+                                f.CELL_PHON_DNRM = fixedMobile;
+                             }
+                          }
+                       }
 
                       // Clean parent phone numbers
                       if (String.IsNullOrEmpty(f.DAD_CELL_PHON_DNRM) || !IsValidIranianMobileNumber(f.DAD_CELL_PHON_DNRM))
@@ -2137,6 +2148,69 @@ namespace System.MessageBroadcast.Ui.SmsApp
 
           return phoneNumber.Trim().Replace(" ", "").Replace("-", "").Replace("+", "");
        }
+
+        private string ValidateAndFixMobileNumber(string phoneNumber)
+        {
+           // 1. Check if null or empty
+           if (String.IsNullOrWhiteSpace(phoneNumber))
+              return "";
+
+           // 2. Clean: remove spaces, dashes, parentheses, plus, etc.
+           string cleaned = phoneNumber.Trim()
+               .Replace(" ", "")
+               .Replace("-", "")
+               .Replace("(", "")
+               .Replace(")", "")
+               .Replace("+", "");
+
+           // 3. Check if all characters are digits
+           foreach (char c in cleaned)
+           {
+              if (!Char.IsDigit(c))
+                 return "";  // Invalid: contains letters
+           }
+
+           int length = cleaned.Length;
+
+           // 4. Fix based on length
+           string result = "";
+           if (length == 11 && cleaned.StartsWith("09"))
+           {
+              // Valid: 11 digits starting with 09 - keep as-is
+              // Example: 09033927103
+              result = cleaned;
+           }
+           else if (length == 10 && cleaned.StartsWith("9"))
+           {
+              // Fix: 10 digits starting with 9 -> add leading 0
+              // Example: 9033927103 -> 09033927103
+              result = "0" + cleaned;
+           }
+           else if (length == 12 && cleaned.StartsWith("98"))
+           {
+              // Fix: 12 digits starting with 98 -> remove 98 and add 0
+              // Example: 989033927103 -> 09033927103
+              result = "0" + cleaned.Substring(2);
+           }
+           else if (length == 13 && cleaned.StartsWith("989"))
+           {
+              // Fix: 13 digits starting with 989 -> replace 989 with 09
+              result = "09" + cleaned.Substring(3);
+           }
+           else if (length == 14 && cleaned.StartsWith("0098"))
+           {
+              // Fix: 14 digits starting with 0098 -> replace 0098 with 09
+              // Example: 00989033927103 -> 09033927103
+              result = "09" + cleaned.Substring(4);
+           }
+
+           // 5. Final safety check: result must be an 11-digit Iranian mobile starting with 09
+           if (result.Length == 11 && result.StartsWith("09"))
+              return result;
+
+           // Invalid: any other format
+           return "";
+        }
 
        private async Task SyncOrgansAsync()
       {

@@ -125,7 +125,13 @@ The `SyncCustomersAsync` method in WEBS_MESG_F.cs uses an adaptive batch size me
 - **API response**: `entries[].phone` matched against `fighter.CELL_PHON_DNRM` to set `fighter.LDMA_CODE = customerId` and `fighter.LDMA_STAT = "002"`
 - **Individual status tracking**: Customers not matched in `entries[]` are individually marked as `LDMA_STAT = "004"` (Failed)
 - **Batch failure handling**: Only customers NOT already marked `'002'` get `'004'` — successful customers are preserved
-- **Phone number validation**: Before sending, Iranian mobile numbers (`FGPB_TYPE_DNRM='001'`) are validated with `IsValidIranianMobileNumber()` — invalid numbers are skipped and marked `LDMA_STAT = '004'`
+- **Phone number validation & fix**: Before sending, Iranian mobile numbers (`FGPB_TYPE_DNRM='001'`) are processed with `ValidateAndFixMobileNumber()`:
+  - `09033927103` (11 digits, `09`) → valid, sent as-is
+  - `9033927103` (10 digits, starts `9`) → auto-fixed by adding leading `0`
+  - `+989033927103` (12 digits after removing `+`) → auto-fixed to `09033927103`
+  - `989033927103` / `00989033927103` → auto-fixed to `09033927103`
+  - Invalid numbers (wrong length, letters, unknown format) → skipped and marked `LDMA_STAT = '004'`
+  - Fixed numbers are persisted back to `Fighter.CELL_PHON_DNRM` and sent in the JSON payload; fixes are logged
 - **Throttling/Delay**: After each batch, a configurable delay is inserted to prevent UI freezing:
   - Batch size >= 200: 5000ms delay
   - Batch size >= 100: 3000ms delay

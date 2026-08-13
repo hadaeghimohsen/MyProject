@@ -88,7 +88,12 @@ WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `
 - **پاسخ API**: `entries[].phone` و `entries[].userId` → مطابقت با `CELL_PHON_DNRM` و ذخیره `userId` به عنوان `Fighter.LDMA_CODE`
 - اگر `entries` نباشد → fallback: همه fighters batch را LDMA_STAT='002' کن
 - **قالب JSON مشتری**: fileNo, frstName, lastName, fathName, debtDnrm, dpstDnrm, confDate, sexType, brthDate, cellPhon, tellPhon, insrNumb, insrDate, fngrPrnt, orgnCode, servNo, natlCode, dadCellPhon, dadTellPhon, momCellPhon, momTellPhon, dpstAcntSlryBank, dpstAcntSlry
-- **اعتبارسنجی شماره موبایل**: قبل از ارسال، شماره موبایل مشتریان (`FGPB_TYPE_DNRM='001'`) با `IsValidIranianMobileNumber()` بررسی می‌شود؛ شماره‌های نامعتبر skip می‌شوند و `LDMA_STAT='004'` دریافت می‌کنند
+- **اعتبارسنجی شماره موبایل**: قبل از ارسال، شماره موبایل مشتریان (`FGPB_TYPE_DNRM='001'`) با `ValidateAndFixMobileNumber()` بررسی و اصلاح می‌شود؛ شماره‌های نامعتبر skip می‌شوند و `LDMA_STAT='004'` دریافت می‌کنند:
+  - ۱۱ رقم با 09 (مثل 09033927103) → معتبر، بدون تغییر
+  - ۱۰ رقم بدون صفر اول (مثل 9033927103) → اصلاح به 09033927103
+  - +989033927103 (حذف + و 98) → اصلاح به 09033927103
+  - 00989033927103 → اصلاح به 09033927103
+  - شماره اصلاح‌شده در `Fighter.CELL_PHON_DNRM` ذخیره و در JSON ارسال می‌شود
 - **اعتبارسنجی شماره تلفن باشگاه‌ها**: در `SyncClubsAsync`، فیلدهای شماره تلفن جداگانه بررسی می‌شوند:
   - `ownerPhone` (`WEB_SITE_LOGN`) و `CELL_PHON` (واستاپ/موبایل): با `IsValidIranianMobileNumber()` (شروع با 09، ۱۱ رقم)
   - `TELL_PHON` (تلفن ثابت): با `ValidateLandlinePhone()` — ترکیبی: ۸ رقم بدون کد شهر (38421421) یا ۱۱ رقم با کد شهر (07138421421) معتبر است؛ ۹ رقم با صفر اول به‌صورت خودکار اصلاح می‌شود (038421421 → 38421421)؛ سایر طول‌ها / حروف → خالی

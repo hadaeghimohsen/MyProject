@@ -77,7 +77,7 @@ WEBS_MESG_F.cs یک Windows Form در VS 2013 با C# 5.0 (بدون `?.` / `
 
 ## متد SyncCustomersAsync (WEBS_MESG_F.cs ~997)
 - ابتدا Clubهای دارای `LDMA_CODE != null && != ""` را می‌گیرد
-- Fighterهایی که `CLUB_CODE_DNRM` در باشگاه‌های بالا داشته باشند
+- **بارگذاری بهینه (2026-08-13)**: تمام فیلترهای دیتابیسی (`CONF_STAT='002'`, `ACTV_TAG_DNRM='101'`, `FGPB_TYPE_DNRM='001'`, و `LDMA_STAT`: خالی/001/003 یا 004) به‌صورت تاخیری (IQueryable) در SQL اعمال می‌شوند؛ ردیف‌های قبلاً همگام‌شده ('002') هیچ‌وقت بارگذاری نمی‌شوند
 - **فیلتر pending**: `(c.LDMA_STAT ?? "001") == "001" || c.LDMA_STAT == "003"` (مهم: NULL معادل 001)
 - **مکانیزم ارسال مجدد (Re-sync)**: قبل از فیلتر pending، مشتریان `LDMA_STAT='004'` که بیش از 24 ساعت از `LDMA_DATE` آنها گذشته → به `'003'` تغییر وضعیت داده می‌شوند و `LDMA_DATE=NULL` می‌شود (با لاگ برای هر مورد)؛ مشتریان کمتر از 24 ساعت در `'004'` می‌مانند. فقط از ستون‌های `LDMA_STAT` و `LDMA_DATE` استفاده می‌شود (بدون LDMA_ERROR)
 - **فیلتر داخل حلقه**: `FGPB_TYPE_DNRM='001' یا '005'`, `ACTV_TAG_DNRM='101'`, `CONF_STAT='002'`, `CELL_PHON_DNRM` اجباری (11 رقم) برای FGPB_TYPE_DNRM='001'

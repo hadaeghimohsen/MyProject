@@ -115,6 +115,11 @@
 
 The `SyncCustomersAsync` method in WEBS_MESG_F.cs uses an adaptive batch size mechanism for sending customers via `CreateCustomersBulkAsync`:
 
+- **Database-level filtering (IQueryable, deferred)**: All database filters are applied in SQL, not memory:
+  - Base query: `CONF_STAT='002'`, `ACTV_TAG_DNRM='101'`, `FGPB_TYPE_DNRM='001'` → `activeCustomersQuery`
+  - Reactivation query: base + `LDMA_STAT='004' && LDMA_DATE != null`
+  - Pending query: base + `LDMA_STAT IS NULL || '001' || '003'`
+  - Already-synced `'002'` rows are **never** loaded into memory; only required rows are materialized
 - **Start**: batch size = 50 customers per request
 - **On success**: batch size doubles (50 → 100 → 200) up to maximum 200 customers per request in App.config
 - **On failure**: batch size halves (50 → 25 → 12 → 6 → 3 → 1)

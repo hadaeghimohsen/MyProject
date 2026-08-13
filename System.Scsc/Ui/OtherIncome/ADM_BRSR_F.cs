@@ -772,35 +772,13 @@ namespace System.Scsc.Ui.OtherIncome
       private void IncDecMont_Butn_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
       {
 
-      }
-
-      private void vF_Last_Info_FighterResultBindingSource_CurrentChanged(object sender, EventArgs e)
-      {
-         //var fileno = (FighsBs.Current as Data.VF_Last_Info_FighterResult).FILE_NO;
-         //try
-         //{
-         //   UserProFile_Rb.ImageProfile = null;
-         //   MemoryStream mStream = new MemoryStream();
-         //   byte[] pData = iScsc.GET_PIMG_U(new XElement("Fighter", new XAttribute("fileno", fileno))).ToArray();
-         //   mStream.Write(pData, 0, Convert.ToInt32(pData.Length));
-         //   Bitmap bm = new Bitmap(mStream, false);
-         //   mStream.Dispose();
-
-         //   UserProFile_Rb.Visible = true;
-
-         //   if (InvokeRequired)
-         //      Invoke(new Action(() => UserProFile_Rb.ImageProfile = bm));
-         //   else
-         //      UserProFile_Rb.ImageProfile = bm;
-         //}
-         //catch { UserProFile_Rb.ImageProfile = global::System.Scsc.Properties.Resources.IMAGE_1482; }
-      }
+      }      
 
       private void UserProFile_Rb_Click(object sender, EventArgs e)
       {
          try
          {
-            var CrntFigh = FighsBs.Current as Data.VF_Last_Info_FighterResult;
+            var CrntFigh = FighsBs.Current as Data.Fighter;
             if (CrntFigh == null) return;
             _DefaultGateway.Gateway(
                new Job(SendType.External, "localhost", "", 46, SendType.Self) { Input = new XElement("Fighter", new XAttribute("fileno", CrntFigh.FILE_NO)) }
@@ -813,7 +791,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            var CrntFigh = FighsBs.Current as Data.VF_Last_Info_FighterResult;
+            var CrntFigh = FighsBs.Current as Data.Fighter;
             if (CrntFigh == null) return;
             _DefaultGateway.Gateway(
                new Job(SendType.External, "Localhost",
@@ -831,7 +809,7 @@ namespace System.Scsc.Ui.OtherIncome
       {
          try
          {
-            var figh = FighsBs.Current as Data.VF_Last_Info_FighterResult;
+            var figh = FighsBs.Current as Data.Fighter;
             if (figh == null) return;
 
             switch (e.Button.Index)
@@ -978,7 +956,7 @@ namespace System.Scsc.Ui.OtherIncome
             #region Comment
             //if (e.NewValue.ToString().Length < 11) return;
 
-            //var _qury = vf_FighBs.List.OfType<Data.VF_Last_Info_FighterResult>().Where(f => f.CELL_PHON_DNRM != null && f.CELL_PHON_DNRM.Contains(e.NewValue.ToString()));
+            //var _qury = vf_FighBs.List.OfType<Data.Fighter>().Where(f => f.CELL_PHON_DNRM != null && f.CELL_PHON_DNRM.Contains(e.NewValue.ToString()));
             
             //// 1400/05/03 * اگر خروجی بدست آماده فقط یک کاربر داشته باشد 
             //if(_qury != null && _qury.Count() == 1)

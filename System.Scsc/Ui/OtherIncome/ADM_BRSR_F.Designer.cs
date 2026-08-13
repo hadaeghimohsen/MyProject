@@ -1257,7 +1257,6 @@
          // FighsBs
          // 
          this.FighsBs.DataSource = typeof(System.Scsc.Data.Fighter);
-         this.FighsBs.CurrentChanged += new System.EventHandler(this.vF_Last_Info_FighterResultBindingSource_CurrentChanged);
          // 
          // PBLC
          // 
